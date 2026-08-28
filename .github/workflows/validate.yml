@@ -130,6 +130,22 @@ jobs:
       - run: python3 06_BUILD/qa_claims.py --verbose
       - run: python3 06_BUILD/qa_terminology.py --verbose
 
+  visual:
+    name: görsel sistem (figür sicili · token kalibrasyonu · sayfa geometrisi)
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.12' }
+      - name: qa_visual
+        run: python3 06_BUILD/qa_visual.py --verbose --json 08_REPORTS/tracked/visual-qa.json
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: visual-qa
+          path: 08_REPORTS/tracked/visual-qa.json
+
   selftest:
     name: KAPILARIN KENDİ TESTİ
     needs: gates

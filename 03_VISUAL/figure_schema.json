@@ -14,12 +14,28 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "figure_id", "book", "figure_type", "shows", "notation_tokens",
-    "deterministic", "verification_status"
+    "figure_id",
+    "book",
+    "figure_type",
+    "shows",
+    "notation_tokens",
+    "deterministic",
+    "verification_status"
   ],
   "properties": {
-    "figure_id": { "type": "string", "pattern": "^FIG-B[0-9]-[0-9]{3}$" },
-    "book": { "type": "string", "enum": ["book-01", "book-02", "book-03", "series"] },
+    "figure_id": {
+      "type": "string",
+      "pattern": "^FIG-B[0-9]-[0-9]{3}$"
+    },
+    "book": {
+      "type": "string",
+      "enum": [
+        "book-01",
+        "book-02",
+        "book-03",
+        "series"
+      ]
+    },
     "figure_type": {
       "type": "string",
       "enum": [
@@ -35,29 +51,99 @@
         "table_graphic"
       ]
     },
-    "shows": { "type": "string", "minLength": 15 },
-    "view": { "type": ["string", "null"], "enum": ["front", "back", "side", "flat", "three_quarter", "detail", null] },
+    "shows": {
+      "type": "string",
+      "minLength": 15
+    },
+    "view": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "front",
+        "back",
+        "side",
+        "flat",
+        "three_quarter",
+        "detail",
+        null
+      ]
+    },
     "notation_tokens": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "$comment": "visual_language_tokens.json'daki token id'leri. Tanımsız token = hata."
     },
     "deterministic": {
       "type": "boolean",
       "$comment": "Figür kayıt verisinden otomatik üretilebiliyor mu. false ise 'manual_reason' ZORUNLU."
     },
-    "manual_reason": { "type": ["string", "null"] },
+    "manual_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "photo_required": {
-      "type": ["boolean", "null"],
+      "type": [
+        "boolean",
+        "null"
+      ],
       "$comment": "Fotoğraf gerektiren figürler ayrı bir üretim ve gizlilik hattıdır (RISK_REGISTER R-05, .gitignore §②)."
     },
-    "claim_ref": { "type": ["string", "null"], "pattern": "^C-[0-9]{3}$", "$comment": "SOURCE_MAP'teki teknik iddia. Bir düzeltme diyagramı iddiasızsa neden çizildiği açıklanmalıdır." },
-    "physical_validation_ref": { "type": ["string", "null"], "pattern": "^VAL-[0-9]{4}$" },
-    "reused_from": { "type": ["string", "null"], "pattern": "^FIG-B[0-9]-[0-9]{3}$" },
+    "claim_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^C-[0-9]{3}$",
+      "$comment": "SOURCE_MAP'teki teknik iddia. Bir düzeltme diyagramı iddiasızsa neden çizildiği açıklanmalıdır."
+    },
+    "physical_validation_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^VAL-[0-9]{4}$"
+    },
+    "reused_from": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^FIG-B[0-9]-[0-9]{3}$"
+    },
     "verification_status": {
       "type": "string",
-      "enum": ["specified", "drafted", "geometry_checked", "physically_validated"]
+      "enum": [
+        "specified",
+        "drafted",
+        "geometry_checked",
+        "physically_validated"
+      ]
+    },
+    "color_required": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "$comment": "A6'nın YENİDEN AÇILMA eşiği bu alandan ölçülür: color_required=true olan figürlerin oranı %10'u aşarsa siyah mürekkep kararı yeniden açılır (FORMAT_STRATEGY § 5.3). qa_visual.py oranı ölçer."
+    },
+    "spread_width_class": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "text_column",
+        "full_measure",
+        null
+      ],
+      "$comment": "page_geometry.figure_area.width_class. Aradaki bir genişlik YOKTUR; iki sınıf dışında bir figür sayfa ızgarasını bozar."
     }
   }
 }

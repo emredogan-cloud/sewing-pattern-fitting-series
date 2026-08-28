@@ -1,4 +1,4 @@
-# RISK REGISTER — TRUE FIT
+# RISK REGISTER — BEFORE YOU CUT
 
 > Görev talimatı § 19, § 44. Araştırma raporu § 32'den devralınan
 > riskler + bu depoda ortaya çıkan üretim riskleri.
@@ -7,8 +7,65 @@
 > Her risk altı alan taşır: **olasılık · etki · azaltma · tespit
 > yöntemi · sahip · faz.**
 >
-> **Kural: hiçbir risk elverişsiz olduğu için kaldırılmaz.** Bu turda
-> hiçbir risk silinmedi; ikisinin değerlendirmesi değişti, dördü eklendi.
+> **Kural: hiçbir risk elverişsiz olduğu için kaldırılmaz.**
+>
+> **Faz 2 + Faz 3 hazırlığında yeniden değerlendirildi (28 Ağustos
+> 2026).** Hiçbir risk silinmedi; **üçünün** değerlendirmesi ölçümle
+> değişti ve **üç yeni risk** eklendi (`R-19`–`R-21`).
+
+---
+
+## 0.0 · FAZ 2 / FAZ 3'ÜN RİSK TABLOSUNA ETKİSİ — ölçümle değişenler
+
+| Risk | Önce | **Sonra** | Neden — ÖLÇÜM |
+|---|---|---|---|
+| `R-05` görsel üretim hacmi | ORTA–YÜKSEK *(tahmin)* | **ORTA–YÜKSEK — ama artık ÖLÇÜLDÜ** | Tahmin ~123 figürdü; **154** ölçüldü. Akış şeması 9 → **46**. Deterministik oran **%68,2**; kalan **49 figür fiziksel sınamaya bağlı**. Şiddeti düşmedi, **büyüklüğü belli oldu**. |
+| `R-06` diyagram geometrisi | ORTA | **ORTA — mekanik koruma GÜÇLENDİ** | `figure_tokens.py` on yasağı çalıştırılabilir hâle getirdi; çakışan etiket ve iç kimlik sızıntısı artık çizimi **durduruyor**. Ama *"doğru görünmek"* hâlâ doğrulama değildir — `D-02` açık. |
+| `R-12` IP / marka | ORTA–YÜKSEK | **ORTA–YÜKSEK — YERİ DEĞİŞTİ** | `TRUE FIT` terk edildi ve mekanik olarak engellendi (`check_retired_name_leak`). Risk artık `BEFORE YOU CUT`'ın **temizlenmemiş** olmasındadır (`D-03`). Olasılık düşmedi, **konusu değişti**. |
+
+## 0.1 · FAZ 2 / FAZ 3'ÜN AÇTIĞI ÜÇ YENİ RİSK
+
+*(Aşağıdaki üç kayıt, belgenin geri kalanıyla aynı başlık düzeyindedir;
+numaralandırma `R-18`'den devam eder.)*
+
+## R-19 · Kapılar yeşilken ürünün kullanılamaz olması
+
+| Alan | |
+|---|---|
+| **Olasılık** | **YÜKSEK — bu turda ÜÇ KEZ GERÇEKLEŞTİ** |
+| **Etki** | YÜKSEK — yanlış bir tamamlanma sinyali, sonraki fazı çürük temele kurar |
+| **Kanıt** | Faz 2 sonunda `qa_all.sh` sıfır hata, selftest 131/131, CI yeşil — **ve 154 figürün hiçbiri kitaba konulamıyordu** (proje belge dilindeydi, `K45`). Aynı turda iki bulgu daha: iç kayıt kimlikleri okura basılıyordu ve işaret etiketleri üst üste biniyordu (`K46`). |
+| **Neden bu bir RİSK, kapatılmış bir hata değil** | Üç bulgunun üçü de **gözle bakılarak** bulundu; kapılar bulmadı. Kapılar **sormadıkları soruyu** yakalayamaz ve Faz 4'te sorulmayan sorular olacaktır. |
+| **Azaltma** | Üç yeni kapı eklendi (dil, iç kimlik, etiket çakışması). **Ama asıl azaltma mekanik değildir:** Faz 4'ün her turunda üretilen sayfalardan bir **örneklem gözle incelenir** — yazılı kural. |
+| **Tespit** | Örneklem incelemesi + çelişmeli inceleme turları |
+| **Sahip** | Ajan (üretim) + kurucu (örneklem) |
+| **Faz** | Faz 4, Faz 5 |
+
+## R-20 · Sayfa bütçesinin cilt payı bandını aşması
+
+| Alan | |
+|---|---|
+| **Olasılık** | ORTA |
+| **Etki** | **YÜKSEK — sayfa geometrisinin TAMAMI yeniden hesaplanır** |
+| **Kanıt** | Pilot ölçümü: bir bölgenin üç belirtisi + anatomi + eleme = **8 sayfa**. On bölge için doğrusal tahmin **≈80–110 sayfa** — ve bu yalnızca **bölge atlası**, 18 bölümün bir parçası. |
+| **Neden ciddi** | `page_geometry.json` **151–300 sayfa** bandını varsayıyor ve cilt payını 0,875 inç seçti. **300 aşılırsa** KDP asgarisi 0,625 inç'e çıkar (`S-0016`), metin bloğu daralır ve satır ölçüsü yeniden kalibre edilir. |
+| **Azaltma** | `qa_visual.py § ⑨` sayfa hedefi banttan taşarsa **kırmızı yakıyor**. Faz 4 kısıtı: bölge atlası **100 sayfayı aşarsa** belirti başına sayfa daraltılır (belirti SAYISI değil). |
+| **Tespit** | `qa_visual.py` · Faz 4 sayfa sayımı |
+| **Sahip** | Ajan |
+| **Faz** | Faz 4, Faz 6 |
+
+## R-21 · Tek krokinin kitabın kendi tezini yalanlaması
+
+| Alan | |
+|---|---|
+| **Olasılık** | ORTA |
+| **Etki** | ORTA–YÜKSEK — **farklılaşma hipotezini doğrudan etkiler** |
+| **Kanıt** | 154 figürün tamamı tek bir kroki oranından üretiliyor. Hedef okur "kalıbı doğru uyguladım, oturmuyor" diyen kişidir — yani **kalıbın varsaydığı vücudun dışında** olan kişi. Ona her sayfada kalıbın varsaydığı vücudu göstermek görsel bir çelişkidir. |
+| **Sınırı** | Ölçüm figürleri için argüman **zayıftır** (kroki bir çizim konvansiyonudur, `K43`). **Belirti figürleri için güçlüdür**: bir belirti figürü tam olarak *bu vücutta bu kumaş ne yapıyor* sorusunun resmidir. |
+| **Azaltma** | `croquis.py` oranları tek bir tabloda ve **parametreleştirilebilir**. Faz 4 kısıtı: en az üç varyant (düz sırt · yuvarlak sırt · dolgun göğüs) belirti figürlerinde kullanılır. **Motor değişikliği yok**, üç oran tablosu. |
+| **Tespit** | Çelişmeli inceleme `B-05` · fark testi (`D-01`) |
+| **Sahip** | Ajan |
+| **Faz** | Faz 4 |
 
 ---
 

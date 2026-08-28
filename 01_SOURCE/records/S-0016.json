@@ -1,0 +1,24 @@
+{
+  "source_id": "S-0016",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Amazon KDP Help — Format Your Paperback Manuscript (print options, margins, bleed)",
+  "author": null,
+  "publisher": "Amazon Kindle Direct Publishing",
+  "edition": null,
+  "year": 2026,
+  "isbn": null,
+  "url": "https://kdp.amazon.com/en_US/help/topic/GVBQ3CMEQW3W2VL6",
+  "verification_level": "official_web",
+  "locator": "Taşmasız asgari dış kenar 0,25 in (6,4 mm); taşmalı 0,375 in (9,6 mm). Cilt payı sayfa sayısına göre: 24–150 → 0,375 in; 151–300 → 0,5 in; 301–500 → 0,625 in; 501–700 → 0,75 in; 701–828 → 0,875 in. Taşma: her kenara 0,125 in (3,2 mm). 14 standart + 10 büyük trim ölçüsü, 5×8 ile 8,5×11 arası.",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "03_VISUAL/page_geometry.json — trim, kenar boşluğu, cilt payı, metin bloğu",
+    "qa_visual.py § ⑨ sayfa geometrisi tutarlılık denetimi",
+    "Faz 2 / G2 sayfa geometrisi profili"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": "Platform dokümantasyonudur, TEKNİK OTORİTE DEĞİLDİR. Bu değerler ASGARİLERDİR; proje profili hepsinin ÜSTÜNDEDİR ve fark page_geometry.json'da gerekçelidir. Değerlerin GERÇEK dosya üzerinde doğrulanması KDP Previewer'ı gerektirir — P6 format kapısı, EXTERNAL_DEPENDENCIES.md D-06."
+}

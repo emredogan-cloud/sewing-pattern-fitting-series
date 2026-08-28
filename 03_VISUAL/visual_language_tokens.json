@@ -1,21 +1,40 @@
 {
   "$comment": [
     "VISUAL LANGUAGE TOKENS — serinin çizim dili.",
-    "Görev talimatı § 9/§ 25. Bu dosya NİHAİ DEĞİL: değerler Faz 2",
-    "(phase2-visual) içinde gerçek render testiyle kalibre edilir.",
-    "Buradaki sayılar TASARIM HEDEFİDİR, ölçülmüş sonuç değil.",
+    "Görev talimatı § 9/§ 25.",
+    "",
+    "Faz 2 (phase2-visual) bu dosyayı KALİBRE ETTİ. Buradaki sayılar artık",
+    "tasarım hedefi DEĞİL, gerçek render ölçümünden geçmiş değerlerdir.",
+    "Ölçüm kaydı: 03_VISUAL/calibration_report.json · üretici:",
+    "06_BUILD/calibrate_tokens.py · çizim karşılığı: 06_BUILD/figure_tokens.py",
+    "",
+    "⚠ KALİBRASYONUN SINIRI: ölçüm DİJİTAL rasterdır (300/600 dpi, 1-bit).",
+    "  Talep-üzerine baskının mürekkep yayılması ölçüme GİRMEZ. Gerçek",
+    "  prova baskısı (T4) ve üç insan okuyucu (T3) DIŞ BAĞIMLILIKTIR —",
+    "  EXTERNAL_DEPENDENCIES.md D-05, D-06. Bu dosya 'CALIBRATED' demekle",
+    "  'basılı kâğıtta doğrulandı' DEMİYOR.",
     "",
     "Amaç: bir okurun bir kez öğrendiği işareti üç kitapta da aynı",
-    "anlamda görmesi (araştırma raporu § 31 — diyagram kütüphanesinin",
-    "amortismanı serinin en somut üretim avantajı)."
+    "anlamda görmesi (araştırma raporu § 31)."
   ],
-  "status": "DESIGN_TARGET_NOT_CALIBRATED",
-  "calibration_phase": "book-01 / phase2-visual",
+  "status": "CALIBRATED_DIGITAL_RENDER",
+  "calibration_phase": "book-01 / phase2-visual — TAMAMLANDI",
   "page": {
-    "trim": "8.5 x 11 in (PROVISIONAL — format kararı OPEN_QUESTIONS A5)",
-    "color": "1-bit / grayscale hedefi — renk KARARI VERİLMEDİ (OPEN_QUESTIONS A6)",
+    "trim": "8.5 x 11.0 in — KDP large trim (S-0009)",
+    "geometry_profile": "PG-B1-8.5x11",
+    "geometry_file": "03_VISUAL/page_geometry.json",
+    "color": "siyah mürekkep, beyaz kâğıt (DECISIONS.md K23) — en fazla üç gri tonu",
+    "gray_levels": [
+      0.0,
+      0.45,
+      0.75
+    ],
     "min_figure_width_in": 2.6,
-    "figure_gutter_in": 0.25
+    "figure_gutter_in": 0.25,
+    "figure_width_classes_pt": [
+      387.0,
+      504.0
+    ]
   },
   "line_weights_pt": {
     "$comment": "Hiyerarşi ANLAMLIDIR: kalınlık = bilgi türü, dekorasyon değil.",
@@ -143,23 +162,33 @@
     {
       "token_id": "TK-18",
       "name": "handoff node",
-      "spec": "kalın kenarlı dikdörtgen + AF-xx etiketi",
-      "rule": "Kitap 2'ye devir noktası. Kitap 1'in akış şemalarının BİTİŞ formu."
+      "spec": "kalın kenarlı dikdörtgen + düzeltme ailesinin ADI",
+      "rule": "Kitap 2'ye devir noktası. Kitap 1'in akış şemalarının BİTİŞ formu. Düğüm ailenin ADINI taşır; AF-xx kimliği figürün KAYDINDA durur ve OKURA BASILMAZ — kayıt kimlikleri iç veri kimlikleridir (TYPOGRAPHY_STANDARD § 3.4). Okura dönük çapraz gönderme (reader_ref) Kitap 2'nin bölüm numaraları var olduğunda eklenir.",
+      "phase2_note": "İlk spec 'AF-xx etiketi' diyordu ve bu TYPOGRAPHY_STANDARD § 3.4 ile ÇELİŞİYORDU. Çelişkiyi figure_tokens.check_internal_id_leak yakaladı (DECISIONS.md K46)."
     }
   ],
   "typography": {
-    "$comment": "Font SEÇİLMEDİ. Lisans/gömme hakları Faz 2'de kardeş projenin FONT_RESEARCH deseniyle araştırılacak (OPEN_QUESTIONS A7).",
-    "figure_label_size_pt": 8.5,
+    "$comment": "Yazı tipi KARARA BAĞLANDI (DECISIONS.md K24) ve Faz 2'de ÖLÇÜLDÜ. Yedek yazı tipi Faz 2 bulgusuyla DEĞİŞTİ — bkz. font_legibility_scan.json.",
+    "body": "Source Serif 4 (SIL OFL 1.1)",
+    "headings_tables_figure_labels": "Source Sans 3 (SIL OFL 1.1)",
+    "figure_label_fallback": "IBM Plex Sans (SIL OFL 1.1)",
+    "figure_label_fallback_was": "Atkinson Hyperlegible — Y1'i KARŞILAMADIĞI ölçüldüğü için ELENDİ",
+    "figure_label_size_pt": 7.0,
     "figure_label_case": "sentence case",
-    "measurement_label": "sayı + birim HER ZAMAN birlikte; birim karışımı YASAK (bkz. units)",
-    "callout_max_words": 8
+    "measurement_label": "sayı + birim HER ZAMAN birlikte; birim karışımı YASAK",
+    "callout_max_words": 8,
+    "manifest": "03_VISUAL/fonts/fonts_manifest.json"
   },
   "units": {
-    "$comment": "Araştırma raporu ABD pazarını hedefliyor. İKİ BİRİMLİ sunum kararı VERİLMEDİ — OPEN_QUESTIONS A8.",
-    "primary_candidate": "inch",
-    "secondary_candidate": "cm",
-    "rule_if_dual": "Birincil birim metinde, ikincil birim parantez içinde; bir figürde ASLA karışık kullanılmaz.",
-    "decision_status": "OPEN"
+    "$comment": "A8 KAPANDI — DECISIONS.md K34.",
+    "primary": "inch",
+    "secondary": "cm",
+    "figures": "YALNIZCA inç",
+    "decision_thresholds": "inç + cm",
+    "rule": "Bir figürde birim ASLA karışık kullanılmaz.",
+    "decision_status": "CLOSED",
+    "inch_mark": "″ (U+2033) — daktilo tırnağı DEĞİL (TYPOGRAPHY_STANDARD § 5)",
+    "fraction_glyphs": "⅛ ¼ ⅜ ½ ⅝ ¾ ⅞ — önceden birleştirilmiş glifler"
   },
   "forbidden": [
     "dekoratif çerçeve, süsleme, arka plan deseni",
@@ -168,5 +197,205 @@
     "ölçek belirtilmemiş kalıp parçası",
     "sayısal etiketi olmayan spread/overlap oku",
     "gerçek marka adı taşıyan kalıp zarfı/talimat görseli (IP_AND_BRAND_POLICY § 1)"
-  ]
+  ],
+  "calibration": {
+    "phase": "book-01 / phase2-visual",
+    "measured_on": "2026-08-28",
+    "report": "03_VISUAL/calibration_report.json",
+    "tool_chain": {
+      "renderer": "reportlab 4.5.1",
+      "rasterizer": "pdftoppm (poppler)",
+      "analyzer": "Pillow 10.2.0"
+    },
+    "stroke_fidelity": {
+      "300dpi": {
+        "pattern_edge_modified": {
+          "target_pt": 1.6,
+          "measured_px": 7,
+          "measured_pt": 1.68
+        },
+        "body_outline": {
+          "target_pt": 1.2,
+          "measured_px": 5,
+          "measured_pt": 1.2
+        },
+        "garment_outline": {
+          "target_pt": 1.0,
+          "measured_px": 4,
+          "measured_pt": 0.96
+        },
+        "pattern_edge_original": {
+          "target_pt": 1.0,
+          "measured_px": 4,
+          "measured_pt": 0.96
+        },
+        "grainline": {
+          "target_pt": 0.9,
+          "measured_px": 4,
+          "measured_pt": 0.96
+        },
+        "balance_line": {
+          "target_pt": 0.7,
+          "measured_px": 3,
+          "measured_pt": 0.72
+        },
+        "seam_line": {
+          "target_pt": 0.6,
+          "measured_px": 3,
+          "measured_pt": 0.72
+        },
+        "construction_line": {
+          "target_pt": 0.5,
+          "measured_px": 2,
+          "measured_pt": 0.48
+        },
+        "callout_leader": {
+          "target_pt": 0.4,
+          "measured_px": 2,
+          "measured_pt": 0.48
+        }
+      },
+      "600dpi": {
+        "pattern_edge_modified": {
+          "measured_px": 13,
+          "measured_pt": 1.56
+        },
+        "body_outline": {
+          "measured_px": 10,
+          "measured_pt": 1.2
+        },
+        "garment_outline": {
+          "measured_px": 9,
+          "measured_pt": 1.08
+        },
+        "pattern_edge_original": {
+          "measured_px": 9,
+          "measured_pt": 1.08
+        },
+        "grainline": {
+          "measured_px": 7,
+          "measured_pt": 0.84
+        },
+        "balance_line": {
+          "measured_px": 6,
+          "measured_pt": 0.72
+        },
+        "seam_line": {
+          "measured_px": 5,
+          "measured_pt": 0.6
+        },
+        "construction_line": {
+          "measured_px": 4,
+          "measured_pt": 0.48
+        },
+        "callout_leader": {
+          "measured_px": 3,
+          "measured_pt": 0.36
+        }
+      },
+      "all_survive_1bit_300dpi": true,
+      "thinnest_stroke_px_300dpi": 2,
+      "verdict": "0,4 pt callout_leader 300 dpi'de 2 piksele düşüyor ve 1-bit'te HAYATTA KALIYOR. Bu bir DİJİTAL sonuçtur; gerçek POD provası T4'tür."
+    },
+    "dash_separation": {
+      "original_state": {
+        "pattern": "solid",
+        "transitions": 0,
+        "ink_ratio": 1.0
+      },
+      "hidden_or_underneath": {
+        "pattern": "dash 2-2",
+        "transitions": 154,
+        "ink_ratio": 0.582
+      },
+      "cut_line_slash": {
+        "pattern": "dash 4-2",
+        "transitions": 102,
+        "ink_ratio": 0.723
+      },
+      "fold_line": {
+        "pattern": "dash-dot 6-2-1-2",
+        "transitions": 112,
+        "ink_ratio": 0.689
+      },
+      "measurement_path": {
+        "pattern": "dash 1-1",
+        "transitions": 309,
+        "ink_ratio": 0.641
+      }
+    },
+    "gray_fidelity": {
+      "0.0": {
+        "target_luma": 255.0,
+        "measured_luma": 0.0,
+        "delta": 255.0
+      },
+      "0.45": {
+        "target_luma": 140.2,
+        "measured_luma": 115.0,
+        "delta": 25.2
+      },
+      "0.75": {
+        "target_luma": 63.8,
+        "measured_luma": 191.0,
+        "delta": 127.2
+      }
+    },
+    "tk05_tk06": {
+      "ink_delta_ratio": 0.006,
+      "component_counts": [
+        3,
+        3
+      ],
+      "col_peak_delta": 0,
+      "curvature_index": {
+        "TK-05": 0.01608,
+        "TK-06": 0.05618
+      },
+      "curvature_ratio": 3.49,
+      "curvature_threshold": 2.0,
+      "axes_differing": 1,
+      "primary_axis": "curvature",
+      "verdict": "AYRIK — eğrilik ekseni"
+    },
+    "tk06_bow_pt": 4.6,
+    "tk06_bow_note": "İlk değer 3,2 pt idi ve eğrilik oranını 2,4'te bırakıyordu (eşik 2,0 — dar marj). 4,6 pt'de oran 3,49. Değer ÖLÇÜMLE değiştirildi, tercihle değil.",
+    "typography": {
+      "T1_fraction_glyphs": {
+        "serif": {
+          "glyph_count": 920,
+          "missing": [],
+          "y1_pass": true
+        },
+        "sans": {
+          "glyph_count": 1614,
+          "missing": [],
+          "y1_pass": true
+        },
+        "atkinson": {
+          "glyph_count": 343,
+          "missing": [
+            "⅛",
+            "⅜",
+            "⅝",
+            "⅞",
+            "″"
+          ],
+          "y1_pass": false
+        }
+      },
+      "T1_finding": "reportlab OpenType `frac` özelliğini UYGULAMAZ. Kesirler bu yüzden ÖNCEDEN BİRLEŞTİRİLMİŞ gliflerle dizilir (⅛ ¼ ⅜ ½ ⅝ ¾ ⅞). Bu yedi glif ABD ev dikişinin kullandığı bütün kesirleri karşılar; sekizde birden ince bir kesir bu üründe geçmez.",
+      "text_measure_G2": {
+        "body_size_pt": 10.5,
+        "text_width_pt": 387.0,
+        "avg_char_width_pt": 4.665,
+        "chars_per_line": 83.0,
+        "target": [
+          72,
+          88
+        ],
+        "in_target": true
+      }
+    }
+  }
 }

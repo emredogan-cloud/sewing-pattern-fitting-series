@@ -723,3 +723,469 @@ renklidir; dijital tamamlayıcı görsel taşıyabilir.
 ---
 
 *Vâliçe Press · TRUE FIT · Decisions · 28 Ağustos 2026*
+
+## K36 · `A15` — seri adı: **BEFORE YOU CUT** (kurucu kararı)
+
+**28 Ağustos 2026 · Kitap 1 Faz 2**
+
+**Karar.** Serinin kamuya dönük adı **`BEFORE YOU CUT`**'tır.
+`TRUE FIT` yayımlanan ad olarak **kullanılmaz** (`K18`).
+
+**Kimin kararı.** **Kurucunun.** Bu bir mühendislik kararı değildir ve
+ajan tarafından verilemezdi; `A15` bu yüzden `EXTERNAL PENDING`
+tutuluyordu. Kurucu 28 Ağustos 2026'da adı onayladı ve serinin bu adla
+ilerlemesini talimatlandırdı.
+
+**Gerekçe — ajanın Faz 1'de kaydettiği üç bulgu.**
+
+1. Üç eksende **sıfır çakışma bulgusu** (`08_REPORTS/PHASE_1_BRAND_SCREENING.md`).
+2. Kalabalık "FIT ___" adlandırma alanının **tamamen dışında** — o alan
+   `TRUE FIT`'in reddedilme nedeniydi.
+3. Ad, serinin **tezini** ve **kapsam sınırını** birlikte taşıyor:
+   kesmeden önce teşhis. `DIAGNOSE → ADJUST → CREATE` ilerlemesinin
+   birinci adımı adın kendisindedir.
+
+**Ne KADAR temizlendiği — abartılmaz.**
+
+`brandClearanceStatus = "founder-approved-working-name"`.
+
+Bu **hukuki bir temizlik DEĞİLDİR.** Bu depoda yapılan tarama bir marka
+vekilinin temizlik araştırmasının yerine geçmez ve federal sicilin arama
+arayüzü otomatik sorguya kapalıydı. Profesyonel temizlik **kapak ve
+metadata üretiminden önce** zorunludur — `OPEN_QUESTIONS.md A16`,
+`EXTERNAL_DEPENDENCIES.md D-03`.
+
+**Mekanik dayanak.** `validate_structure.py`'ye iki denetim eklendi:
+
+- `check_public_name_is_declared` — `brandClearanceStatus`
+  `"professionally-cleared"` değerini **kanıtsız** alamaz.
+- `check_retired_name_leak` — `TRUE FIT` kamuya dönük hiçbir yüzeyde
+  (`metadata.json`, `TITLE.md`, `KEYWORDS.md`, `BLURB.md`,
+  `DESCRIPTION.md`, `COVER_BRIEF.md`) geçemez.
+
+**Alternatifler.** `FIT SIGNS` — ikinci sıradaydı; tezi taşıyor ama
+kapsam sınırını taşımıyor. `FIT LOGIC` — **elendi** (giyim sınıfında
+tescilli).
+
+## K37 · Dizin adları DEĞİŞTİRİLMEDİ — yol dizesi kimlik beyanı değildir
+
+**28 Ağustos 2026 · Kitap 1 Faz 2**
+
+**Karar.** `TRUE-FIT-SEWING-PATTERN-FITTING-SERIES` ve
+`BOOK-03-DRAFT-YOUR-OWN-BLOCK` dizin adları **korundu**.
+
+**Gerekçe.** Yeniden adlandırma git geçmişini, CI yollarını,
+`paths.py`'yi ve on beşten fazla belgedeki bağlantıyı **aynı anda**
+kırar. Kazanç **sıfırdır**: hiçbir dizin adı okura görünmez.
+
+Kimlik, dosya sisteminde değil `series_config.json → series.publicName`
+alanında yaşar ve kamuya dönük her yüzey oradan okur.
+
+**Tarihsel kayıt SİLİNMEDİ.** `series_config.json → series.nameHistory`
+iki kaydı da taşır: `TRUE FIT` (reddedildi, gerekçesiyle) ve
+`BEFORE YOU CUT` (benimsendi). Bir kararın gerekçesi, reddettiği adı
+anmadan yazılamaz — bu yüzden `DECISIONS.md`, `OPEN_QUESTIONS.md`,
+`RISK_REGISTER.md`, `CHANGELOG.md` ve `series_config.json`
+`check_retired_name_leak`'ten **muaftır**.
+
+## K38 · `A7` yedeği DEĞİŞTİ — Atkinson Hyperlegible ÖLÇÜLEREK elendi
+
+**28 Ağustos 2026 · Kitap 1 Faz 2 · `G1`**
+
+**Bulgu.** `TYPOGRAPHY_STANDARD § 3.3` figür etiketleri için yedek
+yazı tipi olarak **Atkinson Hyperlegible**'ı adlandırmıştı. Faz 2'nin
+glif taraması bu yedeğin ürünün **kendi gereksinimini** karşılamadığını
+ölçtü:
+
+| Yazı tipi | ⅛ ¼ ⅜ ½ ⅝ ¾ ⅞ | ″ (inç) | `Y1` |
+|---|---|---|---|
+| Source Serif 4 | tamamı var | var | ✓ |
+| Source Sans 3 | tamamı var | var | ✓ |
+| **Atkinson Hyperlegible** | **⅛ ⅜ ⅝ ⅞ YOK** | **YOK** | ✗ |
+| **Atkinson Hyperlegible Next** | **⅛ ⅜ ⅝ ⅞ YOK** | **YOK** | ✗ |
+
+`Y1` bu ürünün **birinci** tipografik gereksinimidir: ABD ev dikişinin
+standart dikiş payı **⅝ inç**tir. Bir ölçü kitabının figür etiketi
+`⅝` yazamıyorsa o yazı tipi yedek **olamaz**.
+
+**Karar.** Yedek figür etiketi yazı tipi **`IBM Plex Sans`**
+(SIL OFL 1.1) oldu. `Atkinson Hyperlegible` ve `Atkinson Hyperlegible
+Next` **elendi**.
+
+**Nasıl seçildi — tercihle değil, ölçümle.**
+`06_BUILD/font_legibility_scan.py` beş adayı iki eksende ölçtü:
+`Y1` (eleyici) ve karıştırılabilir karakter çiftlerinin 6,5 pt'de
+600 dpi'deki **piksel farkı** (sıralayıcı).
+
+| Sıra | Yazı tipi | `Y1` | En kötü çift | Ortalama |
+|---:|---|---|---|---|
+| 1 | **Source Sans 3** (birincil) | ✓ | `3/8` = 0,391 | 0,539 |
+| 2 | **IBM Plex Sans** (yeni yedek) | ✓ | `3/8` = 0,347 | **0,608** |
+| 3 | Lexend | ✓ | `1/I` = 0,333 | 0,495 |
+| 4 | **Inter — ELENDİ** | ✓ | **`l/I` = 0,000** | 0,533 |
+| — | Atkinson Hyperlegible | ✗ | — | — |
+| — | Atkinson Hyperlegible Next | ✗ | — | — |
+
+**`Inter` ayrıca elendi:** küçük `l` ile büyük `I` **piksel piksel
+aynıdır**. Bir ölçü etiketinde bu, `Y3`'ün tam olarak tanımladığı
+başarısızlıktır.
+
+**Yan bulgu — birincil seçim de doğrulandı.** `Source Sans 3` en kötü
+çift ölçütünde **birinci** çıktı. `K24` bu ölçümle **güçlendi**,
+değişmedi.
+
+**Ölçümün sınırı — açıkça yazılır.** Piksel farkı okunabilirliği
+**ölçmez**. Bir okurun 6,5 pt'de basılmış bir `1` ile `l`'yi ayırt
+edebildiğini **kanıtlamaz**. `T3` üç insan okuyucu gerektirir ve gerçek
+kâğıtta yapılır — `EXTERNAL_DEPENDENCIES.md D-05`. Bu ölçüm yalnızca
+**açıkça kötü adayları eledi** ve bir sıralama üretti.
+
+**Kanıt.** `03_VISUAL/font_legibility_scan.json` · `S-0018`
+
+## K39 · Sayfa geometrisi ÖLÇÜMLE değişti — asimetrik iki sütun
+
+**28 Ağustos 2026 · Kitap 1 Faz 2 · `G2`**
+
+**Bulgu.** İlk sayfa geometrisi profili metin bloğunu tam ölçüye
+(7,0 in) yayıyordu. `06_BUILD/calibrate_tokens.py` bunun 10,5 pt'de
+satır başına **107,1 karakter** ettiğini ölçtü. Rahat okuma bandı
+**72–88** karakterdir; 107 karakter bir referans kitabı için satır
+sonunda göz kaybı üretir.
+
+**Karar.** Metin bloğu **bölündü**: 387,0 pt dar metin sütunu +
+9,0 pt boşluk + 108,0 pt yan sütun = 504,0 pt tam ölçü.
+Ölçülen yeni değer: **83,0 karakter** — hedef bandın içinde.
+
+**Yan sütunun işlevi.** Figür başlıkları, ölçü etiketleri ve
+"HENÜZ DEĞİŞTİRME" uyarıları. Bu, `Complexity(58)` şikâyetine verilen
+cevabı **ucuzlatır**: bir uyarı artık gövde metninin akışını kesmez.
+
+**Figürler değişmedi.** İki genişlik sınıfı vardır ve aradaki bir
+genişlik **yoktur**: `387,0 pt` (metin sütunu) veya `504,0 pt` (tam
+ölçü). `qa_visual.py § ⑤` bunu denetler.
+
+**Neden iki eşit sütun DEĞİL.** 8,5×11 sayfada iki eşit sütun 3,3 in
+verir; bu, asgari figür genişliğinin (2,6 in) hemen üstündedir ve
+etiketli bir ölçüm figürü sığmaz.
+
+**Aritmetik hatası — testin bulduğu.** Profilin ilk sürümü tam ölçüyü
+**499,5 pt** yazıyordu; doğrusu `612 − 63 − 45 = 504,0` pt'dir. Hatayı
+`selftest.py`'nin sayfa aritmetiği denetimi yakaladı — **bir belge
+değil, bir test buldu**. Bu, `K33`'ün dersinin tekrarıdır: bir
+belgedeki her sayı, onu üreten hesabın çıktısı olmalıdır.
+
+**KDP asgarileri.** Bütün kenar boşlukları platform asgarilerinin
+üstündedir ve `qa_visual.py § ⑨` her koşuda denetler (`S-0016`).
+Sayfa hedefi 300'ü aşarsa cilt payı bandı değişir ve kapı **kırmızı
+yanar**.
+
+## K40 · Token sözlüğü kalibre edildi — ama `CALIBRATED_DIGITAL_RENDER`
+
+**28 Ağustos 2026 · Kitap 1 Faz 2 · `G1`**
+
+**Karar.** `visual_language_tokens.json` durumu
+`DESIGN_TARGET_NOT_CALIBRATED` → **`CALIBRATED_DIGITAL_RENDER`**.
+
+**Neden düz `CALIBRATED` değil.** Ölçüm bir **dijital rasterdır**
+(300 ve 600 dpi, 1-bit). Talep-üzerine baskının **mürekkep yayılması**
+ölçüme **girmez**: 0,4 pt bir çizgi gerçek baskıda kalınlaşır, 6 pt bir
+tırnak dolar. Düz `CALIBRATED` yazmak, yapılmamış bir baskı testini
+yapılmış göstermek olurdu. Durum adının kendisi sınırı taşır.
+
+`selftest.py § test_calibration_is_not_claimed_without_evidence` bu
+ayrımı her koşuda denetler.
+
+**Ölçülenler.**
+
+| Ne | Sonuç |
+|---|---|
+| Dokuz çizgi kalınlığı, 300 dpi 1-bit | **hepsi hayatta**; en ince (0,4 pt) **2 piksel** |
+| Beş kesik deseni | hepsi düzden ayrık |
+| Üç gri tonu | hedeften sapma ≤ 1 luma |
+| **`TK-05` ↔ `TK-06`** | **AYRIK — eğrilik oranı 3,49** (eşik 2,0) |
+| `T1` kesir glifleri | Source Serif 4 ve Source Sans 3'te **tam** |
+| `G2` satır ölçüsü | 83,0 karakter (hedef 72–88) |
+
+**`TK-06` yay yüksekliği ÖLÇÜMLE değişti.** İlk değer 3,2 pt idi ve
+eğrilik oranını **2,4**'te bırakıyordu — eşiğin (2,0) hemen üstünde,
+dar bir marj. **4,6 pt**'de oran **3,49** oldu. Değer bir tercihle
+değil, bir ölçümle değişti.
+
+**Metrik de düzeltildi — `K20`'nin tekrarı.** Ayırt edicilik ölçümünün
+ilk sürümü mürekkep oranı ve bileşen sayısına bakıyordu ve `RİSKLİ`
+veriyordu. Ama iki işaret de üç parçadan oluşur ve neredeyse aynı
+mürekkebi kullanır: metrik, **ayırt eden şeyi ölçmüyordu**. Eğrilik
+ekseni eklendi ve ölçüm parça bazına indirildi. **Bir testin ADI ile
+ÖLÇTÜĞÜ ŞEY aynı olmalıdır.**
+
+`TK-05` ↔ `TK-06` ayrımı bir stil tercihi değil bir **teknik
+gerekliliktir** (`S-0004`, WSU EM4582: kumaşı *çeken* kırışıklık az
+ease, *kıvrım hâlinde duran* kırışıklık çok ease gösterir). İki token
+karışırsa kitabın en çok kullanılan kuralı çöker.
+
+**Kanıt.** `03_VISUAL/calibration_report.json`
+
+## K41 · Akış şeması mimarisi ÖLÇÜMLE değişti — 9 değil 46
+
+**28 Ağustos 2026 · Kitap 1 Faz 2 · `G3`/`G6`**
+
+**Bulgu.** `VISUAL_SPEC § 1` dokuz akış şeması öngörüyordu:
+"7 bölge + 1 ana şema + 1 eleme". Motor **bölge düzeyinde** şemaları
+kurup ölçtü:
+
+| Bölge | Belirti | Gereken genişlik | Sayfaya sığar mı |
+|---|---:|---:|---|
+| bust_chest | 6 | 1956 pt | **hayır** |
+| shoulder · waist_torso · crotch_leg | 5 | 1630 pt | **hayır** |
+| upper_back · hip_seat · sleeve_arm · whole_garment | 4 | 1304 pt | **hayır** |
+| neck · armhole | 3 | 978 pt | **hayır** |
+
+Sayfanın figür alanı **504 × 612 pt**'dir. **On bölgenin onu da
+sığmıyor** — en küçüğü bile iki katından fazla yer istiyor.
+
+**Karar.** Akış şemasının birimi **bölge değil, BELİRTİDİR.**
+43 belirti şeması + 1 bölge yönlendirici + 2 eleme şeması = **46**.
+
+**Kural ihlal edilmedi, UYGULANDI.** `VISUAL_SPEC § 2` kural 4:
+*"Bir şema tek yayılıma sığmalıdır. Sığmıyorsa **konu bölünür**, şema
+küçültülmez."* Ölçüm konunun bölünmesi gerektiğini gösterdi. Kural 1
+(*"her şema tek bir bölgeye aittir"*) de korunur: bir belirti tam olarak
+bir bölgeye aittir.
+
+**Eleme şeması da bölündü.** 11 karıştırıcı sınıfı 693 pt istiyordu
+(azami 612). Sayfa başına 9 satır sığıyor → **2 şema**. Bölme sayısı
+elle yazılmadı, **sayfa yüksekliğinden hesaplandı**.
+
+**Sonucu — `R-05` için gerçek sayı.** Faz 1 tahmini ~123 figürdü.
+**Ölçülen: 154.** Fark neredeyse tamamen akış şemalarından geliyor
+(9 → 46). Bu, görsel üretim hacmi riskinin ilk **ölçülmüş** değeridir.
+
+**Bunun maliyeti sayfa sayısıdır.** 46 şema, "bir yayılım bir kavram"
+kuralıyla birlikte, Kitap 1'in sayfa hedefini (220–260) zorlayabilir.
+`qa_visual.py § ⑨` sayfa sayısı 300'ü aşarsa cilt payı bandının
+değiştiğini ve geometrinin yeniden hesaplanması gerektiğini **kırmızı
+yakarak** söyler. Bu, Faz 3 sonrası kapsam kararının girdisidir.
+
+## K42 · Figür token'ları BEYAN değil ÖLÇÜM — ve yasaklar çalıştırılabilir
+
+**28 Ağustos 2026 · Kitap 1 Faz 2 · `G4`/`G5`**
+
+**Karar.** `figures.json`'daki `notation_tokens` listesi elle
+yazılmaz; figür çizilirken **gerçekten çağrılan** token'lardan
+türetilir (`figure_tokens.FigureCanvas.use`).
+
+**Gerekçe.** Bir kaydın alanı ile o alanın anlattığı gerçeklik arasında
+sessiz bir kayma olabilir — `K20`'nin ve `K33`'ün dersi. Ölçülen bir
+alan kayamaz.
+
+**İkinci karar — `VISUAL_STANDARD § 5`'in yasakları KODA döndü.**
+Bir yasak artık bir belge cümlesi değil, çizimi **durduran** bir
+istisnadır (`ForbiddenDrawing`):
+
+| Yasak | Tetikleyen |
+|---|---|
+| Sayısal etiketsiz spread/overlap oku | `tk02`/`tk03` boş etiketle çağrılırsa |
+| Vücut figüründe slash line | `surface="body"` + `TK-01` |
+| Ölçek beyanı olmayan kalıp parçası | `surface="pattern"` + `declare_scale` yok |
+| Anlam taşımayan gri | izin listesi dışı ton |
+| Baskı asgarisi altında çizgi | < 0,4 pt |
+| Asgari punto altında etiket | < 6,0 pt |
+| Figür kutusundan taşma | her çizim çağrısı |
+| Tanımsız token | `use()` |
+
+`selftest.py`'ye **14 regresyon** eklendi ve her biri yasağın
+**gerçekten kırmızı yaktığını** kanıtlar — yanlış pozitif testleriyle
+birlikte. Toplam selftest: **91 → 125 denetim**.
+
+## K43 · Kroki bir çizim konvansiyonudur, antropometrik bir iddia DEĞİLDİR
+
+**28 Ağustos 2026 · Kitap 1 Faz 2**
+
+**Karar.** `06_BUILD/croquis.py`'deki oranlar hiçbir kaynağa
+dayandırılmaz ve hiçbir kaynak olarak **gösterilmez**.
+
+**Gerekçe.** Kroki, "şerit metre nereden nereye gider" sorusunu
+yanıtlamak için vardır. Hiçbir okur bu figürden **kendi ölçüsünü
+okumaz**; kendi ölçüsünü kendi vücudundan alır. Ölçünün tanımı
+`measurements.json → path_rule` alanındadır; kroki yalnızca o kuralın
+resmidir.
+
+Krokiyi bir antropometrik kaynağa (`S-0006` ANSUR II, `S-0007` NHANES)
+dayandırmak, **taşımadığı bir kesinliği** ima ederdi: bir çizim
+figürünün omuz genişliği bir popülasyon istatistiği değildir.
+
+**Mekanik dayanak.** `selftest.py § test_croquis_is_declared_non_
+anthropometric` iki şeyi denetler: dosya sınırı **açıkça** yazıyor mu,
+ve dosya hiçbir `S-xxxx` kaydına atıf yapıyor mu.
+
+## K44 · Faz 2 kapandı, Faz 3'ün kill-gate'i AÇILMADI
+
+**28 Ağustos 2026 · Kitap 1 Faz 2 → Faz 3**
+
+**Karar.** `BOOK-01/.gate` → `phase2-visual`. Seri kapısı `.gate` →
+`series-architecture`.
+
+**Karar — ikinci yarısı, daha önemlisi.** `phase3-pilot` kapısı
+**AÇILMADI** ve bu turda açılamaz.
+
+Faz 3'ün iki kill-gate'i de dış dünyada ölçülür ve ikisi de
+**ölçülmemiştir**:
+
+| Kill-gate | Durum | `measured` |
+|---|---|---|
+| Fark testi (üç ev dikişçisi) | `EXTERNAL VALIDATION REQUIRED` | `false` |
+| Fiziksel doğrulama (19 `VAL` kaydı) | `EXTERNAL VALIDATION REQUIRED` | `false` |
+
+`06_BUILD/kill_gate.py --book book-01` **2 engel** raporluyor ve
+raporlamaya devam edecek. Bu **beklenen** ve **doğru** davranıştır.
+
+**Faz 3'ün içeriden yapılabilen kısmı YAPILDI:** pilot kesit üretildi,
+fark testi karşılaştırma paketi hazırlandı, fiziksel sınama kiti
+(19 `VAL` kayıt formu) üretildi, çelişmeli inceleme koşturuldu.
+**Ölçümlerin kendisi yapılmadı ve yapılmış gibi kaydedilmedi.**
+
+> Bir kapıyı ilerleten şey ölçümdür. Hazırlık, ölçümün yerine geçmez.
+
+## K45 · Figürler OKURUN dilinde çizilir — belge dilinde değil
+
+**28 Ağustos 2026 · Kitap 1 Faz 3 hazırlığı**
+
+**Bulgu.** Faz 2'nin figür motoru düğüm metinlerini doğrudan
+`fit_signs.json`'dan okuyordu. O dosya **proje belge dilindedir**
+(`series_config → documentLanguage = "tr"`). Kitabın kendisi
+**İngilizcedir** (`series.language = "en"`, hedef pazar ABD).
+
+Sonuç: 46 akış şeması, 43 belirti figürü ve bütün karşılaştırma
+figürleri **Türkçe** üretiliyordu. Faz 2'nin kapıları bunu yakalamadı —
+çünkü hiçbiri **dil** sormuyordu.
+
+**Bulgunun ortaya çıktığı yer.** Faz 3'ün fark testi malzemesi
+hazırlanırken. `DIFFERENTIATION_TEST § 6.1` malzeme A için
+*"Faz 2'nin gerçek figürleri — taslak/eskiz kullanılmaz"* diyor. Üç
+ABD ev dikişçisine Türkçe akış şeması gösterilemez: **fark testi bu
+hâliyle YAPILAMAZDI** ve testin sonucu ölçtüğü şeyle ilgisiz olurdu.
+
+**Karar.** Okura dönük bir **etiket katmanı** eklendi:
+`02_TAXONOMY/public/labels_en.json` — 43 belirti gözlemi, 129 aday
+nedenin ayırt edici kanıtı ve neden adı, 10 bölge adı, 11 karıştırıcı
+sınıfı ve figür arayüz dizeleri.
+
+Motor artık `series.language`'ı okur ve etiket katmanı yoksa
+**çalışmayı reddeder** — sessizce belge dilinde üretmez.
+
+**Neden ayrı bir dosya, taksonominin içine gömülü alanlar değil.**
+Taksonomi bir **kanıt kaydıdır**; `verification_status` alanları
+oradaki iddialara bağlıdır. Okura dönük ifade bir **sunum
+katmanıdır**. İkisini aynı kayda koymak, bir ifade değişikliğinin
+doğrulama durumunu gölgede etkilemesine kapı açardı.
+
+**Sınır — açıkça yazılır.** Bu katman bir **doğrulama değildir**.
+43 belirti hâlâ `agent_drafted_unverified`'dır ve birincil doğrulaması
+**fizikseldir** (Faz 3). Dosya bunu `does_not_change_verification_status:
+true` alanıyla beyan eder ve `selftest.py` beyanın varlığını denetler.
+
+**Mekanik dayanak.** `qa_visual.py § ⑩`: kitap dili ile belge dili
+farklıysa her belirti ve her aday neden için okura dönük karşılık
+aranır; eksik bir etiket kapıyı **kırmızı yakar**. `selftest.py` kusurlu
+bir fixture'la kapının gerçekten yakaladığını kanıtlar.
+
+**Ders — `K20`'nin üçüncü tekrarı.** Faz 2'nin bütün kapıları yeşildi
+ve üretilen figürlerin **hiçbiri kullanılamazdı**. Bir kapı kümesi,
+**sormadığı soruyu** yakalayamaz. Bu yüzden kapı eklendi, figürler
+düzeltilmekle yetinilmedi.
+
+## K46 · Okura dönük figür iki yeni kapı kazandı — iç kimlik ve etiket çakışması
+
+**28 Ağustos 2026 · Kitap 1 Faz 3 hazırlığı**
+
+**Bulgu 1 — iç kayıt kimlikleri okura basılıyordu.**
+`TYPOGRAPHY_STANDARD § 3.4`: *"Kayıt kimlikleri (`SYM-016`, `AF-01`,
+`M-031`) iç veri kimlikleridir ve okura gösterilmez."*
+
+Ama üretilen figürler tam olarak bunu yapıyordu:
+
+| Nerede | Ne basılıyordu |
+|---|---|
+| Belirti figürü alt yazısı | `SYM-016 · diagonal_drag_line` |
+| Devir düğümü (`TK-18`) | `AF-01` |
+| Türetilmiş ölçü figürü | `M-002 − M-001` |
+| Düzeltme ailesi dizini tablosu | `AF-01` … `AF-19` |
+
+**İkinci çelişki — iki Faz 1 belgesi birbiriyle uyuşmuyordu.**
+`visual_language_tokens.json`'daki `TK-18` spec'i *"kalın kenarlı
+dikdörtgen + **AF-xx etiketi**"* diyordu. Bu, tipografi standardının
+§ 3.4'ünün doğrudan ihlalidir. İki belge Faz 1'de birbirinden habersiz
+yazılmış ve çelişki **hiçbir kapı tarafından görülmemişti**.
+
+**Karar.**
+
+1. `TK-18` düğümü ailenin **ADINI** taşır. `AF-xx` veri bağı olarak
+   figürün **kaydında** durur; okura basılmaz. Okura dönük çapraz
+   gönderme (`reader_ref`) Kitap 2'nin bölüm numaraları var olduğunda
+   eklenir — bugün `null`'dur ve **uydurulmaz**.
+2. Tablolar **ikiye ayrıldı**: okura dönük (3) ve iç araç (3). İç
+   araçlar `internal: true` taşır, kimlik basabilir ve **kitap figürü
+   sayılmaz**.
+3. Yeni kapı: `figure_tokens.check_internal_id_leak` — okura dönük bir
+   figürde `SYM-`/`AF-`/`M-`/`BLK-`/`TOP-`/`XW-`/`VAL-`/`FIG-`/`TK-`
+   deseni geçerse çizim **durur**.
+
+**Bulgu 2 — işaret noktası etiketleri üst üste biniyordu.**
+`lmk_*` figürlerinde etiketler çapa noktasının yanına konuyordu ve
+yakın noktalarda (boyun tabanı / omuz ucu / boğaz çukuru) **okunamaz
+biçimde çakışıyordu**.
+
+**Neden bu bir hata, bir estetik kusur değil.** Bu bir **ölçü
+kitabıdır**. Yanlış okunan bir ölçü etiketi okurun kumaşını götürür
+(`RISK_REGISTER R-06`). `VISUAL_SPEC § 3` zaten *"'nereden nereye'
+sorusu figürden cevaplanabilir olmalıdır"* diyor.
+
+**Karar.** Yeni kapı: `figure_tokens.check_label_collisions` — iki
+etiket kutusu kesişirse çizim **durur**. Yerleşim algoritması yeniden
+yazıldı: etiketler kendi sütununda, çakışmayan yüksekliklere konur ve
+oraya bir bağlayıcı çizilir.
+
+**Her iki kapı için selftest regresyonu eklendi** — yanlış pozitif
+testleriyle birlikte (`internal_marks=True` muafiyeti ve ayrık
+etiketler serbest kalmalıdır). Toplam selftest: **125 → 137 denetim**.
+
+**Ders — `K45`'in tekrarı.** Üç bulgunun üçü de "kapı yeşil, ürün
+bozuk" sınıfındandır ve üçü de **üretilen sayfaya gözle bakılarak**
+bulundu. Faz 4'ün her turunda üretilen sayfalardan bir örneklem gözle
+incelenecektir; otomatik kapılar bunun yerine **geçmez**.
+`08_REPORTS/PHASE_3_ADVERSARIAL_REVIEW.md § 6`.
+
+## K47 · `.gitignore` sır deseni iki kaynak dosyayı YUTUYORDU
+
+**28 Ağustos 2026 · Kitap 1 Faz 3 · commit öncesi**
+
+**Bulgu.** `.gitignore § ⑦` (sırlar) çıplak `*_token*` ve `*_secret*`
+arıyordu. Bu desen iki **kaynak dosyayı** yakalıyordu:
+
+- `06_BUILD/figure_tokens.py` — on sekiz token'ın çalışan karşılığı
+- `06_BUILD/calibrate_tokens.py` — kalibrasyon ölçüm scripti
+
+**Sonucu.** Depo yerelde tamamen yeşildi (`qa_all.sh` sıfır hata,
+selftest 137/137) ama **temiz bir klonda görsel sistem hiç
+çalışmayacaktı**: `figure_engine.py` `figure_tokens`'ı import ediyor ve
+o dosya depoda **yoktu**. CI de bunu görmezdi — CI görsel motoru
+çalıştırmıyordu, yalnızca kapıları çalıştırıyordu.
+
+**Karar.** Desen daraltıldı: `*.token`, `access_token*`, `api_token*`,
+`auth_token*`, `*.secret`, `client_secret*`. Gerçek sır dosyalarını
+hedefler, kaynak kodunu değil.
+
+**Regresyon eklendi** — `selftest.py § test_build_scripts_are_tracked`:
+`06_BUILD/` ve `07_TESTS/` altındaki her `.py`/`.sh` dosyası için
+`git check-ignore` çalıştırır ve yoksayılan bir script bulursa
+**kırmızı yakar**.
+
+**Ders — `R-19`'un dördüncü örneği.** Bir kapı kümesi, sormadığı soruyu
+yakalayamaz. Bu turda dört kez oldu: figür dili (`K45`), iç kayıt
+kimliği ve etiket çakışması (`K46`), ve şimdi izlenmeyen kaynak dosya.
+Dördü de "kapılar yeşil, ürün bozuk" sınıfındandır.
+
+**Bu kusurun özel yanı:** öbür üçü **ürüne bakılarak** bulundu, bu
+**commit'e bakılarak** bulundu. Faz 4'ün yazılı kuralına bir madde
+daha eklenir: *her commit'ten önce `git status --untracked-files=all`
+çıktısı gözle okunur.*

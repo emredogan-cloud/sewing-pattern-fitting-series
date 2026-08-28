@@ -60,6 +60,39 @@ def main():
             notes.append(f"{name}: KURUCU GEÇERSİZ KILMASI kayıtlı → {spec['founderOverride']}. "
                          f"Kapıyı ilerleten ÖLÇÜM DEĞİL, KURUCU KARARIDIR.")
 
+    # ── fiziksel sınama kayıtları ile killGates.measured TUTARLI mı ──
+    # Faz 3'te eklendi: `measured: true` yazmak yetmez; 19 kaydın
+    # gerçekten doldurulmuş olması gerekir. Bir bayrak, olmayan bir
+    # ölçümü var edemez (VALIDATION_PROTOCOL § 5).
+    val_file = paths.REPORTS_TRACKED / "VAL_RECORDS.json"
+    if val_file.exists():
+        vd = json.loads(val_file.read_text(encoding="utf-8"))
+        recs = vd.get("records", [])
+        done = [r for r in recs if r.get("performed") is True]
+        notes.append(f"fiziksel sınama kaydı: {len(done)}/{len(recs)} yapıldı")
+        pv = kg.get("physicalValidation", {})
+        if pv.get("book") == args.book:
+            if pv.get("measured") is True and len(done) < len(recs):
+                blockers.append(
+                    f"physicalValidation: measured=true ama {len(recs) - len(done)} "
+                    f"VAL kaydı BOŞ — ölçüm bayrağı kayıtlarla ÇELİŞİYOR "
+                    f"(08_REPORTS/tracked/VAL_RECORDS.json).")
+            if done and pv.get("measured") is not True:
+                notes.append("VAL kayıtları dolmaya başlamış ama measured hâlâ false — "
+                             "bu DOĞRUDUR; kapı ancak 19'un tamamı ve bir karar ile açılır.")
+        bad = [r["validation_id"] for r in done
+               if r.get("match") is None or not any(r.get("conditions", {}).values())]
+        if bad:
+            blockers.append(f"performed=true ama sonucu/koşulları eksik VAL kayıtları: "
+                            f"{', '.join(bad[:5])} — kanıtsız bir sınama sayılmaz.")
+        if done:
+            failed = [r for r in done if r.get("match") is False]
+            rate = len(failed) / len(done)
+            notes.append(f"gözlenen hata oranı: %{rate*100:.1f} "
+                         f"({len(failed)}/{len(done)}) — eşik: >%0 REVİZE, >%5 RED")
+    else:
+        notes.append("VAL_RECORDS.json yok — `python3 06_BUILD/build_val_kit.py`")
+
     spec_dir = paths.book_spec(args.book)
     for req in ("DIFFERENTIATION_TEST.md", "VALIDATION_PROTOCOL.md"):
         if not (spec_dir / req).exists():

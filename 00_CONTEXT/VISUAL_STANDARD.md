@@ -4,10 +4,20 @@
 > `03_VISUAL/visual_language_tokens.json` (18 token) ve
 > `03_VISUAL/figure_schema.json`.
 >
-> ⚠ **DURUM: `DESIGN_TARGET_NOT_CALIBRATED`.** Bu belgedeki her sayısal
-> değer (çizgi kalınlığı, kesik desen, etiket boyutu) bir TASARIM
-> HEDEFİDİR, ölçülmüş sonuç değil. Kalibrasyon Kitap 1 Faz 2
-> (`phase2-visual`) içinde gerçek render testiyle yapılır.
+> ⚠ **DURUM: `CALIBRATED_DIGITAL_RENDER` (Faz 2'de ölçüldü).**
+> Aşağıdaki çizgi kalınlıkları ve kesik desenleri 300 ve 600 dpi'de,
+> 1-bit rasterda **ölçüldü**: dokuzunun dokuzu da hayatta kalıyor, en
+> ince olan (0,4 pt) 300 dpi'de **2 piksele** düşüyor.
+> Ölçüm kaydı: `03_VISUAL/calibration_report.json`.
+>
+> **Kalibrasyonun sınırı — abartılmaz.** Ölçüm DİJİTALDİR. Talep-üzerine
+> baskının **mürekkep yayılması** ölçüme girmez. Bu yüzden durum düz
+> `CALIBRATED` değil, `CALIBRATED_DIGITAL_RENDER`'dır. Gerçek prova
+> baskısı `EXTERNAL_DEPENDENCIES.md D-06`'dır.
+>
+> **Çalıştırılabilir karşılık:** `06_BUILD/figure_tokens.py`. § 5'in
+> yasakları artık çizimi DURDURAN istisnalardır, belge cümlesi değil
+> (`DECISIONS.md K42`).
 
 ---
 
@@ -53,6 +63,11 @@ mahveder** (`RISK_REGISTER R-06`). Bu yüzden:
 **Kural:** kalınlık dekoratif amaçla DEĞİŞTİRİLEMEZ. Aynı kalınlık
 üç kitapta aynı anlamı taşır.
 
+**Mekanik dayanak (Faz 2).** Bu tablo `visual_language_tokens.json`'dan
+**okunur**; `figure_tokens.py` hiçbir kalınlığı yeniden yazmaz. Token
+dosyası değişirse 154 figürün hepsi değişir. 0,4 pt'nin altında bir
+çizgi çizilmeye çalışılırsa `ForbiddenDrawing` fırlar.
+
 ## 4 · On sekiz token — özet
 
 Tam tanımlar `visual_language_tokens.json`'dadır. Kritik olanlar:
@@ -63,7 +78,7 @@ Tam tanımlar `visual_language_tokens.json`'dadır. Kritik olanlar:
 | `TK-02` / `TK-03` spread/overlap arrow | Açma / daraltma | **Sayısal etiketsiz çizilemez** |
 | `TK-04` pivot point | Döndürme merkezi | `TK-08` apeks işaretinden GÖRSEL OLARAK ayrıdır |
 | `TK-05` drag line | Yönlü çekme | Ok, kırışıklığın işaret ettiği KAYNAĞA bakar |
-| `TK-06` excess fold | Kıvrım/fazlalık | `TK-05`'ten ayrı — teşhiste farklı anlam |
+| `TK-06` excess fold | Kıvrım/fazlalık | `TK-05`'ten ayrı — teşhiste farklı anlam. **ÖLÇÜLDÜ:** eğrilik oranı **3,49** (eşik 2,0). Yay yüksekliği 3,2 → 4,6 pt'ye ölçümle çıkarıldı (`K40`) |
 | `TK-09` balance line | Yer düzlemine göre referans | `TK-10` grainline DEĞİLDİR |
 | `TK-12` / `TK-13` before/after | Değişiklik durumu | Renk değil TON/kalınlık farkı (1-bit baskı güvenliği) |
 | `TK-15` do-not-do marker | Yanlış uygulama | Okur yanlışı doğru sanmamalı — ZORUNLU |

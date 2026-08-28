@@ -111,6 +111,14 @@ BOOK-*/09_OUTPUT/*
 10_ARCHIVE/*
 !10_ARCHIVE/.gitkeep
 
+# ⑧ YAZI TİPİ İKİLİ DOSYALARI ───────────────────────────────────────────
+# Üç aile de SIL OFL 1.1'dir ve yeniden dağıtımı SERBESTTİR — ama bir
+# metin deposu ikili dosya arşivi DEĞİLDİR. Yeniden edinim için
+# 03_VISUAL/fonts/fonts_manifest.json (URL + SHA-256) ve
+# 06_BUILD/fetch_fonts.py yeterlidir. LİSANS METİNLERİ İZLENİR.
+03_VISUAL/fonts/ttf/
+03_VISUAL/fonts/*.zip
+
 # ⑦ SIRLAR VE YEREL ORTAM ───────────────────────────────────────────────
 .env
 .env.*
@@ -122,8 +130,23 @@ BOOK-*/09_OUTPUT/*
 .netrc
 credentials.json
 secrets.*
-*_token*
-*_secret*
+
+# ⚠ DESEN DARALTILDI. Önceki sürüm çıplak `*_token*` ve `*_secret*`
+# arıyordu ve `06_BUILD/figure_tokens.py` ile
+# `06_BUILD/calibrate_tokens.py`'yi SESSİZCE dışarıda bırakıyordu —
+# yani temiz bir klonda görsel sistem HİÇ ÇALIŞMAZDI. Sızıntı deseni
+# artık gerçek sır dosyalarını hedefler; kaynak kodu değil.
+# Regresyon: 07_TESTS/selftest.py § test_build_scripts_are_tracked
+*.token
+*.token.*
+.token
+access_token*
+api_token*
+auth_token*
+*.secret
+*.secret.*
+.secret
+client_secret*
 .aws/
 .ssh/
 .gnupg/

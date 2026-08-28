@@ -17,8 +17,8 @@
   ],
   "series": {
     "id": "true-fit-sewing-pattern-fitting-series",
-    "workingName": "TRUE FIT",
-    "workingNameStatus": "ÇALIŞMA ADI — YAYIMLANAMAZ. Marka taraması YAPILDI (28 Ağu 2026): 'TRUE FIT' True Fit Corporation adına yürürlükte ve tescilli bir ABD markasıdır ve kapsamı 'kullanıcıları vücut ölçülerine göre giysiyle eşleştirme'dir — bu serinin tam konusu. Karar: DECISIONS.md K18 — ad kapak/metadata/alan adı yüzeyinde KULLANILMAZ. Önerilen yerine geçen: BEFORE YOU CUT. Nihai seçim + profesyonel marka temizliği: OPEN_QUESTIONS.md A15 (EXTERNAL PENDING). Kanıt: 08_REPORTS/PHASE_1_BRAND_SCREENING.md",
+    "workingName": "BEFORE YOU CUT",
+    "workingNameStatus": "Bkz. publicNameStatus ve nameHistory. TARİHSEL KAYIT SİLİNMEDİ: ilk çalışma adı 'TRUE FIT' idi ve marka çakışması nedeniyle reddedildi (K18). Dizin ve depo adları DEĞİŞTİRİLMEDİ — dosya sistemi sürekliliği bilinçli olarak korundu (K37).",
     "language": "en",
     "documentLanguage": "tr",
     "repository": "GitHub — public, CI etkin. Depo adı MARKA-NÖTRDÜR (A1 kapanmadan hiçbir ad kamuya taahhüt edilmez — DECISIONS.md K32).",
@@ -40,7 +40,31 @@
       "LICENSE-AND-LAUNCH-CALIFORNIA-LIFE-HEALTH — faz raporu durum sözlüğü, kill-gate ayrımı, iki katmanlı içerik koruma",
       "CODEX-ENIGMATICA — kill-gate'in GERÇEKTEN başarısız olabilme ilkesi",
       "THE-GREAT-BOOK-OF-WORLD-GAMES — açık karar kapanış izleme, kurucu teslim kuyruğu"
-    ]
+    ],
+    "publicName": "BEFORE YOU CUT",
+    "publicNameStatus": "ÇALIŞMA + KAMUYA DÖNÜK SERİ KİMLİĞİ — KURUCU ONAYIYLA BENİMSENDİ (28 Ağu 2026, DECISIONS.md K36). brandClearanceStatus alanına bakınız: bu ad HENÜZ PROFESYONEL OLARAK TEMİZLENMEMİŞTİR ve kapak/metadata üretiminden önce temizlenmelidir.",
+    "brandClearanceStatus": "founder-approved-working-name",
+    "brandClearanceStatusMeaning": "Kurucu adı onayladı ve seri bu adla ilerliyor. Bu bir HUKUKİ TEMİZLİK DEĞİLDİR. Bu depoda yapılan tarama üç eksende çakışma bulmadı (08_REPORTS/PHASE_1_BRAND_SCREENING.md) ama federal sicilin arama arayüzü otomatik sorguya kapalıydı ve marka temizliği bir hukuki hizmettir. Yayın kimliği kilitlenmeden önce profesyonel temizlik ZORUNLUDUR — OPEN_QUESTIONS.md A16, EXTERNAL_DEPENDENCIES.md D-03.",
+    "nameHistory": [
+      {
+        "name": "TRUE FIT",
+        "role": "ilk çalışma adı ve depo/dizin adı",
+        "status": "REDDEDİLDİ — yayımlanan ad olarak KULLANILMAZ",
+        "reason": "'TRUE FIT' True Fit Corporation adına yürürlükte ve tescilli bir ABD markasıdır ve kapsamı 'kullanıcıları vücut ölçülerine göre giysiyle eşleştirme'dir — bu serinin tam konusu.",
+        "decided_in": "DECISIONS.md K18",
+        "evidence": "08_REPORTS/PHASE_1_BRAND_SCREENING.md",
+        "date": "2026-08-28"
+      },
+      {
+        "name": "BEFORE YOU CUT",
+        "role": "kamuya dönük seri kimliği",
+        "status": "KURUCU ONAYIYLA BENİMSENDİ — hukuki temizlik BEKLİYOR",
+        "reason": "Üç eksende sıfır çakışma bulgusu; kalabalık 'FIT ___' alanının tamamen dışında; serinin tezini (kesmeden ÖNCE teşhis) ve kapsam sınırını adın kendisi taşıyor.",
+        "decided_in": "DECISIONS.md K36",
+        "date": "2026-08-28"
+      }
+    ],
+    "directoryNameNote": "Dizin adları (TRUE-FIT-SEWING-PATTERN-FITTING-SERIES, BOOK-03-DRAFT-YOUR-OWN-BLOCK) eski adları taşır. Bu bir KİMLİK BEYANI DEĞİL, bir YOL DİZESİDİR. Yeniden adlandırma git geçmişini, CI yollarını ve on beş belgedeki bağlantıları aynı anda kırardı; kazanç sıfırdır çünkü hiçbir dizin adı okura görünmez. Kamuya dönük her yüzey publicName'i kullanır — validate_structure.py § check_retired_name_leak denetler."
   },
   "product": {
     "targetReader": "Orta seviye ev dikişçisi — dikmeyi biliyor, kalıbı harfiyen uyguluyor, giysi yine oturmuyor. Sorunun ADINI bilmiyor.",
@@ -71,7 +95,7 @@
     {
       "id": "book-01",
       "dir": "BOOK-01-MEASURE-AND-DIAGNOSE",
-      "workingTitle": "True Fit 1 — Measure & Diagnose",
+      "workingTitle": "Before You Cut — Book 1: Measure & Diagnose",
       "role": "SEE THE PROBLEM",
       "standaloneProblem": "Hangi düzeltmeye ihtiyacım olduğunu bilmiyorum",
       "pageTargetProvisional": [
@@ -84,12 +108,13 @@
         28.99
       ],
       "formatProvisional": "8.5x11 ciltsiz",
-      "gate": "foundation"
+      "gate": "phase2-visual",
+      "previousWorkingTitle": "True Fit 1 — Measure & Diagnose"
     },
     {
       "id": "book-02",
       "dir": "BOOK-02-THE-ADJUSTMENT-ATLAS",
-      "workingTitle": "True Fit 2 — The Adjustment Atlas",
+      "workingTitle": "Before You Cut — Book 2: The Adjustment Atlas",
       "role": "FIX THE PROBLEM",
       "standaloneProblem": "Teşhisimi biliyorum, uygulama referansı istiyorum",
       "pageTargetProvisional": [
@@ -102,12 +127,13 @@
         32.99
       ],
       "formatProvisional": "8.5x11 ciltsiz + spiral SKU ADAYI (fizibilite DOĞRULANMADI — OPEN_QUESTIONS.md A5)",
-      "gate": "init"
+      "gate": "init",
+      "previousWorkingTitle": "True Fit 2 — The Adjustment Atlas"
     },
     {
       "id": "book-03",
       "dir": "BOOK-03-DRAFT-YOUR-OWN-BLOCK",
-      "workingTitle": "True Fit 3 — Draft Your Own Block",
+      "workingTitle": "Before You Cut — Book 3: Draft Your Own Sloper",
       "role": "BUILD THE SOLUTION",
       "standaloneProblem": "Her kalıpta aynı düzeltmeyi tekrarlamak istemiyorum",
       "pageTargetProvisional": [
@@ -120,7 +146,9 @@
         34.99
       ],
       "formatProvisional": "8.5x11 ciltsiz",
-      "gate": "init"
+      "gate": "init",
+      "previousWorkingTitle": "True Fit 3 — Draft Your Own Block",
+      "titleTermNote": "Başlıkta 'sloper', kanonik terim 'block' (A9 / K26). Dizin adı BOOK-03-DRAFT-YOUR-OWN-BLOCK olarak kaldı — yol dizesi, kimlik beyanı değil."
     }
   ],
   "gates": {
@@ -132,7 +160,7 @@
       "catalog",
       "release"
     ],
-    "seriesCurrent": "bootstrap",
+    "seriesCurrent": "series-architecture",
     "bookOrder": [
       "init",
       "foundation",
@@ -231,5 +259,36 @@
     "photographs": "kullanılmaz; koşullu, en fazla 6 figür (K35)",
     "book3TitleTerm": "başlıkta 'sloper'; kanonik terim 'block' kalır (K26)",
     "physicalValidationScope": "2 toile + 3 yedek parça, tek vücut, 19 VAL kaydı (K29)"
+  },
+  "visualSystem": {
+    "$comment": "Faz 2 (phase2-visual) çıktısının makine-okunur özeti. Sayılar üreten komutun çıktısındandır (K33).",
+    "tokenStatus": "CALIBRATED_DIGITAL_RENDER",
+    "calibrationReport": "03_VISUAL/calibration_report.json",
+    "pageGeometryProfile": "PG-B1-8.5x11",
+    "figures": {
+      "total": 154,
+      "deterministic": 105,
+      "deterministicRatio": 0.682,
+      "flowcharts": 46,
+      "manualReasonRequired": 49
+    },
+    "thresholds": {
+      "photoRequired": {
+        "count": 0,
+        "cap": 6,
+        "decision": "A11 / K35"
+      },
+      "colorRequired": {
+        "ratio": 0.0,
+        "cap": 0.1,
+        "decision": "A6 / K23"
+      }
+    },
+    "readerLanguageLayer": "02_TAXONOMY/public/labels_en.json",
+    "notMeasuredHere": [
+      "gerçek prova baskısı (dot gain)",
+      "KDP Previewer",
+      "T3 üç insan okuyucu"
+    ]
   }
 }

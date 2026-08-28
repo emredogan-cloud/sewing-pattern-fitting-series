@@ -26,6 +26,9 @@ VISUAL = ROOT / "03_VISUAL"
 VISUAL_NOTATION = VISUAL / "notation"
 VISUAL_TEMPLATES = VISUAL / "templates"
 VISUAL_GENERATED = VISUAL / "generated"
+VISUAL_FONTS = VISUAL / "fonts"
+VISUAL_FONTS_TTF = VISUAL_FONTS / "ttf"
+FONTS_MANIFEST = VISUAL_FONTS / "fonts_manifest.json"
 BUILD = ROOT / "06_BUILD"
 TESTS = ROOT / "07_TESTS"
 TESTS_FIXTURES = TESTS / "fixtures"
@@ -48,10 +51,14 @@ FIT_SIGNS = TAXONOMY_PUBLIC / "fit_signs.json"
 ADJUSTMENT_FAMILIES = TAXONOMY_PUBLIC / "adjustment_families.json"
 MEASUREMENTS = TAXONOMY_PUBLIC / "measurements.json"
 CROSSWALK = TAXONOMY_PUBLIC / "crosswalk.json"
+LABELS_EN = TAXONOMY_PUBLIC / "labels_en.json"
 BLOCK_COMPONENTS = TAXONOMY_PUBLIC / "block_components.json"
 BOUNDARY_MATRIX = TAXONOMY / "boundary_matrix.json"
 TERMINOLOGY = TAXONOMY / "terminology.json"
 VISUAL_TOKENS = VISUAL / "visual_language_tokens.json"
+PAGE_GEOMETRY = VISUAL / "page_geometry.json"
+CALIBRATION_REPORT = VISUAL / "calibration_report.json"
+EXTERNAL_DEPENDENCIES = ROOT / "EXTERNAL_DEPENDENCIES.md"
 
 BOOK_DIRS = {
     "book-01": ROOT / "BOOK-01-MEASURE-AND-DIAGNOSE",
@@ -64,6 +71,12 @@ def book_spec(book_id):
 
 def book_gate_file(book_id):
     return BOOK_DIRS[book_id] / ".gate"
+
+def book_figures(book_id):
+    return BOOK_DIRS[book_id] / "03_VISUAL" / "figures.json"
+
+def book_generated(book_id):
+    return BOOK_DIRS[book_id] / "03_VISUAL" / "generated"
 
 # ── Kapı sıraları — ROADMAP belgeleriyle BİREBİR eşleşir ──────────────
 SERIES_GATE_ORDER = [

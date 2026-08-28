@@ -1,0 +1,249 @@
+{
+  "$comment": [
+    "FONT LEGIBILITY SCAN — 06_BUILD/font_legibility_scan.py çıktısı.",
+    "Y1 = kesir/inç glif kapsaması (ELEYİCİ). Y3 = karıştırılabilir",
+    "çiftlerin piksel farkı (SIRALAYICI, kanıt DEĞİL).",
+    "T3'ün insan okuma testinin YERİNE GEÇMEZ."
+  ],
+  "measured_on": "2026-08-28",
+  "settings": {
+    "size_pt": 6.5,
+    "dpi": 600
+  },
+  "candidates": {
+    "SourceSans3": {
+      "file": "ttf/SourceSans3-Regular.ttf",
+      "Y1": {
+        "glyph_count": 1614,
+        "missing": [],
+        "pass": true
+      },
+      "Y3": {
+        "size_pt": 6.5,
+        "dpi": 600,
+        "px_size": 54,
+        "pair_dissimilarity": {
+          "1/l": 0.6296,
+          "1/I": 0.4651,
+          "l/I": 0.5133,
+          "0/O": 0.7217,
+          "0/o": 0.6372,
+          "6/8": 0.4219,
+          "8/9": 0.5601,
+          "6/9": 0.5612,
+          "3/8": 0.3912,
+          "5/6": 0.4824,
+          "2/Z": 0.5681,
+          "rn/m": 0.5211
+        },
+        "worst_pair": "3/8",
+        "worst_value": 0.3912,
+        "mean": 0.5394,
+        "skipped": []
+      },
+      "eligible": true
+    },
+    "AtkinsonHyperlegible": {
+      "file": "ttf/AtkinsonHyperlegible-Regular.ttf",
+      "Y1": {
+        "glyph_count": 343,
+        "missing": [
+          "⅛",
+          "⅜",
+          "⅝",
+          "⅞",
+          "″"
+        ],
+        "pass": false
+      },
+      "Y3": {
+        "size_pt": 6.5,
+        "dpi": 600,
+        "px_size": 54,
+        "pair_dissimilarity": {
+          "1/l": 0.9354,
+          "1/I": 0.8571,
+          "l/I": 0.6772,
+          "0/O": 0.5144,
+          "0/o": 0.7662,
+          "6/8": 0.4093,
+          "8/9": 0.7484,
+          "6/9": 0.6824,
+          "3/8": 0.4008,
+          "5/6": 0.3456,
+          "2/Z": 0.5712,
+          "rn/m": 0.2885
+        },
+        "worst_pair": "rn/m",
+        "worst_value": 0.2885,
+        "mean": 0.5997,
+        "skipped": []
+      },
+      "eligible": false
+    },
+    "AtkinsonHyperlegibleNext": {
+      "file": "ttf/AHNext.ttf",
+      "Y1": {
+        "glyph_count": 363,
+        "missing": [
+          "⅛",
+          "⅜",
+          "⅝",
+          "⅞",
+          "″"
+        ],
+        "pass": false
+      },
+      "Y3": {
+        "size_pt": 6.5,
+        "dpi": 600,
+        "px_size": 54,
+        "pair_dissimilarity": {
+          "1/l": 0.9397,
+          "1/I": 0.7832,
+          "l/I": 0.685,
+          "0/O": 0.4985,
+          "0/o": 0.7788,
+          "6/8": 0.3886,
+          "8/9": 0.7352,
+          "6/9": 0.6711,
+          "3/8": 0.4048,
+          "5/6": 0.4232,
+          "2/Z": 0.6661,
+          "rn/m": 0.4382
+        },
+        "worst_pair": "6/8",
+        "worst_value": 0.3886,
+        "mean": 0.6177,
+        "skipped": []
+      },
+      "eligible": false
+    },
+    "IBMPlexSans": {
+      "file": "ttf/IBMPlexSans.ttf",
+      "Y1": {
+        "glyph_count": 892,
+        "missing": [],
+        "pass": true
+      },
+      "Y3": {
+        "size_pt": 6.5,
+        "dpi": 600,
+        "px_size": 54,
+        "pair_dissimilarity": {
+          "1/l": 0.8203,
+          "1/I": 0.3736,
+          "l/I": 0.7853,
+          "0/O": 0.5589,
+          "0/o": 0.7101,
+          "6/8": 0.637,
+          "8/9": 0.6331,
+          "6/9": 0.7817,
+          "3/8": 0.347,
+          "5/6": 0.3912,
+          "2/Z": 0.6785,
+          "rn/m": 0.5804
+        },
+        "worst_pair": "3/8",
+        "worst_value": 0.347,
+        "mean": 0.6081,
+        "skipped": []
+      },
+      "eligible": true
+    },
+    "Inter": {
+      "file": "ttf/Inter.ttf",
+      "Y1": {
+        "glyph_count": 2849,
+        "missing": [],
+        "pass": true
+      },
+      "Y3": {
+        "size_pt": 6.5,
+        "dpi": 600,
+        "px_size": 54,
+        "pair_dissimilarity": {
+          "1/l": 0.9367,
+          "1/I": 0.9367,
+          "l/I": 0.0,
+          "0/O": 0.5811,
+          "0/o": 0.6605,
+          "6/8": 0.3793,
+          "8/9": 0.4495,
+          "6/9": 0.4738,
+          "3/8": 0.2222,
+          "5/6": 0.4817,
+          "2/Z": 0.6843,
+          "rn/m": 0.5882
+        },
+        "worst_pair": "l/I",
+        "worst_value": 0.0,
+        "mean": 0.5328,
+        "skipped": []
+      },
+      "eligible": true
+    },
+    "Lexend": {
+      "file": "ttf/Lexend.ttf",
+      "Y1": {
+        "glyph_count": 686,
+        "missing": [],
+        "pass": true
+      },
+      "Y3": {
+        "size_pt": 6.5,
+        "dpi": 600,
+        "px_size": 54,
+        "pair_dissimilarity": {
+          "1/l": 0.4613,
+          "1/I": 0.3325,
+          "l/I": 0.3871,
+          "0/O": 0.5748,
+          "0/o": 0.5565,
+          "6/8": 0.4793,
+          "8/9": 0.5348,
+          "6/9": 0.7591,
+          "3/8": 0.4787,
+          "5/6": 0.463,
+          "2/Z": 0.4603,
+          "rn/m": 0.4496
+        },
+        "worst_pair": "1/I",
+        "worst_value": 0.3325,
+        "mean": 0.4948,
+        "skipped": []
+      },
+      "eligible": true
+    }
+  },
+  "eliminated_by_Y1": [
+    "AtkinsonHyperlegible",
+    "AtkinsonHyperlegibleNext"
+  ],
+  "ranking_by_worst_pair": [
+    {
+      "font": "SourceSans3",
+      "worst_pair": "3/8",
+      "worst_value": 0.3912,
+      "mean": 0.5394
+    },
+    {
+      "font": "IBMPlexSans",
+      "worst_pair": "3/8",
+      "worst_value": 0.347,
+      "mean": 0.6081
+    },
+    {
+      "font": "Lexend",
+      "worst_pair": "1/I",
+      "worst_value": 0.3325,
+      "mean": 0.4948
+    },
+    {
+      "font": "Inter",
+      "worst_pair": "l/I",
+      "worst_value": 0.0,
+      "mean": 0.5328
+    }
+  ]
+}

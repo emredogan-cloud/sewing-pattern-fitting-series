@@ -1,4 +1,4 @@
-# ROADMAP — TRUE FIT 1: Measure & Diagnose
+# ROADMAP — BEFORE YOU CUT, Book 1: Measure & Diagnose
 
 > Seri bağlamı: [`../SERIES_ROADMAP.md`](../SERIES_ROADMAP.md).
 > Kitap kapısı: `.gate` (bu dizinde). Seri kapısı: `../.gate`.
@@ -16,13 +16,15 @@
    P0 Temel                              [.gate = foundation]
     │
     ▼
-   P1 Araştırma + İçerik Spesifikasyonu  ◄── BU TURDA ÜRETİLDİ
-    │  ╞═══ KURUCU ONAY KAPISI ═══╡
+   P1 Araştırma + İçerik Spesifikasyonu  ✓ TAMAM (kurucu onayı alındı)
+    │
     ▼
-   P2 Görsel Sistem + Figür Motoru       [phase2-visual]
+   P2 Görsel Sistem + Figür Motoru       ✓ TAMAM [phase2-visual]
     │
     ▼
    P3 Pilot + KILL-GATE ──[FAIL]──HARD STOP──► SERİ DURUR
+    │  ◄── ŞU AN BURADA · içeriden yapılabilen TAMAM,
+    │      iki DIŞ ölçüm YAPILMADI (D-01, D-02)
     │  [PASS]
     ▼
    P4 Tam İçerik Üretimi                 [phase4-production]
@@ -90,7 +92,7 @@ olarak belirlemek.
       2 dış beklemeye alındı (`OPEN_QUESTIONS.md`)
 - [x] Marka çakışma taraması (`A1`) — `08_REPORTS/PHASE_1_BRAND_SCREENING.md`
 - [x] GitHub deposu + CI (`A2`) — public, marka-nötr ad, CI yeşil
-- [ ] **Kurucu onayı**
+- [x] **Kurucu onayı** — 28 Ağu 2026 (`DECISIONS.md K36`)
 
 ### Definition of Done
 
@@ -99,8 +101,8 @@ olarak belirlemek.
 2. `qa_all.sh` sıfır hata.
 3. Taksonominin doğrulama durumu **dürüstçe** kaydedilmiş (sessizce
    yükseltilmemiş).
-4. **Kurucu onayı alındı.**
-5. `.gate` → `phase1-spec`.
+4. **Kurucu onayı alındı.** ✓ 28 Ağu 2026
+5. `.gate` → `phase1-spec`. ✓ *(aynı turda `phase2-visual`'a ilerledi)*
 
 ### Çıkış ölçütü — ölçülebilir
 
@@ -148,9 +150,14 @@ sisteminin taslaklanması ondan önce başlayamaz.
 Faz 2 bu yüzden artık bir **karar toplama** fazı değil, saf bir
 **üretim ve ölçüm** fazıdır.
 
-**Definition of Done:** deterministik üretilebilen figür oranı ÖLÇÜLDÜ ·
-`deterministic: false` olan her figürün `manual_reason`'ı var ·
-`.gate` → `phase2-visual`.
+**Definition of Done: ✓ KARŞILANDI.** Deterministik oran **ölçüldü:
+%68,2** (105/154) · `deterministic: false` olan **49 figürün hepsinin**
+`manual_reason`'ı var · `.gate` → `phase2-visual` ✓
+
+**Ölçümün Faz 1 tahminlerini yanlışladığı dört nokta:** akış şeması
+9 → **46** · toplam figür ~123 → **154** · yedek yazı tipi Atkinson →
+**IBM Plex Sans** · satır ölçüsü 107,1 → **83,0** karakter.
+Rapor: [`../08_REPORTS/PHASE_2_EXECUTION_REPORT.md`](../08_REPORTS/PHASE_2_EXECUTION_REPORT.md)
 
 **Risk:** ORTA–YÜKSEK. Diyagram hacmi tahminden büyük çıkabilir
 (`RISK_REGISTER R-05`). Bu fazın çıktısı o hacmi **ölçer**.
@@ -183,6 +190,17 @@ ve kaydı denetler. **AI vekil testi insan testinin yerine SAYILMAZ**
 
 **Definition of Done:** iki ölçüm de yapıldı ve `series_config.json`'a
 kaydedildi · ikisi de PASS · `.gate` → `phase3-pilot`.
+
+**DURUM: içeriden yapılabilen KISIM TAMAM, ölçümler YAPILMADI.**
+
+| Çıktı | Durum |
+|---|---|
+| Pilot kesit (Malzeme A) | ✓ **8 sayfa, markasız, 7 gerçek figür** |
+| Fark testi sonucu | ✗ **0/3 katılımcı** — `D-01` |
+| Fiziksel doğrulama kayıtları | ✗ **0/19 yapıldı** (kit üretildi) — `D-02` |
+| Çelişmeli inceleme | ✓ **11 bulgu, HARD_STOP yok** |
+
+Rapor: [`../08_REPORTS/PHASE_3_PILOT_PACKAGE.md`](../08_REPORTS/PHASE_3_PILOT_PACKAGE.md)
 
 **Risk:** **KRİTİK — bu projenin tek gerçek durma noktası.** Kardeş
 projelerin kill-gate'lerinin gerçekten başarısız olabildiği kanıtlandı
@@ -255,7 +273,7 @@ GERÇEK verisine dayanan Kitap 2 girdi notu yazıldı.
 
 | # | Konu | Hangi fazda kapanmalı |
 |---|---|---|
-| A1 | "TRUE FIT" marka taraması | P2 öncesi |
+| A1 | "TRUE FIT" marka taraması | ✓ KAPANDI (`K18`) — yerine `A15`/`A16` |
 | A3 | **Kaynak edinim bütçesi** | **P1 kapanışı** |
 | A4 | Ortam (QR/video) | P2 sonu |
 | A6 | Renk stratejisi | P2 |
@@ -270,4 +288,4 @@ Tam liste ve gerekçeler: [`../OPEN_QUESTIONS.md`](../OPEN_QUESTIONS.md).
 
 ---
 
-*Vâliçe Press · TRUE FIT 1 · Roadmap · 28 Ağustos 2026*
+*Vâliçe Press · BEFORE YOU CUT, Book 1 · Roadmap · 28 Ağustos 2026 (Faz 2 sonrası)*

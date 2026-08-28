@@ -177,6 +177,30 @@ def check_book_phase1_requirements(book_id: str, errors: list):
             errors.append(f"kapı phase1-spec ({book_id}): zorunlu Faz 1 çıktısı eksik — 00_SPEC/{r}")
 
 
+def check_book_phase2_requirements(book_id: str, errors: list):
+    """Kapısı phase2-visual'a ulaşmış bir kitabın GÖRSEL SİSTEMİ olmalıdır.
+
+    Faz 2'nin DoD'si (BOOK-01/00_SPEC/PHASE_2_ROADMAP.md § 3) altı somut
+    varlığa dayanır; hiçbiri 'yazıldı' diye sayılmaz, DOSYA OLARAK aranır."""
+    if not paths.book_figures(book_id).exists():
+        errors.append(f"kapı phase2-visual ({book_id}): 03_VISUAL/figures.json YOK — "
+                      f"figür sicili olmadan bu kapı geçilemez.")
+    for rel, why in (
+        (paths.PAGE_GEOMETRY, "sayfa geometrisi profili"),
+        (paths.CALIBRATION_REPORT, "token kalibrasyon raporu"),
+        (paths.FONTS_MANIFEST, "yazı tipi manifesti"),
+    ):
+        if not rel.exists():
+            errors.append(f"kapı phase2-visual ({book_id}): {why} eksik — "
+                          f"{rel.relative_to(paths.ROOT)}")
+    if paths.VISUAL_TOKENS.exists():
+        st = load(paths.VISUAL_TOKENS).get("status", "")
+        if not st.startswith("CALIBRATED"):
+            errors.append(f"kapı phase2-visual ({book_id}): visual_language_tokens.status="
+                          f"{st!r} — Faz 2 kalibrasyon fazıdır, kalibre edilmemiş bir "
+                          f"token sözlüğüyle kapatılamaz.")
+
+
 def check_series_architecture_requirements(errors: list):
     required = [
         "SERIES_POSITIONING.md", "SERIES_CONTENT_ARCHITECTURE.md",
@@ -306,6 +330,8 @@ def main():
         bgate = paths.read_book_gate(book_id)
         if paths.gate_at_least(bgate, "phase1-spec", paths.BOOK_GATE_ORDER):
             check_book_phase1_requirements(book_id, errors)
+        if paths.gate_at_least(bgate, "phase2-visual", paths.BOOK_GATE_ORDER):
+            check_book_phase2_requirements(book_id, errors)
 
     result = {"series_gate": gate,
               "book_gates": {b: paths.read_book_gate(b) for b in paths.BOOK_DIRS},

@@ -1,0 +1,166 @@
+{
+  "$comment": [
+    "PAGE GEOMETRY PROFILE — Faz 2 / G2 çıktısı (BOOK-01/00_SPEC/PHASE_2_ROADMAP.md).",
+    "",
+    "Bu dosya bir TASARIM TERCİHİ DEĞİL, iki kısıtın kesişimidir:",
+    "  ① KDP'nin BASKI GEREKSİNİMİ (S-0016) — ihlal edilirse dosya reddedilir.",
+    "  ② 'bir yayılım, bir kavram' kuralı (BOOK-01/00_SPEC/VISUAL_SPEC.md § 8).",
+    "",
+    "Bütün ölçüler NOKTA (pt) cinsindendir: 1 in = 72 pt. Kaynak veri inç",
+    "olarak KDP'den okundu; buradaki pt değerleri o inç değerlerinin TAM",
+    "karşılığıdır (çevrim scriptte değil, burada yapıldı ve denetlenebilir).",
+    "",
+    "⚠ 'Doğrulanmış' olan şey KDP'nin ASGARİ gereksinimidir. Bu profilin",
+    "  KDP Previewer'da ve GERÇEK PROVA BASKISINDA sınanması P6 kapısıdır",
+    "  ve bu depodan yapılamaz — EXTERNAL_DEPENDENCIES.md D-06."
+  ],
+  "profile_id": "PG-B1-8.5x11",
+  "status": "MEASURED_AGAINST_PLATFORM_MINIMUMS",
+  "applies_to": [
+    "book-01"
+  ],
+  "source_refs": [
+    "S-0016"
+  ],
+  "trim": {
+    "width_in": 8.5,
+    "height_in": 11.0,
+    "width_pt": 612.0,
+    "height_pt": 792.0,
+    "kdp_class": "large trim (genişlik > 6,12 in VEYA yükseklik > 9 in — S-0009)",
+    "bleed": false,
+    "bleed_rationale": "Kitap 1'de kenara taşan görsel YOKTUR. Taşma kullanılmazsa asgari dış kenar boşluğu 0,375 in yerine 0,25 in'e düşer (S-0016) ve kazanılan alan figüre gider."
+  },
+  "platform_minimums": {
+    "$comment": "S-0016'dan OKUNAN değerler. Bu blok bir HEDEF değil, bir SINIRDIR.",
+    "outside_margin_no_bleed_in": 0.25,
+    "outside_margin_with_bleed_in": 0.375,
+    "gutter_by_page_count_in": {
+      "24-150": 0.375,
+      "151-300": 0.5,
+      "301-500": 0.625,
+      "501-700": 0.75,
+      "701-828": 0.875
+    },
+    "page_count_band_used": "151-300",
+    "page_count_band_rationale": "series_config.json → book-01.pageTargetProvisional = [220, 260]. Band 151–300 → asgari cilt payı 0,5 in.",
+    "page_count_band_risk": "Sayfa sayısı 300'ü aşarsa asgari cilt payı 0,625 in olur ve metin bloğu 0,125 in DARALIR. Bu profil o durumda YENİDEN hesaplanmalıdır — qa_visual.py denetler."
+  },
+  "margins": {
+    "$comment": "Seçilen değerler asgarilerin ÜSTÜNDEDİR. Fark GEREKÇELİDİR.",
+    "gutter_in": 0.875,
+    "gutter_pt": 63.0,
+    "gutter_rationale": "Asgari 0,5 in + 0,375 in emniyet. Talep-üzerine mükemmel ciltte 236 sayfalık bir kitap düz açık DURMAZ; cilt payındaki metin iç kıvrıma girer. Kitap 1 bir masa üstü referans kitabıdır ve okur onu açık tutarak ölçü alır (FORMAT_STRATEGY, R-09).",
+    "outside_in": 0.625,
+    "outside_pt": 45.0,
+    "outside_rationale": "Asgari 0,25 in + 0,375 in. Dış kenar okurun BAŞPARMAK alanıdır; kitap açık dururken parmak metni örtmemelidir.",
+    "top_in": 0.75,
+    "top_pt": 54.0,
+    "bottom_in": 0.75,
+    "bottom_pt": 54.0,
+    "running_head_baseline_from_top_in": 0.5,
+    "folio_baseline_from_bottom_in": 0.45
+  },
+  "text_block": {
+    "$comment": [
+      "ÖLÇÜM SONUCU DEĞİŞTİ. İlk profil metin bloğunu tam ölçüye (6,9375 in)",
+      "yaydı ve calibrate_tokens.py bunun 10,5 pt'de satır başına 107,1",
+      "karakter ettiğini ÖLÇTÜ — hedef bandın (72–88) çok üstünde.",
+      "",
+      "Çözüm sayfayı daraltmak DEĞİL, ölçüyü bölmektir: dar bir metin sütunu",
+      "+ geniş bir yan sütun. Yan sütun figür başlıklarını, ölçü etiketlerini",
+      "ve 'HENÜZ DEĞİŞTİRME' uyarılarını taşır; FİGÜRLER gerektiğinde iki",
+      "sütunu birden kaplar (figure_area.max_width_pt değişmedi).",
+      "",
+      "Bu düzen aynı zamanda 'bir yayılım, bir kavram' kuralını ucuzlatır:",
+      "uyarı ve etiket gövde metninin akışını kesmez.",
+      "DÜZELTME: ilk sürüm tam ölçüyü 499,5 pt yazıyordu; doğrusu 612 − 63 − 45 = 504,0 pt'dir. Hatayı selftest.py'nin sayfa aritmetiği denetimi yakaladı — belge değil, TEST buldu."
+    ],
+    "layout": "asimetrik iki sütun — dar metin + geniş yan sütun",
+    "width_pt": 387.0,
+    "width_in": 5.375,
+    "side_column_width_pt": 108.0,
+    "side_column_width_in": 1.5,
+    "column_gap_pt": 9.0,
+    "total_measure_pt": 504.0,
+    "height_in": 9.5,
+    "height_pt": 684.0,
+    "columns": 1,
+    "column_rationale": "Gövde metni TEK sütundur; yan sütun metin sütunu DEĞİL, not/etiket alanıdır. İki eşit sütun denenmedi çünkü 3,3 in'lik bir sütun asgari figür genişliğinin (2,6 in) hemen üstünde kalır ve etiketli figürler sığmaz.",
+    "measure_target_chars": [
+      72,
+      88
+    ],
+    "measure_measured_chars": 82.0,
+    "measure_status": "ÖLÇÜLDÜ — 03_VISUAL/calibration_report.json § text_measure_G2",
+    "side_column_side": "outside",
+    "side_column_rule": "Yan sütun HER ZAMAN dış kenardadır — cilt payında bir not sütunu kıvrımda kaybolur.",
+    "total_measure_in": 7.0
+  },
+  "figure_area": {
+    "$comment": [
+      "Bir figür metin bloğunun İÇİNDE ya da TAM ÖLÇÜDE (metin + yan sütun) yaşar;",
+      "ikisinin dışına taşmaz. İki genişlik sınıfı vardır ve qa_visual.py bunu denetler."
+    ],
+    "max_width_pt": 504.0,
+    "max_height_pt": 612.0,
+    "max_height_rationale": "Metin bloğu yüksekliği (684 pt) eksi figür başlığı + alt yazı + üst/alt nefes payı (72 pt).",
+    "min_width_pt": 187.2,
+    "min_width_in": 2.6,
+    "gutter_between_figures_pt": 18.0,
+    "caption_gap_pt": 9.0,
+    "safe_zone_pt": {
+      "$comment": "Figürün KENDİ iç güvenli alanı: hiçbir çizgi/etiket bu kenar bandına girmez. Kesim toleransı DEĞİL — dizgi toleransıdır.",
+      "inset": 6.0
+    },
+    "width_class": {
+      "text_column_pt": 387.0,
+      "full_measure_pt": 504.0,
+      "rule": "Bir figür ya 387.0 pt'ye ya 504.0 pt'ye oturur; aradaki bir genişlik yoktur."
+    }
+  },
+  "spread": {
+    "$comment": "'Bir yayılım, bir kavram' kuralının GEOMETRİK karşılığı.",
+    "width_pt": 1224.0,
+    "usable_width_pt": 1008.0,
+    "inner_dead_band_pt": 126.0,
+    "inner_dead_band_rule": "Bir akış şeması ya SOL ya SAĞ sayfada tamamen durur. Cilt hattını KESEN şema YASAK — kıvrımda kaybolan bir karar oku okuru yanlış dala götürür. qa_visual.py bunu figür genişliğinden denetler."
+  },
+  "typography_grid": {
+    "body_size_pt": 10.5,
+    "body_leading_pt": 14.5,
+    "baseline_grid_pt": 14.5,
+    "lines_per_page": 47,
+    "lines_per_page_calc": "684 pt metin bloğu ÷ 14,5 pt satır aralığı = 47,17 → 47 tam satır",
+    "figure_label_size_pt": 7.0,
+    "table_size_pt": 9.0,
+    "caption_size_pt": 8.5,
+    "status": "TYPOGRAPHY_STANDARD.md § 6 hedefleri; kalibrasyon sonucu 03_VISUAL/calibration_report.json",
+    "measure_note": "10,5 pt gövde + 382,5 pt sütun = 82,0 karakter (ÖLÇÜLDÜ). 6,9375 in tam ölçüde aynı punto 107,1 karakter verirdi — REDDEDİLDİ."
+  },
+  "label_placement": {
+    "$comment": "Ölçü etiketleri figürün NERESİNE konur — VISUAL_SPEC § 3'ün geometrik karşılığı.",
+    "preferred_order": [
+      "right_of_path",
+      "above_path",
+      "left_of_path",
+      "below_path"
+    ],
+    "leader_min_length_pt": 7.2,
+    "leader_max_length_pt": 54.0,
+    "min_label_clearance_pt": 3.0,
+    "rule": "Bir etiket ASLA gösterdiği yolun ÜSTÜNE binmez; bindiği anda ölçü yolu okunamaz hâle gelir."
+  },
+  "print_safety": {
+    "min_stroke_pt": 0.4,
+    "min_stroke_rationale": "callout_leader kalınlığı (VISUAL_STANDARD § 3). 0,4 pt'nin 300 dpi'de kaç piksele düştüğü ÖLÇÜLDÜ — calibration_report.json § stroke_fidelity.",
+    "max_gray_levels": 3,
+    "gray_levels": [
+      0.0,
+      0.45,
+      0.75
+    ],
+    "gray_rationale": "VISUAL_SPEC § 6: talep-üzerine baskıda ince tramlar ezilir. Üç ton: siyah (TK-13 after), orta gri (TK-12 before), açık gri (TK-07 gerginlik tramı).",
+    "min_text_size_pt": 6.0
+  }
+}

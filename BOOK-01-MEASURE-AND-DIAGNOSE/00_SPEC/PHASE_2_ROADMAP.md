@@ -2,8 +2,14 @@
 
 > Faz 1 çıktısı 10/10. Görev talimatı § 37.
 >
-> ⚠ **BU FAZ YÜRÜTÜLMEDİ VE YÜRÜTÜLMEYECEKTİR.** Kurucu onayı olmadan
-> Faz 2 açılmaz (`SERIES_ROADMAP.md § S1 DoD 3`).
+> ✓ **BU FAZ YÜRÜTÜLDÜ.** Kurucu onayı 28 Ağustos 2026'da alındı
+> (`DECISIONS.md K36`) ve faz aynı turda tamamlandı.
+> Sonuç raporu: [`../../08_REPORTS/PHASE_2_EXECUTION_REPORT.md`](../../08_REPORTS/PHASE_2_EXECUTION_REPORT.md)
+>
+> Aşağıdaki plan **değiştirilmedi** — planla sonucun karşılaştırılabilir
+> kalması için. On bir DoD maddesinin **onu karşılandı**; sekizincisi
+> (`G7` rakip takibi) bir dış gözlemdir ve `EXTERNAL_DEPENDENCIES.md
+> D-04` olarak açık kaldı.
 
 ---
 
@@ -22,9 +28,9 @@ yükünü **ölçmek**.
 Faz 2 bir üretim fazı değil, aynı zamanda bir **karar toplama fazıdır**.
 Beş açık karar burada kapanmazsa Faz 3 pilotu üretilemez.
 
-| # | Karar | Neden Faz 2'de |
-|---|---|---|
-| `A1` | "TRUE FIT" marka taraması | Kapak sistemi ve seri kimliği burada taslaklanır |
+| # | Karar | Neden Faz 2'de | **Sonuç** |
+|---|---|---|---|
+| `A1` | "TRUE FIT" marka taraması | Kapak sistemi ve seri kimliği burada taslaklanır | ✓ `K18` → `A15` → **`K36` BEFORE YOU CUT** |
 | `A4` | Ortam: QR→video | Sayfa düzenini ve figür sayısını doğrudan etkiler |
 | `A6` | Renk stratejisi | Token kalibrasyonunun girdisi |
 | `A7` | Font ve lisans | Sayfa geometrisinin girdisi |

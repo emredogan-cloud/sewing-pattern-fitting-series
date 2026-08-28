@@ -1,22 +1,35 @@
-# TRUE FIT — Sewing Pattern Fitting Series
+# BEFORE YOU CUT — Sewing Pattern Fitting Series
 
 Üç kitaplık dikiş kalıp uyumu serisi. Ev dikişçisinin en tekrarlayan
 sorununu çözer: **kalıbı doğru uyguluyorum, giysi yine oturmuyor.**
 
 > ⚠ **Bu depo bir kitap DEĞİL, üç kitabı üretecek proje işletim
-> sistemidir.** Hiçbir manüskript yazılmadı, hiçbir diyagram üretilmedi,
-> hiçbir kapak tasarlanmadı.
+> sistemidir.** Manüskript yazılmadı; **bir pilot kesit** (8 sayfa)
+> ve **154 figür** üretildi. Kapak tasarlanmadı.
 >
-> **Şu anki durum: KİTAP 1 — FAZ 1 YÜRÜTÜLDÜ, KURUCU ONAYI BEKLİYOR.**
-> Bkz. [`08_REPORTS/PHASE_1_EXECUTION_REPORT.md`](08_REPORTS/PHASE_1_EXECUTION_REPORT.md)
-> (yürütme, 20 bölüm) ve
-> [`08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md`](08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md)
-> (mimari).
+> ## Şu anki durum: KİTAP 1 — FAZ 2 TAMAM · FAZ 3 KILL-GATE'İNDE DURDU
 >
-> ⚠ **`TRUE FIT` bir ÇALIŞMA ADIDIR ve YAYIMLANAMAZ** — aynı sektörde
-> tescilli bir marka bulundu (`DECISIONS.md K18`,
+> Faz 3'ün iki ölçümü de **dış dünyada** yapılır ve **yapılmadı**:
+> üç gerçek ev dikişçisiyle fark testi, ve 19 kayıtlık fiziksel
+> doğrulama. `06_BUILD/kill_gate.py` **2 engel** raporluyor —
+> **Faz 4 açılamaz.**
+>
+> Raporlar: [`08_REPORTS/PHASE_2_EXECUTION_REPORT.md`](08_REPORTS/PHASE_2_EXECUTION_REPORT.md)
+> · [`08_REPORTS/PHASE_3_PILOT_PACKAGE.md`](08_REPORTS/PHASE_3_PILOT_PACKAGE.md)
+> · [`08_REPORTS/PHASE_3_ADVERSARIAL_REVIEW.md`](08_REPORTS/PHASE_3_ADVERSARIAL_REVIEW.md)
+> · dış bağımlılıklar: [`EXTERNAL_DEPENDENCIES.md`](EXTERNAL_DEPENDENCIES.md)
+>
+> ⚠ **Seri adı `BEFORE YOU CUT`** — kurucu kararı (`DECISIONS.md K36`).
+> İlk çalışma adı `TRUE FIT` idi ve **reddedildi**: aynı sektörde
+> tescilli bir marka bulundu (`K18`,
 > [`08_REPORTS/PHASE_1_BRAND_SCREENING.md`](08_REPORTS/PHASE_1_BRAND_SCREENING.md)).
-> Bu deponun GitHub adı bu yüzden marka-nötrdür.
+> Dizin ve depo adları **değiştirilmedi** — bir yol dizesi bir kimlik
+> beyanı değildir (`K37`).
+>
+> ⚠ **`BEFORE YOU CUT` henüz PROFESYONEL OLARAK TEMİZLENMEDİ.**
+> `brandClearanceStatus = founder-approved-working-name`. Kapak ve
+> metadata üretiminden önce bir marka vekili gerekir
+> (`OPEN_QUESTIONS A16`, `EXTERNAL_DEPENDENCIES D-03`).
 
 ## Ne bu
 
@@ -27,10 +40,13 @@ sayısallaştırılmış bir kalite açığı var (`Complexity(58)`, n=1.797),
 uzman kapısı yok ve doğrulama fiziksel.
 
 ```
-KİTAP 1  Measure & Diagnose      SORUNU GÖR
+KİTAP 1  Measure & Diagnose      SORUNU GÖR      ◄ Faz 3'te durdu
 KİTAP 2  The Adjustment Atlas    SORUNU ÇÖZ
-KİTAP 3  Draft Your Own Block    ÇÖZÜMÜ ÜRET
+KİTAP 3  Draft Your Own Sloper   ÇÖZÜMÜ ÜRET
 ```
+
+*Kitap 3'ün dizin adı `BOOK-03-DRAFT-YOUR-OWN-BLOCK`'tur; başlıkta
+`sloper`, kanonik terim `block` kalır (`K26`).*
 
 Vâliçe Press'in mitoloji/oyun kataloğundan, duraklatılmış "License &
 Launch" hattından ve Hangıl çalışma kitabından ayrı, **dördüncü üretim

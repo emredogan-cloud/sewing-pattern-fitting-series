@@ -1,0 +1,825 @@
+{
+  "$comment": [
+    "READER-FACING ENGLISH LABELS — kitabın DİLİ İngilizcedir.",
+    "",
+    "NEDEN BU DOSYA VAR: taksonomi (fit_signs.json) proje BELGE dili olan",
+    "Türkçe yazılmıştır (series_config → documentLanguage='tr'). Kitabın",
+    "kendisi İngilizcedir (series_config → language='en'). Faz 2'de figür",
+    "motoru düğüm metinlerini doğrudan taksonomiden okuyordu ve bu yüzden",
+    "TÜRKÇE figür üretiyordu — bir ABD okuruna gösterilemeyecek figürler.",
+    "Bulgu Faz 3 pilot malzemesi hazırlanırken çıktı (DECISIONS.md K45).",
+    "",
+    "SINIR — bu dosya bir DOĞRULAMA DEĞİLDİR: buradaki İngilizce metinler",
+    "aynı taksonomi kayıtlarının okura dönük ifadeleridir ve o kayıtların",
+    "verification_status alanlarını DEĞİŞTİRMEZ. 43 belirti hâlâ",
+    "'agent_drafted_unverified'dır ve birincil doğrulaması FİZİKSELDİR.",
+    "",
+    "qa_visual.py § ⑩ her belirti ve her aday neden için karşılık arar;",
+    "eksik bir etiket figürü Türkçe bırakır ve kapı KIRMIZI yanar."
+  ],
+  "language": "en",
+  "status": "agent_drafted_reader_facing_labels",
+  "does_not_change_verification_status": true,
+  "count": {
+    "signs": 43,
+    "causes": 129
+  },
+  "ui": {
+    "yes": "Yes",
+    "no": "No",
+    "router_question": "WHERE does the wrinkle sit?",
+    "sign_count": "{n} signs",
+    "not_this_sign": "Not this sign — go back to the zone chart",
+    "not_a_pattern_problem": "NOT a pattern problem — ",
+    "eliminated": "Has {c} been ruled out?",
+    "fix_first": "Fix this FIRST — do not touch the pattern",
+    "all_clear": "All ruled out — continue to diagnosis",
+    "next_list": "Go to elimination list {n}",
+    "scale_note": "Not to scale — proportions are schematic",
+    "wrong": "WRONG",
+    "right": "RIGHT",
+    "source_conflict": "Sources differ — see the note in Chapter 2.",
+    "no_source": "Follow your pattern company's definition.",
+    "excess_label": "excess: ___ in",
+    "shortfall_label": "shortfall: ___ in",
+    "dart_depth": "dart depth"
+  },
+  "zones": {
+    "neck": "Neckline and neck",
+    "shoulder": "Shoulder",
+    "upper_back": "Upper back",
+    "bust_chest": "Bust and chest",
+    "armhole": "Armhole",
+    "sleeve_arm": "Sleeve and arm",
+    "waist_torso": "Waist and torso",
+    "hip_seat": "Hip and seat",
+    "crotch_leg": "Crotch and leg",
+    "whole_garment": "Whole garment"
+  },
+  "confounders": {
+    "Yapım": "Construction",
+    "Kumaş": "Fabric",
+    "Kesim": "Cutting",
+    "İç giyim": "Underwear",
+    "Beden": "Size choice",
+    "Prova duruşu": "Fitting posture",
+    "Kalıp basımı": "Pattern printing",
+    "Ütü": "Pressing",
+    "Dikiş payı": "Seam allowance",
+    "Ease": "Ease",
+    "Ölçüm": "Measuring"
+  },
+  "table_headers": {
+    "zone_index": [
+      "Zone",
+      "Signs",
+      "Chapter"
+    ],
+    "sign_class_index": [
+      "Sign class",
+      "How many"
+    ],
+    "af_index": [
+      "Family",
+      "Name",
+      "Zone"
+    ],
+    "measure_status": [
+      "Status",
+      "Measurements"
+    ]
+  },
+  "signs": {
+    "SYM-001": {
+      "observation": "The front neckline stands away from the chest; the gap grows when you lean forward.",
+      "causes": [
+        {
+          "cause": "Neckline cut too wide or too deep for the body",
+          "evidence": "The gap is there when you stand upright, and it is symmetrical."
+        },
+        {
+          "cause": "Bust volume is pulling the neckline forward",
+          "evidence": "The gap leans toward the bust and is not symmetrical; the bust dart is also off position, and the gap grows clearly when you lean forward."
+        },
+        {
+          "cause": "The neckline edge was stretched while sewing",
+          "evidence": "The gap looks wavy or slack rather than a clean opening."
+        }
+      ]
+    },
+    "SYM-002": {
+      "observation": "The neckline presses into the base of the neck, leaves a mark, or makes swallowing uncomfortable.",
+      "causes": [
+        {
+          "cause": "Neckline cut too tight for the body",
+          "evidence": "The pressure is even all the way around."
+        },
+        {
+          "cause": "A rounded upper back is pushing the neck forward",
+          "evidence": "Pressure is clear at the BACK neckline and absent at the front; the back neckline also rides up."
+        },
+        {
+          "cause": "The shoulder seam has shifted forward and is loading the neckline",
+          "evidence": "The shoulder seam sits IN FRONT of the top-of-shoulder line."
+        }
+      ]
+    },
+    "SYM-003": {
+      "observation": "The back neckline rides up and rubs the neck, and the back hem rises at the same time.",
+      "causes": [
+        {
+          "cause": "Back bodice length is too short (rounded back or erect posture)",
+          "evidence": "The front hem hangs level; ONLY the back rises."
+        },
+        {
+          "cause": "Not enough width across the shoulder blades, pulling the fabric up",
+          "evidence": "The rise comes with horizontal tension at shoulder-blade level."
+        },
+        {
+          "cause": "The back neckline is too narrow and is hanging the garment up",
+          "evidence": "The rise is ONLY around the neckline; there is NO tension at shoulder-blade level."
+        }
+      ]
+    },
+    "SYM-004": {
+      "observation": "Diagonal drag lines run from the neck point down toward the underarm.",
+      "causes": [
+        {
+          "cause": "Shoulder slope is squarer than the pattern assumes",
+          "evidence": "Lines run OUT and DOWN from the neck point; fabric is tight at the shoulder tip and the seam is pressed onto the shoulder."
+        },
+        {
+          "cause": "Shoulder slope is more sloping than the pattern assumes",
+          "evidence": "Lines run the other way — from the shoulder tip toward the neck; fabric GATHERS at the shoulder tip."
+        },
+        {
+          "cause": "Shoulder width is too narrow",
+          "evidence": "Lines are present but the slope is right; the armhole seam sits INSIDE the shoulder tip."
+        }
+      ]
+    },
+    "SYM-005": {
+      "observation": "Fabric gathers into a horizontal fold just below the shoulder seam, near the armhole.",
+      "causes": [
+        {
+          "cause": "Shoulder slope drawn too sloping for a square-shouldered wearer",
+          "evidence": "The fold is near the shoulder TIP and absent at the neck end."
+        },
+        {
+          "cause": "Armhole cut too deep and the sleeve cap too high",
+          "evidence": "The fold follows the armhole and disappears when the arm is raised."
+        },
+        {
+          "cause": "Shoulder width is too wide",
+          "evidence": "Along with the fold, the sleeve cap hangs OUTSIDE the shoulder tip."
+        }
+      ]
+    },
+    "SYM-006": {
+      "observation": "The shoulder seam sits BEHIND the top-of-shoulder line and keeps sliding forward.",
+      "causes": [
+        {
+          "cause": "Forward shoulder posture",
+          "evidence": "The seam sits back on BOTH shoulders, and it does so when you stand relaxed."
+        },
+        {
+          "cause": "A rounded upper back is pulling fabric backward",
+          "evidence": "The seam is displaced BUT there is also horizontal tension at shoulder-blade level."
+        },
+        {
+          "cause": "Front bodice is short relative to the back",
+          "evidence": "The front hem rises as well."
+        }
+      ]
+    },
+    "SYM-007": {
+      "observation": "The shoulder seam passes the shoulder tip and hangs onto the arm; the sleeve cap drops.",
+      "causes": [
+        {
+          "cause": "Shoulder width is too wide for this body",
+          "evidence": "The overhang is symmetrical on both shoulders; the armhole seam sits OUTSIDE the shoulder bone."
+        },
+        {
+          "cause": "The design is a deliberate drop shoulder",
+          "evidence": "The pattern envelope or line drawing shows a dropped shoulder, and the armhole is deep as well."
+        },
+        {
+          "cause": "Shoulder slope drawn too square",
+          "evidence": "The overhang comes with fabric gathering at the shoulder tip."
+        }
+      ]
+    },
+    "SYM-008": {
+      "observation": "Reaching forward produces a hard pull across the back; the garment restricts movement.",
+      "causes": [
+        {
+          "cause": "Not enough width across the back",
+          "evidence": "The sign is ABSENT with the arm at your side; it appears only when you reach forward."
+        },
+        {
+          "cause": "Armhole too narrow or shifted forward",
+          "evidence": "The pull concentrates at the armhole edge, not at the centre of the back."
+        },
+        {
+          "cause": "Not enough sleeve-cap ease, or the sleeve is narrow",
+          "evidence": "The pull is felt in the sleeve itself as well."
+        }
+      ]
+    },
+    "SYM-009": {
+      "observation": "A horizontal fold of excess fabric sits across the back at shoulder-blade level.",
+      "causes": [
+        {
+          "cause": "Back bodice length is too long",
+          "evidence": "The fold stays when the arm is raised; the neckline and shoulder sit correctly."
+        },
+        {
+          "cause": "The shaping allowed for the shoulder blades is not being filled (flat back)",
+          "evidence": "The fold is CONCENTRATED at blade level and fades downward; the pattern has a shoulder dart or ease that this body does not fill."
+        },
+        {
+          "cause": "The back neckline is too high and is pushing fabric down",
+          "evidence": "The fold sits directly under the neckline and the neckline binds."
+        }
+      ]
+    },
+    "SYM-010": {
+      "observation": "Loose vertical folds hang down the back between the armholes.",
+      "causes": [
+        {
+          "cause": "Too much width across the back",
+          "evidence": "The folds are vertical and symmetrical; reaching forward REDUCES them rather than removing them."
+        },
+        {
+          "cause": "One size too large was chosen",
+          "evidence": "The same excess is present at the front, in the sleeve and at the waist."
+        },
+        {
+          "cause": "Armhole cut too wide",
+          "evidence": "The excess is only near the armhole; the centre back is clean."
+        }
+      ]
+    },
+    "SYM-011": {
+      "observation": "The back hem rises noticeably; the garment climbs up at the back.",
+      "causes": [
+        {
+          "cause": "Back bodice length is too short (rounded back)",
+          "evidence": "There is ALSO horizontal tension at blade level, and the back neckline is pulled up."
+        },
+        {
+          "cause": "Hip or seat volume is pulling the fabric up",
+          "evidence": "The rise starts BELOW the waist; blade level is clean."
+        },
+        {
+          "cause": "Front-to-back balance is off (forward-leaning posture)",
+          "evidence": "The front hem DROPS while the back rises — the two happen together."
+        }
+      ]
+    },
+    "SYM-012": {
+      "observation": "The centre-back seam or zipper does not hang straight; it bows outward.",
+      "causes": [
+        {
+          "cause": "Sway back — excess length at centre back at waist level",
+          "evidence": "The bow is strongest at waist level, with horizontal folds just above it."
+        },
+        {
+          "cause": "Rounded back — not enough length at upper centre back",
+          "evidence": "The bow is at blade level; the waist is clean."
+        },
+        {
+          "cause": "The zipper was stretched while sewing",
+          "evidence": "The bow is irregular and wavy; the fabric is puckered along the zipper."
+        }
+      ]
+    },
+    "SYM-013": {
+      "observation": "With the arm down, the underarm binds and the garment is pulled up from the shoulder.",
+      "causes": [
+        {
+          "cause": "Armhole cut too shallow (underarm too high)",
+          "evidence": "Comfortable with the arm up, binding with the arm down; there is a red mark under the arm."
+        },
+        {
+          "cause": "The sleeve is narrow at the bicep",
+          "evidence": "The binding is felt inside the sleeve; the armhole itself is comfortable."
+        },
+        {
+          "cause": "Bust volume is pulling the front armhole up",
+          "evidence": "The binding is at the FRONT underarm, with drag lines running from the bust toward the armhole."
+        }
+      ]
+    },
+    "SYM-014": {
+      "observation": "The FRONT edge of the armhole stands away from the body above the bust.",
+      "causes": [
+        {
+          "cause": "Too much width across the front chest",
+          "evidence": "The gap is there with the arm at your side, and the upper chest feels slack."
+        },
+        {
+          "cause": "The bust dart apex is off position, leaving excess above the bust",
+          "evidence": "Along with the gap there is a hollow, empty area ABOVE the bust."
+        },
+        {
+          "cause": "Shoulder width is too wide",
+          "evidence": "The sleeve cap also hangs off the shoulder tip."
+        }
+      ]
+    },
+    "SYM-015": {
+      "observation": "The BACK edge of the armhole stands away from the body.",
+      "causes": [
+        {
+          "cause": "Too much width across the back",
+          "evidence": "There are loose vertical folds down the back as well."
+        },
+        {
+          "cause": "Shoulder slope drawn too square",
+          "evidence": "There is fabric gathering at the shoulder tip as well."
+        },
+        {
+          "cause": "Armhole drawn too wide",
+          "evidence": "The gap is even all the way around the armhole."
+        }
+      ]
+    },
+    "SYM-016": {
+      "observation": "Drag lines run from the bust point out toward the side seam or the armhole; the fabric is strained over the bust.",
+      "causes": [
+        {
+          "cause": "More bust volume than the pattern assumes",
+          "evidence": "The lines RADIATE from the bust point; the front hem also rides up and the front neckline gapes."
+        },
+        {
+          "cause": "The whole front is too small (size choice)",
+          "evidence": "The same tightness is everywhere — waist, hip and sleeve — not only at the bust."
+        },
+        {
+          "cause": "The dart point stops far from the apex, putting the volume in the wrong place",
+          "evidence": "There is tension BUT total front width is adequate; the dart point ends noticeably short of the apex."
+        }
+      ]
+    },
+    "SYM-017": {
+      "observation": "The front hem sits noticeably higher than the back hem; the garment looks short at the front.",
+      "causes": [
+        {
+          "cause": "Bust volume is pulling the front fabric up",
+          "evidence": "There are drag lines radiating from the bust as well, and the side seam swings forward."
+        },
+        {
+          "cause": "Front bodice length is too short",
+          "evidence": "There are NO drag lines — only the length is short, and the bust area is comfortable."
+        },
+        {
+          "cause": "Abdominal volume is pulling the fabric up",
+          "evidence": "The rise starts BELOW the waist; the bust is clean."
+        }
+      ]
+    },
+    "SYM-018": {
+      "observation": "The side seams do not hang vertically; they swing toward the front.",
+      "causes": [
+        {
+          "cause": "Not enough volume in the front (bust or abdomen)",
+          "evidence": "The swing comes with tightness at bust or abdomen level."
+        },
+        {
+          "cause": "Too much width across the back",
+          "evidence": "The seam swings but there is NO tightness at the front; the back has loose vertical folds."
+        },
+        {
+          "cause": "The fabric was cut off grain",
+          "evidence": "The swing is on one side only; it is not symmetrical."
+        }
+      ]
+    },
+    "SYM-019": {
+      "observation": "The fabric puckers or forms a small bubble at the point of the bust dart.",
+      "causes": [
+        {
+          "cause": "The dart point ends on top of the apex (dart too long)",
+          "evidence": "The bubble is exactly at the dart point; the apex itself is flat."
+        },
+        {
+          "cause": "The dart takes up more volume than this body needs",
+          "evidence": "There is general slackness around the dart as well."
+        },
+        {
+          "cause": "The dart was not tapered to nothing when sewn",
+          "evidence": "The pucker is irregular; there is a knot or backstitch at the dart point."
+        }
+      ]
+    },
+    "SYM-020": {
+      "observation": "There is a hollow, collapsing area ABOVE the bust, between the collarbone and the bust.",
+      "causes": [
+        {
+          "cause": "The bust dart is positioned above the apex",
+          "evidence": "The hollow is directly above the dart, and the dart point sits above the apex."
+        },
+        {
+          "cause": "Too much width across the upper front",
+          "evidence": "The hollow is spread over a wide area, and the front edge of the armhole gapes as well."
+        },
+        {
+          "cause": "The pattern was drafted for a fuller upper chest",
+          "evidence": "The hollow follows the high-bust line, and your high bust is smaller than the pattern assumes."
+        }
+      ]
+    },
+    "SYM-021": {
+      "observation": "The button band pulls open horizontally at bust level; gaps appear between the buttons.",
+      "causes": [
+        {
+          "cause": "Not enough bust volume",
+          "evidence": "The opening is CONCENTRATED at bust level; the closure lies flat above and below."
+        },
+        {
+          "cause": "The front extension is too narrow",
+          "evidence": "The opening is spread EVENLY along the whole closure."
+        },
+        {
+          "cause": "There is no button at bust level",
+          "evidence": "The gap falls between two buttons, and there is no button at apex height."
+        }
+      ]
+    },
+    "SYM-022": {
+      "observation": "The waist seam or waistband sits above or below your natural waist.",
+      "causes": [
+        {
+          "cause": "Bodice length differs from what the pattern assumes",
+          "evidence": "The displacement is EVEN all the way around — the same amount front and back."
+        },
+        {
+          "cause": "Front-to-back balance is off",
+          "evidence": "The displacement is a DIFFERENT amount at the front and at the back."
+        },
+        {
+          "cause": "The design is deliberately high- or low-waisted",
+          "evidence": "The pattern line drawing and the finished-garment measurements show this."
+        }
+      ]
+    },
+    "SYM-023": {
+      "observation": "Fabric pools in horizontal folds just ABOVE the waist at the back.",
+      "causes": [
+        {
+          "cause": "Sway back — excess length at centre back at waist level",
+          "evidence": "The excess is concentrated at CENTRE BACK and fades toward the side seams; the front is clean."
+        },
+        {
+          "cause": "Back bodice length is too long overall",
+          "evidence": "The excess is spread EVENLY across the back width, including at the side seams."
+        },
+        {
+          "cause": "Seat volume is pushing the fabric up",
+          "evidence": "The pooling comes with horizontal drag lines over the seat."
+        }
+      ]
+    },
+    "SYM-024": {
+      "observation": "The waistband stands away from the body at the back, leaving a gap.",
+      "causes": [
+        {
+          "cause": "Sway back",
+          "evidence": "The gap is widest at centre back and closes at the sides; there is pooling just above the waist as well."
+        },
+        {
+          "cause": "Your waist-to-hip ratio differs from the pattern's",
+          "evidence": "The waistband fits the waist, but the hip area is tight or loose."
+        },
+        {
+          "cause": "The waistband was cut too long",
+          "evidence": "The gap is even all the way around."
+        }
+      ]
+    },
+    "SYM-025": {
+      "observation": "Loose vertical folds sit at waist level near the side seams.",
+      "causes": [
+        {
+          "cause": "Too much waist circumference",
+          "evidence": "The folds are vertical and symmetrical; the bust and hip fit."
+        },
+        {
+          "cause": "Not enough waist shaping (darts)",
+          "evidence": "There is excess, but taking it out at the side seam makes the hip tight."
+        },
+        {
+          "cause": "One size too large was chosen",
+          "evidence": "The same excess is present at the bust and hip."
+        }
+      ]
+    },
+    "SYM-026": {
+      "observation": "The waist seam or waistband binds; it is uncomfortable when you sit and leaves a mark.",
+      "causes": [
+        {
+          "cause": "Not enough waist circumference",
+          "evidence": "The binding is even all the way around and increases when you sit."
+        },
+        {
+          "cause": "The waistline sits at the wrong level (below the natural waist)",
+          "evidence": "The binding is below the waist, at abdomen level."
+        },
+        {
+          "cause": "Abdominal volume",
+          "evidence": "The binding is at the FRONT only; the back is comfortable."
+        }
+      ]
+    },
+    "SYM-027": {
+      "observation": "Horizontal drag lines cross the seat; the fabric is strained over it.",
+      "causes": [
+        {
+          "cause": "More seat volume than the pattern assumes",
+          "evidence": "The lines are CONCENTRATED over the seat; the side seam swings back and the back hem rises."
+        },
+        {
+          "cause": "Not enough crotch length (in trousers)",
+          "evidence": "Along with the lines, the crotch is pulled up and sitting down is difficult."
+        },
+        {
+          "cause": "Not enough hip circumference overall",
+          "evidence": "The same tightness is present at the FRONT too."
+        }
+      ]
+    },
+    "SYM-028": {
+      "observation": "Fabric sags just BELOW the seat, forming an empty pouch.",
+      "causes": [
+        {
+          "cause": "Less seat volume than the pattern assumes (flat seat)",
+          "evidence": "The sag is below the seat; there is NO tension over the seat."
+        },
+        {
+          "cause": "Crotch length is too long",
+          "evidence": "The sag reaches down into the crotch area, and the crotch does not touch the body."
+        },
+        {
+          "cause": "Back bodice or skirt length is too long",
+          "evidence": "The sag is a horizontal fold and reaches up to waist level."
+        }
+      ]
+    },
+    "SYM-029": {
+      "observation": "The skirt or trouser rides up over one hip; the hem is not parallel to the floor.",
+      "causes": [
+        {
+          "cause": "Body asymmetry (one hip higher or fuller)",
+          "evidence": "The rise is on ONE SIDE and persists when you distribute your weight evenly."
+        },
+        {
+          "cause": "Posture: weight resting on one leg",
+          "evidence": "The rise DISAPPEARS when you even out your weight."
+        },
+        {
+          "cause": "The fabric was cut off grain",
+          "evidence": "The rise comes with the side seam spiralling."
+        }
+      ]
+    },
+    "SYM-030": {
+      "observation": "The side seam swings toward the back at hip level.",
+      "causes": [
+        {
+          "cause": "Not enough volume at the back",
+          "evidence": "The swing comes with horizontal tension over the seat."
+        },
+        {
+          "cause": "Too much volume at the front",
+          "evidence": "The seam swings but there is NO tension at the back; the front is slack."
+        },
+        {
+          "cause": "The fabric was cut off grain",
+          "evidence": "The swing is on one side only."
+        }
+      ]
+    },
+    "SYM-031": {
+      "observation": "Diagonal drag lines run from the sleeve cap toward the bicep and increase when the arm is raised.",
+      "causes": [
+        {
+          "cause": "Not enough width at the bicep",
+          "evidence": "The lines concentrate at the bicep line and increase clearly when the arm is raised."
+        },
+        {
+          "cause": "The sleeve cap is too high",
+          "evidence": "The lines are around the cap; the bicep is comfortable."
+        },
+        {
+          "cause": "The armhole is narrow and is pinching the sleeve",
+          "evidence": "The lines start at the armhole seam; the sleeve alone is comfortable."
+        }
+      ]
+    },
+    "SYM-032": {
+      "observation": "Loose vertical folds hang in the upper sleeve; the sleeve looks baggy.",
+      "causes": [
+        {
+          "cause": "Too much sleeve width",
+          "evidence": "The folds are vertical and arm movement is completely free."
+        },
+        {
+          "cause": "The design is deliberately a full sleeve",
+          "evidence": "The pattern line drawing and finished-measurement table show a full sleeve."
+        },
+        {
+          "cause": "Too much sleeve-cap ease, gathering at the cap",
+          "evidence": "The excess concentrates at the cap and fades downward."
+        }
+      ]
+    },
+    "SYM-033": {
+      "observation": "The sleeve twists on the arm; the underarm seam spirals instead of hanging straight.",
+      "causes": [
+        {
+          "cause": "Sleeve-cap notches are misaligned (shifted front or back)",
+          "evidence": "The twist runs the SAME way on both sleeves, and the cap notches do not line up with the shoulder seam."
+        },
+        {
+          "cause": "The sleeve's elbow curve does not match the arm's carriage (forward arm)",
+          "evidence": "The twist shows with the arm hanging relaxed, and there is a pull at elbow level."
+        },
+        {
+          "cause": "The sleeve was cut off grain",
+          "evidence": "The twist is on ONE sleeve only."
+        }
+      ]
+    },
+    "SYM-034": {
+      "observation": "The sleeve cap puckers where it joins the armhole.",
+      "causes": [
+        {
+          "cause": "Too much cap ease for this fabric",
+          "evidence": "The puckering is along the upper curve of the cap, and the fabric is crisp or firm."
+        },
+        {
+          "cause": "The ease is right but it was not distributed before setting the sleeve",
+          "evidence": "The puckering is irregular and bunched, with tucks at particular points."
+        },
+        {
+          "cause": "The armhole was sewn to a different measurement than the pattern",
+          "evidence": "The armhole measurement does not match the pattern."
+        }
+      ]
+    },
+    "SYM-035": {
+      "observation": "Horizontal drag lines sit under the seat; the crotch is pulled up and is uncomfortable.",
+      "causes": [
+        {
+          "cause": "Not enough crotch depth",
+          "evidence": "It increases clearly when you sit and eases when you stand."
+        },
+        {
+          "cause": "Not enough back crotch length",
+          "evidence": "It is present standing as well, and the seat is under tension too."
+        },
+        {
+          "cause": "The back crotch curve is too straight for this body",
+          "evidence": "The pull is only at the bend of the curve; depth and length measure adequate."
+        }
+      ]
+    },
+    "SYM-036": {
+      "observation": "Fabric collects in a U-shape at the front crotch.",
+      "causes": [
+        {
+          "cause": "Front crotch length is too long",
+          "evidence": "The excess is at the front crotch; the back is clean."
+        },
+        {
+          "cause": "Crotch depth is too deep",
+          "evidence": "The excess is at both front and back, and the crotch does not touch the body."
+        },
+        {
+          "cause": "The front crotch curve is scooped too deeply",
+          "evidence": "The measurements are right but the curve is too deep."
+        }
+      ]
+    },
+    "SYM-037": {
+      "observation": "Diagonal drag lines run from the crotch point toward the hip.",
+      "causes": [
+        {
+          "cause": "Not enough thigh circumference",
+          "evidence": "The lines concentrate at thigh level and increase when you sit."
+        },
+        {
+          "cause": "The crotch curve does not match the body",
+          "evidence": "The lines come straight off the crotch point; thigh circumference is adequate."
+        },
+        {
+          "cause": "Abdominal or seat volume is pulling the fabric toward the crotch",
+          "evidence": "The lines run downward, starting at abdomen or seat level."
+        }
+      ]
+    },
+    "SYM-038": {
+      "observation": "The trouser leg twists; the inseam does not hang straight.",
+      "causes": [
+        {
+          "cause": "Leg carriage (knees turning in or out) is rotating the fabric",
+          "evidence": "The twist is symmetrical on both legs and shows when standing."
+        },
+        {
+          "cause": "The crotch curve is unbalanced front to back",
+          "evidence": "The twist starts at crotch level."
+        },
+        {
+          "cause": "The leg was cut off grain",
+          "evidence": "The twist is on ONE leg only."
+        }
+      ]
+    },
+    "SYM-039": {
+      "observation": "The crotch hangs low and away from the body, making it hard to take a step.",
+      "causes": [
+        {
+          "cause": "Crotch depth is too deep",
+          "evidence": "The gap between crotch and body is there standing as well, and sitting is comfortable."
+        },
+        {
+          "cause": "The design has a deliberately dropped crotch",
+          "evidence": "The pattern line drawing shows a low crotch."
+        },
+        {
+          "cause": "The waistline sits below the natural waist",
+          "evidence": "The waistband sits low and the crotch has come down with it."
+        }
+      ]
+    },
+    "SYM-040": {
+      "observation": "The hem is not parallel to the floor; it rises or drops in one area.",
+      "causes": [
+        {
+          "cause": "A volume (bust, abdomen or seat) is pulling the fabric up",
+          "evidence": "The rise is on the side of that volume, and there are drag lines in the same area."
+        },
+        {
+          "cause": "Front-to-back balance is off",
+          "evidence": "One side rises while the other drops; it is symmetrical."
+        },
+        {
+          "cause": "Body asymmetry",
+          "evidence": "The rise is on one side and persists when your weight is evened out."
+        }
+      ]
+    },
+    "SYM-041": {
+      "observation": "The garment rotates on the body; the side seams migrate forward or backward as you wear it.",
+      "causes": [
+        {
+          "cause": "Front-to-back volume distribution does not match the body",
+          "evidence": "The rotation runs consistently in one direction and repeats every time you wear it."
+        },
+        {
+          "cause": "Body asymmetry",
+          "evidence": "The rotation is one-directional and comes with other one-sided signs."
+        },
+        {
+          "cause": "The pieces were cut off grain",
+          "evidence": "The rotation is irregular; the grainlines are not parallel to the selvedge."
+        }
+      ]
+    },
+    "SYM-042": {
+      "observation": "The centre front or centre back does not hang perpendicular to the floor; the balance lines are not level.",
+      "causes": [
+        {
+          "cause": "Posture (leaning forward or back) is throwing the balance off",
+          "evidence": "The deviation is symmetrical and persists in your natural standing posture."
+        },
+        {
+          "cause": "A volume (bust or seat) is pulling the fabric",
+          "evidence": "The deviation starts at the level of that volume."
+        },
+        {
+          "cause": "A piece was cut off grain",
+          "evidence": "The deviation is in one piece only and is irregular."
+        }
+      ]
+    },
+    "SYM-043": {
+      "observation": "A LENGTH is wrong (sleeve, leg, hem or bodice) but there is no other sign at all: no wrinkles, no drag, no displacement, no gaping.",
+      "causes": [
+        {
+          "cause": "The pattern's length does not match your height",
+          "evidence": "The garment sits cleanly everywhere, the balance lines are true, and there is no drag or fold — ONLY the length differs."
+        },
+        {
+          "cause": "The design is deliberately short or long",
+          "evidence": "The pattern line drawing and finished-measurement table show this length."
+        },
+        {
+          "cause": "The hem allowance was turned differently than the pattern assumes",
+          "evidence": "The difference equals the pattern's hem allowance; the rest of the garment matches the pattern exactly."
+        }
+      ]
+    }
+  }
+}

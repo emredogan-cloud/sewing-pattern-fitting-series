@@ -4,9 +4,17 @@
 > (`DECISIONS.md K24`). Kalibrasyon Faz 2'nin işidir
 > (`BOOK-01/00_SPEC/PHASE_2_ROADMAP.md § G1`, `G2`).
 >
-> ⚠ **DURUM: `DESIGN_TARGET_NOT_CALIBRATED`.** Bu belgedeki her punto
-> değeri bir tasarım hedefidir, ölçülmüş sonuç değil — `VISUAL_STANDARD.md`
-> ile aynı disiplin.
+> ⚠ **DURUM: Faz 2'de KALİBRE EDİLDİ — ama yalnızca DİJİTAL RENDER'da.**
+> `T1`, `T2` ve `Y1` ölçüldü; `T3` (üç insan okuyucu) ve `T4`/`T6`
+> (gerçek prova baskısı, KDP Previewer) **hâlâ dış bağımlılıktır** —
+> `EXTERNAL_DEPENDENCIES.md` `D-05`, `D-06`.
+> Ölçüm kaydı: `03_VISUAL/calibration_report.json` ·
+> `03_VISUAL/font_legibility_scan.json`
+>
+> ⚠ **YEDEK YAZI TİPİ DEĞİŞTİ (`DECISIONS.md K38`).** Aşağıdaki
+> § 3.3'te adlandırılmış **Atkinson Hyperlegible**, ürünün kendi `Y1`
+> gereksinimini karşılamadığı **ölçüldüğü** için elendi. Yerine
+> **IBM Plex Sans** geçti. Tarihsel gerekçe § 3.3'te korunmuştur.
 
 ---
 
@@ -18,7 +26,8 @@
 | **Lisans** | **SIL Open Font License 1.1** (yalnızca) |
 | Metin | **Source Serif 4** |
 | Başlık · tablo · figür etiketi | **Source Sans 3** |
-| Figür etiketi yedeği | **Atkinson Hyperlegible** — Faz 2 testi başarısız olursa |
+| Figür etiketi yedeği | **IBM Plex Sans** — Faz 2'de ölçülerek seçildi (`K38`) |
+| *(elenen yedek)* | ~~Atkinson Hyperlegible~~ — `Y1`'i karşılamıyor: ⅛ ⅜ ⅝ ⅞ ve ″ glifleri **yok** |
 | Tek yazı boyu | **Yok** — hiçbir yerde tek başına punto anlam taşımaz |
 
 ## 1 · Neden lisans önce, estetik sonra
@@ -90,7 +99,28 @@ ama Source Serif 4'ün rakam özellik seti daha eksiksiz belgelenmiş).
 | **Y3 ayırt edilebilirlik** | ⚠ **Faz 2'de ÖLÇÜLECEK** — § 4 |
 | **Y4 dayanıklılık** | Düşük kontrast, açık iç boşluklar |
 
-### 3.3 · Figür etiketi yedeği — **Atkinson Hyperlegible**
+### 3.3 · Figür etiketi yedeği — ~~Atkinson Hyperlegible~~ → **IBM Plex Sans**
+
+> **FAZ 2 BULGUSU — bu bölümün kararı DEĞİŞTİ (`DECISIONS.md K38`).**
+>
+> Atkinson Hyperlegible (ve 2025 sürümü Atkinson Hyperlegible Next)
+> **⅛ ⅜ ⅝ ⅞** kesir gliflerini ve **″** inç işaretini **taşımıyor**.
+> `Y1` bu ürünün birinci tipografik gereksinimidir: ABD ev dikişinin
+> standart dikiş payı **⅝ inç**tir. Bir ölçü kitabının figür etiketi
+> `⅝` yazamıyorsa o yazı tipi yedek olamaz.
+>
+> Beş aday ölçüldü (`06_BUILD/font_legibility_scan.py`). **Inter de
+> elendi**: küçük `l` ile büyük `I` piksel piksel **aynıdır** — `Y3`'ün
+> tam olarak tanımladığı başarısızlık. Yeni yedek: **IBM Plex Sans**
+> (SIL OFL 1.1), en kötü çift 0,347, ortalama 0,608 (adaylar arasında
+> en yüksek ortalama).
+>
+> Yan bulgu: **birincil seçim de doğrulandı.** Source Sans 3 en kötü
+> çift ölçütünde birinci çıktı (0,391).
+>
+> Aşağıdaki özgün gerekçe **tarihsel kayıt olarak** korunmuştur.
+
+#### Özgün gerekçe (Faz 1) — Atkinson Hyperlegible
 
 Braille Institute tarafından **karakterleri birbirinden ayırmak** için
 tasarlanmıştır: 1/l/I, 0/O ve 6/8/9 çiftleri kasıtlı olarak
@@ -119,12 +149,12 @@ turda yapılmadı.
 
 | # | Test | Geçme ölçütü |
 |---|---|---|
-| **T1** | ⅛ ¼ ⅜ ½ ⅝ ¾ ⅞ gliflerinin gerçek render'ı | Yedisi de doğru çizilir; **⅝ ayrıca gerçek baskı provasında** okunur |
-| **T2** | Ölçü tablosunda sütun hizalaması | Rakamlar hizalı; değilse `tnum` yoksa alternatif seçilir |
-| **T3** | **Rakam ayırt edicilik** — 6 pt'de basılmış 1/l/I · 0/O · 6/8/9 dizisi, gerçek kâğıtta, üç kişiye okutulur | **Sıfır yanlış okuma.** Başarısızsa § 3.3 devreye girer |
-| **T4** | En ince çizgi (0,4 pt `callout_leader`) + en küçük etiket, gerçek POD provasında | Çizgi kaybolmuyor, tırnak dolmuyor |
+| **T1** | ⅛ ¼ ⅜ ½ ⅝ ¾ ⅞ gliflerinin gerçek render'ı | ✓ **ÖLÇÜLDÜ** — Source Serif 4 ve Source Sans 3'te yedisi de var ve doğru çiziliyor. **Bulgu:** reportlab OpenType `frac` özelliğini UYGULAMAZ; kesirler **önceden birleştirilmiş** gliflerle dizilir. Yedi glif ABD ev dikişinin bütün kesirlerini karşılar. ⅝'in **gerçek baskı provasında** okunması `D-06` |
+| **T2** | Ölçü tablosunda sütun hizalaması | ✓ Tablo grafikleri sabit sütun genişlikleriyle **üretiliyor** (`figure_engine._draw_table`); hizalama yazı tipinin `tnum` desteğine bırakılmadı |
+| **T3** | **Rakam ayırt edicilik** — 6 pt'de basılmış 1/l/I · 0/O · 6/8/9 dizisi, gerçek kâğıtta, üç kişiye okutulur | ⏳ **DIŞ BAĞIMLILIK** (`D-05`). Faz 2'de **piksel düzeyinde ön eleme** yapıldı: Inter elendi (`l/I` = 0,000). Piksel farkı okunabilirliği **ölçmez** ve `T3`'ün yerine **geçmez** |
+| **T4** | En ince çizgi (0,4 pt `callout_leader`) + en küçük etiket, gerçek POD provasında | ⏳ **DIŞ BAĞIMLILIK** (`D-06`). Faz 2 dijital ölçümü: 0,4 pt çizgi 300 dpi 1-bit rasterda **2 piksel** ve **hayatta**. Mürekkep yayılması ölçülmedi |
 | **T5** | İnç işareti disiplini | Daktilo tırnağı `"` **hiçbir yerde** geçmiyor — § 5 |
-| **T6** | PDF gömme | Bütün yazı tipleri gömülü; ön izleyici reddetmiyor |
+| **T6** | PDF gömme | ⏳ **DIŞ BAĞIMLILIK** (`D-06`). Üretilen 154 figür PDF'i yazı tiplerini gömüyor (reportlab `TTFont`); KDP Previewer'ın kabul ettiği **doğrulanmadı** |
 
 ## 5 · Sert dizgi kuralları
 
@@ -155,8 +185,12 @@ turda yapılmadı.
 | Figür içi sayısal etiket | 7 pt, tablo rakamı | `TK-02`/`TK-03` okları etiketsiz çizilemez |
 | Dipnot | 8,5 pt | |
 
-**Bu tablodaki hiçbir sayı ölçülmemiştir.** Faz 2 gerçek render ve
-gerçek prova baskısıyla kalibre eder.
+**Faz 2 bu tabloyu kısmen ölçtü.** Gövde punto/satır aralığı çifti
+(10,5 / 14,5 pt) sayfa geometrisiyle birlikte ölçüldü: dar metin
+sütununda **83,0 karakter** (hedef 72–88 — `DECISIONS.md K39`).
+Figür etiketi (7 pt) ve en küçük punto (6 pt) dijital rasterda okunur
+durumda; **gerçek kâğıtta okunması `D-05`/`D-06`'dır** ve bu tablo
+onlar yapılmadan "doğrulandı" diyemez.
 
 ## 7 · Ticari yazı tipi ne zaman gündeme gelir
 

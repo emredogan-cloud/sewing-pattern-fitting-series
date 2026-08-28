@@ -5,10 +5,16 @@
 > · token sözlüğü: `03_VISUAL/visual_language_tokens.json` (18 token)
 > · tipografi: [`../../00_CONTEXT/TYPOGRAPHY_STANDARD.md`](../../00_CONTEXT/TYPOGRAPHY_STANDARD.md)
 >
-> **Bu belge Kitap 1'in görsel İHTİYACINI tanımlar. Hiçbir figür
-> üretilmedi** — üretim Faz 2'nin (`phase2-visual`) işidir.
+> **FAZ 2 YÜRÜTÜLDÜ.** Bu belge artık yalnızca ihtiyacı değil, ihtiyacın
+> **ÖLÇÜLMÜŞ** karşılığını da taşır. **154 figür üretildi**
+> (`06_BUILD/figure_engine.py`), sicili
+> `03_VISUAL/figures.json`'dadır.
 >
-> Faz 1 yürütmesinde kapanan kararlar: `A6` (renk), `A7` (yazı tipi),
+> ⚠ **Aşağıdaki § 1 ve § 2 tahminlerinin ikisi de ÖLÇÜMLE
+> DEĞİŞTİ** — `DECISIONS.md K41`. Tahminler tarihsel kayıt olarak
+> korunmuş, ölçüm sonuçları yanına yazılmıştır.
+>
+> Faz 1'de kapanan kararlar: `A6` (renk), `A7` (yazı tipi),
 > `A8` (birim), `A11` (fotoğraf).
 
 ---
@@ -27,8 +33,27 @@
 | `comparison_before_after` | ~6 | Kısmen | Ölçüm hatası çiftleri |
 | **Toplam (tahmin)** | **~123** | | |
 
-⚠ Bu sayılar **tahmindir**. Gerçek sayı Faz 2'de ölçülür ve
-`RISK_REGISTER R-05`'in (görsel üretim hacmi) ana girdisidir.
+⚠ Bu sayılar **tahmindi**. **ÖLÇÜLDÜ — Faz 2:**
+
+| Tür | Tahmin | **ÖLÇÜLEN** | Fark |
+|---|---:|---:|---|
+| `flowchart` | 9 | **46** | +37 — bölge şeması sayfaya sığmıyor (§ 2) |
+| `measurement_path` | ≥32 | **29** | üç türetilmiş ölçü (`M-031`–`M-033`) yol değil **hesap** figürüdür ve `table_graphic` sayıldı |
+| `fit_sign_on_figure` | ≥43 | **43** | tam isabet |
+| `body_landmark` | 7 | **7** | tam isabet |
+| `table_graphic` | ≥12 | **9** | 6 tablo + 3 türetilmiş ölçü hesabı |
+| `pattern_piece` | ~8 | **8** | tam isabet |
+| `comparison_before_after` | ~6 | **6** | tam isabet |
+| `toile_state` | ~6 | **6** | tam isabet |
+| **Toplam** | **~123** | **154** | **+31** |
+
+**Deterministik üretilebilen oran: %68,2** (105/154). Elle çizim
+gerektiren 49 figürün tamamı `manual_reason` taşıyor ve hepsinin
+gerekçesi aynı: **kumaşın gerçek dökümü kayıttan türetilemez** —
+43 belirti figürü + 6 toile figürü, hepsi Faz 3'ün fiziksel
+sınamasından düzeltilecek.
+
+`RISK_REGISTER R-05`'in ilk **ölçülmüş** değeri budur.
 
 ## 2 · Kitap 1'in imza formu: AKIŞ ŞEMASI
 
@@ -57,9 +82,43 @@ rakip mimarisi katalog, bu kitabınki akıştır.
    küçültülmez.
 
 **Faz 1 yürütmesinde eklenen mekanik dayanak:** kural 3'ün veri
-düzeyindeki karşılığı artık iki kapıda birden denetleniyor —
-`qa_boundary.py` (kapsama) ve **`qa_crosswalk.py § ⑨`** (yolu olmayan
-belirti). Şemanın kendisi Faz 2'de `qa_visual.py` ile denetlenecek.
+düzeyindeki karşılığı iki kapıda denetleniyor — `qa_boundary.py`
+(kapsama) ve `qa_crosswalk.py § ⑨` (yolu olmayan belirti).
+
+### 2.1 · FAZ 2 ÖLÇÜMÜ — kural 4 uygulandı, şemanın BİRİMİ değişti
+
+Motor önce **bölge düzeyinde** şemaları kurdu ve ölçtü. Sayfanın figür
+alanı **504 × 612 pt**'dir:
+
+| Bölge | Belirti | Gereken genişlik | Sığar mı |
+|---|---:|---:|---|
+| `bust_chest` | 6 | 1956 pt | **hayır** |
+| `shoulder` · `waist_torso` · `crotch_leg` | 5 | 1630 pt | **hayır** |
+| `upper_back` · `hip_seat` · `sleeve_arm` · `whole_garment` | 4 | 1304 pt | **hayır** |
+| `neck` · `armhole` | 3 | 978 pt | **hayır** |
+
+**On bölgenin onu da sığmıyor.** En küçüğü bile iki katından fazla yer
+istiyor.
+
+Kural 4 (*"sığmıyorsa konu bölünür, şema küçültülmez"*) uygulandı:
+**akış şemasının birimi bölge değil, BELİRTİ oldu.**
+
+**46 şema** = 43 belirti şeması + 1 bölge yönlendirici + 2 eleme
+şeması. Eleme şeması da bölündü: 11 karıştırıcı sınıfı 693 pt
+istiyordu; sayfa başına 9 satır sığıyor. Bölme sayısı elle yazılmadı,
+**sayfa yüksekliğinden hesaplandı**.
+
+Kural 1 korunur: bir belirti tam olarak bir bölgeye aittir.
+
+**Boşta biten yol YAPISAL OLARAK İMKÂNSIZ.** Motor her belirti şemasını
+şöyle kurar: gözlem → her aday neden için bir ikili karar → `evet`
+dalı devir düğümüne (`AF-xx`) ya da eleme kalemine; **son kararın
+`hayır` dalı her zaman** "Bu belirti değil — bölge şemasına dön"
+düğümüne bağlanır. `qa_visual.py § ④` ayrıca denetler ve
+`selftest.py` kusurlu bir fixture'la kapının **gerçekten kırmızı
+yaktığını** kanıtlar.
+
+**19/19 giriş noktası ailesine ulaşılıyor** — ölçüldü.
 
 ## 3 · Ölçüm figürleri
 
@@ -237,16 +296,19 @@ harcanır.
 
 ## 9 · Faz 2'de ölçülecekler — çıkış ölçütleri
 
-| Ölçüt | Neden |
-|---|---|
-| Deterministik üretilebilen figür **oranı** | Yeniden kullanım ekonomisinin temeli |
-| Ortalama figür üretim süresi | `RISK_REGISTER R-05`'in gerçek büyüklüğü |
-| `manual_reason` taşıyan figür sayısı | Elle çizim yükü |
-| **`color_required` işaretli figür oranı** | `A6`'nın yeniden açılma eşiği (%10) |
-| **`photo_required` işaretli figür sayısı** | `A11`'in yeniden açılma eşiği (6) |
-| Bir yayılıma sığmayan şema sayısı | Konu bölme ihtiyacı |
-| **`TK-05` ↔ `TK-06` ayırt edicilik testi** | § 4'ün teknik gerekliliği — gerçek baskıda sınanır |
-| **Tipografi `T1`–`T6`** | `TYPOGRAPHY_STANDARD § 4` |
+| Ölçüt | **SONUÇ** | Not |
+|---|---|---|
+| Deterministik üretilebilen figür **oranı** | **%68,2** (105/154) | Yeniden kullanım ekonomisinin temeli |
+| Toplam figür sayısı | **154** (tahmin ~123) | `R-05`'in ilk ölçülmüş değeri |
+| `manual_reason` taşıyan figür sayısı | **49** | 43 belirti + 6 toile; hepsi Faz 3'e bağlı |
+| **`color_required` oranı** | **%0,0** (eşik %10) | `A6` yeniden açılmadı |
+| **`photo_required` sayısı** | **0** (eşik 6) | `A11` yeniden açılmadı |
+| Bir yayılıma sığmayan şema | **0** (bölmeden sonra) | Bölme öncesi: 11 |
+| **`TK-05` ↔ `TK-06`** | **AYRIK** — eğrilik oranı **3,49** (eşik 2,0) | § 4'ün teknik gerekliliği; dijital ölçüm |
+| **Tipografi `T1`** | ✓ ölçüldü | Kesir glifleri tam; **yedek yazı tipi elendi** (`K38`) |
+| **Tipografi `T2`** | ✓ sabit sütun | Tablo motoru hizalıyor |
+| **Tipografi `T3` · `T4` · `T5` · `T6`** | ⏳ **DIŞ** | `D-05`, `D-06` |
+| **`G2` satır ölçüsü** | **83,0 karakter** (hedef 72–88) | Sayfa geometrisi ölçümle değişti (`K39`) |
 
 ---
 

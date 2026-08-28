@@ -16,6 +16,8 @@ run 06_BUILD/qa_crosswalk.py --verbose
 run 06_BUILD/qa_boundary.py --verbose
 run 06_BUILD/qa_claims.py --verbose
 run 06_BUILD/qa_terminology.py --verbose
+run 06_BUILD/qa_visual.py --verbose
+run 06_BUILD/fetch_fonts.py --verify
 run 07_TESTS/selftest.py
 echo "──────────────────────────────────────────────────────────────"
 if [ "$FAIL" -eq 0 ]; then echo "✓ BÜTÜN KAPILAR GEÇTİ"; else echo "✗ EN AZ BİR KAPI BAŞARISIZ"; fi

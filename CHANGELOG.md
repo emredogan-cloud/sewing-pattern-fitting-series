@@ -4,6 +4,75 @@ Faz kapanışlarını ve önemli mimari kararları kronolojik sırayla
 kaydeder. Gerekçelerin tam metni `DECISIONS.md`'dedir; burada yalnızca
 **ne zaman ne olduğu** durur.
 
+## [FAZ 2 TAMAM + FAZ 3 KILL-GATE'TE DURDU] — 2026-08-28
+
+> Durum: **Kitap 1 `.gate` = `phase2-visual`** · seri `.gate` =
+> `series-architecture` · `kill_gate.py` → **2 engel, Faz 4 AÇILAMAZ**.
+> Raporlar: `08_REPORTS/SERIES_EXECUTION_REPORT.md` ·
+> `PHASE_2_EXECUTION_REPORT.md` · `PHASE_3_PILOT_PACKAGE.md` ·
+> `PHASE_3_ADVERSARIAL_REVIEW.md`
+
+### Kimlik — `TRUE FIT` → `BEFORE YOU CUT`
+- Kurucu kararı (`K36`). `TRUE FIT` yayımlanan ad olarak **reddedildi**
+  ve tarihsel kayıt **silinmedi** (`series_config.series.nameHistory`).
+- `brandClearanceStatus = founder-approved-working-name` — **hukuki
+  temizlik DEĞİLDİR** ve `A16`/`D-03` olarak açık kaldı.
+- Dizin ve depo adları **değiştirilmedi** (`K37`): bir yol dizesi bir
+  kimlik beyanı değildir.
+- Yeni kapı: `check_retired_name_leak` — `TRUE FIT` kamuya dönük
+  yüzeyde geçemez. `check_public_name_is_declared` —
+  `"professionally-cleared"` **kanıtsız** yazılamaz.
+
+### Faz 2 — görsel sistem ve figür motoru
+- **154 figür üretildi**, %68,2'si deterministik
+  (`06_BUILD/figure_engine.py`, sekiz figür türü).
+- Token sözlüğü **kalibre edildi**: 300/600 dpi 1-bit rasterda ölçüm.
+  Durum `CALIBRATED_DIGITAL_RENDER` — *dijital*, basılı değil.
+- `03_VISUAL/page_geometry.json` — KDP'nin **yayımlanmış asgarilerine**
+  dayalı sayfa geometrisi (`S-0016`).
+- Yeni kapı **`qa_visual.py`** (on denetim) + `fetch_fonts.py --verify`.
+- `figure_tokens.py`: `VISUAL_STANDARD § 5`'in yasakları artık çizimi
+  **durduran** istisnalar (`K42`).
+- Yazı tipleri edinildi ve lisanslandı: Source Serif 4 · Source Sans 3
+  · adaylar. Maliyet **$0**, hepsi SIL OFL 1.1.
+
+### Faz 2'nin YANLIŞLADIĞI dört Faz 1 tahmini
+- Akış şeması **9 → 46**: bölge düzeyinde tek şema hiçbir sayfaya
+  sığmıyor (`K41`).
+- Toplam figür **~123 → 154**.
+- Yedek yazı tipi **Atkinson Hyperlegible → IBM Plex Sans**: Atkinson
+  ⅛ ⅜ ⅝ ⅞ ve ″ gliflerini **taşımıyor** (`K38`). `Inter` ayrıca elendi
+  (`l`/`I` piksel piksel aynı).
+- Satır ölçüsü **107,1 → 83,0 karakter**: sayfa düzeni değişti (`K39`).
+
+### Faz 3 — içeriden yapılabilen kısım
+- **Pilot kesit (Malzeme A)**: 8 sayfa, markasız, İngilizce, nihai
+  sayfa geometrisinde, **7 gerçek figürle** (`06_BUILD/build_pilot.py`).
+- **Fiziksel sınama kiti**: 19 `VAL` kaydı + boş kayıt iskeleti
+  (`06_BUILD/build_val_kit.py`).
+- **Çelişmeli inceleme**: 11 bulgu, iki KRİTİK, üç YÜKSEK,
+  **HARD_STOP yok**.
+- `kill_gate.py` artık `VAL_RECORDS.json` ile çapraz denetliyor: bir
+  `measured` bayrağı, olmayan bir ölçümü var edemez.
+
+### "Kapılar yeşil, ürün bozuk" — dört kez oldu, dördü de kapatıldı
+- `K45` figürler **proje belge dilinde** üretiliyordu; okur dili
+  katmanı + `qa_visual § ⑩` eklendi.
+- `K46` iç kayıt kimlikleri okura basılıyordu (`TK-18` spec'i
+  tipografi standardıyla **çelişiyordu**) + işaret etiketleri üst üste
+  biniyordu. İki yeni kapı.
+- `K47` `.gitignore`'un `*_token*` deseni `figure_tokens.py` ve
+  `calibrate_tokens.py`'yi **yutuyordu** — temiz bir klonda görsel
+  sistem çalışmazdı. Desen daraltıldı, regresyon eklendi.
+- Yeni risk **`R-19`**: bir kapı kümesi, sormadığı soruyu yakalayamaz.
+
+### Kapı durumu
+- Seri `.gate`: `bootstrap` → **`series-architecture`**
+- Kitap 1 `.gate`: `foundation` → **`phase2-visual`**
+- Kitap 1 `phase3-pilot`: **AÇILMADI** — `D-01` ve `D-02` dış beklemede
+- selftest **91 → 138** · kararlar **35 → 47** · riskler **18 → 21**
+  · kaynaklar **15 → 18** · CI işleri **8 → 9**
+
 ## [S1 YÜRÜTME] — 2026-08-28 (14 açık kararın 12'si kapatıldı, kaynak katmanı kuruldu, depo yayımlandı)
 
 > Durum: **READY_FOR_DECISION** — kapılar BİLEREK ilerlemedi.

@@ -1,4 +1,14 @@
-# PROJECT CONTEXT — TRUE FIT
+# PROJECT CONTEXT — BEFORE YOU CUT
+
+> ⚠ **KİMLİK GÜNCELLEMESİ (28 Ağu 2026, `DECISIONS.md K36`).**
+> Serinin kamuya dönük adı **`BEFORE YOU CUT`**'tır. İlk çalışma adı
+> `TRUE FIT` idi ve marka çakışması nedeniyle **reddedildi** (`K18`).
+> Aşağıdaki metinde `TRUE FIT` geçen yerler **tarihsel kayıttır** ve
+> silinmemiştir. Dizin/depo adları da değiştirilmedi (`K37`).
+>
+> ⚠ **DURUM: Kitap 1 Faz 2 tamam, Faz 3 kill-gate'inde durdu.**
+> `EXTERNAL_DEPENDENCIES.md` `D-01` ve `D-02`.
+
 
 > **Projeye yeni giren her ajanın ve her insanın okuyacağı ilk
 > belgedir.**

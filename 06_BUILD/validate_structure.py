@@ -76,8 +76,25 @@ REQUIRED_SERIES_DOCS = [
     "00_CONTEXT/ADS_FRAMEWORK.md",
     "01_SOURCE/PUBLIC_SOURCE_SURVEY.md",
     "01_SOURCE/ACQUISITION_REQUEST_QUEUE.md",
+    # Faz 2'de eklendi (DECISIONS.md K36, K39, K40):
+    "EXTERNAL_DEPENDENCIES.md",
+    "03_VISUAL/page_geometry.json",
+    "03_VISUAL/fonts/fonts_manifest.json",
 ]
 REQUIRED_BOOK_DOCS = ["ROADMAP.md", "book_config.json", ".gate", "README.md"]
+
+# ── Hat ⑤: emekliye ayrılmış seri adı ────────────────────────────────
+# 'TRUE FIT' yayımlanan ad olarak REDDEDİLDİ (DECISIONS.md K18). Kamuya
+# dönük yüzeylerde geçemez. Tarihsel kayıt korunur ve MUAFTIR (K37):
+# bir kararın gerekçesi, reddettiği adı anmadan yazılamaz.
+RETIRED_NAMES = ["true fit", "truefit", "true-fit"]
+RETIRED_NAME_SCANNED_SUFFIXES = ("metadata.json", "TITLE.md", "KEYWORDS.md",
+                                 "BLURB.md", "DESCRIPTION.md", "COVER_BRIEF.md")
+RETIRED_NAME_ALLOWED_FILES = {
+    # Karar ve tarih kaydı — adı ANMAK zorundadır:
+    "DECISIONS.md", "OPEN_QUESTIONS.md", "RISK_REGISTER.md", "CHANGELOG.md",
+    "series_config.json", "06_BUILD/validate_structure.py", "07_TESTS/selftest.py",
+}
 
 
 def git_ls_files() -> list[str]:
@@ -166,6 +183,54 @@ def check_brand_leak(errors: list):
 DEPENDENCY_CONTEXT = ("import ", "sys.path", "Path(", "open(", "../", "..\\", "subprocess")
 
 
+def check_retired_name_leak(errors: list):
+    """Hat 5: reddedilmiş seri adı kamuya dönük yüzeyde geçemez.
+
+    Dizin ve YOL adları taranmaz: bir yol dizesi bir kimlik beyanı
+    değildir ve yeniden adlandırmanın maliyeti kazancından büyüktür
+    (DECISIONS.md K37). Taranan şey, okurun GÖRECEĞİ metindir."""
+    for f in sorted(paths.ROOT.rglob("*")):
+        if not f.is_file():
+            continue
+        rel = f.relative_to(paths.ROOT).as_posix()
+        if rel.startswith((".git/", "06_BUILD/__pycache__/", "03_VISUAL/fonts/")):
+            continue
+        if rel in RETIRED_NAME_ALLOWED_FILES:
+            continue
+        if not rel.endswith(RETIRED_NAME_SCANNED_SUFFIXES):
+            continue
+        try:
+            text = f.read_text(encoding="utf-8", errors="ignore").lower()
+        except OSError:
+            continue
+        for n in RETIRED_NAMES:
+            if n in text:
+                errors.append(
+                    f"EMEKLİYE AYRILMIŞ AD SIZINTISI: {rel} içinde {n!r} — "
+                    f"'TRUE FIT' yayımlanan ad olarak REDDEDİLDİ (DECISIONS.md K18); "
+                    f"kamuya dönük yüzeyde geçemez. Kullanılacak ad: "
+                    f"series_config.json → series.publicName.")
+                break
+
+
+def check_public_name_is_declared(errors: list):
+    """publicName ve marka temizlik durumu SESSİZ KALAMAZ."""
+    cfg = json.loads(paths.SERIES_CONFIG.read_text(encoding="utf-8"))["series"]
+    if not cfg.get("publicName"):
+        errors.append("series_config.json → series.publicName YOK — "
+                      "kamuya dönük kimlik beyan edilmeden metadata üretilemez.")
+    st = cfg.get("brandClearanceStatus")
+    allowed = {"founder-approved-working-name", "professional-clearance-in-progress",
+               "professionally-cleared", "not-started"}
+    if st not in allowed:
+        errors.append(f"series_config.json → brandClearanceStatus={st!r} "
+                      f"tanımlı bir durum DEĞİL {sorted(allowed)}.")
+    if st == "professionally-cleared" and not cfg.get("brandClearanceEvidence"):
+        errors.append("brandClearanceStatus='professionally-cleared' ama "
+                      "brandClearanceEvidence YOK — hukuki temizlik KANITSIZ "
+                      "iddia edilemez (CLAIMS_STANDARD.md § 1).")
+
+
 def check_no_sibling_dependency(errors: list):
     """K2: hiçbir kardeş depo bu deponun build'i için GEREKLİ olamaz.
 
@@ -198,6 +263,8 @@ def main():
     check_protected_dirs(tracked, errors)
     check_photo_leak(tracked, errors)
     check_brand_leak(errors)
+    check_retired_name_leak(errors)
+    check_public_name_is_declared(errors)
     check_no_sibling_dependency(errors)
 
     result = {"tracked_file_count": len(tracked), "errors": errors, "passed": not errors}

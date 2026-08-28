@@ -1,0 +1,548 @@
+{
+  "$comment": [
+    "CALIBRATION REPORT — 06_BUILD/calibrate_tokens.py çıktısı.",
+    "Faz 2 / G1. Her sayı bir RENDER ölçümüdür.",
+    "",
+    "⚠ SINIR: bu ölçüm DİJİTAL rasterdır. Talep-üzerine baskının",
+    "  mürekkep yayılması ölçüme GİRMEZ. T3 (üç insan okuyucu) ve",
+    "  T4 (gerçek prova baskısı) DIŞ BAĞIMLILIKTIR —",
+    "  EXTERNAL_DEPENDENCIES.md D-05, D-06."
+  ],
+  "measured_on": "2026-08-28",
+  "tool_chain": {
+    "renderer": "reportlab 4.5.1",
+    "rasterizer": "pdftoppm (poppler)",
+    "analyzer": "Pillow 10.2.0"
+  },
+  "page_geometry_profile": "PG-B1-8.5x11",
+  "per_dpi": {
+    "300": {
+      "strokes": [
+        {
+          "role": "pattern_edge_modified",
+          "target_pt": 1.6,
+          "measured_px": 7,
+          "measured_pt": 1.68,
+          "expected_px": 6.67,
+          "survives": true
+        },
+        {
+          "role": "body_outline",
+          "target_pt": 1.2,
+          "measured_px": 5,
+          "measured_pt": 1.2,
+          "expected_px": 5.0,
+          "survives": true
+        },
+        {
+          "role": "garment_outline",
+          "target_pt": 1.0,
+          "measured_px": 4,
+          "measured_pt": 0.96,
+          "expected_px": 4.17,
+          "survives": true
+        },
+        {
+          "role": "pattern_edge_original",
+          "target_pt": 1.0,
+          "measured_px": 4,
+          "measured_pt": 0.96,
+          "expected_px": 4.17,
+          "survives": true
+        },
+        {
+          "role": "grainline",
+          "target_pt": 0.9,
+          "measured_px": 4,
+          "measured_pt": 0.96,
+          "expected_px": 3.75,
+          "survives": true
+        },
+        {
+          "role": "balance_line",
+          "target_pt": 0.7,
+          "measured_px": 3,
+          "measured_pt": 0.72,
+          "expected_px": 2.92,
+          "survives": true
+        },
+        {
+          "role": "seam_line",
+          "target_pt": 0.6,
+          "measured_px": 3,
+          "measured_pt": 0.72,
+          "expected_px": 2.5,
+          "survives": true
+        },
+        {
+          "role": "construction_line",
+          "target_pt": 0.5,
+          "measured_px": 2,
+          "measured_pt": 0.48,
+          "expected_px": 2.08,
+          "survives": true
+        },
+        {
+          "role": "callout_leader",
+          "target_pt": 0.4,
+          "measured_px": 2,
+          "measured_pt": 0.48,
+          "expected_px": 1.67,
+          "survives": true
+        }
+      ],
+      "dashes": [
+        {
+          "name": "original_state",
+          "pattern": "solid",
+          "transitions": 0,
+          "ink_ratio": 1.0,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "hidden_or_underneath",
+          "pattern": "dash 2-2",
+          "transitions": 154,
+          "ink_ratio": 0.582,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "cut_line_slash",
+          "pattern": "dash 4-2",
+          "transitions": 102,
+          "ink_ratio": 0.723,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "fold_line",
+          "pattern": "dash-dot 6-2-1-2",
+          "transitions": 112,
+          "ink_ratio": 0.689,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "measurement_path",
+          "pattern": "dash 1-1",
+          "transitions": 309,
+          "ink_ratio": 0.641,
+          "distinct_from_solid": true
+        }
+      ],
+      "grays": [
+        {
+          "gray": 0.0,
+          "target_luma": 255.0,
+          "measured_luma": 0.0,
+          "delta": 255.0
+        },
+        {
+          "gray": 0.45,
+          "target_luma": 140.2,
+          "measured_luma": 115.0,
+          "delta": 25.2
+        },
+        {
+          "gray": 0.75,
+          "target_luma": 63.8,
+          "measured_luma": 191.0,
+          "delta": 127.2
+        }
+      ],
+      "tk05_signature": {
+        "ink_ratio": 0.0157,
+        "components": 3,
+        "significant_components": 3,
+        "row_profile_peaks": 4,
+        "col_profile_peaks": 1,
+        "curvature_index": 0.01608,
+        "curvature_per_component": [
+          0.01601,
+          0.01586,
+          0.01637
+        ],
+        "size_px": [
+          266,
+          217
+        ]
+      },
+      "tk06_signature": {
+        "ink_ratio": 0.0156,
+        "components": 3,
+        "significant_components": 3,
+        "row_profile_peaks": 3,
+        "col_profile_peaks": 1,
+        "curvature_index": 0.05618,
+        "curvature_per_component": [
+          0.0565,
+          0.05617,
+          0.05587
+        ],
+        "size_px": [
+          267,
+          217
+        ]
+      },
+      "tk05_tk06_distinguishable": {
+        "ink_delta_ratio": 0.006,
+        "component_counts": [
+          3,
+          3
+        ],
+        "col_peak_delta": 0,
+        "curvature_index": {
+          "TK-05": 0.01608,
+          "TK-06": 0.05618
+        },
+        "curvature_ratio": 3.49,
+        "curvature_threshold": 2.0,
+        "axes_differing": 1,
+        "primary_axis": "curvature",
+        "verdict": "AYRIK — eğrilik ekseni"
+      },
+      "all_strokes_survive_1bit": true,
+      "thinnest_stroke_px": 2
+    },
+    "600": {
+      "strokes": [
+        {
+          "role": "pattern_edge_modified",
+          "target_pt": 1.6,
+          "measured_px": 13,
+          "measured_pt": 1.56,
+          "expected_px": 13.33,
+          "survives": true
+        },
+        {
+          "role": "body_outline",
+          "target_pt": 1.2,
+          "measured_px": 10,
+          "measured_pt": 1.2,
+          "expected_px": 10.0,
+          "survives": true
+        },
+        {
+          "role": "garment_outline",
+          "target_pt": 1.0,
+          "measured_px": 9,
+          "measured_pt": 1.08,
+          "expected_px": 8.33,
+          "survives": true
+        },
+        {
+          "role": "pattern_edge_original",
+          "target_pt": 1.0,
+          "measured_px": 9,
+          "measured_pt": 1.08,
+          "expected_px": 8.33,
+          "survives": true
+        },
+        {
+          "role": "grainline",
+          "target_pt": 0.9,
+          "measured_px": 7,
+          "measured_pt": 0.84,
+          "expected_px": 7.5,
+          "survives": true
+        },
+        {
+          "role": "balance_line",
+          "target_pt": 0.7,
+          "measured_px": 6,
+          "measured_pt": 0.72,
+          "expected_px": 5.83,
+          "survives": true
+        },
+        {
+          "role": "seam_line",
+          "target_pt": 0.6,
+          "measured_px": 5,
+          "measured_pt": 0.6,
+          "expected_px": 5.0,
+          "survives": true
+        },
+        {
+          "role": "construction_line",
+          "target_pt": 0.5,
+          "measured_px": 4,
+          "measured_pt": 0.48,
+          "expected_px": 4.17,
+          "survives": true
+        },
+        {
+          "role": "callout_leader",
+          "target_pt": 0.4,
+          "measured_px": 3,
+          "measured_pt": 0.36,
+          "expected_px": 3.33,
+          "survives": true
+        }
+      ],
+      "dashes": [
+        {
+          "name": "original_state",
+          "pattern": "solid",
+          "transitions": 0,
+          "ink_ratio": 1.0,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "hidden_or_underneath",
+          "pattern": "dash 2-2",
+          "transitions": 154,
+          "ink_ratio": 0.622,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "cut_line_slash",
+          "pattern": "dash 4-2",
+          "transitions": 102,
+          "ink_ratio": 0.763,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "fold_line",
+          "pattern": "dash-dot 6-2-1-2",
+          "transitions": 112,
+          "ink_ratio": 0.725,
+          "distinct_from_solid": true
+        },
+        {
+          "name": "measurement_path",
+          "pattern": "dash 1-1",
+          "transitions": 309,
+          "ink_ratio": 0.74,
+          "distinct_from_solid": true
+        }
+      ],
+      "grays": [
+        {
+          "gray": 0.0,
+          "target_luma": 255.0,
+          "measured_luma": 0.0,
+          "delta": 255.0
+        },
+        {
+          "gray": 0.45,
+          "target_luma": 140.2,
+          "measured_luma": 115.0,
+          "delta": 25.2
+        },
+        {
+          "gray": 0.75,
+          "target_luma": 63.8,
+          "measured_luma": 191.0,
+          "delta": 127.2
+        }
+      ],
+      "tk05_signature": {
+        "ink_ratio": 0.0153,
+        "components": 3,
+        "significant_components": 3,
+        "row_profile_peaks": 7,
+        "col_profile_peaks": 1,
+        "curvature_index": 0.01599,
+        "curvature_per_component": [
+          0.01592,
+          0.01598,
+          0.01606
+        ],
+        "size_px": [
+          533,
+          434
+        ]
+      },
+      "tk06_signature": {
+        "ink_ratio": 0.0155,
+        "components": 3,
+        "significant_components": 3,
+        "row_profile_peaks": 3,
+        "col_profile_peaks": 1,
+        "curvature_index": 0.05574,
+        "curvature_per_component": [
+          0.05566,
+          0.05581,
+          0.05574
+        ],
+        "size_px": [
+          533,
+          434
+        ]
+      },
+      "tk05_tk06_distinguishable": {
+        "ink_delta_ratio": 0.013,
+        "component_counts": [
+          3,
+          3
+        ],
+        "col_peak_delta": 0,
+        "curvature_index": {
+          "TK-05": 0.01599,
+          "TK-06": 0.05574
+        },
+        "curvature_ratio": 3.49,
+        "curvature_threshold": 2.0,
+        "axes_differing": 1,
+        "primary_axis": "curvature",
+        "verdict": "AYRIK — eğrilik ekseni"
+      },
+      "all_strokes_survive_1bit": true,
+      "thinnest_stroke_px": 3
+    }
+  },
+  "glyph_coverage_T1": {
+    "serif": {
+      "glyph_count": 920,
+      "missing": [],
+      "y1_pass": true
+    },
+    "sans": {
+      "glyph_count": 1614,
+      "missing": [],
+      "y1_pass": true
+    },
+    "atkinson": {
+      "glyph_count": 343,
+      "missing": [
+        "⅛",
+        "⅜",
+        "⅝",
+        "⅞",
+        "″"
+      ],
+      "y1_pass": false
+    }
+  },
+  "digit_width_Y3_partial": {
+    "7.0": {
+      "sans": {
+        "size_pt": 7.0,
+        "pair_width_delta_ratio": {
+          "1/l": 0.4869,
+          "1/I": 0.4708,
+          "l/I": 0.0304,
+          "0/O": 0.2515,
+          "6/8": 0.0,
+          "8/9": 0.0,
+          "6/9": 0.0,
+          "5/6": 0.0,
+          "3/8": 0.0
+        },
+        "identical_width_pairs": [
+          "6/8",
+          "8/9",
+          "6/9",
+          "5/6",
+          "3/8"
+        ]
+      },
+      "atkinson": {
+        "size_pt": 7.0,
+        "pair_width_delta_ratio": {
+          "1/l": 0.4055,
+          "1/I": 0.029,
+          "l/I": 0.4227,
+          "0/O": 0.1087,
+          "6/8": 0.0276,
+          "8/9": 0.0276,
+          "6/9": 0.0,
+          "5/6": 0.0251,
+          "3/8": 0.0667
+        },
+        "identical_width_pairs": [
+          "6/9"
+        ]
+      }
+    },
+    "6.5": {
+      "sans": {
+        "size_pt": 6.5,
+        "pair_width_delta_ratio": {
+          "1/l": 0.4869,
+          "1/I": 0.4708,
+          "l/I": 0.0304,
+          "0/O": 0.2515,
+          "6/8": 0.0,
+          "8/9": 0.0,
+          "6/9": 0.0,
+          "5/6": 0.0,
+          "3/8": 0.0
+        },
+        "identical_width_pairs": [
+          "6/8",
+          "8/9",
+          "6/9",
+          "5/6",
+          "3/8"
+        ]
+      },
+      "atkinson": {
+        "size_pt": 6.5,
+        "pair_width_delta_ratio": {
+          "1/l": 0.4055,
+          "1/I": 0.029,
+          "l/I": 0.4227,
+          "0/O": 0.1087,
+          "6/8": 0.0276,
+          "8/9": 0.0276,
+          "6/9": 0.0,
+          "5/6": 0.0251,
+          "3/8": 0.0667
+        },
+        "identical_width_pairs": [
+          "6/9"
+        ]
+      }
+    },
+    "6.0": {
+      "sans": {
+        "size_pt": 6.0,
+        "pair_width_delta_ratio": {
+          "1/l": 0.4869,
+          "1/I": 0.4708,
+          "l/I": 0.0304,
+          "0/O": 0.2515,
+          "6/8": 0.0,
+          "8/9": 0.0,
+          "6/9": 0.0,
+          "5/6": 0.0,
+          "3/8": 0.0
+        },
+        "identical_width_pairs": [
+          "6/8",
+          "8/9",
+          "6/9",
+          "5/6",
+          "3/8"
+        ]
+      },
+      "atkinson": {
+        "size_pt": 6.0,
+        "pair_width_delta_ratio": {
+          "1/l": 0.4055,
+          "1/I": 0.029,
+          "l/I": 0.4227,
+          "0/O": 0.1087,
+          "6/8": 0.0276,
+          "8/9": 0.0276,
+          "6/9": 0.0,
+          "5/6": 0.0251,
+          "3/8": 0.0667
+        },
+        "identical_width_pairs": [
+          "6/9"
+        ]
+      }
+    }
+  },
+  "text_measure_G2": {
+    "body_size_pt": 10.5,
+    "text_width_pt": 387.0,
+    "avg_char_width_pt": 4.665,
+    "chars_per_line": 83.0,
+    "target": [
+      72,
+      88
+    ],
+    "in_target": true
+  }
+}

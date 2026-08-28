@@ -1,35 +1,44 @@
-# ROADMAP PROGRESS — TRUE FIT
+# ROADMAP PROGRESS — BEFORE YOU CUT
 
-> Son ölçüm: **2026-08-28** · dal `master` · etiket — yok
-> · depo: `emredogan-cloud/sewing-pattern-fitting-series` (**public**)
+> Son ölçüm: **2026-08-28** · dal `master`
+> · depo: `emredogan-cloud/sewing-pattern-fitting-series` (**public**,
+> marka-nötr ad)
 >
-> Kaynak: [`SERIES_ROADMAP.md`](SERIES_ROADMAP.md) ve
-> `BOOK-0x/ROADMAP.md`
+> Kaynak: [`SERIES_ROADMAP.md`](SERIES_ROADMAP.md) ve `BOOK-0x/ROADMAP.md`
 >
 > **Kural (`DECISIONS.md K33`): bu belgedeki her sayı, onu üreten
 > komutun çıktısından alınır — hatırlanan bir değerden değil.**
 
+---
+
+## 0 · Tek cümlelik durum
+
+> **Kitap 1 Faz 2 tamamlandı. Faz 3, kill-gate'inde DURDU.**
+> İki ölçüm de dış dünyada yapılır ve **yapılmadı**.
+> `kill_gate.py` → **2 engel** · Faz 4 **AÇILAMAZ**.
+
 ## Seri fazları
 
-| Faz | Başlık | İlerleme | Ölçüt | Kapı |
-|---:|---|---|---|---|
-| **S0** | Seri Bootstrap | `████████████████` tamamlandı | Tüm kapılar yeşil, git commit var | `bootstrap` ✓ |
-| **S1** | Seri Mimarisi | `████████████████` **çıktılar üretildi ve YÜRÜTÜLDÜ — KURUCU ONAYI BEKLİYOR** | 12/12 çıktı mevcut + Faz 1 yürütmesi tamamlandı; DoD madde 3 (kurucu onayı) KARŞILANMADI | `bootstrap` — **ilerlemedi** |
-| **S2** | Kitap 1 yaşam döngüsü | `████░░░░░░░░░░░░` P0 ✓ · P1 yürütüldü, onay bekliyor | — | — |
-| **S3** | Kitap 2 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı | — | — |
-| **S4** | Kitap 3 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı | Yalnızca `A10` araştırma mimarisi yazıldı | `init` |
-| **S5** | Seri KA / Katalog | `░░░░░░░░░░░░░░░░` başlamadı | — | — |
+| Faz | Başlık | İlerleme | Kapı |
+|---:|---|---|---|
+| **S0** | Seri Bootstrap | `████████████████` tamamlandı | `bootstrap` ✓ |
+| **S1** | Seri Mimarisi | `████████████████` **TAMAMLANDI** — kurucu onayı alındı, ortak mimari donduruldu | `series-architecture` ✓ **İLERLEDİ** |
+| **S2** | Kitap 1 yaşam döngüsü | `██████░░░░░░░░░░` P0 ✓ · P1 ✓ · **P2 ✓** · P3 **KILL-GATE'TE DURDU** | — |
+| **S3** | Kitap 2 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı — seri kapısı `production` değil | `init` |
+| **S4** | Kitap 3 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı · yalnızca `A10` araştırma mimarisi | `init` |
+| **S5** | Seri KA / Katalog | `░░░░░░░░░░░░░░░░` başlamadı — gerçek çok-kitap verisi yok | — |
 
 ## Kitap fazları
 
 | Kitap | Kapı | P0 | P1 | P2 | P3 | P4 | P5 | P6 | P7 |
 |---|---|---|---|---|---|---|---|---|---|
-| **1 — Measure & Diagnose** | `foundation` | ✓ | **yürütüldü — onay bekliyor** | — | — | — | — | — | — |
+| **1 — Measure & Diagnose** | **`phase2-visual`** | ✓ | ✓ | **✓** | **DIŞ BEKLEMEDE** | — | — | — | — |
 | **2 — The Adjustment Atlas** | `init` | roadmap var | — | — | — | — | — | — | — |
-| **3 — Draft Your Own Block** | `init` | roadmap + `A10` araştırma mimarisi | — | — | — | — | — | — | — |
+| **3 — Draft Your Own Sloper** | `init` | roadmap + `A10` araştırma mimarisi | — | — | — | — | — | — | — |
 
-> **Hiçbir kapı bu turda ilerlemedi.** Kitap 1 Faz 1'in DoD'si dört
-> maddedir ve dördüncüsü (kurucu onayı) karşılanmamıştır.
+> **Bu turda iki kapı ilerledi:** seri `bootstrap` → `series-architecture`,
+> Kitap 1 `foundation` → `phase2-visual`.
+> **Üçüncü kapı (`phase3-pilot`) İLERLEMEDİ** ve bu turda ilerleyemez.
 
 ## Kalite kapıları — son ölçüm
 
@@ -37,114 +46,147 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-28
 
 | Kapı | Komut | Sonuç |
 |---|---|---|
-| Şema · bütünlük · kaynak otoritesi | `validate_spec.py` | ✓ 0 hata (**15 kaynak** · 43 belirti · 19 aile · 32 ölçü · 148 crosswalk · 12 blok) |
-| Depo · koruma · marka · izolasyon | `validate_structure.py` | ✓ 0 hata (**139 izlenen dosya**) |
+| Şema · bütünlük · kaynak otoritesi | `validate_spec.py` | ✓ 0 hata (**18 kaynak** · 43 belirti · 19 aile · 32 ölçü · 148 crosswalk · 12 blok · **154 figür**) |
+| Depo · koruma · marka · izolasyon | `validate_structure.py` | ✓ 0 hata (**139 izlenen dosya** · **altı denetim hattı**) |
 | Crosswalk tazeliği | `build_crosswalk.py --check` | ✓ güncel (148 kayıt) |
-| **Crosswalk bütünlüğü** *(yeni)* | `qa_crosswalk.py` | ✓ **0 bulgu** — dokuz denetim · 129 teşhis→düzeltme · 21 istisna · **19/19 aileye ulaşılıyor** |
+| Crosswalk bütünlüğü | `qa_crosswalk.py` | ✓ 0 bulgu — 19/19 aileye ulaşılıyor |
 | Kitap sınırı | `qa_boundary.py` | ✓ 0 bulgu (35 topik) |
-| İddia disiplini | `qa_claims.py` | ✓ 0 bulgu (35 belge) |
+| İddia disiplini | `qa_claims.py` | ✓ 0 bulgu (40 belge) |
 | Terminoloji | `qa_terminology.py` | ✓ 0 bulgu (30 belge · 20 terim) |
-| Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN.** İki ölçüm de dış dünyada yapılır |
-| **Kapıların kendi testi** | `selftest.py` | ✓ **91/91** denetim geçti *(önceki tur: 77)* |
-| **GitHub Actions CI** | `.github/workflows/validate.yml` | ✓ **YEŞİL** — koşu `33193615969`, 22 sn, 7/7 iş geçti; `kill-gate` işi tasarım gereği başarısız (`continue-on-error`) |
+| **Görsel sistem** *(yeni)* | `qa_visual.py` | ✓ **0 bulgu** — **on denetim** |
+| **Yazı tipi bütünlüğü** *(yeni)* | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **138/138** *(önceki tur: 91)* |
+| Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
-> ⚠ **Düzeltme (`K33`).** Bu satırda önceki turda "4 engel" yazıyordu.
-> `kill_gate.py` hem şimdi hem de o günkü commit'te **2 engel**
-> raporluyor. Sayı doğrulandı ve düzeltildi.
+## Görsel sistem — Faz 2 ÖLÇÜMLERİ
+
+| Ölçüt | Faz 1 tahmini | **ÖLÇÜLEN** |
+|---|---:|---:|
+| Toplam figür | ~123 | **154** |
+| Akış şeması | 9 | **46** |
+| Deterministik üretilebilen | — | **105 · %68,2** |
+| `manual_reason` taşıyan | — | **49** (43 belirti + 6 toile) |
+| İç araç figürü (kitaba girmez) | — | **3** |
+| Bir yayılıma sığmayan şema | — | **0** (bölme öncesi 11) |
+| `photo_required` | — | **0** / eşik 6 |
+| `color_required` | — | **%0,0** / eşik %10 |
+| Satır başına karakter | — | **83,0** (hedef 72–88) |
+| `TK-05` ↔ `TK-06` eğrilik oranı | — | **3,49** (eşik 2,0) |
+| En ince çizgi, 300 dpi 1-bit | — | **2 px** — hayatta |
+
+### Figür türlerine göre
+
+| Tür | Sayı |
+|---|---:|
+| `flowchart` | 46 |
+| `fit_sign_on_figure` | 43 |
+| `measurement_path` | 29 |
+| `table_graphic` | 9 |
+| `pattern_piece` | 8 |
+| `body_landmark` | 7 |
+| `comparison_before_after` | 6 |
+| `toile_state` | 6 |
+| **Toplam** | **154** |
 
 ## İçerik envanteri
 
 | Varlık | Sayı | Doğrulama durumu |
 |---|---|---|
-| Uyum belirtisi (`SYM-xxx`) | 43 | **0 doğrulandı · 43 kaynağa bağlı ama YÜKSELTİLMEDİ** — bilinçli, `SOURCE_MAP § 6` |
-| Aday neden | 129 | **0 doğrulandı** — `C-C` sınıfı, Faz 3'e ait |
+| Uyum belirtisi (`SYM-xxx`) | 43 | **0 doğrulandı · 43 kaynağa bağlı ama YÜKSELTİLMEDİ** — bilinçli |
+| Aday neden | 129 | **0 doğrulandı** — `C-C` sınıfı, birincil doğrulama FİZİKSEL |
 | Düzeltme ailesi (`AF-xx`) | 19 | **13 doğrulandı** · 4 kısmi · 2 kaynaksız |
 | Ölçü (`M-xxx`) | 32 | **16 doğrulandı** · 7 kısmi · 9 kaynaksız |
 | Blok bileşeni (`BLK-xx`) | 12 | 0 — kamu kaynağı **çizim** anlatmıyor (`A10`) |
-| Crosswalk (`XW-xxx`) | 148 | türetilmiş · **iç bütünlük denetlendi, 0 bulgu** · dış doğrulama yok |
+| Crosswalk (`XW-xxx`) | 148 | iç bütünlük denetlendi · dış doğrulama yok |
 | Terim (`T-xx`) | 20 | taslak |
-| Görsel token (`TK-xx`) | 18 | `DESIGN_TARGET_NOT_CALIBRATED` |
-| Sınır topiği (`TOP-xx`) | 35 | — |
-| **Kaynak kaydı (`S-xxxx`)** | **15** | 6 teknik otorite + tam metin · 2 taranmış (okunamadı) · 5 platform · 2 edinilmemiş |
-| Fiziksel sınama (`VAL-xxxx`) | **0** | plan hazır: 19 kayıt, `A13` |
-| Figür (`FIG-xxx`) | 0 | Faz 2'de üretilir |
+| Görsel token (`TK-xx`) | 18 | **`CALIBRATED_DIGITAL_RENDER`** |
+| **Figür (`FIG-B1-xxx`)** | **154** | **105 `drafted` · 49 `specified` · 0 `physically_validated`** |
+| **Okur etiketi (İngilizce)** | **43 belirti · 129 neden** | sunum katmanı — doğrulama durumunu **değiştirmez** |
+| **Kaynak kaydı (`S-xxxx`)** | **18** | 6 teknik otorite + tam metin · 2 taranmış · **8 platform/lisans** · 2 edinilmemiş |
+| **Fiziksel sınama (`VAL-xxxx`)** | **19 kayıt üretildi · 0 YAPILDI** | kit hazır: `BOOK-01/09_OUTPUT/VALIDATION_KIT.md` |
+| **Pilot kesit** | **1 · 8 sayfa · 7 figür** | markasız · İngilizce · nihai sayfa geometrisinde |
 
-## Kaynak doğrulama durumu
+**Faz 2 için satın alınan ücretli kaynak: 0.**
+Yazı tipi maliyeti: **$0** (üç aile de SIL OFL 1.1).
 
-| Durum | Ölçü | Düzeltme ailesi | Belirti | Blok |
-|---|---|---|---|---|
-| **VERIFIED** | **16** / 32 | **13** / 19 | 0 / 43 | 0 / 12 |
-| PARTIALLY VERIFIED | 7 | 4 | 43 | 0 |
-| EXTERNAL-SOURCE REQUIRED | 9 | 2 | — | 12 |
-| UNVERIFIED | — | — | **43** | — |
+## KILL-GATE durumu — Kitap 1 Faz 3
 
-**Faz 1 için satın alınan ücretli kaynak: 0.**
-Kuyruğa alınan: 4 kalem, hiçbiri Kitap 1 için gerekli değil
-(`01_SOURCE/ACQUISITION_REQUEST_QUEUE.md`).
+| | Fark testi (`D-01`) | Fiziksel doğrulama (`D-02`) |
+|---|---|---|
+| Protokol | ✓ TAMAM | ✓ TAMAM |
+| **Malzeme** | ✓ **Malzeme A üretildi (8 sayfa)** · ✗ Malzeme B edinilmedi | ✓ **19 kayıtlık kit üretildi** |
+| Katılımcı / uygulama | ✗ **0 / 3** | ✗ **0 / 19** |
+| Ölçüm | ✗ `measured: false` | ✗ `measured: false` |
+| AI vekil | ✗ `false` — **açılamaz** | — |
+| Sonuç | **EXTERNAL VALIDATION REQUIRED** | **EXTERNAL VALIDATION REQUIRED** |
 
-## `A14` durumu — kill-gate ①
-
-| | |
-|---|---|
-| Protokol | ✓ **TAMAMLANDI** — eleme ölçütleri, ön eleme soruları, beş bulma kanalı, teşvik politikası, taraf tutma kuralları, oturum betiği, kayıt formu, malzeme spesifikasyonu |
-| Katılımcı | ✗ **0 / 3** |
-| Ölçüm | ✗ **YAPILMADI** — `measured: false` |
-| AI vekil | ✗ `aiProxyCountsAsHuman: false` — **açılmadı** |
-| Sonuç | **EXTERNAL PENDING** — kurucu bağımsız uygulayabilir |
-| 1–2 katılımcı bulunursa | **`INCONCLUSIVE`** — PASS değil, FAIL değil; kapı **kapalı kalır** |
+**`kill_gate.py` mekanik kilidi Faz 3'te güçlendirildi:**
+`physicalValidation.measured = true` yazılmış ama `VAL_RECORDS.json`
+kayıtları boşsa **ayrı bir engel** raporlanır. Bir bayrak, olmayan bir
+ölçümü var edemez.
 
 ## Dış doğrulama durumu
 
-| # | Bekleyen | Kim | En geç |
+Tam kayıt: [`EXTERNAL_DEPENDENCIES.md`](EXTERNAL_DEPENDENCIES.md)
+
+| # | Bekleyen | Kim | Engelleyici mi |
 |---|---|---|---|
-| 1 | **Kitap 1 Faz 1 onayı** | Kurucu | — |
-| 2 | `A15` yerine geçen seri adı + **profesyonel marka temizliği** | Kurucu + marka vekili | `phase2-visual` başlangıcı / kapak öncesi |
-| 3 | `A14` üç ev dikişçisi | Kurucu | `phase3-pilot` |
-| 4 | Fiziksel sınama — 19 `VAL` kaydı | Kurucu | `phase3-pilot` |
-| 5 | Rakip akış takibinin başlatılması | Kurucu | `phase2-visual` |
+| `D-01` | Fark testi — 3 ev dikişçisi | Kurucu | **EVET — HARD STOP** |
+| `D-02` | Fiziksel doğrulama — 19 `VAL` | Kurucu | **EVET — HARD STOP** |
+| `D-03` | `BEFORE YOU CUT` marka temizliği | Kurucu + vekil | EVET (yayın öncesi) |
+| `D-04` | Rakip akış takibi (90 gün) | Kurucu | hayır |
+| `D-05` | `T3` — üç insan okuyucu | Kurucu | hayır |
+| `D-06` | KDP Previewer + prova baskı | Kurucu | EVET (P6) |
+| `D-07` | Ücretsiz kaynak edinimi | Kurucu/ajan | hayır |
+| `D-08` | Kitap 3 çizim sistemi kaynakları | Kurucu | EVET (Kitap 3) |
+| `D-09` | Kitap 2 spiral fizibilitesi | Kurucu | hayır |
 
 ## Git / CI durumu
 
 | | |
 |---|---|
-| Depo | `github.com/emredogan-cloud/sewing-pattern-fitting-series` |
-| Görünürlük | **public** |
-| Depo adı | **marka-nötr** — `A1` kapanmadan hiçbir ad kamuya taahhüt edilmedi (`K32`) |
+| Depo | `github.com/emredogan-cloud/sewing-pattern-fitting-series` (**public**) |
+| Depo adı | **marka-nötr** (`K32`) — `BEFORE YOU CUT` de kamuya taahhüt edilmedi |
 | Dal | `master` |
 | İzlenen dosya | **139** |
-| CI | ✓ **yeşil** — 7/7 iş; `kill-gate` işi tasarım gereği başarısız |
-| Korumalı dizinler | ✓ hepsi yalnızca `.gitkeep` içeriyor — doğrulandı |
-| Hassas içerik taraması | ✓ temiz (e-posta, mutlak yerel yol, token/anahtar, telefon) |
+| CI işi | **8** — `gates` · `spec` · `structure` · `crosswalk` · `boundary` · `claims` · **`visual`** *(yeni)* · `selftest` · `killgate` (tasarım gereği başarısız) |
 
-**Bilerek yayımlanMAYAN:** yayın-öncesi proza ve pilot metni · fiziksel
-sınama fotoğrafları · **fark testi katılımcı verisi** · telif korumalı
-referans malzeme ve ticari kalıplar · **indirilmiş kaynak PDF'leri** ·
-üretilmiş diyagram varlıkları ve yayın dosyaları · sırlar ve yerel
-önbellek.
+**Bilerek yayımlanMAYAN:** pilot prozası ve derlenmiş pilot PDF'i ·
+fiziksel sınama fotoğrafları · fark testi katılımcı verisi · telif
+korumalı referans malzeme · indirilmiş kaynak PDF'leri · **yazı tipi
+ikili dosyaları** (manifestle yeniden edinilir) · üretilmiş 154 figür
+PDF'i · sırlar ve yerel önbellek.
 
 ## Açık kararlar
 
-**12 kapandı · 1 ertelendi · 2 dış beklemede.** Hiçbiri "hâlâ açık"
-değil. Tam liste: [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md).
+**13 kapandı · 1 ertelendi · 2 dış beklemede.**
+Tam liste: [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md).
+
+`A15` (seri adı) **kapandı** — `BEFORE YOU CUT` (`K36`).
+`A16` (profesyonel marka temizliği) **açıldı** ve dış beklemededir.
 
 ## Alınmış kararlar
 
-**35 karar kayıtlı (`K1`–`K35`).** Bu turda 18 yeni kayıt.
+**47 karar kayıtlı (`K1`–`K47`).** Bu turda **12 yeni kayıt**
+(`K36`–`K47`).
 
-Altısı, kapıların **gerçekten çalıştığının kanıtı** olarak doğdu:
-`K13` (sınır matrisi), `K14` (anahtar kelime muafiyeti), `K15`
-(`SYM-043`), `K16` (Türkçe katlama), `K17` (selftest fixture'ı) ve
-**`K20`** (testin adı ile ölçtüğü şeyin farklı olması).
-Tam liste: [`DECISIONS.md`](DECISIONS.md).
+Dördü, Faz 1 tahminlerinin **ölçümle yanlışlanmasıdır**: `K38` (yedek
+yazı tipi), `K39` (sayfa ölçüsü), `K40` (token kalibrasyonu),
+`K41` (akış şeması sayısı).
+**Üçü, kapılar yeşilken ürünün kullanılamaz olmasıdır**: `K45` (figür
+dili), `K46` (iç kimlik + etiket çakışması) ve `K47` (`.gitignore` iki
+kaynak dosyayı yutuyordu — temiz bir klonda görsel sistem
+çalışmazdı). `RISK_REGISTER R-19`.
 
 ## Riskler
 
-**18 risk** — 4'ü YÜKSEK (`R-01` ortam, `R-02` talep tavanı, `R-03`
-farklılaşma, `R-04` teknik doğruluk). Bu turda `R-12`'nin olasılığı
-**DÜŞÜK → ORTA–YÜKSEK**'e çıktı (somut marka çakışması bulundu) ve
-dört yeni risk eklendi (`R-15`…`R-18`). **Hiçbir risk silinmedi.**
+**21 risk** — 4'ü YÜKSEK (`R-01` ortam, `R-02` talep tavanı,
+`R-03` farklılaşma, `R-04` teknik doğruluk). Bu turda **üç yeni risk**
+(`R-19` kapılar yeşilken ürün bozuk · `R-20` sayfa bütçesi ·
+`R-21` tek kroki) ve **üç yeniden değerlendirme** (`R-05`, `R-06`,
+`R-12`). **Hiçbir risk silinmedi.**
 Tam liste: [`RISK_REGISTER.md`](RISK_REGISTER.md).
 
 ---
 
-*Vâliçe Press · TRUE FIT · Roadmap Progress · 28 Ağustos 2026 (Faz 1 yürütmesi)*
+*Vâliçe Press · BEFORE YOU CUT · Roadmap Progress · 28 Ağustos 2026 (Faz 2 + Faz 3 hazırlığı)*

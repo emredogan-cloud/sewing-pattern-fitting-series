@@ -1,0 +1,23 @@
+{
+  "source_id": "S-0018",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Figür etiketi yedek yazı tipi adayları — Atkinson Hyperlegible, Atkinson Hyperlegible Next, IBM Plex Sans, Inter, Lexend (SIL OFL 1.1)",
+  "author": null,
+  "publisher": "Braille Institute · IBM · Rasmus Andersson · Bonnie Shaver-Troup / Google Fonts arşivi",
+  "edition": null,
+  "year": 2025,
+  "isbn": null,
+  "url": "https://github.com/google/fonts",
+  "verification_level": "official_web",
+  "locator": "google/fonts deposu, ofl/ dizini: atkinsonhyperlegible, atkinsonhyperlegiblenext, ibmplexsans, inter, lexend — her biri kendi OFL.txt'siyle. Ölçüm çıktısı: 03_VISUAL/font_legibility_scan.json",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "Faz 2 bulgusu — Atkinson Hyperlegible'ın Y1 (kesir + inç glifleri) gereksinimini KARŞILAMADIĞININ ölçülmesi",
+    "yedek figür etiketi yazı tipinin ölçümle seçilmesi (DECISIONS K38)"
+  ],
+  "superseded_by": null,
+  "license_constraint": "Hepsi SIL Open Font License 1.1.",
+  "acquisition_status": "public_access",
+  "notes": "Bu kayıt bir TEKNİK OTORİTE DEĞİLDİR; yazı tipi dosyalarının KENDİSİNİN künyesidir. Karar, dosyalar üzerinde YAPILAN ÖLÇÜME dayanır (06_BUILD/font_legibility_scan.py), bir üçüncü tarafın iddiasına değil."
+}

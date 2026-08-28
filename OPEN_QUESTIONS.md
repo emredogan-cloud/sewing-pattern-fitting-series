@@ -4,8 +4,11 @@
 > gerekliliğine dönüşemez.** Araştırma raporunun vermediği her şey önce
 > buraya yazılır.
 >
-> Durum tablosu · **28 Ağustos 2026** — Kitap 1 Faz 1 **yürütmesi**
-> sonrası. Alınan kararlar: [`DECISIONS.md`](DECISIONS.md) `K18`–`K35`.
+> Durum tablosu · **28 Ağustos 2026** — Kitap 1 **Faz 2 yürütmesi**
+> sonrası. Alınan kararlar: [`DECISIONS.md`](DECISIONS.md) `K18`–`K44`.
+>
+> Dış bağımlılıkların tam kaydı:
+> [`EXTERNAL_DEPENDENCIES.md`](EXTERNAL_DEPENDENCIES.md).
 
 ---
 
@@ -36,9 +39,16 @@
 | **A12** | Reklam: bütçe, kelime kümesi, iptal eşiği | **CLOSED — DECIDED** | Çerçeve kuruldu; **bütçe P7'ye ertelendi** (`K28`) — § 2.2 |
 | **A13** | Fiziksel sınama kapsamı | **CLOSED — DECIDED** | **2 toile + 3 parça, 19 kayıt, tek vücut** (`K29`) |
 | **A14** | Fark testi katılımcıları | **EXTERNAL PENDING** | Protokol tam; katılımcı yok (`K30`) — § 3.1 |
-| **A15** | *(yeni)* Yerine geçecek seri adı + marka temizliği | **EXTERNAL PENDING** | `A1`'in doğurduğu soru — § 3.2 |
+| **A15** | Yerine geçecek seri adı | **CLOSED — FOUNDER POLICY** | **`BEFORE YOU CUT`** benimsendi (`K36`) |
+| **A16** | *(yeni)* `BEFORE YOU CUT` profesyonel marka temizliği | **EXTERNAL PENDING** | `A15`'in doğurduğu soru — § 3.2 |
 
-**Sayım:** 12 kapandı · 1 ertelendi · 2 dış beklemede.
+**Sayım:** 13 kapandı · 1 ertelendi · 2 dış beklemede.
+
+> **`A15` neden kapandı ama `A16` açıldı.** `A15` iki şeyi birden
+> soruyordu: *hangi ad* ve *temizlenmiş mi*. Birincisi bir **ticari
+> kimlik kararıdır** ve kurucu verdi. İkincisi bir **hukuki hizmettir**
+> ve hâlâ yapılmamıştır. İkisini tek satırda tutmak, kurucu kararının
+> hukuki temizliği de kapattığı izlenimini yaratırdı — kapatmaz.
 
 ---
 
@@ -100,7 +110,16 @@ MSU taramalarının gözle okunması) — maliyeti **sıfır**.
 | **Şu an eksik olan** | **Yalnızca katılımcılar.** Ve pilot bölüm (Faz 3 çıktısı). |
 | **1–2 katılımcı bulunursa** | Sonuç **`INCONCLUSIVE`** olarak kaydedilir. PASS **değildir**, FAIL **değildir**; `measured` `false` kalır ve kapı **kapalı kalır**. Faz 2 üretimi ve fiziksel sınama devam eder (`K30`). |
 
-### 3.2 · `A15` · Yerine geçecek seri adı + profesyonel marka temizliği *(yeni)*
+### 3.2 · `A16` · `BEFORE YOU CUT` profesyonel marka temizliği *(yeni)*
+
+| Alan | |
+|---|---|
+| **Nereden doğdu** | `A15`'in kapanışından (`K36`): ad seçildi, **temizlik yapılmadı** |
+| **Şu anki durum** | `series_config.json → brandClearanceStatus = "founder-approved-working-name"` — **hukuki temizlik DEĞİLDİR** ve öyle sunulamaz |
+| **Mekanik dayanak** | `validate_structure.py § check_public_name_is_declared`, `"professionally-cleared"` değerini **kanıtsız** almaz |
+| **Tam kayıt** | [`EXTERNAL_DEPENDENCIES.md`](EXTERNAL_DEPENDENCIES.md) `D-03` |
+
+#### `A15`'in kapanış kaydı — tarihsel
 
 | Alan | |
 |---|---|
@@ -132,6 +151,22 @@ MSU taramalarının gözle okunması) — maliyeti **sıfır**.
 | `A11` | Fotoğraf **kullanılmaz**; yedi figür türünün dördünde fotoğraf çizimden **kötüdür** | `K35` · `VISUAL_SPEC § 5` |
 | `A12` | Çerçeve kuruldu: başabaş CPC = telif × dönüşüm; başabaş ACoS %41,4; **300 tıklamalık** test; altı durma koşulu | `K28` · `00_CONTEXT/ADS_FRAMEWORK.md` |
 | `A13` | **2 toile + 3 parça, 19 `VAL` kaydı**, tek vücut, ≈$15–30, ≈20–25 saat | `K29` |
+| `A15` | Seri adı **`BEFORE YOU CUT`**; `TRUE FIT` yayımlanan ad olarak kullanılmaz; dizin adları korundu | `K36` · `K37` |
+
+## 5 · Faz 2'nin AÇTIĞI ve AYNI TURDA KAPATTIĞI kararlar
+
+Bunlar `A#` numarası almadı çünkü **ölçümle** kapandılar; bir kurucu
+kararı gerektirmediler. Kayıtları `DECISIONS.md`'dedir.
+
+| Soru | Nasıl kapandı | Kayıt |
+|---|---|---|
+| Figür etiketi yedek yazı tipi hangisi | Beş aday **ölçüldü**; Atkinson `Y1`'de, Inter `l/I`'de elendi → **IBM Plex Sans** | `K38` |
+| Sayfa metin ölçüsü kaç karakter olmalı | **Ölçüldü**: tam ölçü 107,1 karakter → asimetrik iki sütun, 83,0 karakter | `K39` |
+| Token değerleri baskıda hayatta kalıyor mu | 300/600 dpi 1-bit rasterda **ölçüldü** — hepsi hayatta, `TK-05`↔`TK-06` ayrık | `K40` |
+| Kaç akış şeması olacak | **Ölçüldü**: bölge düzeyi hiçbir sayfaya sığmıyor → 9 değil **46** | `K41` |
+
+> Bu dört satır, Faz 2'nin ne işe yaradığını özetler: dördü de Faz 1'de
+> **tahmin** edilmişti ve dördünde de tahmin **yanlıştı**.
 
 ---
 

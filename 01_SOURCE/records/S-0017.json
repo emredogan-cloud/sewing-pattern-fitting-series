@@ -1,0 +1,24 @@
+{
+  "source_id": "S-0017",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Adobe Source Serif 4 (4.005R) ve Source Sans 3 (3.052R) — sürüm arşivleri ve SIL OFL 1.1 lisans metni",
+  "author": "Adobe Inc. (Frank Grießhammer ve katkıda bulunanlar)",
+  "publisher": "Adobe Fonts / GitHub",
+  "edition": "Source Serif 4.005R · Source Sans 3.052R",
+  "year": 2024,
+  "isbn": null,
+  "url": "https://github.com/adobe-fonts/source-serif/releases/tag/4.005R",
+  "verification_level": "official_pdf",
+  "locator": "LICENSE.md — SIL Open Font License 1.1; Ayrılmış Yazı Adı 'Source'. Dosya kimlikleri ve SHA-256 özetleri: 03_VISUAL/fonts/fonts_manifest.json",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "A7 / DECISIONS K24 — yazı tipi kararı ve lisans kaydı",
+    "Faz 2 / G1 kalibrasyon — T1 kesir glifi taraması",
+    "03_VISUAL/fonts/licenses/"
+  ],
+  "superseded_by": null,
+  "license_constraint": "SIL Open Font License 1.1. Gömme serbesttir ve belgenin kendi lisansını değiştirmez. Yazı tipi DEĞİŞTİRİLİRSE adı değiştirilmelidir (Ayrılmış Yazı Adı 'Source'); bu proje değiştirmez. Yazı tipleri tek başına satılamaz; bu proje yalnızca gömer.",
+  "acquisition_status": "public_access",
+  "notes": "Lisans METNİ depoda izlenir (03_VISUAL/fonts/licenses/); TTF ikili dosyaları izlenmez ve fonts_manifest.json + 06_BUILD/fetch_fonts.py ile yeniden edinilir. verification_level='official_pdf' seçildi çünkü lisans metninin kendisi tam olarak okundu."
+}

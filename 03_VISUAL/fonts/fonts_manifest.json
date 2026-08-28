@@ -1,0 +1,96 @@
+{
+  "$comment": [
+    "FONT MANIFEST — DECISIONS.md K24 (A7) uyarınca seçilen yazı tipleri.",
+    "İKİLİ 'ikili dosya deposuna girmez' kuralı: TTF dosyaları .gitignore",
+    "kapsamındadır. Bu manifest onları YENİDEN EDİNİLEBİLİR kılar:",
+    "arşiv URL'si + üye adı + SHA-256. Doğrulama: 06_BUILD/fetch_fonts.sh --verify",
+    "",
+    "Lisans metinleri (licenses/) İZLENİR — TYPOGRAPHY_STANDARD § 1.1 madde 3."
+  ],
+  "generated_on": "2026-08-28",
+  "families": {
+    "SourceSerif4": {
+      "family": "Source Serif 4",
+      "version": "4.005R",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "licenses/SourceSerif4-LICENSE.md",
+      "reserved_font_name": "Source",
+      "archive_url": "https://github.com/adobe-fonts/source-serif/releases/download/4.005R/source-serif-4.005_Desktop.zip",
+      "archive_member_prefix": "source-serif-4.005_Desktop/TTF/",
+      "files": [
+        {
+          "file": "ttf/SourceSerif4-Bold.ttf",
+          "bytes": 271568,
+          "sha256": "7cf4f4e1ad74f45058d5bc61716b82560442fbdcd9d3654d2dea96bf6c683d86"
+        },
+        {
+          "file": "ttf/SourceSerif4-It.ttf",
+          "bytes": 187808,
+          "sha256": "9d2950a8f1da66e21502c35d646a1d2148e79f9ea43fd2158cf02f5232e7f430"
+        },
+        {
+          "file": "ttf/SourceSerif4-Regular.ttf",
+          "bytes": 261868,
+          "sha256": "e5a4ee6a3d87bb9024796be390c6771e2a0eb1883dae25effaf57ca01668e24b"
+        },
+        {
+          "file": "ttf/SourceSerif4-Semibold.ttf",
+          "bytes": 272088,
+          "sha256": "36db62940cb5728b12b1802476dc7fcf4c6c519a7bdd476ba23a4e555fc4655f"
+        }
+      ]
+    },
+    "SourceSans3": {
+      "family": "Source Sans 3",
+      "version": "3.052R",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "licenses/SourceSans3-LICENSE.md",
+      "reserved_font_name": "Source",
+      "archive_url": "https://github.com/adobe-fonts/source-sans/releases/download/3.052R/TTF-source-sans-3.052R.zip",
+      "archive_member_prefix": "TTF/",
+      "files": [
+        {
+          "file": "ttf/SourceSans3-Bold.ttf",
+          "bytes": 428176,
+          "sha256": "9214b9d95e4231c609802815c2646c98174e2102d0d37f88978a7f8e71006e6a"
+        },
+        {
+          "file": "ttf/SourceSans3-It.ttf",
+          "bytes": 315812,
+          "sha256": "192afd78f0f54a3c69eaf02d43f4d9a821e9d6110e41d3d25d61a7385cd580e4"
+        },
+        {
+          "file": "ttf/SourceSans3-Regular.ttf",
+          "bytes": 431196,
+          "sha256": "4644c81b86ec9caaa76b634889968ed3c4f4f52f054855933acc7c2b21e53b0f"
+        },
+        {
+          "file": "ttf/SourceSans3-Semibold.ttf",
+          "bytes": 425904,
+          "sha256": "a3f4f8dcf343a8f24dc61951de93f3ba1558b15cd250ba24af8a40e957081b7d"
+        }
+      ]
+    },
+    "AtkinsonHyperlegible": {
+      "family": "Atkinson Hyperlegible",
+      "version": "googlefonts/atkinson-hyperlegible @ main (arşiv anlık görüntüsü)",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "licenses/AtkinsonHyperlegible-OFL.txt",
+      "reserved_font_name": null,
+      "archive_url": "https://github.com/googlefonts/atkinson-hyperlegible/archive/refs/heads/main.zip",
+      "archive_member_prefix": "atkinson-hyperlegible-main/fonts/ttf/",
+      "files": [
+        {
+          "file": "ttf/AtkinsonHyperlegible-Bold.ttf",
+          "bytes": 55256,
+          "sha256": "5a3b0c8cc8ca545155150b4512a1fa248298df121c50d6557e651e61fbdab92f"
+        },
+        {
+          "file": "ttf/AtkinsonHyperlegible-Regular.ttf",
+          "bytes": 54348,
+          "sha256": "7fb917c89019896d0b52ee84b7cbb3304c18cb90b19a62f5e32712bd23e97669"
+        }
+      ]
+    }
+  }
+}
