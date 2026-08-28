@@ -32,7 +32,7 @@ jobs:
     outputs:
       series: ${{ steps.read.outputs.series }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: read
         run: |
           SERIES="bootstrap"
@@ -58,15 +58,15 @@ jobs:
     needs: gates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - name: validate_spec
         run: |
           python3 06_BUILD/validate_spec.py \
             --gate "${{ needs.gates.outputs.series }}" \
             --verbose --json 08_REPORTS/tracked/spec-validation.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: spec-validation
@@ -77,11 +77,11 @@ jobs:
     needs: gates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - run: python3 06_BUILD/validate_structure.py --verbose --json 08_REPORTS/tracked/structure-validation.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: structure-validation
@@ -92,13 +92,13 @@ jobs:
     needs: gates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - run: python3 06_BUILD/build_crosswalk.py --check
       - name: crosswalk bütünlük denetimi (dokuz ilişki)
         run: python3 06_BUILD/qa_crosswalk.py --verbose --json 08_REPORTS/tracked/crosswalk-qa.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: crosswalk-qa
@@ -109,11 +109,11 @@ jobs:
     needs: gates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - run: python3 06_BUILD/qa_boundary.py --verbose --json 08_REPORTS/tracked/boundary-qa.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: boundary-qa
@@ -124,8 +124,8 @@ jobs:
     needs: gates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - run: python3 06_BUILD/qa_claims.py --verbose
       - run: python3 06_BUILD/qa_terminology.py --verbose
@@ -135,8 +135,8 @@ jobs:
     needs: gates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - run: python3 07_TESTS/selftest.py
 
@@ -146,8 +146,8 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true   # Faz 3 öncesi BAŞARISIZ olması BEKLENİR
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - name: kill_gate (Kitap 1)
         run: |
