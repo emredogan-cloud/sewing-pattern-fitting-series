@@ -104,7 +104,7 @@ sayfa tavanı (`B-08`), üretilen sayfaların **gözle** örneklenmesi
 ## 7 · Kitap 1 · Faz 5 (KA) — **NOT STARTED**
 
 P4'e bağlıdır. Ancak KA **altyapısı** bu turda genişledi: `qa_visual.py`
-(on denetim), `fetch_fonts.py --verify`, selftest **91 → 140** (116 veri + 24 render).
+(on denetim), `fetch_fonts.py --verify`, selftest **91 → 143** (116 veri + 27 render).
 
 ## 8 · Kitap 1 · Faz 6 (format + KDP) — **NOT STARTED · dış engelli**
 
@@ -159,7 +159,7 @@ Dokuz kalem: [`../EXTERNAL_DEPENDENCIES.md`](../EXTERNAL_DEPENDENCIES.md)
 | **`qa_visual.py`** | ✓ **0 bulgu · on denetim** |
 | **`fetch_fonts.py --verify`** | ✓ 10 dosya SHA-256 |
 | **`selftest.py`** (veri) | ✓ **116/116** |
-| **`selftest_visual.py`** (render) | ✓ **24/24** |
+| **`selftest_visual.py`** (render) | ✓ **27/27** |
 | `kill_gate.py` | ✗ **2 engel — DOĞRU** |
 
 ## 14 · Git / CI durumu

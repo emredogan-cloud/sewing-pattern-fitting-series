@@ -174,6 +174,33 @@ def test_engine_is_reproducible():
           "figures.json bayat — `python3 06_BUILD/figure_engine.py --book book-01`")
 
 
+def test_calibration_sheet_builds():
+    """Kalibrasyon sayfası kurulabilmelidir.
+
+    Bu test bir CI kusurundan doğdu: `check_internal_id_leak` eklenince
+    kalibrasyon sayfası çizilemez oldu — çünkü sayfa tam olarak token
+    KİMLİKLERİNİ etiket olarak taşır. Sayfa bir İÇ ARAÇTIR ve muafiyeti
+    açıkça beyan etmelidir; muafiyet sessizce kaybolursa kalibrasyon
+    hattı çöker ve bunu yalnızca CI görür (RISK_REGISTER R-19)."""
+    import tempfile
+    import calibrate_tokens
+    geom = json.loads(paths.PAGE_GEOMETRY.read_text(encoding="utf-8"))
+    tokens = json.loads(paths.VISUAL_TOKENS.read_text(encoding="utf-8"))
+    ok, err = True, ""
+    with tempfile.TemporaryDirectory() as td:
+        try:
+            idx = calibrate_tokens.build_sheet(Path(td) / "cal.pdf", geom, tokens)
+        except Exception as e:
+            ok, err = False, str(e)
+            idx = {}
+    check("kalibrasyon sayfası KURULABİLİYOR (iç araç muafiyeti duruyor)",
+          ok, err)
+    check("kalibrasyon sayfası dokuz çizgi kalınlığını da ölçüyor",
+          len(idx.get("strokes", [])) == 9, f"{len(idx.get('strokes', []))} çizgi")
+    check("kalibrasyon sayfası TK-05 ve TK-06 kutularını taşıyor",
+          "tk05_box" in idx and "tk06_box" in idx, "kutular yok")
+
+
 def main():
     print("▸ selftest_visual.py — render katmanının kendi testi\n")
     for fn in (
@@ -182,6 +209,7 @@ def main():
         test_labels_do_not_overlap,
         test_token_usage_is_measured_not_declared,
         test_engine_is_reproducible,
+        test_calibration_sheet_builds,
     ):
         fn()
     print(f"\n{CHECKS} denetim çalıştı, {len(FAILURES)} başarısız.")

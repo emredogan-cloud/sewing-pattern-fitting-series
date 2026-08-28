@@ -131,7 +131,11 @@ def build_sheet(out_pdf: Path, geom: dict, tokens: dict) -> dict:
     fc.text(45.0, y, sample[:110], face="serif", size=body)
     idx["text"]["measure_sample"] = {"y_pt": y, "size": body, "face": "serif",
                                      "string": sample}
-    fc.finish()
+    # Kalibrasyon sayfası bir İÇ ARAÇTIR ve okura basılmaz: token
+    # kimliklerini (TK-05, TK-06) etiket olarak taşımak zorundadır,
+    # çünkü ölçülen şey tam olarak o token'lardır. Etiket çakışması da
+    # muaftır — sayfa yoğunluk sınırlarını sınamak için sıkıştırılmıştır.
+    fc.finish(internal_marks=True, allow_label_overlap=True)
     return idx
 
 

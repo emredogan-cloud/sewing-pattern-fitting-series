@@ -1147,7 +1147,7 @@ oraya bir bağlayıcı çizilir.
 
 **Her iki kapı için selftest regresyonu eklendi** — yanlış pozitif
 testleriyle birlikte (`internal_marks=True` muafiyeti ve ayrık
-etiketler serbest kalmalıdır). Toplam selftest: **125 → 140 denetim** (116 veri + 24 render).
+etiketler serbest kalmalıdır). Toplam selftest: **125 → 143 denetim** (116 veri + 27 render).
 
 **Ders — `K45`'in tekrarı.** Üç bulgunun üçü de "kapı yeşil, ürün
 bozuk" sınıfındandır ve üçü de **üretilen sayfaya gözle bakılarak**

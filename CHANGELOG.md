@@ -74,6 +74,10 @@ kaydeder. Gerekçelerin tam metni `DECISIONS.md`'dedir; burada yalnızca
   render katmanı (`selftest_visual.py`, yeni `render` işi,
   `requirements-render.txt`). Bağımlılık **gizlenmedi, ayrıldı**.
 - `selftest.py` reportlab ve Pillow **gizlenerek** sınandı: 116/116.
+- CI ikinci kez kırmızı yandı: yeni `check_internal_id_leak` kapısı
+  **kalibrasyon sayfasını** çizilemez yapmıştı — sayfa bir iç araçtır
+  ve token kimliklerini taşımak zorundadır. Muafiyet açıkça beyan
+  edildi ve `test_calibration_sheet_builds` regresyonu eklendi.
 - `render` işi ayrıca `figures.json`'ın **bayat olup olmadığını**
   denetliyor: taksonomi değişip sicil güncellenmezse CI kırmızı yanar.
 
@@ -81,7 +85,7 @@ kaydeder. Gerekçelerin tam metni `DECISIONS.md`'dedir; burada yalnızca
 - Seri `.gate`: `bootstrap` → **`series-architecture`**
 - Kitap 1 `.gate`: `foundation` → **`phase2-visual`**
 - Kitap 1 `phase3-pilot`: **AÇILMADI** — `D-01` ve `D-02` dış beklemede
-- selftest **91 → 140** (116 veri + 24 render) · kararlar **35 → 47** · riskler **18 → 21**
+- selftest **91 → 143** (116 veri + 27 render) · kararlar **35 → 47** · riskler **18 → 21**
   · kaynaklar **15 → 18** · CI işleri **8 → 10**
 
 ## [S1 YÜRÜTME] — 2026-08-28 (14 açık kararın 12'si kapatıldı, kaynak katmanı kuruldu, depo yayımlandı)
