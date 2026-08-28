@@ -1,0 +1,216 @@
+{
+  "$comment": [
+    "TERMINOLOGY — serinin kontrollü sözlüğü.",
+    "Kural: bir terim BİR kitapta kurulur ('established_in'), diğer ikisi",
+    "tanımı DEĞİŞTİREMEZ. qa_terminology.py bunu mekanik olarak dayatır:",
+    "banned_synonyms listesindeki bir ifade bir spesifikasyon belgesinde",
+    "geçerse hata verir.",
+    "",
+    "Bu sözlük Faz 1 taslağıdır. Terimlerin teknik doğruluğu",
+    "SOURCE_MAP'in C-serisi iddialarıyla bağlıdır ve henüz dış",
+    "otoriteye karşı doğrulanmamıştır (verification_status alanları)."
+  ],
+  "verification_status": "agent_drafted_unverified",
+  "terms": [
+    {
+      "term_id": "T-01",
+      "term": "pattern adjustment",
+      "definition": "Kâğıt kalıp üzerinde, kumaş kesilmeden ÖNCE yapılan geometrik değişiklik.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [
+        "garment alteration (bu ayrı bir şeydir)"
+      ],
+      "note": "SERİNİN EN ÖNEMLİ TERİM AYRIMI. Seri kalıp düzeltmeyi öğretir, dikilmiş giysi tadilatını DEĞİL. Kitap 2'nin adı bu ayrımı taşır."
+    },
+    {
+      "term_id": "T-02",
+      "term": "garment alteration",
+      "definition": "Dikilmiş, bitmiş bir giysi üzerinde yapılan değişiklik.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Seri KAPSAMI DIŞI. Yalnızca 'bu kitap bunu öğretmez' ayrımı için tanımlanır."
+    },
+    {
+      "term_id": "T-03",
+      "term": "toile correction",
+      "definition": "Prova giysisi (toile) üzerinde iğneyle/keserek yapılan geçici düzeltme; kalıba GERİ AKTARILMAK üzere yapılır.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Ne T-01 ne T-02'dir — ölçüm aracıdır."
+    },
+    {
+      "term_id": "T-04",
+      "term": "toile",
+      "definition": "Teşhis/doğrulama amacıyla dikilen prova giysisi.",
+      "established_in": "book-01",
+      "accepted_variants": [
+        "muslin (ABD kullanımı)",
+        "test garment"
+      ],
+      "banned_synonyms": [],
+      "note": "KANONİK BİÇİM 'toile'; 'muslin' ABD pazarında yaygın olduğu için metinde EŞ ANLAMLI olarak bir kez tanıtılır ve anahtar kelime hedeflemesinde kullanılır. Üç toile türü ayrıdır: diagnostic / verification / block-proving (BOUNDARY_MATRIX TOP-07/26/27)."
+    },
+    {
+      "term_id": "T-05",
+      "term": "block",
+      "definition": "Okurun kendi ölçülerinden çizilmiş, tasarım detayı içermeyen temel kalıp.",
+      "established_in": "book-03",
+      "accepted_variants": [
+        "sloper (ABD kullanımı)",
+        "foundation pattern"
+      ],
+      "banned_synonyms": [],
+      "note": "KANONİK BİÇİM 'block' (Kitap 3 başlığı bunu taşır). 'sloper' ABD pazarında baskın olduğu için dizinde, sözlükte ve anahtar kelimede TAM EŞDEĞER olarak korunur — hangisinin başlıkta kullanılacağı OPEN_QUESTIONS A9."
+    },
+    {
+      "term_id": "T-06",
+      "term": "wearing ease",
+      "definition": "Giysinin hareket ve nefes için gereken, tasarımdan bağımsız asgari fazlalığı.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "T-07 ile ASLA karıştırılmaz — teşhisin temel ayrımıdır."
+    },
+    {
+      "term_id": "T-07",
+      "term": "design ease",
+      "definition": "Tasarımcının siluet için bilerek eklediği fazlalık.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Bir belirti design ease ise DÜZELTME DEĞİL, TASARIM TERCİHİDİR — bu ayrım okuru gereksiz düzeltmeden korur."
+    },
+    {
+      "term_id": "T-08",
+      "term": "finished garment measurement",
+      "definition": "Bitmiş giysinin belirli bir noktadaki gerçek ölçüsü (vücut ölçüsü + wearing ease + design ease).",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [
+        "garment size"
+      ],
+      "note": null
+    },
+    {
+      "term_id": "T-09",
+      "term": "flat pattern measurement",
+      "definition": "Kalıp parçası üzerinden, dikiş paylarını çıkararak alınan ölçü.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "T-08'i kalıptan HESAPLAMANIN yoludur; ikisi aynı sayı DEĞİLDİR."
+    },
+    {
+      "term_id": "T-10",
+      "term": "high bust",
+      "definition": "Kolların üstünden, göğüs dokusunun üzerinden geçen üst göğüs çevresi.",
+      "established_in": "book-01",
+      "accepted_variants": [
+        "upper bust"
+      ],
+      "banned_synonyms": [],
+      "note": "Beden seçimi tartışmasının merkezindeki ölçü."
+    },
+    {
+      "term_id": "T-11",
+      "term": "full bust",
+      "definition": "Göğsün en dolgun noktasından geçen çevre.",
+      "established_in": "book-01",
+      "accepted_variants": [
+        "bust"
+      ],
+      "banned_synonyms": [],
+      "note": null
+    },
+    {
+      "term_id": "T-12",
+      "term": "apex",
+      "definition": "Göğsün en çıkıntılı noktası; şekillendirmenin geometrik hedefi.",
+      "established_in": "book-01",
+      "accepted_variants": [
+        "bust point"
+      ],
+      "banned_synonyms": [],
+      "note": null
+    },
+    {
+      "term_id": "T-13",
+      "term": "drag line",
+      "definition": "Gerginlik noktasından uzağa doğru uzanan, yönlü kırışıklık.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [
+        "wrinkle (belirsiz)"
+      ],
+      "note": "Kitap 1'in kontrollü sözlüğünde AYRI bir sign_class'tır; yatay/dikey kıvrımdan farklı okunur."
+    },
+    {
+      "term_id": "T-14",
+      "term": "balance line",
+      "definition": "Prova giysisi üzerine çizilen, yer düzlemine göre yatay/dikey referans çizgisi.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Denge teşhisinin ölçüm aracı."
+    },
+    {
+      "term_id": "T-15",
+      "term": "grainline",
+      "definition": "Kalıp parçasının kumaş çözgüsüne göre yönünü belirleyen çizgi.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": null
+    },
+    {
+      "term_id": "T-16",
+      "term": "fit profile",
+      "definition": "Okurun kendi bedenine ait, ölçülmüş ve doğrulanmış düzeltme listesi ve ölçü kaydı.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Kitap 1'in okurun elinde kalan çıktısı; Kitap 2 ve 3 aynı formu okur."
+    },
+    {
+      "term_id": "T-17",
+      "term": "adjustment family",
+      "definition": "Aynı kalıp bölgesini aynı mekanikle değiştiren düzeltmeler kümesi (AF-xx).",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Kitap 1 aileyi ADLANDIRIR, Kitap 2 ailenin içini DOLDURUR."
+    },
+    {
+      "term_id": "T-18",
+      "term": "confounder",
+      "definition": "Kalıp/vücut uyumsuzluğu OLMADIĞI hâlde aynı belirtiyi üreten dış etken (kumaş, iç giyim, dikiş hatası, ütü, hatalı basılmış kalıp).",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Kitap 1'in Bölüm 8'i; farklılaşmanın somut taşıyıcılarından biri."
+    },
+    {
+      "term_id": "T-19",
+      "term": "fit sign",
+      "definition": "Okurun prova giysisinde GÖZLEDİĞİ, yorumlanmamış görsel olgu.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [
+        "fit problem (bu bir yorumdur, gözlem değil)"
+      ],
+      "note": "SEMPTOM ≠ NEDEN kuralının dilsel temeli."
+    },
+    {
+      "term_id": "T-20",
+      "term": "lengthen/shorten line",
+      "definition": "Ticari kalıplarda basılı olan, boy düzeltmesi için ayrılmış çift çizgi.",
+      "established_in": "book-01",
+      "accepted_variants": [],
+      "banned_synonyms": [],
+      "note": "Kitap 1 varlığını tanıtır; kullanımı Kitap 2."
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+# ─────────────────────────────────────────────────────────────────────────
+# TRUE FIT — SEWING PATTERN FITTING SERIES — .gitignore
+# ─────────────────────────────────────────────────────────────────────────
+#
+# Kardeş projelerin iki-katmanlı koruma İSKELETİ uyarlandı; korunan
+# İÇERİK bu ürüne özgüdür — bkz. 00_CONTEXT/CONTENT_PROTECTION.md.
+#
+# Bir kalıp düzeltmesinin geometrisi SIR DEĞİLDİR (telifle korunmayan
+# teknik yöntem — bkz. IP_AND_BRAND_POLICY.md § 2). "Cevap anahtarı"
+# modeli bu projeye UYGULANMAZ. Korunan şey üçe ayrılır:
+#   ① yayın-öncesi tam prozа/akış şeması metni (sıradan yayın gizliliği)
+#   ② nihai üretilmiş diyagram varlıkları (yeniden üretilebilir çıktı)
+#   ③ fiziksel doğrulama fotoğrafları (gerçek insan bedeni — gizlilik)
+#
+# PUBLIC kalan: kod · CI · şema · doğrulayıcı · belgeler · taksonomi
+#   METADATASI · kaynak KAYITLARI · görsel notasyon sözlüğü · raporlar
+#
+# Karar: DECISIONS.md § K9
+
+# ① YAYIN-ÖNCESİ İÇERİK ─────────────────────────────────────────────────
+BOOK-*/02_CONTENT/protected/*
+!BOOK-*/02_CONTENT/protected/.gitkeep
+!BOOK-*/02_CONTENT/protected/README.md
+
+BOOK-*/04_EDITORIAL/pilot/*
+!BOOK-*/04_EDITORIAL/pilot/.gitkeep
+!BOOK-*/04_EDITORIAL/pilot/README.md
+
+BOOK-*/04_EDITORIAL/*.private.md
+
+02_TAXONOMY/protected/*
+!02_TAXONOMY/protected/.gitkeep
+!02_TAXONOMY/protected/README.md
+
+# Public projeksiyon: İZİN LİSTESİ, yasak listesi değil
+BOOK-*/02_CONTENT/public/*
+!BOOK-*/02_CONTENT/public/.gitkeep
+!BOOK-*/02_CONTENT/public/*.public.json
+
+02_TAXONOMY/public/*
+!02_TAXONOMY/public/.gitkeep
+!02_TAXONOMY/public/*.json
+
+# ② FİZİKSEL DOĞRULAMA FOTOĞRAFLARI — gerçek insan bedeni, gizlilik ────
+# Bir muslin prova fotoğrafı bir kişinin vücut görüntüsüdür. Depoya
+# ASLA girmez; yalnızca ÖLÇÜM KAYDI (VALIDATION_PROTOCOL.md § 5) girer.
+**/validation_photos/
+**/*_fitting_photo.*
+**/*_muslin_photo.*
+
+# ③ TELİF KORUMALI REFERANS MALZEME ────────────────────────────────────
+# Kalıp çizimi/uyum kitaplarının taranmış sayfaları, satın alınmış
+# ticari kalıplar, PDF kalıp dosyaları. Kaynak KAYDI public kalır;
+# malzemenin KENDİSİ depoya girmez (IP_AND_BRAND_POLICY.md § 3).
+01_SOURCE/reference_material/*
+!01_SOURCE/reference_material/.gitkeep
+!01_SOURCE/reference_material/README.md
+00_CONTEXT/private/
+**/*_PRIVATE.md
+
+# ④ RAPORLAR: İZİN LİSTESİ ─────────────────────────────────────────────
+08_REPORTS/*
+!08_REPORTS/.gitkeep
+!08_REPORTS/tracked/
+!08_REPORTS/tracked/**
+!08_REPORTS/PHASE_*.md
+!08_REPORTS/SERIES_*.md
+
+BOOK-*/08_REPORTS/*
+!BOOK-*/08_REPORTS/.gitkeep
+!BOOK-*/08_REPORTS/PHASE_*.md
+
+# ⑤ ÜRETİLMİŞ GÖRSEL VARLIKLAR (kaynaktan yeniden üretilebilir) ────────
+03_VISUAL/generated/*
+!03_VISUAL/generated/.gitkeep
+BOOK-*/03_VISUAL/generated/*
+BOOK-*/05_APLUS_COVER/exports/*
+!BOOK-*/05_APLUS_COVER/exports/.gitkeep
+07_TESTS/fixtures/generated/*
+
+# ⑥ ÜRETİLMİŞ YAYIN DOSYALARI ───────────────────────────────────────────
+09_OUTPUT/**/*
+!09_OUTPUT/**/.gitkeep
+BOOK-*/09_OUTPUT/*
+!BOOK-*/09_OUTPUT/.gitkeep
+
+10_ARCHIVE/*
+!10_ARCHIVE/.gitkeep
+
+# ⑦ SIRLAR VE YEREL ORTAM ───────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+06_BUILD/.venv/
+__pycache__/
+*.pyc
+.DS_Store

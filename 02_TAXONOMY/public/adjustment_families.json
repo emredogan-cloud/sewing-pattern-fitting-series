@@ -1,0 +1,435 @@
+{
+  "$comment": [
+    "ADJUSTMENT FAMILIES — Kitap 2'nin iskeleti, Kitap 1'in varış noktaları.",
+    "Faz 1 taslağı. HİÇBİR ADIM İÇERMEZ — bu bilinçlidir: adım vermek Kitap 2'nin işidir",
+    "(BOUNDARY_MATRIX TOP-13/TOP-14). Bu dosya yalnızca AİLE ADI + KAPSAM + SIRA KISITI taşır.",
+    "verification_status hepsinde 'agent_drafted_unverified' — dış otoriteye karşı",
+    "doğrulanmadı (SOURCE_MAP C-serisi iddiaları, OPEN_QUESTIONS A3)."
+  ],
+  "count": 19,
+  "families": [
+    {
+      "adjustment_family_id": "AF-01",
+      "name": "Bust volume (full / small bust adjustment)",
+      "zone": "bust_chest",
+      "pattern_area": "Front bodice: apex region, side seam, bust dart, armhole edge",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap",
+        "dart_manipulation"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-02",
+        "AF-08",
+        "AF-11",
+        "AF-18"
+      ],
+      "order_constraint": "Omuz ve boyun düzeltmelerinden SONRA; yan dikiş/bel düzeltmelerinden ÖNCE.",
+      "book3_relevance": "Blokta göğüs şekillendirme miktarı doğrudan çizilir — düzeltme tekrar etmez.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-02",
+      "name": "Bust position (apex height / width, dart angle)",
+      "zone": "bust_chest",
+      "pattern_area": "Front bodice: dart legs, dart point, apex marker",
+      "method_families": [
+        "dart_manipulation",
+        "pivot_and_slide"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-01"
+      ],
+      "order_constraint": "AF-01 ile birlikte veya hemen ardından; ikisi ayrı kararlardır.",
+      "book3_relevance": "Blokta apeks konumu ölçüden belirlenir (M-017/M-018/M-019).",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-03",
+      "name": "Shoulder slope (square / sloping shoulder)",
+      "zone": "shoulder",
+      "pattern_area": "Front and back bodice: shoulder seam, armhole top",
+      "method_families": [
+        "pivot_and_slide",
+        "seam_line_shift"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-04",
+        "AF-05",
+        "AF-08",
+        "AF-09"
+      ],
+      "order_constraint": "EN ERKEN düzeltmelerden biri — omuz konumu değişince altındaki her şey kayar.",
+      "book3_relevance": "Blokta omuz eğimi doğrudan ölçülür.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-04",
+      "name": "Shoulder width (narrow / broad shoulder)",
+      "zone": "shoulder",
+      "pattern_area": "Front and back bodice: shoulder seam length, armhole position",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-03",
+        "AF-08",
+        "AF-09"
+      ],
+      "order_constraint": "AF-03'ten sonra, AF-08'den önce.",
+      "book3_relevance": "Blokta omuz uzunluğu M-014'ten gelir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-05",
+      "name": "Shoulder position (forward shoulder)",
+      "zone": "shoulder",
+      "pattern_area": "Front and back bodice: shoulder seam line, armhole",
+      "method_families": [
+        "seam_line_shift"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-03",
+        "AF-07",
+        "AF-09"
+      ],
+      "order_constraint": "AF-03 ile birlikte değerlendirilir; ikisi sık karıştırılır.",
+      "book3_relevance": "Blokta duruş analizi (TOP-06) girdi olur.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-06",
+      "name": "Neckline size and shape",
+      "zone": "neck",
+      "pattern_area": "Front and back neckline curve, shoulder/neck point",
+      "method_families": [
+        "curve_reshape",
+        "seam_line_shift"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-03",
+        "AF-07"
+      ],
+      "order_constraint": "Omuz düzeltmelerinden SONRA — omuz kayarsa boyun eğrisi de kayar.",
+      "book3_relevance": "Blokta boyun eğrisi M-013'ten türetilir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-07",
+      "name": "Upper back (round back / broad back / narrow back)",
+      "zone": "upper_back",
+      "pattern_area": "Back bodice: across-back region, center back, back neckline",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap",
+        "dart_manipulation"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-05",
+        "AF-06",
+        "AF-08",
+        "AF-11"
+      ],
+      "order_constraint": "AF-11 (boy/denge) ile birlikte okunur — yuvarlak sırt hem genişlik hem boy ister.",
+      "book3_relevance": "Blokta sırt genişliği ve sırt boyu ayrı ölçülerdir (M-020, M-016).",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-08",
+      "name": "Armhole depth and shape",
+      "zone": "armhole",
+      "pattern_area": "Front and back bodice: armhole curve, underarm point",
+      "method_families": [
+        "curve_reshape",
+        "slash_and_spread"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-03",
+        "AF-04",
+        "AF-09",
+        "AF-01"
+      ],
+      "order_constraint": "SON bodice düzeltmesi — üstündeki tüm düzeltmeler kol oyuntusunu değiştirir.",
+      "book3_relevance": "Blokta kol oyuntusu derinliği M-022'den türetilir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-09",
+      "name": "Sleeve cap (height, shape, ease)",
+      "zone": "sleeve_arm",
+      "pattern_area": "Sleeve pattern: cap curve, cap height, notches",
+      "method_families": [
+        "curve_reshape",
+        "slash_and_spread",
+        "slash_and_overlap"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "advanced",
+      "interacts_with": [
+        "AF-08",
+        "AF-10",
+        "AF-03"
+      ],
+      "order_constraint": "Kol oyuntusu (AF-08) KESİNLEŞMEDEN kol başı düzeltilmez — en sık yapılan sıra hatası.",
+      "book3_relevance": "Blokta kol başı, bitmiş kol oyuntusundan hesaplanır.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-10",
+      "name": "Sleeve girth and length (bicep, forearm, length)",
+      "zone": "sleeve_arm",
+      "pattern_area": "Sleeve pattern: bicep line, underarm seam, hem",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap",
+        "lengthen_shorten_line"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-09",
+        "AF-19"
+      ],
+      "order_constraint": "Boy düzeltmesi genişlik düzeltmesinden ÖNCE.",
+      "book3_relevance": "Blokta kol ölçüleri M-007/M-028/M-029'dan gelir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-11",
+      "name": "Torso length and front/back balance",
+      "zone": "waist_torso",
+      "pattern_area": "Front and back bodice: lengthen/shorten lines, waist seam",
+      "method_families": [
+        "lengthen_shorten_line",
+        "slash_and_spread",
+        "slash_and_overlap"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-01",
+        "AF-07",
+        "AF-14"
+      ],
+      "order_constraint": "BOY ÖNCE, GENİŞLİK SONRA — serinin sıra kuralının çekirdeği.",
+      "book3_relevance": "Blokta ön/arka boy ayrı ölçülerdir (M-015, M-016) — denge çizimde kurulur.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-12",
+      "name": "Waist girth",
+      "zone": "waist_torso",
+      "pattern_area": "Side seams, waist darts, waist seam",
+      "method_families": [
+        "seam_line_shift",
+        "dart_manipulation",
+        "grade_between_sizes"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-13",
+        "AF-18"
+      ],
+      "order_constraint": "Tüm boy düzeltmelerinden SONRA.",
+      "book3_relevance": "Blokta bel ölçüsü M-004'ten doğrudan gelir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-13",
+      "name": "Hip and seat volume (full / flat seat, high hip)",
+      "zone": "hip_seat",
+      "pattern_area": "Back trouser/skirt: seat curve, side seam, back dart",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap",
+        "curve_reshape",
+        "seam_line_shift"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-12",
+        "AF-14",
+        "AF-15",
+        "AF-16"
+      ],
+      "order_constraint": "AF-15/16 (ağ) ile AYNI ANDA değerlendirilir; ayrı ayrı düzeltilirse birbirini bozar.",
+      "book3_relevance": "Blokta kalça şekillendirmesi M-005/M-006 ve duruş analizinden gelir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-14",
+      "name": "Sway back / lumbar hollow",
+      "zone": "waist_torso",
+      "pattern_area": "Back bodice/skirt: center back, waist seam, back length",
+      "method_families": [
+        "slash_and_overlap",
+        "seam_line_shift",
+        "dart_manipulation"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-11",
+        "AF-13"
+      ],
+      "order_constraint": "AF-11 boy düzeltmesiyle KARIŞTIRILMAMALI — biri genel boy, diğeri yerel oyuk.",
+      "book3_relevance": "Blokta bel oyuğu şekillendirmesi doğrudan çizilir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-15",
+      "name": "Crotch depth and length",
+      "zone": "crotch_leg",
+      "pattern_area": "Trouser front and back: crotch line, rise, lengthen/shorten line",
+      "method_families": [
+        "lengthen_shorten_line",
+        "slash_and_spread",
+        "slash_and_overlap"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-13",
+        "AF-16",
+        "AF-17"
+      ],
+      "order_constraint": "AĞ DERİNLİĞİ ÖNCE, AĞ EĞRİSİ SONRA — ikisi ayrı kararlardır.",
+      "book3_relevance": "Blokta ağ derinliği M-026'dan, ağ uzunluğu M-027'den gelir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-16",
+      "name": "Crotch curve shape (front / back hook)",
+      "zone": "crotch_leg",
+      "pattern_area": "Trouser front and back: crotch curve, inseam start",
+      "method_families": [
+        "curve_reshape"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "advanced",
+      "interacts_with": [
+        "AF-13",
+        "AF-15"
+      ],
+      "order_constraint": "AF-15 kesinleşmeden yapılmaz.",
+      "book3_relevance": "Blokta ağ eğrisi taslak sisteminin en hassas bölümüdür.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-17",
+      "name": "Leg girth and shape (thigh, knee, calf)",
+      "zone": "crotch_leg",
+      "pattern_area": "Trouser: inseam, outseam, leg width lines",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap",
+        "seam_line_shift",
+        "grade_between_sizes"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-15",
+        "AF-19"
+      ],
+      "order_constraint": "Ağ düzeltmelerinden SONRA.",
+      "book3_relevance": "Blokta bacak ölçüleri M-009/M-010/M-011'den gelir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-18",
+      "name": "Grading between sizes",
+      "zone": "whole_garment",
+      "pattern_area": "All pattern pieces: side seams, cutting lines across size range",
+      "method_families": [
+        "grade_between_sizes"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-01",
+        "AF-12",
+        "AF-13"
+      ],
+      "order_constraint": "Beden geçişi bir DÜZELTME DEĞİL, beden SEÇİMİDİR — teşhiste ayrı tutulur.",
+      "book3_relevance": "Blokta kavram YOKTUR — tek beden çizilir. Bu, Kitap 3'ün en güçlü satış argümanlarından biridir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "adjustment_family_id": "AF-19",
+      "name": "Overall length (lengthen / shorten lines)",
+      "zone": "whole_garment",
+      "pattern_area": "All pieces carrying printed lengthen/shorten lines",
+      "method_families": [
+        "lengthen_shorten_line"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "basic",
+      "interacts_with": [
+        "AF-10",
+        "AF-11",
+        "AF-17"
+      ],
+      "order_constraint": "HER ZAMAN ilk gruptaki düzeltmelerden biri.",
+      "book3_relevance": "Blokta boy ölçüden gelir.",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    }
+  ]
+}

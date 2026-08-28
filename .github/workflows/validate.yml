@@ -1,0 +1,148 @@
+# =============================================================================
+# TRUE FIT — SEWING PATTERN FITTING SERIES — KALİTE KAPILARI
+# =============================================================================
+# Desen: kardeş projelerin validate.yml'i.
+#
+# TASARIM: bu iş akışı ÜÇÜNCÜ TARAF PAKET KURMAZ. Bütün kalite kapıları
+# Python standart kütüphanesiyle yazıldı — iş akışı saniyeler içinde biter.
+#
+# İKİ KAPI KATMANI okunur: seri kapısı (.gate) ve üç kitap kapısı
+# (BOOK-*/.gate). Biri diğerinin yerine geçmez (DECISIONS.md K3).
+# =============================================================================
+name: validate
+
+on:
+  push:
+    branches: [main, master, 'faz/**', 'fix/**']
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gates:
+    name: kapı seviyelerini oku
+    runs-on: ubuntu-latest
+    outputs:
+      series: ${{ steps.read.outputs.series }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: read
+        run: |
+          SERIES="bootstrap"
+          if [ -f .gate ]; then SERIES="$(tr -d '[:space:]' < .gate)"; fi
+          case "$SERIES" in
+            bootstrap|series-architecture|production|catalog|release) ;;
+            *) echo "::error::seri .gate geçersiz: '$SERIES'"; exit 1 ;;
+          esac
+          echo "series=$SERIES" >> "$GITHUB_OUTPUT"
+          echo "::notice::seri kapısı = $SERIES"
+          for d in BOOK-01-* BOOK-02-* BOOK-03-*; do
+            B="init"
+            if [ -f "$d/.gate" ]; then B="$(tr -d '[:space:]' < "$d/.gate")"; fi
+            case "$B" in
+              init|foundation|phase1-spec|phase2-visual|phase3-pilot|phase4-production|phase5-qa|phase6-format|release) ;;
+              *) echo "::error::$d/.gate geçersiz: '$B'"; exit 1 ;;
+            esac
+            echo "::notice::$d kapısı = $B"
+          done
+
+  spec:
+    name: şema · bütünlük · kaynak otoritesi
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: validate_spec
+        run: |
+          python3 06_BUILD/validate_spec.py \
+            --gate "${{ needs.gates.outputs.series }}" \
+            --verbose --json 08_REPORTS/tracked/spec-validation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spec-validation
+          path: 08_REPORTS/tracked/spec-validation.json
+
+  structure:
+    name: depo · koruma · marka · izolasyon
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python3 06_BUILD/validate_structure.py --verbose --json 08_REPORTS/tracked/structure-validation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: structure-validation
+          path: 08_REPORTS/tracked/structure-validation.json
+
+  crosswalk:
+    name: crosswalk tazeliği
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python3 06_BUILD/build_crosswalk.py --check
+
+  boundary:
+    name: kitap sınırı (seriye özgü)
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python3 06_BUILD/qa_boundary.py --verbose --json 08_REPORTS/tracked/boundary-qa.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: boundary-qa
+          path: 08_REPORTS/tracked/boundary-qa.json
+
+  claims:
+    name: iddia disiplini · terminoloji
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python3 06_BUILD/qa_claims.py --verbose
+      - run: python3 06_BUILD/qa_terminology.py --verbose
+
+  selftest:
+    name: KAPILARIN KENDİ TESTİ
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python3 07_TESTS/selftest.py
+
+  killgate:
+    name: kill-gate ön koşulu (bilgi amaçlı)
+    needs: gates
+    runs-on: ubuntu-latest
+    continue-on-error: true   # Faz 3 öncesi BAŞARISIZ olması BEKLENİR
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: kill_gate (Kitap 1)
+        run: |
+          echo "::notice::Bu iş Faz 3 öncesi BAŞARISIZ olur — kill-gate henüz ÖLÇÜLMEDİ."
+          python3 06_BUILD/kill_gate.py --book book-01

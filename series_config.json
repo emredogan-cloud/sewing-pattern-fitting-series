@@ -1,0 +1,164 @@
+{
+  "$comment": [
+    "TRUE FIT SEWING PATTERN FITTING SERIES — makine okunur seri yapılandırması.",
+    "Bütün doğrulama betiklerinin TEK doğruluk kaynağı.",
+    "",
+    "Kaynak: KDP_2_3_BOOK_SERIES_OPPORTUNITY_RESEARCH_2026_CYCLE_2.html —",
+    "Nihai Kazanan (§ 28), düzeltilmiş ağırlıklı skor 7,02/10, çelişmeli",
+    "inceleme sonrası 5 finalist arasında birinci, dört stres testinin",
+    "dördünde de birinci.",
+    "",
+    "⚠ Bu proje yedi kardeş projeden mimari olarak ilham alır ama içerik",
+    "  olarak TAMAMEN İZOLEDİR. Bkz. 00_CONTEXT/REFERENCE_SYNTHESIS.md.",
+    "",
+    "⚠ KARDEŞ PROJELERDEN YAPISAL FARK: bu bir SERİ deposudur, tek kitap",
+    "  deposu değil. Üç kitap TEK depoda, TEK araç zinciriyle, İKİ KATMANLI",
+    "  kapı sistemiyle yaşar (DECISIONS.md K2, K3)."
+  ],
+  "series": {
+    "id": "true-fit-sewing-pattern-fitting-series",
+    "workingName": "TRUE FIT",
+    "workingNameStatus": "WORKING_NAME_ONLY — marka çakışma taraması YAPILMADI (OPEN_QUESTIONS.md A1). Kapak/metadata öncesi zorunlu.",
+    "language": "en",
+    "documentLanguage": "tr",
+    "repository": "local-only — henüz GitHub'a itilmedi (OPEN_QUESTIONS.md A2)",
+    "sourceOfTruth": "../KDP_2_3_BOOK_SERIES_OPPORTUNITY_RESEARCH_2026_CYCLE_2.html — § 28-32, 35-36",
+    "acceptedScore": 7.02,
+    "founderDecision": "KABUL EDİLDİ — pazar keşfi KAPALI, bu depo yalnızca ürün mimarisi ve üretimdir",
+    "isolatedFrom": [
+      "CODEX_BESTIARIUM",
+      "CODEX_MYTHOLOGICA",
+      "CODEX-ENIGMATICA",
+      "THE-GREAT-BOOK-OF-WORLD-MYTHS",
+      "THE-GREAT-BOOK-OF-WORLD-GAMES",
+      "THE-MYTH-HUNTERS-FIELD-BOOK",
+      "LICENSE-AND-LAUNCH-CALIFORNIA-LIFE-HEALTH",
+      "KOREAN-HANGUL-HANDWRITING-WORKBOOK"
+    ],
+    "architecturalDebtTo": [
+      "KOREAN-HANGUL-HANDWRITING-WORKBOOK — en yeni nesil: paths.py/schema_lite.py, .gate, K#/A# kaydı, selftest felsefesi, ROADMAP_PROGRESS ölçüm tablosu, kurucu-geçersiz-kılma ayrımı",
+      "LICENSE-AND-LAUNCH-CALIFORNIA-LIFE-HEALTH — faz raporu durum sözlüğü, kill-gate ayrımı, iki katmanlı içerik koruma",
+      "CODEX-ENIGMATICA — kill-gate'in GERÇEKTEN başarısız olabilme ilkesi",
+      "THE-GREAT-BOOK-OF-WORLD-GAMES — açık karar kapanış izleme, kurucu teslim kuyruğu"
+    ]
+  },
+  "product": {
+    "targetReader": "Orta seviye ev dikişçisi — dikmeyi biliyor, kalıbı harfiyen uyguluyor, giysi yine oturmuyor. Sorunun ADINI bilmiyor.",
+    "targetReaderStatus": "ARAŞTIRMA RAPORUNDAN DEVRALINDI — bu depoda henüz bağımsız olarak doğrulanmadı (Kitap 1 Faz 1 § reader definition, doğrulama Faz 3 pilotunda)",
+    "coreProblem": "Kalıbı doğru uyguladım, giysi yine oturmuyor — neden?",
+    "seriesProgression": "TEŞHİS ET → DÜZELT → ÜRET",
+    "differentiationHypothesis": {
+      "claim": "Teşhis-önce mimari (akış şeması), rakiplerin katalog mimarisinden ölçülebilir biçimde daha anlaşılırdır",
+      "status": "HYPOTHESIS — KANITLANMADI",
+      "evidenceBase": "Complete Photo Guide to Perfect Fitting (n=1.797) Amazon etiketi Complexity(58) OBSERVED 27 Ağu 2026",
+      "testPhase": "BOOK-01 phase3-pilot — KİLL-GATE",
+      "killCondition": "Üç gerçek ev dikişçisinden en az ikisi farkı KENDİLİĞİNDEN söylemezse → hipotez çürük, proje durur"
+    },
+    "printOnlyAdvantageClaim": {
+      "status": "ZAYIF — araştırma raporu § 27 girdi geçerliliği testinde DOĞRULANAMADI",
+      "note": "Lider ürün (The Fitting Book) hibrit: 'neredeyse her sayfada QR' + müşteri etiketlerinde 'Video content' bir GÜÇ olarak anılıyor OBSERVED. Bu iddia hiçbir puanı, hiçbir konumlandırmayı ve hiçbir pazarlama metnini desteklemek için KULLANILAMAZ.",
+      "decisionOwner": "OPEN_QUESTIONS.md A4 — ortam kararı"
+    }
+  },
+  "books": [
+    {
+      "id": "book-01",
+      "dir": "BOOK-01-MEASURE-AND-DIAGNOSE",
+      "workingTitle": "True Fit 1 — Measure & Diagnose",
+      "role": "SEE THE PROBLEM",
+      "standaloneProblem": "Hangi düzeltmeye ihtiyacım olduğunu bilmiyorum",
+      "pageTargetProvisional": [220, 260],
+      "priceModelProvisional": 26.99,
+      "priceRangeProvisional": [24.99, 28.99],
+      "formatProvisional": "8.5x11 ciltsiz",
+      "gate": "foundation"
+    },
+    {
+      "id": "book-02",
+      "dir": "BOOK-02-THE-ADJUSTMENT-ATLAS",
+      "workingTitle": "True Fit 2 — The Adjustment Atlas",
+      "role": "FIX THE PROBLEM",
+      "standaloneProblem": "Teşhisimi biliyorum, uygulama referansı istiyorum",
+      "pageTargetProvisional": [260, 300],
+      "priceModelProvisional": 28.99,
+      "priceRangeProvisional": [26.99, 32.99],
+      "formatProvisional": "8.5x11 ciltsiz + spiral SKU ADAYI (fizibilite DOĞRULANMADI — OPEN_QUESTIONS.md A5)",
+      "gate": "init"
+    },
+    {
+      "id": "book-03",
+      "dir": "BOOK-03-DRAFT-YOUR-OWN-BLOCK",
+      "workingTitle": "True Fit 3 — Draft Your Own Block",
+      "role": "BUILD THE SOLUTION",
+      "standaloneProblem": "Her kalıpta aynı düzeltmeyi tekrarlamak istemiyorum",
+      "pageTargetProvisional": [280, 320],
+      "priceModelProvisional": 29.99,
+      "priceRangeProvisional": [28.99, 34.99],
+      "formatProvisional": "8.5x11 ciltsiz",
+      "gate": "init"
+    }
+  ],
+  "gates": {
+    "$comment": "İKİ KATMANLI kapı sistemi — DECISIONS.md K3. Seri kapısı ortak mimarinin donma derecesini, kitap kapısı o kitabın kendi faz ilerlemesini ölçer. Biri diğerinin yerine GEÇMEZ.",
+    "seriesOrder": [
+      "bootstrap",
+      "series-architecture",
+      "production",
+      "catalog",
+      "release"
+    ],
+    "seriesCurrent": "bootstrap",
+    "bookOrder": [
+      "init",
+      "foundation",
+      "phase1-spec",
+      "phase2-visual",
+      "phase3-pilot",
+      "phase4-production",
+      "phase5-qa",
+      "phase6-format",
+      "release"
+    ]
+  },
+  "killGates": {
+    "$comment": "Kardeş projelerin oran-eşiği (sigorta) ve kusur-şiddeti (Hangıl) modellerinden FARKLI ikili model — DECISIONS.md K8.",
+    "differentiationTest": {
+      "book": "book-01",
+      "phase": "phase3-pilot",
+      "model": "DIŞ OKUR VETO — üç gerçek ev dikişçisinden en az ikisi farkı kendiliğinden söylemeli",
+      "source": "araştırma raporu § 35 madde 1 — KİLİT KAPI",
+      "measured": false,
+      "founderOverride": null,
+      "aiProxyCountsAsHuman": false
+    },
+    "physicalValidation": {
+      "book": "book-01",
+      "phase": "phase3-pilot",
+      "model": "KUSUR-ORANI VETO — pilotun her diyagramı gerçekten kalıba uygulanır, muslin dikilir; hata oranı > %0 ise pilot durur, > %5 ise ÜRETİM YÖNTEMİ reddedilir",
+      "source": "araştırma raporu § 32 (doğruluk riski) + § 35 madde 2",
+      "measured": false,
+      "founderOverride": null
+    }
+  },
+  "protectedContent": {
+    "$comment": "Kardeş modelin İSKELETİ; korunan İÇERİK bu ürüne özgü — 00_CONTEXT/CONTENT_PROTECTION.md.",
+    "public": [
+      "kod/CI/şema/doğrulayıcı",
+      "taksonomi METADATASI (id, zone, sign_class, doğrulama durumu, kaynak referansı)",
+      "kaynak KAYITLARI (künye — metin değil)",
+      "görsel notasyon sözlüğü",
+      "ölçüm ve faz raporları"
+    ],
+    "protected": [
+      "tam bölüm prozası",
+      "teşhis akış şemalarının nihai metni",
+      "derlenmiş pilot/tam manüskript",
+      "üretilmiş nihai diyagram varlıkları",
+      "fiziksel doğrulama fotoğrafları (model gizliliği)"
+    ]
+  },
+  "sources": {
+    "count": 0,
+    "$comment": "Faz 1 SONUNDA 0'dır ve bu BİLİNÇLİDİR — bkz. 08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md § Sınırlamalar. Kaynak EDİNİMİ (fiziksel/dijital referans satın alma) kurucu bütçe kararına bağlıdır: OPEN_QUESTIONS.md A3."
+  }
+}

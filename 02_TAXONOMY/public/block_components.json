@@ -1,0 +1,83 @@
+{
+  "$comment": [
+    "BLOCK COMPONENTS — Kitap 3'ün iskeleti (Faz 1 taslağı).",
+    "Kitap 3'ün KENDİ Faz 1'i bu listeyi genişletecek ve çizim YÖNTEMİNİ seçecektir;",
+    "hangi çizim sisteminin kullanılacağı KARARLAŞTIRILMADI (OPEN_QUESTIONS A10 —",
+    "görev talimatı § 18: 'Do not assume a particular drafting method is automatically correct')."
+  ],
+  "count": 12,
+  "blocks": [
+    {
+      "block_id": "BLK-01",
+      "name": "Bodice front block",
+      "description_tr": "Ön beden temel bloğu",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-02",
+      "name": "Bodice back block",
+      "description_tr": "Arka beden temel bloğu",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-03",
+      "name": "Bust shaping (dart volume and placement)",
+      "description_tr": "Göğüs şekillendirme: hacim ve konum",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-04",
+      "name": "Shoulder and neckline construction",
+      "description_tr": "Omuz eğimi/uzunluğu ve boyun eğrisi",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-05",
+      "name": "Armhole construction",
+      "description_tr": "Kol oyuntusu derinliği ve eğrisi",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-06",
+      "name": "Sleeve block",
+      "description_tr": "Kol bloğu: kol başı, bicep, dirsek, boy",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-07",
+      "name": "Skirt block",
+      "description_tr": "Etek bloğu: bel–kalça şekillendirme",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-08",
+      "name": "Trouser block — rise and crotch curve",
+      "description_tr": "Pantolon bloğu: ağ derinliği/uzunluğu ve eğrisi",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-09",
+      "name": "Trouser block — leg",
+      "description_tr": "Pantolon bloğu: uyluk, diz, baldır, paça",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-10",
+      "name": "Waist shaping and darts",
+      "description_tr": "Bel şekillendirme ve pens dağılımı",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-11",
+      "name": "Balance and grain construction",
+      "description_tr": "Ön/arka denge ve çözgü ilişkisinin ÇİZİMDE kurulması",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "block_id": "BLK-12",
+      "name": "Block validation and refinement",
+      "description_tr": "Bloğun prova ile sınanması ve rafine edilmesi",
+      "verification_status": "agent_drafted_unverified"
+    }
+  ]
+}

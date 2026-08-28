@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TRUE FIT — kitaplar arası geçiş (crosswalk) kaydı",
+  "$comment": "Görev talimatı § 22-23. İki yön: DIAGNOSIS_TO_ADJUSTMENT (Kitap 1→2) ve ADJUSTMENT_TO_BLOCK (Kitap 2→3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "crosswalk_id",
+    "direction",
+    "from_ref",
+    "to_ref",
+    "handoff_sentence",
+    "verification_status"
+  ],
+  "properties": {
+    "crosswalk_id": {
+      "type": "string",
+      "pattern": "^XW-[0-9]{3}$"
+    },
+    "direction": {
+      "type": "string",
+      "enum": [
+        "DIAGNOSIS_TO_ADJUSTMENT",
+        "ADJUSTMENT_TO_BLOCK"
+      ]
+    },
+    "from_ref": {
+      "type": "string",
+      "pattern": "^(SYM-[0-9]{3}|AF-[0-9]{2})$"
+    },
+    "to_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^(AF-[0-9]{2}|BLK-[0-9]{2})$",
+      "$comment": "null = bu teşhis yolunun Kitap 2/3'te karşılığı YOKTUR. Bu durumda 'exception' ZORUNLUDUR (validate_spec.py § check_crosswalk_exception dayatır)."
+    },
+    "handoff_sentence": {
+      "type": "string",
+      "minLength": 20,
+      "$comment": "Kitap 1'in okura söylediği TAM cümlenin kavramsal karşılığı — pazarlama cümlesi DEĞİL, teşhis çıktısı."
+    },
+    "exception": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "$comment": "Bu belirtinin Kitap 2 karşılığı YOKSA neden yok (ör. yapım hatası, kumaş seçimi) — boş bırakılamaz, açıkça yazılır."
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "agent_drafted_unverified",
+        "agent_reviewed",
+        "technical_reference_verified",
+        "physically_validated"
+      ]
+    }
+  }
+}

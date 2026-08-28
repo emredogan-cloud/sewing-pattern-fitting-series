@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TRUE FIT — düzeltme ailesi (adjustment family) kaydı",
+  "$comment": [
+    "Kitap 2'nin çekirdek veri modeli; Kitap 1 yalnızca bu kayıtların",
+    "ADINI ve KAPSAMINI kullanır (sınır kuralı: BOUNDARY_MATRIX).",
+    "Şema, araştırma raporu § 17'nin istediği tekrarlanabilir giriş",
+    "şablonunu mekanik hâle getirir."
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "adjustment_family_id",
+    "name",
+    "zone",
+    "pattern_area",
+    "method_families",
+    "book1_entry_point",
+    "verification_status"
+  ],
+  "properties": {
+    "adjustment_family_id": { "type": "string", "pattern": "^AF-[0-9]{2}$" },
+    "name": { "type": "string", "minLength": 3 },
+    "zone": {
+      "type": "string",
+      "enum": ["neck", "shoulder", "upper_back", "armhole", "bust_chest", "waist_torso", "hip_seat", "sleeve_arm", "crotch_leg", "whole_garment"]
+    },
+    "pattern_area": { "type": "string", "minLength": 5 },
+    "method_families": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "slash_and_spread",
+          "slash_and_overlap",
+          "pivot_and_slide",
+          "seam_line_shift",
+          "dart_manipulation",
+          "lengthen_shorten_line",
+          "curve_reshape",
+          "grade_between_sizes",
+          "add_remove_seam"
+        ]
+      }
+    },
+    "book1_entry_point": {
+      "type": "boolean",
+      "$comment": "Kitap 1'in teşhis akışı bu aileye ULAŞABİLİYOR mu. false ise Kitap 2'ye yalnızca Kitap 2 içinden girilir ve CROSSWALK bunu açıkça istisna olarak kaydeder."
+    },
+    "difficulty": { "type": ["string", "null"], "enum": ["basic", "intermediate", "advanced", null] },
+    "interacts_with": { "type": "array", "items": { "type": "string", "pattern": "^AF-[0-9]{2}$" } },
+    "order_constraint": { "type": ["string", "null"], "$comment": "Bu düzeltme hangi düzeltmelerden ÖNCE/SONRA yapılmalı." },
+    "book3_relevance": {
+      "type": ["string", "null"],
+      "$comment": "Kitap 3 devir noktası: bu düzeltme tekrar ediyorsa blok çiziminde hangi ölçü/şekillendirme kararına karşılık gelir."
+    },
+    "source_refs": { "type": "array", "items": { "type": "string", "pattern": "^S-[0-9]{4}$" } },
+    "verification_status": {
+      "type": "string",
+      "enum": ["agent_drafted_unverified", "agent_reviewed", "technical_reference_verified", "physically_validated"]
+    },
+    "notes": { "type": ["string", "null"] }
+  }
+}

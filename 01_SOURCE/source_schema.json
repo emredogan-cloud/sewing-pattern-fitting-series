@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TRUE FIT — kaynak kaydı",
+  "$comment": "SOURCING_STANDARD.md § 1'in makine-okunur karşılığı. Bir kaynak kaydı KÜNYEDİR — kaynağın METNİ ASLA buraya girmez (IP_AND_BRAND_POLICY.md § 3).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id",
+    "source_type",
+    "technical_authority",
+    "title",
+    "verification_level",
+    "locator",
+    "accessed_on",
+    "used_for"
+  ],
+  "properties": {
+    "source_id": { "type": "string", "pattern": "^S-[0-9]{4}$" },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "patternmaking_reference",
+        "fitting_reference",
+        "anthropometric_standard",
+        "industry_sizing_standard",
+        "educational_institution",
+        "commercial_competitor_structural",
+        "marketplace_observation",
+        "community_reference_non_authoritative",
+        "physical_self_validation"
+      ]
+    },
+    "technical_authority": {
+      "type": "boolean",
+      "$comment": "commercial_competitor_structural, marketplace_observation ve community_reference_non_authoritative HER ZAMAN false olmalıdır — validate_spec.py mekanik olarak dayatır."
+    },
+    "title": { "type": "string", "minLength": 3 },
+    "author": { "type": ["string", "null"] },
+    "publisher": { "type": ["string", "null"] },
+    "edition": { "type": ["string", "null"] },
+    "year": { "type": ["integer", "null"], "minimum": 1800, "maximum": 2100 },
+    "isbn": {
+      "type": ["string", "null"],
+      "$comment": "GÖRÜLMEDİYSE null. ASLA tahmin edilmez, ASLA hatırlanan bir değerle doldurulmaz (SOURCING_STANDARD.md § 3)."
+    },
+    "url": { "type": ["string", "null"] },
+    "verification_level": {
+      "type": "string",
+      "enum": [
+        "fulltext",
+        "official_pdf",
+        "official_web",
+        "marketplace_listing_observed",
+        "secondary_citation",
+        "not_yet_acquired",
+        "unverifiable"
+      ]
+    },
+    "locator": {
+      "type": ["string", "null"],
+      "$comment": "Sayfa/bölüm. Kaynak GERÇEKTEN görülmediyse null. Uydurulmaz."
+    },
+    "accessed_on": { "type": ["string", "null"], "format": "date" },
+    "used_for": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "superseded_by": { "type": ["string", "null"], "pattern": "^S-[0-9]{4}$" },
+    "license_constraint": { "type": ["string", "null"] },
+    "acquisition_status": {
+      "type": "string",
+      "enum": ["acquired", "requested_from_founder", "budget_pending", "public_access", "not_started"]
+    },
+    "notes": { "type": ["string", "null"] }
+  }
+}

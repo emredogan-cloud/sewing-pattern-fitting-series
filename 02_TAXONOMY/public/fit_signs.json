@@ -1,0 +1,2163 @@
+{
+  "$comment": [
+    "FIT SIGN TAXONOMY — Kitap 1'in çekirdek veri seti (Faz 1 taslağı).",
+    "",
+    "MİMARİ KURAL: bir kayıt BELİRTİDİR, neden DEĞİLDİR. Her aday neden",
+    "kendi AYIRT EDİCİ KANITINI ve DOĞRULAYICI ÖLÇÜMÜNÜ taşımak zorundadır",
+    "(symptom_schema.json bunu mekanik olarak dayatır).",
+    "",
+    "'do_not_change_yet' alanı görev talimatı § 15'in doğrudan karşılığıdır",
+    "ve bu ürünün rakiplerden en somut ayrıldığı yerdir: bir katalog kitabı",
+    "okura NE YAPACAĞINI söyler; bu kitap ayrıca NEYİ HENÜZ YAPMAYACAĞINI",
+    "söyler.",
+    "",
+    "⚠ DOĞRULAMA DURUMU: 42 kaydın TAMAMI 'agent_drafted_unverified'.",
+    "Hiçbiri dış teknik otoriteye karşı doğrulanmadı ve hiçbiri fiziksel",
+    "olarak sınanmadı. Bu, Faz 1'in bilinen ve açıkça kaydedilmiş",
+    "sınırıdır — bkz. BOOK-01-SOURCE-MAP.md ve OPEN_QUESTIONS A3."
+  ],
+  "count": 43,
+  "verification_summary": {
+    "agent_drafted_unverified": 43,
+    "agent_reviewed": 0,
+    "technical_reference_verified": 0,
+    "physically_validated": 0
+  },
+  "signs": [
+    {
+      "symptom_id": "SYM-001",
+      "zone": "neck",
+      "sign_class": "gape",
+      "observation": "Ön yaka, göğüs kemiğinin üzerinde vücuda değmeden duruyor; okur öne eğildiğinde açıklık büyüyor.",
+      "where_it_appears": "Ön yaka eğrisi, omuz/boyun noktası ile ön orta arasında",
+      "origin_rule": "Açıklık asimetrikse ve öne eğilmekle artıyorsa kaynak yakada değil, ALTINDAKİ hacimdedir.",
+      "candidate_causes": [
+        {
+          "cause": "Yaka eğrisi vücut için fazla geniş/derin",
+          "distinguishing_evidence": "Açıklık okur DİK dururken de var ve simetrik.",
+          "confirming_measurement": "Kalıp yaka eğrisi uzunluğu vs. M-013 boyun tabanı çevresi",
+          "physical_test": "Yakayı iğneyle daralt: açıklık kapanıyor ve boyun sıkışmıyorsa neden budur.",
+          "adjustment_family_ref": "AF-06",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Göğüs hacmi yakayı öne çekiyor",
+          "distinguishing_evidence": "Açıklık ASİMETRİK biçimde göğse doğru yönleniyor ve göğüs pensi de yerinde değil; okur öne eğilince BELİRGİN artıyor.",
+          "confirming_measurement": "M-031 (göğüs − üst göğüs farkı) kalıbın varsaydığı farktan büyük mü",
+          "physical_test": "Göğüs bölgesine iğneyle hacim ekle (bir şerit kumaş ekleyerek): yaka açıklığı kendiliğinden kapanıyorsa neden yakada DEĞİL, göğüstedir.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": "Teşhiste en sık kaçırılan yer değiştirme."
+        },
+        {
+          "cause": "Yaka kenarı dikiş sırasında gerilmiş",
+          "distinguishing_evidence": "Açıklık dalgalı/gevşek görünüyor, düz bir açıklık değil.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Yaka kenarını kalıbın yaka eğrisiyle üst üste koy: kumaş uzamışsa kalıptan uzundur.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "Bir YAPIM hatasıdır; kalıba dokunulmaz."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Yaka eğrisini KESME — yaka kesildikten sonra geri eklenemez.",
+        "Omuz düzeltmesi yapılmadan yaka düzeltilmez (omuz kayarsa yaka da kayar).",
+        "Göğüs nedeni elenmeden yaka daraltılmaz — yanlış yerin düzeltilmesi ikinci bir sorun yaratır."
+      ],
+      "adjustment_order_note": "AF-03/AF-04 (omuz) → AF-01 (göğüs) → AF-06 (yaka).",
+      "book1_chapter_ref": "B1-CH09",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-002",
+      "zone": "neck",
+      "sign_class": "strain_pull",
+      "observation": "Yaka boynun tabanına baskı yapıyor, kırmızı iz bırakıyor veya yutkunmayı zorlaştırıyor.",
+      "where_it_appears": "Boyun tabanı çevresi, özellikle ön orta ve omuz/boyun noktası",
+      "origin_rule": "Baskı yalnızca arkadaysa neden yakada değil, sırt boyundadır.",
+      "candidate_causes": [
+        {
+          "cause": "Yaka eğrisi vücut için fazla dar",
+          "distinguishing_evidence": "Baskı çevre boyunca eşit dağılmış.",
+          "confirming_measurement": "Kalıp yaka çevresi vs. M-013",
+          "physical_test": "Yakayı 3–5 mm derinleştirip yeniden değerlendir.",
+          "adjustment_family_ref": "AF-06",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Yuvarlak sırt boyunu öne itiyor",
+          "distinguishing_evidence": "Baskı ARKA yakada belirgin, ön yakada yok; arka yaka ayrıca yukarı tırmanıyor.",
+          "confirming_measurement": "M-016 (arka orta boy) kalıbın arka orta boyundan uzun mu",
+          "physical_test": "Arka yaka üzerine dikey bir kesik at ve aç: baskı geçiyorsa neden sırttadır.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Omuz dikişi öne kaymış, yakayı boyna bindiriyor",
+          "distinguishing_evidence": "Omuz dikişi omuz üstü orta çizgisinin ÖNÜNDE duruyor.",
+          "confirming_measurement": "Omuz dikişinin konumu vs. omuz üstü orta çizgisi",
+          "physical_test": "Omuz dikişini geriye doğru iğnele.",
+          "adjustment_family_ref": "AF-05",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+      ],
+      "do_not_change_yet": [
+        "Yakayı derinleştirmeden ÖNCE arka sırt ve omuz nedenlerini ele — yanlış yeri kesmek geri alınamaz.",
+        "Yaka pervazı/biye takılmışken teşhis edilmez; pervaz yakayı kendi başına daraltabilir."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH09",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-003",
+      "zone": "neck",
+      "sign_class": "hem_hike",
+      "observation": "Arka yaka yukarı tırmanıyor ve boynu sıyırıyor; aynı anda arka etek ucu da yükseliyor.",
+      "where_it_appears": "Arka yaka + arka etek ucu (aynı anda)",
+      "origin_rule": "Etek ucundaki yükselme neredeyse hiçbir zaman etek ucunun sorunu değildir.",
+      "candidate_causes": [
+        {
+          "cause": "Arka beden boyu yetersiz (yuvarlak sırt / dik duruş)",
+          "distinguishing_evidence": "Ön etek ucu yerde düzgün, YALNIZCA arka yükseliyor.",
+          "confirming_measurement": "M-016 vs. kalıp arka orta boyu; M-032 (ön/arka fark)",
+          "physical_test": "Arka bedeni enine kes ve aç: yaka iniyorsa neden boydadır.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor",
+          "distinguishing_evidence": "Yükselme ile birlikte kürek hizasında yatay gerginlik var.",
+          "confirming_measurement": "M-020 (sırt genişliği) vs. kalıp arka beden genişliği",
+          "physical_test": "Kürek hizasına dikey kesik at ve aç.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Yaka arkada fazla dar, giysiyi yukarı asıyor",
+          "distinguishing_evidence": "Yükselme SADECE yaka çevresinde, kürek hizasında gerginlik YOK.",
+          "confirming_measurement": "Kalıp arka yaka çevresi vs. M-013",
+          "physical_test": "Arka yakayı 5 mm derinleştir.",
+          "adjustment_family_ref": "AF-06",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Etek ucunu düzeltme — etek ucu BELİRTİDİR, neden yukarıdadır. Ucu kesmek sorunu gizler.",
+        "Omuz dikişini kısaltma."
+      ],
+      "adjustment_order_note": "Boy (AF-11) → genişlik (AF-07) → yaka (AF-06).",
+      "book1_chapter_ref": "B1-CH10",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-004",
+      "zone": "shoulder",
+      "sign_class": "diagonal_drag_line",
+      "observation": "Boyun noktasından koltuk altına doğru uzanan çapraz çekme çizgileri.",
+      "where_it_appears": "Omuz üstü ile koltuk altı arası, ön ve/veya arka",
+      "origin_rule": "Çekme çizgileri GERGİNLİK NOKTASINA doğru işaret eder; çizgilerin birleştiği uç, sorunun yeridir.",
+      "candidate_causes": [
+        {
+          "cause": "Omuz eğimi kalıbın varsaydığından DİK (square shoulder)",
+          "distinguishing_evidence": "Çizgiler boyun noktasından DIŞA-AŞAĞI iniyor; omuz ucunda kumaş gergin, omuz dikişi omza yapışık.",
+          "confirming_measurement": "Omuz ucu ile koltuk altı arası dikey mesafe vs. kalıptaki karşılığı",
+          "physical_test": "Omuz dikişini omuz ucunda 5–10 mm KALDIR (dikişi aç ve yukarı iğnele): çizgiler kayboluyorsa neden eğimdir.",
+          "adjustment_family_ref": "AF-03",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Omuz eğimi kalıbın varsaydığından EĞİK (sloping shoulder)",
+          "distinguishing_evidence": "Çizgiler ters yönde — omuz ucundan boyuna doğru; omuz ucunda kumaş TOPLANIYOR.",
+          "confirming_measurement": "Aynı ölçüm, ters yön",
+          "physical_test": "Omuz dikişini omuz ucunda 5–10 mm ALÇALT.",
+          "adjustment_family_ref": "AF-03",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Omuz genişliği yetersiz",
+          "distinguishing_evidence": "Çizgiler var ama omuz eğimi doğru; kol oyuntusu dikişi omuz ucunun İÇİNDE kalıyor.",
+          "confirming_measurement": "M-014 vs. kalıp omuz dikişi uzunluğu",
+          "physical_test": "Omuz dikişini uzatıp kol oyuntusunu dışa iğnele.",
+          "adjustment_family_ref": "AF-04",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+      ],
+      "do_not_change_yet": [
+        "Kol oyuntusunu (AF-08) DEĞİŞTİRME — omuz düzeltilmeden kol oyuntusu ölçülemez.",
+        "Kolu takılıyken teşhis etme; kol, omuz belirtilerini maskeler.",
+        "Yan dikişi daraltma."
+      ],
+      "adjustment_order_note": "Omuz eğimi (AF-03) HER ZAMAN omuz genişliğinden (AF-04) ÖNCE.",
+      "book1_chapter_ref": "B1-CH09",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-005",
+      "zone": "shoulder",
+      "sign_class": "horizontal_fold",
+      "observation": "Omuz dikişinin hemen altında, kol oyuntusuna yakın yerde kumaş yatay bir kıvrım hâlinde toplanıyor.",
+      "where_it_appears": "Omuz dikişi altı, kol oyuntusu üst kısmı",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Omuz eğimi fazla eğik çizilmiş (dik omuzlu okur için)",
+          "distinguishing_evidence": "Kıvrım omuz UCUNA yakın; boyun tarafında yok.",
+          "confirming_measurement": "Omuz ucu yüksekliği vs. kalıp",
+          "physical_test": "Omuz ucunu kaldır.",
+          "adjustment_family_ref": "AF-03",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol oyuntusu fazla derin, kol başı fazla yüksek",
+          "distinguishing_evidence": "Kıvrım kol oyuntusu çevresini takip ediyor ve kol kaldırıldığında kayboluyor.",
+          "confirming_measurement": "M-022 vs. kalıp kol oyuntusu derinliği",
+          "physical_test": "Kol oyuntusunu yükselt (koltuk altını 5 mm kaldır).",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Omuz genişliği fazla",
+          "distinguishing_evidence": "Kıvrımla birlikte kol başı omuz ucunun DIŞINA sarkıyor.",
+          "confirming_measurement": "M-014 vs. kalıp omuz dikişi uzunluğu",
+          "physical_test": "Omuz dikişini kısalt.",
+          "adjustment_family_ref": "AF-04",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Ütü: dikişler açılıp ütülenmemiş",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Kol başını (AF-09) düzeltme — omuz ve kol oyuntusu kesinleşmeden kol başı ölçülemez."
+      ],
+      "adjustment_order_note": "AF-03 → AF-04 → AF-08 → AF-09 (bu sıra serinin en katı kısıtıdır).",
+      "book1_chapter_ref": "B1-CH09",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-006",
+      "zone": "shoulder",
+      "sign_class": "seam_displacement",
+      "observation": "Omuz dikişi omuz üstü orta çizgisinin ARKASINDA duruyor; öne doğru kaymaya çalışıyor.",
+      "where_it_appears": "Omuz üstü, boyun noktası ile omuz ucu arası",
+      "origin_rule": "Omuz dikişi bir GÖSTERGEDİR; kendisi nadiren nedendir.",
+      "candidate_causes": [
+        {
+          "cause": "Öne düşük omuz duruşu (forward shoulder)",
+          "distinguishing_evidence": "Dikiş HER İKİ omuzda da arkada; okur rahat dururken de böyle.",
+          "confirming_measurement": "Omuz dikişi konumu vs. omuz üstü orta çizgisi (fotoğrafla ölç)",
+          "physical_test": "Omuz dikişini sök, öne doğru iğnele: çekme çizgileri de kayboluyorsa neden duruştur.",
+          "adjustment_family_ref": "AF-05",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Yuvarlak sırt kumaşı arkaya çekiyor",
+          "distinguishing_evidence": "Dikiş kayması var AMA kürek hizasında yatay gerginlik de var.",
+          "confirming_measurement": "M-016 ve M-020 vs. kalıp karşılıkları",
+          "physical_test": "Kürek hizasına kesik at ve aç: omuz dikişi kendiliğinden yerine geliyorsa neden sırttadır.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön beden arka bedene göre kısa",
+          "distinguishing_evidence": "Ön etek ucu da yükseliyor.",
+          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "physical_test": "Ön bedeni enine kes ve aç.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
+      ],
+      "do_not_change_yet": [
+        "Omuz dikişini kaydırmadan ÖNCE sırt nedenini ele — ikisi aynı belirtiyi üretir ve yanlış olanı düzeltmek diğerini kötüleştirir.",
+        "Kol oyuntusunu yeniden çizme."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH09",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-007",
+      "zone": "shoulder",
+      "sign_class": "silhouette_deviation",
+      "observation": "Omuz dikişi omuz ucunu geçip kola sarkıyor; kol başı omuzdan aşağı düşüyor.",
+      "where_it_appears": "Omuz ucu ve kol başı",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Omuz genişliği fazla (kalıp daha geniş omuz için)",
+          "distinguishing_evidence": "Sarkma her iki omuzda simetrik; kol oyuntusu dikişi kol kemiği ucunun DIŞINDA.",
+          "confirming_measurement": "M-014 vs. kalıp omuz dikişi uzunluğu",
+          "physical_test": "Omuz dikişini içeri iğnele.",
+          "adjustment_family_ref": "AF-04",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Tasarım bilerek düşük omuzlu (drop shoulder)",
+          "distinguishing_evidence": "Kalıp zarfı/teknik çizim düşük omuz gösteriyor; kol oyuntusu da derin.",
+          "confirming_measurement": "Kalıbın bitmiş giysi ölçüsü tablosu — tasarım ease'i (T-07) mi",
+          "physical_test": "NO_PHYSICAL_TEST — kalıp belgesine bakılır.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "BU BİR SORUN DEĞİLDİR. Tasarım ease'ini düzeltmeye çalışmak Kitap 1'in en sık uyardığı hatadır."
+        },
+        {
+          "cause": "Omuz eğimi fazla dik çizilmiş",
+          "distinguishing_evidence": "Sarkmayla birlikte omuz ucunda kumaş toplanması var.",
+          "confirming_measurement": "Omuz ucu yüksekliği vs. kalıp",
+          "physical_test": "Omuz ucunu alçalt.",
+          "adjustment_family_ref": "AF-03",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "Bir TASARIM tercihini düzeltme — önce kalıbın bitmiş giysi ölçülerine bak (Bölüm 3).",
+        "Kol başını daraltma."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH09",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-008",
+      "zone": "shoulder",
+      "sign_class": "strain_pull",
+      "observation": "Kol öne uzatıldığında sırt boyunca sert bir çekme oluyor; giysi hareketi kısıtlıyor.",
+      "where_it_appears": "Kürek hizası, kol oyuntusu arka kenarı",
+      "origin_rule": "Hareket testi olmadan bu belirti GÖRÜLEMEZ — bu yüzden prova protokolü (Bölüm 5) hareket adımı içerir.",
+      "candidate_causes": [
+        {
+          "cause": "Sırt genişliği yetersiz",
+          "distinguishing_evidence": "Kol yanda dururken belirti YOK; yalnızca kol öne gelince çıkıyor.",
+          "confirming_measurement": "M-020 vs. kalıp arka beden genişliği (kol oyuntusu kıvrımları arası)",
+          "physical_test": "Kürek hizasına dikey kesik at ve 1–2 cm aç.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol oyuntusu fazla dar/öne kaymış",
+          "distinguishing_evidence": "Çekme kol oyuntusu kenarında yoğunlaşıyor, kürek ortasında yok.",
+          "confirming_measurement": "Kalıp kol oyuntusu çevresi vs. M-007 + gerekli ease",
+          "physical_test": "Kol oyuntusu arka kenarını genişlet.",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol başı ease'i yetersiz veya kol dar",
+          "distinguishing_evidence": "Çekme kolun kendisinde de hissediliyor.",
+          "confirming_measurement": "M-007 vs. kalıp bicep hattı",
+          "physical_test": "Kolu bicep hattından aç.",
+          "adjustment_family_ref": "AF-10",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişi açma — belirti sırtta, yan dikişte değil.",
+        "Kolu çıkarma; hareket testi kolla yapılır."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH10",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-009",
+      "zone": "upper_back",
+      "sign_class": "horizontal_fold",
+      "observation": "Kürek kemikleri hizasında sırt boyunca yatay bir kıvrım/fazlalık duruyor.",
+      "where_it_appears": "Kürek hizası, iki kol oyuntusu arası",
+      "origin_rule": "YATAY kıvrım = BOY fazlalığı. DİKEY kıvrım = GENİŞLİK fazlalığı. Bu ayrım Kitap 1'in en sık kullanılan kuralıdır.",
+      "candidate_causes": [
+        {
+          "cause": "Arka beden boyu fazla",
+          "distinguishing_evidence": "Kıvrım kol kaldırılınca da kalıyor; yaka ve omuz yerinde.",
+          "confirming_measurement": "M-016 vs. kalıp arka orta boyu",
+          "physical_test": "Kıvrımı yatay olarak iğneyle al: yaka ve omuz yerinde kalıyorsa neden boydur.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt)",
+          "distinguishing_evidence": "Kıvrım kürek hizasında YOĞUN, aşağı doğru kayboluyor; kalıpta omuz pensi/ease var ama vücut onu doldurmuyor.",
+          "confirming_measurement": "Kalıp omuz dikişi uzunluğu (pens dâhil) vs. M-014",
+          "physical_test": "Omuz pensini/ease'i azalt.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Arka yaka fazla yüksek, kumaşı aşağı itiyor",
+          "distinguishing_evidence": "Kıvrım yakanın hemen altında ve yaka boyunu sıkıyor.",
+          "confirming_measurement": "Kalıp arka yaka çevresi vs. M-013",
+          "physical_test": "Arka yakayı derinleştir.",
+          "adjustment_family_ref": "AF-06",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Ütü: dikişler açılıp ütülenmemiş",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişi daraltma — belirti YATAY fazlalıktır, çevre fazlalığı değil.",
+        "Kol oyuntusunu değiştirme."
+      ],
+      "adjustment_order_note": "Boy (AF-11) → şekillendirme (AF-07) → yaka (AF-06).",
+      "book1_chapter_ref": "B1-CH10",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-010",
+      "zone": "upper_back",
+      "sign_class": "vertical_fold",
+      "observation": "Kol oyuntularının arasında, sırt boyunca dikey duran gevşek kıvrımlar var.",
+      "where_it_appears": "Arka beden, kürek hizası ile kol oyuntuları arası",
+      "origin_rule": "Dikey kıvrım genişlik fazlalığını gösterir.",
+      "candidate_causes": [
+        {
+          "cause": "Sırt genişliği fazla",
+          "distinguishing_evidence": "Kıvrımlar dikey ve simetrik; kol öne uzatıldığında da kayboluyor değil, AZALIYOR.",
+          "confirming_measurement": "M-020 vs. kalıp arka beden genişliği",
+          "physical_test": "Dikey kıvrımı iğneyle al; kol hareketi hâlâ rahatsa neden genişliktir.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Bir beden büyük seçilmiş",
+          "distinguishing_evidence": "Aynı fazlalık ön bedende, kolda ve belde de var.",
+          "confirming_measurement": "M-001/M-002 vs. kalıbın beden tablosu",
+          "physical_test": "NO_PHYSICAL_TEST — beden tablosuna dönülür.",
+          "adjustment_family_ref": "AF-18",
+          "likelihood_note": "Bu bir düzeltme değil, BEDEN SEÇİMİ sorunudur (T-17 ayrımı)."
+        },
+        {
+          "cause": "Kol oyuntusu fazla geniş",
+          "distinguishing_evidence": "Fazlalık yalnızca kol oyuntusuna yakın; sırt ortasında yok.",
+          "confirming_measurement": "Kalıp kol oyuntusu çevresi vs. M-007 + ease",
+          "physical_test": "Kol oyuntusu kenarını içeri al.",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
+      ],
+      "do_not_change_yet": [
+        "Sırt genişliğini daraltmadan ÖNCE hareket testini yap — dar sırt hareketi kısıtlar ve bu geri alınması pahalı bir hatadır.",
+        "Beden seçimi sorunuysa kalıba dokunulmaz."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH10",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-011",
+      "zone": "upper_back",
+      "sign_class": "hem_hike",
+      "observation": "Arka etek ucu belirgin biçimde yükseliyor; giysi arkadan yukarı tırmanıyor.",
+      "where_it_appears": "Arka etek ucu + arka yaka",
+      "origin_rule": "Etek ucu her zaman EN SON okunur; yukarıdaki nedenleri gösteren bir aynadır.",
+      "candidate_causes": [
+        {
+          "cause": "Arka beden boyu yetersiz (yuvarlak sırt)",
+          "distinguishing_evidence": "Kürek hizasında AYRICA yatay gerginlik var; arka yaka da yukarı çekiliyor.",
+          "confirming_measurement": "M-016 vs. kalıp arka orta boyu",
+          "physical_test": "Kürek hizasına yatay kesik at ve aç.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kalça/oturak hacmi kumaşı yukarı çekiyor",
+          "distinguishing_evidence": "Yükselme bel hizasının ALTINDA başlıyor; kürek hizası temiz.",
+          "confirming_measurement": "M-006 vs. kalıp kalça çevresi",
+          "physical_test": "Arka parçayı kalça hizasından aç.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön/arka denge bozuk (öne eğik duruş)",
+          "distinguishing_evidence": "Ön etek ucu ise AŞAĞI sarkıyor — ikisi birlikte.",
+          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "physical_test": "Omuz dikişinde arkayı indir/önü kaldır ve etek ucunu yeniden gözle.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "Etek ucunu kesme — etek ucu belirtidir, neden değildir.",
+        "Yan dikişi açma."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH12",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-012",
+      "zone": "upper_back",
+      "sign_class": "seam_displacement",
+      "observation": "Arka orta dikiş/fermuar düz durmuyor, dışa doğru yay çiziyor.",
+      "where_it_appears": "Arka orta, bel ile kürek arası",
+      "origin_rule": "Yayın EN DERİN noktası, nedenin bulunduğu hizadır.",
+      "candidate_causes": [
+        {
+          "cause": "Bel oyuğu (sway back) — arka orta bel hizasında fazlalık",
+          "distinguishing_evidence": "Yay bel hizasında en belirgin; hemen üstünde yatay kıvrımlar da var.",
+          "confirming_measurement": "M-016 ve M-032; ayrıca bel hizasında kalıp/vücut boy farkı",
+          "physical_test": "Arka orta bel hizasında yatay bir kıvrım al (pens gibi): yay düzeliyorsa neden budur.",
+          "adjustment_family_ref": "AF-14",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Yuvarlak sırt — arka orta üst kısımda boy yetersiz",
+          "distinguishing_evidence": "Yay kürek hizasında; bel temiz.",
+          "confirming_measurement": "M-016 vs. kalıp",
+          "physical_test": "Kürek hizasına kesik at ve aç.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Fermuar dikilirken gerdirilmiş",
+          "distinguishing_evidence": "Yay düzensiz, dalgalı; kumaş fermuar boyunca büzülmüş.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Fermuarı sök ve dikişi düz koy.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "YAPIM hatası — kalıba dokunulmaz."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Ütü: dikişler açılıp ütülenmemiş",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
+      ],
+      "do_not_change_yet": [
+        "Arka orta dikişi yeniden çizme — önce hangi hizada olduğunu belirle.",
+        "Bel ve sırt nedenleri ayrılmadan hiçbir şey kesilmez."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH12",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-013",
+      "zone": "armhole",
+      "sign_class": "strain_pull",
+      "observation": "Kol aşağı indirildiğinde koltuk altı sıkıyor; giysi omuzdan yukarı çekiliyor.",
+      "where_it_appears": "Koltuk altı, kol oyuntusu en derin noktası",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Kol oyuntusu fazla sığ (koltuk altı çok yüksek)",
+          "distinguishing_evidence": "Kol yukarıdayken rahat, aşağıdayken sıkıyor; koltuk altında kırmızı iz var.",
+          "confirming_measurement": "M-022 vs. kalıp kol oyuntusu derinliği",
+          "physical_test": "Koltuk altını 5–10 mm alçalt.",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol bicep hattı dar",
+          "distinguishing_evidence": "Sıkışma kol içinde de hissediliyor; kol oyuntusu kendisi rahat.",
+          "confirming_measurement": "M-007 + gerekli ease vs. kalıp bicep hattı",
+          "physical_test": "Kolu bicep hattından aç.",
+          "adjustment_family_ref": "AF-10",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Göğüs hacmi ön kol oyuntusunu yukarı çekiyor",
+          "distinguishing_evidence": "Sıkışma ÖN koltuk altında; göğüsten kol oyuntusuna doğru çekme çizgileri de var.",
+          "confirming_measurement": "M-031 (göğüs − üst göğüs)",
+          "physical_test": "Göğüs bölgesine hacim ekleyip yeniden dene.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Dikiş payı: kalıbın varsaydığından farklı payla dikilmiş"
+      ],
+      "do_not_change_yet": [
+        "Koltuk altını derinleştirmek GERİ ALINAMAZ ve kol başını bozar — önce göğüs ve kol nedenlerini ele.",
+        "Kol başını değiştirme."
+      ],
+      "adjustment_order_note": "AF-01/AF-10 elenmeden AF-08 yapılmaz.",
+      "book1_chapter_ref": "B1-CH10",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-014",
+      "zone": "armhole",
+      "sign_class": "gape",
+      "observation": "Kol oyuntusunun ÖN kenarı vücuda değmiyor, göğsün üstünde açık duruyor.",
+      "where_it_appears": "Ön kol oyuntusu kenarı, koltuk kıvrımı ile omuz ucu arası",
+      "origin_rule": "Boş açıklık, o bölgede ihtiyaçtan FAZLA kumaş olduğunu gösterir; nerede fazla olduğu ayrıca bulunur.",
+      "candidate_causes": [
+        {
+          "cause": "Ön beden genişliği fazla",
+          "distinguishing_evidence": "Açıklık kol yanda dururken de var; ön göğüs üstünde gevşeklik hissediliyor.",
+          "confirming_measurement": "M-021 (ön göğüs genişliği) vs. kalıp ön beden genişliği",
+          "physical_test": "Ön kol oyuntusu kenarına küçük bir pens al (sonra göğüs pensine taşınır).",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Göğüs pensi apeksi doğru yerde değil, üstte fazlalık bırakıyor",
+          "distinguishing_evidence": "Açıklıkla birlikte göğsün ÜSTÜNDE boş bir alan var.",
+          "confirming_measurement": "M-017 (omuz–apeks) vs. kalıp pens konumu",
+          "physical_test": "Pens ucunu apekse doğru taşı.",
+          "adjustment_family_ref": "AF-02",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Omuz genişliği fazla",
+          "distinguishing_evidence": "Kol başı da omuz ucundan sarkıyor.",
+          "confirming_measurement": "M-014 vs. kalıp omuz dikişi",
+          "physical_test": "Omuz dikişini kısalt.",
+          "adjustment_family_ref": "AF-04",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "Kol oyuntusunu kesip küçültme — açıklık genellikle kol oyuntusunun DEĞİL, göğüs şekillendirmesinin sorunudur.",
+        "Kol takılıyken teşhis etme."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH11",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-015",
+      "zone": "armhole",
+      "sign_class": "gape",
+      "observation": "Kol oyuntusunun ARKA kenarı vücuda değmiyor.",
+      "where_it_appears": "Arka kol oyuntusu kenarı",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Arka beden genişliği fazla",
+          "distinguishing_evidence": "Sırtta dikey gevşek kıvrımlar da var.",
+          "confirming_measurement": "M-020 vs. kalıp arka beden genişliği",
+          "physical_test": "Arka kol oyuntusu kenarını içeri al.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Omuz eğimi fazla dik çizilmiş",
+          "distinguishing_evidence": "Omuz ucunda kumaş toplanması da var.",
+          "confirming_measurement": "Omuz ucu yüksekliği vs. kalıp",
+          "physical_test": "Omuz ucunu alçalt.",
+          "adjustment_family_ref": "AF-03",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol oyuntusu fazla geniş çizilmiş",
+          "distinguishing_evidence": "Açıklık kol oyuntusu çevresi boyunca eşit.",
+          "confirming_measurement": "Kalıp kol oyuntusu çevresi vs. M-007 + ease",
+          "physical_test": "Kol oyuntusu eğrisini yeniden çiz.",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "Arka kol oyuntusunu daraltmadan ÖNCE hareket testi yap."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH10",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-016",
+      "zone": "bust_chest",
+      "sign_class": "diagonal_drag_line",
+      "observation": "Göğüs ucundan yan dikişe (ve/veya kol oyuntusuna) doğru uzanan çekme çizgileri; kumaş göğsün üzerinde geriliyor.",
+      "where_it_appears": "Göğüs apeksinden dışa doğru, ön beden",
+      "origin_rule": "Çekme çizgileri KAYNAĞA doğru işaret eder; ışınsal desenin merkezi apekstir.",
+      "candidate_causes": [
+        {
+          "cause": "Göğüs hacmi kalıbın varsaydığından fazla",
+          "distinguishing_evidence": "Çizgiler apeksten IŞINSAL olarak yayılıyor; ön etek ucu da yukarı tırmanıyor; ön yaka açılıyor.",
+          "confirming_measurement": "M-031 (göğüs − üst göğüs farkı) kalıbın varsaydığı farktan büyük",
+          "physical_test": "Ön bedende apeks hizasına dikey kesik at ve şerit kumaş ekle: çizgiler kayboluyor ve etek ucu düzeliyorsa neden göğüs hacmidir.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": "Bu, hedef okurun EN SIK karşılaştığı belirtidir (araştırma raporu anahtar kelimesi: 'full bust adjustment')."
+        },
+        {
+          "cause": "Ön beden genel olarak dar (beden seçimi)",
+          "distinguishing_evidence": "Aynı gerginlik göğüs dışında — bel, kalça, kol — her yerde var.",
+          "confirming_measurement": "M-002 vs. kalıp beden tablosu",
+          "physical_test": "NO_PHYSICAL_TEST — beden tablosuna dönülür.",
+          "adjustment_family_ref": "AF-18",
+          "likelihood_note": "BEDEN sorunudur, düzeltme sorunu değil."
+        },
+        {
+          "cause": "Pens ucu apeksin uzağında, hacmi yanlış yere dağıtıyor",
+          "distinguishing_evidence": "Gerginlik VAR ama toplam ön genişlik yeterli; pens ucu apeksten belirgin uzakta bitiyor.",
+          "confirming_measurement": "M-017 ve M-018 vs. kalıp pens ucu konumu",
+          "physical_test": "Pens ucunu apekse 2–3 cm mesafeye taşı.",
+          "adjustment_family_ref": "AF-02",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişleri açma — yan dikişten eklenen genişlik göğse GİTMEZ, koltuk altına gider ve kol oyuntusunu bozar. Kitap 1'in en önemli 'yapma' uyarısı.",
+        "Kol oyuntusunu genişletme.",
+        "Bir beden büyüğe geçme (omuz ve yaka da büyür, yeni sorunlar doğar)."
+      ],
+      "adjustment_order_note": "Omuz (AF-03/04) → göğüs (AF-01/02) → kol oyuntusu (AF-08).",
+      "book1_chapter_ref": "B1-CH11",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-017",
+      "zone": "bust_chest",
+      "sign_class": "hem_hike",
+      "observation": "Ön etek ucu arka etek ucundan belirgin biçimde yukarıda; giysi önden kısa görünüyor.",
+      "where_it_appears": "Ön etek ucu",
+      "origin_rule": "Etek ucu bir AYNADIR: yukarıdaki hacim eksikliğini gösterir.",
+      "candidate_causes": [
+        {
+          "cause": "Göğüs hacmi ön kumaşı yukarı çekiyor",
+          "distinguishing_evidence": "Göğüsten yayılan çekme çizgileri de var; yan dikiş öne kayıyor.",
+          "confirming_measurement": "M-031; M-032 (ön/arka boy farkı)",
+          "physical_test": "Göğüs hacmi ekle: etek ucu düzeliyorsa neden göğüstür.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön beden boyu yetersiz",
+          "distinguishing_evidence": "Çekme çizgisi YOK, yalnızca boy kısa; göğüs bölgesi rahat.",
+          "confirming_measurement": "M-015 vs. kalıp ön orta boyu",
+          "physical_test": "Ön bedeni enine kes ve aç.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Karın hacmi kumaşı yukarı çekiyor",
+          "distinguishing_evidence": "Yükselme bel hizasının altında başlıyor; göğüs temiz.",
+          "confirming_measurement": "M-005 (yüksek kalça) vs. kalıp",
+          "physical_test": "Ön parçayı karın hizasından aç.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Etek ucunu düzeltme.",
+        "Yan dikişten kısaltma."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH11",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-018",
+      "zone": "bust_chest",
+      "sign_class": "seam_displacement",
+      "observation": "Yan dikişler düşey durmuyor, öne doğru kayıyor.",
+      "where_it_appears": "Yan dikiş, koltuk altı ile etek ucu arası",
+      "origin_rule": "Yan dikiş, kumaşın hangi tarafa doğru çekildiğini gösteren en güvenilir göstergelerden biridir.",
+      "candidate_causes": [
+        {
+          "cause": "Ön beden hacmi yetersiz (göğüs veya karın)",
+          "distinguishing_evidence": "Kayma ile birlikte göğüs veya karın hizasında gerginlik var.",
+          "confirming_measurement": "M-031 veya M-005 vs. kalıp",
+          "physical_test": "İlgili hizaya hacim ekle.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Arka beden genişliği fazla",
+          "distinguishing_evidence": "Kayma var ama ön tarafta gerginlik YOK; arkada dikey gevşek kıvrımlar var.",
+          "confirming_measurement": "M-020 vs. kalıp arka beden genişliği",
+          "physical_test": "Arka genişliği azalt.",
+          "adjustment_family_ref": "AF-07",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kumaş çözgüye eğri kesilmiş",
+          "distinguishing_evidence": "Kayma tek tarafta; simetrik değil.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Parçaların çözgü çizgilerini kumaş kenarına göre kontrol et.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "KESİM hatası — kalıba dokunulmaz."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişi 'düzeltmek' için yeniden çizme — dikiş bir GÖSTERGEDİR."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH11",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-019",
+      "zone": "bust_chest",
+      "sign_class": "strain_pull",
+      "observation": "Göğüs pensi ucunda kumaş büzüşüyor veya küçük bir çıkıntı/kabarcık oluşuyor.",
+      "where_it_appears": "Göğüs pensi ucu",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Pens ucu apeksin üzerinde bitiyor (çok uzun)",
+          "distinguishing_evidence": "Kabarcık tam pens ucunda; apeksin kendisi düz.",
+          "confirming_measurement": "M-017/M-018 vs. kalıp pens ucu",
+          "physical_test": "Pens ucunu apeksten 2–3 cm uzakta bitecek şekilde kısalt.",
+          "adjustment_family_ref": "AF-02",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Pens hacmi vücuda göre fazla",
+          "distinguishing_evidence": "Pens çevresinde genel gevşeklik de var.",
+          "confirming_measurement": "M-031 kalıbın varsaydığı farktan küçük",
+          "physical_test": "Pens derinliğini azalt.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Pens dikilirken ucu düz bitirilmemiş",
+          "distinguishing_evidence": "Büzüşme düzensiz; dikiş ucunda düğüm/geri dikiş var.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Pensi sök ve ucu inceltilerek yeniden dik.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "YAPIM hatası."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Ütü: dikişler açılıp ütülenmemiş",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı"
+      ],
+      "do_not_change_yet": [
+        "Pens açısını değiştirme — önce KONUM sorununu ele."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH11",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-020",
+      "zone": "bust_chest",
+      "sign_class": "horizontal_fold",
+      "observation": "Göğsün ÜSTÜNDE, köprücük kemiği ile göğüs arasında boş, çöken bir alan var.",
+      "where_it_appears": "Ön beden üst kısmı",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Göğüs pensi apeksten yukarıda konumlanmış",
+          "distinguishing_evidence": "Boşluk pensin hemen üstünde; pens ucu apeksin üzerinde.",
+          "confirming_measurement": "M-017 vs. kalıp pens konumu",
+          "physical_test": "Pensi aşağı taşı.",
+          "adjustment_family_ref": "AF-02",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön üst genişlik fazla",
+          "distinguishing_evidence": "Boşluk geniş bir alana yayılmış; kol oyuntusu ön kenarı da açılıyor.",
+          "confirming_measurement": "M-021 vs. kalıp ön beden genişliği",
+          "physical_test": "Kol oyuntusu ön kenarına pens al.",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kalıp daha dolgun bir üst göğüs için çizilmiş",
+          "distinguishing_evidence": "Boşluk üst göğüs çevresinde; M-001 kalıbın varsaydığından küçük.",
+          "confirming_measurement": "M-001 vs. kalıp üst göğüs karşılığı",
+          "physical_test": "Ön üst bölgeyi daralt.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Yaka çevresini daraltma — boşluk yakada değil, göğüs şekillendirmesinde."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH11",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-021",
+      "zone": "bust_chest",
+      "sign_class": "gape",
+      "observation": "Düğme sırası göğüs hizasında yatay olarak açılıyor; düğmeler arasında boşluk oluşuyor.",
+      "where_it_appears": "Ön kapama, göğüs hizası",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Göğüs hacmi yetersiz",
+          "distinguishing_evidence": "Açılma göğüs hizasında YOĞUN; üstte ve altta kapama düzgün.",
+          "confirming_measurement": "M-031",
+          "physical_test": "Göğüs hacmi ekle.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön kapama payı (extension) dar",
+          "distinguishing_evidence": "Açılma kapama boyunca EŞİT dağılmış.",
+          "confirming_measurement": "Kalıp kapama payı genişliği",
+          "physical_test": "Kapama payını genişlet.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "Bir DÜZELTME ailesi değil; kalıp/tasarım parametresidir — Kitap 2'de kendi girişi yoktur (XW istisnası)."
+        },
+        {
+          "cause": "Düğme aralığı göğüs hizasına düğme koymuyor",
+          "distinguishing_evidence": "Açıklık iki düğme arasında ve apeks hizasında düğme YOK.",
+          "confirming_measurement": "Düğme konumları vs. M-017 apeks yüksekliği",
+          "physical_test": "Apeks hizasına düğme ekle.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "Tasarım/yerleşim düzeltmesi."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "Bütün kapamayı yeniden çizme — önce göğüs nedenini ele."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH11",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-022",
+      "zone": "waist_torso",
+      "sign_class": "seam_displacement",
+      "observation": "Bel dikişi/bel hattı doğal belin üstünde veya altında oturuyor.",
+      "where_it_appears": "Bel dikişi çevresi",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Beden boyu kalıbın varsaydığından farklı",
+          "distinguishing_evidence": "Kayma çevre boyunca EŞİT; ön ve arkada aynı miktarda.",
+          "confirming_measurement": "M-015 ve M-016 vs. kalıp ön/arka orta boyları",
+          "physical_test": "Bedeni boy çizgisinden kısalt/uzat.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön/arka denge bozuk",
+          "distinguishing_evidence": "Kayma ön ve arkada FARKLI miktarda.",
+          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "physical_test": "Omuz dikişinde denge düzeltmesi yap.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Tasarım bilerek yüksek/düşük belli",
+          "distinguishing_evidence": "Kalıp teknik çizimi ve bitmiş giysi ölçüsü bunu gösteriyor.",
+          "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
+          "physical_test": "NO_PHYSICAL_TEST — kalıp belgesine bakılır.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi (T-07)."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+      ],
+      "do_not_change_yet": [
+        "Bel dikişini kesip taşıma — bedeni boy çizgisinden kısaltmak/uzatmak farklı bir işlemdir ve kalıbın orantısını korur."
+      ],
+      "adjustment_order_note": "Boy düzeltmeleri (AF-11) HER ZAMAN çevre düzeltmelerinden (AF-12) ÖNCE.",
+      "book1_chapter_ref": "B1-CH12",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-023",
+      "zone": "waist_torso",
+      "sign_class": "pooling",
+      "observation": "Bel hizasının hemen ÜSTÜNDE, arkada, kumaş yatay kıvrımlar hâlinde havuzlanıyor.",
+      "where_it_appears": "Arka bel, bel dikişinin üstü",
+      "origin_rule": "Havuzlanan kumaş, ALTINDAKİ bir çıkıntının (oturak) veya ÜSTÜNDEKİ bir oyuğun (bel) sonucudur; hangisi olduğu fazlalığın yatay dağılımından anlaşılır.",
+      "candidate_causes": [
+        {
+          "cause": "Bel oyuğu (sway back) — arka orta bel hizasında kumaş fazlası",
+          "distinguishing_evidence": "Fazlalık YALNIZCA arka ortada yoğun, yan dikişlere doğru azalıyor; ön taraf temiz.",
+          "confirming_measurement": "Arka orta bel hizasında kalıp boyu vs. M-016'nın bel hizasına düşen kısmı",
+          "physical_test": "Arka ortada yatay bir kıvrım al: havuzlanma kayboluyor ve etek ucu düzeliyorsa neden budur.",
+          "adjustment_family_ref": "AF-14",
+          "likelihood_note": "Araştırma raporunun anahtar kelimelerinden: 'sway back adjustment'."
+        },
+        {
+          "cause": "Arka beden boyu genel olarak fazla",
+          "distinguishing_evidence": "Fazlalık arka genişliğe EŞİT dağılmış, yan dikişlerde de var.",
+          "confirming_measurement": "M-016 vs. kalıp arka orta boyu",
+          "physical_test": "Arka bedeni boy çizgisinden kısalt.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Oturak hacmi kumaşı yukarı itiyor",
+          "distinguishing_evidence": "Havuzlanma ile birlikte oturak üzerinde yatay çekme çizgileri de var.",
+          "confirming_measurement": "M-006 vs. kalıp kalça çevresi",
+          "physical_test": "Arka parçaya oturak hacmi ekle.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Ütü: dikişler açılıp ütülenmemiş",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Etek/pantolon boyunu kısaltma.",
+        "Bel çevresini daraltma — fazlalık BOYDADIR, çevrede değil.",
+        "Yatay kıvrımı yan dikişten almaya çalışma."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH12",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-024",
+      "zone": "waist_torso",
+      "sign_class": "gape",
+      "observation": "Bel bandı arkada vücuttan uzaklaşıyor, aralık kalıyor.",
+      "where_it_appears": "Arka bel bandı",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Bel oyuğu (sway back)",
+          "distinguishing_evidence": "Aralık arka ortada en geniş; yanlarda kapanıyor. Belin hemen üstünde havuzlanma da var.",
+          "confirming_measurement": "Bel/kalça oranı ve M-016",
+          "physical_test": "Arka orta bel hizasında kıvrım al.",
+          "adjustment_family_ref": "AF-14",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Bel/kalça oranı kalıbın varsaydığından farklı",
+          "distinguishing_evidence": "Bel bandı bel çevresine oturuyor ama kalça bölgesi dar/geniş.",
+          "confirming_measurement": "M-033 (kalça − bel) vs. kalıbın beden tablosu",
+          "physical_test": "Bel ile kalça arasında derecelendirme yap.",
+          "adjustment_family_ref": "AF-18",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Bel bandı fazla uzun kesilmiş",
+          "distinguishing_evidence": "Aralık çevre boyunca eşit.",
+          "confirming_measurement": "Bel bandı uzunluğu vs. M-004",
+          "physical_test": "Bel bandını kısalt.",
+          "adjustment_family_ref": "AF-12",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Bel bandını daraltmadan ÖNCE oyuk nedenini ele — daraltmak oyuğu doldurmaz, yalnızca sıkar."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH12",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-025",
+      "zone": "waist_torso",
+      "sign_class": "vertical_fold",
+      "observation": "Bel hizasında, yan dikişlerin yakınında dikey gevşek kıvrımlar var.",
+      "where_it_appears": "Bel, yan dikiş çevresi",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Bel çevresi fazla",
+          "distinguishing_evidence": "Kıvrımlar dikey ve simetrik; göğüs ve kalça oturuyor.",
+          "confirming_measurement": "M-004 vs. kalıp bel çevresi (dikiş payları çıkarılmış)",
+          "physical_test": "Yan dikişten veya bel pensinden al.",
+          "adjustment_family_ref": "AF-12",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Bel şekillendirmesi (pens) yetersiz",
+          "distinguishing_evidence": "Fazlalık var ama yan dikişten alınca kalça sıkışıyor.",
+          "confirming_measurement": "M-033 (kalça − bel farkı) büyük",
+          "physical_test": "Bel pensi ekle/derinleştir.",
+          "adjustment_family_ref": "AF-12",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Bir beden büyük seçilmiş",
+          "distinguishing_evidence": "Aynı fazlalık göğüs ve kalçada da var.",
+          "confirming_measurement": "M-002/M-004/M-006 vs. beden tablosu",
+          "physical_test": "NO_PHYSICAL_TEST.",
+          "adjustment_family_ref": "AF-18",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Ütü: dikişler açılıp ütülenmemiş"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişten çok almak siluети bozar ve kalçayı sıkar — pens/yan dikiş dağılımı bir KARAR'dır (Kitap 2)."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH12",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-026",
+      "zone": "waist_torso",
+      "sign_class": "strain_pull",
+      "observation": "Bel dikişi/bandı sıkıyor; oturunca rahatsız ediyor, iz bırakıyor.",
+      "where_it_appears": "Bel çevresi",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Bel çevresi yetersiz",
+          "distinguishing_evidence": "Sıkışma çevre boyunca eşit; oturunca artıyor.",
+          "confirming_measurement": "M-004 + wearing ease vs. kalıp bel çevresi",
+          "physical_test": "Yan dikişten aç.",
+          "adjustment_family_ref": "AF-12",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Bel hattı yanlış hizada oturuyor (doğal belin altında)",
+          "distinguishing_evidence": "Sıkışma bel altında, karın hizasında.",
+          "confirming_measurement": "M-015/M-016 vs. kalıp; M-005",
+          "physical_test": "Bedeni uzat veya bel hattını yükselt.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Karın hacmi",
+          "distinguishing_evidence": "Sıkışma yalnızca ÖNDE; arkada rahat.",
+          "confirming_measurement": "M-005 (yüksek kalça) vs. kalıp",
+          "physical_test": "Ön parçaya karın hizasında hacim ekle.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Dikiş payı: kalıbın varsaydığından farklı payla dikilmiş"
+      ],
+      "do_not_change_yet": [
+        "Oturarak test etmeden bel kararı verme — bel ölçüsü ayakta ve otururken FARKLIDIR (protokol, Bölüm 5)."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH12",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-027",
+      "zone": "hip_seat",
+      "sign_class": "horizontal_fold",
+      "observation": "Oturak üzerinde yatay çekme çizgileri var; kumaş oturağın üzerinde geriliyor.",
+      "where_it_appears": "Arka, kalça en dolgun hizası",
+      "origin_rule": "Yatay çekme çizgileri, o hizada ÇEVRE yetersizliğini gösterir; hangi parçada eksik olduğu ön/arka karşılaştırmasıyla bulunur.",
+      "candidate_causes": [
+        {
+          "cause": "Oturak hacmi kalıbın varsaydığından fazla",
+          "distinguishing_evidence": "Çizgiler oturak üzerinde YOĞUN; yan dikiş arkaya kayıyor; arka etek ucu yükseliyor.",
+          "confirming_measurement": "M-006 vs. kalıp kalça çevresi; ayrıca arka/ön kalça dağılımı",
+          "physical_test": "Arka parçaya oturak hacmi ekle (kesip aç): çizgiler kayboluyorsa neden budur.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ağ uzunluğu yetersiz (pantolonda)",
+          "distinguishing_evidence": "Çizgilerle birlikte ağ yukarı çekiliyor ve oturmak zor.",
+          "confirming_measurement": "M-027 (ağ uzunluğu) vs. kalıp arka ağ uzunluğu",
+          "physical_test": "Arka ağ eğrisini uzat.",
+          "adjustment_family_ref": "AF-15",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Genel kalça çevresi yetersiz",
+          "distinguishing_evidence": "Aynı gerginlik ÖNDE de var.",
+          "confirming_measurement": "M-006 vs. kalıp toplam kalça çevresi",
+          "physical_test": "Yan dikişlerden aç.",
+          "adjustment_family_ref": "AF-18",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişleri açma — oturak hacmi ARKA parçada gerekir; yandan eklenen genişlik oraya gitmez.",
+        "Bel bandını gevşetme."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH13",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-028",
+      "zone": "hip_seat",
+      "sign_class": "pooling",
+      "observation": "Oturağın hemen ALTINDA kumaş sarkıyor, boş bir torba oluşturuyor.",
+      "where_it_appears": "Arka, oturak altı",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Oturak hacmi kalıbın varsaydığından az (flat seat)",
+          "distinguishing_evidence": "Sarkma oturak altında; oturak üzerinde gerginlik YOK.",
+          "confirming_measurement": "M-006 ve arka/ön kalça dağılımı vs. kalıp",
+          "physical_test": "Arka parçadan hacim çıkar (kesip bindir).",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ağ uzunluğu fazla",
+          "distinguishing_evidence": "Sarkma ağ bölgesine kadar iniyor; ağ vücuda değmiyor.",
+          "confirming_measurement": "M-027 vs. kalıp arka ağ uzunluğu",
+          "physical_test": "Arka ağ uzunluğunu kısalt.",
+          "adjustment_family_ref": "AF-15",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Arka beden/etek boyu fazla",
+          "distinguishing_evidence": "Sarkma yatay kıvrım hâlinde ve bel hizasına kadar çıkıyor.",
+          "confirming_measurement": "M-016 / bel-kalça mesafesi M-023",
+          "physical_test": "Boy çizgisinden kısalt.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Ütü: dikişler açılıp ütülenmemiş",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Bel bandını sıkma — sarkma belden değil, alttaki hacim farkından geliyor.",
+        "Etek ucunu kesme."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH13",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-029",
+      "zone": "hip_seat",
+      "sign_class": "hem_hike",
+      "observation": "Etek/pantolon bir kalçada yukarı tırmanıyor; etek ucu yere paralel değil.",
+      "where_it_appears": "Tek taraf, kalça hizası ve etek ucu",
+      "origin_rule": "TEK TARAFLI belirtiler ayrı bir sınıftır: önce prova koşulu, sonra kesim, en son vücut asimetrisi elenir.",
+      "candidate_causes": [
+        {
+          "cause": "Vücut asimetrisi (bir kalça daha yüksek/dolgun)",
+          "distinguishing_evidence": "Yükselme TEK TARAFTA ve okur ağırlığını eşit dağıttığında da sürüyor.",
+          "confirming_measurement": "Bel işaretinden yere iki taraf ayrı ayrı ölçülür (M-024, sağ ve sol)",
+          "physical_test": "Yüksek tarafa iğneyle hacim ekle.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": "Asimetri gerçektir ve teşhis edilmelidir; 'kalıbı simetrik düzelt' varsayımı burada kırılır."
+        },
+        {
+          "cause": "Duruş: ağırlık tek ayakta",
+          "distinguishing_evidence": "Yükselme okur ağırlığını eşitleyince KAYBOLUYOR.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Ağırlığı iki ayağa eşitle ve yeniden bak.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "PROVA KOŞULU hatası — kalıba dokunulmaz."
+        },
+        {
+          "cause": "Kumaş eğri kesilmiş",
+          "distinguishing_evidence": "Yükselme ile birlikte yan dikiş de spiralleniyor.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Çözgü çizgilerini kontrol et.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "KESİM hatası."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik"
+      ],
+      "do_not_change_yet": [
+        "Etek ucunu tek taraftan kesme — asimetri kaynağı bulunmadan uç düzeltilmez.",
+        "Simetrik bir düzeltme uygulama (asimetrik nedene simetrik çözüm işe yaramaz)."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH13",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-030",
+      "zone": "hip_seat",
+      "sign_class": "seam_displacement",
+      "observation": "Yan dikiş kalça hizasında arkaya doğru kayıyor.",
+      "where_it_appears": "Yan dikiş, kalça hizası",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Arka hacim yetersiz",
+          "distinguishing_evidence": "Kayma ile birlikte oturak üzerinde yatay çekme var.",
+          "confirming_measurement": "Arka/ön kalça dağılımı vs. kalıp",
+          "physical_test": "Arka parçaya hacim ekle.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön hacim fazla",
+          "distinguishing_evidence": "Kayma var ama arkada gerginlik YOK; önde gevşeklik var.",
+          "confirming_measurement": "M-005 ve ön kalça karşılığı",
+          "physical_test": "Ön parçadan al.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kumaş eğri kesilmiş",
+          "distinguishing_evidence": "Kayma tek tarafta.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Çözgü kontrolü.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "KESİM hatası."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişi yeniden çizerek 'düzeltme' — dikiş göstergedir."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH13",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-031",
+      "zone": "sleeve_arm",
+      "sign_class": "diagonal_drag_line",
+      "observation": "Kol başından pazuya doğru çapraz çekme çizgileri; kol kaldırıldığında artıyor.",
+      "where_it_appears": "Kol başı ile bicep hattı arası",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Kol bicep genişliği yetersiz",
+          "distinguishing_evidence": "Çizgiler bicep hattında yoğun; kol kaldırılınca belirgin artıyor.",
+          "confirming_measurement": "M-007 + wearing ease vs. kalıp bicep hattı",
+          "physical_test": "Kolu bicep hattından aç.",
+          "adjustment_family_ref": "AF-10",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol başı yüksekliği fazla",
+          "distinguishing_evidence": "Çizgiler kol başı çevresinde; bicep rahat.",
+          "confirming_measurement": "Kalıp kol başı yüksekliği vs. bitmiş kol oyuntusu çevresi",
+          "physical_test": "Kol başını alçalt ve genişlet.",
+          "adjustment_family_ref": "AF-09",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol oyuntusu dar, kolu sıkıştırıyor",
+          "distinguishing_evidence": "Çizgiler kol oyuntusu dikişinde başlıyor; kol tek başına rahat.",
+          "confirming_measurement": "M-022 ve kalıp kol oyuntusu çevresi",
+          "physical_test": "Kol oyuntusunu genişlet, sonra kol başını yeniden ölç.",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Dikiş payı: kalıbın varsaydığından farklı payla dikilmiş"
+      ],
+      "do_not_change_yet": [
+        "Kol başını değiştirmeden ÖNCE kol oyuntusunu kesinleştir — kol başı, kol oyuntusunun TÜREVİDİR.",
+        "Kolu yan dikişten daraltma/genişletme (kol başı bozulur)."
+      ],
+      "adjustment_order_note": "AF-08 (kol oyuntusu) KESİNLEŞMEDEN AF-09 (kol başı) yapılmaz — serinin en katı sıra kısıtı.",
+      "book1_chapter_ref": "B1-CH14",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-032",
+      "zone": "sleeve_arm",
+      "sign_class": "vertical_fold",
+      "observation": "Üst kolda dikey gevşek kıvrımlar var; kol torba gibi duruyor.",
+      "where_it_appears": "Kol, bicep ile dirsek arası",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Kol genişliği fazla",
+          "distinguishing_evidence": "Kıvrımlar dikey; kol hareketi tamamen serbest.",
+          "confirming_measurement": "M-007 vs. kalıp bicep hattı",
+          "physical_test": "Kolu daralt.",
+          "adjustment_family_ref": "AF-10",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Tasarım bilerek bol kollu",
+          "distinguishing_evidence": "Kalıp teknik çizimi ve bitmiş ölçü tablosu bol kol gösteriyor.",
+          "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
+          "physical_test": "NO_PHYSICAL_TEST.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım ease'i."
+        },
+        {
+          "cause": "Kol başı ease'i fazla, kol başında toplanma yaratıyor",
+          "distinguishing_evidence": "Fazlalık kol başında yoğun, aşağı doğru azalıyor.",
+          "confirming_measurement": "Kalıp kol başı çevresi − kol oyuntusu çevresi (ease miktarı)",
+          "physical_test": "Kol başı ease'ini azalt.",
+          "adjustment_family_ref": "AF-09",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Ease: gözlenen fazlalık aslında TASARIM ease'idir (T-07) — kalıbın bitmiş giysi ölçüsü tablosuyla karşılaştırılmadı",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Bir tasarım tercihini düzeltmeye çalışma — önce bitmiş giysi ölçüsüne bak (Bölüm 3)."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH14",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-033",
+      "zone": "sleeve_arm",
+      "sign_class": "grain_distortion",
+      "observation": "Kol, kol üzerinde dönüyor; alt kol dikişi düz inmiyor, spiral çiziyor.",
+      "where_it_appears": "Kol boyu, alt kol dikişi",
+      "origin_rule": "TEK kolda mı, İKİ kolda mı — bu ayrım nedeni ikiye böler: kesim/montaj hatası vs. kalıp/vücut.",
+      "candidate_causes": [
+        {
+          "cause": "Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış)",
+          "distinguishing_evidence": "Dönme her iki kolda AYNI yönde; kol başı çentikleri omuz dikişiyle örtüşmüyor.",
+          "confirming_measurement": "Kol başı çentik konumları vs. kol oyuntusu çentikleri",
+          "physical_test": "Kolu sök, çentikleri hizala, yeniden tak.",
+          "adjustment_family_ref": "AF-09",
+          "likelihood_note": "Sık karşılaşılan ve KALIP DEĞİL, MONTAJ hatası olabilen bir belirti — ayrım kritik."
+        },
+        {
+          "cause": "Kol dirsek eğrisi vücuda uymuyor (öne dönük kol duruşu)",
+          "distinguishing_evidence": "Dönme kol rahat sarkarken belirgin; dirsek hizasında çekme var.",
+          "confirming_measurement": "M-029 (omuz–dirsek) ve dirsek şekillendirme konumu",
+          "physical_test": "Kol başını öne döndür (rotate).",
+          "adjustment_family_ref": "AF-09",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol eğri kesilmiş",
+          "distinguishing_evidence": "Dönme TEK kolda.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Çözgü kontrolü.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "KESİM hatası."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik"
+      ],
+      "do_not_change_yet": [
+        "Kol başı eğrisini yeniden çizme — önce montajı ele.",
+        "Alt kol dikişini kaydırma."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH14",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-034",
+      "zone": "sleeve_arm",
+      "sign_class": "strain_pull",
+      "observation": "Kol başı, kol oyuntusuna birleştiği yerde büzüşüyor/kırışıyor.",
+      "where_it_appears": "Kol başı dikişi",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Kol başı ease'i kumaş için fazla",
+          "distinguishing_evidence": "Büzüşme kol başı üst yayında; kumaş sert/dokusuz.",
+          "confirming_measurement": "Kalıp kol başı çevresi − kol oyuntusu çevresi",
+          "physical_test": "Ease'i azalt (kol başını alçalt).",
+          "adjustment_family_ref": "AF-09",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Kol başı ease'i doğru ama dağıtım/pot alma yapılmamış",
+          "distinguishing_evidence": "Büzüşme düzensiz ve toplu; belirli noktalarda kat oluşmuş.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Kol başını sök, ease'i eşit dağıtarak yeniden dik.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "YAPIM hatası."
+        },
+        {
+          "cause": "Kol oyuntusu çevresi kalıptan farklı dikilmiş",
+          "distinguishing_evidence": "Kol oyuntusu ölçüsü kalıpla uyuşmuyor.",
+          "confirming_measurement": "Dikilmiş kol oyuntusu çevresi vs. kalıp kol oyuntusu çevresi",
+          "physical_test": "Dikiş paylarını ölç.",
+          "adjustment_family_ref": "AF-08",
+          "likelihood_note": "Dikiş payı hatası olabilir — SA confounder'ı ile birlikte okunur."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Dikiş payı: kalıbın varsaydığından farklı payla dikilmiş",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Ütü: dikişler açılıp ütülenmemiş"
+      ],
+      "do_not_change_yet": [
+        "Kol başını kesip küçültme — önce yapım ve dikiş payı nedenlerini ele.",
+        "Kumaşı değiştirmeden ease kararı verme (ease toleransı kumaşa bağlıdır)."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH14",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-035",
+      "zone": "crotch_leg",
+      "sign_class": "horizontal_fold",
+      "observation": "Oturağın altında yatay çekme çizgileri; ağ yukarı çekiliyor ve rahatsız ediyor.",
+      "where_it_appears": "Arka ağ bölgesi, oturak altı",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Ağ derinliği yetersiz",
+          "distinguishing_evidence": "Oturunca belirgin artıyor; ayakta azalıyor.",
+          "confirming_measurement": "M-026 (oturarak ağ derinliği) vs. kalıp ağ derinliği",
+          "physical_test": "Ağ derinliğini boy çizgisinden artır.",
+          "adjustment_family_ref": "AF-15",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Arka ağ uzunluğu yetersiz",
+          "distinguishing_evidence": "Ayakta da var; oturak üzerinde de gerginlik var.",
+          "confirming_measurement": "M-027 (ağ uzunluğu) vs. kalıp arka ağ uzunluğu",
+          "physical_test": "Arka ağ eğrisini uzat.",
+          "adjustment_family_ref": "AF-15",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Arka ağ eğrisi vücut için fazla düz",
+          "distinguishing_evidence": "Çekme yalnızca ağ eğrisinin kıvrımında; derinlik ve uzunluk sayısal olarak yeterli.",
+          "confirming_measurement": "Kalıp arka ağ eğrisi şekli vs. vücut profili",
+          "physical_test": "Ağ eğrisini derinleştir (kancayı uzat).",
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+      ],
+      "do_not_change_yet": [
+        "Bel bandını yükseltme/indirme — ağ derinliği ayrı bir ölçüdür.",
+        "Ağ eğrisini şekil olarak değiştirmeden ÖNCE derinlik ve uzunluk sayılarını kontrol et (AF-15 → AF-16 sırası)."
+      ],
+      "adjustment_order_note": "AF-15 (derinlik/uzunluk) → AF-16 (eğri şekli). Ters sıra en sık yapılan pantolon hatasıdır.",
+      "book1_chapter_ref": "B1-CH15",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-036",
+      "zone": "crotch_leg",
+      "sign_class": "pooling",
+      "observation": "Ön ağ bölgesinde kumaş 'U' biçiminde toplanıyor.",
+      "where_it_appears": "Ön ağ, bacak arası önü",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Ön ağ uzunluğu fazla",
+          "distinguishing_evidence": "Toplanma ön ağda; arka temiz.",
+          "confirming_measurement": "M-027'nin ön kısmı vs. kalıp ön ağ uzunluğu",
+          "physical_test": "Ön ağ eğrisini kısalt.",
+          "adjustment_family_ref": "AF-15",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ağ derinliği fazla",
+          "distinguishing_evidence": "Toplanma hem ön hem arkada; ağ vücuda değmiyor.",
+          "confirming_measurement": "M-026 vs. kalıp ağ derinliği",
+          "physical_test": "Ağ derinliğini boy çizgisinden azalt.",
+          "adjustment_family_ref": "AF-15",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön ağ eğrisi vücut için fazla kavisli",
+          "distinguishing_evidence": "Sayılar doğru ama eğri fazla derin.",
+          "confirming_measurement": "Kalıp ön ağ eğrisi şekli",
+          "physical_test": "Ön ağ eğrisini düzleştir.",
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "Ön ağ eğrisini kesme — kesilen eğri geri gelmez; önce uzunluk sayısını kontrol et."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH15",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-037",
+      "zone": "crotch_leg",
+      "sign_class": "diagonal_drag_line",
+      "observation": "Ağ noktasından kalçaya doğru çapraz çekme çizgileri.",
+      "where_it_appears": "Ön ve/veya arka, ağ noktasından dışa",
+      "origin_rule": "Çapraz çizgiler kaynağa doğru işaret eder; çizgilerin toplandığı nokta ağ ise neden ağdadır, uyluk ise uyluktadır.",
+      "candidate_causes": [
+        {
+          "cause": "Uyluk çevresi yetersiz",
+          "distinguishing_evidence": "Çizgiler uyluk hizasında yoğun; oturunca artıyor.",
+          "confirming_measurement": "M-009 (uyluk) + ease vs. kalıp uyluk hattı",
+          "physical_test": "Bacağı uyluk hizasından aç.",
+          "adjustment_family_ref": "AF-17",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ağ eğrisi vücuda uymuyor",
+          "distinguishing_evidence": "Çizgiler doğrudan ağ noktasından çıkıyor; uyluk çevresi yeterli.",
+          "confirming_measurement": "M-027 ve kalıp ağ eğrisi",
+          "physical_test": "Ağ eğrisini yeniden şekillendir.",
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Karın/oturak hacmi kumaşı ağa doğru çekiyor",
+          "distinguishing_evidence": "Çizgiler yukarıdan aşağı, karın veya oturak hizasında başlıyor.",
+          "confirming_measurement": "M-005 / M-006 vs. kalıp",
+          "physical_test": "İlgili hizaya hacim ekle.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
+      ],
+      "do_not_change_yet": [
+        "Ağ eğrisini değiştirmeden ÖNCE uyluk çevresini ele — en sık karıştırılan iki neden.",
+        "Yan dikişten açma (uyluk hacmi iç bacak tarafında gereklidir)."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH15",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-038",
+      "zone": "crotch_leg",
+      "sign_class": "grain_distortion",
+      "observation": "Pantolon paçası dönüyor; iç bacak dikişi düz inmiyor.",
+      "where_it_appears": "Bacak boyu, iç bacak dikişi",
+      "origin_rule": "TEK bacak mı, İKİ bacak mı — nedeni ikiye böler.",
+      "candidate_causes": [
+        {
+          "cause": "Bacak duruşu (içe/dışa dönük diz) kumaşı çeviriyor",
+          "distinguishing_evidence": "Dönme her iki bacakta simetrik ve ayakta belirgin.",
+          "confirming_measurement": "Diz hizasında ön/arka bacak genişliği dağılımı",
+          "physical_test": "Diz hizasında iç/dış bacak dengesini kaydır.",
+          "adjustment_family_ref": "AF-17",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ağ eğrisi dengesiz (ön/arka)",
+          "distinguishing_evidence": "Dönme ağ hizasından başlıyor.",
+          "confirming_measurement": "M-027 ön/arka dağılımı",
+          "physical_test": "Ağ eğrisini dengele.",
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Bacak eğri kesilmiş",
+          "distinguishing_evidence": "Dönme TEK bacakta.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Çözgü kontrolü.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "KESİM hatası."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+      ],
+      "do_not_change_yet": [
+        "İç bacak dikişini kaydırma — önce simetriyi ve kesimi ele."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH15",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-039",
+      "zone": "crotch_leg",
+      "sign_class": "silhouette_deviation",
+      "observation": "Ağ vücuttan uzakta, aşağıda duruyor; adım atmayı zorlaştırıyor.",
+      "where_it_appears": "Ağ bölgesi",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Ağ derinliği fazla",
+          "distinguishing_evidence": "Ağ ile vücut arası boşluk ayakta da var; oturunca rahat.",
+          "confirming_measurement": "M-026 vs. kalıp ağ derinliği",
+          "physical_test": "Ağ derinliğini azalt.",
+          "adjustment_family_ref": "AF-15",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Tasarım bilerek düşük ağlı",
+          "distinguishing_evidence": "Kalıp teknik çizimi düşük ağ gösteriyor.",
+          "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
+          "physical_test": "NO_PHYSICAL_TEST.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi."
+        },
+        {
+          "cause": "Bel hattı doğal belin altında oturuyor",
+          "distinguishing_evidence": "Bel bandı aşağıda; ağ da onunla birlikte inmiş.",
+          "confirming_measurement": "M-004 işaretinden bel bandına mesafe",
+          "physical_test": "Bel hattını yükselt.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Ease: gözlenen fazlalık aslında TASARIM ease'idir (T-07) — kalıbın bitmiş giysi ölçüsü tablosuyla karşılaştırılmadı",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik"
+      ],
+      "do_not_change_yet": [
+        "Ağ derinliğini azaltmadan ÖNCE bel hattının nerede oturduğunu kontrol et — ikisi aynı belirtiyi verir."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH15",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-040",
+      "zone": "whole_garment",
+      "sign_class": "hem_hike",
+      "observation": "Etek ucu yere paralel değil; bir bölgede yükseliyor veya alçalıyor.",
+      "where_it_appears": "Etek ucu, çevre boyunca",
+      "origin_rule": "Etek ucu bütün gövdenin AYNASIDIR; en son okunur ve asla ilk düzeltilmez.",
+      "candidate_causes": [
+        {
+          "cause": "Bir hacim (göğüs, karın, oturak) kumaşı yukarı çekiyor",
+          "distinguishing_evidence": "Yükselme o hacmin bulunduğu tarafta; aynı bölgede çekme çizgileri de var.",
+          "confirming_measurement": "İlgili çevre ölçüsü vs. kalıp karşılığı",
+          "physical_test": "Hacim ekle ve etek ucunu yeniden gözle.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Ön/arka denge bozuk",
+          "distinguishing_evidence": "Bir taraf yükselirken diğeri alçalıyor; simetrik.",
+          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "physical_test": "Omuzda denge düzeltmesi.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Vücut asimetrisi",
+          "distinguishing_evidence": "Yükselme tek tarafta ve ağırlık eşitlendiğinde de sürüyor.",
+          "confirming_measurement": "M-024 sağ ve sol ayrı ayrı",
+          "physical_test": "Asimetrik hacim ekle.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "ETEK UCUNU KESME. Kitap 1'in en sık tekrarlanan uyarısı: etek ucu bir SONUÇTUR.",
+        "Etek ucunu düzeltmek bütün diğer belirtileri gizler ve teşhisi imkânsızlaştırır."
+      ],
+      "adjustment_order_note": "Etek ucu düzeltmesi HER ZAMAN listenin SONUNDADIR.",
+      "book1_chapter_ref": "B1-CH16",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-041",
+      "zone": "whole_garment",
+      "sign_class": "seam_displacement",
+      "observation": "Giysi vücut üzerinde dönüyor; yan dikişler zamanla öne/arkaya kayıyor.",
+      "where_it_appears": "Yan dikişler, tüm gövde",
+      "origin_rule": null,
+      "candidate_causes": [
+        {
+          "cause": "Ön/arka hacim dağılımı vücuda uymuyor",
+          "distinguishing_evidence": "Dönme tutarlı bir yönde ve her giyişte aynı.",
+          "confirming_measurement": "Ön/arka çevre dağılımı vs. kalıp",
+          "physical_test": "Fazla olan taraftan al, eksik olana ekle.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Vücut asimetrisi",
+          "distinguishing_evidence": "Dönme tek yönde ve tek taraflı belirtilerle birlikte.",
+          "confirming_measurement": "Sağ/sol ayrı ölçümler",
+          "physical_test": "Asimetrik düzeltme.",
+          "adjustment_family_ref": "AF-13",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Parçalar eğri kesilmiş",
+          "distinguishing_evidence": "Dönme düzensiz; çözgü çizgileri kumaş kenarına paralel değil.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Çözgü kontrolü.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "KESİM hatası."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+      ],
+      "do_not_change_yet": [
+        "Yan dikişleri yeniden konumlandırma — dikiş göstergedir."
+      ],
+      "adjustment_order_note": null,
+      "book1_chapter_ref": "B1-CH16",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-042",
+      "zone": "whole_garment",
+      "sign_class": "grain_distortion",
+      "observation": "Ön orta veya arka orta çizgisi yere dik durmuyor; denge çizgileri yatay değil.",
+      "where_it_appears": "Ön orta / arka orta, denge çizgileri",
+      "origin_rule": "Denge, TÜM diğer teşhislerin zeminidir; denge bozuksa aşağıdaki her okuma yanlış olur. Bu yüzden gözlem sırasında BİRİNCİDİR (Adım 2).",
+      "candidate_causes": [
+        {
+          "cause": "Duruş (öne/arkaya eğik) dengeyi bozuyor",
+          "distinguishing_evidence": "Sapma simetrik ve okurun doğal duruşunda sürüyor.",
+          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "physical_test": "Omuzda denge düzeltmesi yap ve çizgileri yeniden gözle.",
+          "adjustment_family_ref": "AF-11",
+          "likelihood_note": "Bu, denge teşhisinin ANA ölçümüdür."
+        },
+        {
+          "cause": "Bir hacim (göğüs/oturak) kumaşı çekiyor",
+          "distinguishing_evidence": "Sapma o hacmin hizasından başlıyor.",
+          "confirming_measurement": "İlgili çevre ölçüsü",
+          "physical_test": "Hacim ekle.",
+          "adjustment_family_ref": "AF-01",
+          "likelihood_note": null
+        },
+        {
+          "cause": "Parça eğri kesilmiş",
+          "distinguishing_evidence": "Sapma tek parçada ve düzensiz.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
+          "physical_test": "Çözgü kontrolü.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "KESİM hatası."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+      ],
+      "do_not_change_yet": [
+        "Denge çizgisi çizilmemiş bir prova giysisinde bu belirti ÖLÇÜLEMEZ — protokol (Bölüm 5) çizgileri zorunlu kılar.",
+        "Hiçbir şeyi kesmeden önce denge düzeltmesini iğneyle test et."
+      ],
+      "adjustment_order_note": "Denge (AF-11) neredeyse her zaman ilk düzeltilenler arasındadır.",
+      "book1_chapter_ref": "B1-CH16",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": null
+    },
+    {
+      "symptom_id": "SYM-043",
+      "zone": "whole_garment",
+      "sign_class": "silhouette_deviation",
+      "observation": "Bir parçanın BOYU yanlış (kol, paça, etek ucu, beden) ama başka hiçbir belirti yok: kırışıklık, çekme, kayma, boşluk YOK.",
+      "where_it_appears": "Kol ucu, paça, etek ucu veya bel hattı",
+      "origin_rule": "BAŞKA BELİRTİ YOKSA neden basittir: boy. Başka belirti VARSA bu kayıt GEÇERSİZDİR — önce diğer belirti teşhis edilir.",
+      "candidate_causes": [
+        {
+          "cause": "Kalıbın boyu okurun boy ölçüsüne uymuyor",
+          "distinguishing_evidence": "Giysi her yerde düzgün oturuyor, denge çizgileri doğru, hiçbir çekme/kıvrım yok — YALNIZCA uzunluk farklı.",
+          "confirming_measurement": "İlgili boy ölçüsü (M-028 kol, M-024/M-025 bacak, M-015/M-016 beden) vs. kalıbın bitmiş giysi boyu",
+          "physical_test": "Fazlalığı yatay olarak katla veya eksiği bir şerit kumaşla ekle: başka hiçbir belirti çıkmıyorsa neden yalnızca boydur.",
+          "adjustment_family_ref": "AF-19",
+          "likelihood_note": "Kalıplardaki basılı uzat/kısalt çizgileri (T-20) tam bu iş içindir."
+        },
+        {
+          "cause": "Tasarım bilerek kısa/uzun",
+          "distinguishing_evidence": "Kalıp teknik çizimi ve bitmiş giysi ölçü tablosu bu boyu gösteriyor.",
+          "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
+          "physical_test": "NO_PHYSICAL_TEST — kalıp belgesine bakılır.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi. Kişisel tercihle değiştirilebilir ama bu bir UYUM düzeltmesi değildir."
+        },
+        {
+          "cause": "Etek ucu/paça payı kalıbın varsaydığından farklı katlanmış",
+          "distinguishing_evidence": "Fark, kalıbın etek ucu payı kadar; giysinin geri kalanı kalıpla birebir uyuyor.",
+          "confirming_measurement": "Katlanmış etek ucu payı vs. kalıp etek ucu payı",
+          "physical_test": "Etek ucunu aç ve yeniden ölç.",
+          "adjustment_family_ref": null,
+          "likelihood_note": "YAPIM kararı — kalıba dokunulmaz."
+        }
+      ],
+      "confounders_to_rule_out": [
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)",
+        "Kumaş: yıkama/ütü sonrası çekme",
+        "Ölçüm: boy ölçüsü ayakkabıyla veya yanlış duruşta alınmış",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+      ],
+      "do_not_change_yet": [
+        "BAŞKA BİR BELİRTİ VARSA bu kaydı kullanma — boy düzeltmesi diğer belirtileri gizler ve teşhisi bozar.",
+        "Etek ucundan kesme; kalıbın uzat/kısalt çizgisinden çalış — orantı orada korunur.",
+        "Kumaşın çekip çekmediği bilinmeden boy kararı verme (prova kumaşı yıkanmış olmalı — protokol, Bölüm 4)."
+      ],
+      "adjustment_order_note": "Boy düzeltmeleri HER ZAMAN genişlik düzeltmelerinden ÖNCE gelir — serinin sıra kuralının birinci maddesi.",
+      "book1_chapter_ref": "B1-CH16",
+      "figure_refs": [],
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified",
+      "notes": "AF-19'un tek Kitap 1 giriş noktası. Faz 1 kapsam denetiminde (qa_boundary.py) bulunan bir boşluğu kapatır."
+    }
+  ]
+}

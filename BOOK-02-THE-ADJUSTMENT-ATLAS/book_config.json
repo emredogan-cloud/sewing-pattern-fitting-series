@@ -1,0 +1,77 @@
+{
+  "$comment": [
+    "True Fit 2 — The Adjustment Atlas — makine okunur kitap yapılandırması.",
+    "Seri düzeyi yapılandırma: ../series_config.json (üstün gelir).",
+    "Bu dosya YALNIZCA bu kitaba özgü değerleri taşır.",
+    "",
+    "⚠ Tüm sayfa/fiyat değerleri PROVISIONAL'dır — araştırma raporunun",
+    "  ESTIMATE etiketli ekonomi modelinden gelir ve phase6-format",
+    "  doğrulama kapısından ÖNCE kesinleşemez."
+  ],
+  "book": {
+    "id": "book-02",
+    "dir": "BOOK-02-THE-ADJUSTMENT-ATLAS",
+    "workingTitle": "True Fit 2 — The Adjustment Atlas",
+    "workingSubtitle": "Every Common Pattern Adjustment, Worked Step by Step — Bodice, Sleeve, Shoulder, Waist, Hip and Trouser.",
+    "subtitleStatus": "ÇALIŞMA METNİ — nihai alt başlık kapak fazında yazılır, sayı vaadi kilidi geçerlidir (STYLE.md § 6)",
+    "role": "FIX THE PROBLEM",
+    "coreProblem": "Uygulama referansı: teşhisimi biliyorum, adım adım nasıl yapılır?",
+    "standaloneValueArgument": "Teşhisini başka bir kaynaktan (kurs, video, deneyim) koymuş her dikişçi bu referansa ihtiyaç duyar. 'Cilt 2' olmasa da aranır — işlem niyetli arama kümesi serinin en yüksek ticari niyetlisidir."
+  },
+  "product": {
+    "pageTargetProvisional": [
+      260,
+      300
+    ],
+    "priceModelProvisional": 28.99,
+    "priceRangeProvisional": [
+      26.99,
+      32.99
+    ],
+    "trimProvisional": "8.5x11 in — OPEN_QUESTIONS A5",
+    "bindingProvisional": "ciltsiz + spiral SKU ADAYI (KDP fizibilitesi DOĞRULANMADI — OPEN_QUESTIONS A5)",
+    "colorProvisional": "KARAR VERİLMEDİ — OPEN_QUESTIONS A6"
+  },
+  "architecture": {
+    "primaryTopics": [
+      "TOP-13",
+      "TOP-14",
+      "TOP-15",
+      "TOP-16",
+      "TOP-17",
+      "TOP-19",
+      "TOP-26",
+      "TOP-30"
+    ],
+    "ownsTaxonomyFiles": [
+      "adjustment_families.json (içerik)"
+    ],
+    "boundaryMatrix": "../02_TAXONOMY/boundary_matrix.json",
+    "note": "Bu kitabın 'primary' olduğu topikler dışındaki her konuda rol sınırı boundary_matrix.json'dadır ve qa_boundary.py tarafından denetlenir."
+  },
+  "keywords": {
+    "primaryFamilies": [
+      "pattern alteration",
+      "full bust adjustment",
+      "sway back adjustment",
+      "sleeve fitting",
+      "trouser fitting",
+      "pattern adjustment book"
+    ],
+    "note": "Hacim/CPC ÖLÇÜLMEDİ (araştırma raporu § 30, § 36). Yalnızca niyet yapısı — SERIES_KEYWORD_ARCHITECTURE.md."
+  },
+  "gate": {
+    "current": "init",
+    "order": [
+      "init",
+      "foundation",
+      "phase1-spec",
+      "phase2-visual",
+      "phase3-pilot",
+      "phase4-production",
+      "phase5-qa",
+      "phase6-format",
+      "release"
+    ]
+  }
+}

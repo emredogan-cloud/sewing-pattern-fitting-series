@@ -1,0 +1,738 @@
+{
+  "$comment": [
+    "MEASUREMENT SET — üç kitabın ORTAK ölçü çerçevesi.",
+    "Kitap 1 ÖĞRETİR (TOP-01 primary), Kitap 3 KULLANIR ve kendi EK ölçülerini",
+    "TOP-21 altında ayrıca ekler (bu dosyada YOK — Kitap 3 Faz 1'in işi).",
+    "'common_errors' alanı Kitap 1 Bölüm 2'nin çekirdeğidir: araştırma raporunun",
+    "içerik mimarisi maddesi 1 ('ölçü almanın doğru yolu ve en sık yapılan altı hata').",
+    "verification_status: agent_drafted_unverified — dış otoriteye karşı DOĞRULANMADI."
+  ],
+  "count": 32,
+  "measurements": [
+    {
+      "measurement_id": "M-001",
+      "name": "High bust",
+      "category": "girth",
+      "landmark_start": "under the arms, above the bust",
+      "landmark_end": "around the body back to start",
+      "path_rule": "Yatay, kolların hemen altından, göğüs dokusunun ÜZERİNDEN geçer; sırtta yere paralel kalır.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "şerit metrenin sırtta düşmesi",
+        "kolların yukarı kaldırılması (ölçüyü büyütür)",
+        "göğsün üstüne değil ortasına inmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Ön+arka beden üst göğüs hattı toplamı",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-002",
+      "name": "Full bust",
+      "category": "girth",
+      "landmark_start": "bust apex",
+      "landmark_end": "around the body back to start",
+      "path_rule": "Yatay, en dolgun noktadan; şerit metre sıkılmaz, sarkmaz.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "sutyensiz veya farklı sutyenle ölçmek",
+        "şeridi çekmek",
+        "öne eğilmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Ön+arka beden göğüs hattı toplamı",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-003",
+      "name": "Underbust",
+      "category": "girth",
+      "landmark_start": "directly beneath the bust",
+      "landmark_end": "around the body back to start",
+      "path_rule": "Yatay, göğsün hemen altından, nefes verilmiş hâlde.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "nefes tutmak",
+        "çok sıkı çekmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-004",
+      "name": "Natural waist",
+      "category": "girth",
+      "landmark_start": "narrowest point of the torso",
+      "landmark_end": "around the body back to start",
+      "path_rule": "Yatay; nokta bir kez BULUNUR (yana eğilme testi) ve lastikle İŞARETLENİR — her ölçüde aynı yerden alınır.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "pantolon bel hizasını doğal bel sanmak",
+        "karnı içeri çekmek",
+        "işaretlememek ve her seferinde başka yerden ölçmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Bel dikişi/bel hattı toplamı",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-005",
+      "name": "High hip",
+      "category": "girth",
+      "landmark_start": "≈ 7–10 cm below the marked waist",
+      "landmark_end": "around the body back to start",
+      "path_rule": "Yatay; mesafe KAYDEDİLİR, çünkü kalıpla karşılaştırma bu mesafeye bağlıdır.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "mesafeyi kaydetmemek",
+        "kalça ile karıştırmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-006",
+      "name": "Full hip",
+      "category": "girth",
+      "landmark_start": "fullest point of the seat/hip",
+      "landmark_end": "around the body back to start",
+      "path_rule": "Yatay, en dolgun noktadan; bu noktanın belden uzaklığı da KAYDEDİLİR (M-023).",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "en dolgun noktayı gözle tahmin etmek",
+        "şeridi öne doğru düşürmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-007",
+      "name": "Bicep",
+      "category": "girth",
+      "landmark_start": "fullest point of the upper arm",
+      "landmark_end": "around the arm back to start",
+      "path_rule": "Yatay, kol gevşek yanda; kas kasılmaz.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "kolu kaldırmak",
+        "kası kasmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Kol kalıbı bicep hattı",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-008",
+      "name": "Wrist",
+      "category": "girth",
+      "landmark_start": "wrist bone",
+      "landmark_end": "around the wrist back to start",
+      "path_rule": "Yatay, el bileği kemiği üzerinden.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "çok sıkı"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-009",
+      "name": "Thigh",
+      "category": "girth",
+      "landmark_start": "fullest point of the upper thigh",
+      "landmark_end": "around the leg back to start",
+      "path_rule": "Yatay, ayakta ve ağırlık iki ayağa eşit dağılmış hâlde.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "oturarak ölçmek",
+        "tek ayağa yüklenmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-010",
+      "name": "Knee",
+      "category": "girth",
+      "landmark_start": "center of the kneecap",
+      "landmark_end": "around the leg back to start",
+      "path_rule": "Yatay, bacak düz.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "dizi bükmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-011",
+      "name": "Calf",
+      "category": "girth",
+      "landmark_start": "fullest point of the calf",
+      "landmark_end": "around the leg back to start",
+      "path_rule": "Yatay, baldırın en dolgun noktasından; ayak yere düz basar.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "ayak parmak ucunda durmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-013",
+      "name": "Neck base",
+      "category": "girth",
+      "landmark_start": "base of the neck",
+      "landmark_end": "around the neck base back to start",
+      "path_rule": "Boyun tabanında, omuz ile boynun birleştiği çukurlardan geçer — boyun ortasından DEĞİL.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "boynun ortasından ölçmek",
+        "şeridi dik tutmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-03"
+      ],
+      "pattern_counterpart": "Boyun eğrisi çevresi",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-014",
+      "name": "Shoulder length",
+      "category": "length",
+      "landmark_start": "side neck point",
+      "landmark_end": "shoulder point (bone tip)",
+      "path_rule": "Omuz üstü hattı boyunca; iki uç nokta önce İŞARETLENİR.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "omuz ucunu kol kemiğinin dışına taşımak",
+        "boyun noktasını çok içeriden almak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Omuz dikişi uzunluğu",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-015",
+      "name": "Center front length",
+      "category": "length",
+      "landmark_start": "hollow at base of throat",
+      "landmark_end": "marked natural waist",
+      "path_rule": "Vücut yüzeyini izleyerek, göğsün ÜZERİNDEN düşey.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "göğsü atlamak (düz ölçmek)",
+        "bel işaretini kaçırmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Ön orta boy",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-016",
+      "name": "Center back length",
+      "category": "length",
+      "landmark_start": "nape (prominent neck bone)",
+      "landmark_end": "marked natural waist",
+      "path_rule": "Omurga boyunca, sırt yüzeyini izleyerek.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "şeridi düz gerdirmek",
+        "nape noktasını yanlış bulmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Arka orta boy",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-017",
+      "name": "Shoulder to apex",
+      "category": "length",
+      "landmark_start": "side neck point",
+      "landmark_end": "bust apex",
+      "path_rule": "Omuz üstünden göğüs ucuna, vücut yüzeyini izleyerek.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "apeks noktasını işaretlememek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Göğüs pensi konumu",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-018",
+      "name": "Apex to apex",
+      "category": "width",
+      "landmark_start": "left bust apex",
+      "landmark_end": "right bust apex",
+      "path_rule": "Yatay, iki apeks arası.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "sutyensiz ölçmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Pens açısı/apeks genişliği",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-019",
+      "name": "Apex to waist",
+      "category": "length",
+      "landmark_start": "bust apex",
+      "landmark_end": "marked natural waist",
+      "path_rule": "Düşey, vücut yüzeyini izleyerek.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "karın üzerinden sapmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-020",
+      "name": "Across back",
+      "category": "width",
+      "landmark_start": "left back armhole crease",
+      "landmark_end": "right back armhole crease",
+      "path_rule": "Yatay, kürek kemiği hizasında; kollar gevşek yanda.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "kolları öne getirmek (ölçüyü büyütür)",
+        "yanlış yükseklikten ölçmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Arka beden genişliği",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-021",
+      "name": "Across chest",
+      "category": "width",
+      "landmark_start": "left front armhole crease",
+      "landmark_end": "right front armhole crease",
+      "path_rule": "Yatay, göğsün ÜSTÜNDEN, koltuk kıvrımları arasında.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "göğüs üzerinden geçmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Ön beden genişliği",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-022",
+      "name": "Armhole depth",
+      "category": "depth",
+      "landmark_start": "nape",
+      "landmark_end": "underarm level (horizontal from nape line)",
+      "path_rule": "Nape'ten koltuk altı hizasına düşey mesafe; bir cetvel/kitap koltuk altına yatay dayanarak ölçülür.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "yardımcı olmadan ölçmeye çalışmak",
+        "koltuk altı hizasını tahmin etmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Kol oyuntusu derinliği",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-023",
+      "name": "Waist to hip",
+      "category": "length",
+      "landmark_start": "marked natural waist",
+      "landmark_end": "full hip level",
+      "path_rule": "Yandan düşey; M-006'nın hangi yükseklikte olduğunu sabitler.",
+      "tool": "tape measure",
+      "helper_required": null,
+      "common_errors": [
+        "kaydetmemek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-024",
+      "name": "Waist to floor (outseam)",
+      "category": "length",
+      "landmark_start": "marked natural waist",
+      "landmark_end": "floor",
+      "path_rule": "Yandan düşey, ayakkabısız, ayakta.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "ayakkabıyla ölçmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-025",
+      "name": "Inseam",
+      "category": "length",
+      "landmark_start": "crotch level",
+      "landmark_end": "floor",
+      "path_rule": "İç bacak boyunca düşey.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "ağ hizasını yukarı itmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-026",
+      "name": "Crotch depth (seated)",
+      "category": "depth",
+      "landmark_start": "marked natural waist",
+      "landmark_end": "seat surface, seated upright",
+      "path_rule": "Sert bir sandalyede dik otururken, yandan belden oturma yüzeyine düşey.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "yumuşak koltukta ölçmek",
+        "öne eğilmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Pantolon ağ derinliği",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-027",
+      "name": "Crotch length (rise)",
+      "category": "length",
+      "landmark_start": "front marked waist",
+      "landmark_end": "back marked waist, through the legs",
+      "path_rule": "Ön belden bacak arasından arka bele; şerit metre gerdirilmez.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "şeridi çok sıkı çekmek",
+        "yardımcısız ölçmek"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Ön+arka ağ uzunluğu toplamı",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-028",
+      "name": "Sleeve length",
+      "category": "length",
+      "landmark_start": "shoulder point",
+      "landmark_end": "wrist bone, over the bent elbow",
+      "path_rule": "Kol dirsekten bükülü ve el kalçada; omuz ucundan dirsek üzerinden bileğe.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "kolu düz tutmak (kısa çıkar)"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Kol kalıbı boyu",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-029",
+      "name": "Shoulder to elbow",
+      "category": "length",
+      "landmark_start": "shoulder point",
+      "landmark_end": "elbow point, arm bent",
+      "path_rule": "Kol bükülü hâlde, omuz ucundan dirsek ucuna.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "kolu düz tutmak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": "Dirsek pensi/şekillendirme konumu",
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-030",
+      "name": "Total height",
+      "category": "length",
+      "landmark_start": "top of head",
+      "landmark_end": "floor",
+      "path_rule": "Duvara sırt dayalı, ayakkabısız.",
+      "tool": "tape measure",
+      "helper_required": true,
+      "common_errors": [
+        "saç hacmini saymak"
+      ],
+      "derived_from": [],
+      "used_by": [
+        "book-01",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-031",
+      "name": "Bust–high bust difference",
+      "category": "derived",
+      "landmark_start": "M-002",
+      "landmark_end": "M-001",
+      "path_rule": "M-002 − M-001. Beden seçimi ve göğüs şekillendirme miktarı tartışmasının SAYISAL girdisi.",
+      "tool": null,
+      "helper_required": null,
+      "common_errors": [
+        "iki ölçüden birini yanlış almak — hata burada İKİYE KATLANIR"
+      ],
+      "derived_from": [
+        "M-001",
+        "M-002"
+      ],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-032",
+      "name": "Front/back length difference",
+      "category": "derived",
+      "landmark_start": "M-015",
+      "landmark_end": "M-016",
+      "path_rule": "M-015 − M-016. Denge (balance) teşhisinin sayısal girdisi.",
+      "tool": null,
+      "helper_required": null,
+      "common_errors": [
+        "bel işaretinin ön ve arkada farklı yükseklikte olması"
+      ],
+      "derived_from": [
+        "M-015",
+        "M-016"
+      ],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "measurement_id": "M-033",
+      "name": "Waist-to-hip drop",
+      "category": "derived",
+      "landmark_start": "M-006",
+      "landmark_end": "M-004",
+      "path_rule": "M-006 − M-004. Kalça/bel oranı; beden seçimi ve dereceleme kararının girdisi.",
+      "tool": null,
+      "helper_required": null,
+      "common_errors": [
+        "yanlış bel noktası"
+      ],
+      "derived_from": [
+        "M-004",
+        "M-006"
+      ],
+      "used_by": [
+        "book-01",
+        "book-02",
+        "book-03"
+      ],
+      "pattern_counterpart": null,
+      "source_refs": [],
+      "verification_status": "agent_drafted_unverified"
+    }
+  ]
+}

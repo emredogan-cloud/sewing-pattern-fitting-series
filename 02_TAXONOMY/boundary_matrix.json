@@ -1,0 +1,349 @@
+{
+  "$comment": [
+    "BOUNDARY MATRIX — makine okunur kitap sınır matrisi.",
+    "Görev talimatı § 11'in düzeltilmiş hâli. Anlatısal gerekçe:",
+    "00_CONTEXT/SERIES_CONTENT_ARCHITECTURE.md.",
+    "",
+    "TEK-BİRİNCİL KURALI: her topik için EN FAZLA BİR kitap 'primary'",
+    "olabilir. Görev talimatının başlangıç çerçevesi iki yerde bu kurala",
+    "aykırıydı (Ölçüm: Kitap 1 VE 3 'Core'; Muslin: üçü de 'Core').",
+    "Çözüm KOPYALAMA değil, TOPİK BÖLME oldu — TOP-21 (TOP-01'den),",
+    "TOP-24 (TOP-23'ten), TOP-26/TOP-27 (TOP-07'den). qa_boundary.py",
+    "bu kuralı mekanik olarak dayatır."
+  ],
+  "roles": {
+    "primary": "Bu kitap konuyu ÖĞRETİR ve sahiplenir. Kanonik tanım burada.",
+    "support": "Bu kitap konuyu KULLANIR ve kendi bağlamında derinleştirir, ama kanonik tanımı yeniden yazmaz.",
+    "introduce_only": "Bu kitap konunun VARLIĞINI en fazla bir kavram/bir sayfa düzeyinde tanıtır. Prosedür VERMEZ.",
+    "reference_only": "Bu kitap konuya yalnızca ATIF yapar (bir cümle + çapraz referans).",
+    "excluded": "Bu kitapta YOKTUR. Sızarsa qa_boundary.py bunu bir ihlal olarak raporlar."
+  },
+  "role_order": [
+    "primary",
+    "support",
+    "introduce_only",
+    "reference_only",
+    "excluded"
+  ],
+  "topics": [
+    {
+      "topic_id": "TOP-01",
+      "name": "Body measurement — taking",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "reference_only",
+      "primary_purpose": "Ölçüyü DOĞRU almak",
+      "rationale": "Kitap 1'in ilk teknik bölümü. Kitap 3 aynı ölçüyü TÜKETİR, yeniden ÖĞRETMEZ; yalnızca geri atıf yapar ve kendi ek ölçülerini TOP-21'de ekler."
+    },
+    {
+      "topic_id": "TOP-02",
+      "name": "Body measurement — interpretation vs size charts",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "support",
+      "primary_purpose": "Kalıp bedeni ≠ hazır giyim bedeni",
+      "rationale": "Bu, alıcının en sık yaptığı ilk hatadır ve TEŞHİSTİR, düzeltme değil."
+    },
+    {
+      "topic_id": "TOP-03",
+      "name": "Pattern flat measurement + finished garment measurement",
+      "book-01": "primary",
+      "book-02": "support",
+      "book-03": "reference_only",
+      "primary_purpose": "Kalıbın gerçekte ne vaat ettiğini okumak",
+      "rationale": "Kitap 1 teşhis için okur; Kitap 2 düzeltme miktarını hesaplamak için AYNI yöntemi KULLANIR ama öğretmez."
+    },
+    {
+      "topic_id": "TOP-04",
+      "name": "Ease theory — wearing ease vs design ease",
+      "book-01": "primary",
+      "book-02": "support",
+      "book-03": "support",
+      "primary_purpose": "Fark ölçüsünü yorumlamak",
+      "rationale": "Ease bilinmeden hiçbir belirti doğru yorumlanamaz — bu yüzden teşhis kitabına aittir."
+    },
+    {
+      "topic_id": "TOP-05",
+      "name": "Pattern size selection",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "excluded",
+      "primary_purpose": "Yanlış bedeni düzeltmeye çalışmayı önlemek",
+      "rationale": "Kitap 3'te beden seçimi kavramı YOKTUR — blok okurun kendi ölçüsünden çizilir."
+    },
+    {
+      "topic_id": "TOP-06",
+      "name": "Body shape / posture / asymmetry analysis",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "support",
+      "primary_purpose": "Nedeni bedende bulmak",
+      "rationale": "Kitap 3 aynı analizi blok şekillendirme girdisi olarak KULLANIR."
+    },
+    {
+      "topic_id": "TOP-07",
+      "name": "Diagnostic toile — construction",
+      "book-01": "primary",
+      "book-02": "support",
+      "book-03": "support",
+      "primary_purpose": "Teşhis için dikilen prova giysisi",
+      "rationale": "ÜÇ FARKLI TOILE VARDIR (bkz. TOP-26, TOP-27). Bu, TEŞHİS toile'idir: hızlı, işaretli, düzeltilmemiş."
+    },
+    {
+      "topic_id": "TOP-08",
+      "name": "Fitting session protocol",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "reference_only",
+      "primary_purpose": "Ölçüm koşullarını standartlaştırmak",
+      "rationale": "Yanlış koşulda yapılan prova, bedeni değil kurulumu teşhis eder."
+    },
+    {
+      "topic_id": "TOP-09",
+      "name": "Fit sign controlled vocabulary",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "reference_only",
+      "primary_purpose": "Belirtiyi ADLANDIRMAK",
+      "rationale": "Serinin ortak dili burada kurulur; iki ve üç bu sözlüğü DEĞİŞTİREMEZ."
+    },
+    {
+      "topic_id": "TOP-10",
+      "name": "The diagnostic loop (7 steps)",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "reference_only",
+      "primary_purpose": "Tekrarlanabilir teşhis yöntemi",
+      "rationale": "Kitap 1'in tek en değerli fikri; farklılaşma hipotezinin taşıyıcısı."
+    },
+    {
+      "topic_id": "TOP-11",
+      "name": "Confounder elimination — fabric / construction / printing",
+      "book-01": "primary",
+      "book-02": "support",
+      "book-03": "reference_only",
+      "primary_purpose": "Kalıpla İLGİSİ OLMAYAN nedenleri elemek",
+      "rationale": "Rakiplerin en zayıf noktası: hiçbiri 'önce kurulumu teşhis et' adımını sistemleştirmiyor (HYPOTHESIS — Faz 1'de rakip incelemesiyle sınanacak)."
+    },
+    {
+      "topic_id": "TOP-12",
+      "name": "Symptom → cause taxonomy",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "excluded",
+      "primary_purpose": "Belirtiden olası nedene",
+      "rationale": "Kitap 2 nedenlerin ADINI kullanır, taksonomiyi yeniden kurmaz."
+    },
+    {
+      "topic_id": "TOP-13",
+      "name": "Adjustment family naming + scope",
+      "book-01": "introduce_only",
+      "book-02": "primary",
+      "book-03": "reference_only",
+      "primary_purpose": "Teşhisin varış noktasını adlandırmak",
+      "rationale": "Kitap 1 SADECE aileyi ADLANDIRIR ve kapsamını bir cümleyle tarif eder — adım vermez. Sınır ihlali riski EN YÜKSEK topik."
+    },
+    {
+      "topic_id": "TOP-14",
+      "name": "Alteration procedures — step by step",
+      "book-01": "excluded",
+      "book-02": "primary",
+      "book-03": "support",
+      "primary_purpose": "Düzeltmeyi UYGULAMAK",
+      "rationale": "Kitap 1'e sızarsa iki kitap birbirini yer (RISK_REGISTER R-07)."
+    },
+    {
+      "topic_id": "TOP-15",
+      "name": "Slash-and-spread / pivot-and-slide mechanics",
+      "book-01": "introduce_only",
+      "book-02": "primary",
+      "book-03": "support",
+      "primary_purpose": "Kalıp geometrisini değiştirme mekaniği",
+      "rationale": "Kitap 1 yalnızca 'kalıp kâğıdı kesilip açılır' kavramını bir kez tanıtır (okur neden muslin diktiğini anlasın diye)."
+    },
+    {
+      "topic_id": "TOP-16",
+      "name": "Dart manipulation / rotation",
+      "book-01": "excluded",
+      "book-02": "primary",
+      "book-03": "support",
+      "primary_purpose": "Şekillendirmeyi taşımak",
+      "rationale": "Kitap 3 aynı mekaniği blok içinde KULLANIR."
+    },
+    {
+      "topic_id": "TOP-17",
+      "name": "Adjustment interaction map",
+      "book-01": "introduce_only",
+      "book-02": "primary",
+      "book-03": "reference_only",
+      "primary_purpose": "Bir düzeltmenin diğerini bozması",
+      "rationale": "Kitap 1 yalnızca 'düzeltmeler birbirini etkiler, bu yüzden sıra vardır' der."
+    },
+    {
+      "topic_id": "TOP-18",
+      "name": "Adjustment order / priority",
+      "book-01": "primary",
+      "book-02": "support",
+      "book-03": "reference_only",
+      "primary_purpose": "HANGİSİ ÖNCE",
+      "rationale": "Bilerek Kitap 1'de: sıra bir TEŞHİS kararıdır, uygulama kararı değil. Kitap 2 her girişte kendi sıra kısıtını tekrar eder."
+    },
+    {
+      "topic_id": "TOP-19",
+      "name": "Verification after alteration",
+      "book-01": "excluded",
+      "book-02": "primary",
+      "book-03": "support",
+      "primary_purpose": "Düzeltme İŞE YARADI MI",
+      "rationale": "Kitap 1'in doğrulaması hipotez testidir (Adım 6), düzeltme doğrulaması DEĞİL."
+    },
+    {
+      "topic_id": "TOP-20",
+      "name": "Block / sloper drafting theory",
+      "book-01": "excluded",
+      "book-02": "introduce_only",
+      "book-03": "primary",
+      "primary_purpose": "Sıfırdan üretim mantığı",
+      "rationale": "Kitap 2 yalnızca kapanış bölümünde 'aynı düzeltmeyi tekrar ediyorsanız' köprüsünü kurar."
+    },
+    {
+      "topic_id": "TOP-21",
+      "name": "Drafting measurement set (block-specific)",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "primary",
+      "primary_purpose": "Blok çizimi için EK ölçüler",
+      "rationale": "TOP-01'den BİLEREK ayrıldı: teşhis için gerekmeyen ölçüler Kitap 1'i şişirirdi.",
+      "split_from": "TOP-01"
+    },
+    {
+      "topic_id": "TOP-22",
+      "name": "Drafting sequence",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "primary",
+      "primary_purpose": "Çizim adım sırası",
+      "rationale": "Kitap 3'ün tek çekirdek prosedürü."
+    },
+    {
+      "topic_id": "TOP-23",
+      "name": "Balance & grain — diagnosis",
+      "book-01": "primary",
+      "book-02": "support",
+      "book-03": "support",
+      "primary_purpose": "Dengesizliği GÖRMEK",
+      "rationale": "Denge çizgisi okuma bir teşhis becerisidir."
+    },
+    {
+      "topic_id": "TOP-24",
+      "name": "Balance & grain — construction in the draft",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "primary",
+      "primary_purpose": "Dengeyi ÇİZİMDE kurmak",
+      "rationale": "TOP-23'ten BİLEREK ayrıldı: görmek ile kurmak farklı becerilerdir.",
+      "split_from": "TOP-23"
+    },
+    {
+      "topic_id": "TOP-25",
+      "name": "Personal fit profile (record system)",
+      "book-01": "primary",
+      "book-02": "support",
+      "book-03": "support",
+      "primary_purpose": "Teşhisi TAŞINABİLİR kılmak",
+      "rationale": "Kitap 1'in okuru elinde tutan çıktısı; Kitap 2 ve 3 aynı formu okur."
+    },
+    {
+      "topic_id": "TOP-26",
+      "name": "Verification toile (after adjustment)",
+      "book-01": "excluded",
+      "book-02": "primary",
+      "book-03": "reference_only",
+      "primary_purpose": "Düzeltilmiş kalıbı sınamak",
+      "rationale": "TOP-07'den ayrı bir giysidir — farklı amaç, farklı protokol.",
+      "split_from": "TOP-07"
+    },
+    {
+      "topic_id": "TOP-27",
+      "name": "Block-proving toile",
+      "book-01": "excluded",
+      "book-02": "reference_only",
+      "book-03": "primary",
+      "primary_purpose": "Bloğu sınamak ve rafine etmek",
+      "rationale": "TOP-07/TOP-26'dan ayrı: hiçbir ticari kalıp yok, referans yalnızca bedenin kendisi.",
+      "split_from": "TOP-07"
+    },
+    {
+      "topic_id": "TOP-28",
+      "name": "Series terminology glossary",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "reference_only",
+      "primary_purpose": "Tek terim, tek tanım",
+      "rationale": "Kitap 1 kurar; 2 ve 3 DEĞİŞTİREMEZ (qa_terminology.py mekanik olarak dayatır)."
+    },
+    {
+      "topic_id": "TOP-29",
+      "name": "Visual notation system",
+      "book-01": "primary",
+      "book-02": "reference_only",
+      "book-03": "reference_only",
+      "primary_purpose": "Tek çizim dili",
+      "rationale": "Kitap 1 kurar, 2 ve 3 yeniden kullanır — serinin en somut üretim avantajı (araştırma raporu § 31)."
+    },
+    {
+      "topic_id": "TOP-30",
+      "name": "Grading between sizes",
+      "book-01": "introduce_only",
+      "book-02": "primary",
+      "book-03": "reference_only",
+      "primary_purpose": "İki beden arasında geçiş",
+      "rationale": "Kitap 1 'bu bir düzeltme değil, beden geçişidir' ayrımını yapar; nasıl yapılacağı Kitap 2."
+    },
+    {
+      "topic_id": "TOP-31",
+      "name": "Knit / stretch fabric fitting",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "excluded",
+      "primary_purpose": "SERİ DIŞI",
+      "rationale": "Dokuma kumaş uyumu ile örme uyumu farklı fizik taşır. Araştırma raporu § 29 bunu GELECEK katalog yönü olarak işaretledi — bu seride YOK."
+    },
+    {
+      "topic_id": "TOP-32",
+      "name": "Sewing construction technique",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "excluded",
+      "primary_purpose": "ÖN KOŞUL, ÜRÜN DEĞİL",
+      "rationale": "Hedef okur zaten dikebiliyor. Dikiş öğretmek ürünü genel bir dikiş kitabına dönüştürür — araştırma raporunun açık uyarısı."
+    },
+    {
+      "topic_id": "TOP-33",
+      "name": "Sewing history / general craft narrative",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "excluded",
+      "primary_purpose": "DOLGU",
+      "rationale": "Kalite standardı § 46: her bölüm yerini hak etmeli."
+    },
+    {
+      "topic_id": "TOP-34",
+      "name": "Menswear / tailoring",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "excluded",
+      "primary_purpose": "SERİ DIŞI",
+      "rationale": "Gelecek katalog yönü (araştırma raporu § 29)."
+    },
+    {
+      "topic_id": "TOP-35",
+      "name": "Commercial pattern brand-specific instructions",
+      "book-01": "excluded",
+      "book-02": "excluded",
+      "book-03": "excluded",
+      "primary_purpose": "IP SINIRI",
+      "rationale": "IP_AND_BRAND_POLICY.md § 1-2: hiçbir ticari yayıncının kalıp talimatı çoğaltılmaz, hiçbir marka adı başlık/metadata'da kullanılmaz."
+    }
+  ]
+}

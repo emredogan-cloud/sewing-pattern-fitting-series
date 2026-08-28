@@ -1,0 +1,172 @@
+{
+  "$comment": [
+    "VISUAL LANGUAGE TOKENS — serinin çizim dili.",
+    "Görev talimatı § 9/§ 25. Bu dosya NİHAİ DEĞİL: değerler Faz 2",
+    "(phase2-visual) içinde gerçek render testiyle kalibre edilir.",
+    "Buradaki sayılar TASARIM HEDEFİDİR, ölçülmüş sonuç değil.",
+    "",
+    "Amaç: bir okurun bir kez öğrendiği işareti üç kitapta da aynı",
+    "anlamda görmesi (araştırma raporu § 31 — diyagram kütüphanesinin",
+    "amortismanı serinin en somut üretim avantajı)."
+  ],
+  "status": "DESIGN_TARGET_NOT_CALIBRATED",
+  "calibration_phase": "book-01 / phase2-visual",
+  "page": {
+    "trim": "8.5 x 11 in (PROVISIONAL — format kararı OPEN_QUESTIONS A5)",
+    "color": "1-bit / grayscale hedefi — renk KARARI VERİLMEDİ (OPEN_QUESTIONS A6)",
+    "min_figure_width_in": 2.6,
+    "figure_gutter_in": 0.25
+  },
+  "line_weights_pt": {
+    "$comment": "Hiyerarşi ANLAMLIDIR: kalınlık = bilgi türü, dekorasyon değil.",
+    "body_outline": 1.2,
+    "garment_outline": 1.0,
+    "pattern_edge_original": 1.0,
+    "pattern_edge_modified": 1.6,
+    "seam_line": 0.6,
+    "construction_line": 0.5,
+    "balance_line": 0.7,
+    "grainline": 0.9,
+    "callout_leader": 0.4
+  },
+  "dash_patterns": {
+    "original_state": "solid",
+    "modified_state": "solid_heavier",
+    "hidden_or_underneath": "dash 2-2",
+    "cut_line_slash": "dash 4-2",
+    "fold_line": "dash-dot 6-2-1-2",
+    "measurement_path": "dash 1-1"
+  },
+  "tokens": [
+    {
+      "token_id": "TK-01",
+      "name": "slash line",
+      "spec": "dash 4-2, ok başı YOK, uçlarında kısa dik bitiş çizgisi",
+      "rule": "Kesilecek çizgi. Yalnızca kalıp üzerinde kullanılır — vücut figüründe ASLA."
+    },
+    {
+      "token_id": "TK-02",
+      "name": "spread arrow",
+      "spec": "içi boş, çift çizgili ok, açılma yönünde",
+      "rule": "Açma miktarı HER ZAMAN sayısal etiketle birlikte gösterilir."
+    },
+    {
+      "token_id": "TK-03",
+      "name": "overlap arrow",
+      "spec": "içi dolu ok, kapanma yönünde",
+      "rule": "Daraltma miktarı HER ZAMAN sayısal etiketle."
+    },
+    {
+      "token_id": "TK-04",
+      "name": "pivot point",
+      "spec": "içi boş küçük daire + merkezinde nokta",
+      "rule": "Döndürme merkezi. Apex işaretiyle (TK-08) KARIŞTIRILMAZ — farklı sembol."
+    },
+    {
+      "token_id": "TK-05",
+      "name": "drag line indicator",
+      "spec": "tek yönlü ince oklu kısa çizgi kümesi, gerginlik noktasına DOĞRU işaret eder",
+      "rule": "Yön anlamlıdır: ok, kırışıklığın işaret ettiği KAYNAĞA bakar."
+    },
+    {
+      "token_id": "TK-06",
+      "name": "excess fabric fold",
+      "spec": "paralel kısa yay kümesi",
+      "rule": "Yatay/dikey kıvrım. Drag line'dan (TK-05) GÖRSEL OLARAK AYRIDIR."
+    },
+    {
+      "token_id": "TK-07",
+      "name": "strain / pull zone",
+      "spec": "seyrek nokta tramı",
+      "rule": "Gerginlik alanı. Gölge/dolgu olarak ASLA kullanılmaz."
+    },
+    {
+      "token_id": "TK-08",
+      "name": "apex marker",
+      "spec": "artı işareti (+) içinde daire",
+      "rule": "Göğüs uç noktası."
+    },
+    {
+      "token_id": "TK-09",
+      "name": "balance line",
+      "spec": "yatay/dikey ince sürekli çizgi, uçlarında ok yok, kenarında 'B' etiketi",
+      "rule": "Yer düzlemine göre referans; grainline (TK-10) DEĞİLDİR."
+    },
+    {
+      "token_id": "TK-10",
+      "name": "grainline",
+      "spec": "çift uçlu ok, kalıp parçası içinde",
+      "rule": "Kumaş yönü."
+    },
+    {
+      "token_id": "TK-11",
+      "name": "measurement caliper",
+      "spec": "dash 1-1 çizgi + iki uçta dik bitiş",
+      "rule": "Ölçü yolu. Vücut ölçüsü ve kalıp ölçüsü AYNI sembolü kullanır; hangisinin olduğu etiketten anlaşılır."
+    },
+    {
+      "token_id": "TK-12",
+      "name": "before state",
+      "spec": "açık gri, ince, sürekli",
+      "rule": "Değişiklik öncesi. Renk değil TON farkı — 1-bit baskıda tram ile."
+    },
+    {
+      "token_id": "TK-13",
+      "name": "after state",
+      "spec": "siyah, kalın, sürekli",
+      "rule": "Değişiklik sonrası."
+    },
+    {
+      "token_id": "TK-14",
+      "name": "step number",
+      "spec": "içi dolu daire içinde beyaz rakam",
+      "rule": "Adım sırası. Adım numaraları HER ZAMAN 1'den başlar ve atlamaz."
+    },
+    {
+      "token_id": "TK-15",
+      "name": "do-not-do marker",
+      "spec": "köşegen tek çizgi + kenarda '✕' kutusu",
+      "rule": "Yanlış uygulamayı gösteren figürlerde ZORUNLU — okur yanlışı doğru sanmamalı."
+    },
+    {
+      "token_id": "TK-16",
+      "name": "decision node",
+      "spec": "eşkenar dörtgen",
+      "rule": "Akış şeması karar düğümü (Kitap 1'in imza formu)."
+    },
+    {
+      "token_id": "TK-17",
+      "name": "observation node",
+      "spec": "yuvarlatılmış dikdörtgen",
+      "rule": "Akış şeması gözlem adımı."
+    },
+    {
+      "token_id": "TK-18",
+      "name": "handoff node",
+      "spec": "kalın kenarlı dikdörtgen + AF-xx etiketi",
+      "rule": "Kitap 2'ye devir noktası. Kitap 1'in akış şemalarının BİTİŞ formu."
+    }
+  ],
+  "typography": {
+    "$comment": "Font SEÇİLMEDİ. Lisans/gömme hakları Faz 2'de kardeş projenin FONT_RESEARCH deseniyle araştırılacak (OPEN_QUESTIONS A7).",
+    "figure_label_size_pt": 8.5,
+    "figure_label_case": "sentence case",
+    "measurement_label": "sayı + birim HER ZAMAN birlikte; birim karışımı YASAK (bkz. units)",
+    "callout_max_words": 8
+  },
+  "units": {
+    "$comment": "Araştırma raporu ABD pazarını hedefliyor. İKİ BİRİMLİ sunum kararı VERİLMEDİ — OPEN_QUESTIONS A8.",
+    "primary_candidate": "inch",
+    "secondary_candidate": "cm",
+    "rule_if_dual": "Birincil birim metinde, ikincil birim parantez içinde; bir figürde ASLA karışık kullanılmaz.",
+    "decision_status": "OPEN"
+  },
+  "forbidden": [
+    "dekoratif çerçeve, süsleme, arka plan deseni",
+    "anlam taşımayan gri dolgu",
+    "aynı sayfada iki farklı ok stilinin aynı anlamı taşıması",
+    "ölçek belirtilmemiş kalıp parçası",
+    "sayısal etiketi olmayan spread/overlap oku",
+    "gerçek marka adı taşıyan kalıp zarfı/talimat görseli (IP_AND_BRAND_POLICY § 1)"
+  ]
+}

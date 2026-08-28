@@ -1,0 +1,89 @@
+{
+  "$comment": [
+    "True Fit 1 — Measure & Diagnose — makine okunur kitap yapılandırması.",
+    "Seri düzeyi yapılandırma: ../series_config.json (üstün gelir).",
+    "Bu dosya YALNIZCA bu kitaba özgü değerleri taşır.",
+    "",
+    "⚠ Tüm sayfa/fiyat değerleri PROVISIONAL'dır — araştırma raporunun",
+    "  ESTIMATE etiketli ekonomi modelinden gelir ve phase6-format",
+    "  doğrulama kapısından ÖNCE kesinleşemez."
+  ],
+  "book": {
+    "id": "book-01",
+    "dir": "BOOK-01-MEASURE-AND-DIAGNOSE",
+    "workingTitle": "True Fit 1 — Measure & Diagnose",
+    "workingSubtitle": "Find Your Real Measurements, Read Your Own Body, and Know Exactly Which Adjustments You Need — Before You Cut.",
+    "subtitleStatus": "ÇALIŞMA METNİ — nihai alt başlık kapak fazında yazılır, sayı vaadi kilidi geçerlidir (STYLE.md § 6)",
+    "role": "SEE THE PROBLEM",
+    "coreProblem": "Teşhis problemi: hangi düzeltmeye ihtiyacım olduğunu bilmiyorum.",
+    "standaloneValueArgument": "Piyasadaki kitaplar bir düzeltme KATALOĞUDUR ve okurun teşhisi zaten koyduğunu varsayar. Alıcının gerçek sorunu tam olarak teşhisin kendisidir."
+  },
+  "product": {
+    "pageTargetProvisional": [
+      220,
+      260
+    ],
+    "priceModelProvisional": 26.99,
+    "priceRangeProvisional": [
+      24.99,
+      28.99
+    ],
+    "trimProvisional": "8.5x11 in — OPEN_QUESTIONS A5",
+    "bindingProvisional": "ciltsiz",
+    "colorProvisional": "KARAR VERİLMEDİ — OPEN_QUESTIONS A6"
+  },
+  "architecture": {
+    "primaryTopics": [
+      "TOP-01",
+      "TOP-02",
+      "TOP-03",
+      "TOP-04",
+      "TOP-05",
+      "TOP-06",
+      "TOP-07",
+      "TOP-08",
+      "TOP-09",
+      "TOP-10",
+      "TOP-11",
+      "TOP-12",
+      "TOP-18",
+      "TOP-23",
+      "TOP-25",
+      "TOP-28",
+      "TOP-29"
+    ],
+    "ownsTaxonomyFiles": [
+      "fit_signs.json",
+      "measurements.json",
+      "terminology.json",
+      "visual_language_tokens.json"
+    ],
+    "boundaryMatrix": "../02_TAXONOMY/boundary_matrix.json",
+    "note": "Bu kitabın 'primary' olduğu topikler dışındaki her konuda rol sınırı boundary_matrix.json'dadır ve qa_boundary.py tarafından denetlenir."
+  },
+  "keywords": {
+    "primaryFamilies": [
+      "pattern fitting",
+      "sewing measurements",
+      "fitting problems sewing",
+      "muslin fitting",
+      "why doesn't my pattern fit",
+      "pattern size vs ready to wear"
+    ],
+    "note": "Hacim/CPC ÖLÇÜLMEDİ (araştırma raporu § 30, § 36). Yalnızca niyet yapısı — SERIES_KEYWORD_ARCHITECTURE.md."
+  },
+  "gate": {
+    "current": "foundation",
+    "order": [
+      "init",
+      "foundation",
+      "phase1-spec",
+      "phase2-visual",
+      "phase3-pilot",
+      "phase4-production",
+      "phase5-qa",
+      "phase6-format",
+      "release"
+    ]
+  }
+}

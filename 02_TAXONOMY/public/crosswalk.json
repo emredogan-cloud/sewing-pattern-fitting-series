@@ -1,0 +1,1349 @@
+{
+  "$comment": [
+    "CROSSWALK — kitaplar arası devir haritası (görev talimatı § 22-23).",
+    "OTOMATİK TÜRETİLMİŞTİR (06_BUILD/build_crosswalk.py).",
+    "ELLE DÜZENLENMEZ — kaynak dosyalar değişince yeniden üretilir.",
+    "qa_boundary.py her belirtinin en az bir yola VEYA açık bir istisnaya sahip olduğunu dayatır."
+  ],
+  "generated_by": "06_BUILD/build_crosswalk.py",
+  "count": 148,
+  "by_direction": {
+    "DIAGNOSIS_TO_ADJUSTMENT": 129,
+    "ADJUSTMENT_TO_BLOCK": 19
+  },
+  "exception_count": 21,
+  "crosswalks": [
+    {
+      "crosswalk_id": "XW-001",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-001",
+      "to_ref": "AF-06",
+      "handoff_sentence": "Belirti SYM-001 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yaka eğrisi vücut için fazla geniş/derin → AF-06 (Neckline size and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-002",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-001",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-001 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs hacmi yakayı öne çekiyor → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-003",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-001",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-001 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Yaka kenarı dikiş sırasında gerilmiş.",
+      "exception": "Bir YAPIM hatasıdır; kalıba dokunulmaz.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-004",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-002",
+      "to_ref": "AF-06",
+      "handoff_sentence": "Belirti SYM-002 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yaka eğrisi vücut için fazla dar → AF-06 (Neckline size and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-005",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-002",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-002 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt boyunu öne itiyor → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-006",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-002",
+      "to_ref": "AF-05",
+      "handoff_sentence": "Belirti SYM-002 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz dikişi öne kaymış, yakayı boyna bindiriyor → AF-05 (Shoulder position (forward shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-007",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-003",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-003 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu yetersiz (yuvarlak sırt / dik duruş) → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-008",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-003",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-003 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-009",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-003",
+      "to_ref": "AF-06",
+      "handoff_sentence": "Belirti SYM-003 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yaka arkada fazla dar, giysiyi yukarı asıyor → AF-06 (Neckline size and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-010",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-004",
+      "to_ref": "AF-03",
+      "handoff_sentence": "Belirti SYM-004 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz eğimi kalıbın varsaydığından DİK (square shoulder) → AF-03 (Shoulder slope (square / sloping shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-011",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-004",
+      "to_ref": "AF-03",
+      "handoff_sentence": "Belirti SYM-004 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz eğimi kalıbın varsaydığından EĞİK (sloping shoulder) → AF-03 (Shoulder slope (square / sloping shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-012",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-004",
+      "to_ref": "AF-04",
+      "handoff_sentence": "Belirti SYM-004 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz genişliği yetersiz → AF-04 (Shoulder width (narrow / broad shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-013",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-005",
+      "to_ref": "AF-03",
+      "handoff_sentence": "Belirti SYM-005 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz eğimi fazla eğik çizilmiş (dik omuzlu okur için) → AF-03 (Shoulder slope (square / sloping shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-014",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-005",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-005 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu fazla derin, kol başı fazla yüksek → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-015",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-005",
+      "to_ref": "AF-04",
+      "handoff_sentence": "Belirti SYM-005 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz genişliği fazla → AF-04 (Shoulder width (narrow / broad shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-016",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-006",
+      "to_ref": "AF-05",
+      "handoff_sentence": "Belirti SYM-006 ve ayırt edici kanıt doğrulandığında teşhis şudur: Öne düşük omuz duruşu (forward shoulder) → AF-05 (Shoulder position (forward shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-017",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-006",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-006 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt kumaşı arkaya çekiyor → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-018",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-006",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-006 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön beden arka bedene göre kısa → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-019",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-007",
+      "to_ref": "AF-04",
+      "handoff_sentence": "Belirti SYM-007 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz genişliği fazla (kalıp daha geniş omuz için) → AF-04 (Shoulder width (narrow / broad shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-020",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-007",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-007 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Tasarım bilerek düşük omuzlu (drop shoulder).",
+      "exception": "BU BİR SORUN DEĞİLDİR. Tasarım ease'ini düzeltmeye çalışmak Kitap 1'in en sık uyardığı hatadır.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-021",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-007",
+      "to_ref": "AF-03",
+      "handoff_sentence": "Belirti SYM-007 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz eğimi fazla dik çizilmiş → AF-03 (Shoulder slope (square / sloping shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-022",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-008",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-008 ve ayırt edici kanıt doğrulandığında teşhis şudur: Sırt genişliği yetersiz → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-023",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-008",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-008 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu fazla dar/öne kaymış → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-024",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-008",
+      "to_ref": "AF-10",
+      "handoff_sentence": "Belirti SYM-008 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i yetersiz veya kol dar → AF-10 (Sleeve girth and length (bicep, forearm, length)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-025",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-009",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-009 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu fazla → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-026",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-009",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-009 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt) → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-027",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-009",
+      "to_ref": "AF-06",
+      "handoff_sentence": "Belirti SYM-009 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka yaka fazla yüksek, kumaşı aşağı itiyor → AF-06 (Neckline size and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-028",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-010",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-010 ve ayırt edici kanıt doğrulandığında teşhis şudur: Sırt genişliği fazla → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-029",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-010",
+      "to_ref": "AF-18",
+      "handoff_sentence": "Belirti SYM-010 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bir beden büyük seçilmiş → AF-18 (Grading between sizes).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-030",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-010",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-010 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu fazla geniş → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-031",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-011",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-011 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu yetersiz (yuvarlak sırt) → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-032",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-011",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-011 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kalça/oturak hacmi kumaşı yukarı çekiyor → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-033",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-011",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-011 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön/arka denge bozuk (öne eğik duruş) → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-034",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-012",
+      "to_ref": "AF-14",
+      "handoff_sentence": "Belirti SYM-012 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel oyuğu (sway back) — arka orta bel hizasında fazlalık → AF-14 (Sway back / lumbar hollow).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-035",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-012",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-012 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt — arka orta üst kısımda boy yetersiz → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-036",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-012",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-012 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Fermuar dikilirken gerdirilmiş.",
+      "exception": "YAPIM hatası — kalıba dokunulmaz.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-037",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-013",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-013 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu fazla sığ (koltuk altı çok yüksek) → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-038",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-013",
+      "to_ref": "AF-10",
+      "handoff_sentence": "Belirti SYM-013 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol bicep hattı dar → AF-10 (Sleeve girth and length (bicep, forearm, length)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-039",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-013",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-013 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs hacmi ön kol oyuntusunu yukarı çekiyor → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-040",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-014",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-014 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön beden genişliği fazla → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-041",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-014",
+      "to_ref": "AF-02",
+      "handoff_sentence": "Belirti SYM-014 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs pensi apeksi doğru yerde değil, üstte fazlalık bırakıyor → AF-02 (Bust position (apex height / width, dart angle)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-042",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-014",
+      "to_ref": "AF-04",
+      "handoff_sentence": "Belirti SYM-014 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz genişliği fazla → AF-04 (Shoulder width (narrow / broad shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-043",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-015",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-015 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden genişliği fazla → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-044",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-015",
+      "to_ref": "AF-03",
+      "handoff_sentence": "Belirti SYM-015 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz eğimi fazla dik çizilmiş → AF-03 (Shoulder slope (square / sloping shoulder)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-045",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-015",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-015 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu fazla geniş çizilmiş → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-046",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-016",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-016 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs hacmi kalıbın varsaydığından fazla → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-047",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-016",
+      "to_ref": "AF-18",
+      "handoff_sentence": "Belirti SYM-016 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön beden genel olarak dar (beden seçimi) → AF-18 (Grading between sizes).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-048",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-016",
+      "to_ref": "AF-02",
+      "handoff_sentence": "Belirti SYM-016 ve ayırt edici kanıt doğrulandığında teşhis şudur: Pens ucu apeksin uzağında, hacmi yanlış yere dağıtıyor → AF-02 (Bust position (apex height / width, dart angle)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-049",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-017",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-017 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs hacmi ön kumaşı yukarı çekiyor → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-050",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-017",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-017 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön beden boyu yetersiz → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-051",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-017",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-017 ve ayırt edici kanıt doğrulandığında teşhis şudur: Karın hacmi kumaşı yukarı çekiyor → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-052",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-018",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-018 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön beden hacmi yetersiz (göğüs veya karın) → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-053",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-018",
+      "to_ref": "AF-07",
+      "handoff_sentence": "Belirti SYM-018 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden genişliği fazla → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-054",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-018",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-018 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Kumaş çözgüye eğri kesilmiş.",
+      "exception": "KESİM hatası — kalıba dokunulmaz.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-055",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-019",
+      "to_ref": "AF-02",
+      "handoff_sentence": "Belirti SYM-019 ve ayırt edici kanıt doğrulandığında teşhis şudur: Pens ucu apeksin üzerinde bitiyor (çok uzun) → AF-02 (Bust position (apex height / width, dart angle)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-056",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-019",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-019 ve ayırt edici kanıt doğrulandığında teşhis şudur: Pens hacmi vücuda göre fazla → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-057",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-019",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-019 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Pens dikilirken ucu düz bitirilmemiş.",
+      "exception": "YAPIM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-058",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-020",
+      "to_ref": "AF-02",
+      "handoff_sentence": "Belirti SYM-020 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs pensi apeksten yukarıda konumlanmış → AF-02 (Bust position (apex height / width, dart angle)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-059",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-020",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-020 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön üst genişlik fazla → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-060",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-020",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-020 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kalıp daha dolgun bir üst göğüs için çizilmiş → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-061",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-021",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-021 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs hacmi yetersiz → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-062",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-021",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-021 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Ön kapama payı (extension) dar.",
+      "exception": "Bir DÜZELTME ailesi değil; kalıp/tasarım parametresidir — Kitap 2'de kendi girişi yoktur (XW istisnası).",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-063",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-021",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-021 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Düğme aralığı göğüs hizasına düğme koymuyor.",
+      "exception": "Tasarım/yerleşim düzeltmesi.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-064",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-022",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-022 ve ayırt edici kanıt doğrulandığında teşhis şudur: Beden boyu kalıbın varsaydığından farklı → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-065",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-022",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-022 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön/arka denge bozuk → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-066",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-022",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-022 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Tasarım bilerek yüksek/düşük belli.",
+      "exception": "SORUN DEĞİLDİR — tasarım tercihi (T-07).",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-067",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-023",
+      "to_ref": "AF-14",
+      "handoff_sentence": "Belirti SYM-023 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel oyuğu (sway back) — arka orta bel hizasında kumaş fazlası → AF-14 (Sway back / lumbar hollow).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-068",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-023",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-023 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu genel olarak fazla → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-069",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-023",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-023 ve ayırt edici kanıt doğrulandığında teşhis şudur: Oturak hacmi kumaşı yukarı itiyor → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-070",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-024",
+      "to_ref": "AF-14",
+      "handoff_sentence": "Belirti SYM-024 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel oyuğu (sway back) → AF-14 (Sway back / lumbar hollow).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-071",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-024",
+      "to_ref": "AF-18",
+      "handoff_sentence": "Belirti SYM-024 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel/kalça oranı kalıbın varsaydığından farklı → AF-18 (Grading between sizes).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-072",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-024",
+      "to_ref": "AF-12",
+      "handoff_sentence": "Belirti SYM-024 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel bandı fazla uzun kesilmiş → AF-12 (Waist girth).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-073",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-025",
+      "to_ref": "AF-12",
+      "handoff_sentence": "Belirti SYM-025 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel çevresi fazla → AF-12 (Waist girth).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-074",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-025",
+      "to_ref": "AF-12",
+      "handoff_sentence": "Belirti SYM-025 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel şekillendirmesi (pens) yetersiz → AF-12 (Waist girth).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-075",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-025",
+      "to_ref": "AF-18",
+      "handoff_sentence": "Belirti SYM-025 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bir beden büyük seçilmiş → AF-18 (Grading between sizes).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-076",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-026",
+      "to_ref": "AF-12",
+      "handoff_sentence": "Belirti SYM-026 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel çevresi yetersiz → AF-12 (Waist girth).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-077",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-026",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-026 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel hattı yanlış hizada oturuyor (doğal belin altında) → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-078",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-026",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-026 ve ayırt edici kanıt doğrulandığında teşhis şudur: Karın hacmi → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-079",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-027",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-027 ve ayırt edici kanıt doğrulandığında teşhis şudur: Oturak hacmi kalıbın varsaydığından fazla → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-080",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-027",
+      "to_ref": "AF-15",
+      "handoff_sentence": "Belirti SYM-027 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ uzunluğu yetersiz (pantolonda) → AF-15 (Crotch depth and length).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-081",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-027",
+      "to_ref": "AF-18",
+      "handoff_sentence": "Belirti SYM-027 ve ayırt edici kanıt doğrulandığında teşhis şudur: Genel kalça çevresi yetersiz → AF-18 (Grading between sizes).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-082",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-028",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-028 ve ayırt edici kanıt doğrulandığında teşhis şudur: Oturak hacmi kalıbın varsaydığından az (flat seat) → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-083",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-028",
+      "to_ref": "AF-15",
+      "handoff_sentence": "Belirti SYM-028 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ uzunluğu fazla → AF-15 (Crotch depth and length).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-084",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-028",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-028 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden/etek boyu fazla → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-085",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-029",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-029 ve ayırt edici kanıt doğrulandığında teşhis şudur: Vücut asimetrisi (bir kalça daha yüksek/dolgun) → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-086",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-029",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-029 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Duruş: ağırlık tek ayakta.",
+      "exception": "PROVA KOŞULU hatası — kalıba dokunulmaz.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-087",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-029",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-029 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Kumaş eğri kesilmiş.",
+      "exception": "KESİM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-088",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-030",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-030 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka hacim yetersiz → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-089",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-030",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-030 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön hacim fazla → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-090",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-030",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-030 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Kumaş eğri kesilmiş.",
+      "exception": "KESİM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-091",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-031",
+      "to_ref": "AF-10",
+      "handoff_sentence": "Belirti SYM-031 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol bicep genişliği yetersiz → AF-10 (Sleeve girth and length (bicep, forearm, length)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-092",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-031",
+      "to_ref": "AF-09",
+      "handoff_sentence": "Belirti SYM-031 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı yüksekliği fazla → AF-09 (Sleeve cap (height, shape, ease)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-093",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-031",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-031 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu dar, kolu sıkıştırıyor → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-094",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-032",
+      "to_ref": "AF-10",
+      "handoff_sentence": "Belirti SYM-032 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol genişliği fazla → AF-10 (Sleeve girth and length (bicep, forearm, length)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-095",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-032",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-032 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Tasarım bilerek bol kollu.",
+      "exception": "SORUN DEĞİLDİR — tasarım ease'i.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-096",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-032",
+      "to_ref": "AF-09",
+      "handoff_sentence": "Belirti SYM-032 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i fazla, kol başında toplanma yaratıyor → AF-09 (Sleeve cap (height, shape, ease)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-097",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-033",
+      "to_ref": "AF-09",
+      "handoff_sentence": "Belirti SYM-033 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış) → AF-09 (Sleeve cap (height, shape, ease)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-098",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-033",
+      "to_ref": "AF-09",
+      "handoff_sentence": "Belirti SYM-033 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol dirsek eğrisi vücuda uymuyor (öne dönük kol duruşu) → AF-09 (Sleeve cap (height, shape, ease)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-099",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-033",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-033 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Kol eğri kesilmiş.",
+      "exception": "KESİM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-100",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-034",
+      "to_ref": "AF-09",
+      "handoff_sentence": "Belirti SYM-034 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i kumaş için fazla → AF-09 (Sleeve cap (height, shape, ease)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-101",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-034",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-034 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Kol başı ease'i doğru ama dağıtım/pot alma yapılmamış.",
+      "exception": "YAPIM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-102",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-034",
+      "to_ref": "AF-08",
+      "handoff_sentence": "Belirti SYM-034 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu çevresi kalıptan farklı dikilmiş → AF-08 (Armhole depth and shape).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-103",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-035",
+      "to_ref": "AF-15",
+      "handoff_sentence": "Belirti SYM-035 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ derinliği yetersiz → AF-15 (Crotch depth and length).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-104",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-035",
+      "to_ref": "AF-15",
+      "handoff_sentence": "Belirti SYM-035 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka ağ uzunluğu yetersiz → AF-15 (Crotch depth and length).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-105",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-035",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-035 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka ağ eğrisi vücut için fazla düz → AF-16 (Crotch curve shape (front / back hook)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-106",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-036",
+      "to_ref": "AF-15",
+      "handoff_sentence": "Belirti SYM-036 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön ağ uzunluğu fazla → AF-15 (Crotch depth and length).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-107",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-036",
+      "to_ref": "AF-15",
+      "handoff_sentence": "Belirti SYM-036 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ derinliği fazla → AF-15 (Crotch depth and length).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-108",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-036",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-036 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön ağ eğrisi vücut için fazla kavisli → AF-16 (Crotch curve shape (front / back hook)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-109",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-037",
+      "to_ref": "AF-17",
+      "handoff_sentence": "Belirti SYM-037 ve ayırt edici kanıt doğrulandığında teşhis şudur: Uyluk çevresi yetersiz → AF-17 (Leg girth and shape (thigh, knee, calf)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-110",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-037",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-037 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ eğrisi vücuda uymuyor → AF-16 (Crotch curve shape (front / back hook)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-111",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-037",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-037 ve ayırt edici kanıt doğrulandığında teşhis şudur: Karın/oturak hacmi kumaşı ağa doğru çekiyor → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-112",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-038",
+      "to_ref": "AF-17",
+      "handoff_sentence": "Belirti SYM-038 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bacak duruşu (içe/dışa dönük diz) kumaşı çeviriyor → AF-17 (Leg girth and shape (thigh, knee, calf)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-113",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-038",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-038 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ eğrisi dengesiz (ön/arka) → AF-16 (Crotch curve shape (front / back hook)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-114",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-038",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-038 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Bacak eğri kesilmiş.",
+      "exception": "KESİM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-115",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-039",
+      "to_ref": "AF-15",
+      "handoff_sentence": "Belirti SYM-039 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ derinliği fazla → AF-15 (Crotch depth and length).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-116",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-039",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-039 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Tasarım bilerek düşük ağlı.",
+      "exception": "SORUN DEĞİLDİR — tasarım tercihi.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-117",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-039",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-039 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bel hattı doğal belin altında oturuyor → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-118",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-040",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-040 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bir hacim (göğüs, karın, oturak) kumaşı yukarı çekiyor → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-119",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-040",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-040 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön/arka denge bozuk → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-120",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-040",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-040 ve ayırt edici kanıt doğrulandığında teşhis şudur: Vücut asimetrisi → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-121",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-041",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-041 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön/arka hacim dağılımı vücuda uymuyor → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-122",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-041",
+      "to_ref": "AF-13",
+      "handoff_sentence": "Belirti SYM-041 ve ayırt edici kanıt doğrulandığında teşhis şudur: Vücut asimetrisi → AF-13 (Hip and seat volume (full / flat seat, high hip)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-123",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-041",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-041 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Parçalar eğri kesilmiş.",
+      "exception": "KESİM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-124",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-042",
+      "to_ref": "AF-11",
+      "handoff_sentence": "Belirti SYM-042 ve ayırt edici kanıt doğrulandığında teşhis şudur: Duruş (öne/arkaya eğik) dengeyi bozuyor → AF-11 (Torso length and front/back balance).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-125",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-042",
+      "to_ref": "AF-01",
+      "handoff_sentence": "Belirti SYM-042 ve ayırt edici kanıt doğrulandığında teşhis şudur: Bir hacim (göğüs/oturak) kumaşı çekiyor → AF-01 (Bust volume (full / small bust adjustment)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-126",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-042",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-042 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Parça eğri kesilmiş.",
+      "exception": "KESİM hatası.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-127",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-043",
+      "to_ref": "AF-19",
+      "handoff_sentence": "Belirti SYM-043 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kalıbın boyu okurun boy ölçüsüne uymuyor → AF-19 (Overall length (lengthen / shorten lines)).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-128",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-043",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-043 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Tasarım bilerek kısa/uzun.",
+      "exception": "SORUN DEĞİLDİR — tasarım tercihi. Kişisel tercihle değiştirilebilir ama bu bir UYUM düzeltmesi değildir.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-129",
+      "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+      "from_ref": "SYM-043",
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-043 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Etek ucu/paça payı kalıbın varsaydığından farklı katlanmış.",
+      "exception": "YAPIM kararı — kalıba dokunulmaz.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-130",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-01",
+      "to_ref": "BLK-03",
+      "handoff_sentence": "Okur AF-01 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta göğüs şekillendirme miktarı doğrudan çizilir — düzeltme tekrar etmez.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-131",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-02",
+      "to_ref": "BLK-03",
+      "handoff_sentence": "Okur AF-02 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta apeks konumu ölçüden belirlenir (M-017/M-018/M-019).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-132",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-03",
+      "to_ref": "BLK-04",
+      "handoff_sentence": "Okur AF-03 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta omuz eğimi doğrudan ölçülür.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-133",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-04",
+      "to_ref": "BLK-04",
+      "handoff_sentence": "Okur AF-04 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta omuz uzunluğu M-014'ten gelir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-134",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-05",
+      "to_ref": "BLK-04",
+      "handoff_sentence": "Okur AF-05 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta duruş analizi (TOP-06) girdi olur.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-135",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-06",
+      "to_ref": "BLK-04",
+      "handoff_sentence": "Okur AF-06 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta boyun eğrisi M-013'ten türetilir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-136",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-07",
+      "to_ref": "BLK-02",
+      "handoff_sentence": "Okur AF-07 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta sırt genişliği ve sırt boyu ayrı ölçülerdir (M-020, M-016).",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-137",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-08",
+      "to_ref": "BLK-05",
+      "handoff_sentence": "Okur AF-08 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta kol oyuntusu derinliği M-022'den türetilir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-138",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-09",
+      "to_ref": "BLK-06",
+      "handoff_sentence": "Okur AF-09 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta kol başı, bitmiş kol oyuntusundan hesaplanır.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-139",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-10",
+      "to_ref": "BLK-06",
+      "handoff_sentence": "Okur AF-10 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta kol ölçüleri M-007/M-028/M-029'dan gelir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-140",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-11",
+      "to_ref": "BLK-11",
+      "handoff_sentence": "Okur AF-11 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta ön/arka boy ayrı ölçülerdir (M-015, M-016) — denge çizimde kurulur.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-141",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-12",
+      "to_ref": "BLK-10",
+      "handoff_sentence": "Okur AF-12 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta bel ölçüsü M-004'ten doğrudan gelir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-142",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-13",
+      "to_ref": "BLK-07",
+      "handoff_sentence": "Okur AF-13 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta kalça şekillendirmesi M-005/M-006 ve duruş analizinden gelir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-143",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-14",
+      "to_ref": "BLK-10",
+      "handoff_sentence": "Okur AF-14 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta bel oyuğu şekillendirmesi doğrudan çizilir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-144",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-15",
+      "to_ref": "BLK-08",
+      "handoff_sentence": "Okur AF-15 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta ağ derinliği M-026'dan, ağ uzunluğu M-027'den gelir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-145",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-16",
+      "to_ref": "BLK-08",
+      "handoff_sentence": "Okur AF-16 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta ağ eğrisi taslak sisteminin en hassas bölümüdür.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-146",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-17",
+      "to_ref": "BLK-09",
+      "handoff_sentence": "Okur AF-17 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta bacak ölçüleri M-009/M-010/M-011'den gelir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-147",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-18",
+      "to_ref": null,
+      "handoff_sentence": "AF-18 (Grading between sizes) bir blok bileşenine dönüşmez.",
+      "exception": "Beden dereceleme kavramı blok çiziminde YOKTUR — blok tek bedendir. Bu, Kitap 3'ün bir eksiği değil, TANIMIDIR ve Kitap 3'ün en güçlü satış argümanlarından biridir.",
+      "verification_status": "agent_drafted_unverified"
+    },
+    {
+      "crosswalk_id": "XW-148",
+      "direction": "ADJUSTMENT_TO_BLOCK",
+      "from_ref": "AF-19",
+      "to_ref": "BLK-11",
+      "handoff_sentence": "Okur AF-19 ailesini HER kalıpta yeniden uyguluyorsa, bu tekrar bir blok kararına dönüşür: Blokta boy ölçüden gelir.",
+      "exception": null,
+      "verification_status": "agent_drafted_unverified"
+    }
+  ]
+}

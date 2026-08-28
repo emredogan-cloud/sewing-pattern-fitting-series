@@ -1,0 +1,73 @@
+{
+  "$comment": [
+    "True Fit 3 — Draft Your Own Block — makine okunur kitap yapılandırması.",
+    "Seri düzeyi yapılandırma: ../series_config.json (üstün gelir).",
+    "Bu dosya YALNIZCA bu kitaba özgü değerleri taşır.",
+    "",
+    "⚠ Tüm sayfa/fiyat değerleri PROVISIONAL'dır — araştırma raporunun",
+    "  ESTIMATE etiketli ekonomi modelinden gelir ve phase6-format",
+    "  doğrulama kapısından ÖNCE kesinleşemez."
+  ],
+  "book": {
+    "id": "book-03",
+    "dir": "BOOK-03-DRAFT-YOUR-OWN-BLOCK",
+    "workingTitle": "True Fit 3 — Draft Your Own Block",
+    "workingSubtitle": "Build a Personal Block from Your Own Measurements — and Stop Adjusting Commercial Patterns Forever.",
+    "subtitleStatus": "ÇALIŞMA METNİ — nihai alt başlık kapak fazında yazılır, sayı vaadi kilidi geçerlidir (STYLE.md § 6)",
+    "role": "BUILD THE SOLUTION",
+    "coreProblem": "Tekrar problemi: her kalıpta aynı düzeltmeleri yapmaktan kurtulmak istiyorum.",
+    "standaloneValueArgument": "Blok/kalıp çizimi KENDİ BAŞINA bir pazardır: akademik bir referans $45,50'de 992 yorum taşıyor (OBSERVED 27 Ağu 2026) ve serinin en yüksek fiyat noktasıdır."
+  },
+  "product": {
+    "pageTargetProvisional": [
+      280,
+      320
+    ],
+    "priceModelProvisional": 29.99,
+    "priceRangeProvisional": [
+      28.99,
+      34.99
+    ],
+    "trimProvisional": "8.5x11 in — OPEN_QUESTIONS A5",
+    "bindingProvisional": "ciltsiz",
+    "colorProvisional": "KARAR VERİLMEDİ — OPEN_QUESTIONS A6"
+  },
+  "architecture": {
+    "primaryTopics": [
+      "TOP-20",
+      "TOP-21",
+      "TOP-22",
+      "TOP-24",
+      "TOP-27"
+    ],
+    "ownsTaxonomyFiles": [
+      "block_components.json (içerik)"
+    ],
+    "boundaryMatrix": "../02_TAXONOMY/boundary_matrix.json",
+    "note": "Bu kitabın 'primary' olduğu topikler dışındaki her konuda rol sınırı boundary_matrix.json'dadır ve qa_boundary.py tarafından denetlenir."
+  },
+  "keywords": {
+    "primaryFamilies": [
+      "sloper drafting",
+      "block pattern drafting",
+      "draft your own pattern",
+      "personal sloper",
+      "pattern making from measurements"
+    ],
+    "note": "Hacim/CPC ÖLÇÜLMEDİ (araştırma raporu § 30, § 36). Yalnızca niyet yapısı — SERIES_KEYWORD_ARCHITECTURE.md."
+  },
+  "gate": {
+    "current": "init",
+    "order": [
+      "init",
+      "foundation",
+      "phase1-spec",
+      "phase2-visual",
+      "phase3-pilot",
+      "phase4-production",
+      "phase5-qa",
+      "phase6-format",
+      "release"
+    ]
+  }
+}

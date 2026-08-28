@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TRUE FIT — uyum belirtisi (fit sign) kaydı",
+  "$comment": [
+    "Kitap 1'in çekirdek veri modeli. BİR BELİRTİ ≠ BİR NEDEN.",
+    "Şema bu ayrımı mekanik olarak dayatır: 'observation' alanı okurun",
+    "GÖRDÜĞÜNÜ, 'candidate_causes' ise OLASI nedenleri taşır ve her",
+    "nedenin kendi ayırt edici kanıtı ve doğrulayıcı ölçümü olmak",
+    "ZORUNDADIR. Ayırt edici kanıtı olmayan bir neden yazılamaz."
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "symptom_id",
+    "zone",
+    "sign_class",
+    "observation",
+    "where_it_appears",
+    "candidate_causes",
+    "confounders_to_rule_out",
+    "do_not_change_yet",
+    "source_refs",
+    "verification_status"
+  ],
+  "properties": {
+    "symptom_id": { "type": "string", "pattern": "^SYM-[0-9]{3}$" },
+    "zone": {
+      "type": "string",
+      "enum": ["neck", "shoulder", "upper_back", "armhole", "bust_chest", "waist_torso", "hip_seat", "sleeve_arm", "crotch_leg", "whole_garment"]
+    },
+    "sign_class": {
+      "type": "string",
+      "$comment": "Bölüm 7'nin kontrollü sözlüğü. Yeni bir sınıf eklemek DECISIONS.md kaydı gerektirir.",
+      "enum": [
+        "horizontal_fold",
+        "vertical_fold",
+        "diagonal_drag_line",
+        "gape",
+        "strain_pull",
+        "pooling",
+        "hem_hike",
+        "seam_displacement",
+        "grain_distortion",
+        "silhouette_deviation"
+      ]
+    },
+    "observation": { "type": "string", "minLength": 20, "$comment": "Okurun GÖRDÜĞÜ — nedensiz, yorumsuz." },
+    "where_it_appears": { "type": "string", "minLength": 5 },
+    "origin_rule": {
+      "type": ["string", "null"],
+      "$comment": "Belirtinin GÖRÜLDÜĞÜ yer ile KAYNAKLANDIĞI yer farklıysa, kaynağı bulma kuralı (Adım 4 — LOCALIZE)."
+    },
+    "candidate_causes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["cause", "distinguishing_evidence", "confirming_measurement", "adjustment_family_ref"],
+        "properties": {
+          "cause": { "type": "string", "minLength": 5 },
+          "distinguishing_evidence": {
+            "type": "string",
+            "minLength": 15,
+            "$comment": "Bu nedeni DİĞERLERİNDEN ayıran gözlem. 'Belki budur' yazılamaz."
+          },
+          "confirming_measurement": {
+            "type": "string",
+            "minLength": 5,
+            "$comment": "Hipotezi sayıyla doğrulayan ölçüm. Ölçüm yoksa 'NO_MEASUREMENT_EXISTS — physical test only' yazılır ve fiziksel test tanımlanır."
+          },
+          "physical_test": { "type": ["string", "null"] },
+          "adjustment_family_ref": {
+            "type": ["string", "null"],
+            "pattern": "^AF-[0-9]{2}$",
+            "$comment": "Kitap 2 devir noktası. null = bu neden bir kalıp düzeltmesi DEĞİLDİR (ör. yapım hatası)."
+          },
+          "likelihood_note": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "confounders_to_rule_out": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" },
+      "$comment": "Bölüm 8. Kalıpla İLGİSİ OLMAYAN ama aynı belirtiyi üreten şeyler: kumaş, iç giyim, dikiş hatası, ütü, yanlış beden, hatalı basılmış PDF kalıp."
+    },
+    "do_not_change_yet": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" },
+      "$comment": "Görev talimatı § 15: 'what should NOT be changed prematurely'."
+    },
+    "adjustment_order_note": { "type": ["string", "null"] },
+    "book1_chapter_ref": { "type": ["string", "null"], "pattern": "^B1-CH[0-9]{2}$" },
+    "figure_refs": { "type": "array", "items": { "type": "string", "pattern": "^FIG-B[0-9]-[0-9]{3}$" } },
+    "source_refs": { "type": "array", "items": { "type": "string", "pattern": "^S-[0-9]{4}$" } },
+    "verification_status": {
+      "type": "string",
+      "$comment": "DECISIONS.md K10 — mekanik olarak dayatılır. 'technical_reference_verified' iddiası, en az bir technical_authority=true kaynağın fulltext/official_pdf seviyesinde olmasını GEREKTİRİR. 'physically_validated' AYRICA bir doğrulama kaydı gerektirir.",
+      "enum": [
+        "agent_drafted_unverified",
+        "agent_reviewed",
+        "technical_reference_verified",
+        "physically_validated"
+      ]
+    },
+    "validation_record_ref": { "type": ["string", "null"], "pattern": "^VAL-[0-9]{4}$" },
+    "notes": { "type": ["string", "null"] }
+  }
+}
