@@ -35,7 +35,7 @@
 | **İddia disiplini** | `qa_claims.py` | ✓ 0 bulgu |
 | **Terminoloji** | `qa_terminology.py` | ✓ 0 bulgu (20 terim) |
 | Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **4 engel — BEKLENEN.** İki ölçüm henüz yapılmadı (dış dünyada yapılır) |
-| **Kapıların kendi testi** | `selftest.py` | ✓ tüm denetimler geçti |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **77/77** denetim geçti |
 | GitHub Actions CI | `.github/workflows/validate.yml` | yerel eşdeğeri yeşil; GitHub'da hiç TETİKLENMEDİ (push yok, `A2`) |
 
 ## İçerik envanteri
@@ -60,6 +60,15 @@
 14 açık soru — 5'i **YÜKSEK** aciliyette (`A1` marka, `A3` kaynak
 bütçesi, `A4` ortam, `A13` doğrulama kapsamı, `A14` test katılımcıları).
 Tam liste: [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md).
+
+## Alınmış kararlar
+
+17 karar kayıtlı (`K1`–`K17`). Beşi, kapıların **gerçekten çalıştığının
+kanıtı** olarak doğdu: `K13` (sınır matrisi düzeltmesi), `K14`
+(anahtar kelime muafiyeti), `K15` (`SYM-043` ile kapatılan kapsam
+boşluğu), `K16` (Türkçe katlamanın tek kopyaya çıkarılması), `K17`
+(selftest fixture'ının yeniden yazılması).
+Tam liste: [`DECISIONS.md`](DECISIONS.md).
 
 ## Riskler
 

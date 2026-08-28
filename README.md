@@ -60,7 +60,7 @@ python3 07_TESTS/selftest.py                       # KAPILARIN KENDİ TESTİ
 5. [`BOOK-01-MEASURE-AND-DIAGNOSE/00_SPEC/`](BOOK-01-MEASURE-AND-DIAGNOSE/00_SPEC/) — Faz 1'in on çıktısı
 6. [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md) — kurucudan yanıt bekleyen 14 karar
 7. [`RISK_REGISTER.md`](RISK_REGISTER.md) — 14 risk
-8. [`DECISIONS.md`](DECISIONS.md) — alınmış 15 karar
+8. [`DECISIONS.md`](DECISIONS.md) — alınmış 17 karar
 
 ## Depo haritası
 
