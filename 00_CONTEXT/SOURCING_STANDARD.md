@@ -94,6 +94,12 @@ yapılan tarama **15 kaynak kaydı** üretti (altısı teknik otorite +
 tam metin) ve Faz 1 **hiçbir ücretli kaynak satın alınmadan**
 kapandı (`DECISIONS.md K19`).
 
+Faz 2 üç kayıt daha ekledi (**güncel toplam 18**): `S-0016` KDP baskı
+gereksinimleri, `S-0017` Adobe Source yazı tipleri, `S-0018` yedek yazı
+tipi adayları. **Üçü de `technical_authority: false`'tur** ve öyle olmak
+zorundadır: platform dokümantasyonu ve yazı tipi künyesi teknik otorite
+DEĞİLDİR. Teknik otorite sayısı **altı** olarak kaldı.
+
 | Belge | Ne |
 |---|---|
 | `01_SOURCE/PUBLIC_SOURCE_SURVEY.md` | Ne arandı, ne bulundu, ne reddedildi ve **neden** |

@@ -161,7 +161,8 @@ daraltılır (belirti sayısı değil, belirti başına sayfa).
 
 **En ciddi bulgu ve tek KRİTİK olan.**
 
-Faz 2 sonunda: `qa_all.sh` sıfır hata, `selftest.py` 131/131, CI yeşil,
+Faz 2 sonunda: `qa_all.sh` sıfır hata, `selftest.py` **o anda** 131/131,
+CI yeşil,
 `figures.json` 154 kayıt, deterministik oran %68,2 — **ve üretilen
 figürlerin hiçbiri kitaba konulamazdı**, çünkü hepsi proje belge
 dilinde (Türkçe) yazılmıştı.

@@ -63,5 +63,6 @@ ayrımı yapmaz.** Bu sınıfın birincil doğrulaması **fizikseldir** ve
 Faz 3'e aittir (`00_SPEC/VALIDATION_PROTOCOL.md`).
 
 Faz 1 **hiçbir ücretli kaynak satın alınmadan** kapandı — 15 kaynak
-kaydı, 6'sı tam metni okunmuş kurumsal otorite
+kaydı, 6'sı tam metni okunmuş kurumsal otorite. *(Faz 2 üç
+platform/lisans kaydı ekledi; güncel toplam 18, teknik otorite yine 6.)*
 (`../01_SOURCE/PUBLIC_SOURCE_SURVEY.md`).

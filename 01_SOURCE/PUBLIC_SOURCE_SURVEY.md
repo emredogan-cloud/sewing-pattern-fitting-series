@@ -14,7 +14,11 @@
 ## 0 · Sonuç — tek paragrafta
 
 Faz 1 başlarken bu depoda **sıfır** kaynak kaydı vardı. Tarama sonunda
-**15 kaynak kaydı** vardır; bunların **altısı** teknik otorite taşıyan
+**15 kaynak kaydı** oluştu *(Faz 2 üç platform/lisans kaydı daha ekledi;
+güncel toplam **18** — `S-0016` KDP baskı gereksinimleri, `S-0017` Adobe
+Source yazı tipleri, `S-0018` yedek yazı tipi adayları. Üçü de
+`technical_authority: false`'tur ve aşağıdaki teknik otorite sayısını
+DEĞİŞTİRMEZ)*; bunların **altısı** teknik otorite taşıyan
 ve **tam metni okunmuş** kamu kaynağıdır. Bu altı kaynak, 32 ölçünün
 **16'sını** ve 19 düzeltme ailesinin **13'ünü** doğrulamaya yetti.
 

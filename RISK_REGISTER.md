@@ -34,7 +34,7 @@ numaralandırma `R-18`'den devam eder.)*
 |---|---|
 | **Olasılık** | **YÜKSEK — bu turda ÜÇ KEZ GERÇEKLEŞTİ** |
 | **Etki** | YÜKSEK — yanlış bir tamamlanma sinyali, sonraki fazı çürük temele kurar |
-| **Kanıt** | Faz 2 sonunda `qa_all.sh` sıfır hata, selftest 131/131, CI yeşil — **ve 154 figürün hiçbiri kitaba konulamıyordu** (proje belge dilindeydi, `K45`). Aynı turda iki bulgu daha: iç kayıt kimlikleri okura basılıyordu ve işaret etiketleri üst üste biniyordu (`K46`). |
+| **Kanıt** | Faz 2 sonunda `qa_all.sh` sıfır hata, selftest **o anda** 131/131, CI yeşil — **ve 154 figürün hiçbiri kitaba konulamıyordu** (proje belge dilindeydi, `K45`). Aynı turda iki bulgu daha: iç kayıt kimlikleri okura basılıyordu ve işaret etiketleri üst üste biniyordu (`K46`). |
 | **Neden bu bir RİSK, kapatılmış bir hata değil** | Üç bulgunun üçü de **gözle bakılarak** bulundu; kapılar bulmadı. Kapılar **sormadıkları soruyu** yakalayamaz ve Faz 4'te sorulmayan sorular olacaktır. |
 | **Azaltma** | Üç yeni kapı eklendi (dil, iç kimlik, etiket çakışması). **Ama asıl azaltma mekanik değildir:** Faz 4'ün her turunda üretilen sayfalardan bir **örneklem gözle incelenir** — yazılı kural. |
 | **Tespit** | Örneklem incelemesi + çelişmeli inceleme turları |

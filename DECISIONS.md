@@ -1166,7 +1166,7 @@ arıyordu. Bu desen iki **kaynak dosyayı** yakalıyordu:
 - `06_BUILD/calibrate_tokens.py` — kalibrasyon ölçüm scripti
 
 **Sonucu.** Depo yerelde tamamen yeşildi (`qa_all.sh` sıfır hata,
-selftest 137/137) ama **temiz bir klonda görsel sistem hiç
+selftest **o anda** 137/137) ama **temiz bir klonda görsel sistem hiç
 çalışmayacaktı**: `figure_engine.py` `figure_tokens`'ı import ediyor ve
 o dosya depoda **yoktu**. CI de bunu görmezdi — CI görsel motoru
 çalıştırmıyordu, yalnızca kapıları çalıştırıyordu.

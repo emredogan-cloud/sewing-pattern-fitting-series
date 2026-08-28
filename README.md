@@ -118,8 +118,9 @@ bir belirti kaydının çekirdek iddiası aynı belirtinin iki nedenini ayıran
 kanıttır ve **hiçbir kamu kaynağı bu ayrımı yapmaz.** Bu sınıfın birincil
 doğrulaması fizikseldir ve Faz 3'e aittir.
 
-15 kaynak kaydı vardır (6'sı tam metni okunmuş kurumsal otorite) ve
-Faz 1 **hiçbir ücretli kaynak satın alınmadan** kapandı —
+**18 kaynak kaydı** vardır (6'sı tam metni okunmuş kurumsal otorite;
+Faz 1 onbeşle kapandı, Faz 2 üç platform/lisans kaydı ekledi) ve
+Faz 1 ile Faz 2 **hiçbir ücretli kaynak satın alınmadan** kapandı —
 [`01_SOURCE/PUBLIC_SOURCE_SURVEY.md`](01_SOURCE/PUBLIC_SOURCE_SURVEY.md).
 
 ## Lisans
