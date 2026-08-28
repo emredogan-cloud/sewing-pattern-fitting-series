@@ -85,18 +85,38 @@ Araştırma raporu § 22 ve § 32 bunu bir **risk** olarak kaydetti:
 rakipler gerçek vücut fotoğrafı kullanıyor; saf çizgi grafiği daha ucuz
 ve daha tutarlıdır ama **alıcı fotoğraf bekliyorsa dezavantajdır**.
 
-Bu proje kararı VERMEZ; `OPEN_QUESTIONS A11`'e bağlar ve `figure_schema.json`
-her figürde bir `photo_required` alanı taşır. Fotoğraf gerektiren
-figürler **ayrı bir üretim ve gizlilik hattıdır** — fotoğraflar depoya
-girmez (`CONTENT_PROTECTION.md § 3`).
+**KARAR VERİLDİ (`DECISIONS.md K35`): çizimler yeterlidir; Kitap 1
+fotoğraf bağımlılığı kurmaz.** Gerekçe bir bütçe kısıtı değil, bir
+işlev analizidir: yedi figür türünden **dördünde fotoğraf çizimden
+KÖTÜDÜR** (ölçüm yolunda el ve şerit işaret noktasını örter;
+öncesi/sonrasında fotoğraf değişikliği izole edemez; kalıp parçasında
+kâğıdın fotoğrafı çiziminden kötüdür; akış şemasının fotoğrafı olamaz).
 
-## 7 · Birim kararı — AÇIK
+`figure_schema.json`'daki `photo_required` alanı korunur ve Faz 2'de
+**en fazla altı** figürde `true` olabilir — yalnızca belirti tanıma
+için ve beş koşulla (`BOOK-01/00_SPEC/VISUAL_SPEC.md § 5.3`).
+Fotoğraflar depoya **girmez** (`CONTENT_PROTECTION.md § 3`).
 
-Hedef pazar ABD'dir. İki birimli (inç + cm) sunum kararı **verilmedi**
-(`OPEN_QUESTIONS A8`). Kural, karar hangisi olursa olsun geçerlidir:
+## 7 · Birim kararı — VERİLDİ
 
-> Bir figürde birim ASLA karışık kullanılmaz. İkili sunumda ikincil
-> birim parantez içindedir ve figür boyunca tutarlıdır.
+Hedef pazar ABD'dir ve ABD ev dikişinin standart dikiş payı **⅝
+inç**tir. **Karar (`DECISIONS.md K34`):**
+
+| Yüzey | Birim |
+|---|---|
+| **Figürler** | **Yalnızca inç** |
+| Gövde metni | İnç birincil |
+| **Karar eşikleri** ve ölçü tabloları / boş formlar | **İnç + cm** |
+
+> Bir figürde birim ASLA karışık kullanılmaz. Bu kural değişmedi;
+> figürler tek birimli olduğu için otomatik olarak sağlanır.
+
+Bir **karar eşiği** (ör. göğüs − üst göğüs ≥ 2 inç → küçük beden)
+kitabın okura verdiği sayısal bir kuraldır; ABD dışındaki bir okur onu
+uygulayamıyorsa yöntem ona kapanır. Maliyeti birkaç parantezdir.
+
+Dizgi kuralı: inç işareti daktilo tırnağı **değildir**; kesirler tek
+glif veya `frac` özelliğiyle dizilir (`TYPOGRAPHY_STANDARD.md § 5`).
 
 ## 8 · Determinizm hedefi
 

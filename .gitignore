@@ -48,6 +48,18 @@ BOOK-*/02_CONTENT/public/*
 **/*_fitting_photo.*
 **/*_muslin_photo.*
 
+# Fark testi katılımcı verisi (A14). Kayıt formu KİMLİK BİLGİSİ
+# TAŞIMAZ (DIFFERENTIATION_TEST.md § 5.6) — ama ham not, iletişim
+# bilgisi ve ses/görüntü kaydı depoya ASLA girmez.
+**/participants/
+**/recruitment/
+**/*_PII.*
+**/*_consent.*
+**/*.wav
+**/*.m4a
+**/*.mp4
+**/*.mov
+
 # ③ TELİF KORUMALI REFERANS MALZEME ────────────────────────────────────
 # Kalıp çizimi/uyum kitaplarının taranmış sayfaları, satın alınmış
 # ticari kalıplar, PDF kalıp dosyaları. Kaynak KAYDI public kalır;
@@ -55,8 +67,20 @@ BOOK-*/02_CONTENT/public/*
 01_SOURCE/reference_material/*
 !01_SOURCE/reference_material/.gitkeep
 !01_SOURCE/reference_material/README.md
+
+# İndirilmiş kaynak belgeleri. Kaynak KAYDI (01_SOURCE/records/*.json,
+# yalnızca künye) public kalır; indirilen PDF/HTML'in KENDİSİ girmez —
+# telif durumu kaynağa göre değişir ve depo bir kaynak arşivi değildir
+# (SOURCING_STANDARD.md § 2). Yeniden edinim için künye + locator yeter.
+01_SOURCE/downloads/
+01_SOURCE/private/
+01_SOURCE/**/*.pdf
+01_SOURCE/**/*.epub
+01_SOURCE/**/*.djvu
+
 00_CONTEXT/private/
 **/*_PRIVATE.md
+**/*_CONFIDENTIAL.*
 
 # ④ RAPORLAR: İZİN LİSTESİ ─────────────────────────────────────────────
 08_REPORTS/*
@@ -91,7 +115,38 @@ BOOK-*/09_OUTPUT/*
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.netrc
+credentials.json
+secrets.*
+*_token*
+*_secret*
+.aws/
+.ssh/
+.gnupg/
+
 06_BUILD/.venv/
+.venv/
+venv/
+node_modules/
+
+# yerel önbellek
 __pycache__/
 *.pyc
+*.pyo
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# işletim sistemi ve editör gürültüsü
 .DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/

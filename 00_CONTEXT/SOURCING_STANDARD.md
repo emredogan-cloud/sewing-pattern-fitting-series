@@ -65,19 +65,44 @@ GEREKİR (`check_verification_evidence`).
 | `technical_reference_verified` | Otoriter bir kaynağa bağlandı | ≥1 `fulltext`/`official_pdf` kaynak |
 | `physically_validated` | Gerçekten dikildi ve sınandı | `VAL-xxxx` kaydı |
 
-**Faz 1 sonundaki gerçek durum:** 43 belirti, 19 düzeltme ailesi,
-32 ölçü, 12 blok bileşeni — **tamamı `agent_drafted_unverified`.**
-Bu, bu turun bilinen ve açıkça kaydedilmiş en büyük sınırıdır.
+**Faz 1 YÜRÜTMESİ sonundaki gerçek durum (28 Ağu 2026):**
+
+| Kayıt türü | Toplam | `technical_reference_verified` | Kaynağa bağlı, yükseltilmemiş | Kaynağı yok |
+|---|---|---|---|---|
+| Ölçü (`M-xxx`) | 32 | **16** | 7 | 9 |
+| Düzeltme ailesi (`AF-xx`) | 19 | **13** | 4 | 2 |
+| Belirti (`SYM-xxx`) | 43 | **0** | 43 | 0 |
+| Blok bileşeni (`BLK-xx`) | 12 | 0 | 0 | 12 |
+
+**Belirti kayıtlarının sıfırda kalması bilinçlidir.** Bir belirti
+kaydının çekirdek iddiası aynı belirtinin iki nedenini ayıran
+kanıttır ve **hiçbir kamu kaynağı bu ayrımı yapmaz** — bu sınıfın
+birincil doğrulaması FİZİKSELDİR (Faz 3).
+
+**Kaynağa bağlı ama yükseltilmemiş** bir kayıt, kaynağın kaydın
+BAĞLAMINI desteklediğini ama ÇEKİRDEK İDDİASINI tanımlamadığını
+gösterir. Mekanik ayrım:
+`selftest.test_verification_status_is_honestly_recorded` (`K20`).
 
 ## 6 · Kaynak EDİNİMİ bir kurucu kararıdır
 
-Bu depoda **sıfır** kaynak kaydı vardır ve bu bilinçlidir. Otoriter
-kalıp çizimi ve uyum referansları büyük ölçüde **satın alınması gereken
-basılı kitaplardır**. Ajan bunları uyduramaz ve hatırladığı künyeyle
-dolduramaz.
+**Sıralama kuralı: KAMU KAYNAĞI ÖNCE.** Bir kalem ancak kamu
+taraması tükendikten sonra satın alma kuyruğuna girebilir.
 
-Kurucu kararı: `OPEN_QUESTIONS A3` — kaynak edinim bütçesi. Kardeş
-projelerin "kurucu-teslim istek kuyruğu" deseni uygulanır.
+Faz 1 yürütmesi bu kuralın işe yaradığını gösterdi: yedi eksende
+yapılan tarama **15 kaynak kaydı** üretti (altısı teknik otorite +
+tam metin) ve Faz 1 **hiçbir ücretli kaynak satın alınmadan**
+kapandı (`DECISIONS.md K19`).
+
+| Belge | Ne |
+|---|---|
+| `01_SOURCE/PUBLIC_SOURCE_SURVEY.md` | Ne arandı, ne bulundu, ne reddedildi ve **neden** |
+| `01_SOURCE/ACQUISITION_REQUEST_QUEUE.md` | Ücretli kalemler — her biri dokuz alan taşır ve **hangi fazda gerçekten gerekli olduğu** yazılıdır |
+
+Bir kalem kuyruğa girmeden önce: ① bir kayıt doğrulanamıyor olarak
+işaretlenmeli, ② o boşluk için yapılmış bir kamu taraması kayıtlı
+olmalı, ③ dokuz alan doldurulmalı, ④ `not_yet_acquired` bir kayıt
+açılmalı (`locator` **null**).
 
 ## 7 · İkincil kaynak birincili SESSİZCE EZEMEZ
 

@@ -1,0 +1,23 @@
+{
+  "source_id": "S-0010",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Amazon KDP Help — Hardcover Printing Cost",
+  "author": null,
+  "publisher": "Amazon Kindle Direct Publishing",
+  "edition": null,
+  "year": 2026,
+  "isbn": null,
+  "url": "https://kdp.amazon.com/en_US/help/topic/GHT976ZKSKUXBB6H",
+  "verification_level": "official_web",
+  "locator": "Amazon.com pazarı; siyah mürekkep 75–108 s. ve 110–550 s. bantları; premium renk 75–550 s.; regular/large trim ayrımı",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "A5 ciltli sürüm fizibilitesi",
+    "FORMAT_STRATEGY.md § 6"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": "Bu sayfa premium renk CİLTLİ oranı listeliyor; trim/kâğıt sayfası (S-0013) ise ciltli için yalnızca siyah mürekkep listeliyor. ÇELİŞKİ ÇÖZÜLMEDİ — P6 format kapısında KDP arayüzünden doğrulanacaktır."
+}

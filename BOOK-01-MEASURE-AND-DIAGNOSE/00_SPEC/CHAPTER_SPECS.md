@@ -4,7 +4,14 @@
 >
 > Her bölüm için: amaç · okur çıktısı · ön koşul · tanıtılan kavramlar ·
 > cevaplanan teknik sorular · gerekli görseller · pratik etkinlik ·
-> doğrulama yöntemi · önceki/sonraki bölümle ilişki · Kitap 2 bağlantısı.
+> doğrulama yöntemi · **kaynak kanıtı** · **karar noktaları** ·
+> önceki/sonraki bölümle ilişki · Kitap 2 bağlantısı.
+>
+> **Kaynak kanıtı** ve **karar noktaları** satırları Faz 1
+> yürütmesinde eklendi. Kaynak satırı bölümün hangi `S-xxxx` kaydına
+> dayandığını ve **nereye dayanMADIĞINI** birlikte söyler; karar
+> noktaları, okurun o bölümde verdiği ikili kararları listeler ve Faz 2
+> akış şemalarının doğrudan girdisidir.
 >
 > **SPESİFİKASYON — manüskript DEĞİL.** Hiçbir proza yazılmadı.
 
@@ -42,6 +49,15 @@
 **Pratik etkinlik** — Yok — giriş bölümü.
 
 **Doğrulama yöntemi** — Okur, bölümün sonunda 'belirti' ve 'neden' kelimelerini kendi cümlesinde doğru kullanabiliyor mu (Faz 3 fark testinde ölçülür).
+
+**Kaynak kanıtı**
+
+Yok — bu bölüm bir teknik iddia taşımaz; kapsam ve yöntem tanıtımıdır.
+
+**Karar noktaları**
+
+- **Bu kitap bana uygun mu?** — ön koşul listesi karşılanıyor mu (evet → devam · hayır → önce dikiş öğrenilir)
+- **Sorunum bir teşhis sorunu mu?** — okur düzeltmenin ADINI biliyorsa Kitap 2'ye gider
 
 | İlişki | |
 |---|---|
@@ -86,6 +102,16 @@
 **Pratik etkinlik** — **Alıştırma 2A** — kendi ölçü kartını doldur; beş ölçüyü iki kez al ve farkı kaydet.
 
 **Doğrulama yöntemi** — İki ölçüm arasındaki fark kabul edilebilir sınırın içinde mi (sınır Faz 3'te ampirik olarak belirlenir).
+
+**Kaynak kanıtı**
+
+`S-0001` (11 ölçü tanımı + ölçüm koşulu) · `S-0002` (7 ölçü, ağ dahil) · `S-0003` (bel ve boyun tabanının iple işaretlenmesi; 6 ayda bir yeniden ölçme) · `S-0005` (iki işaret noktası arasında tanım disiplini) · `S-0006` (şerit yere paralel, bastırmadan; tekrar-ölçüm yöntemi)
+
+**Karar noktaları**
+
+- **Bu ölçü yardımcı ister mi?** — beş ölçü için evet; yoksa alternatif yöntem
+- **İki ölçüm arasındaki fark kabul edilebilir mi?** — eşik Faz 3'te ampirik olarak belirlenir (`VAL-0019`)
+- **Bu ölçünün tanımı doğrulanmış mı?** — 16 tam · 7 kısmi · 9 açık; açık olanlarda kalıp şirketinin tanımı izlenir (`VISUAL_SPEC § 3`)
 
 | İlişki | |
 |---|---|
@@ -133,6 +159,16 @@
 
 **Doğrulama yöntemi** — Hesaplanan ease değeri, dikilen toile'de ölçülen değerle uyuşuyor mu (Bölüm 4'te geri dönülür).
 
+**Kaynak kanıtı**
+
+`S-0001` Table 1 (ease bantları — bu depodaki TEK ease kaynağı) · `S-0003` (**beden seçimi: göğüs − üst göğüs ≥ 2 inç ise küçük beden**; kalıp parçasını vücut ölçüsüne karşılık gelen noktadan ölçme yöntemi) · `S-0002` (kalçadan beden seçme gerekçesi: kalça düzeltmesi zordur)
+
+**Karar noktaları**
+
+- **Hangi ölçü bedeni belirler?** — `M-031` ≥ 2 inç (5 cm) ise üst göğüs belirler
+- **Bu fazlalık bir sorun mu, tasarım mı?** — bitmiş giysi ölçüsü ile karşılaştır (`TOP-04`)
+- **İki beden arasındaysam ne yaparım?** — bu bir düzeltme değil, bir GEÇİŞTİR
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Bölüm 2'nin sayılarını kullanır. |
@@ -176,6 +212,16 @@
 **Pratik etkinlik** — **Alıştırma 4A** — toile kontrol listesini doldur; toile'in dört noktasını kalıpla karşılaştır.
 
 **Doğrulama yöntemi** — Toile ölçüsü kalıp ölçüsünden sapıyorsa neden KALIPTA değildir → Bölüm 8'e yönlendirilir. Kitabın ilk mekanik eleme kapısı.
+
+**Kaynak kanıtı**
+
+`S-0003` (kesmeden önce ucuz kumaştan prova giysisi dikme; birden çok değişiklik yapıldıysa zorunlu) · `S-0004` (uyumun beş temel noktası — prova neye bakılarak değerlendirilir)
+
+**Karar noktaları**
+
+- **Bu kumaş prova için uygun mu?** — asıl kumaşa yakın ağırlık ve dökümlülük
+- **Toile kalıpla uyuşuyor mu?** — uyuşmuyorsa sorun kalıpta DEĞİL, dikişte (adım ⑤'in ikinci farkı)
+- **Ne dikilir, ne dikilmez?** — pervaz/fermuar/etek ucu YOK
 
 | İlişki | |
 |---|---|
@@ -221,6 +267,16 @@
 
 **Doğrulama yöntemi** — Aynı toile ile ikinci bir oturum yapıldığında aynı gözlemler kaydediliyor mu — protokolün tekrarlanabilirlik testi.
 
+**Kaynak kanıtı**
+
+`S-0003` (13 maddelik uyum kontrol listesi; aynayla veya bir yardımcıyla değerlendirme) · `S-0004` (grain · line · ease · balance · overall smoothness) · `S-0006` (ölçüm koşulunun ölçümün parçası olması)
+
+**Karar noktaları**
+
+- **Koşullar geçerli mi?** — iç giyim, ayakkabı, duruş, ışık (geçersizse gözlem YAPILMAZ)
+- **Bu bir hareket belirtisi mi, duruş belirtisi mi?** — dört hareket testi
+- **Bu oturumda kaç değişiklik denenir?** — tek değişken kuralı
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Bölüm 4'ün ürününü kullanır. |
@@ -264,6 +320,16 @@
 
 **Doğrulama yöntemi** — Okur, seçtiği belirti için bir düzeltme ailesi adına VE bir miktara ulaşabildi mi.
 
+**Kaynak kanıtı**
+
+`S-0003` (bir seferde tek düzeltme kuralı; kaynağında düzeltme ilkesi) · `S-0004` (gözlem çerçevesi)
+
+**Karar noktaları**
+
+- Yedi adımın **her biri** bir karar noktasıdır — bu bölüm kitabın karar iskeletidir
+- **Adım ⑥:** belirti kayboldu mu · yeni belirti doğdu mu (üç çıkış yolu)
+- **Döngü bitti mi, baştan mı başlıyor?** — dört durma koşulu
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Bölüm 5'in ham gözlemlerini yönteme sokar. |
@@ -304,6 +370,16 @@
 **Pratik etkinlik** — **Alıştırma 7A** — kendi toile'indeki her gözlemi on sınıftan birine ata; atayamadıklarını işaretle.
 
 **Doğrulama yöntemi** — Atanamayan gözlem oranı — sözlüğün kapsama testi. Faz 3'te ölçülür; yüksekse sözlük eksiktir.
+
+**Kaynak kanıtı**
+
+`S-0004` (**çeken kırışıklık = yetersizlik · kıvrım hâlindeki kırışıklık = fazlalık**) · `S-0003` (pens en dolgun noktaya işaret eder ve ondan önce biter; dikiş konumu standartları)
+
+**Karar noktaları**
+
+- **Bu bir kıvrım mı, bir çekme çizgisi mi?** — kitabın en sık kullanılan kararı
+- **Yatay mı dikey mi?** — boy fazlası ile genişlik fazlasını ayırır
+- **Tek taraflı mı simetrik mi?** — tek taraflı belirtiler ayrı bir sınıftır
 
 | İlişki | |
 |---|---|
@@ -346,6 +422,16 @@
 **Pratik etkinlik** — **Alıştırma 8A** — dokuz kalemi kendi toile'inde tek tek uygula ve sonucu kaydet.
 
 **Doğrulama yöntemi** — Eleme sonrası kaç belirti 'kalıp kaynaklı' olarak kaldı — bu sayı Parça IV'ün girdisidir.
+
+**Kaynak kanıtı**
+
+`S-0002` (pantolon bölgesinde kalıp dışı nedenlerin listesi) · `S-0003` (çözgü kuralı: boy çözgüsü yere dik, en çözgüsü yere paralel; kenar payı içinde kalan 1 inçlik düzeltmeler ve istisnaları) · `S-0004` (grain kuralı)
+
+**Karar noktaları**
+
+- Dokuz eleme kaleminin **her biri** tek bir evet/hayır kararıdır
+- **Kalıba dokunmadan önce hepsi elendi mi?** — elenmedi ise ① adımına dönülür
+- **Bu bir yapım hatası mı?** — evetse Kitap 2'ye devir YOKTUR (21 istisnanın kaynağı)
 
 | İlişki | |
 |---|---|
@@ -391,6 +477,16 @@
 
 **Doğrulama yöntemi** — Ulaşılan düzeltme ailesi, fiziksel testte (adım ⑥) doğrulandı mı.
 
+**Kaynak kanıtı**
+
+`S-0001` (small/large neck · gaping neckline · sloping/square shoulders · broad/narrow shoulders) — `AF-03` `AF-04` `AF-06` doğrulandı; `AF-05` (öne kaymış omuz) **hiçbir kamu kaynağında YOK**
+
+**Karar noktaları**
+
+- Bölge akış şemasının her karar düğümü ikili bir karardır
+- **Kaynak bu bölgede mi?** — çekme çizgileri kaynağa işaret eder
+- **Neyi henüz değiştirmemeliyim?** — yaka, omuz kesinleşmeden düzeltilmez
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Önceki bölge bölümü (veya Bölüm 8) tarafından filtrelenmiş belirtileri alır. |
@@ -434,6 +530,15 @@
 **Pratik etkinlik** — Bölge taraması — kendi toile'inde bu bölgenin akış şemasını uçtan uca uygula.
 
 **Doğrulama yöntemi** — Ulaşılan düzeltme ailesi, fiziksel testte (adım ⑥) doğrulandı mı.
+
+**Kaynak kanıtı**
+
+`S-0001` (round shoulders · broad back · narrow back) — `AF-07` doğrulandı; `AF-08` (kol oyuntusu derinliği) yalnızca **kısmi**: kaynaklar kol oyuntusunu başka düzeltmelerin yan etkisi olarak yeniden çiziyor
+
+**Karar noktaları**
+
+- **Kürek mi, kol oyuntusu mu?** — kol kaldırılınca belirti kayboluyor mu
+- **`AF-08` kesinleşti mi?** — kesinleşmeden `AF-09` (kol başı) YOK — serinin en katı kısıtı
 
 | İlişki | |
 |---|---|
@@ -479,6 +584,16 @@
 
 **Doğrulama yöntemi** — Ulaşılan düzeltme ailesi, fiziksel testte (adım ⑥) doğrulandı mı.
 
+**Kaynak kanıtı**
+
+`S-0001` (full bust · small bust · high bust · low bust — `AF-01` ve `AF-02` doğrulandı) · `S-0003` (`M-031` ≥ 2 inç karar eşiği)
+
+**Karar noktaları**
+
+- **Hacim mi, konum mu?** — `AF-01` ile `AF-02`'yi ayıran karar
+- **Bu belirtinin kaynağı göğüs mü?** — göğüs kaynaklı belirtiler yakada, kol oyuntusunda ve etek ucunda GÖRÜNÜR
+- **Yan dikişi açmalı mıyım?** — HAYIR; yan dikiş göğse hacim eklemez, koltuk altına ekler
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Önceki bölge bölümü (veya Bölüm 8) tarafından filtrelenmiş belirtileri alır. |
@@ -522,6 +637,16 @@
 **Pratik etkinlik** — Bölge taraması — kendi toile'inde bu bölgenin akış şemasını uçtan uca uygula.
 
 **Doğrulama yöntemi** — Ulaşılan düzeltme ailesi, fiziksel testte (adım ⑥) doğrulandı mı.
+
+**Kaynak kanıtı**
+
+`S-0001` (sway back — `AF-14` doğrulandı) · `S-0003` (sway back, dikiş payı içinde düzeltilemeyen istisnalar arasında)
+
+**Karar noktaları**
+
+- **Boy sorunu mu, çevre sorunu mu?** — boy önce
+- **Ön mü arka mı?** — `M-032` farkı
+- **Bel çevresi mi, bel konumu mu?** — `AF-12` hiçbir kamu kaynağında YOK, dikkatli okunur
 
 | İlişki | |
 |---|---|
@@ -567,6 +692,15 @@
 
 **Doğrulama yöntemi** — Ulaşılan düzeltme ailesi, fiziksel testte (adım ⑥) doğrulandı mı.
 
+**Kaynak kanıtı**
+
+`S-0001` (protruding/flat derriere · wide hips · flat side hip — `AF-13` doğrulandı) · `S-0002` (kalça tipleri: average · little difference · heart · semi-heart · diamond · rounded diamond; üst kalça 3 inç, kalça 7–9 inç)
+
+**Karar noktaları**
+
+- **Üst kalça mı, kalça mı?** — iki farklı hizadaki iki farklı sorun
+- **Bu bir hacim sorunu mu, bir denge sorunu mu?** — `AF-13` ile `AF-14` ayrımı
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Önceki bölge bölümü (veya Bölüm 8) tarafından filtrelenmiş belirtileri alır. |
@@ -610,6 +744,16 @@
 **Pratik etkinlik** — Bölge taraması — kendi toile'inde bu bölgenin akış şemasını uçtan uca uygula.
 
 **Doğrulama yöntemi** — Ulaşılan düzeltme ailesi, fiziksel testte (adım ⑥) doğrulandı mı.
+
+**Kaynak kanıtı**
+
+`S-0001` (small arm · large arm · large upper arm · sleeve cap too narrow — `AF-09` ve `AF-10` doğrulandı; kol başı değişikliğinin beden yan dikişine yansıtılması dahil)
+
+**Karar noktaları**
+
+- **Kol mu, kol oyuntusu mu?** — kol, kol oyuntusunun türevidir
+- **Kol başı mı, kol çevresi mi?** — `AF-09` ile `AF-10` ayrımı
+- **Kol oyuntusu kesinleşti mi?** — kesinleşmeden kol başına dokunulmaz
 
 | İlişki | |
 |---|---|
@@ -655,6 +799,16 @@
 
 **Doğrulama yöntemi** — Ulaşılan düzeltme ailesi, fiziksel testte (adım ⑥) doğrulandı mı.
 
+**Kaynak kanıtı**
+
+`S-0002` (ağ derinliği ve ağ uzunluğu ölçüm yöntemi; duruş tipleri; pantolon uyum belirtileri) · `S-0001` (ağ dikişi ve iç bacak boyunun yeniden çizilmesi — `AF-15` `AF-17` doğrulandı; `AF-16` ağ EĞRİSİ ayrı izole edilmiyor, **kısmi**)
+
+**Karar noktaları**
+
+- **Derinlik mi, uzunluk mu?** — `M-026` ile `M-027` farklı sorunlar
+- **`AF-15` → `AF-16` sırası** — sayı önce, şekil sonra
+- **Ön mü arka mı?** — ağ uzunluğu iki parçaya ayrılarak okunur
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Önceki bölge bölümü (veya Bölüm 8) tarafından filtrelenmiş belirtileri alır. |
@@ -697,6 +851,16 @@
 
 **Doğrulama yöntemi** — Sıraya konmuş liste, Kitap 2'de uygulandığında yeni belirti üretmedi mi (Faz 3 fiziksel doğrulaması).
 
+**Kaynak kanıtı**
+
+`S-0003` (**sıra kuralı**: bir seferde tek düzeltme; önce boy düzeltmeleri, omuz/boyundan başlayıp aşağı; sonra genişlik düzeltmeleri, yine yukarıdan aşağı) · `S-0004` (etek ucu yere paralel; dikey dikişler yere dik)
+
+**Karar noktaları**
+
+- **Hangi düzeltme önce?** — beş sıra kuralı; ikisi `S-0003` ile doğrulandı
+- **Bir seferde kaç düzeltme?** — tek değişken
+- **Etek ucu okunmaya hazır mı?** — etek ucu EN SON okunur ve ASLA ilk düzeltilmez
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Parça IV'ün ürettiği düzeltme listesini alır. |
@@ -737,6 +901,15 @@
 
 **Doğrulama yöntemi** — Profil, ikinci bir kalıpta kullanıldığında teşhis süresini kısaltıyor mu (Bölüm 18'de sınanır).
 
+**Kaynak kanıtı**
+
+Yok — uyum profili bu projenin kendi yapısıdır; hiçbir dış kaynağa dayanmaz ve dayandığı iddia edilmez.
+
+**Karar noktaları**
+
+- **Bu düzeltme profile girmeye değer mi?** — miktar sayıyla yazılabiliyorsa evet
+- **Bu ölçü değişti mi?** — profil zamanla güncellenir
+
 | İlişki | |
 |---|---|
 | ← Önceki bölüm | Bölüm 16'nın sıralanmış listesini kalıcı hâle getirir. |
@@ -776,6 +949,16 @@
 **Pratik etkinlik** — Yok — kapanış bölümü.
 
 **Doğrulama yöntemi** — İkinci kalıpta teşhis süresi ilkinden kısa mı (okur kendi ölçer).
+
+**Kaynak kanıtı**
+
+Yok — aynı gerekçe.
+
+**Karar noktaları**
+
+- **Hangi adımlar atlanabilir?** — ölçü kartı geçerliyse Bölüm 2 atlanır
+- **Bu düzeltme bu kalıpta da gerekli mi?** — tasarım farkı kontrolü
+- **Hep aynı düzeltmeyi mi yapıyorum?** — evet ise bu, Kitap 3'ün varlık gerekçesidir
 
 | İlişki | |
 |---|---|

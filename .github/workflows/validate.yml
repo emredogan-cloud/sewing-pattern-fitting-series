@@ -88,7 +88,7 @@ jobs:
           path: 08_REPORTS/tracked/structure-validation.json
 
   crosswalk:
-    name: crosswalk tazeliği
+    name: crosswalk tazeliği + bütünlüğü
     needs: gates
     runs-on: ubuntu-latest
     steps:
@@ -96,6 +96,13 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: python3 06_BUILD/build_crosswalk.py --check
+      - name: crosswalk bütünlük denetimi (dokuz ilişki)
+        run: python3 06_BUILD/qa_crosswalk.py --verbose --json 08_REPORTS/tracked/crosswalk-qa.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: crosswalk-qa
+          path: 08_REPORTS/tracked/crosswalk-qa.json
 
   boundary:
     name: kitap sınırı (seriye özgü)

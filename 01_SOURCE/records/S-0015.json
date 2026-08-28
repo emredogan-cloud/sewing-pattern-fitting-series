@@ -1,0 +1,22 @@
+{
+  "source_id": "S-0015",
+  "source_type": "industry_sizing_standard",
+  "technical_authority": true,
+  "title": "ASTM D5219 — Standard Terminology Relating to Body Dimensions for Apparel Sizing",
+  "author": null,
+  "publisher": "ASTM International",
+  "edition": "D5219-25 (D5219-15 sürümü 2024'te GERİ ÇEKİLDİ)",
+  "year": 2025,
+  "isbn": null,
+  "url": "https://store.astm.org/d5219-25.html",
+  "verification_level": "not_yet_acquired",
+  "locator": null,
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "C-A ABD pazarına özgü ölçü TERİMLERİ ve tanımları — ISO 8559-1 ile ABD konvansiyonu arasındaki farkın tespiti"
+  ],
+  "superseded_by": null,
+  "license_constraint": "Ücretli standart.",
+  "acquisition_status": "budget_pending",
+  "notes": "EDİNİM TALEBİ — ACQUISITION_REQUEST_QUEUE.md § A-02. Faz 1 için ZORUNLU DEĞİL. Not: D5219-15 sürümü 2024'te geri çekilmiştir; yalnızca yürürlükteki sürüm edinilmelidir."
+}

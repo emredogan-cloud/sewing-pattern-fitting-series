@@ -16,7 +16,8 @@
     "subtitleStatus": "ÇALIŞMA METNİ — nihai alt başlık kapak fazında yazılır, sayı vaadi kilidi geçerlidir (STYLE.md § 6)",
     "role": "SEE THE PROBLEM",
     "coreProblem": "Teşhis problemi: hangi düzeltmeye ihtiyacım olduğunu bilmiyorum.",
-    "standaloneValueArgument": "Piyasadaki kitaplar bir düzeltme KATALOĞUDUR ve okurun teşhisi zaten koyduğunu varsayar. Alıcının gerçek sorunu tam olarak teşhisin kendisidir."
+    "standaloneValueArgument": "Piyasadaki kitaplar bir düzeltme KATALOĞUDUR ve okurun teşhisi zaten koyduğunu varsayar. Alıcının gerçek sorunu tam olarak teşhisin kendisidir.",
+    "workingSubtitleNote": "Alt başlıktaki 'Before You Cut' ifadesi ayrıca seri adı adayıdır (OPEN_QUESTIONS A15). Nihai alt başlık kapak fazında yazılır; sayı vaadi kilidi geçerlidir (STYLE.md § 6)."
   },
   "product": {
     "pageTargetProvisional": [
@@ -28,9 +29,15 @@
       24.99,
       28.99
     ],
-    "trimProvisional": "8.5x11 in — OPEN_QUESTIONS A5",
-    "bindingProvisional": "ciltsiz",
-    "colorProvisional": "KARAR VERİLMEDİ — OPEN_QUESTIONS A6"
+    "trimProvisional": "8.5x11 in — A5 KAPANDI (DECISIONS.md K22); P6 format kapısında doğrulanacak",
+    "bindingProvisional": "ciltsiz (yapıştırma) — spiral KDP'de YOKTUR (S-0013)",
+    "colorProvisional": "siyah mürekkep, beyaz kâğıt — A6 KAPANDI (K23); %10 color_required eşiğiyle yeniden açılır",
+    "paper": "beyaz — groundwood REDDEDİLDİ (ince çizgiler kaybolur)",
+    "unitRoyaltyProvisional": 11.18,
+    "secondSkuCandidate": "ciltli 8.25x11 — ERTELENDİ (P6); ayrı iç dosya gerektirir",
+    "kindle": "ERTELENDİ — karar Faz 2'nin ölçtüğü figür sayısına ve dosya boyutuna bağlı",
+    "units": "inç birincil; figürlerde yalnızca inç, karar eşiklerinde inç+cm (K34)",
+    "typography": "Source Serif 4 + Source Sans 3 (SIL OFL 1.1) — K24"
   },
   "architecture": {
     "primaryTopics": [

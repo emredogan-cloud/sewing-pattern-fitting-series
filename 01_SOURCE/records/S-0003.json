@@ -1,0 +1,26 @@
+{
+  "source_id": "S-0003",
+  "source_type": "educational_institution",
+  "technical_authority": true,
+  "title": "Pattern Alteration: Principles of Pattern Alteration — E-372",
+  "author": "Becky Culp (original manuscript); Extension Family Development and Resource Management Specialists",
+  "publisher": "Texas AgriLife Extension Service, The Texas A&M System (AgriLife Communications)",
+  "edition": "02/06",
+  "year": 2006,
+  "isbn": null,
+  "url": "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+  "verification_level": "fulltext",
+  "locator": "E-372, s. 2–5: 'Know your measurements'; 'To measure the pattern pieces'; 'To alter the pattern'; 'Check the altered fit' (13 maddelik uyum kontrol listesi)",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "C-F SIRA KISITI — 'Make only one alteration at a time. Begin with lengthwise alterations at the shoulder or neck and work down. Finish with the alterations for width, again beginning at the neck and working down.' (Bölüm 16 sıra kuralları ① ve ②)",
+    "C-A M-031 karar eşiği — üst göğüs ile göğüs farkı ≥ 2 inç ise küçük beden seçilir",
+    "C-B denge/çözgü okuması (Bölüm 16.3)",
+    "C-C kaynağında düzeltme ilkesi — 'Make alterations at the source of the problem' (Adım ④)",
+    "Bölüm 3, Bölüm 5, Bölüm 16"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": "KANONİK YAYINCI Texas AgriLife Extension'dır; erişilen kopya bir Ohio State University Extension ilçe sunucusunda barındırılıyordu. Kanonik depo (oaktrust.library.tamu.edu) otomatik indirmeye kapalıdır (HTTP 403). Aynı seride E-373 'Personal Measurement Chart' (17 ölçü) TESPİT EDİLDİ ama İNDİRİLEMEDİ — bkz. 01_SOURCE/PUBLIC_SOURCE_SURVEY.md § 4."
+}

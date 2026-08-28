@@ -1,0 +1,24 @@
+{
+  "source_id": "S-0009",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Amazon KDP Help — Paperback Printing Cost",
+  "author": null,
+  "publisher": "Amazon Kindle Direct Publishing",
+  "edition": null,
+  "year": 2026,
+  "isbn": null,
+  "url": "https://kdp.amazon.com/en_US/help/topic/G201834340",
+  "verification_level": "official_web",
+  "locator": "Amazon.com pazarı, siyah mürekkep / standart renk / premium renk tabloları; 'large trim' tanımı: genişlik > 6,12 inç VEYA yükseklik > 9 inç",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "A5 format kararı",
+    "A6 renk kararı",
+    "FORMAT_STRATEGY.md § 6 ekonomi tablosu"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": "Platform dokümantasyonudur, TEKNİK OTORİTE DEĞİLDİR (source_type gereği technical_authority=false). Fiyatlar değişir; P6 format kapısında GERÇEK KDP hesaplayıcısıyla yeniden ölçülür."
+}

@@ -1,6 +1,6 @@
 {
   "$comment": [
-    "FIT SIGN TAXONOMY — Kitap 1'in çekirdek veri seti (Faz 1 taslağı).",
+    "FIT SIGN TAXONOMY — Kitap 1'in çekirdek veri seti.",
     "",
     "MİMARİ KURAL: bir kayıt BELİRTİDİR, neden DEĞİLDİR. Her aday neden",
     "kendi AYIRT EDİCİ KANITINI ve DOĞRULAYICI ÖLÇÜMÜNÜ taşımak zorundadır",
@@ -11,10 +11,14 @@
     "okura NE YAPACAĞINI söyler; bu kitap ayrıca NEYİ HENÜZ YAPMAYACAĞINI",
     "söyler.",
     "",
-    "⚠ DOĞRULAMA DURUMU: 42 kaydın TAMAMI 'agent_drafted_unverified'.",
-    "Hiçbiri dış teknik otoriteye karşı doğrulanmadı ve hiçbiri fiziksel",
-    "olarak sınanmadı. Bu, Faz 1'in bilinen ve açıkça kaydedilmiş",
-    "sınırıdır — bkz. BOOK-01-SOURCE-MAP.md ve OPEN_QUESTIONS A3."
+    "⚠ DOĞRULAMA DURUMU — Faz 1 yürütmesi sonrası (28 Ağu 2026):",
+    "43 kaydın TAMAMI hâlâ 'agent_drafted_unverified'. Her kayda artık",
+    "source_refs BAĞLIDIR, ama HİÇBİRİ yükseltilmedi ve bu bilinçlidir:",
+    "bir belirti kaydının ÇEKİRDEK İDDİASI aynı belirtinin iki nedenini",
+    "birbirinden ayıran KANITTIR (SOURCE_MAP.md § 1, C-C sınıfı) ve elde",
+    "tutulan hiçbir kamu kaynağı bu ayrımı yapmaz. C-C sınıfının birincil",
+    "doğrulaması FİZİKSELDİR ve Faz 3'e aittir (VALIDATION_PROTOCOL.md).",
+    "Bkz. DECISIONS.md K19, K20."
   ],
   "count": 43,
   "verification_summary": {
@@ -72,7 +76,10 @@
       "adjustment_order_note": "AF-03/AF-04 (omuz) → AF-01 (göğüs) → AF-06 (yaka).",
       "book1_chapter_ref": "B1-CH09",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -122,7 +129,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH09",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -172,7 +182,11 @@
       "adjustment_order_note": "Boy (AF-11) → genişlik (AF-07) → yaka (AF-06).",
       "book1_chapter_ref": "B1-CH10",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -224,7 +238,10 @@
       "adjustment_order_note": "Omuz eğimi (AF-03) HER ZAMAN omuz genişliğinden (AF-04) ÖNCE.",
       "book1_chapter_ref": "B1-CH09",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -273,7 +290,10 @@
       "adjustment_order_note": "AF-03 → AF-04 → AF-08 → AF-09 (bu sıra serinin en katı kısıtıdır).",
       "book1_chapter_ref": "B1-CH09",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -323,7 +343,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH09",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -372,7 +396,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH09",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -422,7 +450,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH10",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -472,7 +503,10 @@
       "adjustment_order_note": "Boy (AF-11) → şekillendirme (AF-07) → yaka (AF-06).",
       "book1_chapter_ref": "B1-CH10",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -521,7 +555,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH10",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -571,7 +608,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH12",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -621,7 +662,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH12",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -671,7 +716,10 @@
       "adjustment_order_note": "AF-01/AF-10 elenmeden AF-08 yapılmaz.",
       "book1_chapter_ref": "B1-CH10",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -721,7 +769,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH11",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -770,7 +821,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH10",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -822,7 +876,10 @@
       "adjustment_order_note": "Omuz (AF-03/04) → göğüs (AF-01/02) → kol oyuntusu (AF-08).",
       "book1_chapter_ref": "B1-CH11",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -872,7 +929,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH11",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -921,7 +982,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH11",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -970,7 +1035,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH11",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1019,7 +1087,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH11",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1068,7 +1139,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH11",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1117,7 +1191,11 @@
       "adjustment_order_note": "Boy düzeltmeleri (AF-11) HER ZAMAN çevre düzeltmelerinden (AF-12) ÖNCE.",
       "book1_chapter_ref": "B1-CH12",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1168,7 +1246,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH12",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1217,7 +1298,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH12",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1265,7 +1349,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH12",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1314,7 +1401,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH12",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1364,7 +1454,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH13",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0002",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1414,7 +1508,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH13",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0002",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1464,7 +1562,12 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH13",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0002",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1512,7 +1615,12 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH13",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0002",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1562,7 +1670,10 @@
       "adjustment_order_note": "AF-08 (kol oyuntusu) KESİNLEŞMEDEN AF-09 (kol başı) yapılmaz — serinin en katı sıra kısıtı.",
       "book1_chapter_ref": "B1-CH14",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1610,7 +1721,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH14",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1659,7 +1773,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH14",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1709,7 +1827,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH14",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1759,7 +1880,10 @@
       "adjustment_order_note": "AF-15 (derinlik/uzunluk) → AF-16 (eğri şekli). Ters sıra en sık yapılan pantolon hatasıdır.",
       "book1_chapter_ref": "B1-CH15",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0002",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1807,7 +1931,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH15",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0002",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1857,7 +1984,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH15",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0002",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1906,7 +2036,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH15",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0002",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -1955,7 +2089,11 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH15",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0002",
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -2005,7 +2143,10 @@
       "adjustment_order_note": "Etek ucu düzeltmesi HER ZAMAN listenin SONUNDADIR.",
       "book1_chapter_ref": "B1-CH16",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -2054,7 +2195,10 @@
       "adjustment_order_note": null,
       "book1_chapter_ref": "B1-CH16",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -2104,7 +2248,10 @@
       "adjustment_order_note": "Denge (AF-11) neredeyse her zaman ilk düzeltilenler arasındadır.",
       "book1_chapter_ref": "B1-CH16",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -2155,7 +2302,10 @@
       "adjustment_order_note": "Boy düzeltmeleri HER ZAMAN genişlik düzeltmelerinden ÖNCE gelir — serinin sıra kuralının birinci maddesi.",
       "book1_chapter_ref": "B1-CH16",
       "figure_refs": [],
-      "source_refs": [],
+      "source_refs": [
+        "S-0003",
+        "S-0004"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": "AF-19'un tek Kitap 1 giriş noktası. Faz 1 kapsam denetiminde (qa_boundary.py) bulunan bir boşluğu kapatır."
     }

@@ -1,0 +1,23 @@
+{
+  "source_id": "S-0011",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Amazon KDP Help — Paperback Royalty",
+  "author": null,
+  "publisher": "Amazon Kindle Direct Publishing",
+  "edition": null,
+  "year": 2026,
+  "isbn": null,
+  "url": "https://kdp.amazon.com/en_US/help/topic/G201834330",
+  "verification_level": "official_web",
+  "locator": "Amazon.com: liste fiyatı ≤ $9,98 → %50; ≥ $9,99 → %60. Telif = (oran × liste fiyatı) − baskı maliyeti. Azami liste fiyatı $250.",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "A5/A6 ekonomi modeli",
+    "asgari liste fiyatı = baskı maliyeti ÷ telif oranı"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": null
+}

@@ -30,6 +30,7 @@ import qa_boundary      # noqa: E402
 import qa_claims        # noqa: E402
 import qa_terminology   # noqa: E402
 import build_crosswalk  # noqa: E402
+import qa_crosswalk     # noqa: E402
 import trfold           # noqa: E402
 
 FAILURES: list[str] = []
@@ -204,6 +205,77 @@ def test_crosswalk_integrity():
          "from_ref": "AF-01", "to_ref": None, "exception": "Blokta dereceleme yoktur."},
         {"SYM-001"}, {"AF-01"}, {"BLK-01"}, e3)
     check("gerekçeli istisna SERBEST", e3 == [], f"errors={e3}")
+
+
+def test_crosswalk_audit_gate():
+    """qa_crosswalk.py — dokuz ilişki denetiminin her biri KUSURLU bir
+    kurguyu gerçekten yakalıyor mu.
+
+    Bu kapı, `build_crosswalk --check`'in yakalayamadığı sınıfı kapatır:
+    BAYAT OLMAYAN ama YANLIŞ bir crosswalk (DECISIONS.md K31)."""
+    def sign(sid, causes):
+        return {"symptom_id": sid,
+                "candidate_causes": [{"cause": c, "adjustment_family_ref": a}
+                                     for c, a in causes]}
+
+    SIGNS = [sign("SYM-001", [("Yaka fazla geniş", "AF-06")])]
+    FAMS = {"AF-06": {"adjustment_family_id": "AF-06", "name": "Neckline size and shape",
+                      "book1_entry_point": True}}
+    BLKS = {"BLK-01": {"block_id": "BLK-01"}}
+    GOOD = [{"crosswalk_id": "XW-001", "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+             "from_ref": "SYM-001", "to_ref": "AF-06", "exception": None,
+             "handoff_sentence": "Yaka fazla geniş → AF-06 (Neckline size and shape)."}]
+
+    check("qa_crosswalk: sağlam kurgu TEMİZ geçiyor",
+          qa_crosswalk.audit(SIGNS, FAMS, BLKS, GOOD) == [],
+          f"{qa_crosswalk.audit(SIGNS, FAMS, BLKS, GOOD)}")
+
+    # ② devir cümlesi aday nedeni taşımıyor
+    bad = [dict(GOOD[0], handoff_sentence="Bir şey oldu → AF-06 (Neckline size and shape).")]
+    check("qa_crosswalk ②: nedeni taşımayan devir cümlesi YAKALANIYOR",
+          any(x.startswith("②") for x in qa_crosswalk.audit(SIGNS, FAMS, BLKS, bad)))
+
+    # ④ to_ref DOLU ama exception da dolu — build_crosswalk --check bunu GÖRMEZ
+    bad = [dict(GOOD[0], exception="Bu bir yapım hatasıdır.")]
+    check("qa_crosswalk ④: hem varış hem istisna taşıyan kayıt YAKALANIYOR",
+          any(x.startswith("④") for x in qa_crosswalk.audit(SIGNS, FAMS, BLKS, bad)))
+
+    # ⑤ uydurulmuş yol (taksonomide olmayan çift)
+    bad = GOOD + [{"crosswalk_id": "XW-002", "direction": "DIAGNOSIS_TO_ADJUSTMENT",
+                   "from_ref": "SYM-001", "to_ref": None, "exception": "Yapım hatası.",
+                   "handoff_sentence": "Yaka fazla geniş → istisna."}]
+    check("qa_crosswalk ⑤: taksonomide karşılığı OLMAYAN yol YAKALANIYOR",
+          any(x.startswith("⑤") for x in qa_crosswalk.audit(SIGNS, FAMS, BLKS, bad)))
+
+    # ⑤ kaybolmuş yol
+    check("qa_crosswalk ⑤: taksonomide OLUP crosswalk'ta olmayan yol YAKALANIYOR",
+          any(x.startswith("⑤") for x in qa_crosswalk.audit(SIGNS, FAMS, BLKS, [])))
+
+    # ⑥ kitap sahipliği çelişkisi
+    fams2 = {"AF-06": dict(FAMS["AF-06"], book1_entry_point=False)}
+    check("qa_crosswalk ⑥: book1_entry_point=false hedefe giden yol YAKALANIYOR",
+          any(x.startswith("⑥") for x in qa_crosswalk.audit(SIGNS, fams2, BLKS, GOOD)))
+
+    # ⑦ kanonik ad taşımayan devir cümlesi
+    bad = [dict(GOOD[0], handoff_sentence="Yaka fazla geniş → AF-06 (yaka işi).")]
+    check("qa_crosswalk ⑦: kanonik aile adını taşımayan devir cümlesi YAKALANIYOR",
+          any(x.startswith("⑦") for x in qa_crosswalk.audit(SIGNS, FAMS, BLKS, bad)))
+
+    # ⑨ yolu olmayan belirti
+    signs2 = SIGNS + [sign("SYM-002", [("Başka bir neden", "AF-06")])]
+    check("qa_crosswalk ⑨: hiçbir yolu olmayan belirti YAKALANIYOR",
+          any(x.startswith("⑨") for x in qa_crosswalk.audit(signs2, FAMS, BLKS, GOOD)))
+
+    # GERÇEK veri temiz mi
+    real = qa_crosswalk.audit(
+        json.loads(paths.FIT_SIGNS.read_text(encoding="utf-8"))["signs"],
+        {f["adjustment_family_id"]: f for f in
+         json.loads(paths.ADJUSTMENT_FAMILIES.read_text(encoding="utf-8"))["families"]},
+        {b["block_id"]: b for b in
+         json.loads(paths.BLOCK_COMPONENTS.read_text(encoding="utf-8"))["blocks"]},
+        json.loads(paths.CROSSWALK.read_text(encoding="utf-8"))["crosswalks"])
+    check("qa_crosswalk: GERÇEK crosswalk dokuz denetimden temiz geçiyor",
+          real == [], f"bulgular={real[:3]}")
 
 
 def test_figure_tokens():
@@ -500,16 +572,64 @@ def test_kill_gate_flag_cannot_be_flipped():
           "founderOverride" in kg and kg["founderOverride"] is None)
 
 
+def _source_index():
+    """Gerçek kaynak kayıtlarını okur: id → (technical_authority, verification_level)."""
+    idx = {}
+    for f in sorted(paths.SOURCE_RECORDS.glob("S-*.json")):
+        r = json.loads(f.read_text(encoding="utf-8"))
+        idx[r["source_id"]] = (r.get("technical_authority") is True,
+                               r.get("verification_level"))
+    return idx
+
+
 def test_verification_status_is_honestly_recorded():
-    """Faz 1'in en önemli dürüstlük kaydı: hiçbir taksonomi kaydı sessizce
-    yükseltilmemiş olmalı."""
+    """Faz 1'in en önemli dürüstlük kaydı: hiçbir taksonomi kaydı SESSİZCE
+    yükseltilmemiş olmalı.
+
+    ⚠ Bu testin İLK sürümü "hiçbir kayıt yükseltilMEMİŞ" diye yazılmıştı.
+    Bu, kaynak sayısı SIFIRKEN doğru görünen ama YANLIŞ bir testtir: bir
+    kaydın yükseltilmesi bir kusur değildir — KANITSIZ yükseltilmesi
+    kusurdur. Kamu kaynakları edinildiğinde test, doğru davranışı hata
+    olarak raporladı. Düzeltildi: artık testin ADI ne diyorsa ONU ölçer
+    (DECISIONS.md K20).
+    """
+    idx = _source_index()
     for f, key in ((paths.FIT_SIGNS, "signs"), (paths.ADJUSTMENT_FAMILIES, "families"),
                    (paths.MEASUREMENTS, "measurements")):
         recs = json.loads(f.read_text(encoding="utf-8"))[key]
-        upgraded = [r for r in recs
-                    if r.get("verification_status") != "agent_drafted_unverified"]
-        check(f"{f.name}: hiçbir kayıt kanıtsız yükseltilmemiş",
-              not upgraded, f"yükseltilmiş: {[r for r in upgraded][:3]}")
+        bad = []
+        for r in recs:
+            st = r.get("verification_status")
+            refs = r.get("source_refs", [])
+            if st == "technical_reference_verified":
+                if not any(idx.get(x, (False, None))[1] in validate_spec.STRONG_VERIFICATION
+                           for x in refs):
+                    bad.append((r, "fulltext/official_pdf kaynağı yok"))
+                elif not any(idx.get(x, (False, None))[0] for x in refs):
+                    bad.append((r, "technical_authority=true kaynağı yok"))
+            elif st == "physically_validated" and not r.get("validation_record_ref"):
+                bad.append((r, "validation_record_ref yok"))
+            if refs and not any(x in idx for x in refs):
+                bad.append((r, "source_refs kayıtsız kaynağa işaret ediyor"))
+        check(f"{f.name}: yükseltilmiş her kayıt GERÇEKTEN kanıt taşıyor",
+              not bad, f"kusurlu: {[(b[0].get('measurement_id') or b[0].get('adjustment_family_id') or b[0].get('symptom_id'), b[1]) for b in bad][:4]}")
+
+
+def test_verification_summary_matches_records():
+    """fit_signs.json'un ilan ettiği doğrulama özeti GERÇEK kayıtlarla
+    uyuşmalıdır. Bu özet blok on'a yakın belgede alıntılanıyor; veriden
+    sessizce sapması, projenin en çok tekrarlanan dürüstlük iddiasını
+    yalana çevirirdi."""
+    d = json.loads(paths.FIT_SIGNS.read_text(encoding="utf-8"))
+    declared = d.get("verification_summary", {})
+    actual = {}
+    for r in d["signs"]:
+        actual[r["verification_status"]] = actual.get(r["verification_status"], 0) + 1
+    for k, v in declared.items():
+        check(f"fit_signs verification_summary['{k}'] veriyle uyuşuyor",
+              actual.get(k, 0) == v, f"ilan={v} gerçek={actual.get(k, 0)}")
+    check("fit_signs count alanı kayıt sayısıyla uyuşuyor",
+          d.get("count") == len(d["signs"]), f"count={d.get('count')} kayıt={len(d['signs'])}")
 
 
 def main():
@@ -520,7 +640,7 @@ def main():
         test_source_authority_required, test_verification_evidence,
         test_cause_distinguishability, test_cause_measurement_present,
         test_symptom_af_refs, test_measurement_derivation,
-        test_crosswalk_integrity, test_figure_tokens,
+        test_crosswalk_integrity, test_crosswalk_audit_gate, test_figure_tokens,
         test_single_primary_rule, test_role_values,
         test_symptom_path_coverage, test_family_reachability,
         test_fake_expert_claim, test_negation_is_exempt,
@@ -533,6 +653,7 @@ def main():
         test_crosswalk_is_deterministic_and_staleness_detected,
         test_kill_gate_flag_cannot_be_flipped,
         test_verification_status_is_honestly_recorded,
+        test_verification_summary_matches_records,
     ):
         fn()
 

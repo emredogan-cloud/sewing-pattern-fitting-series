@@ -1,0 +1,23 @@
+{
+  "source_id": "S-0013",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Amazon KDP Help — Set Trim Size, Bleed, and Margins",
+  "author": null,
+  "publisher": "Amazon Kindle Direct Publishing",
+  "edition": null,
+  "year": 2026,
+  "isbn": null,
+  "url": "https://kdp.amazon.com/en_US/help/topic/GVBQ3CMEQW3W2VL6",
+  "verification_level": "official_web",
+  "locator": "Ciltsiz trim listesi (8,5×11 inç: 24–590 sayfa); ciltli trim listesi (5,5×8,5 · 6×9 · 6,14×9,21 · 7×10 · 8,25×11; 75–550 sayfa); dış kenar boşluğu ≥ 0,25 inç (taşmasız) / 0,375 inç (taşmalı); iç kenar boşluğu 0,375–0,875 inç sayfa sayısına göre.",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "A5 trim kararı",
+    "Faz 2 sayfa geometrisi profili (G2)"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": "KDP'de SPİRAL / TEL SARMAL cilt seçeneği YOKTUR — yalnızca yapıştırma ciltsiz ve ciltli. Kitap 2'nin spiral SKU'su ancak KDP DIŞI bir üretim yoluyla mümkündür (RISK_REGISTER R-09)."
+}

@@ -28,8 +28,10 @@
       ],
       "order_constraint": "Omuz ve boyun düzeltmelerinden SONRA; yan dikiş/bel düzeltmelerinden ÖNCE.",
       "book3_relevance": "Blokta göğüs şekillendirme miktarı doğrudan çizilir — düzeltme tekrar etmez.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -48,8 +50,10 @@
       ],
       "order_constraint": "AF-01 ile birlikte veya hemen ardından; ikisi ayrı kararlardır.",
       "book3_relevance": "Blokta apeks konumu ölçüden belirlenir (M-017/M-018/M-019).",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -71,8 +75,11 @@
       ],
       "order_constraint": "EN ERKEN düzeltmelerden biri — omuz konumu değişince altındaki her şey kayar.",
       "book3_relevance": "Blokta omuz eğimi doğrudan ölçülür.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -93,8 +100,10 @@
       ],
       "order_constraint": "AF-03'ten sonra, AF-08'den önce.",
       "book3_relevance": "Blokta omuz uzunluğu M-014'ten gelir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -135,8 +144,10 @@
       ],
       "order_constraint": "Omuz düzeltmelerinden SONRA — omuz kayarsa boyun eğrisi de kayar.",
       "book3_relevance": "Blokta boyun eğrisi M-013'ten türetilir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -159,8 +170,11 @@
       ],
       "order_constraint": "AF-11 (boy/denge) ile birlikte okunur — yuvarlak sırt hem genişlik hem boy ister.",
       "book3_relevance": "Blokta sırt genişliği ve sırt boyu ayrı ölçülerdir (M-020, M-016).",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -182,7 +196,9 @@
       ],
       "order_constraint": "SON bodice düzeltmesi — üstündeki tüm düzeltmeler kol oyuntusunu değiştirir.",
       "book3_relevance": "Blokta kol oyuntusu derinliği M-022'den türetilir.",
-      "source_refs": [],
+      "source_refs": [
+        "S-0001"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -205,8 +221,10 @@
       ],
       "order_constraint": "Kol oyuntusu (AF-08) KESİNLEŞMEDEN kol başı düzeltilmez — en sık yapılan sıra hatası.",
       "book3_relevance": "Blokta kol başı, bitmiş kol oyuntusundan hesaplanır.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -227,8 +245,10 @@
       ],
       "order_constraint": "Boy düzeltmesi genişlik düzeltmesinden ÖNCE.",
       "book3_relevance": "Blokta kol ölçüleri M-007/M-028/M-029'dan gelir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -250,7 +270,9 @@
       ],
       "order_constraint": "BOY ÖNCE, GENİŞLİK SONRA — serinin sıra kuralının çekirdeği.",
       "book3_relevance": "Blokta ön/arka boy ayrı ölçülerdir (M-015, M-016) — denge çizimde kurulur.",
-      "source_refs": [],
+      "source_refs": [
+        "S-0003"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -297,8 +319,11 @@
       ],
       "order_constraint": "AF-15/16 (ağ) ile AYNI ANDA değerlendirilir; ayrı ayrı düzeltilirse birbirini bozar.",
       "book3_relevance": "Blokta kalça şekillendirmesi M-005/M-006 ve duruş analizinden gelir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001",
+        "S-0002"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -319,8 +344,11 @@
       ],
       "order_constraint": "AF-11 boy düzeltmesiyle KARIŞTIRILMAMALI — biri genel boy, diğeri yerel oyuk.",
       "book3_relevance": "Blokta bel oyuğu şekillendirmesi doğrudan çizilir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -342,8 +370,11 @@
       ],
       "order_constraint": "AĞ DERİNLİĞİ ÖNCE, AĞ EĞRİSİ SONRA — ikisi ayrı kararlardır.",
       "book3_relevance": "Blokta ağ derinliği M-026'dan, ağ uzunluğu M-027'den gelir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001",
+        "S-0002"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -362,7 +393,10 @@
       ],
       "order_constraint": "AF-15 kesinleşmeden yapılmaz.",
       "book3_relevance": "Blokta ağ eğrisi taslak sisteminin en hassas bölümüdür.",
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0002"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -385,8 +419,11 @@
       ],
       "order_constraint": "Ağ düzeltmelerinden SONRA.",
       "book3_relevance": "Blokta bacak ölçüleri M-009/M-010/M-011'den gelir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001",
+        "S-0002"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     },
     {
@@ -406,7 +443,9 @@
       ],
       "order_constraint": "Beden geçişi bir DÜZELTME DEĞİL, beden SEÇİMİDİR — teşhiste ayrı tutulur.",
       "book3_relevance": "Blokta kavram YOKTUR — tek beden çizilir. Bu, Kitap 3'ün en güçlü satış argümanlarından biridir.",
-      "source_refs": [],
+      "source_refs": [
+        "S-0003"
+      ],
       "verification_status": "agent_drafted_unverified",
       "notes": null
     },
@@ -427,8 +466,11 @@
       ],
       "order_constraint": "HER ZAMAN ilk gruptaki düzeltmelerden biri.",
       "book3_relevance": "Blokta boy ölçüden gelir.",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified",
       "notes": null
     }
   ]

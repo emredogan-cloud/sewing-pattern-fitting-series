@@ -1,0 +1,25 @@
+{
+  "source_id": "S-0005",
+  "source_type": "anthropometric_standard",
+  "technical_authority": true,
+  "title": "2012 Anthropometric Survey of U.S. Army Personnel: Methods and Summary Statistics (ANSUR II)",
+  "author": "Claire C. Gordon, Cynthia L. Blackwell, Bruce Bradtmiller, Joseph L. Parham, Patricia Barrientos, Stephen P. Paquette, Brian D. Corner, Jeremy M. Carson, Joseph C. Venezia, Belva M. Rockwell, Michael Mucher, Shirley Kristensen",
+  "publisher": "U.S. Army Natick Soldier Research, Development and Engineering Center (Technical Report NATICK/TR-15/007); DTIC accession ADA611869",
+  "edition": "NATICK/TR-15/007",
+  "year": 2014,
+  "isbn": null,
+  "url": "https://apps.dtic.mil/sti/pdfs/ADA611869.pdf",
+  "verification_level": "fulltext",
+  "locator": "Ölçü tanımları: (22) CERVICALE HEIGHT; (24) CHEST CIRCUMFERENCE; (54) INTERSCYE I; (55) INTERSCYE II; (70) SHOULDER LENGTH; (85) WAIST BACK LENGTH (OMPHALION); (87) WAIST CIRCUMFERENCE (OMPHALION). Ayrıca § 'landmark' değişiklikleri: chest point anterior, deltoid, cervicale.",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "C-A işaret noktası disiplini — bir ölçü İKİ ADLANDIRILMIŞ İŞARET NOKTASI arasında tanımlanır (M-xxx şemasının landmark_start/landmark_end alanlarının otoritesi)",
+    "C-A M-014 omuz uzunluğu (trapezius → acromion)",
+    "C-A M-020 sırt genişliği (INTERSCYE I: arka koltuk altı kıvrımları arası)",
+    "C-A M-016 arka boy (cervicale → omphalion) — SINIRLI, aşağıdaki nota bakınız"
+  ],
+  "superseded_by": null,
+  "license_constraint": "ABD hükümeti eseri — kamu malı. Metin ve tablolar serbestçe kullanılabilir; yine de bu projede yalnızca doğrulama referansı olarak kullanılır.",
+  "acquisition_status": "public_access",
+  "notes": "KRİTİK SINIR: ANSUR II bel çevresini YALNIZCA omphalion (göbek) hizasında tanımlar; ev dikişinin ve ticari kalıbın kullandığı DOĞAL bel (en dar nokta) tanımı ANSUR II'de YOKTUR. Bu yüzden M-004 bu kaynakla DOĞRULANMAZ ve fark Bölüm 2'de okura AÇIKÇA öğretilir. Erişilebilen kopya archive.org DTIC aynasından alındı (apps.dtic.mil doğrudan indirmeye kapalıydı)."
+}

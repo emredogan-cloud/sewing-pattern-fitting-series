@@ -1,0 +1,22 @@
+{
+  "source_id": "S-0012",
+  "source_type": "marketplace_observation",
+  "technical_authority": false,
+  "title": "Amazon KDP Help — Hardcover Royalty",
+  "author": null,
+  "publisher": "Amazon Kindle Direct Publishing",
+  "edition": null,
+  "year": 2026,
+  "isbn": null,
+  "url": "https://kdp.amazon.com/en_US/help/topic/G77F3WPD3KQLJTFS",
+  "verification_level": "official_web",
+  "locator": "Amazon.com: liste fiyatı ≤ $9,98 → %50; ≥ $9,99 → %60; azami $250.",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "A5 ciltli SKU ekonomisi"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": null
+}

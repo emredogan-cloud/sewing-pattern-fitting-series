@@ -18,10 +18,10 @@
   "series": {
     "id": "true-fit-sewing-pattern-fitting-series",
     "workingName": "TRUE FIT",
-    "workingNameStatus": "WORKING_NAME_ONLY — marka çakışma taraması YAPILMADI (OPEN_QUESTIONS.md A1). Kapak/metadata öncesi zorunlu.",
+    "workingNameStatus": "ÇALIŞMA ADI — YAYIMLANAMAZ. Marka taraması YAPILDI (28 Ağu 2026): 'TRUE FIT' True Fit Corporation adına yürürlükte ve tescilli bir ABD markasıdır ve kapsamı 'kullanıcıları vücut ölçülerine göre giysiyle eşleştirme'dir — bu serinin tam konusu. Karar: DECISIONS.md K18 — ad kapak/metadata/alan adı yüzeyinde KULLANILMAZ. Önerilen yerine geçen: BEFORE YOU CUT. Nihai seçim + profesyonel marka temizliği: OPEN_QUESTIONS.md A15 (EXTERNAL PENDING). Kanıt: 08_REPORTS/PHASE_1_BRAND_SCREENING.md",
     "language": "en",
     "documentLanguage": "tr",
-    "repository": "local-only — henüz GitHub'a itilmedi (OPEN_QUESTIONS.md A2)",
+    "repository": "GitHub — public, CI etkin. Depo adı MARKA-NÖTRDÜR (A1 kapanmadan hiçbir ad kamuya taahhüt edilmez — DECISIONS.md K32).",
     "sourceOfTruth": "../KDP_2_3_BOOK_SERIES_OPPORTUNITY_RESEARCH_2026_CYCLE_2.html — § 28-32, 35-36",
     "acceptedScore": 7.02,
     "founderDecision": "KABUL EDİLDİ — pazar keşfi KAPALI, bu depo yalnızca ürün mimarisi ve üretimdir",
@@ -58,6 +58,13 @@
       "status": "ZAYIF — araştırma raporu § 27 girdi geçerliliği testinde DOĞRULANAMADI",
       "note": "Lider ürün (The Fitting Book) hibrit: 'neredeyse her sayfada QR' + müşteri etiketlerinde 'Video content' bir GÜÇ olarak anılıyor OBSERVED. Bu iddia hiçbir puanı, hiçbir konumlandırmayı ve hiçbir pazarlama metnini desteklemek için KULLANILAMAZ.",
       "decisionOwner": "OPEN_QUESTIONS.md A4 — ortam kararı"
+    },
+    "unitRoyaltyVerified": {
+      "value": 11.18,
+      "basis": "8.5x11 large trim, 236 sayfa, siyah mürekkep, liste $26.99, %60 telif",
+      "printingCost": 5.01,
+      "source": "S-0009, S-0011 (Amazon KDP yardım sayfaları, 28 Ağu 2026)",
+      "status": "PROVISIONAL — phase6-format kapısında gerçek KDP hesaplayıcısıyla yeniden ölçülür"
     }
   },
   "books": [
@@ -67,9 +74,15 @@
       "workingTitle": "True Fit 1 — Measure & Diagnose",
       "role": "SEE THE PROBLEM",
       "standaloneProblem": "Hangi düzeltmeye ihtiyacım olduğunu bilmiyorum",
-      "pageTargetProvisional": [220, 260],
+      "pageTargetProvisional": [
+        220,
+        260
+      ],
       "priceModelProvisional": 26.99,
-      "priceRangeProvisional": [24.99, 28.99],
+      "priceRangeProvisional": [
+        24.99,
+        28.99
+      ],
       "formatProvisional": "8.5x11 ciltsiz",
       "gate": "foundation"
     },
@@ -79,9 +92,15 @@
       "workingTitle": "True Fit 2 — The Adjustment Atlas",
       "role": "FIX THE PROBLEM",
       "standaloneProblem": "Teşhisimi biliyorum, uygulama referansı istiyorum",
-      "pageTargetProvisional": [260, 300],
+      "pageTargetProvisional": [
+        260,
+        300
+      ],
       "priceModelProvisional": 28.99,
-      "priceRangeProvisional": [26.99, 32.99],
+      "priceRangeProvisional": [
+        26.99,
+        32.99
+      ],
       "formatProvisional": "8.5x11 ciltsiz + spiral SKU ADAYI (fizibilite DOĞRULANMADI — OPEN_QUESTIONS.md A5)",
       "gate": "init"
     },
@@ -91,9 +110,15 @@
       "workingTitle": "True Fit 3 — Draft Your Own Block",
       "role": "BUILD THE SOLUTION",
       "standaloneProblem": "Her kalıpta aynı düzeltmeyi tekrarlamak istemiyorum",
-      "pageTargetProvisional": [280, 320],
+      "pageTargetProvisional": [
+        280,
+        320
+      ],
       "priceModelProvisional": 29.99,
-      "priceRangeProvisional": [28.99, 34.99],
+      "priceRangeProvisional": [
+        28.99,
+        34.99
+      ],
       "formatProvisional": "8.5x11 ciltsiz",
       "gate": "init"
     }
@@ -158,7 +183,53 @@
     ]
   },
   "sources": {
-    "count": 0,
-    "$comment": "Faz 1 SONUNDA 0'dır ve bu BİLİNÇLİDİR — bkz. 08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md § Sınırlamalar. Kaynak EDİNİMİ (fiziksel/dijital referans satın alma) kurucu bütçe kararına bağlıdır: OPEN_QUESTIONS.md A3."
+    "count": 15,
+    "technicalAuthorityFulltext": 6,
+    "paidSourcesPurchased": 0,
+    "$comment": "Faz 1 YÜRÜTMESİ sonrası. 15 kayıt: 6 teknik otorite + tam metin okunmuş kamu kaynağı (4 üniversite yayım yayını + ANSUR II + NHANES), 2 taranmış arşiv (okunamadı, official_web'de tutuldu), 5 platform dokümantasyonu (marketplace_observation — ASLA teknik otorite değil), 2 ücretli standart (not_yet_acquired, locator null). Faz 1 için HİÇBİR ücretli kaynak satın alınmadı — DECISIONS.md K19. Tarama: 01_SOURCE/PUBLIC_SOURCE_SURVEY.md. İstek kuyruğu: 01_SOURCE/ACQUISITION_REQUEST_QUEUE.md"
+  },
+  "verification": {
+    "$comment": "Faz 1 yürütmesi sonundaki GERÇEK durum. Bu blok 07_TESTS/selftest.py tarafından denetlenen fit_signs.json özetiyle birlikte okunur (DECISIONS.md K20).",
+    "measurements": {
+      "total": 32,
+      "technical_reference_verified": 16,
+      "sourced_not_upgraded": 7,
+      "no_source": 9
+    },
+    "adjustmentFamilies": {
+      "total": 19,
+      "technical_reference_verified": 13,
+      "sourced_not_upgraded": 4,
+      "no_source": 2
+    },
+    "fitSigns": {
+      "total": 43,
+      "technical_reference_verified": 0,
+      "agent_drafted_unverified": 43,
+      "why": "Bir belirti kaydının çekirdek iddiası aynı belirtinin iki nedenini ayıran KANITTIR (C-C sınıfı). Hiçbir kamu kaynağı bu ayrımı yapmıyor. Birincil doğrulama FİZİKSELDİR — Faz 3."
+    },
+    "blockComponents": {
+      "total": 12,
+      "technical_reference_verified": 0,
+      "why": "Kamu kaynakları düzeltme anlatıyor, çizim anlatmıyor — A10."
+    },
+    "crosswalk": {
+      "total": 148,
+      "internal_integrity_audited": true,
+      "findings": 0,
+      "gate": "06_BUILD/qa_crosswalk.py — dokuz ilişki denetimi (K31)",
+      "external_verification": false
+    }
+  },
+  "decisions": {
+    "$comment": "Faz 1 yürütmesinde kapanan kurucu kararları — tam gerekçe DECISIONS.md K18–K35.",
+    "format": "8.5x11 ciltsiz, beyaz kâğıt (K22) — P6 format kapısında doğrulanacak",
+    "color": "siyah mürekkep; premium renk aritmetik olarak dışarıda (K23)",
+    "typography": "Source Serif 4 + Source Sans 3, SIL OFL 1.1, maliyet $0 (K24)",
+    "units": "inç birincil; figürlerde yalnızca inç, karar eşiklerinde inç+cm (K34)",
+    "medium": "basılı kitap + tek adresli dijital tamamlayıcı; video kapsam dışı (K25)",
+    "photographs": "kullanılmaz; koşullu, en fazla 6 figür (K35)",
+    "book3TitleTerm": "başlıkta 'sloper'; kanonik terim 'block' kalır (K26)",
+    "physicalValidationScope": "2 toile + 3 yedek parça, tek vücut, 19 VAL kaydı (K29)"
   }
 }

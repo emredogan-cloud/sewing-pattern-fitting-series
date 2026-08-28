@@ -271,12 +271,57 @@ her girişte bu kısıtı tekrarlar.
 | 4 | **`AF-08` kesinleşmeden `AF-09` yok** | Kol başı, bitmiş kol oyuntusundan hesaplanır — serinin en katı kısıtı |
 | 5 | **`AF-15` → `AF-16`** | Ağ derinliği/uzunluğu (sayı) önce, ağ eğrisi (şekil) sonra |
 
-## 7 · Doğrulama durumu
+## 7 · İÇ BÜTÜNLÜK DENETİMİ — Faz 1 yürütmesinde YAPILDI
+
+Görev talimatı § 24 crosswalk'ın **var olduğunu bildirmenin
+yetmeyeceğini** söyler. Bu yüzden 148 kaydın tamamı, `06_BUILD/qa_crosswalk.py`
+ile **dokuz ayrı ilişki** üzerinden denetlendi.
+
+| # | Denetlenen ilişki | Sonuç |
+|---|---|---|
+| ① | Kaynak uç noktası (belirti / aile) tanımlı mı | ✓ 148/148 |
+| ② | Devir cümlesi gerçekten o belirtinin bir **aday nedenini** taşıyor mu | ✓ 129/129 |
+| ③ | Hedef uç noktası (aile / blok) tanımlı mı | ✓ 148/148 |
+| ④ | **İstisna mantığı iki yönlü tutarlı mı** — `to_ref=null` ⇔ `exception` dolu | ✓ 148/148 |
+| ⑤ | Belirti→aile çiftleri taksonomiyle **birebir** mi (kaybolmuş veya uydurulmuş yol yok) | ✓ 129/129 |
+| ⑥ | **Kitap sahipliği** tutarlı mı (`book1_entry_point`) | ✓ 129/129 |
+| ⑦ | Devir cümlesi ailenin **kanonik adını** taşıyor mu (terminoloji) | ✓ 108/108 |
+| ⑧ | Her giriş noktası ailesine Kitap 1'den ulaşılıyor mu | ✓ **19/19** |
+| ⑨ | Her belirtinin en az bir yolu var mı | ✓ **43/43** |
+
+**Bulgu: 0.** Hiçbir Kitap 1 yolu var olmayan bir Kitap 2 varış
+noktasına işaret etmiyor; hiçbir yol boşta bitmiyor; hiçbir kayıt hem
+varış noktası hem istisna taşımıyor.
+
+### 7.1 · Bu denetimin neden AYRI bir kapı olması gerekti
+
+`build_crosswalk.py --check` yalnızca **tazeliği** ölçer: diskteki
+dosya, kaynak taksonomiden yeniden üretilenle aynı mı. Üretici kodun
+kendisi yanlışsa bu denetim **hiçbir şey yakalamaz** — bayat olmayan
+ama yanlış bir crosswalk sessizce geçerdi.
+
+`qa_crosswalk.py` o boşluğu kapatır ve `07_TESTS/selftest.py` sekiz
+kusurlu kurguyla kapının **gerçekten yakaladığını** kanıtlar
+(`DECISIONS.md K31`).
+
+## 8 · Doğrulama durumu — dış otorite ve fizik
+
+İç bütünlük (§ 7) ile dış doğrulama **farklı şeylerdir** ve
+karıştırılmaz.
 
 **148 crosswalk kaydının tamamı `agent_drafted_unverified`.**
-Hiçbir eşleme dış teknik otoriteye karşı doğrulanmadı ve hiçbiri
-fiziksel olarak sınanmadı. Bu, Faz 1'in açıkça kaydedilmiş sınırıdır —
-`SOURCE_MAP.md` ve `../../OPEN_QUESTIONS.md → A3`.
+Bir crosswalk kaydının geçerliliği, kaynak belirtinin **ayırt edici
+kanıtının** geçerliliğine bağlıdır; o kanıt sınıfı (`C-C`) hiçbir kamu
+kaynağında bulunamadı ve fiziksel olarak sınanmadı
+(`SOURCE_MAP.md § 6`).
+
+| Katman | Durum |
+|---|---|
+| İç bütünlük | ✓ **DENETLENDİ — 0 bulgu** (§ 7) |
+| Dış teknik otorite | ✗ **YOK** — `C-C` sınıfı için kamu kaynağı bulunamadı |
+| Fiziksel sınama | ✗ **YAPILMADI** — Faz 3, `VALIDATION_PROTOCOL.md § 4.5` |
+
+Bu, Faz 1'in açıkça kaydedilmiş sınırıdır.
 
 ---
 

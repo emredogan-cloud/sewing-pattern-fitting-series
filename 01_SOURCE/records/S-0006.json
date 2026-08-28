@@ -1,0 +1,23 @@
+{
+  "source_id": "S-0006",
+  "source_type": "anthropometric_standard",
+  "technical_authority": true,
+  "title": "National Health and Nutrition Examination Survey (NHANES) Anthropometry Procedures Manual, 2021",
+  "author": "National Center for Health Statistics (NCHS)",
+  "publisher": "U.S. Centers for Disease Control and Prevention, National Center for Health Statistics",
+  "edition": "May 2021",
+  "year": 2021,
+  "isbn": null,
+  "url": "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf",
+  "verification_level": "official_pdf",
+  "locator": "Bölüm 1 (ölçüm ekibi rolleri ve konumlandırma); Bölüm 3 (bel çevresi işareti ve şerit konumu); Bölüm 5 Quality Control + Appendix B (gold standard replicate examinations)",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "C-A ölçüm KOŞULU disiplini — şerit yere paralel, deriye tam oturmuş ama bastırmayan; ikinci bir kişi konumu denetler (Bölüm 2.1, Bölüm 5.1)",
+    "Y-3 ölçüm tekrarlanabilirliği protokolünün yöntem dayanağı (replicate examination deseni)"
+  ],
+  "superseded_by": null,
+  "license_constraint": "ABD hükümeti eseri — kamu malı.",
+  "acquisition_status": "public_access",
+  "notes": "SINIR: NHANES bel çevresini iliak kanat üstünde tanımlar — bu bir SAĞLIK ölçüsüdür, giysi ölçüsü DEĞİLDİR. Hiçbir M-xxx kaydı bu kaynakla doğrudan doğrulanmaz; kaynak yalnızca ölçüm KOŞULU ve TEKRARLANABİLİRLİK yöntemini destekler."
+}

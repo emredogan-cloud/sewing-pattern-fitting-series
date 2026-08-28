@@ -1,0 +1,26 @@
+{
+  "source_id": "S-0004",
+  "source_type": "educational_institution",
+  "technical_authority": true,
+  "title": "Challenging Patterns — EM4582",
+  "author": "Dorothy A. Ettl, Extension Clothing Specialist; Diane S. Triplett, Home Economics Assistant",
+  "publisher": "Washington State University Cooperative Extension and the U.S. Department of Agriculture",
+  "edition": "Reprinted June 1990 (subject code 832)",
+  "year": 1990,
+  "isbn": null,
+  "url": "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+  "verification_level": "fulltext",
+  "locator": "EM4582, bölüm 'FITTING': uyumun beş temel noktası — Grain, Line, Ease, Balance, Overall smoothness",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "C-C EN KRİTİK AYRIM — kumaşı ÇEKEN kırışıklık yetersizliği, KIVRIM hâlinde duran kırışıklık fazlalığı gösterir (TK-05 ↔ TK-06 ayrımı; Bölüm 7.4; Adım ③)",
+    "C-B çözgü kuralı — boy çözgüsü yere dik, en çözgüsü yere paralel (Bölüm 16.3)",
+    "C-B dikiş konumu kuralları — omuz dikişi omzun üstünde, dikey dikişler yere dik, etek ucu yere paralel (seam_displacement ve hem_hike sınıfları)",
+    "C-B pens kuralı — pens en dolgun noktaya işaret eder ve ondan ÖNCE biter (AF-02)",
+    "Bölüm 5, Bölüm 7, Bölüm 16"
+  ],
+  "superseded_by": null,
+  "license_constraint": null,
+  "acquisition_status": "public_access",
+  "notes": "Bu kaynak, projenin EN ÇOK KULLANILAN kuralının (fazlalık mı yetersizlik mi) kurumsal karşılığıdır. Belge 4-H proje kitapçığıdır; uyum bölümü kısa ama açıktır."
+}

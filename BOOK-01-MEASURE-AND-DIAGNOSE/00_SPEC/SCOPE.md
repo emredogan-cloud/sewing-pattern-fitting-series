@@ -114,16 +114,35 @@ Ama Bölüm 16 **hiçbir düzeltmenin nasıl yapıldığını** anlatmaz.
 
 Mekanik denetim: `qa_boundary.py § check_excluded_leak`.
 
-## 7 · Ölçüm hedefleri (PROVISIONAL)
+## 7 · Ölçüm hedefleri
 
 | Ölçüt | Hedef | Durum |
 |---|---|---|
-| Sayfa | 220–260 | `PROVISIONAL` — `A5` |
+| Sayfa | 220–260 | `PROVISIONAL` — P6 format kapısı |
 | Bölüm | 18 + ekler | Faz 1'de sabitlendi |
 | Belirti kaydı | 43 | Faz 1'de üretildi |
 | Figür | ölçülmedi | Faz 2'de ölçülür |
-| Fiyat | $26,99 (bant $24,99–$28,99) | `PROVISIONAL` — `A5`, gözlemlenen medyan $21–23 |
+| **Trim / cilt** | **8,5×11 ciltsiz, beyaz kâğıt** | `A5` **KAPANDI** — `../../00_CONTEXT/FORMAT_STRATEGY.md § 4` |
+| **Mürekkep** | **Siyah** | `A6` **KAPANDI** — `FORMAT_STRATEGY § 5` |
+| **Birim** | **İnç birincil; figürlerde yalnızca inç** | `A8` **KAPANDI** — `VISUAL_SPEC.md § 7` |
+| **Yazı tipi** | **Source Serif 4 + Source Sans 3 (OFL, $0)** | `A7` **KAPANDI** — `../../00_CONTEXT/TYPOGRAPHY_STANDARD.md` |
+| **Fotoğraf** | **Kullanılmaz** (koşullu, en fazla 6) | `A11` **KAPANDI** — `VISUAL_SPEC.md § 5` |
+| Fiyat | $26,99 (bant $24,99–$28,99) | `PROVISIONAL` — P6; doğrulanmış birim telif $11,18 |
+
+## 8 · Faz 1 yürütmesinin kapsama etkisi
+
+Kamu kaynağı taraması (`../../01_SOURCE/PUBLIC_SOURCE_SURVEY.md`) üç
+kapsam maddesini değiştirdi:
+
+| Konu | Faz 1 başında | **Şimdi** |
+|---|---|---|
+| **3.5–3.6 ease** | "Kaynak olmadan YAZILAMAZ" | **Yazılabilir** — `S-0001`'in kurumsal ease bandıyla, üç koşulla (`SOURCE_MAP.md § 5`): kaynak adıyla anılır · bandın tek bir konvansiyon olduğu söylenir · yöntem banttan bağımsız kalır |
+| **3.1–3.2 beden tabloları** | "Kaynak olmadan YAZILAMAZ" | **Kısmen** — beden SEÇİM kuralı doğrulandı (`S-0003`: göğüs − üst göğüs ≥ 2 inç → küçük beden). Beden TABLOLARININ kendisi kalıp şirketine aittir ve **çoğaltılmaz** |
+| **2 ölçü tanımları** | "Kaynak olmadan YAZILAMAZ" | **16 tam · 7 kısmi · 9 açık.** Açık olanlar Bölüm 2'de "kalıp şirketinizin tanımını izleyin" biçiminde işaretlenir (`VISUAL_SPEC.md § 3`) |
+
+**Kapsamdan çıkarılan hiçbir şey yok; kapsama eklenen hiçbir şey yok.**
+Değişen tek şey, üç bölümün **hangi dille** yazılabileceğidir.
 
 ---
 
-*Vâliçe Press · TRUE FIT 1 · Scope · 28 Ağustos 2026*
+*Vâliçe Press · TRUE FIT 1 · Scope · 28 Ağustos 2026 (Faz 1 yürütmesi)*

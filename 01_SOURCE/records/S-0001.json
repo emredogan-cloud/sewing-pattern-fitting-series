@@ -1,0 +1,25 @@
+{
+  "source_id": "S-0001",
+  "source_type": "educational_institution",
+  "technical_authority": true,
+  "title": "Pattern Alteration — Guide C-228",
+  "author": "Susan Wright (original author); revised by Wendy Hamilton",
+  "publisher": "New Mexico State University, Cooperative Extension Service, College of Agricultural, Consumer and Environmental Sciences",
+  "edition": "Revised July 2015",
+  "year": 2015,
+  "isbn": null,
+  "url": "https://pubs.nmsu.edu/_c/C228.pdf",
+  "verification_level": "fulltext",
+  "locator": "Guide C-228, s. 1–7: Table 1 (ölçü tanımları + ease bantları); ALTERING BODICE PATTERNS; ALTERING SKIRT PATTERNS; ALTERING PANTS PATTERNS",
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "C-A ölçü tanımları (M-001, M-002, M-003, M-006, M-007, M-009, M-013, M-014, M-016, M-028, M-029)",
+    "C-G ease konvansiyonu — Table 1 ease bantları (bu depodaki TEK ease kaynağı)",
+    "C-E düzeltme ailesi kapsamı (AF-01, AF-02, AF-03, AF-04, AF-06, AF-07, AF-09, AF-10, AF-13, AF-14, AF-15, AF-16, AF-17)",
+    "Bölüm 2, Bölüm 3 (ease), Bölüm 9–15 bölge atlası"
+  ],
+  "superseded_by": null,
+  "license_constraint": "'Contents of publications may be freely reproduced for educational purposes. All other rights reserved.' — yalnızca DOĞRULAMA referansı olarak kullanılır; hiçbir cümlesi, tablosu veya çizimi çoğaltılmaz (IP_AND_BRAND_POLICY § 2).",
+  "acquisition_status": "public_access",
+  "notes": "Ease bandı sütunu -layout çıkarımıyla satır satır doğrulandı. Ölçü tanımlarında bu depodan FARKLI olanlar: 'Wrist = around widest part of hand' (bizde M-008 bilek kemiği çevresi) ve 'Neckline = 1 inch above base of neck' (bizde M-013 boyun tabanı). Bu farklar SOURCE_MAP § 7'de çelişki olarak kayıtlıdır; sessizce ezilmedi."
+}

@@ -1,0 +1,23 @@
+{
+  "source_id": "S-0014",
+  "source_type": "industry_sizing_standard",
+  "technical_authority": true,
+  "title": "ISO 8559-1:2017 — Size designation of clothes, Part 1: Anthropometric definitions for body measurement",
+  "author": null,
+  "publisher": "International Organization for Standardization (ISO)",
+  "edition": "ISO 8559-1:2017",
+  "year": 2017,
+  "isbn": null,
+  "url": "https://www.iso.org/standard/61686.html",
+  "verification_level": "not_yet_acquired",
+  "locator": null,
+  "accessed_on": "2026-08-28",
+  "used_for": [
+    "C-A 32 ölçünün TAM tanım otoritesi — özellikle doğal bel, apeks ve kol oyuntusu ölçüleri",
+    "C-G ease/beden konvansiyonlarının uluslararası çerçevesi"
+  ],
+  "superseded_by": null,
+  "license_constraint": "Ücretli standart. Metni depoya GİRMEZ; yalnızca künye ve doğrulanan iddia kaydedilir.",
+  "acquisition_status": "budget_pending",
+  "notes": "EDİNİM TALEBİ — 01_SOURCE/ACQUISITION_REQUEST_QUEUE.md § A-01. Faz 1 için ZORUNLU DEĞİL (kamu kaynakları C-A'nın büyük kısmını kapattı); Kitap 3 (blok çizimi) için zorunlu hâle gelir."
+}

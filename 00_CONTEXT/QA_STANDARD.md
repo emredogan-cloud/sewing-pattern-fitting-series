@@ -22,6 +22,7 @@ kanıtlar.
 | Şema + bütünlük + kaynak otoritesi | `06_BUILD/validate_spec.py` | Taksonomi şemaları, referans bütünlüğü, kaynak otoritesi, doğrulama kanıtı, kapı gereksinimleri |
 | Depo + koruma + marka | `06_BUILD/validate_structure.py` | Zorunlu belgeler, korumalı dizin sızıntısı, **fotoğraf sızıntısı**, **marka sızıntısı**, kardeş-depo izolasyonu |
 | Crosswalk tazeliği | `06_BUILD/build_crosswalk.py --check` | Devir haritası kaynak taksonomiyle güncel mi |
+| **Crosswalk bütünlüğü** | `06_BUILD/qa_crosswalk.py` | Dokuz ilişki: uç noktalar · devir cümlesi ↔ aday neden · istisna mantığı (iki yönlü) · taksonomiyle birebirlik · kitap sahipliği · kanonik ad · ulaşılabilirlik · yolu olmayan belirti |
 | **Kitap sınırı** | `06_BUILD/qa_boundary.py` | Tek-birincil kuralı, belirti→yol kapsaması, aile ulaşılabilirliği, sınır sızıntısı |
 | **İddia disiplini** | `06_BUILD/qa_claims.py` | Sahte uzman iddiası, korunan "basılı avantaj" iddiası, dayanaksız doğrulama iddiası |
 | **Terminoloji** | `06_BUILD/qa_terminology.py` | Yasak eşanlamlı, tanımsız kimlik referansı |
@@ -47,6 +48,11 @@ neden aynı ayırt edici kanıtı taşıyamaz — taşırsa okur onları ayıram
 ### K-3 · Doğrulama durumu ücretsiz verilmez
 `technical_reference_verified` ≥1 `fulltext`/`official_pdf` kaynak
 gerektirir. `physically_validated` bir `VAL-xxxx` kaydı gerektirir.
+
+Mekanik koruma **iki katmanlıdır**: `validate_spec.check_verification_evidence`
+tek kaydı denetler; `selftest.test_verification_status_is_honestly_recorded`
+GERÇEK korpusun tamamını denetler ve ilan edilen doğrulama özetinin
+veriyle uyuştuğunu ayrıca sınar (`DECISIONS.md K20`).
 
 ### K-4 · Sınır ihlali bir KUSURDUR
 Bir kitabın `excluded`/`introduce_only` topiği adım diliyle geçemez.

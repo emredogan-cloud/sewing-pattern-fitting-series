@@ -30,8 +30,12 @@ ilk bölümde öğrenmesi, tüm serinin dilini kurar.
 
 ## 3 · Sayı ve birim
 
-- Birim kararı AÇIK (`OPEN_QUESTIONS A8`).
-- Karar ne olursa olsun: **bir figürde birim karışık kullanılamaz.**
+- **Birim kararı VERİLDİ** (`DECISIONS.md K34`): **inç birincil**;
+  figürlerde **yalnızca inç**; karar eşiklerinde ve tablolarda
+  **inç + cm**.
+- **Bir figürde birim karışık kullanılamaz.**
+- Kesirler tek glif veya `frac` ile dizilir; inç işareti daktilo
+  tırnağı değildir (`TYPOGRAPHY_STANDARD.md § 5`).
 - Ölçü değeri her zaman birimiyle birlikte yazılır.
 - Spread/overlap oku **sayısal etiketsiz** çizilemez.
 

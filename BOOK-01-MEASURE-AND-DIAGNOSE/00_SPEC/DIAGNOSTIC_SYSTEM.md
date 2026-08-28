@@ -2,17 +2,21 @@
 
 > Faz 1 çıktısı 4/10. Görev talimatı § 14, § 36.3.
 >
-> ⚠ **DOĞRULAMA DURUMU — dürüst kayıt.** Bu çerçeve **iç tutarlılık**
-> açısından denetlendi (mantıksal tutarlılık, öğretilebilirlik,
-> tekrarlanabilirlik, görsel anlatılabilirlik, fiziksel sınanabilirlik)
-> ve `qa_boundary.py`/`validate_spec.py` kapılarından geçti.
+> ⚠ **DOĞRULAMA DURUMU — dürüst kayıt, Faz 1 yürütmesi sonrası.**
 >
-> **Hiçbir dış teknik otoriteye karşı doğrulanmadı ve hiçbir adımı
-> fiziksel olarak sınanmadı.** Görev talimatı § 37 "validated
-> diagnostic framework" istiyor; teslim edilen şey *tanımlanmış ve
-> içsel olarak tutarlı* bir çerçevedir. Dış doğrulama `A3` (kaynak
-> bütçesi) ve Faz 3 (fiziksel doğrulama) görevidir. Bu ayrım
-> bulanıklaştırılamaz.
+> Bu çerçeve **iç tutarlılık** açısından denetlendi ve
+> `qa_boundary.py` / `qa_crosswalk.py` / `validate_spec.py`
+> kapılarından geçti.
+>
+> **Yedi adımdan dördü artık bir kamu kaynağına bağlıdır** (§ 3'ün
+> "Kaynak" satırları). Kalan üçü — ve daha önemlisi, adım ⑥'nın
+> dayandığı **ayırt edici kanıtların kendisi** — hiçbir dış otoriteye
+> karşı doğrulanMADI ve hiçbiri fiziksel olarak sınanMADI.
+>
+> Görev talimatı § 37 "validated diagnostic framework" istiyor;
+> teslim edilen şey *tanımlanmış, içsel olarak tutarlı ve KISMEN
+> kaynağa bağlanmış* bir çerçevedir. Tam dış doğrulama Faz 3'ün
+> (fiziksel sınama) görevidir. **Bu ayrım bulanıklaştırılamaz.**
 
 ---
 
@@ -71,6 +75,12 @@ mimarilerinde bu adımın sistematik bir karşılığı **görülmedi**
 
 ### ② GÖZLE — neden sıra sabittir
 
+> **Kaynak — `S-0004` ve `S-0003`.** İkisi de gözlemin ilk kalemini
+> **çözgü/denge** olarak verir: boy çözgüsü yere dik, en çözgüsü yere
+> paralel, dikey dikişler yere dik, etek ucu yere paralel. `S-0003`
+> ayrıca 13 maddelik bir uyum kontrol listesi taşır ve listenin ilk iki
+> maddesi çözgüdür.
+
 Denge önce okunur, çünkü **denge bozuksa aşağıdaki her okuma
 yanlıştır.** Ön/arka boy dengesizliği, göğüs bölgesinde göğüs hacmi
 sorunu gibi görünen belirtiler üretir.
@@ -93,7 +103,28 @@ vardır (`TK-05`…`TK-07`).
 | **Dikey** kıvrım | O yönde **GENİŞLİK** fazlası |
 | **Çapraz** çekme çizgisi | Bir yerde **YETERSİZLİK**; çizgiler kaynağa doğru işaret eder |
 
+> **Kaynak — `S-0004` (WSU Extension EM4582).** Uyumun beş temel
+> noktasını sayarken: kumaşı **çeken ve geren** kırışıklıklar *çok az*
+> ease'i, **kıvrım hâlinde duran** kırışıklıklar *çok fazla* ease'i
+> gösterir.
+>
+> Bu, tablonun **fazlalık ↔ yetersizlik** eksenini doğrular. Eksenin
+> yönü (yatay kıvrım → boy, dikey kıvrım → genişlik) ise geometrik bir
+> türetmedir: bir kıvrım, kendi çizgisine **dik** olan boyutu tüketir.
+>
+> **Bu ayrım piyasada sistematik olarak KARIŞTIRILIYOR.** Gönüllü
+> içerikte aynı soruya birbiriyle çelişen üç cevap gözlendi ve üçü de
+> aynı hatayı yapıyordu: kıvrımı (fazlalık) çekme çizgisinden
+> (yetersizlik) ayırmıyorlardı
+> (`../../01_SOURCE/PUBLIC_SOURCE_SURVEY.md § 5.1`) `OBSERVED`.
+> Bu, `D1` farklılaşma hipotezi için **dolaylı ve zayıf** bir destek
+> gözlemidir; fark testinin yerine **geçmez**.
+
 ### ④ YERİNİ BUL — belirtinin göründüğü yer nadiren nedenin yeridir
+
+> **Kaynak — `S-0003` (Texas AgriLife E-372).** Düzeltmeyi **sorunun
+> kaynağında** yap: göğüs ölçüsü kalıptan büyükse yan dikişte değil,
+> göğsün en dolgun yerinde büyüt.
 
 Üç yerleştirme kuralı:
 
@@ -175,8 +206,17 @@ doğrulanmamış bir neden atamaktan daha dürüsttür.
    ölçüm" kuralıyla azaltır — ama ortadan kaldıramaz.
 3. **Asimetri.** Tek taraflı belirtiler ayrı bir sınıf olarak
    işaretlendi, ama asimetrik düzeltmenin kendisi Kitap 2'nin işidir.
-4. **Dış doğrulama yok.** § 0'daki uyarı burada tekrarlanır.
+4. **Ayırt edici kanıtların dış doğrulaması yok.** Adımların
+   çerçevesi kısmen kaynağa bağlandı; ama adım ⑥'nın üzerinde
+   çalıştığı **129 ayırt edici kanıtın hiçbiri** doğrulanmadı. Hiçbir
+   kamu kaynağı aynı belirtinin iki nedenini birbirinden ayırmıyor
+   (`SOURCE_MAP.md § 6`). Bu, çerçevenin **en büyük** açık noktasıdır
+   ve `VALIDATION_PROTOCOL.md § 4.5`'in `Y-2` testleriyle kapanır.
+
+5. **Sıra kuralları kısmen doğrulandı.** Bölüm 16'nın beş kuralından
+   ikisi (① boy → genişlik, ② yukarıdan aşağı) `S-0003` ile
+   desteklendi; kalan üçü türetmedir ve `Y-5` ile sınanacaktır.
 
 ---
 
-*Vâliçe Press · TRUE FIT 1 · Diagnostic System · 28 Ağustos 2026*
+*Vâliçe Press · TRUE FIT 1 · Diagnostic System · 28 Ağustos 2026 (Faz 1 yürütmesi)*

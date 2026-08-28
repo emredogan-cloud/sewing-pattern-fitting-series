@@ -12,6 +12,7 @@ run() {
 run 06_BUILD/validate_spec.py --verbose
 run 06_BUILD/validate_structure.py --verbose
 run 06_BUILD/build_crosswalk.py --check
+run 06_BUILD/qa_crosswalk.py --verbose
 run 06_BUILD/qa_boundary.py --verbose
 run 06_BUILD/qa_claims.py --verbose
 run 06_BUILD/qa_terminology.py --verbose

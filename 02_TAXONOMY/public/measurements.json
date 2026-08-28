@@ -30,8 +30,11 @@
         "book-03"
       ],
       "pattern_counterpart": "Ön+arka beden üst göğüs hattı toplamı",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-002",
@@ -54,8 +57,11 @@
         "book-03"
       ],
       "pattern_counterpart": "Ön+arka beden göğüs hattı toplamı",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-003",
@@ -76,8 +82,10 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-004",
@@ -100,7 +108,10 @@
         "book-03"
       ],
       "pattern_counterpart": "Bel dikişi/bel hattı toplamı",
-      "source_refs": [],
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ],
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -123,8 +134,11 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-006",
@@ -146,8 +160,11 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001",
+        "S-0002"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-007",
@@ -169,8 +186,10 @@
         "book-03"
       ],
       "pattern_counterpart": "Kol kalıbı bicep hattı",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-008",
@@ -191,7 +210,9 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
+      "source_refs": [
+        "S-0001"
+      ],
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -214,8 +235,11 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-010",
@@ -278,7 +302,9 @@
         "book-03"
       ],
       "pattern_counterpart": "Boyun eğrisi çevresi",
-      "source_refs": [],
+      "source_refs": [
+        "S-0001"
+      ],
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -301,8 +327,12 @@
         "book-03"
       ],
       "pattern_counterpart": "Omuz dikişi uzunluğu",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001",
+        "S-0003",
+        "S-0005"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-015",
@@ -324,7 +354,9 @@
         "book-03"
       ],
       "pattern_counterpart": "Ön orta boy",
-      "source_refs": [],
+      "source_refs": [
+        "S-0003"
+      ],
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -347,8 +379,11 @@
         "book-03"
       ],
       "pattern_counterpart": "Arka orta boy",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-017",
@@ -369,7 +404,9 @@
         "book-03"
       ],
       "pattern_counterpart": "Göğüs pensi konumu",
-      "source_refs": [],
+      "source_refs": [
+        "S-0003"
+      ],
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -436,8 +473,11 @@
         "book-03"
       ],
       "pattern_counterpart": "Arka beden genişliği",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0003",
+        "S-0005"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-021",
@@ -503,8 +543,10 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0002"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-024",
@@ -524,8 +566,11 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-025",
@@ -545,7 +590,9 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
+      "source_refs": [
+        "S-0001"
+      ],
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -568,8 +615,11 @@
         "book-03"
       ],
       "pattern_counterpart": "Pantolon ağ derinliği",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-027",
@@ -591,8 +641,11 @@
         "book-03"
       ],
       "pattern_counterpart": "Ön+arka ağ uzunluğu toplamı",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-028",
@@ -613,7 +666,10 @@
         "book-03"
       ],
       "pattern_counterpart": "Kol kalıbı boyu",
-      "source_refs": [],
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -635,8 +691,11 @@
         "book-03"
       ],
       "pattern_counterpart": "Dirsek pensi/şekillendirme konumu",
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-030",
@@ -681,8 +740,10 @@
         "book-03"
       ],
       "pattern_counterpart": null,
-      "source_refs": [],
-      "verification_status": "agent_drafted_unverified"
+      "source_refs": [
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified"
     },
     {
       "measurement_id": "M-032",
