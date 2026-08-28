@@ -393,8 +393,22 @@ raporluyor. Sayı düzeltildi ve `K33` olarak kaydedildi.
 
 ## 19 · Git / CI Status
 
-Bkz. § 19 güncellemesi: `ROADMAP_PROGRESS.md` — depo, dal, CI çalışma
-sonucu ve yayımlanan/yayımlanmayan içerik listesi orada tutulur.
+| | |
+|---|---|
+| Depo | `github.com/emredogan-cloud/sewing-pattern-fitting-series` |
+| Görünürlük | **public** |
+| Depo adı | **marka-nötr** — `A1` kapanmadan hiçbir ad kamuya taahhüt edilmedi (`K32`) |
+| Dal | `master` |
+| İzlenen dosya | **139** |
+| CI koşusu | `33193615969` — **başarılı**, 22 sn |
+| CI işleri | **7/7 geçti**: kapı seviyeleri · şema/bütünlük/kaynak · depo/koruma/marka · crosswalk tazeliği + bütünlüğü · kitap sınırı · iddia + terminoloji · **kapıların kendi testi** |
+| `kill-gate` işi | ✗ **tasarım gereği başarısız** (`continue-on-error: true`) — iş akışı bunu kendi notunda ilan eder |
+| Düzeltilen CI sorunu | İlk koşuda "Node.js 20 kullanımdan kaldırıldı" anotasyonu çıktı; eylem sürümleri yükseltildi (checkout v4→v5, setup-python v5→v6, upload-artifact v4→v5) ve ikinci koşu **anotasyonsuz** yeşil döndü |
+
+**Korumalı dizin denetimi — GitHub üzerinde doğrulandı:**
+`01_SOURCE/reference_material`, `02_TAXONOMY/protected`,
+`BOOK-01/02_CONTENT/protected`, `BOOK-01/04_EDITORIAL/pilot` ve
+`09_OUTPUT` dizinlerinin **hepsi yalnızca `.gitkeep` içeriyor.**
 
 **Bilerek dışarıda bırakılan:** yayın-öncesi tam proza ve pilot metni ·
 fiziksel sınama fotoğrafları (gerçek insan bedeni) · **fark testi

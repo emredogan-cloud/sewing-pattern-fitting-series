@@ -79,7 +79,17 @@ olarak belirlemek.
 - [x] Fiziksel doğrulama planı
 - [x] Farklılaşma testi protokolü
 - [x] Ortam kararı çerçevesi (karar VERİLMEDİ — `A4`)
-- [ ] **Kaynak edinimi** — `OPEN_QUESTIONS A3` kurucu kararı bekliyor
+- [x] **Kamu kaynağı taraması ve kaynak katmanının kurulması** — 15
+      kayıt, 6 tam metin otorite; **ücretli kaynak satın alınmadı**
+      (`A3` KAPANDI, `DECISIONS.md K19`)
+- [x] Taksonominin kanıta bağlanması — 16/32 ölçü, 13/19 düzeltme
+      ailesi yükseltildi; 43 belirti **bilinçli olarak** yükseltilmedi
+- [x] Crosswalk'ın dokuz ilişki üzerinden denetlenmesi — 0 bulgu
+      (yeni kapı `qa_crosswalk.py`)
+- [x] Kurucu kararlarının kapatılması — 12 kapandı, 1 ertelendi,
+      2 dış beklemeye alındı (`OPEN_QUESTIONS.md`)
+- [x] Marka çakışma taraması (`A1`) — `08_REPORTS/PHASE_1_BRAND_SCREENING.md`
+- [x] GitHub deposu + CI (`A2`) — public, marka-nötr ad, CI yeşil
 - [ ] **Kurucu onayı**
 
 ### Definition of Done
@@ -100,7 +110,9 @@ olarak belirlemek.
 | Belirti sınıfı kapsaması | 10/10 sınıf | ✓ |
 | Her aday nedenin ayırt edici kanıtı var | %100 | ✓ (şema dayatır) |
 | Her düzeltme ailesine Kitap 1'den ulaşılabiliyor | 19/19 | ✓ |
-| Kaynak kaydı | ≥1 otoriter kaynak | ✗ **0 — A3 bekliyor** |
+| **Kaynak kaydı** | ≥1 otoriter kaynak | ✓ **15 kayıt · 6 tam metin otorite** |
+| **Crosswalk iç bütünlüğü** | 0 bulgu | ✓ **dokuz denetim, 0 bulgu** |
+| **Kapanmış kurucu kararı** | mümkün olanların tamamı | ✓ **12/14 + 2 yeni durum** |
 
 ### Risk
 
@@ -127,8 +139,14 @@ ve figürleri kayıt verisinden üretecek motoru yazmak.
 | 5 | Sayfa geometrisi profili (trim, kenar boşluğu, figür alanı) |
 | 6 | `qa_visual.py` — figür/token/geometri tutarlılık kapısı |
 
-**Ayrıca bu fazda kapanması gereken kurucu kararları:** `A1` (marka
-taraması), `A4` (ortam), `A6` (renk), `A8` (birim), `A11` (fotoğraf).
+**Kurucu kararları — Faz 1 yürütmesinde ÖNCEDEN kapatıldı:**
+`A4` (ortam) · `A6` (renk) · `A7` (font) · `A8` (birim) ·
+`A11` (fotoğraf). `A1`'in yerini **`A15`** aldı (yerine geçen seri adı
++ profesyonel marka temizliği) ve **dış beklemededir** — kapak
+sisteminin taslaklanması ondan önce başlayamaz.
+
+Faz 2 bu yüzden artık bir **karar toplama** fazı değil, saf bir
+**üretim ve ölçüm** fazıdır.
 
 **Definition of Done:** deterministik üretilebilen figür oranı ÖLÇÜLDÜ ·
 `deterministic: false` olan her figürün `manual_reason`'ı var ·

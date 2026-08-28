@@ -7,8 +7,16 @@ sorununu çözer: **kalıbı doğru uyguluyorum, giysi yine oturmuyor.**
 > sistemidir.** Hiçbir manüskript yazılmadı, hiçbir diyagram üretilmedi,
 > hiçbir kapak tasarlanmadı.
 >
-> **Şu anki durum: KİTAP 1 — FAZ 1 KURUCU ONAYI BEKLİYOR.**
-> Bkz. [`08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md`](08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md).
+> **Şu anki durum: KİTAP 1 — FAZ 1 YÜRÜTÜLDÜ, KURUCU ONAYI BEKLİYOR.**
+> Bkz. [`08_REPORTS/PHASE_1_EXECUTION_REPORT.md`](08_REPORTS/PHASE_1_EXECUTION_REPORT.md)
+> (yürütme, 20 bölüm) ve
+> [`08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md`](08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md)
+> (mimari).
+>
+> ⚠ **`TRUE FIT` bir ÇALIŞMA ADIDIR ve YAYIMLANAMAZ** — aynı sektörde
+> tescilli bir marka bulundu (`DECISIONS.md K18`,
+> [`08_REPORTS/PHASE_1_BRAND_SCREENING.md`](08_REPORTS/PHASE_1_BRAND_SCREENING.md)).
+> Bu deponun GitHub adı bu yüzden marka-nötrdür.
 
 ## Ne bu
 
@@ -44,6 +52,7 @@ Tek tek:
 python3 06_BUILD/validate_spec.py --verbose        # şema + bütünlük + kaynak otoritesi
 python3 06_BUILD/validate_structure.py --verbose   # belge + koruma + marka + izolasyon
 python3 06_BUILD/build_crosswalk.py --check        # devir haritası güncel mi
+python3 06_BUILD/qa_crosswalk.py --verbose         # devir haritası bütünlüğü (dokuz ilişki)
 python3 06_BUILD/qa_boundary.py --verbose          # kitap sınırı (seriye özgü)
 python3 06_BUILD/qa_claims.py --verbose            # iddia disiplini
 python3 06_BUILD/qa_terminology.py --verbose       # terim tutarlılığı
@@ -77,14 +86,25 @@ BOOK-01…03/     üç kitap projesi (kendi roadmap · spec · gate)
 
 ## Bir not — doğrulanmamış içerik hakkında
 
-Bu depodaki **106 taksonomi kaydının tamamı** şu anda
-`agent_drafted_unverified` durumundadır ve **sıfır kaynak kaydı**
-vardır. Bu bir eksiklik değil, açıkça kaydedilmiş bir **durum**tur:
-otoriter kalıp/uyum referansları satın alınması gereken basılı
-kitaplardır ve ajan künye uyduramaz.
+Faz 1 yürütmesi sonrası **gerçek** durum:
 
-Kaynak edinim bütçesi `OPEN_QUESTIONS.md → A3`'te kurucu kararı
-beklemektedir ve Faz 1'in **kapanış koşuludur**.
+| Katman | Doğrulandı | Toplam |
+|---|---|---|
+| Ölçü (`M-xxx`) | **16** | 32 |
+| Düzeltme ailesi (`AF-xx`) | **13** | 19 |
+| **Belirti (`SYM-xxx`)** | **0** | 43 |
+| Aday neden / ayırt edici kanıt | **0** | 129 |
+| Blok bileşeni (`BLK-xx`) | 0 | 12 |
+| Fiziksel sınama (`VAL-xxxx`) | — | **0 kayıt** |
+
+**Belirtilerin sıfırda kalması bir eksiklik değil, taramanın bulgusudur:**
+bir belirti kaydının çekirdek iddiası aynı belirtinin iki nedenini ayıran
+kanıttır ve **hiçbir kamu kaynağı bu ayrımı yapmaz.** Bu sınıfın birincil
+doğrulaması fizikseldir ve Faz 3'e aittir.
+
+15 kaynak kaydı vardır (6'sı tam metni okunmuş kurumsal otorite) ve
+Faz 1 **hiçbir ücretli kaynak satın alınmadan** kapandı —
+[`01_SOURCE/PUBLIC_SOURCE_SURVEY.md`](01_SOURCE/PUBLIC_SOURCE_SURVEY.md).
 
 ## Lisans
 

@@ -1,3 +1,9 @@
+> ⚠ **BU RAPOR BİR ANLIK GÖRÜNTÜDÜR — SPESİFİKASYON TURU.**
+> Sonraki **yürütme** turu bazı sayıları ve durumları değiştirdi
+> (kaynak sayısı 0 → 15, selftest 77 → 91, `A1`/`A3` ve on kararın
+> kapanması). Tarihsel kayıt bilerek **değiştirilmedi**; güncel durum
+> için: [`PHASE_1_EXECUTION_REPORT.md`](PHASE_1_EXECUTION_REPORT.md).
+
 # FAZ S1 RAPORU — SERİ MİMARİSİ + KİTAP 1 FAZ 1 SPESİFİKASYONU
 
 > **Faz durumu: READY_FOR_DECISION**

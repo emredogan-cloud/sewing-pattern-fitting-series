@@ -2,8 +2,11 @@
 
 **Rol: SORUNU GÖR.** Serinin edinme ürünü ve teşhis motoru.
 
-> **Durum: FAZ 1 KURUCU ONAYI BEKLİYOR** · kapı `foundation`
-> Rapor: [`08_REPORTS/PHASE_1_REPORT.md`](08_REPORTS/PHASE_1_REPORT.md)
+> **Durum: FAZ 1 YÜRÜTÜLDÜ — KURUCU ONAYI BEKLİYOR** · kapı `foundation`
+> Raporlar: [`08_REPORTS/PHASE_1_REPORT.md`](08_REPORTS/PHASE_1_REPORT.md)
+> (spesifikasyon) ·
+> [`../08_REPORTS/PHASE_1_EXECUTION_REPORT.md`](../08_REPORTS/PHASE_1_EXECUTION_REPORT.md)
+> (**yürütme — 20 bölüm**)
 
 ## Çözdüğü problem
 
@@ -44,10 +47,21 @@ Sınır kuralı: [`../00_CONTEXT/SERIES_CONTENT_ARCHITECTURE.md`](../00_CONTEXT/
 | [`00_SPEC/DIFFERENTIATION_TEST.md`](00_SPEC/DIFFERENTIATION_TEST.md) | **KİLL-GATE** test protokolü |
 | [`00_SPEC/PHASE_2_ROADMAP.md`](00_SPEC/PHASE_2_ROADMAP.md) | Faz 2 planı (YÜRÜTÜLMEDİ) |
 
-## Bilinen sınır
+## Bilinen sınır — Faz 1 yürütmesi sonrası
 
-Bu kitabın taksonomisi (43 belirti, 129 aday neden, 32 ölçü)
-**hiçbir dış teknik otoriteye karşı doğrulanmadı** ve **hiçbiri fiziksel
-olarak sınanmadı.** Tamamı `agent_drafted_unverified`. Kaynak edinim
-bütçesi kurucu kararı bekliyor (`../OPEN_QUESTIONS.md → A3`) ve bu,
-Faz 1'in **kapanış koşuludur**.
+| Katman | Durum |
+|---|---|
+| Ölçü (`M-xxx`) | **16 / 32 doğrulandı** · 7 kısmi · 9 kaynaksız |
+| Düzeltme ailesi (`AF-xx`) | **13 / 19 doğrulandı** · 4 kısmi · 2 kaynaksız |
+| **Belirti (`SYM-xxx`)** | **0 / 43** — ve bu **bilinçlidir** |
+| Aday neden / ayırt edici kanıt | **0 / 129** |
+| Fiziksel sınama | **0 kayıt** — plan hazır (19 kayıt) |
+
+**Belirtiler neden sıfırda:** bir belirti kaydının çekirdek iddiası aynı
+belirtinin iki nedenini ayıran kanıttır ve **hiçbir kamu kaynağı bu
+ayrımı yapmaz.** Bu sınıfın birincil doğrulaması **fizikseldir** ve
+Faz 3'e aittir (`00_SPEC/VALIDATION_PROTOCOL.md`).
+
+Faz 1 **hiçbir ücretli kaynak satın alınmadan** kapandı — 15 kaynak
+kaydı, 6'sı tam metni okunmuş kurumsal otorite
+(`../01_SOURCE/PUBLIC_SOURCE_SURVEY.md`).

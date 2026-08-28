@@ -4,6 +4,12 @@
 > Tarih: 28 Ağustos 2026 · Kitap kapısı: `foundation` (**ilerlemedi**)
 >
 > Seri bağlamı: [`../../08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md`](../../08_REPORTS/PHASE_1_SERIES_ARCHITECTURE.md)
+>
+> ⚠ **Bu rapor SPESİFİKASYON turunu anlatır.** Sonraki **YÜRÜTME**
+> turunun tam kaydı ayrı bir belgededir:
+> [`../../08_REPORTS/PHASE_1_EXECUTION_REPORT.md`](../../08_REPORTS/PHASE_1_EXECUTION_REPORT.md)
+> — 14 açık kararın 12'sinin kapatılması, kaynak katmanının kurulması
+> ve taksonominin kanıta bağlanması orada anlatılır.
 
 ---
 
@@ -77,9 +83,16 @@ Son satır **karşılanmadı** ve bu, fazın kapanmama nedenidir.
 
 ## 5 · SINIRLAMALAR
 
-1. **43 belirti, 129 neden, 32 ölçü — tamamı `agent_drafted_unverified`.**
-   Sıfır kaynak kaydı. `OPEN_QUESTIONS A3`.
-2. **Sıfır fiziksel doğrulama.** `VAL-xxxx` kaydı yok.
+1. ~~43 belirti, 129 neden, 32 ölçü — tamamı `agent_drafted_unverified`.
+   Sıfır kaynak kaydı.~~ → **YÜRÜTME TURUNDA KISMEN KAPANDI:**
+   15 kaynak kaydı açıldı; **16/32 ölçü** ve **13/19 düzeltme ailesi**
+   `technical_reference_verified`'e yükseltildi. **43 belirtinin hiçbiri
+   yükseltilMEDİ** — hiçbir kamu kaynağı aynı belirtinin iki nedenini
+   ayırmıyor (`00_SPEC/SOURCE_MAP.md § 6`). Faz 1 **hiçbir ücretli
+   kaynak satın alınmadan** kapandı (`DECISIONS.md K19`).
+2. **Sıfır fiziksel sınama.** `VAL-xxxx` kaydı yok — ama **plan
+   tamamlandı**: 2 toile + 3 parça, 19 kayıt, ≈$15–30, ≈20–25 saat
+   (`DECISIONS.md K29`).
 3. **Okur tanımı devralındı**, bu depoda doğrulanmadı.
 4. **Figür sayısı tahmin.** Faz 2'de ölçülür.
 5. **Sayfa/fiyat `PROVISIONAL`.**
@@ -88,8 +101,12 @@ Son satır **karşılanmadı** ve bu, fazın kapanmama nedenidir.
 
 ## 6 · Faz 2'ye giden yol
 
-`00_SPEC/PHASE_2_ROADMAP.md` — 8 görev, 11 DoD maddesi, altı kurucu
-kararının kapanması.
+`00_SPEC/PHASE_2_ROADMAP.md` — 8 görev, 11 DoD maddesi.
+
+**Yürütme turunun katkısı:** Faz 2'de kapanması beklenen altı kurucu
+kararından **beşi önceden kapatıldı** (`A4` `A6` `A7` `A8` `A11`).
+`A1`'in yerini `A15` aldı ve dış beklemededir. Faz 2 artık bir
+**karar toplama** fazı değil, saf bir **üretim ve ölçüm** fazıdır.
 
 **Faz 2 kurucu onayı olmadan AÇILMAZ.**
 

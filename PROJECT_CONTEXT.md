@@ -6,7 +6,17 @@
 > Son güncelleme: **28 Ağustos 2026** · Seri kapısı: **`bootstrap`** ·
 > Kitap kapıları: **book-01 = `foundation`**, book-02/03 = `init`
 >
-> **Durum: KİTAP 1 — FAZ 1 KURUCU ONAYI BEKLİYOR.**
+> **Durum: KİTAP 1 — FAZ 1 YÜRÜTÜLDÜ, KURUCU ONAYI BEKLİYOR.**
+>
+> Yürütme turunun tam kaydı (20 bölüm):
+> [`08_REPORTS/PHASE_1_EXECUTION_REPORT.md`](08_REPORTS/PHASE_1_EXECUTION_REPORT.md)
+>
+> ⚠ **Yeni ajanın önce bilmesi gereken üç şey:**
+> ① `TRUE FIT` bir **çalışma adıdır ve yayımlanamaz** — aynı sektörde
+> tescilli marka bulundu (`DECISIONS.md K18`).
+> ② 43 belirti kaydının **hiçbiri doğrulanmadı** ve bu bilinçlidir;
+> 16/32 ölçü ve 13/19 düzeltme ailesi doğrulandı (`SOURCE_MAP.md`).
+> ③ Depo **public** olarak yayımlandı; adı marka-nötrdür (`K32`).
 
 ---
 
@@ -18,8 +28,8 @@
 | Üretilmiş diyagram | **0** |
 | Tasarlanmış kapak | **0** |
 | KDP dosyası | **0** |
-| Kaynak kaydı | **0** — bilinçli, `OPEN_QUESTIONS A3` |
-| Taksonomi kaydı (belirti/aile/ölçü/blok) | **106** — tamamı `agent_drafted_unverified` |
+| Kaynak kaydı | **15** — 6'sı teknik otorite + tam metin okunmuş; **0 satın alma** |
+| Taksonomi kaydı (belirti/aile/ölçü/blok) | **106** — **29'u** `technical_reference_verified` (16 ölçü + 13 aile); **43 belirtinin hiçbiri değil** |
 | Crosswalk kaydı | **148** (129 teşhis→düzeltme, 19 düzeltme→blok, 21 açık istisna) |
 | Görsel notasyon token'ı | **18** — `DESIGN_TARGET_NOT_CALIBRATED` |
 | Fiziksel doğrulama kaydı | **0** |
@@ -67,10 +77,12 @@ mimarisi ve üretimdir.
 
 ## 5 · Bu projenin üç bilinen zayıflığı — sessizce unutulmasın
 
-### ① Sıfır kaynak, doğrulanmamış taksonomi
-106 kaydın tamamı ajan taslağıdır. Teknik doğruluk **henüz hiçbir dış
-otoriteye karşı sınanmadı.** `OPEN_QUESTIONS A3` bunun kurucu kararı
-olduğunu ve Faz 1'in kapanış koşulu olduğunu kaydeder.
+### ① Belirti–neden bağlarının hiçbiri doğrulanmadı
+Ölçü ve düzeltme ailesi katmanı kısmen kapandı (16/32 ve 13/19), ama
+**43 belirtinin ve 129 ayırt edici kanıtın hiçbiri** doğrulanmadı ve
+**hiçbiri fiziksel olarak sınanmadı**. Hiçbir kamu kaynağı aynı
+belirtinin iki nedenini ayırmıyor; bu sınıfın tek doğrulama yolu
+**fiziksel sınamadır** (Faz 3, 19 kayıtlık plan hazır).
 
 ### ② Farklılaşma hipotezi kanıtlanmadı
 "Teşhis-önce mimari daha anlaşılırdır" bir `HYPOTHESIS`'tir. Dayanağı
@@ -88,6 +100,7 @@ gerçek gibi kullanılamaz (`qa_claims.py` mekanik olarak korur).
 |---|---|---|
 | 2026-08-28 | S0 Bootstrap tamamlandı | `bootstrap` |
 | 2026-08-28 | S1 Seri mimarisi + Kitap 1 Faz 1 spesifikasyonu üretildi | `bootstrap` — **kurucu onayı bekliyor** |
+| 2026-08-28 | **S1 YÜRÜTME:** 14 açık kararın 12'si kapatıldı · kaynak katmanı kuruldu (15 kayıt, 0 satın alma) · taksonomi kanıta bağlandı · yeni crosswalk kapısı · depo public yayımlandı | `bootstrap` — **kurucu onayı bekliyor** |
 
 `.gate` bilerek `bootstrap`'ta bırakılmıştır: `series-architecture`'a
 yükseltme **kurucu onayına** bağlıdır (`SERIES_ROADMAP.md § S1 DoD 3`).
