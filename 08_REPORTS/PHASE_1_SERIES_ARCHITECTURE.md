@@ -65,7 +65,7 @@ Mekanik denetim: `validate_spec.py § check_book_phase1_requirements`.
 
 ## 4 · Kapıların gerçekten çalıştığının kanıtları
 
-Bir kapı, kendi kusurunu yakalamadıkça kapı değildir. Bu turda **dört**
+Bir kapı, kendi kusurunu yakalamadıkça kapı değildir. Bu turda **beş**
 gerçek yakalama oldu:
 
 | # | Kapı | Ne buldu | Sonuç |
@@ -74,10 +74,12 @@ gerçek yakalama oldu:
 | 2 | `qa_boundary.py` | `AF-19`'a hiçbir Kitap 1 belirtisinden ulaşılamıyor | **`SYM-043` eklendi** (K15) |
 | 3 | `qa_terminology.py` | Anahtar kelime belgesinde yasak eşanlamlı | Kural doğru, KAPSAM yanlıştı → ayrı `KEYWORD_FILES` muafiyeti (K14) |
 | 4 | **`selftest.py`** | Türkçe büyük "İ" kusuru **ÜÇÜNCÜ** bir doğrulayıcıda hâlâ açık | Katlama tek kopyaya çıkarıldı (K16) + regresyon testi |
+| 5 | `validate_structure.py` | `selftest.py`'nin KENDİ fixture'ı izolasyon ihlali üretiyordu | Fixture çalışma anında üretiliyor; kapı **muafiyet almadı** (K17) |
 
 Dördüncüsü özellikle değerlidir: kardeş projede *sonradan* bulunmuş bir
 kusurun bu depoda **üçüncü** bir yerde hâlâ açık olduğunu, kapının kendi
-testi buldu.
+testi buldu. Beşincisi ise kapının kendi test altyapısını yakaladı — ve
+çözüm bir muafiyet değil, fixture'ın yeniden yazılması oldu.
 
 ## 5 · Ölçümler
 

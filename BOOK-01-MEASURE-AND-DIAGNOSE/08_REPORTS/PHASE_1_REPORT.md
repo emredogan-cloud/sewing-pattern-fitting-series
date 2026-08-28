@@ -73,6 +73,7 @@ Son satır **karşılanmadı** ve bu, fazın kapanmama nedenidir.
 | `AF-19`'a Kitap 1'den ulaşılamıyor | `qa_boundary.py` | `SYM-043` eklendi |
 | `M-011` şema ihlali | `validate_spec.py` | İçerik düzeltildi |
 | Türkçe "İ" kusuru üçüncü doğrulayıcıda açık | `selftest.py` | `trfold.py` tek kopya + regresyon testi |
+| `selftest.py` fixture'ı izolasyon ihlali üretiyordu | `validate_structure.py` | Fixture çalışma anında üretiliyor; kapı muafiyet almadı |
 
 ## 5 · SINIRLAMALAR
 

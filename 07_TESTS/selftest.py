@@ -426,9 +426,17 @@ def test_sibling_dependency_detection():
         validate_structure.check_no_sibling_dependency(e)
         check("mimari ATIF yorumu izolasyon ihlali SAYILMIYOR",
               not any("fixture_sibling_probe" in x for x in e), f"errors={e}")
+        # ⚠ Kardeş depo adı BURADA LİTERAL OLARAK YAZILAMAZ: bu dosya da
+        # check_no_sibling_dependency tarafından taranır ve kendi
+        # fixture'ımız yanlış pozitif üretirdi (kardeş projelerde
+        # SONRADAN bulunan "doğrulayıcı kendi araç zincirini tarıyor"
+        # kusurunun tam karşılığı). Ad, çalışma anında yapılandırmadan
+        # okunur — böylece kapı ZAYIFLATILMADAN yanlış pozitif kalkar.
+        sibling = json.loads(paths.SERIES_CONFIG.read_text(encoding="utf-8"))[
+            "series"]["isolatedFrom"][0]
         probe.write_text(
             'from pathlib import Path\n'
-            'P = Path("../KOREAN-HANGUL-HANDWRITING-WORKBOOK/06_BUILD")\n', encoding="utf-8")
+            'P = Path("../%s/06_BUILD")\n' % sibling, encoding="utf-8")
         e2: list[str] = []
         validate_structure.check_no_sibling_dependency(e2)
         check("gerçek kardeş-depo BAĞIMLILIĞI YAKALANIYOR",

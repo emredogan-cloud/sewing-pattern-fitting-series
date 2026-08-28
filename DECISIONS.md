@@ -220,6 +220,30 @@ doğrulayıcı da oradan alır. `selftest.py` iki şeyi ayrıca dayatır:
 
 Bu kayıt, kapının gerçekten çalıştığının **dördüncü** kanıtıdır.
 
+
+## K17 · Test fixture'ları kardeş depo adını LİTERAL olarak taşıyamaz
+
+**28 Ağustos 2026 · Faz S1**
+
+`validate_structure.check_no_sibling_dependency`, `selftest.py`'nin
+KENDİ fixture'ını yakaladı: test, "gerçek bir kardeş-depo bağımlılığı
+yakalanıyor mu" diye sınamak için bir sonda dosyasına kardeş depo yolu
+yazıyordu — ve o yol satırı `selftest.py`'nin kendi kaynağında literal
+olarak duruyordu.
+
+Bu, kardeş sigorta projesinde SONRADAN bulunan **"doğrulayıcı kendi
+araç zincirini tarıyor"** kusurunun tam karşılığıdır (`K12` ailesinden).
+
+**İki çözüm vardı:**
+(a) `selftest.py`'yi taramadan muaf tutmak — kapıyı ZAYIFLATIR;
+(b) fixture dizesini çalışma anında `series_config.json`'dan üretmek.
+
+**(b) seçildi.** Kapı hiçbir muafiyet almadı; yanlış pozitif kaynağında
+ortadan kalktı. Test hâlâ ikisini de kanıtlıyor: mimari ATIF yorumu
+ihlal sayılmıyor, gerçek BAĞIMLILIK yakalanıyor.
+
+Bu kayıt, kapının gerçekten çalıştığının **beşinci** kanıtıdır.
+
 ---
 
 *Vâliçe Press · TRUE FIT · Decisions · 28 Ağustos 2026*

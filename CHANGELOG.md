@@ -22,7 +22,7 @@ kaydeder. Gerekçelerin tam metni `DECISIONS.md`'dedir; burada yalnızca
 - Araç zinciri: `paths.py`, `schema_lite.py`, `build_crosswalk.py`,
   `validate_spec.py`, `validate_structure.py`, `qa_boundary.py`,
   `qa_claims.py`, `qa_terminology.py`, `kill_gate.py`, `qa_all.sh`,
-  `selftest.py`.
+  `selftest.py` (77 denetim).
 - CI iş akışı; git deposu ve ilk commit.
 - Kitap 1 Faz 1'in **on zorunlu çıktısı** (`BOOK-01/00_SPEC/`).
 - Kitap 2 ve Kitap 3 yol haritaları (yürütülMEDİ).
@@ -46,6 +46,12 @@ kaydeder. Gerekçelerin tam metni `DECISIONS.md`'dedir; burada yalnızca
 - `qa_terminology.py` anahtar kelime belgesinde bir yasak eşanlamlı
   yakaladı; **kural doğru, kapsam yanlıştı** — ayrı bir `KEYWORD_FILES`
   muafiyeti eklendi ve gerekçesi kodda belgelendi (**K14**).
+- `selftest.py`, Türkçe büyük "İ" kusurunun **ÜÇÜNCÜ** bir doğrulayıcıda
+  (`validate_spec`) hâlâ açık olduğunu buldu — katlama tek kopyaya
+  çıkarıldı (**K16**) ve regresyon testi eklendi.
+- `validate_structure.py`, `selftest.py`'nin KENDİ fixture'ının izolasyon
+  ihlali ürettiğini yakaladı — fixture yeniden yazıldı, **kapı muafiyet
+  almadı** (**K17**).
 
 ### YAPILMAYAN (bilinçli)
 Manüskript · diyagram · kapak · KDP dosyası · reklam kampanyası ·
