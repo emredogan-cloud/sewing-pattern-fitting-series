@@ -17,8 +17,25 @@ run 06_BUILD/qa_boundary.py --verbose
 run 06_BUILD/qa_claims.py --verbose
 run 06_BUILD/qa_terminology.py --verbose
 run 06_BUILD/qa_visual.py --verbose
-run 06_BUILD/fetch_fonts.py --verify
 run 07_TESTS/selftest.py
+
+# ── RENDER KATMANI ────────────────────────────────────────────────────
+# Bu iki kapı reportlab/Pillow'a bağlıdır. Sekiz veri kapısı DEĞİL —
+# bağımlılık gizlenmedi, AYRILDI (07_TESTS/requirements-render.txt).
+# Bağımlılık yoksa çıkış kodu 2'dir ve UYARI sayılır, başarısızlık değil.
+echo "──────────────────────────────────────────────────────────────"
+"$PY" 06_BUILD/fetch_fonts.py --verify
+RC=$?
+if [ "$RC" -eq 1 ]; then FAIL=1; fi
+echo "──────────────────────────────────────────────────────────────"
+"$PY" 07_TESTS/selftest_visual.py
+RC=$?
+if [ "$RC" -eq 2 ]; then
+  echo "⚠ RENDER KATMANI ATLANDI — bağımlılık yok."
+  echo "  pip install -r 07_TESTS/requirements-render.txt"
+elif [ "$RC" -ne 0 ]; then
+  FAIL=1
+fi
 echo "──────────────────────────────────────────────────────────────"
 if [ "$FAIL" -eq 0 ]; then echo "✓ BÜTÜN KAPILAR GEÇTİ"; else echo "✗ EN AZ BİR KAPI BAŞARISIZ"; fi
 exit "$FAIL"

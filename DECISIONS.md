@@ -995,7 +995,7 @@ istisnadır (`ForbiddenDrawing`):
 
 `selftest.py`'ye **14 regresyon** eklendi ve her biri yasağın
 **gerçekten kırmızı yaktığını** kanıtlar — yanlış pozitif testleriyle
-birlikte. Toplam selftest: **91 → 125 denetim**.
+birlikte. Toplam selftest: **91 → 125 denetim** (sonra render katmanı ayrıldı — `K48`).
 
 ## K43 · Kroki bir çizim konvansiyonudur, antropometrik bir iddia DEĞİLDİR
 
@@ -1147,7 +1147,7 @@ oraya bir bağlayıcı çizilir.
 
 **Her iki kapı için selftest regresyonu eklendi** — yanlış pozitif
 testleriyle birlikte (`internal_marks=True` muafiyeti ve ayrık
-etiketler serbest kalmalıdır). Toplam selftest: **125 → 137 denetim**.
+etiketler serbest kalmalıdır). Toplam selftest: **125 → 140 denetim** (116 veri + 24 render).
 
 **Ders — `K45`'in tekrarı.** Üç bulgunun üçü de "kapı yeşil, ürün
 bozuk" sınıfındandır ve üçü de **üretilen sayfaya gözle bakılarak**
@@ -1189,3 +1189,54 @@ Dördü de "kapılar yeşil, ürün bozuk" sınıfındandır.
 **commit'e bakılarak** bulundu. Faz 4'ün yazılı kuralına bir madde
 daha eklenir: *her commit'ten önce `git status --untracked-files=all`
 çıktısı gözle okunur.*
+
+## K48 · KA hattı ikiye ayrıldı — veri kapıları bağımlılıksız kalır
+
+**28 Ağustos 2026 · Kitap 1 Faz 3 · CI kırmızı yandıktan sonra**
+
+**Bulgu.** İlk commit'ten sonra **CI kırmızı yandı**:
+
+```
+ModuleNotFoundError: No module named 'reportlab'
+  07_TESTS/selftest.py:35  →  import figure_tokens
+```
+
+`selftest.py`'ye eklenen çizim yasağı testleri `figure_tokens.py`'yi
+import ediyordu, o da reportlab'ı. Ama CI iş akışının kendi tasarım
+kuralı şudur (`validate.yml` başlığı): *"bu iş akışı ÜÇÜNCÜ TARAF PAKET
+KURMAZ. Bütün kalite kapıları Python standart kütüphanesiyle yazıldı."*
+
+**Yerelde görülmedi** çünkü reportlab yerelde kuruluydu.
+
+**Karar — bağımlılığı GİZLEME, AYIR.**
+
+| Katman | Dosya | Bağımlılık | CI işi |
+|---|---|---|---|
+| **Veri kapıları** | `selftest.py` + sekiz kapı | **YOK — stdlib** | `gates` `spec` `structure` `crosswalk` `boundary` `claims` `visual` `selftest` |
+| **Render katmanı** | `selftest_visual.py` · `figure_tokens.py` · `figure_engine.py` · `calibrate_tokens.py` | reportlab · Pillow · `pdftoppm` | **`render`** *(yeni)* |
+
+`qa_visual.py` **veri katmanında kaldı** — yalnızca JSON okur, hiçbir
+şey çizmez. Bu doğrudur: bir figür **kaydını** denetlemek için figürü
+**çizmek** gerekmez.
+
+**Bağımlılık açıkça beyan edildi:** `07_TESTS/requirements-render.txt`.
+
+**Yerel `qa_all.sh` ikisini de çalıştırır** ama render katmanının
+bağımlılığı yoksa **uyarı** verir, başarısızlık değil (çıkış kodu 2).
+Veri kapıları temiz bir Python kurulumunda çalışmaya devam eder —
+`selftest.py` reportlab ve Pillow **gizlenerek** de sınandı ve 116/116
+geçti.
+
+**`render` işi iki şeyi ayrıca denetliyor:**
+
+1. **`figures.json` bayat mı** — motor çalıştırılır ve `git diff
+   --exit-code` ile karşılaştırılır. Taksonomi değişip figür sicili
+   güncellenmezse CI **kırmızı yanar**.
+2. **Yazı tipleri gerçekten edinilebiliyor mu** — `fetch_fonts.py`
+   arşivden indirir ve SHA-256 doğrular. Manifest bozulursa CI yakalar.
+
+**Ders — `R-19`'un beşinci örneği.** Bu kez kusuru **CI buldu** ve bu
+CI'nin ne için var olduğudur. Ama bulmasının nedeni şanstır: eğer CI de
+reportlab kurmuş olsaydı, "veri kapıları bağımlılıksızdır" iddiası
+sessizce **yalan** hâline gelirdi ve kimse fark etmezdi. Bir mimari
+ilke, onu **sınayan bir mekanizma** olmadan bir dilektir.

@@ -32,7 +32,6 @@ import qa_terminology   # noqa: E402
 import build_crosswalk  # noqa: E402
 import qa_crosswalk     # noqa: E402
 import qa_visual        # noqa: E402
-import figure_tokens    # noqa: E402
 import croquis          # noqa: E402
 import trfold           # noqa: E402
 
@@ -636,121 +635,14 @@ def test_verification_summary_matches_records():
 
 
 # ─────────────────────────────────────────────────────────────────────
-# ⑬ GÖRSEL SİSTEM — Faz 2 kapıları
+# ⑬ GÖRSEL SİSTEM — VERİ katmanı
 #
-# Bu blok `qa_visual.py` ve `figure_tokens.py`'nin GERÇEKTEN kırmızı
-# yaktığını kanıtlar. Bir çizim yasağı, çizimi DURDURMUYORSA yasak
-# değildir; yalnızca bir belge cümlesidir.
+# ⚠ Çizim yasaklarının kendi testi BU DOSYADA DEĞİLDİR.
+# `figure_tokens.py` reportlab'a bağlıdır ve bu dosya ÜÇÜNCÜ TARAF
+# PAKET GEREKTİRMEZ — CI'nin sekiz kapı işi standart kütüphaneyle
+# çalışır ve saniyeler içinde biter. Render katmanının kendi testi:
+#   07_TESTS/selftest_visual.py  (CI işi: `render`)
 # ─────────────────────────────────────────────────────────────────────
-def _fc(w=200.0, h=200.0, surface="diagram"):
-    return figure_tokens.FigureCanvas(w, h, surface=surface)
-
-
-def _raises(fn) -> bool:
-    try:
-        fn()
-    except figure_tokens.ForbiddenDrawing:
-        return True
-    except Exception:
-        return False
-    return False
-
-
-def test_drawing_prohibitions_are_executable():
-    """VISUAL_STANDARD § 5'in her yasağı bir İSTİSNA üretmelidir."""
-    check("sayısal etiketsiz TK-02 (spread) çizimi REDDEDİLİYOR",
-          _raises(lambda: _fc().tk02_spread_arrow(10, 10, 60, 10, "")),
-          "etiketsiz spread oku çizilebildi")
-    check("sayısal etiketsiz TK-03 (overlap) çizimi REDDEDİLİYOR",
-          _raises(lambda: _fc().tk03_overlap_arrow(10, 10, 60, 10, "  ")),
-          "etiketsiz overlap oku çizilebildi")
-    check("ETİKETLİ spread oku SERBEST (yanlış pozitif yok)",
-          not _raises(lambda: _fc().tk02_spread_arrow(10, 10, 60, 10, "1 in")),
-          "etiketli ok reddedildi")
-    check("vücut figüründe TK-01 (slash line) REDDEDİLİYOR",
-          _raises(lambda: _fc(surface="body").tk01_slash_line(10, 10, 60, 60)),
-          "vücutta slash line çizilebildi")
-    check("KALIP yüzeyinde TK-01 SERBEST (yasak yüzeye özgüdür)",
-          not _raises(lambda: _fc(surface="pattern").tk01_slash_line(10, 10, 60, 60)),
-          "kalıpta slash line reddedildi")
-    check("ölçek beyanı olmayan kalıp parçası REDDEDİLİYOR",
-          _raises(lambda: _fc(surface="pattern").finish()),
-          "ölçeksiz kalıp parçası kapanabildi")
-    check("ölçek BEYAN EDİLİRSE kalıp parçası kapanıyor",
-          not _raises(lambda: _fc(surface="pattern").declare_scale("şematik") or
-                      None),
-          "ölçek beyanı çalışmıyor")
-    check("figür kutusunun DIŞINA çizim REDDEDİLİYOR",
-          _raises(lambda: _fc().line(10, 10, 10, 400)),
-          "taşan çizgi çizilebildi")
-    check("izin listesi dışı GRİ TONU REDDEDİLİYOR",
-          _raises(lambda: _fc().line(10, 10, 60, 10, gray=0.30)),
-          "tanımsız gri kullanılabildi")
-    check("baskı asgarisinin ALTINDA çizgi REDDEDİLİYOR",
-          _raises(lambda: _fc().line(10, 10, 60, 10, width=0.15)),
-          "0,15 pt çizgi çizilebildi")
-    check("asgari punto ALTINDA etiket REDDEDİLİYOR",
-          _raises(lambda: _fc().text(10, 10, "x", size=4.0)),
-          "4 pt etiket yazılabildi")
-    check("TK-14 adım numarası 1'den KÜÇÜK olamıyor",
-          _raises(lambda: _fc().tk14_step(50, 50, 0)),
-          "0. adım çizilebildi")
-    check("TK-18 devir düğümü AF etiketi OLMADAN çizilemiyor",
-          _raises(lambda: _fc().tk18_handoff_node(10, 10, 120, 30, "x", "")),
-          "AF'siz devir düğümü çizilebildi")
-    check("tanımsız token kullanımı REDDEDİLİYOR",
-          _raises(lambda: _fc().use("TK-99")),
-          "TK-99 kullanılabildi")
-
-
-def test_reader_facing_figures_carry_no_internal_ids():
-    """İç kayıt kimlikleri OKURA BASILAMAZ (TYPOGRAPHY_STANDARD § 3.4)."""
-    fc = _fc()
-    fc.text(10, 100, "See AF-01")
-    check("okura dönük figürde AF-xx kimliği REDDEDİLİYOR",
-          _raises(lambda: fc.finish()), "AF-01 basılabildi")
-    fc2 = _fc()
-    fc2.text(10, 100, "SYM-016")
-    check("okura dönük figürde SYM-xxx kimliği REDDEDİLİYOR",
-          _raises(lambda: fc2.finish()), "SYM-016 basılabildi")
-    fc3 = _fc()
-    fc3.text(10, 100, "Bust volume")
-    check("normal etiket SERBEST (yanlış pozitif yok)",
-          not _raises(lambda: fc3.finish()), "normal etiket reddedildi")
-    fc4 = _fc()
-    fc4.text(10, 100, "AF-01")
-    check("İÇ ARAÇ figüründe kimlik SERBEST (internal_marks)",
-          not _raises(lambda: fc4.finish(internal_marks=True)),
-          "iç araç figürü reddedildi")
-
-
-def test_labels_do_not_overlap():
-    """Çakışan iki ölçü etiketi yanlış okunur — bu bir HATA'dır."""
-    fc = _fc()
-    fc.text(20, 100, "high bust")
-    fc.text(24, 101, "bust apex")
-    check("ÜST ÜSTE BİNEN etiketler REDDEDİLİYOR",
-          _raises(lambda: fc.finish()), "çakışan etiketler geçti")
-    fc2 = _fc()
-    fc2.text(20, 100, "high bust")
-    fc2.text(20, 130, "bust apex")
-    check("ayrık etiketler SERBEST (yanlış pozitif yok)",
-          not _raises(lambda: fc2.finish()), "ayrık etiketler reddedildi")
-
-
-def test_token_usage_is_measured_not_declared():
-    """figures.json'daki notation_tokens BEYAN değil ÖLÇÜMDÜR."""
-    fc = _fc()
-    fc.tk08_apex(60, 60)
-    fc.tk04_pivot_point(120, 60)
-    used = fc.finish()
-    check("kullanılan token'lar çizimden TÜRETİLİYOR",
-          set(used) == {"TK-08", "TK-04"}, f"used={used}")
-    fc2 = _fc()
-    check("hiç çizim yapılmayan figürde token listesi BOŞ",
-          fc2.finish() == [], "boş figür token bildirdi")
-
-
 def test_qa_visual_catches_defects():
     """qa_visual.py kusurlu bir figür sicilini yakalamalıdır."""
     import copy
@@ -992,6 +884,145 @@ def test_croquis_fit_never_overflows():
     check("croquis.fit() hiçbir kutuda TAŞMIYOR", not bad, f"taşanlar={bad[:3]}")
 
 
+def test_build_scripts_are_tracked():
+    """Her build/test scripti git tarafından İZLENİYOR olmalıdır.
+
+    Bu test bir gerçek kusurdan doğdu: `.gitignore`'un sır deseni
+    çıplak `*_token*` arıyordu ve `06_BUILD/figure_tokens.py` ile
+    `06_BUILD/calibrate_tokens.py`'yi SESSİZCE dışarıda bırakıyordu.
+    Depo yerelde yeşil, temiz bir klonda ÇALIŞMAZ hâldeydi — ve
+    hiçbir kapı bunu görmüyordu (RISK_REGISTER R-19).
+    """
+    import subprocess
+    try:
+        out = subprocess.run(["git", "ls-files"], cwd=paths.ROOT,
+                             capture_output=True, text=True, check=True)
+        tracked = set(out.stdout.split())
+    except Exception:
+        check("git ls-files çalıştı", False, "git yok")
+        return
+    on_disk = {p.relative_to(paths.ROOT).as_posix()
+               for p in list(paths.BUILD.glob("*.py")) + list(paths.TESTS.glob("*.py"))
+               + list(paths.BUILD.glob("*.sh"))}
+    untracked = sorted(on_disk - tracked)
+    # Yeni eklenen ama henüz commit edilmemiş dosyalar `git add -A` ile
+    # gelir; test asıl olarak YOKSAYILAN dosyayı arar.
+    ignored = []
+    for f in untracked:
+        r = subprocess.run(["git", "check-ignore", "-q", f], cwd=paths.ROOT)
+        if r.returncode == 0:
+            ignored.append(f)
+    check("hiçbir build/test scripti .gitignore tarafından YUTULMUYOR",
+          not ignored, f"yoksayılan scriptler: {ignored}")
+
+
+def test_reader_language_layer():
+    """Figürler OKURUN dilinde çizilmelidir, proje belge dilinde değil."""
+    cfg = json.loads(paths.SERIES_CONFIG.read_text(encoding="utf-8"))["series"]
+    check("kitap dili ile belge dili AYRI alanlarda",
+          cfg.get("language") != cfg.get("documentLanguage"),
+          "iki dil aynı alanda karışmış")
+    check("okura dönük etiket katmanı MEVCUT",
+          paths.LABELS_EN.exists(), "labels_en.json yok")
+    lab = json.loads(paths.LABELS_EN.read_text(encoding="utf-8"))
+    signs = json.loads(paths.FIT_SIGNS.read_text(encoding="utf-8"))["signs"]
+    check("her belirtinin okura dönük karşılığı var",
+          all(s["symptom_id"] in lab["signs"] for s in signs),
+          "eksik belirti etiketi")
+    check("her aday nedenin okura dönük karşılığı var",
+          all(len(lab["signs"][s["symptom_id"]]["causes"]) == len(s["candidate_causes"])
+              for s in signs), "aday neden sayıları uyuşmuyor")
+    check("etiket katmanı DOĞRULAMA DURUMUNU değiştirmediğini beyan ediyor",
+          lab.get("does_not_change_verification_status") is True,
+          "bir çeviri katmanı bir doğrulama gibi sunulabilir hâlde")
+
+    # kusurlu fixture: bir belirtinin etiketini sil
+    import copy
+    real = paths.LABELS_EN.read_bytes()
+    bad = copy.deepcopy(lab)
+    victim = signs[0]["symptom_id"]
+    bad["signs"].pop(victim)
+    findings: list[str] = []
+    try:
+        paths.LABELS_EN.write_text(json.dumps(bad, ensure_ascii=False), encoding="utf-8")
+        qa_visual.check("book-01", findings, {})
+    finally:
+        paths.LABELS_EN.write_bytes(real)
+    check("qa_visual EKSİK okur etiketini yakalıyor",
+          any("okura dönük etiketi YOK" in x for x in findings),
+          f"findings={findings[:2]}")
+
+
+def test_page_geometry_respects_platform_minimums():
+    """Sayfa geometrisi KDP'nin asgarisini ihlal EDEMEZ — dosya reddedilir."""
+    geom = json.loads(paths.PAGE_GEOMETRY.read_text(encoding="utf-8"))
+    pm = geom["platform_minimums"]
+    band = pm["page_count_band_used"]
+    check("cilt payı KDP asgarisinin ÜSTÜNDE",
+          geom["margins"]["gutter_in"] >= pm["gutter_by_page_count_in"][band],
+          f"gutter={geom['margins']['gutter_in']} min={pm['gutter_by_page_count_in'][band]}")
+    om = pm["outside_margin_with_bleed_in"] if geom["trim"]["bleed"] \
+        else pm["outside_margin_no_bleed_in"]
+    check("dış/üst/alt kenar boşlukları KDP asgarisinin ÜSTÜNDE",
+          all(geom["margins"][e] >= om for e in ("outside_in", "top_in", "bottom_in")),
+          f"min={om}")
+    check("metin bloğu + yan sütun + boşluk = tam ölçü",
+          abs(geom["text_block"]["width_pt"] + geom["text_block"]["column_gap_pt"]
+              + geom["text_block"]["side_column_width_pt"]
+              - geom["text_block"]["total_measure_pt"]) < 0.01,
+          "sütun aritmetiği tutmuyor")
+    check("tam ölçü = trim − cilt payı − dış kenar",
+          abs(geom["text_block"]["total_measure_pt"]
+              - (geom["trim"]["width_pt"] - geom["margins"]["gutter_pt"]
+                 - geom["margins"]["outside_pt"])) < 0.01,
+          "sayfa aritmetiği tutmuyor")
+
+
+def test_calibration_is_not_claimed_without_evidence():
+    """`CALIBRATED` bir RAPORA bağlı olmadan yazılamaz — K10 disiplini."""
+    tokens = json.loads(paths.VISUAL_TOKENS.read_text(encoding="utf-8"))
+    st = tokens.get("status", "")
+    if st in qa_visual.CALIBRATED_STATES:
+        check("kalibrasyon iddiası bir RAPORA bağlı",
+              paths.CALIBRATION_REPORT.exists(), "calibration_report.json yok")
+        cal = tokens.get("calibration", {})
+        check("kalibrasyon bloğu ölçüm zincirini kaydediyor",
+              bool(cal.get("tool_chain")) and bool(cal.get("stroke_fidelity")),
+              "tool_chain/stroke_fidelity eksik")
+        check("kalibrasyon durumu DİJİTAL olduğunu AÇIKÇA söylüyor",
+              "DIGITAL" in st or "dijital" in " ".join(tokens.get("$comment", [])).lower(),
+              f"status={st} — basılı doğrulama iddiası yaratıyor")
+    else:
+        check("kalibre edilmemiş token dosyası durumunu dürüstçe söylüyor",
+              "NOT_CALIBRATED" in st, f"status={st}")
+
+
+def test_croquis_is_declared_non_anthropometric():
+    """Kroki oranları bir ÖLÇÜ İDDİASI değildir ve öyle sunulamaz."""
+    src = (ROOT / "06_BUILD" / "croquis.py").read_text(encoding="utf-8")
+    check("croquis.py antropometrik iddia taşımadığını AÇIKÇA yazıyor",
+          "ANTROPOMETRİK BİR" in src and "İDDİA DEĞİLDİR" in src,
+          "dürüstlük sınırı belgede yok")
+    check("kroki hiçbir kaynak kaydına atıf YAPMIYOR",
+          "S-00" not in src, "kroki bir kaynağa dayandırılmış görünüyor")
+
+
+def test_croquis_fit_never_overflows():
+    """fit() taşmayı en baştan imkânsız kılmalıdır."""
+    bad = []
+    for lo, hi in (("floor", "top_of_head"), ("thigh", "top_of_head"),
+                   ("high_hip", "top_of_head"), ("crotch", "chin")):
+        for w, h in ((200.0, 268.0), (140.0, 300.0), (300.0, 180.0)):
+            for arms in (True, False):
+                c = croquis.fit(w, h, lo, hi, arms=arms)
+                top, bot = c.y(hi), c.y(lo)
+                half = (croquis.MAX_HALF_FULL if arms else croquis.MAX_HALF_TORSO) * c.H
+                if bot < -0.01 or top > h + 0.01 or c.cx - half < -0.01 \
+                        or c.cx + half > w + 0.01:
+                    bad.append((lo, hi, w, h, arms))
+    check("croquis.fit() hiçbir kutuda TAŞMIYOR", not bad, f"taşanlar={bad[:3]}")
+
+
 def main():
     print("▸ selftest.py — kapıların kendi testi\n")
     for fn in (
@@ -1014,10 +1045,6 @@ def main():
         test_kill_gate_flag_cannot_be_flipped,
         test_verification_status_is_honestly_recorded,
         test_verification_summary_matches_records,
-        test_drawing_prohibitions_are_executable,
-        test_reader_facing_figures_carry_no_internal_ids,
-        test_labels_do_not_overlap,
-        test_token_usage_is_measured_not_declared,
         test_qa_visual_catches_defects,
         test_build_scripts_are_tracked,
         test_reader_language_layer,

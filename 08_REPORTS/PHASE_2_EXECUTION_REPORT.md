@@ -200,7 +200,7 @@ Komut: `bash 06_BUILD/qa_all.sh` · 28 Ağustos 2026
 | `qa_terminology.py` | ✓ 0 bulgu |
 | **`qa_visual.py`** *(yeni)* | ✓ **0 bulgu** — on denetim |
 | **`fetch_fonts.py --verify`** *(yeni)* | ✓ 10 dosya SHA-256 ile doğrulandı |
-| **`selftest.py`** | ✓ **138/138** *(önceki tur: 91)* |
+| **`selftest.py`** | ✓ **116/116** — veri katmanı *(önceki tur: 91)* |
 | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
 ## 7 · Bu fazın YAPMADIĞI

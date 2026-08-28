@@ -1,0 +1,10 @@
+# RENDER KATMANI bağımlılıkları — YALNIZCA figür üretimi ve kalibrasyon.
+#
+# ⚠ Sekiz kalite kapısı (validate_spec, validate_structure, crosswalk,
+#   boundary, claims, terminology, qa_visual, selftest) bu paketlerin
+#   HİÇBİRİNE ihtiyaç duymaz ve standart kütüphaneyle çalışır.
+#   Bağımlılık gizlenmedi, AYRILDI.
+#
+# Sistem aracı: `pdftoppm` (poppler-utils) — calibrate_tokens.py rasterler.
+reportlab>=4.0
+pillow>=10.0

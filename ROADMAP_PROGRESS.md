@@ -55,7 +55,7 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-28
 | Terminoloji | `qa_terminology.py` | ✓ 0 bulgu (30 belge · 20 terim) |
 | **Görsel sistem** *(yeni)* | `qa_visual.py` | ✓ **0 bulgu** — **on denetim** |
 | **Yazı tipi bütünlüğü** *(yeni)* | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
-| **Kapıların kendi testi** | `selftest.py` | ✓ **138/138** *(önceki tur: 91)* |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **116/116** — veri katmanı *(önceki tur: 91)* |
 | Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
 ## Görsel sistem — Faz 2 ÖLÇÜMLERİ
@@ -149,7 +149,7 @@ Tam kayıt: [`EXTERNAL_DEPENDENCIES.md`](EXTERNAL_DEPENDENCIES.md)
 | Depo adı | **marka-nötr** (`K32`) — `BEFORE YOU CUT` de kamuya taahhüt edilmedi |
 | Dal | `master` |
 | İzlenen dosya | **139** |
-| CI işi | **8** — `gates` · `spec` · `structure` · `crosswalk` · `boundary` · `claims` · **`visual`** *(yeni)* · `selftest` · `killgate` (tasarım gereği başarısız) |
+| CI işi | **10** — `gates` · `spec` · `structure` · `crosswalk` · `boundary` · `claims` · **`visual`** *(yeni)* · `selftest` · **`render`** *(yeni)* · `killgate` (tasarım gereği başarısız) |
 
 **Bilerek yayımlanMAYAN:** pilot prozası ve derlenmiş pilot PDF'i ·
 fiziksel sınama fotoğrafları · fark testi katılımcı verisi · telif
@@ -167,8 +167,8 @@ Tam liste: [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md).
 
 ## Alınmış kararlar
 
-**47 karar kayıtlı (`K1`–`K47`).** Bu turda **12 yeni kayıt**
-(`K36`–`K47`).
+**48 karar kayıtlı (`K1`–`K48`).** Bu turda **13 yeni kayıt**
+(`K36`–`K48`).
 
 Dördü, Faz 1 tahminlerinin **ölçümle yanlışlanmasıdır**: `K38` (yedek
 yazı tipi), `K39` (sayfa ölçüsü), `K40` (token kalibrasyonu),

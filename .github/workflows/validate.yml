@@ -156,6 +156,32 @@ jobs:
         with: { python-version: '3.12' }
       - run: python3 07_TESTS/selftest.py
 
+  render:
+    name: RENDER KATMANI (figür motoru · çizim yasakları)
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.12' }
+      - name: sistem aracı (pdftoppm)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: render bağımlılıkları
+        run: pip install -r 07_TESTS/requirements-render.txt
+      - name: yazı tiplerini edin ve SHA-256 ile doğrula
+        run: python3 06_BUILD/fetch_fonts.py
+      - name: ÇİZİM YASAKLARININ KENDİ TESTİ
+        run: python3 07_TESTS/selftest_visual.py
+      - name: figür motoru — sicil GÜNCEL mi
+        run: |
+          python3 06_BUILD/figure_engine.py --book book-01
+          git diff --exit-code -- BOOK-01-MEASURE-AND-DIAGNOSE/03_VISUAL/figures.json \
+            || { echo "::error::figures.json BAYAT — motoru çalıştırıp commit edin."; exit 1; }
+      - name: token kalibrasyonu — rapor GÜNCEL mi
+        run: |
+          python3 06_BUILD/calibrate_tokens.py
+          git diff --stat -- 03_VISUAL/calibration_report.json
+
   killgate:
     name: kill-gate ön koşulu (bilgi amaçlı)
     needs: gates
