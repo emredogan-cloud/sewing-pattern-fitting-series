@@ -9,8 +9,8 @@
 
 ## 1 · Faz 4 özeti
 
-Kitap 1'in **tam manüskripti üretildi**: 232 sayfa, 21 bölüm, 36 107
-kelime, 158 figür. Aynı turda dört hatlı bir **bağımsız teknik inceleme**
+Kitap 1'in **tam manüskripti üretildi**: 231 sayfa, 21 bölüm, 35 472
+kelime, 160 figür. Aynı turda dört hatlı bir **bağımsız teknik inceleme**
 yürütüldü ve **149 bulgu** üretti; bulguların **132'si revizyon gerektirdi**
 ve revizyonlar uygulandı.
 
@@ -45,13 +45,13 @@ Regresyon: `selftest.py § test_conditional_phase4_does_not_claim_kill_gate`
 
 | Ölçüt | Değer |
 |---|---:|
-| Sayfa | **232** (hedef bandı 220–260) |
+| Sayfa | **231** (hedef bandı 220–260) |
 | Bölüm (Parça 0 + 18 bölüm + ekler + atlas ayrımı) | **21** |
-| Kelime | **36 107** |
-| Bölge atlası | **177 sayfa** (kitabın %76'sı) |
+| Kelime | **35 472** |
+| Bölge atlası | **174 sayfa** (kitabın %76'sı) |
 | Belirti girişi | **43 / 43** |
-| Kullanılan ayrı figür | **158 / 158** yerleştirilebilir figürün tamamı |
-| Figür yerleşimi | **175** |
+| Kullanılan ayrı figür | **160 / 160** yerleştirilebilir figürün tamamı |
+| Figür yerleşimi | **176** |
 | Bölüm açılışı boş versosu | 13 — hiçbiri numara taşımıyor |
 
 **Mimari karar (`K50`):** Bölüm 2 (32 ölçü) ve bölge atlası (43 giriş)
@@ -198,13 +198,13 @@ kitap onu kurumsal bir kaynakta bulmadı."*
 
 | Ölçüt | Faz 2 | **Faz 4** |
 |---|---:|---:|
-| Toplam figür | 154 | **161** |
-| Deterministik | 105 (%68,2) | **112 (%69,6)** |
+| Toplam figür | 154 | **163** |
+| Deterministik | 105 (%68,2) | **114 (%69,9)** |
 | Akış şeması | 46 | **47** |
 | Tablo grafiği | 9 | **15** |
-| Kitapta kullanılan | — | **158 / 158** |
+| Kitapta kullanılan | — | **160 / 160** |
 
-**Yedi figür Faz 4'te eklendi** ve hepsi `CHAPTER_SPECS`'te yazılıydı
+**Dokuz figür Faz 4'te eklendi** ve hepsi `CHAPTER_SPECS`'te yazılıydı
 ama hiçbiri taksonomi kaydından türetilemezdi — karşılıkları bir kayıt
 değil bir **bölümdü**: üç sayı tablosu, yedi adımlı döngü şeması, on
 belirti sınıfı tablosu, eleme kontrol listesi ve üç boş form.
@@ -219,7 +219,7 @@ kalan 17'nin nedeni bir vücut farkı değildir (yapım, kumaş, beden).
 
 ## 10 · Kod ve dış görsel kararı
 
-**Karar: 161 figürün 161'i KOD ile üretildi. Dış görsel aracı
+**Karar: 163 figürün 161'i KOD ile üretildi. Dış görsel aracı
 KULLANILMADI.**
 
 Kurucu talimatı § 17–21 dış üretimi *"profesyonel kaliteyi maddi olarak
@@ -282,11 +282,11 @@ sayfa örneklemi yine **gözle** incelenmelidir.
 
 ## 12 · Sayfa sayısı
 
-**232 sayfa** · hedef bandı **220–260** · `build_book.py` her koşumda
+**231 sayfa** · hedef bandı **220–260** · `build_book.py` her koşumda
 denetliyor ve bant dışında **çıkış kodu 1** veriyor.
 
 Çelişmeli inceleme `B-08` bölge atlası için **100 sayfa** kısıtı
-yazmıştı. Atlas **177 sayfa** çıktı ve kısıt **aşıldı**.
+yazmıştı. Atlas **174 sayfa** çıktı ve kısıt **aşıldı**.
 
 Önce kapsam daraltıldı: 43 girişte tekrar eden dört blok ölçülerek
 kesildi ve atlas **127 → 115 sayfa**ya indi. Bu, `B-09`'un (işlevsel
@@ -300,15 +300,15 @@ figürü** (+25 sayfa).
 
 `B-08`'in 100 sayfalık rakamı, bu eklerin zorunlu olacağı bilinmeden
 yapılmış doğrusal bir tahmindi. **Kısıtın koruduğu gerçek şey** 300
-sayfada değişen cilt payıdır; 232 o bandın rahatça içindedir.
+sayfada değişen cilt payıdır; 231 o bandın rahatça içindedir.
 
 ## 13 · Figür sayısı
 
-**161 figür** · kitapta **158**'i kullanıldı · **3'ü iç araçtır ve
+**163 figür** · kitapta **160**'i kullanıldı · **3'ü iç araçtır ve
 kitaba giremez** (`build_book` ve `qa_manuscript` bunu denetler).
 
 Faz 2'nin 154'ü **final değildi** ve talimat § 25 bunu doğru öngörmüştü.
-Yedi figür eklendi. Kullanım oranı **%100**: yerleştirilebilir hiçbir
+Dokuz figür eklendi. Kullanım oranı **%100**: yerleştirilebilir hiçbir
 figür kitap dışında kalmadı.
 
 ## 14 · KA sonuçları
@@ -317,20 +317,20 @@ figür kitap dışında kalmadı.
 
 | Kapı | Sonuç |
 |---|---|
-| `validate_spec.py` | ✓ 0 hata — 18 kaynak · 43 belirti · **20 aile** · 32 ölçü · 148 crosswalk · **161 figür** |
-| `validate_structure.py` | ✓ 0 hata — **173 izlenen dosya** |
+| `validate_spec.py` | ✓ 0 hata — 18 kaynak · 43 belirti · **20 aile** · 32 ölçü · 148 crosswalk · **163 figür** |
+| `validate_structure.py` | ✓ 0 hata — **193 izlenen dosya** |
 | `build_crosswalk.py --check` | ✓ güncel (148) |
 | `qa_crosswalk.py` | ✓ 0 bulgu — **20/20** aileye ulaşılıyor |
 | `qa_boundary.py` | ✓ 0 bulgu (35 topik) |
 | `qa_claims.py` | ✓ 0 bulgu (42 belge) |
 | `qa_terminology.py` | ✓ 0 bulgu (31 belge) |
-| `qa_visual.py` | ✓ 0 bulgu — **on bir denetim** |
+| `qa_visual.py` | ✓ 0 bulgu — **on dört denetim** |
 | `build_claims.py --check` | ✓ güncel (**307 iddia**) |
 | `build_claim_map.py --check` | ✓ güncel |
 | **`qa_manuscript.py`** *(yeni)* | ✓ **0 bulgu — on bir denetim** |
-| `selftest.py` | ✓ **144/144** *(önceki tur 116)* |
+| `selftest.py` | ✓ **152/152** *(önceki tur 116)* |
 | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 |
-| **`build_book.py`** *(yeni)* | ✓ **232 sayfa**, bütçe içinde |
+| **`build_book.py`** *(yeni)* | ✓ **231 sayfa**, bütçe içinde |
 | `selftest_visual.py` | ✓ 27/27 |
 | `kill_gate.py` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
@@ -392,7 +392,7 @@ yerine geçmez.**
 |---|---|
 | Dal | `faz/4-production` — **itildi** (CI `faz/**` dallarını kapsıyor) |
 | Commit | 4 |
-| İzlenen dosya | **192** (önceki tur 139) |
+| İzlenen dosya | **193** (önceki tur 139) |
 | CI | **11 iş · 10 başarılı · 1 tasarım gereği başarısız** |
 | Temiz klon | ✓ doğrulandı — veri kapıları bağımlılıksız çalışıyor |
 
@@ -437,8 +437,8 @@ kanıtıdır.
 `phase3-pilot`'ın arkasındadır ve kill-gate ölçülmedi.
 
 Faz 5 için hazır olan: tam manüskript · 307 iddialık sicil ·
-izlenebilirlik haritası · **12 denetimli** manüskript kapısı ·
-**146 öz-test** · `D-10` ve `D-11` yazılı · **28 kayıtlık fiziksel
+izlenebilirlik haritası · **14 denetimli** manüskript kapısı ·
+**152 öz-test** · `D-10` ve `D-11` yazılı · **28 kayıtlık fiziksel
 sınama kiti** (`D-02` yapıldığında dokuz `Y-6` kaydı, 43 belirtinin
 28'indeki kanıt çakışmasının yüksek şiddetli olanlarını **çözmek**
 üzere hazır).

@@ -235,9 +235,9 @@ verebilmelidir.
 
 | # | Çıktı | Ölçüm |
 |---|---|---|
-| 1 | Tam manüskript | **232 sayfa · 21 bölüm · 36 107 kelime** |
+| 1 | Tam manüskript | **231 sayfa · 21 bölüm · 35 472 kelime** |
 | 2 | 43 belirti girişi | tamamı bölge atlasında · her biri yeniden gözlem adımı + belirtiye özgü eleme + "henüz değiştirme" taşıyor |
-| 3 | Figür entegrasyonu | **158/158** yerleştirilebilir figür kullanıldı · 175 yerleşim |
+| 3 | Figür entegrasyonu | **160/160** yerleştirilebilir figür kullanıldı · 175 yerleşim |
 | 4 | İddia sicili | **307 iddia**, kanıt seviyesi TÜREVdir |
 | 5 | İddia→kaynak haritası | `00_SPEC/CLAIM_SOURCE_MAP.md` (üretilen) |
 | 6 | Bağımsız teknik inceleme | dört hat · **149 bulgu** · 68 kaynak · **132 revizyon** |

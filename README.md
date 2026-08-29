@@ -4,8 +4,8 @@
 sorununu çözer: **kalıbı doğru uyguluyorum, giysi yine oturmuyor.**
 
 > ⚠ **Bu depo bir kitap DEĞİL, üç kitabı üretecek proje işletim
-> sistemidir.** Kitap 1'in manüskripti **üretildi** (232 sayfa, 21 bölüm,
-> 161 figür) ama **prozası bu depoda YAYIMLANMAZ** — yayın-öncesi içerik
+> sistemidir.** Kitap 1'in manüskripti **üretildi** (231 sayfa, 21 bölüm,
+> 163 figür) ama **prozası bu depoda YAYIMLANMAZ** — yayın-öncesi içerik
 > izlenmez (`.gitignore § ①`, `DECISIONS.md K9`). Depoya **ölçüm** girer,
 > **metin** girmez. Kapak tasarlanmadı.
 >
