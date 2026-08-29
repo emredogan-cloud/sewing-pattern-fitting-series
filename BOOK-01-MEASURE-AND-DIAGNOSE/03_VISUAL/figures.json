@@ -5217,11 +5217,11 @@
         ],
         [
           "Horizontal fold",
-          "Fabric standing in a fold across the body — excess LENGTH in that direction"
+          "Fabric standing in a fold across the body — excess LENGTH, the dimension at right angles to the fold"
         ],
         [
           "Vertical fold",
-          "Fabric standing in a fold up and down — excess WIDTH in that direction"
+          "Fabric standing in a fold up and down — excess WIDTH, the dimension at right angles to the fold"
         ],
         [
           "Drag line",

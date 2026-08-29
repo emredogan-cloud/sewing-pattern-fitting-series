@@ -1325,6 +1325,7 @@ def main():
         test_external_unavailable_is_not_a_pass,
         test_rule_out_list_is_one_list,
         test_cause_text_matches_its_destination,
+        test_sign_prose_has_exactly_one_copy,
     ):
         fn()
 
@@ -1640,6 +1641,44 @@ def test_flowchart_and_entry_agree_on_cause_order():
           not bad, f"{len(bad)} belirti ayrışıyor: {bad[:5]}")
     check("'cheapest test first' diyen her girişin ŞEMASI da bedava dalla başlıyor",
           not free_bad, f"{len(free_bad)}/{announced} şema ihlal ediyor: {free_bad[:5]}")
+
+
+def test_sign_prose_has_exactly_one_copy():
+    """Belirti prozasının İKİNCİ bir kopyası var mı.
+
+    ⚠ Faz 5'te GERÇEKLEŞTİ: `signs_en_a/b/c.json` adlı üç dosya
+    `sign_content_en.json` ile aynı 43 belirtiyi taşıyordu ama hiçbir
+    kod onları OKUMUYORDU. 43 belirtinin 17'sinde iki kopya AYRIŞMIŞTI.
+    İnceleme A'nın bulduğu iki KRİTİK yön hatasını düzeltirken ölü
+    kopyayı düzelttim ve düzeltme kitaba HİÇ ULAŞMADI — ancak dizilmiş
+    metni yeniden ölçtüğümde fark ettim.
+
+    Ölü kopyalar emekliye ayrıldı. Bu kapı yenisinin sessizce
+    doğmasını engeller. Desen `K16`/`K56`: bir davranış, bir kopya."""
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    if not mdir.exists():
+        skip("belirti prozası tek-kopya kapısı",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    canonical = mdir / "sign_content_en.json"
+    check("kanonik belirti prozası dosyası MEVCUT", canonical.exists())
+    if not canonical.exists():
+        return
+    canon = json.loads(canonical.read_text(encoding="utf-8"))
+    n_signs = len([k for k in canon if k.startswith("SYM-")])
+    check("kanonik dosya 43 belirtiyi taşıyor", n_signs == 43, str(n_signs))
+    dupes = []
+    for f in sorted(mdir.glob("*.json")):
+        if f == canonical:
+            continue
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if isinstance(d, dict) and sum(1 for k in d if k.startswith("SYM-")) >= 3:
+            dupes.append(f.name)
+    check("belirti prozasının İKİNCİ bir kopyası YOK",
+          not dupes, f"ikinci kopya: {dupes}")
 
 
 def test_cause_text_matches_its_destination():

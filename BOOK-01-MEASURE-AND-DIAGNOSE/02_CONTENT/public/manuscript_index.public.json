@@ -302,7 +302,7 @@
       "figures": 40,
       "signs_covered": [],
       "blocks": 166,
-      "words": 2743
+      "words": 2829
     },
     {
       "key": "ch03",
@@ -338,7 +338,7 @@
       "figures": 1,
       "signs_covered": [],
       "blocks": 29,
-      "words": 925
+      "words": 928
     },
     {
       "key": "ch06",
@@ -395,7 +395,7 @@
         "SYM-008"
       ],
       "blocks": 175,
-      "words": 5400
+      "words": 5423
     },
     {
       "key": "ch10",
@@ -415,7 +415,7 @@
         "SYM-015"
       ],
       "blocks": 148,
-      "words": 4244
+      "words": 4260
     },
     {
       "key": "ch11",
@@ -452,7 +452,7 @@
         "SYM-026"
       ],
       "blocks": 111,
-      "words": 3217
+      "words": 3233
     },
     {
       "key": "ch13",
@@ -533,7 +533,7 @@
         "SYM-043"
       ],
       "blocks": 99,
-      "words": 3024
+      "words": 3025
     },
     {
       "key": "ch17",

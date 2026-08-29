@@ -455,6 +455,16 @@ def main() -> int:
     for attempt in range(1, 7):
         ts, errors, chapters, claims_seen, sign_page, apx_page, part_page = run_pass(
             page_of, toc, index_blocks)
+        # ⚠ Ek C'nin ÖLÇÜLEN sayfası figür motoruna YAKINSAMA
+        # DENETİMİNDEN ÖNCE verilir: 43 akış şemasının çıkış kutusu
+        # kitabın tek giriş yoluna işaret ediyor ve locator taşımıyordu
+        # (İnceleme C). Denetimden sonra verilseydi döngü o değeri
+        # kullanmadan kapanabilirdi.
+        _apx_c = next((pg for nm, pg in apx_page
+                       if nm.startswith("Appendix C")), None)
+        if _apx_c and eng.ui.get("_apx_c_page") != _apx_c:
+            eng.ui["_apx_c_page"] = _apx_c
+            page_of = {}          # etiket değişti → bir tur daha ölç
         new_page_of = {c["key"]: c["page_start"] for c in chapters}
         new_toc = make_toc(chapters, apx_page, part_page)
         if new_page_of == page_of and new_toc == toc:

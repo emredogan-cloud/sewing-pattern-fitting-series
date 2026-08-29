@@ -201,7 +201,8 @@ class SignChart:
             self.rows.append({"cause": c, "cause_en": self._labels[i]["cause"],
                               "dec_text": dtxt, "dec_h": dh,
                               "af": af, "term_text": ttxt, "term_h": th_min})
-        self.tail_text = self.ui["not_this_sign"]
+        self.tail_text = self.ui["not_this_sign"].replace(
+            "{apx_c}", str(self.ui.get("_apx_c_page") or "")).replace(" (page )", "")
         self.tail_h, _ = self._box_h(self.tail_text, NODE["dec_w"], minimum=NODE["end_h"])
 
     def set_terminal_texts(self, af_names: dict):
@@ -245,7 +246,7 @@ class SignChart:
         for r in self.rows:
             out.append(("handoff", r["af"]) if r["af"]
                        else ("eliminate", r["cause_en"]))
-        out.append(("eliminate", self.ui["not_this_sign"]))
+        out.append(("eliminate", self.tail_text))
         return out
 
     # ── çizim ─────────────────────────────────────────────────────────

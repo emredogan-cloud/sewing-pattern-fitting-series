@@ -375,9 +375,17 @@ class AtlasBuilder:
                                      "measurement. This chapter is about repeatability "
                                      "more than it is about numbers."},
             {"type": "h2", "text": "Conditions"},
-            {"type": "para", "text": "Measure in the underwear you will wear with the "
-                                     "garment, and in shoes of the heel height you will "
-                                     "wear with it. Stand as you normally stand, not at "
+            {"type": "para", # ⚠ Faz 5 (İnceleme A-06): burası ÖLÇÜM bölümüdür ve kitabın kendi
+            # M-024/M-030 kayıtları "without shoes" diyor, hatta "measured
+            # wearing shoes" hatasını listeliyor. Bu cümle PROVA kuralını
+            # (Bölüm 5) tekrarlayıp ölçü kayıtlarıyla çelişiyordu.
+            "text": "Measure in the underwear you will wear with the "
+                                     "garment, and barefoot — two of these measurements "
+                                     "run to the floor and shoes change them. Note the "
+                                     "heel height you intend to wear instead: the "
+                                     "fitting session is done in those shoes, and the "
+                                     "hem is judged there, not here. Stand as you "
+                                     "normally stand, not at "
                                      "attention. Have someone else hold the tape wherever "
                                      "you can — nineteen of the measurements in this "
                                      "chapter cannot be taken reliably on yourself."},

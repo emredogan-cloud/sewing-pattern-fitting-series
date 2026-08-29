@@ -33,7 +33,7 @@
     "no": "No",
     "router_question": "WHERE does the fold or pull sit?",
     "sign_count": "{n} signs",
-    "not_this_sign": "Not this sign — go back to the sign index in Appendix C",
+    "not_this_sign": "Not this sign — go back to the sign index in Appendix C (page {apx_c})",
     "not_a_pattern_problem": "NOT a pattern problem — ",
     "eliminated": "Has {c} been ruled out?",
     "fix_first": "Fix this FIRST — do not touch the pattern",
@@ -170,8 +170,8 @@
       "observation": "Fabric gathers into a horizontal fold just below the shoulder seam, near the armhole.",
       "causes": [
         {
-          "cause": "Shoulder slope drawn too sloping for a square-shouldered wearer",
-          "evidence": "The fold is near the shoulder TIP and absent at the neck end."
+          "cause": "Shoulder slope drawn too square for a sloping-shouldered wearer",
+          "evidence": "The gathering is near the shoulder TIP and absent at the neck end."
         },
         {
           "cause": "Armhole cut too deep and the sleeve cap too high",
@@ -833,11 +833,11 @@
   "sign_classes": {
     "horizontal_fold": [
       "Horizontal fold",
-      "Fabric standing in a fold across the body — excess LENGTH in that direction"
+      "Fabric standing in a fold across the body — excess LENGTH, the dimension at right angles to the fold"
     ],
     "vertical_fold": [
       "Vertical fold",
-      "Fabric standing in a fold up and down — excess WIDTH in that direction"
+      "Fabric standing in a fold up and down — excess WIDTH, the dimension at right angles to the fold"
     ],
     "diagonal_drag_line": [
       "Drag line",

@@ -262,7 +262,7 @@
           "cause": "Omuz eğimi fazla eğik çizilmiş (dik omuzlu okur için)",
           "distinguishing_evidence": "Kıvrım omuz UCUNA yakın; boyun tarafında yok.",
           "confirming_measurement": "Omuz ucu yüksekliği vs. kalıp",
-          "physical_test": "Omuz ucunu kaldır.",
+          "physical_test": "Omuz ucunu 5–10 mm ALÇALT (dikişi aç ve aşağı iğnele): omuz ucundaki toplanma FAZLALIKTIR, kaldırmak onu artırır.",
           "adjustment_family_ref": "AF-03",
           "likelihood_note": null
         },
@@ -596,7 +596,7 @@
           "cause": "Ön/arka denge bozuk (öne eğik duruş)",
           "distinguishing_evidence": "Ön etek ucu ise AŞAĞI sarkıyor — ikisi birlikte.",
           "confirming_measurement": "M-032 (ön/arka boy farkı)",
-          "physical_test": "Omuz dikişinde arkayı indir/önü kaldır ve etek ucunu yeniden gözle.",
+          "physical_test": "Omuz dikişinde arkayı KALDIR / önü İNDİR (arka etek ucu yükseliyorsa arka KISADIR: boy EKLENİR; ön düşüyorsa önde FAZLALIK vardır: boy ALINIR) ve etek ucunu yeniden gözle.",
           "adjustment_family_ref": "AF-11",
           "likelihood_note": null
         }
@@ -1397,7 +1397,7 @@
           "cause": "Bel hattı yanlış hizada oturuyor (doğal belin altında)",
           "distinguishing_evidence": "Sıkışma bel altında, karın hizasında.",
           "confirming_measurement": "M-015/M-016 vs. kalıp; M-005",
-          "physical_test": "Bedeni uzat veya bel hattını yükselt.",
+          "physical_test": "Bedeni uzat/kısalt çizgisinden KISALT — bel dikişi doğal belin ALTINDAYSA beden UZUNDUR; uzatmak dikişi daha da aşağı iter. Sonra oturup yeniden dene.",
           "adjustment_family_ref": "AF-11",
           "likelihood_note": null
         },
