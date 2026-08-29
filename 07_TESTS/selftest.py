@@ -1316,6 +1316,7 @@ def main():
         test_appendices_print_in_letter_order,
         test_no_duplicate_chapter_number,
         test_heading_travels_with_its_content,
+        test_measurement_figure_travels_with_its_text,
     ):
         fn()
 
@@ -1581,6 +1582,46 @@ def test_no_duplicate_chapter_number():
           not any(re.match(r"^\d+[a-z]\b", t) for t in _bb.CHAPTER_TITLES.values()),
           str([t for t in _bb.CHAPTER_TITLES.values()
                if re.match(r"^\d+[a-z]\b", t)]))
+
+
+def test_measurement_figure_travels_with_its_text():
+    """Ölçü figürü, kendi metniyle AYNI sayfada mı ayrılıyor.
+
+    Faz 5'te ölçülen: Bölüm 2'de birim `h3 → para → bullets → figure`.
+    Ayırma yalnızca ilk paragrafa bakıyordu; figür 4. bloktu ve 29
+    ölçüm figürünün HEPSİ metninden bir sayfa sonra, üstelik BİR SONRAKİ
+    ölçünün başlığının üstünde basılıyordu."""
+    why = _render_layer_missing()
+    if why:
+        skip("ölçü figürü birlikteliği kapısı", why)
+        return
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        T, ts = _mini_typesetter(Path(d) / "t.pdf")
+        meta = {"meas_X": {"width_pt": 300.0, "height_pt": 380.0}}
+        unit = [{"type": "h3", "text": "High bust"},
+                {"type": "para", "text": "Horizontal, passing under the arms."},
+                {"type": "bullets", "items": ["error one", "error two"]},
+                {"type": "figure", "key": "meas_X",
+                 "caption": "High bust: the path the tape takes."}]
+        # sayfanın yarısı dolu: birim sığmaz, BİRLİKTE kaymalı
+        ts.y = ts.bottom + (ts.top - ts.bottom) * 0.45
+        p0 = ts.page
+        ts.reserve_group(unit, 0, meta)
+        check("ölçü birimi sığmıyorsa başlık FİGÜRLE BİRLİKTE kayıyor",
+              ts.page == p0 + 1)
+        # boş sayfada birim sığar: gereksiz sayfa açılmamalı
+        ts.y = ts.top
+        p1 = ts.page
+        ts.reserve_group(unit, 0, meta)
+        check("boş sayfada ölçü birimi için sayfa AÇILMIYOR", ts.page == p1)
+        # figürsüz bir başlık eski davranışı korumalı
+        plain = [{"type": "h3", "text": "Conditions"},
+                 {"type": "para", "text": "Short."}]
+        ts.y = ts.top
+        p2 = ts.page
+        ts.reserve_group(plain, 0, {})
+        check("figürsüz başlık davranışı DEĞİŞMEDİ", ts.page == p2)
 
 
 def test_heading_travels_with_its_content():

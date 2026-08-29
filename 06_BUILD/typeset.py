@@ -308,8 +308,49 @@ class Typesetter:
             return min(n + 1, 4) * self.lead
         return 0.0
 
+    def full_h(self, b: dict, meta: dict) -> float:
+        """Bloğun TAM yüksekliği (ilk parçası değil)."""
+        k = b.get("type")
+        if k in ("para", "lead"):
+            return len(self._wrap(str(b.get("text", "")), self.tw, "serif",
+                                  self.body)) * self.lead + self.lead * 0.45
+        if k in ("bullets", "numbered"):
+            pad = 14.0 if k == "bullets" else 18.0
+            n = sum(len(self._wrap(str(x), self.tw - pad, "serif", self.body))
+                    for x in (b.get("items") or []))
+            return n * self.lead + self.lead * 0.45
+        return self.chunk_h(b, meta)
+
     def reserve_group(self, blocks: list, i: int, meta: dict):
-        """Başlık + ona yapışık paragraflar + ilk bölünmez parça."""
+        """Başlık + ona yapışık metin + (varsa) ONA AİT FİGÜR.
+
+        ⚠ Faz 5'te ÖLÇÜLEN kusur: Bölüm 2'de her ölçü birimi
+        `h3 → para → bullets → figure` sırasındadır. Ayırma yalnızca ilk
+        paragrafa kadar bakıyordu, figür 4. bloktaydı ve HİÇBİR ZAMAN
+        aynı sayfaya sığmıyordu. Sonuç: 29 ölçüm figürünün hepsi kendi
+        metninden BİR SAYFA SONRA basılıyor, üstelik BİR SONRAKİ ölçünün
+        başlığının hemen ÜSTÜNDE duruyordu — okur şeridin yolunu yanlış
+        ölçüye ait sanır. Birim bir sayfaya sığıyorsa artık bütün ayrılır.
+        Regresyon: 07_TESTS/selftest.py § test_measurement_figure_travels_with_its_text
+        """
+        page = self.top - self.bottom
+        ATTACH = ("para", "lead", "bullets", "numbered")
+        # ① başlık + yapışık metin + İLK FİGÜR bir sayfaya sığıyor mu
+        h = self.head_h(blocks[i]["type"])
+        j = i + 1
+        while j < len(blocks) and j - i <= 5:
+            k = blocks[j].get("type")
+            if k == "figure":
+                h += self.chunk_h(blocks[j], meta)
+                if h <= page:
+                    self._need(h)
+                    return
+                break
+            if k not in ATTACH:
+                break
+            h += self.full_h(blocks[j], meta)
+            j += 1
+        # ② genel kural: başlık + yapışık paragraflar + ilk bölünmez parça
         h = self.head_h(blocks[i]["type"])
         j = i + 1
         while j < len(blocks) and blocks[j].get("type") in ("para", "lead") \
@@ -318,7 +359,7 @@ class Typesetter:
             j += 1
         if j < len(blocks):
             h += self.chunk_h(blocks[j], meta)
-        self._need(min(h, self.top - self.bottom))
+        self._need(min(h, page))
 
     def _no_widow_break(self, line_counts: list, lead: float, min_tail: int = 2):
         """Bir listenin kuyruğunda dul satır kalacaksa listeyi bütün taşır.
