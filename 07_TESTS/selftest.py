@@ -1056,6 +1056,17 @@ def test_manuscript_gate_catches_missing_reobservation():
     a.content[sid]["partial"] = saved
     check("boş 'azaldı ama gitmedi' metni girişi BOŞ bırakıyor",
           txt2.rstrip().endswith("as well:"))
+    # ⑫ başlık/ilk cümle tekrarı — DİZİLMİŞ SAYFADA bulundu, kapıda değil
+    check("aynı cümle başlık ve paragraf olarak İKİ KEZ basılmıyor",
+          not any(_atlas._too_similar(b["text"], nb.get("text", ""))
+                  for b, nb in zip(blocks, blocks[1:])
+                  if b.get("type") == "h2" and nb.get("type") == "para"))
+    check("benzerlik ölçütü GERÇEKTEN ayırıyor",
+          _atlas._too_similar("The side seam swings toward the back at hip level",
+                              "The side seam, at hip level.")
+          and not _atlas._too_similar(
+              "A horizontal fold crosses the back",
+              "Fabric pools below the seat forming an empty pouch"))
 
 
 def test_manuscript_gate_rejects_overclaim():

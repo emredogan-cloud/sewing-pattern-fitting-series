@@ -13,7 +13,8 @@
     "",
     "⚠ KARDEŞ PROJELERDEN YAPISAL FARK: bu bir SERİ deposudur, tek kitap",
     "  deposu değil. Üç kitap TEK depoda, TEK araç zinciriyle, İKİ KATMANLI",
-    "  kapı sistemiyle yaşar (DECISIONS.md K2, K3)."
+    "  kapı sistemiyle yaşar (DECISIONS.md K2, K3).",
+    "FAZ 4: book-01.gate → phase4-production-conditional. Bu seviye kümülatif sırada phase3-pilot'ın ÖNÜNDEDİR; 'P3 geçildi' HÂLÂ YANLIŞTIR."
   ],
   "series": {
     "id": "true-fit-sewing-pattern-fitting-series",
@@ -108,8 +109,30 @@
         28.99
       ],
       "formatProvisional": "8.5x11 ciltsiz",
-      "gate": "phase2-visual",
-      "previousWorkingTitle": "True Fit 1 — Measure & Diagnose"
+      "gate": "phase4-production-conditional",
+      "previousWorkingTitle": "True Fit 1 — Measure & Diagnose",
+      "phase4": {
+        "$comment": "Faz 4 KOŞULLU olarak yürütüldü (DECISIONS.md K49). Kurucu, P3'ün iki dış ölçümü beklenmeden üretimin sürmesine izin verdi ve eksik sonuçların PASS yazılmasını AÇIKÇA yasakladı. Aşağıdaki iki durum alanı bu yüzden 'external_pending' olarak KALIR.",
+        "status": "production_complete_validation_pending",
+        "producedOn": "2026-08-29",
+        "pages": 232,
+        "chapters": 21,
+        "words": 36107,
+        "figuresUsed": 158,
+        "claims": 307,
+        "physical_validation_status": "external_pending",
+        "differentiation_test_status": "external_pending",
+        "independentReview": {
+          "lines": 4,
+          "findings": 149,
+          "sources": 68,
+          "revisionsRequired": 132,
+          "evidenceCollisions": 28,
+          "report": "08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md",
+          "rawOutput": "08_REPORTS/tracked/phase4_review/",
+          "$comment": "AI incelemesidir. İNSAN UZMAN İNCELEMESİ DEĞİLDİR ve D-01'in yerine geçmez (K6)."
+        }
+      }
     },
     {
       "id": "book-02",

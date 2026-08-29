@@ -4,18 +4,29 @@
 sorununu çözer: **kalıbı doğru uyguluyorum, giysi yine oturmuyor.**
 
 > ⚠ **Bu depo bir kitap DEĞİL, üç kitabı üretecek proje işletim
-> sistemidir.** Manüskript yazılmadı; **bir pilot kesit** (8 sayfa)
-> ve **154 figür** üretildi. Kapak tasarlanmadı.
+> sistemidir.** Kitap 1'in manüskripti **üretildi** (232 sayfa, 21 bölüm,
+> 161 figür) ama **prozası bu depoda YAYIMLANMAZ** — yayın-öncesi içerik
+> izlenmez (`.gitignore § ①`, `DECISIONS.md K9`). Depoya **ölçüm** girer,
+> **metin** girmez. Kapak tasarlanmadı.
 >
-> ## Şu anki durum: KİTAP 1 — FAZ 2 TAMAM · FAZ 3 KILL-GATE'İNDE DURDU
+> ## Şu anki durum: KİTAP 1 — FAZ 4 ÜRETİMİ TAMAM (KOŞULLU) · KILL-GATE HÂLÂ AÇIK
 >
-> Faz 3'ün iki ölçümü de **dış dünyada** yapılır ve **yapılmadı**:
-> üç gerçek ev dikişçisiyle fark testi, ve 19 kayıtlık fiziksel
-> doğrulama. `06_BUILD/kill_gate.py` **2 engel** raporluyor —
-> **Faz 4 açılamaz.**
+> Faz 4, kurucu geçersiz kılmasıyla (`DECISIONS.md K49`) P3'ün kill-gate'i
+> **beklenmeden** yürütüldü. Eksik ölçümler **PASS yazılmadı ve
+> yazılamaz**: kitap kapısı `phase4-production-conditional`'dır ve
+> kümülatif sırada `phase3-pilot`'ın **ÖNÜNDEDİR**.
 >
-> Raporlar: [`08_REPORTS/PHASE_2_EXECUTION_REPORT.md`](08_REPORTS/PHASE_2_EXECUTION_REPORT.md)
-> · [`08_REPORTS/PHASE_3_PILOT_PACKAGE.md`](08_REPORTS/PHASE_3_PILOT_PACKAGE.md)
+> `06_BUILD/kill_gate.py` hâlâ **2 engel** raporluyor. İki ölçüm de dış
+> dünyada yapılır ve **yapılmadı**: üç ev dikişçisiyle fark testi, ve
+> 19 kayıtlık fiziksel doğrulama. **`phase5-qa` bu yoldan açılamaz.**
+>
+> Bu turda dört hatlı bir **bağımsız teknik inceleme** yürütüldü:
+> **149 bulgu**, 68 kaynak, **132 revizyon** — ve incelenen iddialardan
+> **yalnızca biri** değişmeden ayakta kaldı. AI incelemesidir;
+> **insan doğrulamasının yerine geçmez** (`K6`).
+>
+> Raporlar: [`08_REPORTS/PHASE_4_EXECUTION_REPORT.md`](08_REPORTS/PHASE_4_EXECUTION_REPORT.md)
+> · [`08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md`](08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)
 > · [`08_REPORTS/PHASE_3_ADVERSARIAL_REVIEW.md`](08_REPORTS/PHASE_3_ADVERSARIAL_REVIEW.md)
 > · dış bağımlılıklar: [`EXTERNAL_DEPENDENCIES.md`](EXTERNAL_DEPENDENCIES.md)
 >

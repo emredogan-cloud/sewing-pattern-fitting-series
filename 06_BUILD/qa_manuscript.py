@@ -23,6 +23,7 @@ Denetimler:
   ⑨  İç araç figürü kitaba kondu mu
   ⑩  Sayfa bütçesi bandın içinde mi                         (B-08)
   ⑪  İddia sicilindeki her maddi iddia metinden İZLENEBİLİR mi (§ 15)
+  ⑫  Giriş başlığı ile ilk cümlesi aynı şeyi mi söylüyor
 """
 from __future__ import annotations
 
@@ -34,6 +35,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import paths  # noqa: E402
+import atlas as atlas_mod  # noqa: E402
 from atlas import AtlasBuilder  # noqa: E402
 import bookplan  # noqa: E402
 
@@ -142,6 +144,15 @@ def main() -> int:
             findings.append(f"④ {sid}: belirtiye özgü eleme yok (B-03).")
         if not any(b.get("type") == "callout" for b in blocks):
             findings.append(f"⑤ {sid}: 'henüz değiştirme' uyarısı yok.")
+        # ⑫ başlık ile ilk cümle aynı şeyi söylüyor mu (sayfada bulundu)
+        heads = [b for b in blocks if b.get("type") == "h2"]
+        idx_h = blocks.index(heads[0]) if heads else -1
+        nxt = blocks[idx_h + 1] if 0 <= idx_h < len(blocks) - 1 else {}
+        paras = [nxt] if nxt.get("type") == "para" else []
+        if heads and paras and atlas_mod._too_similar(heads[0]["text"],
+                                                      paras[0]["text"]):
+            findings.append(f"⑫ {sid}: başlık ile ilk paragraf aynı şeyi "
+                            f"söylüyor — okur cümleyi iki kez okuyor.")
 
     # ⑥ her ölçü bir figürle
     ch02 = chapters.get("ch02", [])
@@ -226,7 +237,7 @@ def main() -> int:
         if len(findings) > 40:
             print(f"    … ve {len(findings)-40} bulgu daha")
     else:
-        print("  ✓ 0 bulgu (on bir denetim)")
+        print("  ✓ 0 bulgu (on iki denetim)")
     if args.json:
         out = Path(args.json); out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps({"findings": findings, "stats": stats,

@@ -77,6 +77,18 @@ CONFOUNDER_EN = {
 
 SIZE_FAMILY = "AF-18"   # B-02: bir teşhis değil, bir ÇIKIŞ kapısı
 
+# Başlık ile gözlem cümlesi aynı şeyi söylüyorsa ikisini birden basmak
+# tekrardır. Eşik ölçülerek seçildi: 43 girişin benzerlik dağılımında
+# 0,55 altındaki tek çift gerçekten farklı bilgi taşıyor.
+TITLE_OBS_SIMILARITY = 0.55
+
+
+def _too_similar(a: str, b: str) -> bool:
+    import difflib
+    return difflib.SequenceMatcher(
+        None, a.lower().rstrip("."), b.lower().rstrip(".")
+    ).ratio() > TITLE_OBS_SIMILARITY
+
 
 def load(p):
     return json.loads(Path(p).read_text(encoding="utf-8"))
@@ -125,8 +137,21 @@ class AtlasBuilder:
         out: list = []
 
         out.append({"type": "h2", "text": c["title"], "claims": [sid]})
-        out.append({"type": "para",
-                    "text": f"{lab['observation']} {c['where']}"})
+        # ⚠ SAYFAYA BAKILARAK BULUNDU. İlk sürüm başlığın hemen ardına
+        # gözlem cümlesini basıyordu ve 43 girişin 41'inde ikisi AYNI
+        # ŞEYİ söylüyordu — sekizi kelimesi kelimesine. Okur her girişe
+        # aynı cümleyi iki kez okuyarak başlıyordu.
+        #
+        # Hiçbir otomatik kapı bunu görmüyordu: iki alan da doluydu,
+        # ikisi de geçerliydi, ikisi de doğruydu. Yalnızca DİZİLMİŞ
+        # sayfada görünüyordu. (R-19'un bu turdaki üçüncü örneği.)
+        # Paragraf, başlığın SÖYLEMEDİĞİ parçalardan kurulur. Hiçbir
+        # parça yeni bilgi taşımıyorsa paragraf HİÇ BASILMAZ — başlık
+        # zaten her şeyi söylemiştir ve bir kez söylemek yeter.
+        parts = [x for x in (lab["observation"].rstrip(), c["where"])
+                 if not _too_similar(c["title"], x)]
+        if parts:
+            out.append({"type": "para", "text": " ".join(parts)})
         if c.get("origin"):
             out.append({"type": "side", "title": "Where it comes from",
                         "text": c["origin"]})

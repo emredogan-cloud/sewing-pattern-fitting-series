@@ -6,7 +6,7 @@
   "generated_by": "06_BUILD/build_book.py",
   "book": "book-01",
   "charts_included": true,
-  "pages_total": 232,
+  "pages_total": 230,
   "page_target": [
     220,
     260
@@ -394,16 +394,16 @@
         "SYM-007",
         "SYM-008"
       ],
-      "blocks": 177,
-      "words": 4645
+      "blocks": 175,
+      "words": 4511
     },
     {
       "key": "ch10",
       "part": 4,
       "generated": true,
       "page_start": 108,
-      "page_end": 128,
-      "pages": 21,
+      "page_end": 127,
+      "pages": 20,
       "figures": 15,
       "signs_covered": [
         "SYM-009",
@@ -414,16 +414,16 @@
         "SYM-014",
         "SYM-015"
       ],
-      "blocks": 149,
-      "words": 3454
+      "blocks": 148,
+      "words": 3359
     },
     {
       "key": "ch11",
       "part": 4,
       "generated": true,
-      "page_start": 128,
+      "page_start": 127,
       "page_end": 145,
-      "pages": 18,
+      "pages": 19,
       "figures": 13,
       "signs_covered": [
         "SYM-016",
@@ -433,8 +433,8 @@
         "SYM-020",
         "SYM-021"
       ],
-      "blocks": 134,
-      "words": 3270
+      "blocks": 132,
+      "words": 3160
     },
     {
       "key": "ch12",
@@ -452,7 +452,7 @@
         "SYM-026"
       ],
       "blocks": 111,
-      "words": 2528
+      "words": 2464
     },
     {
       "key": "ch13",
@@ -468,16 +468,16 @@
         "SYM-029",
         "SYM-030"
       ],
-      "blocks": 92,
-      "words": 2003
+      "blocks": 90,
+      "words": 1943
     },
     {
       "key": "ch14",
       "part": 4,
       "generated": true,
       "page_start": 173,
-      "page_end": 187,
-      "pages": 15,
+      "page_end": 186,
+      "pages": 14,
       "figures": 9,
       "signs_covered": [
         "SYM-031",
@@ -485,16 +485,16 @@
         "SYM-033",
         "SYM-034"
       ],
-      "blocks": 97,
-      "words": 2208
+      "blocks": 96,
+      "words": 2154
     },
     {
       "key": "ch15",
       "part": 4,
       "generated": true,
-      "page_start": 187,
-      "page_end": 202,
-      "pages": 16,
+      "page_start": 186,
+      "page_end": 199,
+      "pages": 14,
       "figures": 11,
       "signs_covered": [
         "SYM-035",
@@ -504,14 +504,14 @@
         "SYM-039"
       ],
       "blocks": 114,
-      "words": 2514
+      "words": 2453
     },
     {
       "key": "ch16",
       "part": 5,
       "generated": false,
-      "page_start": 204,
-      "page_end": 208,
+      "page_start": 202,
+      "page_end": 206,
       "pages": 5,
       "figures": 3,
       "signs_covered": [],
@@ -522,8 +522,8 @@
       "key": "ch16_atlas",
       "part": 5,
       "generated": true,
-      "page_start": 208,
-      "page_end": 221,
+      "page_start": 206,
+      "page_end": 219,
       "pages": 14,
       "figures": 9,
       "signs_covered": [
@@ -532,15 +532,15 @@
         "SYM-042",
         "SYM-043"
       ],
-      "blocks": 100,
-      "words": 2331
+      "blocks": 99,
+      "words": 2272
     },
     {
       "key": "ch17",
       "part": 5,
       "generated": false,
-      "page_start": 221,
-      "page_end": 224,
+      "page_start": 219,
+      "page_end": 222,
       "pages": 4,
       "figures": 1,
       "signs_covered": [],
@@ -551,8 +551,8 @@
       "key": "ch18",
       "part": 5,
       "generated": false,
-      "page_start": 224,
-      "page_end": 226,
+      "page_start": 222,
+      "page_end": 224,
       "pages": 3,
       "figures": 0,
       "signs_covered": [],
@@ -563,8 +563,8 @@
       "key": "appendix",
       "part": 6,
       "generated": false,
-      "page_start": 228,
-      "page_end": 232,
+      "page_start": 226,
+      "page_end": 230,
       "pages": 5,
       "figures": 8,
       "signs_covered": [],

@@ -18,6 +18,7 @@ run 06_BUILD/qa_claims.py --verbose
 run 06_BUILD/qa_terminology.py --verbose
 run 06_BUILD/qa_visual.py --verbose
 run 06_BUILD/build_claims.py --check
+run 06_BUILD/build_claim_map.py --check
 run 06_BUILD/qa_manuscript.py --verbose
 run 07_TESTS/selftest.py
 
