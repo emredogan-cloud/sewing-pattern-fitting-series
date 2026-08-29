@@ -25,7 +25,7 @@ tutarlılığı.
 | Doğrulanmış kusur | **24** |
 | Düzeltilmiş kusur | **24** |
 | Çürütülen inceleme bulgusu | **4** |
-| Yeni regresyon kapısı | **35 denetim** (152 → 187) |
+| Yeni regresyon kapısı | **37 denetim** (152 → 189) |
 | Sayfa | 252 → **255** |
 | Taksonomi değişikliği | **0 kayıt eklendi/silindi** |
 | İddia kanıt düzeyi değişikliği | **0** |
@@ -55,11 +55,11 @@ Komut: `bash 06_BUILD/qa_all.sh` → **çıkış kodu 0**
 | İddia→kaynak haritası | `build_claim_map.py --check` | ✓ güncel |
 | Manüskript | `qa_manuscript.py` | ✓ 0 bulgu (on dört denetim) · 21 bölüm · 255 sayfa |
 | Yazı tipi bütünlüğü | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
-| **Kapıların kendi testi** | `selftest.py` | ✓ **187/187** *(Faz 4: 152)* |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **189/189** *(Faz 4: 152)* |
 | **Çizim yasakları** | `selftest_visual.py` | ✓ **27/27** |
 | Kill-gate ön koşulu | `kill_gate.py` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
-### Faz 5'te eklenen kapılar (35 denetim)
+### Faz 5'te eklenen kapılar (37 denetim)
 
 Her biri Faz 5'te **gerçek kitapta ölçülmüş** bir kusuru korur:
 
@@ -78,6 +78,7 @@ Her biri Faz 5'te **gerçek kitapta ölçülmüş** bir kusuru korur:
 | `test_counted_claims_match_the_data` | Metnin kendi envanterini yanlış sayması |
 | `test_flowchart_and_entry_agree_on_cause_order` | Şema ile metnin farklı neden sırası vermesi |
 | `test_source_conflict_caption_matches_the_record` | Var olmayan bir nota gönderme |
+| `test_gate_layer_never_imports_the_render_layer` | Kapı katmanının render katmanına bağlanması |
 
 **Dört yeni kapı MUTASYONLA sınandı:** düzeltme geri alındığında kapının
 gerçekten düştüğü ayrı ayrı gösterildi. Bir denetim ilk yazıldığında
@@ -454,6 +455,39 @@ satırları · kaynak-çelişkisi etiketi · üç sayım hatası ("eleven"→12,
 
 ### Kabul edilen ama AÇIK bırakılanlar — § 19
 
+### Faz 5'in KENDİ ürettiği kusur — ve nasıl yakalandı
+
+Dürüstlük gereği kaydedilir: Faz 5'te **yazdığım iki denetim CI'yi
+düşürdü.**
+
+`test_appendices_print_in_letter_order` ve `test_no_duplicate_chapter_number`
+`build_book`'u içe aktarıyordu; zincir `build_book → figure_engine →
+figure_tokens → reportlab`'a iniyor. CI'nin `selftest` işi **tasarım
+gereği** hiçbir üçüncü taraf paket kurmaz ve iş `ModuleNotFoundError`
+ile düştü.
+
+**Neden yerel denetimlerim yakalamadı:** bu makinede reportlab kurulu.
+Temiz klon denetimim de aynı sebeple yakalayamadı — klon *yeni* ama
+*ortam* aynı. Kusuru gösteren tek şey **gerçek CI koşusu** oldu.
+
+`bookplan.py` tam bu ayrım için var ve docstring'i bunu 2024'ten beri
+söylüyor: *"build_book reportlab'a bağlıdır, kapı ise bağlı
+OLMAMALIDIR."* Üç saf yapı (`CHAPTER_TITLES`, `CHAPTER_BY_NUMBER`,
+`fill_index_slots`) oraya taşındı.
+
+**Kalıcı önlem:** `test_gate_layer_never_imports_the_render_layer`,
+`selftest.py`'nin KENDİ kaynağını AST ile tarar ve korumasız bir
+`test_*` işlevinin render katmanını içe aktarmasını yakalar.
+
+**Ve ortam artık taklit ediliyor:** CI koşulları (proza YOK + reportlab
+`meta_path` ile ENGELLENDİ + gerçek git deposu) yerelde yeniden üretildi
+ve doğrulandı — çıkış kodu 0, 156 denetim koştu, 12 atlandı ve on ikisi
+de adıyla raporlandı.
+
+> **Ders `R-19`'un ta kendisi:** bir kapının yeşil olması, o kapının
+> koşacağı ORTAMDA yeşil olacağı anlamına gelmez. Faz 5 bunu bir kez
+> daha, bu kez kendi eliyle öğrendi.
+
 ---
 
 ## 17 · Regresyonlar
@@ -470,7 +504,7 @@ satırları · kaynak-çelişkisi etiketi · üç sayım hatası ("eleven"→12,
 | Crosswalk | 148 | **148** | 0 | — |
 | Terim | 20 | **20** | 0 | — |
 | Çözülmemiş iddia | 251 | **251** | 0 | — |
-| **Kapı denetimi** | 152 | **187** | **+35** | Faz 5 regresyonları |
+| **Kapı denetimi** | 152 | **189** | **+37** | Faz 5 regresyonları |
 
 **Hiçbir düzeltme başka bir alt sistemi sessizce bozmadı.** Kelime
 farkının tamamı kalem kalem açıklanmıştır.
@@ -564,6 +598,15 @@ Faz 5'in içsel işi bitti; kapıyı açacak olan şey kod değil, **ölçüm**.
 
 **"HUMAN VALIDATED" DEĞİL. "PHYSICALLY VALIDATED" DEĞİL.
 "READY FOR PUBLICATION" DEĞİL.**
+
+### CI durumu
+
+| İş | Sonuç |
+|---|---|
+| `gates` · `spec` · `structure` · `crosswalk` · `boundary` · `claims` · `visual` · `selftest` · `render` · `manuscript` | ✓ **onu da geçti** |
+| `killgate` | ✗ **tasarım gereği başarısız** (`continue-on-error`) |
+
+Genel sonuç: **success.**
 
 ### Faz 6'ya devredilenler
 

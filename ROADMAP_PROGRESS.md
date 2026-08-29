@@ -14,7 +14,7 @@
 ## 0 · Tek cümlelik durum
 
 > **Kitap 1 Faz 5 QA'sı İÇSEL OLARAK TAMAMLANDI.**
-> 255 sayfa · 21 bölüm · 159 ayrı figür · 307 iddia · **187 kapı denetimi**.
+> 255 sayfa · 21 bölüm · 159 ayrı figür · 307 iddia · **189 kapı denetimi**.
 >
 > Faz 5 girerken sekiz veri kapısı yeşildi, 152 kapı testi geçiyordu ve
 > **ürün bozuktu**: dizilmiş sayfada harfler üst üste biniyordu, kitabın
@@ -70,7 +70,7 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-29
 | **Manüskript** | `qa_manuscript.py` | ✓ **0 bulgu** — on dört denetim · 255 sayfa |
 | **Tam kitap dizgisi** | `build_book.py` | ✓ **255 sayfa**, bütçe 220–260 içinde |
 | **Yazı tipi bütünlüğü** *(yeni)* | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
-| **Kapıların kendi testi** | `selftest.py` | ✓ **187/187** *(Faz 4: 152 · Faz 5'te +35 dizgi/navigasyon regresyonu)* |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **189/189** *(Faz 4: 152 · Faz 5'te +37 dizgi/navigasyon/katman regresyonu)* |
 | Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
 ## Görsel sistem — Faz 2 ÖLÇÜMLERİ
@@ -119,7 +119,7 @@ Tam rapor: [`08_REPORTS/PHASE_5_QA_REPORT.md`](08_REPORTS/PHASE_5_QA_REPORT.md)
 | İzlenen maddi iddia | 204/204 | **204/204** | 0 |
 | İddia (toplam) | 307 | **307** | 0 |
 | Crosswalk | 148 | **148** | 0 |
-| **Kapı denetimi** | 152 | **187** | **+35** |
+| **Kapı denetimi** | 152 | **189** | **+37** |
 
 ### Dizgi katmanı — ÖLÇÜLDÜ (yeni)
 
@@ -151,6 +151,7 @@ Birincil üretimden AYRI iki hat koşuldu.
 | | |
 |---|---:|
 | Bağımsız inceleme bulgusu | **33** |
+| CI'de yakalanan (Faz 5'in kendi ürettiği) kusur | **1** — kapı katmanı render katmanına bağlanmıştı |
 | …kabul edilip düzeltilen | **8** |
 | …**ölçümle çürütülen** | **4** |
 | …kabul edilip AÇIK bırakılan (içerik turu ister) | **6** |
