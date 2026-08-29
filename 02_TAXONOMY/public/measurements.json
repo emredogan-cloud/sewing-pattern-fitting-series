@@ -117,7 +117,8 @@
         "S-0003"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: ISO 8559-1:2017 § 3.1.22 tanımı kayda eklendi. Atıf yapılan iki kaynağın (S-0002, S-0003) hiçbiri bel tanımı İÇERMİYOR — bu bir aşırı atıftı. Çelişki SOURCE_MAP § 7'de zaten kayıtlıydı; şimdi ölçünün kendi kaydında da duruyor. Faz 4 bağımsız teknik incelemesi."
+      "notes": "Faz 4: ISO 8559-1:2017 § 3.1.22 tanımı kayda eklendi. Atıf yapılan iki kaynağın (S-0002, S-0003) hiçbiri bel tanımı İÇERMİYOR — bu bir aşırı atıftı. Çelişki SOURCE_MAP § 7'de zaten kayıtlıydı; şimdi ölçünün kendi kaydında da duruyor. Faz 4 bağımsız teknik incelemesi.",
+      "source_conflict": true
     },
     {
       "measurement_id": "M-005",
@@ -219,7 +220,8 @@
         "S-0001"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: bu bir tanım çelişkisi DEĞİLDİR. Bilek çevresi ve el çevresi iki AYRI ölçüdür ve iki ayrı soruyu yanıtlar. Bu depo yalnızca bilek çevresini topluyor; AÇILMAYAN bir manşet elin üzerinden geçmek zorundadır ve o karar el çevresini ister. Kitapta ikisi ayrı ayrı anlatılır. Faz 4 bağımsız teknik incelemesi."
+      "notes": "Faz 4: bu bir tanım çelişkisi DEĞİLDİR. Bilek çevresi ve el çevresi iki AYRI ölçüdür ve iki ayrı soruyu yanıtlar. Bu depo yalnızca bilek çevresini topluyor; AÇILMAYAN bir manşet elin üzerinden geçmek zorundadır ve o karar el çevresini ister. Kitapta ikisi ayrı ayrı anlatılır. Faz 4 bağımsız teknik incelemesi.",
+      "source_conflict": true
     },
     {
       "measurement_id": "M-009",
@@ -312,7 +314,8 @@
         "S-0001"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: bu da bir tanım çelişkisi DEĞİLDİR. Boyun TABANI çevresi ile boyun çevresi iki ayrı ölçüdür. Yaka kararları taban çevresinden okunur. Faz 4 bağımsız teknik incelemesi."
+      "notes": "Faz 4: bu da bir tanım çelişkisi DEĞİLDİR. Boyun TABANI çevresi ile boyun çevresi iki ayrı ölçüdür. Yaka kararları taban çevresinden okunur. Faz 4 bağımsız teknik incelemesi.",
+      "source_conflict": true
     },
     {
       "measurement_id": "M-014",
@@ -605,7 +608,8 @@
       "source_refs": [
         "S-0001"
       ],
-      "verification_status": "agent_drafted_unverified"
+      "verification_status": "agent_drafted_unverified",
+      "source_conflict": true
     },
     {
       "measurement_id": "M-026",

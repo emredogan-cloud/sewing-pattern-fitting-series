@@ -159,9 +159,26 @@ class SignChart:
 
     def __init__(self, sign: dict, label: dict, ui: dict):
         self.sign = sign
-        self.causes = sign["candidate_causes"]
         self.label = label
         self.ui = ui
+        # ⚠ Faz 5'te ÖLÇÜLEN kusur: metin girişi nedenleri
+        # `atlas.sign_entry()` içinde YENİDEN SIRALIYOR — kalıp
+        # değişikliği GEREKTİRMEYEN (bedava) nedenler öne alınıyor ve
+        # başlık da bunu ilan ediyor: "Candidate causes, cheapest test
+        # first". Akış şeması ise HAM taksonomi sırasını kullanıyordu.
+        # İki sonuç: (a) şema, karşı sayfadaki başlığın vaat ettiği
+        # sırayı çiğniyordu — bedava dal 17 girişin 17'sinde ikinci ya
+        # da üçüncü sıradaydı; (b) metinde "1." olan neden ile şemanın
+        # ilk dalı FARKLI nedenlerdi, yani "birinci neden" aynı
+        # yayılımda iki ayrı şeye işaret ediyordu.
+        # Sıralama artık TEK yerden gelir.
+        # Regresyon: 07_TESTS/selftest.py § test_flowchart_and_entry_agree_on_cause_order
+        pairs = list(zip(sign["candidate_causes"], label["causes"]))
+        gates = [q for q in pairs if not q[0].get("adjustment_family_ref")]
+        rest = [q for q in pairs if q[0].get("adjustment_family_ref")]
+        ordered = gates + rest
+        self.causes = [q[0] for q in ordered]
+        self._labels = [q[1] for q in ordered]
         self._layout()
 
     # ── ölçüm ─────────────────────────────────────────────────────────
@@ -175,13 +192,13 @@ class SignChart:
         self.obs_h, _ = self._box_h(self.obs_text, NODE["dec_w"], minimum=NODE["obs_h"])
         self.rows = []
         for i, c in enumerate(self.causes):
-            dtxt = short(self.label["causes"][i]["evidence"], 160)
+            dtxt = short(self._labels[i]["evidence"], 160)
             dh, _ = self._box_h(dtxt, NODE["dec_w"], self.DEC_TEXT_FRAC,
                                 self.DEC_HEIGHT_FACTOR, NODE["dec_h"])
             af = c.get("adjustment_family_ref")
             ttxt = None  # çizimde doldurulur
             th_min = NODE["end_h"]
-            self.rows.append({"cause": c, "cause_en": self.label["causes"][i]["cause"],
+            self.rows.append({"cause": c, "cause_en": self._labels[i]["cause"],
                               "dec_text": dtxt, "dec_h": dh,
                               "af": af, "term_text": ttxt, "term_h": th_min})
         self.tail_text = self.ui["not_this_sign"]
@@ -501,11 +518,23 @@ class Engine:
             self._draw_measure(m, view, kind, l1, l2)
 
     def _measure_caption(self, m: dict) -> str:
-        vs = m["verification_status"]
-        if vs == "technical_reference_verified":
+        """Ölçü figürünün altındaki uyarı etiketi.
+
+        ⚠ Faz 5'te ÖLÇÜLEN kusur: etiket `verification_status`'tan
+        TÜRETİLİYORDU — "doğrulanmamış AMA kaynağı var" ⇒ "Sources
+        differ". Bu YEDİ ölçüye "see the note in Chapter 2" bastırdı;
+        oysa kayıtlı tanım çelişkisi DÖRT tanedir ve Bölüm 2'de yalnızca
+        dört not vardır. Üç okur (`M-015`, `M-017`, `M-028`) VAR OLMAYAN
+        bir nota gönderiliyordu — üstelik Ek F "dört anlaşmazlık kaydeder"
+        diye yazarken. Çelişki artık kayıttan OKUNUR.
+        Regresyon: 07_TESTS/selftest.py § test_source_conflict_caption_matches_the_record
+        """
+        if m.get("source_conflict"):
+            return self.ui["source_conflict"]
+        if m["verification_status"] == "technical_reference_verified":
             return ""
         if m.get("source_refs"):
-            return self.ui["source_conflict"]
+            return ""      # kaynağı var, çelişki YOK — uyarıya gerek yok
         return self.ui["no_source"]
 
     def _draw_measure(self, m: dict, view: str, kind: str, l1: str, l2: str | None):

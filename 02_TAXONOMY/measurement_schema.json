@@ -115,6 +115,10 @@
         "null"
       ],
       "$comment": "Bir ölçünün tanımı kaynaklar arasında ÇELİŞİYORSA ya da bir atıf tanım kanıtı değil bağlam ise, bunu kaydın KENDİSİ taşımalıdır. Faz 4 bağımsız incelemesi bu alanın yokluğunda çelişkilerin yalnızca SOURCE_MAP'te durduğunu ve ölçüyü okuyan kodun onları GÖREMEDİĞİNİ gösterdi."
+    },
+    "source_conflict": {
+      "$comment": "Kaynaklar bu ölçünün TANIMI konusunda birbiriyle çelişiyor mu. Faz 5: figür başlığı bunu `verification_status`'tan TÜRETİYORDU ve yedi ölçüye 'Sources differ — see the note in Chapter 2' basıyordu; oysa kayıtlı çelişki DÖRT tanedir ve yalnızca dördünün notu var. Üç okur, var olmayan bir nota gönderiliyordu. Çelişki artık TÜRETİLMEZ, BEYAN EDİLİR.",
+      "type": "boolean"
     }
   }
 }

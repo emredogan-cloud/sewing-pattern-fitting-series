@@ -291,13 +291,24 @@ class AtlasBuilder:
                     continue
             if len(names) < 2:
                 continue
-            out.append({"type": "callout", "title": "These two can look the same",
+            # ⚠ Faz 5'te ÖLÇÜLEN kusur: başlık her zaman "THESE TWO"
+            # diyordu, ama 28 çakışmanın 8'i ÜÇ neden taşıyor ve gövde
+            # de üçünü sayıyordu. Okur "iki" başlığı altında üç ad
+            # görüp hangi ikisini test edeceğini bilemiyordu.
+            # Başlık ve yönerge artık SAYIYA göre yazılır.
+            n = len(names)
+            joined = (" and ".join(names) if n == 2
+                      else ", ".join(names[:-1]) + " and " + names[-1])
+            out.append({"type": "callout",
+                        "title": ("These two can look the same" if n == 2
+                                  else f"These {n} can look the same"),
                         "items": [
-                            "On this sign, " + " and ".join(names) +
+                            "On this sign, " + joined +
                             " can produce the same appearance, and the evidence above "
                             "does not reliably separate them.",
-                            "Do not choose between them by eye. Test both, cheapest "
-                            "first, and let the result decide.",
+                            "Do not choose between them by eye. Test "
+                            + ("both" if n == 2 else f"all {n}") +
+                            ", cheapest first, and let the result decide.",
                             "This is a known limit of the published evidence rather "
                             "than something you have missed."]})
 

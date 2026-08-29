@@ -1319,6 +1319,8 @@ def main():
         test_measurement_figure_travels_with_its_text,
         test_sign_index_points_at_the_entry_not_the_page_before,
         test_reader_spelling_is_one_variety,
+        test_counted_claims_match_the_data,
+        test_flowchart_and_entry_agree_on_cause_order,
     ):
         fn()
 
@@ -1584,6 +1586,118 @@ def test_no_duplicate_chapter_number():
           not any(re.match(r"^\d+[a-z]\b", t) for t in _bb.CHAPTER_TITLES.values()),
           str([t for t in _bb.CHAPTER_TITLES.values()
                if re.match(r"^\d+[a-z]\b", t)]))
+
+
+def test_flowchart_and_entry_agree_on_cause_order():
+    """Akış şeması ile metin girişi nedenleri AYNI sırada mı veriyor.
+
+    Faz 5 bağımsız incelemesi: metin girişi nedenleri yeniden sıralıyor
+    (kalıp değişikliği GEREKTİRMEYEN "bedava" nedenler öne) ve başlık
+    bunu ilan ediyor — "Candidate causes, cheapest test first". Akış
+    şeması HAM taksonomi sırasını kullanıyordu. İki sonuç: bedava dal
+    17 girişin 17'sinde şemada ikinci/üçüncü sıradaydı; ve metindeki
+    "1. neden" ile şemanın ilk dalı FARKLI nedenlerdi — aynı yayılımda
+    "birinci neden" iki ayrı şeye işaret ediyordu."""
+    why = _render_layer_missing()
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    if not mdir.exists():
+        skip("şema/metin sıra kapısı",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    if why:
+        skip("şema/metin sıra kapısı", why)
+        return
+    sys.path.insert(0, str(paths.BUILD))
+    import atlas as _atlas
+    import figure_engine as _fe
+    ab = _atlas.AtlasBuilder("book-01", mdir)
+    fs = {x["symptom_id"]: x for x in json.loads(
+        (paths.TAXONOMY_PUBLIC / "fit_signs.json").read_text(encoding="utf-8"))["signs"]}
+    lab = json.loads((paths.TAXONOMY_PUBLIC / "labels_en.json")
+                     .read_text(encoding="utf-8"))
+    bad, free_bad, announced = [], [], 0
+    for sid in ab.signs:
+        blocks = ab.sign_entry(sid, with_chart=False)
+        printed = [b["text"].split(". ", 1)[1] for b in blocks
+                   if b.get("type") == "h3" and b["text"][:2].rstrip(".").isdigit()]
+        sc = _fe.SignChart(fs[sid], lab["signs"][sid], lab["ui"])
+        chart = [r["cause_en"] for r in sc.rows]
+        if printed != chart:
+            bad.append(sid)
+        txt = " ".join(str(b.get("text", "")) for b in blocks)
+        if "cheapest test first" in txt:
+            announced += 1
+            if sc.rows[0]["cause"].get("adjustment_family_ref"):
+                free_bad.append(sid)
+    check("akış şeması ile metin girişi AYNI neden sırasını kullanıyor",
+          not bad, f"{len(bad)} belirti ayrışıyor: {bad[:5]}")
+    check("'cheapest test first' diyen her girişin ŞEMASI da bedava dalla başlıyor",
+          not free_bad, f"{len(free_bad)}/{announced} şema ihlal ediyor: {free_bad[:5]}")
+
+
+def test_counted_claims_match_the_data():
+    """Metindeki SAYI iddiaları veriyle uyuşuyor mu.
+
+    Faz 5 bağımsız incelemesinin bulduğu sınıf: kitap kendi
+    envanterini yanlış sayıyordu. Hiçbir kapı buna bakmıyordu.
+
+      · "Eleven of these are taken with the tape horizontal" — grup 12
+      · "Two widths and two depths … three of the four need a helper"
+        — 3 genişlik + 2 derinlik = 5, ve BEŞİNİN de yardımcısı gerekli
+      · "a second person for five of the measurements" — 19
+        (üstelik Bölüm 2 aynı kitapta "nineteen" diyor)
+    """
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    if not (mdir / "measurements_en.json").exists():
+        skip("sayılı iddia kapısı",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    import re as _re
+    M = {m["measurement_id"]: m for m in
+         json.loads((paths.TAXONOMY_PUBLIC / "measurements.json")
+                    .read_text(encoding="utf-8"))["measurements"]}
+    mc = json.loads((mdir / "measurements_en.json").read_text(encoding="utf-8"))
+    WORD = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+            "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11,
+            "twelve": 12, "thirteen": 13, "fourteen": 14, "nineteen": 19,
+            "twenty": 20, "thirty-two": 32}
+
+    def num(w):
+        return WORD.get(w.lower().strip())
+
+    # ① her grubun giriş cümlesindeki baş sayı, grubun BÜYÜKLÜĞÜNÜ aşmasın
+    bad = []
+    for g in mc["groups"]:
+        n = len(g["ids"])
+        m = _re.match(r"^([A-Za-z-]+) of these", g["intro"])
+        if m and num(m.group(1)) is not None and num(m.group(1)) != n:
+            bad.append(f"{g['title']!r}: metin {m.group(1)} ({num(m.group(1))}), veri {n}")
+        m2 = _re.match(r"^([A-Za-z-]+) widths and ([A-Za-z-]+) depths", g["intro"])
+        if m2:
+            import collections
+            cats = collections.Counter(M[i]["category"] for i in g["ids"])
+            if num(m2.group(1)) != cats.get("width", 0) or \
+               num(m2.group(2)) != cats.get("depth", 0):
+                bad.append(f"{g['title']!r}: metin {m2.group(1)}/{m2.group(2)}, "
+                           f"veri {cats.get('width', 0)}/{cats.get('depth', 0)}")
+    check("ölçü grubu giriş cümlelerindeki sayılar veriyle UYUŞUYOR",
+          not bad, "; ".join(bad))
+
+    # ② yardımcı gerektiren ölçü sayısı, kitabın her yerinde AYNI
+    helper = sum(1 for m in M.values() if m.get("helper_required"))
+    blob = json.dumps(json.loads((mdir / "part0.json").read_text(encoding="utf-8")),
+                      ensure_ascii=False)
+    claims = _re.findall(r"second person for ([a-z-]+) of the", blob)
+    wrong = [c for c in claims if num(c) is not None and num(c) != helper]
+    check("ön maddedeki 'yardımcı gereken ölçü' sayısı veriyle UYUŞUYOR",
+          not wrong, f"metin {wrong}, veri {helper}")
+
+    # ③ kusurlu kurgu YAKALANIYOR (kapı gerçekten ısırıyor mu)
+    fake_groups = [{"title": "x", "intro": "Eleven of these are taken.",
+                    "ids": list(M)[:12]}]
+    m = _re.match(r"^([A-Za-z-]+) of these", fake_groups[0]["intro"])
+    check("kapı yanlış sayıyı GERÇEKTEN yakalıyor",
+          num(m.group(1)) != len(fake_groups[0]["ids"]))
 
 
 def test_reader_spelling_is_one_variety():

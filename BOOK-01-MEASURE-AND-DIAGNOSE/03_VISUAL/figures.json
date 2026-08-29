@@ -3081,16 +3081,16 @@
       "height_pt": 327.6,
       "terminals": [
         [
+          "eliminate",
+          "The fabric was cut off grain"
+        ],
+        [
           "handoff",
           "AF-01"
         ],
         [
           "handoff",
           "AF-07"
-        ],
-        [
-          "eliminate",
-          "The fabric was cut off grain"
         ],
         [
           "eliminate",
@@ -3106,16 +3106,16 @@
       "height_pt": 327.6,
       "terminals": [
         [
+          "eliminate",
+          "The dart was not tapered to nothing when sewn"
+        ],
+        [
           "handoff",
           "AF-02"
         ],
         [
           "handoff",
           "AF-01"
-        ],
-        [
-          "eliminate",
-          "The dart was not tapered to nothing when sewn"
         ],
         [
           "eliminate",
@@ -3156,16 +3156,16 @@
       "height_pt": 357.8,
       "terminals": [
         [
-          "handoff",
-          "AF-01"
-        ],
-        [
           "eliminate",
           "The front extension is too narrow"
         ],
         [
           "eliminate",
           "There is no button at bust level"
+        ],
+        [
+          "handoff",
+          "AF-01"
         ],
         [
           "eliminate",
@@ -3256,16 +3256,16 @@
       "height_pt": 303.4,
       "terminals": [
         [
+          "eliminate",
+          "The leg was cut off grain"
+        ],
+        [
           "handoff",
           "AF-17"
         ],
         [
           "handoff",
           "AF-16"
-        ],
-        [
-          "eliminate",
-          "The leg was cut off grain"
         ],
         [
           "eliminate",
@@ -3281,12 +3281,12 @@
       "height_pt": 342.7,
       "terminals": [
         [
-          "handoff",
-          "AF-15"
-        ],
-        [
           "eliminate",
           "The design has a deliberately dropped crotch"
+        ],
+        [
+          "handoff",
+          "AF-15"
         ],
         [
           "handoff",
@@ -3356,16 +3356,16 @@
       "height_pt": 312.5,
       "terminals": [
         [
-          "handoff",
-          "AF-13"
-        ],
-        [
           "eliminate",
           "Posture: weight resting on one leg"
         ],
         [
           "eliminate",
           "The fabric was cut off grain"
+        ],
+        [
+          "handoff",
+          "AF-13"
         ],
         [
           "eliminate",
@@ -3381,16 +3381,16 @@
       "height_pt": 327.6,
       "terminals": [
         [
-          "handoff",
-          "AF-13"
-        ],
-        [
-          "handoff",
-          "AF-13"
-        ],
-        [
           "eliminate",
           "The fabric was cut off grain"
+        ],
+        [
+          "handoff",
+          "AF-13"
+        ],
+        [
+          "handoff",
+          "AF-13"
         ],
         [
           "eliminate",
@@ -3406,16 +3406,16 @@
       "height_pt": 372.9,
       "terminals": [
         [
+          "eliminate",
+          "The neckline edge was stretched while sewing"
+        ],
+        [
           "handoff",
           "AF-06"
         ],
         [
           "handoff",
           "AF-01"
-        ],
-        [
-          "eliminate",
-          "The neckline edge was stretched while sewing"
         ],
         [
           "eliminate",
@@ -3556,12 +3556,12 @@
       "height_pt": 372.9,
       "terminals": [
         [
-          "handoff",
-          "AF-04"
-        ],
-        [
           "eliminate",
           "The design is a deliberate drop shoulder"
+        ],
+        [
+          "handoff",
+          "AF-04"
         ],
         [
           "handoff",
@@ -3631,12 +3631,12 @@
       "height_pt": 342.7,
       "terminals": [
         [
-          "handoff",
-          "AF-10"
-        ],
-        [
           "eliminate",
           "The design is deliberately a full sleeve"
+        ],
+        [
+          "handoff",
+          "AF-10"
         ],
         [
           "handoff",
@@ -3656,16 +3656,16 @@
       "height_pt": 342.7,
       "terminals": [
         [
-          "handoff",
-          "AF-09"
-        ],
-        [
-          "handoff",
-          "AF-09"
-        ],
-        [
           "eliminate",
           "The sleeve was cut off grain"
+        ],
+        [
+          "handoff",
+          "AF-09"
+        ],
+        [
+          "handoff",
+          "AF-09"
         ],
         [
           "eliminate",
@@ -3681,12 +3681,12 @@
       "height_pt": 327.6,
       "terminals": [
         [
-          "handoff",
-          "AF-09"
-        ],
-        [
           "eliminate",
           "The ease is right but it was not distributed before setting the sleeve"
+        ],
+        [
+          "handoff",
+          "AF-09"
         ],
         [
           "handoff",
@@ -3781,16 +3781,16 @@
       "height_pt": 327.6,
       "terminals": [
         [
+          "eliminate",
+          "The zipper was stretched while sewing"
+        ],
+        [
           "handoff",
           "AF-14"
         ],
         [
           "handoff",
           "AF-07"
-        ],
-        [
-          "eliminate",
-          "The zipper was stretched while sewing"
         ],
         [
           "eliminate",
@@ -3806,16 +3806,16 @@
       "height_pt": 342.7,
       "terminals": [
         [
-          "handoff",
-          "AF-11"
-        ],
-        [
-          "handoff",
-          "AF-11"
-        ],
-        [
           "eliminate",
           "The design is deliberately high- or low-waisted"
+        ],
+        [
+          "handoff",
+          "AF-11"
+        ],
+        [
+          "handoff",
+          "AF-11"
         ],
         [
           "eliminate",
@@ -3956,16 +3956,16 @@
       "height_pt": 357.8,
       "terminals": [
         [
-          "handoff",
-          "AF-13"
-        ],
-        [
-          "handoff",
-          "AF-13"
-        ],
-        [
           "eliminate",
           "The pieces were cut off grain"
+        ],
+        [
+          "handoff",
+          "AF-13"
+        ],
+        [
+          "handoff",
+          "AF-13"
         ],
         [
           "eliminate",
@@ -3981,16 +3981,16 @@
       "height_pt": 316.4,
       "terminals": [
         [
+          "eliminate",
+          "A piece was cut off grain"
+        ],
+        [
           "handoff",
           "AF-11"
         ],
         [
           "handoff",
           "AF-01"
-        ],
-        [
-          "eliminate",
-          "A piece was cut off grain"
         ],
         [
           "eliminate",
@@ -4006,16 +4006,16 @@
       "height_pt": 391.7,
       "terminals": [
         [
-          "handoff",
-          "AF-19"
-        ],
-        [
           "eliminate",
           "The design is deliberately short or long"
         ],
         [
           "eliminate",
           "The hem allowance was turned differently than the pattern assumes"
+        ],
+        [
+          "handoff",
+          "AF-19"
         ],
         [
           "eliminate",
@@ -4209,7 +4209,7 @@
     "FIG-B1-067": {
       "measurement_ref": "M-015",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "source_conflict",
+      "caption_class": "verified",
       "width_pt": 214.0,
       "height_pt": 300.0,
       "source_file": "meas_M-015.pdf"
@@ -4225,7 +4225,7 @@
     "FIG-B1-069": {
       "measurement_ref": "M-017",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "source_conflict",
+      "caption_class": "verified",
       "width_pt": 214.0,
       "height_pt": 300.0,
       "source_file": "meas_M-017.pdf"
@@ -4313,7 +4313,7 @@
     "FIG-B1-080": {
       "measurement_ref": "M-028",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "source_conflict",
+      "caption_class": "verified",
       "width_pt": 214.0,
       "height_pt": 300.0,
       "source_file": "meas_M-028.pdf"

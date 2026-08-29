@@ -379,6 +379,7 @@ def main() -> int:
         started_parts: set = set()
         sign_page: dict = {}
         apx_page: list = []
+        part_page: dict = {}
 
         if toc:
             ts.h1("Contents")
@@ -401,6 +402,14 @@ def main() -> int:
             if pnum > 0 and pnum not in started_parts:
                 ts.start_recto()
                 ts.outline(f"Part {pnum} — {ptitle}", level=0)
+                # ⚠ Faz 5'te ÖLÇÜLEN kusur: içindekilerdeki parça satırı
+                # `c["page_start"]`i, yani parçanın İLK BÖLÜMÜNÜN sayfasını
+                # gösteriyordu. Altı parçanın altısında da bu, parçanın
+                # KENDİ ayraç sayfasını iki sayfa ATLIYORDU: "Part 4 —
+                # The regional atlas … 89" diyen okur 89'a gidiyor ve
+                # 87'deki Parça 4 ayracını görmeden Bölüm 9'a düşüyordu.
+                # Ayracın sayfası da ÖLÇÜLÜR.
+                part_page.setdefault(pnum, ts.page)
                 ts.h1(f"Part {pnum}", kicker=None)
                 ts.para(ptitle, face="serif-italic", size=13.0)
                 ts.page_break()
@@ -468,15 +477,16 @@ def main() -> int:
             for b in blocks:
                 for cid in (b.get("claims") or []):
                     claims_seen.setdefault(cid, key)
-        return ts, errs, chapters, claims_seen, sign_page, apx_page
+        return ts, errs, chapters, claims_seen, sign_page, apx_page, part_page
 
-    def make_toc(chs: list, apx: list) -> list:
+    def make_toc(chs: list, apx: list, parts: dict) -> list:
         t: list = []
         seen: set = set()
         for c in chs:
             if c["part"] > 0 and c["part"] not in seen:
                 pt = next(x for n, x, _ in PARTS if n == c["part"])
-                t.append((f"Part {c['part']} — {pt}", 0, c["page_start"]))
+                t.append((f"Part {c['part']} — {pt}", 0,
+                          parts.get(c["part"], c["page_start"])))
                 seen.add(c["part"])
             title = CHAPTER_TITLES.get(c["key"], c["key"])
             # Parça adı ile tek bölümünün adı aynıysa satırı İKİ KEZ
@@ -498,10 +508,10 @@ def main() -> int:
     index_blocks: dict = {}
     ts = errors = chapters = claims_seen = None
     for attempt in range(1, 7):
-        ts, errors, chapters, claims_seen, sign_page, apx_page = run_pass(
+        ts, errors, chapters, claims_seen, sign_page, apx_page, part_page = run_pass(
             page_of, toc, index_blocks)
         new_page_of = {c["key"]: c["page_start"] for c in chapters}
-        new_toc = make_toc(chapters, apx_page)
+        new_toc = make_toc(chapters, apx_page, part_page)
         if new_page_of == page_of and new_toc == toc:
             break
         page_of, toc = new_page_of, new_toc
