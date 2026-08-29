@@ -18,6 +18,6 @@
   "superseded_by": null,
   "license_constraint": null,
   "acquisition_status": "acquired",
-  "notes": "KÜNYE OKUNDU, İÇERİK OKUNMADI: PDF taranmış GÖRÜNTÜDÜR, metin katmanı YOKTUR. Yalnızca arşiv kapak sayfası makine-okunur. Bu yüzden verification_level 'official_web'te tutuldu ve HİÇBİR kaydı yükseltmek için kullanılamaz (fulltext/official_pdf değil). Ayrıca arşiv kopyası kendi kapağında 'do not use for current recommendations' uyarısı taşır.",
-  "reader_purpose": "Fitting fundamentals and the vocabulary of fit used in extension teaching."
+  "notes": "KÜNYE OKUNDU, İÇERİK OKUNMADI: PDF taranmış GÖRÜNTÜDÜR, metin katmanı YOKTUR. Yalnızca arşiv kapak sayfası makine-okunur. Bu yüzden verification_level 'official_web'te tutuldu ve HİÇBİR kaydı yükseltmek için kullanılamaz (fulltext/official_pdf değil). Ayrıca arşiv kopyası kendi kapağında 'do not use for current recommendations' uyarısı taşır. Faz 5 (İnceleme A): okura basılan `reader_purpose` kaydın kendi sınırıyla ÇELİŞİYORDU; düzeltildi.",
+  "reader_purpose": "Fitting fundamentals in extension teaching. IDENTIFIED BUT NOT CONSULTED: the archived copy is a scanned image with no text layer, so no rule in this book rests on it."
 }
