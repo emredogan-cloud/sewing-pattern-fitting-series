@@ -205,10 +205,26 @@ class SignChart:
         self.tail_h, _ = self._box_h(self.tail_text, NODE["dec_w"], minimum=NODE["end_h"])
 
     def set_terminal_texts(self, af_names: dict):
+        # ⚠ Faz 5 çizge denetimi: 43 belirtinin 8'inde İKİ neden AYNI
+        # aileye çıkıyor. Metin bunu biliyor ve okura söylüyor —
+        # "Another cause on this sign leads to the same family in the
+        # OPPOSITE direction — record which one you confirmed, and in
+        # which direction". Ama ŞEMA iki AYNI kutu basıyordu: okurun
+        # gerçekte kullandığı gösterim, ayırt etmesi istenen şeyi
+        # gösteremiyordu. Paylaşılan varış artık nedeniyle etiketlenir.
+        # Regresyon: 07_TESTS/selftest.py § test_shared_family_terminals_are_distinguishable
+        import collections as _c
+        shared = {f for f, n in _c.Counter(
+            r["af"] for r in self.rows if r["af"]).items() if n > 1}
         for r in self.rows:
             c = r["cause"]
             if r["af"]:
-                r["term_text"] = short(af_names.get(r["af"], r["af"]), 60)
+                name = af_names.get(r["af"], r["af"])
+                if r["af"] in shared:
+                    r["term_text"] = (short(name, 44) + " — via: "
+                                      + short(r["cause_en"], 46))
+                else:
+                    r["term_text"] = short(name, 60)
                 r["term_h"], _ = self._box_h(r["term_text"], NODE["end_w"],
                                              minimum=NODE["end_h"])
                 r["term_h"] += 8.0   # AF-xx etiketi için ek şerit

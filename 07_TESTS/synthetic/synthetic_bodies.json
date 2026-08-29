@@ -1,0 +1,254 @@
+{
+  "$comment": [
+    "SENTETİK VÜCUT PROFİLLERİ — İÇSEL SİMÜLASYON (DECISIONS.md K58).",
+    "",
+    "⚠ BUNLAR GERÇEK BEDEN DEĞİLDİR ve bir POPÜLASYONU TEMSİL ETMEZ.",
+    "İstatistiksel geçerlilikleri YOKTUR. Amaçları TEK BİR ŞEYDİR:",
+    "teşhis sisteminin KENAR DURUMLARDA mantıksal olarak tutarlı",
+    "kalıp kalmadığını sınamak.",
+    "",
+    "Bir profil, kalıbın varsaydığı bedenden SAPMALARIN listesidir.",
+    "Sapmalar, sistemin ÜRETMESİ BEKLENEN belirtilerle birlikte yazılır;",
+    "simülasyon o belirtilerden yola çıkıp sistemin okuru DOĞRU aileye",
+    "götürüp götürmediğini ölçer.",
+    "",
+    "Fiziksel doğrulamanın YERİNE GEÇMEZ. Kumaş davranışı, drape,",
+    "gerçek vücut dokusu ve dikiş kalitesi burada YOKTUR."
+  ],
+  "not_a_population": true,
+  "not_equivalent_to_physical_testing": true,
+  "profiles": [
+    {
+      "id": "SB-01",
+      "name": "straight torso",
+      "deviations": [
+        "waist-to-hip drop smaller than the pattern assumes"
+      ],
+      "expected_signs": [
+        "SYM-025"
+      ],
+      "expected_families": [
+        "AF-12",
+        "AF-18"
+      ]
+    },
+    {
+      "id": "SB-02",
+      "name": "fuller bust",
+      "deviations": [
+        "bust minus high bust larger than the pattern's drafted difference"
+      ],
+      "expected_signs": [
+        "SYM-016",
+        "SYM-017",
+        "SYM-001"
+      ],
+      "expected_families": [
+        "AF-01"
+      ]
+    },
+    {
+      "id": "SB-03",
+      "name": "rounded upper back",
+      "deviations": [
+        "centre back length longer than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-002",
+        "SYM-003",
+        "SYM-009"
+      ],
+      "expected_families": [
+        "AF-07",
+        "AF-11"
+      ]
+    },
+    {
+      "id": "SB-04",
+      "name": "narrow shoulder",
+      "deviations": [
+        "shoulder length shorter than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-007"
+      ],
+      "expected_families": [
+        "AF-04"
+      ]
+    },
+    {
+      "id": "SB-05",
+      "name": "broad shoulder",
+      "deviations": [
+        "shoulder length longer than the pattern's",
+        "across back wider than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-004",
+        "SYM-008"
+      ],
+      "expected_families": [
+        "AF-04",
+        "AF-07"
+      ],
+      "correction_note": "Simülasyonun İLK koşumunda bu profil SYM-008/SYM-010 bekliyordu ve AF-04'e ulaşamadı. Taksonomi denetlendi: geniş omuz kalıbın omuz DİKİŞİNİ kısa bırakır ve SYM-004.C3 ile okunur ('armhole seam sits INSIDE the shoulder tip'); SYM-008 ise sırt GENİŞLİĞİDİR (AF-07). Yanlış olan MODELDİ, kitap değil. Profil düzeltildi."
+    },
+    {
+      "id": "SB-06",
+      "name": "square shoulder",
+      "deviations": [
+        "shoulder slope flatter than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-004",
+        "SYM-005"
+      ],
+      "expected_families": [
+        "AF-03"
+      ]
+    },
+    {
+      "id": "SB-07",
+      "name": "sloping shoulder",
+      "deviations": [
+        "shoulder slope steeper than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-004",
+        "SYM-007"
+      ],
+      "expected_families": [
+        "AF-03"
+      ]
+    },
+    {
+      "id": "SB-08",
+      "name": "prominent abdomen",
+      "deviations": [
+        "front girth at abdomen level larger than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-017",
+        "SYM-026",
+        "SYM-037"
+      ],
+      "expected_families": [
+        "AF-20"
+      ]
+    },
+    {
+      "id": "SB-09",
+      "name": "prominent seat",
+      "deviations": [
+        "back hip girth larger than the pattern's",
+        "back crotch length longer than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-027",
+        "SYM-035"
+      ],
+      "expected_families": [
+        "AF-13",
+        "AF-16"
+      ]
+    },
+    {
+      "id": "SB-10",
+      "name": "flat seat",
+      "deviations": [
+        "back hip girth smaller than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-028"
+      ],
+      "expected_families": [
+        "AF-13",
+        "AF-16"
+      ]
+    },
+    {
+      "id": "SB-11",
+      "name": "asymmetric body",
+      "deviations": [
+        "right and left waist-to-floor differ",
+        "one hip higher than the other"
+      ],
+      "expected_signs": [
+        "SYM-029",
+        "SYM-040",
+        "SYM-041"
+      ],
+      "expected_families": [
+        "AF-13",
+        "AF-11"
+      ]
+    },
+    {
+      "id": "SB-12",
+      "name": "long torso",
+      "deviations": [
+        "centre front and centre back length longer than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-022"
+      ],
+      "expected_families": [
+        "AF-11"
+      ]
+    },
+    {
+      "id": "SB-13",
+      "name": "short torso",
+      "deviations": [
+        "centre front and centre back length shorter than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-022",
+        "SYM-026"
+      ],
+      "expected_families": [
+        "AF-11"
+      ]
+    },
+    {
+      "id": "SB-14",
+      "name": "sway back",
+      "deviations": [
+        "lumbar hollow deeper than the pattern assumes"
+      ],
+      "expected_signs": [
+        "SYM-023",
+        "SYM-024"
+      ],
+      "expected_families": [
+        "AF-14"
+      ]
+    },
+    {
+      "id": "SB-15",
+      "name": "full thigh",
+      "deviations": [
+        "thigh girth larger than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-037"
+      ],
+      "expected_families": [
+        "AF-17"
+      ]
+    },
+    {
+      "id": "SB-16",
+      "name": "shallow crotch depth",
+      "deviations": [
+        "seated crotch depth smaller than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-039"
+      ],
+      "expected_families": [
+        "AF-15"
+      ]
+    }
+  ]
+}
