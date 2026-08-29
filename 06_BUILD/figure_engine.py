@@ -623,6 +623,25 @@ class Engine:
                             "source_file": f"meas_{m['measurement_id']}.pdf"})
 
     # ── ③ belirti figürleri ───────────────────────────────────────────
+    # Çelişmeli inceleme B-05: 43 belirti figürünün hepsi aynı silüetteydi.
+    # Varyant ELLE ATANMAZ — belirtinin aday nedenlerinden TÜRETİLİR.
+    # Kural: figür, o belirtinin nedeni olan vücut farkını gösterebilmeli.
+    # Neden bir vücut farkı DEĞİLSE (yapım, kumaş, beden) varyant yoktur.
+    _VARIANT_BY_FAMILY = (
+        (("AF-01", "AF-02"), "fuller_bust"),      # göğüs hacmi / konumu
+        (("AF-07",), "rounded_back"),             # yuvarlak / geniş sırt
+        (("AF-14", "AF-11"), "straight_back"),    # lumbar / gövde dengesi
+    )
+
+    @classmethod
+    def _body_variant(cls, sign: dict) -> str:
+        refs = {c.get("adjustment_family_ref") for c in sign["candidate_causes"]}
+        refs.discard(None)
+        for families, variant in cls._VARIANT_BY_FAMILY:
+            if refs & set(families):
+                return variant
+        return "standard"
+
     def gen_sign_figures(self):
         for s in self.signs:
             self._draw_sign_figure(s)
@@ -634,8 +653,10 @@ class Engine:
         zone = s["zone"]
         anchor_level, side_mult = ZONE_ANCHOR[zone]
         bottom = "knee" if zone == "crotch_leg" else "thigh"
+        variant = self._body_variant(s)
         cro = croquis_fit(W, H, bottom, "top_of_head", arms=False, pad_y=16.0,
-                          view="back" if zone == "upper_back" else "front")
+                          view="back" if zone == "upper_back" else "front",
+                          variant=variant)
         cro.draw_torso_only(fc, bottom=bottom, gray=0.45)
         hk = {"neck_base": "neck_base", "shoulder_point": "shoulder_point",
               "across_back": "across_back", "bust_apex": "bust_apex",
@@ -674,7 +695,8 @@ class Engine:
                            "sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür "
                            "Faz 3'te toile üzerinden düzeltilecektir."),
             extra={"symptom_ref": sid, "zone": zone, "sign_class": s["sign_class"],
-                   "template_token": token, "width_pt": W, "height_pt": H,
+                   "template_token": token, "body_variant": variant,
+                   "width_pt": W, "height_pt": H,
                    "source_file": f"sign_{sid}.pdf"})
 
     # ── ④ kalıp parçası figürleri ─────────────────────────────────────
@@ -784,6 +806,101 @@ class Engine:
         for key, shows, rows in internal:
             self._draw_table(key, shows, rows, internal=True)
 
+    # ── ⑤b MANÜSKRİPT FİGÜRLERİ — Faz 4'te ÖLÇÜLEREK eklendi ─────────
+    #
+    # Faz 2 figür sicilini TAKSONOMİ katmanından türetti: her belirtiye
+    # bir figür, her ölçüye bir figür, her bölgeye bir şema. Doğruydu ve
+    # EKSİKTİ. Manüskript dizilince yedi figürün var olmadığı ÖLÇÜLDÜ —
+    # hepsi CHAPTER_SPECS'te yazılıydı ama hiçbiri taksonomi kaydından
+    # türetilemezdi, çünkü karşılıkları bir kayıt değil bir BÖLÜMDÜR.
+    #
+    # Ders Faz 2'nin B-10'uyla aynı sınıftan: bir üretim hattı, sormadığı
+    # soruyu üretemez. Kapı eklendi — qa_manuscript.py her bölümün spec'te
+    # istenen figürünü arar.
+    def gen_manuscript_figures(self):
+        cls = self.labels["sign_classes"]
+        self._draw_table("three_numbers",
+                         "Üç sayı — vücut, kalıp, bitmiş giysi (okura dönük)",
+                         [["", "What it measures", "Where it comes from"],
+                          ["Body", "You", "A tape measure, on you"],
+                          ["Pattern", "The paper pieces, flat",
+                           "Measured off the pattern, allowances removed"],
+                          ["Finished garment", "The sewn thing on a hanger",
+                           "The pattern envelope, or measured off the pattern"]],
+                         internal=False)
+        self._draw_table("sign_classes",
+                         "On belirti sınıfı ve ne anlattıkları (okura dönük)",
+                         [["Class", "What it means"]] +
+                         [[v[0], v[1]] for v in cls.values()],
+                         internal=False)
+        conf = []
+        for sg in self.signs:
+            for c in sg.get("confounders_to_rule_out", []):
+                head = self.labels["confounders"].get(c.split(":")[0].strip())
+                if head and head not in conf:
+                    conf.append(head)
+        self._draw_table("rule_out_checklist",
+                         "Eleme kontrol listesi — okura dönük, fotokopi edilebilir",
+                         [["", "Ruled out?"]] + [[c, "\u2610"] for c in conf],
+                         internal=False)
+        for key, (title, cols) in self.labels["forms"].items():
+            rows = [cols] + [[""] * len(cols) for _ in range(10)]
+            self._draw_table(f"form_{key}", f"Boş form — {title} (okura dönük)",
+                             rows, internal=False)
+        self._draw_cycle_chart()
+
+    def _draw_cycle_chart(self):
+        """Yedi adımlı döngünün ana şeması — Bölüm 6'nın merkez figürü.
+
+        DÖNGÜDÜR, liste değildir: son adımdan ikinci adıma dönen bağ
+        çizilir. Çelişmeli inceleme B-01 tam olarak bu bağın metinde
+        olmamasıydı; şemada da olmalıdır."""
+        steps = [
+            ("Set up", "Standardise the conditions before you look at anything"),
+            ("Observe", "Look in a fixed order and record without interpreting"),
+            ("Name", "Name what you see from the controlled vocabulary"),
+            ("Locate", "Where a sign appears is not always where it comes from"),
+            ("Measure", "Compare the three numbers at that point"),
+            ("Test", "One hypothesis, the cheapest reversible test"),
+            ("Record", "Name the adjustment family and write down the amount"),
+        ]
+        # Geri dönüş etiketi kutunun SAĞINA yazılıyor; kutu onu almalı.
+        # İlk sürüm 74 pt ayırmıştı ve etiket figür kutusunun dışına
+        # taşıyordu — sayfaya bakılarak görüldü.
+        w = NODE["obs_w"] + 132.0
+        h = (NODE["obs_h"] + NODE["vgap"]) * len(steps) + NODE["vgap"]
+        fc = self._fc(w, h, "diagram", "flow_CYCLE.pdf")
+        y = h - NODE["vgap"]
+        ys = []
+        for i, (name, why) in enumerate(steps, 1):
+            y -= NODE["obs_h"]
+            fc.tk14_step(14.0, y + NODE["obs_h"] / 2, i)
+            fc.tk17_observation_node(28.0, y, NODE["obs_w"], NODE["obs_h"],
+                                     f"{name} \u2014 {why}", size=6.4)
+            if ys:
+                fc.connector(28.0 + NODE["obs_w"] / 2, ys[-1],
+                             28.0 + NODE["obs_w"] / 2, y + NODE["obs_h"])
+            ys.append(y)
+            y -= NODE["vgap"]
+        # ── B-01: yeniden gözlem bağı — döngüyü KAPATAN çizgi ─────────
+        x_r = 28.0 + NODE["obs_w"] + 12.0
+        y_last = ys[-1] + NODE["obs_h"] / 2
+        y_obs = ys[1] + NODE["obs_h"] / 2
+        fc.polyline([(28.0 + NODE["obs_w"], y_last), (x_r, y_last), (x_r, y_obs)],
+                    role="callout_leader")
+        fc.connector(x_r, y_obs, 28.0 + NODE["obs_w"], y_obs, elbow=False)
+        fc.text(x_r + 5.0, (y_last + y_obs) / 2, "sign reduced",
+                face="sans-semibold", size=6.0)
+        fc.text(x_r + 5.0, (y_last + y_obs) / 2 - 7.5, "but not gone",
+                face="sans-semibold", size=6.0)
+        tokens = fc.finish()
+        self._record(fig_type="flowchart",
+                     shows=("Yedi adımlı teşhis döngüsü — ana şema; yeniden gözlem "
+                            "bağı döngüyü kapatır (çelişmeli inceleme B-01)"),
+                     view=None, tokens=tokens, deterministic=True,
+                     extra={"zone": "CYCLE", "width_pt": round(w, 1),
+                            "height_pt": round(h, 1), "source_file": "flow_CYCLE.pdf"})
+
     def _draw_table(self, key: str, shows: str, rows: list, internal: bool = False):
         size = float(self.geom["typography_grid"]["table_size_pt"])
         pad, rowh = 6.0, size * 1.75
@@ -814,6 +931,13 @@ class Engine:
         self._record(fig_type="table_graphic", shows=shows, view=None,
                      tokens=tokens if tokens else ["TK-09"], deterministic=True,
                      extra={"table": key, "rows": len(rows), "internal": internal,
+                            # Dizgi için SATIRIN KENDİSİ ve sütun oranları.
+                            # Tablo sayfaya PDF olarak yapıştırılmaz, metin
+                            # ızgarasında yeniden dizilir — ama veri TEK
+                            # kaynaktan gelir: bu kayıt. İki kopya olsaydı
+                            # PDF ile sayfa birbirinden ayrılabilirdi.
+                            "data": rows,
+                            "col_ratio": [round(c / W, 4) for c in colw],
                             "width_pt": round(W, 1), "height_pt": round(H, 1),
                             "source_file": f"tbl_{key}.pdf"})
 
@@ -1052,6 +1176,8 @@ class Engine:
                     ("back_skirt", "", "skirt"), ("front_trouser", "", "trouser"),
                     ("back_trouser", "", "trouser"), ("dart_anatomy", "", "dart")]}[k]
                 self._draw_pattern_piece(*spec)
+            elif key == "flow_CYCLE":
+                self._draw_cycle_chart()
             elif key.startswith("tbl_"):
                 raise KeyError(f"{key}: tablo figürleri sayfaya doğrudan dizilir "
                                f"(build_pilot.py § table), render() ile değil.")
@@ -1069,6 +1195,7 @@ class Engine:
         self.gen_sign_figures()
         self.gen_pattern_pieces()
         self.gen_tables()
+        self.gen_manuscript_figures()
         self.gen_comparisons()
         self.gen_toile_states()
         return self.figures

@@ -86,7 +86,7 @@ Yöntem dayanağı: `S-0006` (NHANES) tekrar-ölçüm (replicate) deseni.
 
 ### Y-4 · Eleme kalemi testi *(C-H için)*
 
-Dokuz eleme kaleminin her biri **kasten** uygulanır (eğri kesim, yanlış
+On dört eleme kaleminin her biri **kasten** uygulanır (eğri kesim, yanlış
 dikiş payı, yanlış iç giyim, yanlış ölçekte basılmış kalıp…) ve ürettiği
 belirti kaydedilir. Bölüm 8'in doğrudan kanıt tabanıdır.
 

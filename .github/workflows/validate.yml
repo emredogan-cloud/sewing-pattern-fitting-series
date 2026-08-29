@@ -47,7 +47,7 @@ jobs:
             B="init"
             if [ -f "$d/.gate" ]; then B="$(tr -d '[:space:]' < "$d/.gate")"; fi
             case "$B" in
-              init|foundation|phase1-spec|phase2-visual|phase3-pilot|phase4-production|phase5-qa|phase6-format|release) ;;
+              init|foundation|phase1-spec|phase2-visual|phase4-production-conditional|phase3-pilot|phase4-production|phase5-qa|phase6-format|release) ;;
               *) echo "::error::$d/.gate geçersiz: '$B'"; exit 1 ;;
             esac
             echo "::notice::$d kapısı = $B"
@@ -181,6 +181,28 @@ jobs:
         run: |
           python3 06_BUILD/calibrate_tokens.py
           git diff --stat -- 03_VISUAL/calibration_report.json
+
+  manuscript:
+    name: iddia sicili · izlenebilirlik · manüskript kapısı
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.12' }
+      - name: iddia sicili GÜNCEL mi
+        run: python3 06_BUILD/build_claims.py --check --book book-01
+      - name: iddia→kaynak haritası GÜNCEL mi
+        run: python3 06_BUILD/build_claim_map.py --check --book book-01
+      - name: manüskript kapısı
+        # ⚠ DÜRÜST SINIR: manüskript prozası BİLEREK izlenmiyor
+        # (.gitignore § ①, DECISIONS.md K9). Temiz bir klonda bu kapı
+        # PROZAYI göremez ve kendini ATLAR — çıktı bunu açıkça söyler.
+        # Bölüm yapısı, yeniden gözlem döngüsü ve kalibre dil denetimi
+        # bu yüzden YERELDE koşulmak zorundadır; CI onların yerine geçmez.
+        run: |
+          python3 06_BUILD/qa_manuscript.py --book book-01 --verbose
+          echo "::notice::Manüskript prozası izlenmiyor; bu kapının tam kapsamı YEREL koşumdadır."
 
   killgate:
     name: kill-gate ön koşulu (bilgi amaçlı)

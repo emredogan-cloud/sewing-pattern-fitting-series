@@ -1,0 +1,849 @@
+{
+ "reviewer": "body measurement definitions, landmarks and measuring technique",
+ "sources_consulted": [
+  {
+   "label": "ISO 8559-1:2017 Size designation of clothes — Part 1: Anthropometric definitions for body measurement (read as GSO ISO 8559-1:2025, an identical adoption with no technical modifications). Clause 3 (landmark points, levels, lines and planes) obtained in full; clauses 4 and 5 NOT obtained.",
+   "publisher": "International Organization for Standardization / GCC Standardization Organization",
+   "url": "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+   "accessed": "2026-08-29",
+   "quality": "standards_body",
+   "reachable": true
+  },
+  {
+   "label": "ES ISO 8559-1:2021 (Ethiopian identical adoption of ISO 8559-1:2017) — 16-page public preview: full table of contents (every defined measurement name and clause number), clauses 3.1.1–3.1.15, bibliography. Body of clause 5 is image-only / absent.",
+   "publisher": "Ethiopian Standards Agency / ISO",
+   "url": "https://www.ethiostandards.org/sites/default/files/2021-02/3,%20%20ES%20ISO_8559-1_2021.pdf",
+   "accessed": "2026-08-29",
+   "quality": "standards_body",
+   "reachable": true
+  },
+  {
+   "label": "ISO 8559-2:2017 Size designation of clothes — Part 2: Primary and secondary dimension indicators (public preview PDF). Clause 3.3 'cup size' and Table 1 obtained.",
+   "publisher": "International Organization for Standardization",
+   "url": "https://cdn.standards.iteh.ai/samples/64075/c46760e2323546b5bac124a383851cae/ISO-8559-2-2017.pdf",
+   "accessed": "2026-08-29",
+   "quality": "standards_body",
+   "reachable": true
+  },
+  {
+   "label": "Guide C-228, Pattern Alteration (rev. 2015) — full text, incl. Table 1 'How to Take Body Measurements'",
+   "publisher": "New Mexico State University Cooperative Extension Service",
+   "url": "https://pubs.nmsu.edu/_c/C228.pdf",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "Guide C-227, Making Perfect Pants — full text, incl. the 10 numbered body measurements and hip/posture types",
+   "publisher": "New Mexico State University Cooperative Extension Service",
+   "url": "https://pubs.nmsu.edu/_c/C227.pdf",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "Guide C-220, Check Your Pattern for Proper Fit (rev. April 2015) — full text, incl. section I 'Preparations for taking measurements' and section IV 'Measurement techniques' (28 numbered measurements). NOT cited anywhere in the repository under review.",
+   "publisher": "New Mexico State University Cooperative Extension Service",
+   "url": "https://pubs.nmsu.edu/_c/C220.pdf",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "E-372, Principles of Pattern Alteration (02/06) — full text ('Know your measurements', size-selection rule, alteration order). Copy hosted on an Ohio State University Extension county server.",
+   "publisher": "Texas AgriLife Extension Service, The Texas A&M System",
+   "url": "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "NHANES Anthropometry Procedures Manual, May 2021 — full text, incl. 3.4.3 Standing Height, 3.4.8 Abdominal (Waist) Circumference, Appendix B Gold Standard Replicate Examinations",
+   "publisher": "U.S. CDC / National Center for Health Statistics",
+   "url": "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Anthropometric Data Analysis Sets Manual — standardized traditional measurement definitions and landmark definitions (HSIAC/CSERIAC, AFRL/HEC). Read from Prof. Matthew Reed's UMTRI mirror; the host's TLS certificate chain did not validate and the file had to be fetched with certificate verification disabled.",
+   "publisher": "Human Systems Information Analysis Center, U.S. Air Force Research Laboratory (mirror: University of Michigan Transportation Research Institute)",
+   "url": "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "ANSUR II (2012) public female dataset — variable header row only, used to enumerate which measurements ANSUR II actually contains. Third-party GitHub mirror; the canonical Penn State OPEN Design Lab download links now serve an application shell rather than the CSV.",
+   "publisher": "U.S. Army NSRDEC (data); third-party GitHub mirror",
+   "url": "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "ANSUR II dataset landing page (report links present; the report PDFs themselves were not retrievable during this review)",
+   "publisher": "The OPEN Design Lab, Pennsylvania State University",
+   "url": "https://www.openlab.psu.edu/datasets/ansur2/",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "Measurement Toolkit — Anthropometry, simple measures: circumference (catalogue of the six competing waist-circumference site conventions and who recommends each)",
+   "publisher": "MRC Epidemiology Unit, University of Cambridge",
+   "url": "https://www.measurement-toolkit.org/anthropometry/objective-methods/simple-measures-circumference",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "Seimon RV, Wild-Taylor AL, Gibson AA, et al. 'Less Waste on Waist Measurements: Determination of Optimal Waist Circumference Measurement Site to Predict Visceral Adipose Tissue in Postmenopausal Women with Obesity.' Nutrients 2018;10(2):239",
+   "publisher": "MDPI / U.S. National Library of Medicine (PMC)",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5852815/",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "Brown RE, Randhawa AK, Canning KL, Fung M, Jiandani D, Wharton S, Kuk JL. 'Waist circumference at five common measurement sites in normal weight and overweight adults: which site is most optimal?' Clinical Obesity 2018;8(1):21-29 (abstract and conclusion read; full text not retrieved)",
+   "publisher": "Wiley / World Obesity Federation",
+   "url": "https://onlinelibrary.wiley.com/doi/10.1111/cob.12231",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "ASTM D5219-25 Standard Terminology Relating to Body Dimensions for Apparel Sizing — catalogue record only (status, designation, scope). Standard text is paywalled and was NOT read.",
+   "publisher": "ASTM International",
+   "url": "https://store.astm.org/d5219-25.html",
+   "accessed": "2026-08-29",
+   "quality": "standards_body",
+   "reachable": true
+  },
+  {
+   "label": "Extension Folder 238, 'Figure Types and Sizes' (1968) — full text. Historical corroboration only; the publication is 58 years old and carries an archive warning.",
+   "publisher": "University of Minnesota Agricultural Extension Service (via UMN Digital Conservancy)",
+   "url": "https://conservancy.umn.edu/server/api/core/bitstreams/7a9a2997-f325-4b15-9355-037332035eec/content",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "ANSUR II Methods and Summary Statistics, NATICK/TR-15/007 (DTIC ADA611869) — the report the repository cites as S-0005. COULD NOT BE RETRIEVED: apps.dtic.mil returns an HTML interstitial rather than the PDF, and the Penn State mirror link did not serve the file. Its content was verified indirectly via the ANSUR II variable list and the AFRL/HSIAC definitions manual.",
+   "publisher": "U.S. Army Natick Soldier RD&E Center",
+   "url": "https://apps.dtic.mil/sti/pdfs/ADA611869.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": false
+  },
+  {
+   "label": "WHO Expert Consultation report on Waist Circumference and Waist-Hip Ratio — HTTP 403, not retrieved. The WHO protocol wording was taken second-hand from the MRC Epidemiology Unit Measurement Toolkit instead.",
+   "publisher": "World Health Organization",
+   "url": "https://iris.who.int/server/api/core/bitstreams/ca408ade-05c9-4b7c-8967-6ee5b5e0ccd8/content",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": false
+  }
+ ],
+ "findings": [
+  {
+   "claim_id": "M-001",
+   "claim": "High bust: landmark_start 'under the arms, above the bust'; path_rule 'Yatay, kolların hemen altından, göğüs dokusunun ÜZERİNDEN geçer; sırtta yere paralel kalır.'; verification_status technical_reference_verified; source_refs S-0001, S-0003.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://www.ethiostandards.org/sites/default/files/2021-02/3,%20%20ES%20ISO_8559-1_2021.pdf",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "university + standards_body",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "landmark_start: 'level of the cord tied high under the arms, immediately ABOVE all breast tissue, parallel to the floor across the back'. path_rule: 'Yatay. Şerit, koltuk altlarının hemen altından geçer ve göğüs dokusunun TAMAMEN ÜSTÜNDE kalır — göğsün üst eğimine BİNMEZ. Seviye önce yere paralel bir kordonla işaretlenir ve kordon tüm ölçüler boyunca yerinde bırakılır; sırtta kordonun ve şeridin yere paralel olduğu ikinci bir kişi ya da ayna ile doğrulanır. NOT: Bu ölçünün adı kaynaklara göre değişir — NMSU C-228 'High Bust', NMSU C-220 'Above bust', ISO 8559-1 5.3.6 'Chest girth (at axilla)' / 5.3.7 'Upper chest girth', ANSUR/AFRL 'Chest Circumference at Scye'.'",
+   "notes": "The measurement is real and institutionally recognised. NMSU C-228 Table 1: 'High Bust — Measure just above breasts, under the arms, and across the fullest part of the back.' NMSU C-220 lists it as '1. Above bust' and, crucially, section I requires 'A cord should also be tied around your chest above the bust line. Place it high under the arms and parallel to the floor across the back. Leave these cords in position while taking all measurements.' ISO 8559-1:2017 lists BOTH 5.3.6 'Chest girth (at axilla)' and 5.3.7 'Upper chest girth' as separate girths (clause-5 wording could not be obtained, so I cannot say which one 'high bust' equals). AFRL/HSIAC 231: 'Chest Circumference at Scye — the horizontal circumference of the chest at the level of the scye at midspace landmark.' THREE defects in the record as written. (1) The Turkish path_rule 'göğüs dokusunun ÜZERİNDEN geçer' most naturally reads 'passes over the breast tissue' and at best 'across the top of the breast tissue'; NMSU says 'just ABOVE breasts'. A tape riding on the upper slope of the breast inflates the high bust and collapses M-031 — the exact number the book's size rule depends on. (2) No level anchor and no cord: the repository mandates a marking cord for the waist only, while C-220 mandates one here too. (3) helper_required is null, but C-220 opens with 'Have someone take your measurements while you stand in normal posture.' Cited source S-0003 (Texas AgriLife E-372) cannot support any landmark definition: E-372 contains no measuring instructions at all. It says verbatim 'See Extension publication E-373, Personal Measurement Chart, for measuring instructions and illustrations.' Its figure only carries numbered labels. The repository itself records that E-373 could not be downloaded."
+  },
+  {
+   "claim_id": "M-002",
+   "claim": "Full bust: landmark_start 'bust apex'; horizontal at the fullest point, tape neither pulled nor sagging.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf"
+   ],
+   "source_quality": "standards_body + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 defines 5.3.4 'Bust girth' and 3.1.11 'bust point — most anterior point of the bust WHEN WEARING BRA' (Note 2 refers to 4.1.1 for the type of bra). AFRL/HSIAC 230: 'Chest Circumference — the maximum horizontal circumference of the chest at the fullest part of the breast... The shoulders and upper extremities are relaxed.' NMSU C-228 'Bust — Measure at fullest point'; C-220 '2. Full bust... Keep tape parallel to floor across the back.' The record's common_errors correctly name the bra and the tape-pull. Two gaps rather than errors: the record does not require 'shoulders and arms relaxed, hanging at the sides' (in every anthropometric source), and helper_required is null while both NMSU guides require a helper. Cited source S-0003 (Texas AgriLife E-372) cannot support any landmark definition: E-372 contains no measuring instructions at all. It says verbatim 'See Extension publication E-373, Personal Measurement Chart, for measuring instructions and illustrations.' Its figure only carries numbered labels. The repository itself records that E-373 could not be downloaded."
+  },
+  {
+   "claim_id": "M-003",
+   "claim": "Underbust: 'directly beneath the bust', horizontal, taken after exhaling.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf"
+   ],
+   "source_quality": "standards_body + university + official_institutional",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Yatay, göğsün hemen altından, göğüs kafesiyle birleştiği yerden; SUTYEN TAKILIYKEN alınır (ISO 8559-1 3.1.20 under bust level 'level directly below breast when wearing a bra'). Ölçü, NORMAL nefes verişin sonunda okunur — nefes tutulmaz ve zorlanmış nefes verilmez.'",
+   "notes": "ISO 8559-1:2017 3.1.20 'under bust level — level directly below breast when wearing a bra' and 5.3.8 'Under bust girth'. AFRL/HSIAC 232: 'Chest circumference (below bust) — the horizontal circumference of the chest at the level of the inferior juncture of the lowest breast with the rib cage... On women, the tape may lie on the bra.' NMSU C-228 'Low Bust — Measure just under breasts and around back'; C-220 '3. Under bust'. Two omissions: the record does not state that the bra is worn (ISO makes it part of the landmark definition), and 'nefes verilmiş hâlde' is vaguer than the anthropometric convention — NHANES reads circumferences 'at the end of the SP's normal expiration', which excludes both breath-holding and forced expiration. Note also that M-003 is collected but never used: no derived measure in this file consumes it, even though ISO 8559-2:2017 3.3 defines cup size FROM it (see M-031/CC-06)."
+  },
+  {
+   "claim_id": "M-004",
+   "claim": "Natural waist: landmark_start 'narrowest point of the torso'; located once by a side-bend test and marked with elastic. source_refs S-0002, S-0003; verification_status agent_drafted_unverified.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf",
+    "https://www.measurement-toolkit.org/anthropometry/objective-methods/simple-measures-circumference",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC5852815/",
+    "https://onlinelibrary.wiley.com/doi/10.1111/cob.12231",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://store.astm.org/d5219-25.html"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "CONTESTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "landmark_start: 'the level this book calls the natural waist — the narrowest point of the torso between the lowest rib and the hip bone, found once by the side-bend test and then marked with elastic'. Add to path_rule / to the chapter text: 'Bu kitap doğal beli EN DAR NOKTA olarak tanımlar; bu tanım Anthropometric Standardization Consensus Group tarafından kullanılır. Bu, TEK tanım DEĞİLDİR ve giysi ölçüsü için uluslararası standardın tanımı da DEĞİLDİR: ISO 8559-1:2017 3.1.22 bel seviyesini \"en alt kaburga noktası ile kalça kemiğinin en yüksek noktasının tam ORTASI\" olarak tanımlar; WHO aynı orta noktayı kullanır; NHANES iliak kanadın üst kenarını kullanır; ANSUR II bel çevresini YALNIZCA göbek (omphalion) hizasında ölçer; NMSU C-220 ise \"kemerin durması gereken yer\" der. Bu tanımlar aynı bedende 13 cm'ye varan farklı sayılar üretir (Seimon ve ark. 2018: en dar 102,1 cm; orta nokta 108,3 cm; göbek hizası 115,7 cm). Bu yüzden bel ölçüsünün YANINA hangi tanımın kullanıldığı yazılır ve kalıp ölçüsüyle karşılaştırma yalnızca aynı tanım içinde geçerlidir.'",
+   "notes": "The recorded conflict is REAL and is more serious than the repository states. Six mutually incompatible authoritative conventions exist. (a) ISO 8559-1:2017 3.1.22 (the clothing-sizing standard, quoted verbatim): 'waist level — midway between the lowest rib point and the highest point of the hip bone at the side of the body.' It is NOT the narrowest point. (b) WHO STEPS, per the MRC Epidemiology Unit toolkit: 'midpoint between the lower coastal region (lowest palpable rib) and the top of the iliac crest'. (c) NHANES 2021 §3.4.8: 'draw a horizontal line just above the uppermost lateral border of the right ilium. Cross this mark at the midaxillary line.' (d) ANSUR II: I enumerated the public dataset header — there is exactly ONE waist girth variable, 'waistcircumference', and it is the omphalion (navel) measure; there is no natural-waist girth. The repository's S-0005 note on this point is CORRECT. (e) AFRL/HSIAC 931 does define 'Waist Circumference (Natural) — the horizontal circumference of the waist at the level of its natural indentation... passing over right and left waist (natural indentation) landmarks', and the MRC toolkit attributes the narrowest-point convention to the Anthropometric Standardization Consensus Group — so the repository's choice is defensible, just not standard for clothing. (f) NMSU C-220 §IV.4: 'Waistline. Measure snugly where the belt should be.' (g) The ASTM D5219 catalogue abstract quotes a 'preferred waist' term defined as the waist 'identified as the waist by the wearer'. SEPARATE AND MORE DAMAGING FINDING: the definition is UNSOURCED IN THE REPOSITORY'S OWN TERMS. Its two source_refs are S-0002 and S-0003. NMSU C-227 lists '1. Waist.' with no definition of where the waist is. Cited source S-0003 (Texas AgriLife E-372) cannot support any landmark definition: E-372 contains no measuring instructions at all. It says verbatim 'See Extension publication E-373, Personal Measurement Chart, for measuring instructions and illustrations.' Its figure only carries numbered labels. The repository itself records that E-373 could not be downloaded. So 'narrowest point of the torso' rests on nothing in 01_SOURCE. Magnitude: Seimon 2018 (n=97) measured 102.1 / 108.3 / 115.7 cm at narrowest / midpoint / umbilicus in the same women — a 13.5 cm spread, i.e. several pattern sizes. Brown 2018 compared five sites and concluded there is no clear clinical advantage to any one site, which means the field has NOT converged and the book must declare its own convention rather than assert one."
+  },
+  {
+   "claim_id": "M-005",
+   "claim": "High hip at '≈ 7–10 cm below the marked waist'; source_refs S-0002, S-0003; verification_status technical_reference_verified. S-0002's own record asserts NMSU's '3 inches' is 'UYUMLU' (compatible) with 7–10 cm.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "university + standards_body",
+   "conclusion": "CONTESTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "landmark_start: '5–10 cm (2–4 in) below the marked waist — the distance actually used MUST be written down beside the number, because no source agrees on it: NMSU C-220 says 2–3 in, NMSU C-227 says 3 in in its measurement list and 3–4 in in its hip-type descriptions, and ISO 8559-1:2017 does not use a fixed distance at all (3.1.24 top hip level = midway between waist level and hip level; 3.1.23 upper hip level = midway between top hip and waist levels), i.e. the level scales with the body rather than being fixed in centimetres.'",
+   "notes": "The repository's range is not any source's range. Verbatim: NMSU C-227, body-measurement list item 2: 'High hip (3 inches below waist)'; but the same guide's hip-type text says 'The upper hip measurement taken 3–4 inches below the waist' — the source contradicts itself. NMSU C-220 §IV.5: 'High hip/abdomen. Measure at fullest part, usually 2–3 inches below waistline.' 7 cm = 2.76 in, so the repository's floor already excludes C-220's '2 inches'; 10 cm = 3.94 in, which no source states. ISO 8559-1:2017 defines the two levels above the hip PROPORTIONALLY (3.1.23, 3.1.24 quoted above), so on a long-torsoed or short-torsoed body a fixed 7–10 cm lands in a different place relative to the pelvis. S-0002's note that '3 inches' is 'UYUMLU' with 7–10 cm is true only in one direction and papers over the disagreement the brief asks to be surfaced. Also: verification_status 'technical_reference_verified' is not earned — no consulted source states 7–10 cm."
+  },
+  {
+   "claim_id": "M-006",
+   "claim": "Full hip: 'fullest point of the seat/hip', horizontal, with the distance from the waist recorded via M-023.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://www.measurement-toolkit.org/anthropometry/objective-methods/simple-measures-circumference",
+    "https://conservancy.umn.edu/server/api/core/bitstreams/7a9a2997-f325-4b15-9355-037332035eec/content"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 3.1.25: 'hip level — level of the greatest projection at the back of the body (buttocks)'; 5.3.13 Hip girth and 5.3.14 'Maximum hip girth (seat measure girth)'. AFRL/HSIAC 178: 'Buttock Circumference — the circumference of the body measured at the level of the maximum posterior protuberance of the buttocks.' NMSU C-220 §IV.6 adds a technique the repository omits and should adopt: 'View figure from both front and sides to see whether hips are larger at the hip or thigh level. If in doubt, take both measurements and use the larger one.' The waist-to-hip distance is figure-type dependent in every source (C-227 '7–9 inches'/'usually 8–9 inches'; C-220 'usually 6–10 inches'; UMN 1968 '7 inches ... for Half Sizes, Junior Petite, Young Junior/Teen; 9 inches ... for Misses, Women, Junior'), which is exactly why the repository is right to require M-023 to be recorded. helper_required is null but NMSU C-227 says 'Have someone help you take the measurements listed on the following chart' for its whole list, this one included."
+  },
+  {
+   "claim_id": "M-007",
+   "claim": "Bicep: 'fullest point of the upper arm', horizontal, arm relaxed at the side, muscle not flexed.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "standards_body + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "MEDIUM",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 lists 5.3.16 'Upper-arm girth' (clause-5 wording not obtained). NMSU C-220 §IV.15: 'Upper arm circumference. Measure around fullest part of upper arm. This is usually at bottom of armhole. Also record distance of this measurement from top of armhole seam.' NMSU C-228 Table 1 differs slightly: 'Upper Arm Circumference — Measure around upper arm at armpit.' The repository's 'fullest point' matches C-220 and the divergence from C-228 is small on most arms. One omission worth adopting: C-220 requires the DISTANCE of the bicep level below the armhole to be recorded, which is what lets the number be compared against a sleeve pattern; the repository records no such level."
+  },
+  {
+   "claim_id": "M-008",
+   "claim": "Wrist: landmark_start 'wrist bone', horizontal over the wrist bone. Recorded by the project as CONTESTED against NMSU's 'around widest part of hand'.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Keep M-008 as written and ADD a second record: 'M-0xx Hand girth — the circumference of the hand measured around its widest part with the thumb folded across the palm (ISO 8559-1:2017 5.5.1 hand girth; NMSU C-228 \"Wrist — Measure around widest part of hand\"). Wrist girth sets the cuff that fastens; hand girth sets the smallest opening any cuff WITHOUT a fastening may have. The two are not alternatives and neither replaces the other.'",
+   "notes": "The project has correctly RECORDED a conflict but has MIS-CLASSIFIED it. It is not two rival definitions of one measurement; it is two different standard measurements. Wrist girth: ISO 8559-1:2017 3.1.19 'wrist point — most prominent point of the bulge of the head of ulna (prominent bone at the little finger side of the wrist)' and 5.3.19 'Wrist girth'; AFRL/HSIAC 970 'Wrist Circumference (Stylion) — the circumference of the wrist perpendicular to the long axis of the forearm... passing over the stylion landmark'; ANSUR II carries the variable 'wristcircumference'. Hand girth: ISO 8559-1:2017 5.5.1 'Hand girth' is a separate defined measurement, which is precisely what NMSU C-228 asks for. So both sources are right about different things, and the repository is measuring only the one that does NOT govern a closed cuff. That is a real functional gap: a long sleeve with a non-opening cuff drafted to wrist girth will not pass over the hand. Note also: ISO's landmark is on the ULNAR (little-finger) side specifically; 'wrist bone' alone is ambiguous because there is a radial styloid too, and the two give different girths depending on tape angle."
+  },
+  {
+   "claim_id": "M-009",
+   "claim": "Thigh: 'fullest point of the upper thigh', horizontal, standing with weight distributed evenly on both feet.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Yatay, uyluğun en dolgun yerinden — genellikle kalçayla birleştiği yerin hemen altında. Ayakta, ağırlık iki ayağa eşit dağılmış ve BACAKLAR UYLUKLAR BİRBİRİNE DEĞMEYECEK KADAR AÇIK; değen uyluklar birbirini yassılaştırır ve ölçüyü küçültür. Ölçünün belden uzaklığı kaydedilir.'",
+   "notes": "ISO 8559-1:2017 defines 5.3.20 'Thigh girth' AND 5.3.21 'Mid-thigh girth' as different measurements, so 'thigh' alone is under-specified. AFRL/HSIAC 852: 'Thigh Circumference (Proximal) — the circumference of the right thigh at its juncture with the buttock... The legs are spread apart just enough so that the thighs do not touch.' That posture instruction is missing from the repository and materially changes the number on fuller thighs. NMSU C-227 item 6 says only 'Thigh at fullest part'; NMSU C-228 gives a conflicting rule — 'Measure 9 inches down from waistline, around heaviest part of single thigh' — which is internally contradictory (a fixed 9 in is not necessarily the heaviest part). The repository's 'oturarak ölçmek' error is correct: AFRL/HSIAC has a separate 853 'Thigh Circumference (Proximal - Sitting)'."
+  },
+  {
+   "claim_id": "M-010",
+   "claim": "Knee: 'center of the kneecap', horizontal, leg straight. source_refs EMPTY; verification_status agent_drafted_unverified.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C227.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "The definition is right even though the record cites nothing. ISO 8559-1:2017 3.1.17: 'centre point of kneecap — centre of patella when the thigh muscles are relaxed'; 5.3.22 'Knee girth'. AFRL/HSIAC 515: 'Knee Circumference — the horizontal circumference of the right knee at the level of the midpatella landmark at the center of the knee... feet about 10 cm apart with weight distributed equally.' ANSUR II carries 'kneeheightmidpatella'. CONFLICT WITH ITS OWN SIBLING SOURCE: NMSU C-227 item 7 says 'Knee (1 inch above center)'. Two further notes: ISO specifies 'when the thigh muscles are relaxed', which is a stronger and better instruction than the repository's 'bacak düz'; and ISO also defines 5.3.23 'Lower knee girth' separately, so a bare 'knee' is ambiguous in a drafting context."
+  },
+  {
+   "claim_id": "M-011",
+   "claim": "Calf: 'fullest point of the calf', horizontal, foot flat on the floor. source_refs EMPTY.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional",
+   "conclusion": "SUPPORTED",
+   "confidence": "MEDIUM",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 5.3.24 'Calf girth' (and 5.3.25 'Minimum leg girth' separately). AFRL/HSIAC 207: 'Calf Circumference — the maximum horizontal circumference of the right calf... The subject stands erect with the heels approximately 10 cm apart and the weight distributed equally on both feet.' The repository's single common_error ('standing on tiptoe') is correct as far as it goes; the stance detail (heels ~10 cm apart, weight even) is the one anthropometric sources actually specify. Definition is fine; the record simply carries no citation."
+  },
+  {
+   "claim_id": "M-013",
+   "claim": "Neck base: 'base of the neck', tape through the hollows where the shoulder meets the neck, NOT round the middle of the neck. Recorded by the project as CONTESTED against NMSU's 'neck circumference 1 inch above base of neck'.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://conservancy.umn.edu/server/api/core/bitstreams/7a9a2997-f325-4b15-9355-037332035eec/content"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Boyun tabanı önce İŞARETLENİR: ince bir zincir ya da kordon, arka boyun noktası (7. boyun omuru çıkıntısı) ile ön boyun noktası (köprücük kemiklerinin iç uçlarını birleştiren çizginin ön orta hattı kestiği yer) üzerinden geçecek şekilde boyuna yerleştirilir ve tüm ölçüler boyunca yerinde bırakılır (ISO 8559-1:2017 3.2.1 neck base line). Şerit bu kordonun izlediği yoldan geçirilir. NOT: NMSU C-228'in \"boyun tabanının 1 inç ÜSTÜ\" ölçüsü BAŞKA bir ölçüdür (ISO 8559-1 5.3.2 neck girth) ve yaka/yaka bandı içindir; boyun oyuntusu için gereken boyun tabanı çevresidir (ISO 5.3.3 neck base girth).'",
+   "notes": "As with M-008 the recorded 'conflict' is really two different standard measurements. ISO 8559-1:2017 defines BOTH 5.3.2 'Neck girth' and 5.3.3 'Neck base girth', and defines the neck base line at 3.2.1: 'line at the neck base defined using a chainette that passes back neck point and the front neck point'. ANSUR II carries BOTH variables: 'neckcircumference' and 'neckcircumferencebase'. AFRL/HSIAC 636: 'Neck Circumference (Base) — the circumference of the base of the neck is measured by a tape passing over the DRAWN lateral and anterior neck landmarks.' So NMSU's '1 inch above base of neck' is not a rival definition of the neck base; it is the higher neck girth, taken for a collar. The repository's own definition is correct. What it is missing is the technique that makes it reproducible: every source marks the neck base FIRST (ISO chainette; AFRL 'drawn' landmarks; NMSU C-220 'Tie another cord around the base of your neck to mark the location of your neckline'; UMN 1968 'Place a fine chain necklace around the neck'). Without that mark the reader cannot find the same line twice, and M-014 (shoulder length) depends on it, because ISO 3.1.7 derives the side neck point FROM the neck base line."
+  },
+  {
+   "claim_id": "M-014",
+   "claim": "Shoulder length: side neck point to shoulder point (bone tip), along the top of the shoulder, both endpoints marked first.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "Best-supported record in the file. ISO 8559-1:2017 3.1.1 'shoulder point — most lateral point of the lateral edge of the spine (acromial process) of the scapula, projected vertically to the surface of the skin (identical to acromion in ISO 7250-1)'; 3.1.7 'side neck point — crossing point of the neck base line and the anterior border of the trapezius muscle'; 5.4.1 'Shoulder length'. AFRL/HSIAC 754: 'Shoulder Length — the surface distance between the trapezius landmark at the base of the side of the neck and the acromion landmark on the tip of the right shoulder.' ANSUR II carries 'shoulderlength'. NMSU C-228 'Shoulders — Measure from base of neck to top of shoulder bone'; NMSU C-220 §IV.12 gives a slightly different far end, 'Measure from base of neck to top of armhole line', i.e. to a chalk-marked armhole rather than to the acromion. The repository's 'iki uç nokta önce İŞARETLENİR' is exactly right and is the discipline the rest of the file lacks."
+  },
+  {
+   "claim_id": "M-015",
+   "claim": "Center front length: hollow at base of throat to the marked natural waist, 'Vücut yüzeyini izleyerek, göğsün ÜZERİNDEN düşey' (vertical, following the body surface, OVER the bust); common_errors lists 'göğsü atlamak (düz ölçmek)' — skipping the bust by measuring straight — as an ERROR.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf"
+   ],
+   "source_quality": "university + standards_body + official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Split into two records. (1) 'M-015 Center front length — from the hollow at the base of the throat STRAIGHT DOWN the centre front to the marked waist. The tape follows the body but does NOT detour over the bust apex.' (2) a new record: 'M-0xx Bodice length over bust — from the neckline at the shoulder seam, over the bust apex, straight down to the marked waist, tape kept parallel to the centre front.' Remove 'göğsü atlamak (düz ölçmek)' from M-015's common_errors.",
+   "notes": "DIRECT CONTRADICTION by an authoritative extension guide from the same publisher as the repository's own S-0001. NMSU C-220 §IV lists these as two SEPARATE measurements: '10. Center front length. Measure from base of neck STRAIGHT DOWN to waistline.' and '11. Bodice length over bust. Measure from the neckline at shoulder seam OVER BUST, straight down to waistline. Keep tape parallel to center front.' The repository has fused them and then declared C-220's actual centre-front method to be a beginner error. ISO 8559-1:2017 5.4.8 'Front neck point to waist' is a distance measured following the surface of the body but specifies no bust detour, and its origin (3.1.8 front neck point, the clavicle line crossing the front median line) matches the repository's 'hollow at base of throat'. AFRL/HSIAC 945: 'Waist Front Length (Natural) — the surface distance between the anterior-neck landmark and the anterior-waist (natural indentation) landmark.' CONSEQUENCE: because M-032 = M-015 - M-016 is the book's 'balance' number, routing M-015 over the apex loads bust PROJECTION into a quantity that is supposed to describe front/back balance. A B-cup and a DD-cup with identical posture will be diagnosed as having different balance. This is the single most load-bearing measurement error I found."
+  },
+  {
+   "claim_id": "M-016",
+   "claim": "Center back length: nape (prominent neck bone) to the marked natural waist, following the surface of the back along the spine.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 3.1.6: 'back neck point — tip of the prominent bone at the base of the back of the neck (spinous process of the seventh cervical vertebra) in the mid-sagittal plane... Identical to cervicale in ISO 7250-1'; 5.4.5 'Back neck point to waist'. AFRL/HSIAC 919: 'Waist Back Length (Natural) — the surface distance between the cervicale landmark on the back of the neck and the posterior-waist (natural indentation) landmark.' ANSUR II carries 'waistbacklength'. NMSU C-228 'Back — Measure down your back from the prominent bone at base of neck down to your waistline'; C-220 §IV.8 identical. The record's common_error 'şeridi düz gerdirmek' (pulling the tape straight) is correct. REPRODUCIBILITY: this measurement cannot be taken alone — the reader can neither palpate C7 nor read the tape behind their own back; both NMSU guides assume a helper, yet helper_required is null here."
+  },
+  {
+   "claim_id": "M-017",
+   "claim": "Shoulder to apex: side neck point to bust apex, following the body surface.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 5.4.10 'Side neck point to bust point' (listed under 5.4, distances measured following the surface of the body). AFRL/HSIAC 648: 'Neck - Bustpoint (Thelion) Length — the distance between the trapezius landmark at the right side of the neck and the right bustpoint landmark on women.' NMSU C-220 §IV.18: 'Shoulder to bust length. Measure from shoulder at neckline to bust point.' The record's single common_error (failing to mark the apex) is the right one. Only defect: source_refs is [S-0003], which cannot support it — Cited source S-0003 (Texas AgriLife E-372) cannot support any landmark definition: E-372 contains no measuring instructions at all. It says verbatim 'See Extension publication E-373, Personal Measurement Chart, for measuring instructions and illustrations.' Its figure only carries numbered labels. The repository itself records that E-373 could not be downloaded. Substituting ISO 5.4.10 / NMSU C-220 §18 would make the record genuinely verified."
+  },
+  {
+   "claim_id": "M-018",
+   "claim": "Apex to apex: left bust apex to right bust apex, 'Yatay, iki apeks arası', tool = tape measure.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'İki apeks arasındaki DÜZ ÇİZGİ mesafesi. Şerit metre kullanılıyorsa gergin ve DÜZ tutulur, göğüs yüzeyine yaslanmaz — yüzeyi izleyen bir şerit bu ölçüyü sistematik olarak BÜYÜK gösterir ve pens açısını yanlış hesaplatır. (ISO 8559-1:2017 bu ölçüyü 5.2.3 \"Bust point width\" olarak yüzey mesafeleri arasında DEĞİL, genişlik/derinlik ölçüleri arasında sınıflar; ANSUR/AFRL 172 bunu kumpasla alır.)'",
+   "notes": "The measurement exists but the repository has put it in the wrong measurement class. ISO 8559-1:2017 files it as 5.2.3 'Bust point width' under 5.2 'Breadths, widths and depths', which are projected (straight-line) distances, NOT under 5.4 'Distances measured following the surface of the body'. AFRL/HSIAC 172 is explicit about the instrument: 'Bustpoint to Bustpoint Breadth — the distance between the right and left bustpoint landmarks... is measured with a BEAM CALIPER.' A tape laid on the chest follows a convex path and reads long; the error grows with cup size, which is exactly the population for whom this number matters. NMSU C-220 §IV.19 does use a tape ('Bust width. Measure from bust point to bust point'), so craft practice and the standard differ — but craft practice implies a tape held taut and clear of the body, which the repository does not say. source_refs is empty and verification_status is honestly 'agent_drafted_unverified'."
+  },
+  {
+   "claim_id": "M-019",
+   "claim": "Apex to waist: bust apex to marked natural waist, 'Düşey, vücut yüzeyini izleyerek'. source_refs EMPTY.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "MEDIUM",
+   "conflict_found": false,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Apeksten işaretli bele; şerit vücut yüzeyini izler ve karın çıkıntısını TAKİP EDER mi yoksa apeksten bele DÜŞEY mi iner — hangisi olduğu AÇIKÇA yazılır ve her ölçümde aynı seçim kullanılır. Dolgun bir karında bu iki yol farklı sayılar verir.'",
+   "notes": "I could not find this measurement under this name in ISO 8559-1:2017 (its list of 5.4 surface distances has no bust-point-to-waist entry), in the AFRL/HSIAC definitions manual (the nearest, 821 'Strap Length', runs from the bustpoint over the lateral neck landmarks — a different path), in ANSUR II's variable list, or in NMSU C-220/C-227/C-228. The nearest standard construction is the difference of two vertical heights: ISO 5.1.7 'Bust height' minus 5.1.10 'Waist height' — but that is a VERTICAL PROJECTION, not a surface path, and on a protruding abdomen the two differ by a useful amount. The repository's own verification_status ('agent_drafted_unverified', source_refs empty) is honest; the record is simply not yet a defined measurement. Searched: ISO 8559-1 clause list, ADAS manual full text, ANSUR II variable header, NMSU C-220/227/228."
+  },
+  {
+   "claim_id": "M-020",
+   "claim": "Across back: left back armhole crease to right back armhole crease, 'Yatay, kürek kemiği hizasında; kollar gevşek yanda'. verification_status technical_reference_verified; source_refs S-0003, S-0005.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "CONTESTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "landmark_start / landmark_end / path_rule: 'Sırt genişliği, YÜKSEKLİĞİ BELİRTİLMEDEN alınamaz. Yardımcı, kolun altına yatay bir cetvel dayayarak koltuk altı seviyesini belirler ve arka koltuk kıvrım noktalarını (ISO 8559-1:2017 3.1.14 armpit back fold point) tebeşirle İŞARETLER; ya da NMSU C-220 yöntemi kullanılır: boyun-omuz dikişinden 7 inç (18 cm) aşağıda, işaretlenmiş kol oyuntusu çizgisinden diğerine. Hangi yöntemin kullanıldığı kaydedilir. Kollar gevşek yanda durur. Bu ölçü YARDIMCI GEREKTİRİR (helper_required: true).'",
+   "notes": "Not reproducible as written, and the field disagrees with itself about what 'across back' even means. (1) The record is internally inconsistent: its landmarks are the ARMHOLE CREASES but its path_rule puts the tape at SHOULDER-BLADE level; those are two different heights. (2) ISO 8559-1:2017 defines THREE different back widths — 5.4.2 'Back shoulder width', 5.4.3 'Across back shoulder width (through the back neck point)', 5.4.4 'Across back width' — so the bare name is ambiguous. (3) AFRL/HSIAC defines THREE interscye measures that give different numbers on the same body: 506 'Interscye Distance' (between the right and left POSTERIOR AXILLARY FOLD landmarks, standing), 507 'Interscye Distance - Maximum' (between the SCYE POINTS, SITTING, arms extended forward and horizontal), 508 'Interscye Distance - Mid' (between the MIDSCYE landmarks). ANSUR II carries both 'interscyei' and 'interscyeii'. (4) NMSU C-220 gives two more: §IV.22 'Upper back width. Measure across back from top of one armhole seam to the other' and §IV.23 'Back width across shoulder blades. At a point 7 inches down from shoulder seam at neckline, measure from armhole seam to armhole seam.' NMSU C-228 gives a fifth: 'Back — Measure shoulder to shoulder across back.' (5) ISO's armpit fold points are not eyeballed: 3.1.14 says they are 'determined using a scale placed under arm' and 'the level is decided as the upper edge of a rule placed under the armpit'. A lone reader cannot hold a rule in their own armpit, chalk their own back and read a tape across it. (6) S-0005's locator was independently checkable and CHECKS OUT — I enumerated the ANSUR II public header and 'interscyei' is measurement 54 and 'interscyeii' is 55, matching the record exactly. But Cited source S-0003 (Texas AgriLife E-372) cannot support any landmark definition: E-372 contains no measuring instructions at all. It says verbatim 'See Extension publication E-373, Personal Measurement Chart, for measuring instructions and illustrations.' Its figure only carries numbered labels. The repository itself records that E-373 could not be downloaded."
+  },
+  {
+   "claim_id": "M-021",
+   "claim": "Across chest: left front armhole crease to right front armhole crease, 'Yatay, göğsün ÜSTÜNDEN, koltuk kıvrımları arasında'. source_refs EMPTY.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Yatay, göğsün üstünden. Yükseklik BELİRTİLİR: NMSU C-220 yöntemi — boyun-omuz dikişinden yaklaşık 6 inç (15 cm) aşağıda, işaretlenmiş ön kol oyuntusu çizgisinden diğerine. Ön koltuk kıvrım noktaları, kolun altına dayanan yatay bir cetvelin üst kenarıyla belirlenir (ISO 8559-1:2017 3.1.13). Yardımcı gerekir.'",
+   "notes": "Worse than M-020: no source at all, and no height rule. The three authorities that do define it do not agree. ISO 8559-1:2017 5.4.7 'Across front width' (clause-5 wording not obtained). AFRL/HSIAC 510: 'Interscye - Front — the surface distance across the front of the torso between points MIDWAY BETWEEN THE ANTERIOR EDGES OF THE ARMPIT AND THE ACROMIALE POINTS' — i.e. the endpoints are constructed, not the armpit creases themselves. NMSU C-220 §IV.9: 'Chest width. At a point about 6 inches down from shoulder seam at neckline, measure from armhole seam to armhole seam' — height fixed at 6 in, endpoints on a CHALKED armhole line that a helper drew in §I. Without a stated height and a marked armhole line, two readers measuring the same body will differ by centimetres, and Chapter 2's whole 'across chest narrow/wide' diagnosis rests on that difference. Searched for support: ISO 8559-1 clause list, ADAS full text, ANSUR II header, NMSU C-220/227/228 — none matches the record as written."
+  },
+  {
+   "claim_id": "M-022",
+   "claim": "Armhole depth: nape to underarm level, 'Nape'ten koltuk altı hizasına DÜŞEY mesafe; bir cetvel/kitap koltuk altına yatay dayanarak ölçülür'; helper_required true. source_refs EMPTY.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "name: 'Scye depth (nape to underarm level)'. path_rule: 'Arka boyun noktasından (7. boyun omuru) koltuk altı hizasına, şerit OMURGA BOYUNCA VÜCUT YÜZEYİNİ İZLEYEREK iner — havada düşey bir mesafe değildir (ISO 8559-1:2017 5.4.6 \"Scye depth length\"; ANSUR/AFRL 737 \"the SURFACE distance ALONG THE SPINE\"). Koltuk altı hizası, kolun altına yatay dayanan bir cetvelin ÜST KENARI ile belirlenir (ISO 3.1.13/3.1.14). DİKKAT: NMSU C-220 \"armhole depth\" adını BAŞKA bir ölçü için kullanır (omuz dikişinden koltuk altı kordonuna); bu kitaptaki ölçü nape'ten alınandır.'",
+   "notes": "The measurement IS recognised — under a different name. ISO 8559-1:2017 lists 5.4.6 'Scye depth length' among the surface distances. AFRL/HSIAC 737: 'Scye depth — the SURFACE distance ALONG THE SPINE between the cervicale landmark on the base of the back of the neck and the scye-level-at-midspine landmark.' Both start at the nape, so the repository's origin is correct and the rule-under-the-armpit technique is literally ISO's own method (3.1.13/3.1.14: 'determined using a scale placed under arm'; 'the level is decided as the upper edge of a rule placed under the armpit'). Two defects. (1) NAME COLLISION: NMSU C-220 §IV.25 defines 'Armhole depth. Measure from shoulder seam at top of armhole down back to the cord tied around chest' — a shorter, differently-anchored measurement with the same name. A reader who owns both documents will conflate them. (2) 'DÜŞEY mesafe' (vertical distance) is wrong: both ISO and AFRL specify a SURFACE distance along the spine. On a rounded upper back the surface path is measurably longer than the vertical drop, and this measurement is used to set armhole depth. helper_required: true is correct and is one of the few places the file gets that right."
+  },
+  {
+   "claim_id": "M-023",
+   "claim": "Waist to hip: marked natural waist to full hip level, vertical at the side; fixes the height of M-006.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C227.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 5.4.21 'Side waist to hip'. AFRL/HSIAC 947: 'Waist Hip Length — the surface distance between the right waist (omphalion) landmark and the right lateral-buttock point landmark on the side of the hip.' NMSU C-227 item 4: 'Distance at side from waist down to fullest part of hip.' NMSU C-220 §IV.7: 'Waistline to hips. Record distance to full hip measurement from waistline. Usually, it is 6–10 inches below the waist.' The repository's rationale — that M-006 is meaningless without the level it was taken at, and that this must be RECORDED — is exactly what C-220 and E-372 both do (E-372: 'if your full hip measurement was taken 10 inches below the waist, measure the pattern's circumference at the same point'). Good record. Only caveat: it inherits M-004's waist ambiguity at its upper end."
+  },
+  {
+   "claim_id": "M-024",
+   "claim": "Waist to floor (outseam): marked waist to floor, vertical at the side, standing, WITHOUT shoes; common_errors lists 'ayakkabıyla ölçmek' (measuring with shoes) as an error. source_refs S-0002, S-0003; verification_status technical_reference_verified.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html"
+   ],
+   "source_quality": "university + standards_body",
+   "conclusion": "CONTESTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Yandan düşey, ayakta. AYAKKABI KARARI KAYDEDİLİR: bir VÜCUT ölçüsü olarak çıplak ayakla alınır; bir GİYSİ BOYU olarak, giysiyle giyilecek ayakkabıyla alınır (Texas AgriLife E-372: \"Also, wear shoes similar to those usually worn.\"). Aynı sayfada her iki durumun hangisi olduğu yazılmadan kalıpla karşılaştırılamaz.' Remove 'ayakkabıyla ölçmek' from common_errors, or restate it as 'ayakkabı durumunu kaydetmemek'.",
+   "notes": "The record contradicts its OWN cited source. Texas AgriLife E-372, 'Know your measurements' (S-0003): 'Take all measurements snugly, but not tightly, over undergarments usually worn. ALSO, WEAR SHOES SIMILAR TO THOSE USUALLY WORN.' The repository lists the opposite as an error and still stamps the record 'technical_reference_verified'. The disagreement is genuine and resolvable only by stating the purpose: anthropometric stature/leg measurements are taken barefoot (NHANES 3.4.3 stadiometer protocol; ISO 8559-1 5.1.x heights), while a garment length that must end at a chosen point relative to the floor depends on heel height. Second, smaller gap: NMSU C-220 §IV.27–28 takes this length at FOUR positions — 'Measure from waistline to the floor center front, center back, and on each side' — because an unlevel hem is diagnosed from their differences; the repository takes one side measurement only, which discards the very asymmetry Chapter 16 wants to read. ISO's counterpart is 5.4.22 'Outside leg length'."
+  },
+  {
+   "claim_id": "M-025",
+   "claim": "Inseam: 'crotch level' to 'floor', vertical along the inside leg. Recorded by the project as CONTESTED against NMSU's 'crotch to ankle bone'.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "CONTESTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "name/path_rule: 'Inside leg length (iç bacak boyu) — ağ seviyesinden YERE, iç bacak boyunca düşey; çıplak ayakla, ağırlık iki ayağa eşit dağılmış. Bu bir VÜCUT ölçüsüdür (ISO 8559-1:2017 5.1.15 \"Inside leg height\" / 5.7.6 \"Inside leg length\"; ANSUR II \"crotchheight\"). Bir PANTOLONUN iç dikiş boyu ise ayrı bir sayıdır: ağdan istenen paça bitişine kadardır ve NMSU C-228 bunu ayak bileği kemiğine kadar ölçer. İkisi karıştırılmaz; hangisinin kaydedildiği yazılır.'",
+   "notes": "The recorded conflict is REAL. Body-measurement side: ISO 8559-1:2017 lists 5.1.15 'Inside leg height' (a vertical height, therefore from the floor) and 5.7.6 'Inside leg length'; AFRL/HSIAC 249: 'Crotch Height — the vertical distance between the STANDING SURFACE and the crotch... the heels are together and the weight is distributed equally on both feet'; ANSUR II carries 'crotchheight'. Garment side: NMSU C-228 Table 1: 'Inseam — Measure from crotch to ANKLE BONE on inside of leg.' Both are correct for their purpose; 'inseam' is a GARMENT word and the standards word for the body is 'inside leg'. Two further points the record misses. (a) ISO 3.1.26 defines the crotch level as 'inside leg level — level of highest visible point at the junction between the right and left thighs OBSERVED FROM THE BACK OF SUBJECT', which requires a second person; the record's helper_required: true is therefore right, and its common_error 'ağ hizasını yukarı itmek' is the right error. (b) 'crotch level' is not defined anywhere in the repository's own file, so the start landmark is currently undefined text."
+  },
+  {
+   "claim_id": "M-026",
+   "claim": "Crotch depth (seated): marked natural waist to the seat surface, sitting upright on a hard chair, measured at the side. verification_status technical_reference_verified; source_refs S-0002, S-0003.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "university + standards_body + official_institutional",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Sert, düz bir yüzeyde DİK otururken, uyluklar yere paralel ve ayaklar yerde; yandan işaretli belden oturma yüzeyine düşey. NOT: Bu, ev dikişinin ölçme yöntemidir (NMSU C-227). Antropometrik standartlar bu sayıyı BÖYLE almaz — ISO 8559-1:2017 \"straight body rise\" ölçüsünü 5.7 HESAPLANMIŞ ölçüler arasında tanımlar ve ANSUR/AFRL 249 ağ yüksekliğini AYAKTA alır. Oturarak alınan ölçü, oturma yüzeyinde ezilen dokuyu içerdiği için ayakta hesaplanan değerden farklıdır; ikisi birbirinin yerine kullanılamaz.'",
+   "notes": "The seated method is genuinely and precisely supported by the repository's own source. NMSU C-227, body measurement 9, verbatim: 'Crotch depth. Sit on a flat surface and measure from waist to surface on side (Figure 4).' Texas E-372's figure label 14 is 'Crotch depth'. So SUPPORTED for craft practice. The narrowing: no anthropometric standard obtains it this way. ISO 8559-1:2017 puts 5.7.4 'Straight body rise' in clause 5.7 'Calculated measurements' — i.e. derived, not measured by seating the subject — and AFRL/HSIAC 249 measures crotch height standing with an anthropometer. The two are not the same number, because the seated version compresses buttock tissue against the seat. The record should say so rather than imply the seated figure is the body rise. Also missing from the record: thighs horizontal / feet flat, which is what makes 'dik otururken' repeatable; and the surface must be flat AND hard, which the record half-says via its common_error."
+  },
+  {
+   "claim_id": "M-027",
+   "claim": "Crotch length (rise): front marked waist, through the legs, to back marked waist; tape not pulled tight; helper required.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf"
+   ],
+   "source_quality": "university + standards_body + official_institutional",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "name: 'Crotch length (total)'. Delete '(rise)'. path_rule: add: 'Ölçü ALINIRKEN ön belden vücudun ortasına kadar olan kısım ve arka belden vücudun ortasına kadar olan kısım AYRI AYRI işaretlenip kaydedilir (NMSU C-227 madde 10); ön ve arka ağ uzunlukları ISO 8559-1:2017 5.4.19 ve 5.4.20'de ayrı ölçülerdir ve toplamları kadar önemlidir. NOT: \"rise\" terimi ISO'da BAŞKA bir şeydir (5.7.4 straight body rise, hesaplanmış düşey ölçü); bu ölçünün adı ağ UZUNLUĞUDUR.'",
+   "notes": "The measurement itself is exactly right and exactly sourced. NMSU C-227 item 10, verbatim: 'Crotch length. Measure from center front waist through crotch to center back waist. MARK THE MEASUREMENT FROM THE FRONT WAIST TO THE CENTER OF YOUR BODY AND THE MEASUREMENT FROM BACK WAIST TO THE CENTER OF YOUR BODY.' The repository has kept the total and dropped the split, which is the half of the instruction that tells a fitter whether the problem is in front or in back. ISO 8559-1:2017 mirrors that split: 5.4.18 'Total crotch length', 5.4.19 'Front crotch length', 5.4.20 'Back crotch length' (AFRL/HSIAC 251/253/254 likewise). NAMING DEFECT: '(rise)' conflates this with ISO 5.7.4 'Straight body rise', a calculated vertical quantity; in trade usage 'rise' is a GARMENT dimension (front rise / back rise) and 'crotch length' is the body one. Calling one measurement by both names guarantees reader error in a book whose whole method is about not confusing body, pattern and garment numbers (CC-01). helper_required: true is right — C-227 says 'Have someone help you take the measurements listed on the following chart.'"
+  },
+  {
+   "claim_id": "M-028",
+   "claim": "Sleeve length: shoulder point to wrist bone over the bent elbow, arm bent with the hand on the hip.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://raw.githubusercontent.com/senihberkay/US-Army-ANSUR-II/master/ANSUR%20II%20FEMALE%20Public.csv",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Kol dirsekten bükülü ve el ÖN PANTOLON CEBİNE girecekmiş gibi hafifçe öne getirilmiş hâlde (NMSU C-228); omuz ucundan dirsek ÜZERİNDEN bilek kemiğine. Uzun kol için bitiş noktası bilek kemiğinin 1,5 cm (0,5 inç) ALTIDIR (NMSU C-228). Bu ölçü, M-029 (omuz-dirsek) ve dirsek-bilek olarak İKİ PARÇA hâlinde de alınır ve iki parçanın toplamı tek parçalı ölçüyle karşılaştırılarak doğrulanır (NMSU C-220 §13–14; ISO 8559-1:2017 5.4.14 ve 5.4.15).'",
+   "notes": "Supported as craft practice but not as a single standard measurement, and the arm position in the record does not match its own source. NMSU C-228 Table 1: 'Shoulder cap ... Measure with arm slightly bent (AS IF YOU WERE GOING TO SLIP YOUR HAND INTO A FRONT PANTS POCKET) ... a. Shoulder Cap — Top of shoulder to 0.5 INCH BELOW WRIST BONE.' The repository says 'el kalçada' (hand on the hip), which raises and rotates the shoulder and changes the path over the elbow, and it ends AT the wrist bone rather than 0.5 in below it. ISO 8559-1:2017 does not define a one-piece shoulder-to-wrist-over-elbow length at all: it splits the arm into 5.4.14 'Upper arm length (shoulder to elbow, elbow bent)' and 5.4.15 'Lower arm length (elbow to wrist – elbow bent)', and separately defines 5.4.17 'Back neck point to wrist length' (ANSUR II: 'sleevelengthspinewrist'). AFRL/HSIAC 797 'Sleeve - Outseam Length' is a STRAIGHT LINE acromion-to-stylion with the arm STRAIGHT at the side — a materially different number. NMSU C-220 §13–14 also splits it. So the one-piece measurement is a convention, not a standard."
+  },
+  {
+   "claim_id": "M-029",
+   "claim": "Shoulder to elbow: shoulder point to elbow point with the arm bent.",
+   "sources": [
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf"
+   ],
+   "source_quality": "standards_body + official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "ISO 8559-1:2017 5.4.14 'Upper arm length (shoulder to elbow, elbow bent)' — the elbow-bent condition is in the standard's own title, so the record matches. ISO 3.1.10: 'elbow point — most prominent point of the olecranon of ulna'. NMSU C-228: 'Upper Arm Length — Measure top of shoulder to outside center of elbow'; NMSU C-220 §13: 'With arm bent, measure from top of armhole down to the elbow.' One methodological divergence, not an error: AFRL/HSIAC 751 takes it as a straight line with a BEAM CALIPER, 'elbow flexed 90°', whereas the repository (and both NMSU guides) take a surface distance with a tape; the surface path is longer. Since the repository's use is to place an elbow shaping point on a sleeve pattern, the surface measure is the right choice — but the record should state 'kol dirsekten 90° bükülü' rather than just 'bükülü', because the flexion angle changes the surface length."
+  },
+  {
+   "claim_id": "M-030",
+   "claim": "Total height: top of head to floor, back against the wall, no shoes; the only listed common_error is counting hair volume. source_refs EMPTY.",
+   "sources": [
+    "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf"
+   ],
+   "source_quality": "official_institutional + standards_body",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'Ayakkabısız, duvara/dik bir yüzeye sırt dayalı; ayaklar düz, TOPUKLAR BİTİŞİK, parmak uçları hafif açık; ağırlık iki ayağa eşit dağılmış; ense, kürek kemikleri, kalça ve topuklar mümkün olduğunca yüzeye değer. BAŞ FRANKFURT DÜZLEMİNDE tutulur: kulak deliğinden göz çukurunun alt kenarına giden çizgi YERE PARALELDİR. Baş öne ya da arkaya eğik ölçülen boy, saç hacminden çok daha büyük hata üretir. Saç tokası, topuz ve örgü çıkarılır.'",
+   "notes": "The measurement is standard (ISO 8559-1:2017 5.1.1 'Stature'; AFRL/HSIAC 805) but the record omits the controlling technique. NHANES 2021 §3.4.3 verbatim: 'Ask him or her to remove any hair ornaments, jewelry, buns, or braids from the top of the head... stand with the heels together and toes apart. The toes should point slightly outward at approximately a 60° angle. Check that the back of the head, shoulder blades, buttocks, and heels make contact with the backboard... align the head in the Frankfort horizontal plane. The head is in the Frankfort plane when the horizontal line from the ear canal to the lower border of the orbit of the eye is parallel to the floor.' Head tilt is the dominant error source in stature and it is absent from the record, whose sole listed error is hair volume. helper_required: true is correct."
+  },
+  {
+   "claim_id": "M-031",
+   "claim": "Bust–high bust difference = M-002 − M-001; 'Beden seçimi ve göğüs şekillendirme miktarı tartışmasının SAYISAL girdisi'; common_errors: 'hata burada İKİYE KATLANIR' (the error doubles here). verification_status technical_reference_verified; source_refs S-0003.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://cdn.standards.iteh.ai/samples/64075/c46760e2323546b5bac124a383851cae/ISO-8559-2-2017.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "university + standards_body",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'M-002 − M-001. Bu fark, BEDEN SEÇİMİ kuralının sayısal girdisidir: fark 2 inç (5 cm) veya daha fazlaysa beden üst göğüsten seçilir (Texas AgriLife E-372). Farkın KENDİSİ gereken göğüs şekillendirme MİKTARINI vermez; miktar, seçilen kalıbın hangi kap ölçüsü için çizildiğine ve kalıbın kendi ölçüsüne göre hesaplanır. DİKKAT: Bu fark, sütyen kap ölçüsü DEĞİLDİR — ISO 8559-2:2017 3.3 kap ölçüsünü \"göğüs çevresi ile göğüs altı çevresi arasındaki fark\" olarak tanımlar (M-002 − M-003). İki sayı karıştırılmamalıdır.' Replace the common_error with: 'M-001 ve M-002 aynı şeritle, aynı kişi tarafından, arka arkaya alınır; ortak yönde bir hata (örneğin şeridi her ikisinde de çekmek) farkta BÜYÜK ÖLÇÜDE SÖNER. Asıl tehlike YÖNÜ ZIT hatadır: şeridin üst göğüste göğüs dokusuna binmesi farkı sahte olarak KÜÇÜLTÜR ve gereken düzeltmeyi gizler.'",
+   "notes": "Two separate defects. (1) SCOPE: the cited source supports SIZE SELECTION, not shaping amount. Texas AgriLife E-372 verbatim: 'For best results, top and dress pattern sizes are usually selected according the best fit between the high bust and full bust measurement. Select the smaller size pattern if the full bust measurement is 2 or more inches larger than the high bust measurement. Fit across the upper chest is a wiser choice because of the difficulty of altering the upper chest, neck and shoulder areas.' That is a threshold rule for choosing a size. It says nothing about how much shaping the body needs. (2) COMPETING STANDARD INDICATOR: ISO 8559-2:2017 3.3 defines 'cup size' as 'difference between the bust girth and the UNDERBUST girth' (referring to ISO 8559-1:2017 5.7.7). So the internationally standardised bust-volume indicator uses M-003, which this repository collects and then never uses. The bust-minus-high-bust rule is a home-pattern convention, not a standards-recognised measure of bust volume, and the book should say which it is using and why. (3) ARITHMETIC: 'the error doubles here' is wrong in both directions. Independent random errors in two measurements combine as sqrt(2)x, not 2x; correlated errors (same tape, same tension, same person, back-to-back) largely CANCEL in a difference. The error that actually matters is the anti-correlated one described in M-001."
+  },
+  {
+   "claim_id": "M-032",
+   "claim": "Front/back length difference = M-015 − M-016, 'Denge (balance) teşhisinin sayısal girdisi'. source_refs EMPTY.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html",
+    "https://mreed.umtri.umich.edu/mreed/downloads/anthro/ansur/ADAS-Dimension_Definitions.pdf"
+   ],
+   "source_quality": "university + standards_body + official_institutional",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'M-015 − M-016 farkı, iki ölçü AYNI YÖNTEMLE alındığında anlamlıdır: M-015 ön ortadan DÜZ aşağı, M-016 omurga boyunca — ikisi de göğüs çıkıntısını İÇERMEZ. Fark yorumlanırken, ölçülerin farklı iki noktadan (boyun çukuru ve 7. boyun omuru) başladığı ve bu iki noktanın aynı yükseklikte OLMADIĞI unutulmaz; bu yüzden fark mutlak bir denge değeri değil, aynı bedende zaman içinde ve kalıpla karşılaştırıldığında anlamlı bir GÖRELİ sayıdır.' Alternatively drop M-032 and derive balance from a matched pair such as ISO 5.4.11 'Side neck point to waist level' front and 5.4.13 'Back neck point to waist level', which share a construction.",
+   "notes": "No source, and the arithmetic is not sound as currently defined. (a) It inherits M-015's contradiction: with M-015 routed OVER the bust apex (the record's explicit path_rule) and M-016 lying flat along the spine, the difference contains bust PROJECTION, which is a shaping quantity, not a balance quantity. Two women with identical posture and different cup sizes will get different 'balance' numbers. (b) Even with M-015 corrected, the two lengths start at landmarks that are not at the same height — ISO 3.1.8 front neck point (clavicle line x front median line) versus 3.1.6 back neck point (C7) — so their raw difference is not zero on a balanced body and has no absolute reference value. NMSU C-220 keeps these as separate recorded numbers (§IV.8 back waist length, §IV.10 centre front length, §IV.11 bodice length over bust) and compares each against the corresponding PATTERN piece rather than against each other; that is the defensible use."
+  },
+  {
+   "claim_id": "M-033",
+   "claim": "Waist-to-hip drop = M-006 − M-004; 'Kalça/bel oranı; beden seçimi ve dereceleme kararının girdisi'. source_refs EMPTY.",
+   "sources": [
+    "https://cdn.standards.iteh.ai/samples/64075/c46760e2323546b5bac124a383851cae/ISO-8559-2-2017.pdf",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC5852815/",
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://www.measurement-toolkit.org/anthropometry/objective-methods/simple-measures-circumference"
+   ],
+   "source_quality": "standards_body + university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "path_rule: 'M-006 − M-004. Bu sayı, M-004'te hangi bel tanımının kullanıldığına TAMAMEN bağlıdır ve tanım değişince aynı bedende 13 cm'ye kadar oynar (Seimon ve ark. 2018). Bu yüzden fark, yanına bel tanımı yazılmadan kaydedilmez ve yalnızca aynı tanımla alınmış kalıp/beden tablolarıyla karşılaştırılır. Etek ve pantolonda beden KALÇADAN seçilir (ISO 8559-2:2017 Tablo 1, kadın pantolon/etek birincil boyutu kalça çevresidir; NMSU C-227: \"Because fit at the hip is difficult to alter, select a pattern size according to measurements at the fullest part of your hips\").'",
+   "notes": "The quantity is meaningful and its downstream use is well supported — ISO 8559-2:2017 Table 1 makes hip girth the PRIMARY dimension for women's trousers and skirts (waist girth is only secondary), and NMSU C-227 gives the same rule with the reason. But the derived number is only as stable as M-004, and M-004 is the least stable record in the file: Seimon 2018 measured 102.1 / 108.3 / 115.7 cm at the narrowest / midpoint / umbilicus sites in the same 97 women, so the 'drop' can swing by 13.5 cm purely by choice of waist convention, which is several grading steps. The record carries no source and no such caveat."
+  },
+  {
+   "claim_id": "CC-03",
+   "claim": "The natural waist must be physically marked before any vertical measurement is taken, because vertical measurements are defined from it. source_refs S-0003.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://conservancy.umn.edu/server/api/core/bitstreams/7a9a2997-f325-4b15-9355-037332035eec/content",
+    "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf"
+   ],
+   "source_quality": "university + official_institutional",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "'Before any measurement is taken, three reference lines are tied on the body and LEFT IN PLACE for the whole session: a cord at the natural waist, a cord or fine chain at the base of the neck, and a cord high under the arms above the bust line, parallel to the floor across the back. Vertical measurements are read to the waist cord, shoulder and neck measurements to the neck cord, and the high bust to the chest cord. An unmarked landmark is not a landmark: it will be found in a different place on the second attempt.'",
+   "notes": "The principle is supported but the claim as written is both weaker and narrower than its sources. Weaker: NMSU C-220 §I is imperative and the repository's is not — 'Help mark the location of your waistline by tying a cord around it... LEAVE THESE CORDS IN POSITION WHILE TAKING ALL MEASUREMENTS.' UMN 1968: 'tie a cord around the waist BEFORE taking measurements.' Texas E-372 is softer — 'A string tied around the waist and the base of the neck HELPS establish reference points for measuring' — so the repository's 'must' is not in S-0003, its only citation. Narrower: every source that marks the waist ALSO marks the neck base, and C-220 marks the high bust level too and chalks the armhole. The repository mandates a mark for M-004 alone, which leaves M-001, M-013, M-014, M-020, M-021 and M-022 resting on landmarks the reader must re-find by eye each time. NHANES goes further still and marks the waist site with a cosmetic pencil on the skin. Note also that CC-03's stated REASON ('because vertical measurements are defined from it') is the repository's own reasoning, not the sources'."
+  },
+  {
+   "claim_id": "CC-04",
+   "claim": "The tape must stay parallel to the floor and must not compress the tissue; a tape pulled tight records a smaller body than the one that will wear the garment. source_refs S-0006, S-0001.",
+   "sources": [
+    "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://conservancy.umn.edu/server/api/core/bitstreams/7a9a2997-f325-4b15-9355-037332035eec/content"
+   ],
+   "source_quality": "official_institutional + university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "'For horizontal girths the tape must lie in a plane parallel to the floor all the way round, checked at the BACK with a mirror or a second person; for vertical and surface measurements it must lie perpendicular to the floor or follow the stated surface path. In every case the tape lies snug against the skin but does not compress it. A tape pulled tight records a smaller body than the one that will wear the garment.'",
+   "notes": "Supported almost verbatim, but over-generalised as written. NHANES 2021 §3.4.8: 'Position the tape in a horizontal plane at the level of the measurement mark. USE THE WALL MIRROR to ensure the horizontal alignment of the tape... the recorder will come around to the SP's left side to check the placement of the tape. CHECK THAT THE TAPE SITS PARALLEL TO THE FLOOR AND LIES SNUG BUT DOES NOT COMPRESS THE SKIN.' NMSU C-220 §I 'Take snug—not tight—measurements'; §II 'be sure the tape measure is pulled snugly and that it is PARALLEL OR PERPENDICULAR TO THE FLOOR, DEPENDING ON THE MEASUREMENT.' Texas E-372: 'Take all measurements snugly, but not tightly'; 'Work in front of a mirror or with a partner to make sure that the tape is straight, parallel to the floor and positioned on the body in the correct locations.' NMSU C-228 Table 1: 'gently wrap tape around body keeping tape level.' UMN 1968: 'Take snug, but not tight measurements.' The required revision is only the parallel/perpendicular qualifier — as literally worded, CC-04 would have the reader hold the tape parallel to the floor for M-015, M-016, M-022, M-024 and M-025, which is wrong. Second point worth adding: two of the three sources require a MIRROR OR A SECOND PERSON to verify the back of the tape, which no M-xxx record requires."
+  },
+  {
+   "claim_id": "CC-05",
+   "claim": "A measurement that is not repeatable is not a measurement; taking each critical measure twice and recording the difference is part of the method. source_refs S-0006.",
+   "sources": [
+    "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "'A measurement that is not repeatable is not a measurement. Each critical measure is taken twice, and the second reading is taken only after the tape has been removed and the landmark FOUND AGAIN from scratch — not by re-reading a tape still in place, and ideally without looking at the first number. If the two readings differ by more than the tolerance you have set, the landmark, not the body, is the thing that moved. Where a second person is available, have them take the repeat measurement: national anthropometric surveys estimate measurement error by having a DIFFERENT, expert measurer repeat the examination, because a measurer repeating their own work reproduces their own bias.'",
+   "notes": "The principle is right but S-0006 does not support the protocol as stated. NHANES's quality-control design (Appendix B, 'Gold Standard Replicate Examinations') is an INTER-observer check: 'the anthropometry consultant will serve as the examiner and the original examiner should record for the gold standard exam.' It measures the difference between two people, not one person measuring twice. And NHANES explicitly destroys the first measurement's evidence before the repeat: 'the cosmetic pencil marks should be ERASED COMPLETELY prior to the gold standard exam.' That detail is the whole point and is missing from CC-05: a self-repeat that re-reads a tape still lying on an unerased mark measures nothing except the reader's ability to read a tape twice. The repository's own method depends on this — its marked-elastic waist rule (CC-03) means the landmark is NOT re-found on the second pass, so a same-session repeat cannot detect a mislocated waist at all. The two rules interact and neither record notices."
+  },
+  {
+   "claim_id": "CC-06",
+   "claim": "The difference between full bust and high bust indicates how much bust shaping this body needs, and is the single most decision-bearing derived number in the book. source_refs S-0003, S-0001.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://cdn.standards.iteh.ai/samples/64075/c46760e2323546b5bac124a383851cae/ISO-8559-2-2017.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/gso-iso-8559-1-2025-en.html"
+   ],
+   "source_quality": "university + standards_body",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "'The difference between full bust and high bust is the number the size decision is made on: where the full bust exceeds the high bust by about 2 in (5 cm) or more, the bodice size is chosen from the high bust and the bust volume is handled as a separate adjustment (Texas AgriLife E-372). It tells you THAT this body needs bust shaping beyond what the pattern assumes, and roughly how much the pattern is short by; it is not itself a measurement of the breast. The standardised measure of bust volume is the bust girth minus the UNDERBUST girth (ISO 8559-2:2017, 3.3), which is what a bra cup letter describes; the two numbers are different and are not interchangeable.'",
+   "notes": "Two things are being claimed and only one is sourced. SOURCED: the size-selection role. Texas AgriLife E-372, verbatim: 'Select the smaller size pattern if the full bust measurement is 2 or more inches larger than the high bust measurement.' NOT SOURCED: 'indicates HOW MUCH bust shaping this body needs'. Neither E-372 nor NMSU C-228 (S-0001) contains any rule converting the difference into a quantity of shaping; C-228's 'Full Bust (large cup size)' alteration says only 'Spread the desired amount'. CONFLICTING STANDARD: ISO 8559-2:2017 3.3 defines cup size as 'difference between the bust girth and the underbust girth', so the standards world locates bust volume in M-002 − M-003, not M-002 − M-001. This matters practically because readers arrive knowing their BRA cup letter (bust minus underbust) and the book's cup logic uses a different subtraction; unless the book says so explicitly, a 34DD reader will assume a 4-inch pattern adjustment from the wrong pair of numbers. FRAGILITY: 'the single most decision-bearing derived number' is the repository's own judgement, and it rests entirely on M-001, whose path rule (see M-001) currently permits the tape to sit on breast tissue, which shrinks the difference and silently cancels the adjustment."
+  },
+  {
+   "claim_id": "CC-07",
+   "claim": "Body measurements change over time and should be retaken periodically rather than reused indefinitely. source_refs S-0003.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": true,
+   "proposed_wording": "'Body measurements change over time and are retaken at least every six months, and whenever weight or the figure has changed noticeably (Texas AgriLife E-372). Every recorded measurement carries the date it was taken (NMSU C-220), and an undated measurement is treated as unknown.'",
+   "notes": "Supported verbatim and could be stated more usefully. Texas AgriLife E-372, 'Know your measurements': 'Measurements should be taken AT LEAST EVERY 6 MONTHS and/or when weight or the figure has varied significantly.' NMSU C-220 §I: 'BE SURE TO RECORD THE DATE the measurements were taken.' NMSU C-228: 'As time passes, you may find that the problems of fitting your figure may change. Because of this, you will want to compare your CURRENT body measurements plus ease to the particular pattern you are using.' The claim as written is directionally right but gives the reader no operational rule; the sources give both an interval and a date-stamping requirement, and neither appears anywhere in the measurement schema (no date field exists on an M-xxx record)."
+  }
+ ],
+ "top_risks": [
+  {
+   "claim_id": "M-004",
+   "why": "The whole book's vertical geometry, M-005, M-015, M-016, M-019, M-023, M-024, M-026, M-027, M-032 and M-033 are all defined from a waist whose definition ('narrowest point of the torso') is unsupported by either of its own cited sources and is NOT the definition used by the international clothing-sizing standard (ISO 8559-1:2017 3.1.22: midway between lowest rib and iliac crest), by WHO, by NHANES or by ANSUR II. Published data show the same body measures 102.1 / 108.3 / 115.7 cm depending on the convention chosen.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "M-015",
+   "why": "Contradicted by NMSU Guide C-220, which defines centre front length as measured STRAIGHT DOWN and treats the over-the-bust route as a separate measurement ('bodice length over bust'). The repository lists C-220's actual method as a beginner error. This corrupts M-032, the book's balance number, by loading bust projection into it.",
+   "recommended_action": "further_research"
+  },
+  {
+   "claim_id": "M-001",
+   "why": "Everything downstream of M-031, CC-06 and CC-10 rests on the high bust, yet its path rule ('göğüs dokusunun ÜZERİNDEN geçer') permits the tape to sit on the upper slope of the breast, it has no marked level, and no helper is required — while NMSU C-220 requires a cord tied high under the arms and left in place for the whole session. An inflated high bust silently cancels the size rule for exactly the readers it exists to serve.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "M-020",
+   "why": "Across back is not reproducible as written: the record's landmarks (armhole creases) and its stated level (shoulder blades) are two different heights, no vertical position is given, and the field defines at least five mutually different 'across back' measurements (ISO 5.4.2/5.4.3/5.4.4; AFRL interscye / interscye-max / interscye-mid; NMSU C-220 §22 and §23; NMSU C-228). The same defect, worse, applies to M-021 which has no source at all.",
+   "recommended_action": "further_research"
+  },
+  {
+   "claim_id": "CC-06",
+   "why": "The cited source supports a size-selection threshold, not a quantity of shaping, and ISO 8559-2:2017 3.3 puts the standardised bust-volume indicator on a different pair of measurements (bust minus underbust). Readers arrive knowing their bra cup, which is that other subtraction. Chapter 3's size rule and most of Chapter 11 are declared to rest on this claim.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "M-024",
+   "why": "The record lists 'measuring with shoes' as an error while its own cited source, Texas AgriLife E-372, instructs the reader to 'wear shoes similar to those usually worn'. It is nonetheless stamped technical_reference_verified. Any record whose stamp survives a direct contradiction by its own source undermines the value of the whole verification_status field.",
+   "recommended_action": "further_research"
+  },
+  {
+   "claim_id": "M-022",
+   "why": "The measurement is real (ISO 5.4.6 'Scye depth length'; AFRL 737 'Scye depth') but the record calls a SURFACE distance along the spine a 'düşey mesafe' (vertical distance), and it reuses the name 'armhole depth', which NMSU C-220 §25 already uses for a differently-anchored measurement. Both errors change the armhole a reader drafts.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "M-008",
+   "why": "The recorded 'contested' status is a mis-diagnosis: wrist girth and hand girth are two different standard measurements (ISO 8559-1 5.3.19 and 5.5.1), not two definitions of one. Because only wrist girth is collected, a long sleeve with a closed cuff drafted from this book will not pass over the hand.",
+   "recommended_action": "additional_source"
+  },
+  {
+   "claim_id": "CC-05",
+   "why": "NHANES's replicate protocol is an INTER-observer check performed after the landmark marks are erased. The repository's self-repeat, performed against an elastic left in place per CC-03, cannot detect a mislocated landmark — which is the error class the rule exists to catch. The two rules cancel each other and neither record notices.",
+   "recommended_action": "further_research"
+  },
+  {
+   "claim_id": "M-019",
+   "why": "No definition of this measurement was found in ISO 8559-1, the AFRL/HSIAC definitions manual, the ANSUR II variable list, or any of the three NMSU guides, and the record carries no source. It is used to place the bust dart's lower end.",
+   "recommended_action": "additional_source"
+  },
+  {
+   "claim_id": "M-005",
+   "why": "'7–10 cm' matches no source: NMSU C-220 says 2–3 in, NMSU C-227 says 3 in in one place and 3–4 in in another, and ISO defines the levels above the hip proportionally rather than in fixed centimetres. The record is nonetheless stamped technical_reference_verified and S-0002's note declares the numbers compatible.",
+   "recommended_action": "cautious_wording"
+  }
+ ],
+ "could_not_verify": [
+  "ISO 8559-1:2017 clauses 4 and 5 (measuring conditions, and the procedural wording of each of the 90+ measurements). Only the table of contents and clause 3 (landmark points, levels, lines and planes) are in the free previews I could reach (GSO and Ethiopian identical adoptions); pages 17–79 of the Ethiopian PDF carry no text layer. Every ISO measurement CLAUSE NUMBER and NAME quoted in this review is verified; ISO's procedural sentences are not, and I have said so at each point where it matters (notably ISO 5.3.6 'Chest girth (at axilla)' vs 5.3.7 'Upper chest girth' — I cannot say which corresponds to 'high bust').",
+  "ASTM D5219-25 Standard Terminology Relating to Body Dimensions for Apparel Sizing. Paywalled; I verified only that the designation exists and is ACTIVE (16 pages, Book of Standards 07.02, subcommittee D13.55, DOI 10.1520/D5219-25), which confirms the repository's S-0015 record including its note that D5219-15 was withdrawn. The 'preferred waist' definition I quote comes from a vendor abstract, not from the standard text.",
+  "ANSUR II NATICK/TR-15/007 itself (DTIC ADA611869 and the Penn State mirror both failed to serve the PDF). I verified the repository's S-0005 locator INDIRECTLY and it holds: enumerating the ANSUR II public female dataset header confirms cervicaleheight = measurement 22, chestcircumference = 24, interscyei = 54, interscyeii = 55, shoulderlength = 70, waistbacklength = 85, waistcircumference = 87, exactly as S-0005 claims, and confirms that ANSUR II has exactly ONE waist girth variable (the omphalion one), as S-0005's critical note states. The ANSUR II Measurer's Handbook, which would give the verbatim measurement descriptions, was not retrievable.",
+  "Texas AgriLife E-373 'Personal Measurement Chart' — the document E-372 defers to for all measuring instructions. Not retrievable, exactly as the repository already records. Consequently NO landmark definition in this file can currently be supported by S-0003, and eight records cite S-0003 for exactly that purpose (M-001, M-002, M-004, M-015, M-017, M-020, M-024, M-031).",
+  "The WHO Expert Consultation report on Waist Circumference and Waist-Hip Ratio (HTTP 403). The WHO protocol wording quoted here is taken from the MRC Epidemiology Unit (University of Cambridge) Measurement Toolkit, which attributes it to the WHO STEPS manual.",
+  "Whether the bust-minus-high-bust difference predicts the AMOUNT of bust shaping required. I found no controlled study, no standards clause and no extension publication testing this; the pattern-company convention of one inch per cup appears only in practitioner blogs, which I did not fetch and do not cite. This is the evidential status of CC-06's second half: craft convention, not evidence. REQUIRES_PHYSICAL_TEST if the book wants to assert it.",
+  "Whether the seated crotch-depth measurement (M-026) agrees numerically with a standing/calculated body rise. Both methods are documented; no source I reached quantifies the difference caused by soft-tissue compression on the seat. REQUIRES_PHYSICAL_TEST.",
+  "M-012 is absent from measurements.json (the file jumps M-011 to M-013) and the file's own $comment does not explain the gap. Whether this is an intentional retirement or a data loss could not be determined from the file itself."
+ ]
+}

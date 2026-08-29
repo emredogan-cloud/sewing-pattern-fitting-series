@@ -1,0 +1,1508 @@
+{
+ "reviewer": "R3 - diagnostic logic: fold and drag-line rules, grain and balance, symptom-to-cause relationships",
+ "scope_and_method": "SCOPE. CC-02, CC-17, CC-22, CC-23, CC-24, CC-26 and CC-29 checked against sources as briefed; CC-20 and CC-25 added because the sign data contradicts them. All 43 fit signs and all 129 candidate causes read in full and analysed for internal consistency. Twelve signs additionally web-verified. SOURCES. All FOUR documents the taxonomy cites were obtained and read end to end: Texas AgriLife E-372 (S-0003), NMSU C-228 (S-0001), NMSU C-227 (S-0002) and WSU EM4582 (S-0004). A CORRECTION I MADE TO MYSELF, recorded because it changed a headline finding: I first reported EM4582 as unobtainable after a failed retrieval, and that was wrong. The URL in the project's own source record returns HTTP 200 and a 123 KB PDF; I have read it. The finding that replaced it is worse for the book, not better - the document is real and checkable, and it does not contain CC-22, CC-24 or CC-29. TWO OBSERVATIONS ABOUT THE SOURCE SET AS A WHOLE. First, NMSU C-228, which is attached as a source_ref to 34 of the 43 signs, contains no diagnostic content at all - it is a catalogue of alteration recipes with no discussion of wrinkles, folds, drag lines, observation order or symptom-to-cause reasoning. It supports the REMEDIES the taxonomy names, and supports them well, but it cannot support a single one of the 129 discriminating-evidence claims. Second, the one document that would have supported them is one the project does not cite: WSU E.M. 2246 'Garment Fitting' (Hazel L. Roberts, December 1962), from the same publisher as S-0004, reachable, and organised exactly as this book is - sign, then cause, then remedy. Several of my findings come from it. READING THIS FILE. Some claim_id values appear more than once; each occurrence is a different finding about the same record (for example SYM-023.C1 appears once for its confirming_measurement and once for its distinguishing_evidence). Findings whose source_quality is 'internal_logic' are the evidence collisions from task 4(a) and carry no external citation by design: they show that the stated evidence cannot do the job the schema requires of it, which is a matter of logic, not of sources. The same 28 collisions are also listed in full under the top-level key 'evidence_collisions'.",
+ "counts": {
+  "conceptual_claims_examined": 9,
+  "source_records_examined": 2,
+  "fit_signs_read": 43,
+  "candidate_causes_read": 129,
+  "signs_web_verified": 12,
+  "evidence_collisions_found": 28,
+  "colliding_cause_pairs": 36
+ },
+ "twelve_web_verified_signs": {
+  "chosen": [
+   "SYM-001",
+   "SYM-004",
+   "SYM-009",
+   "SYM-013",
+   "SYM-016",
+   "SYM-021",
+   "SYM-023",
+   "SYM-027",
+   "SYM-033",
+   "SYM-035",
+   "SYM-036",
+   "SYM-040"
+  ],
+  "why_these_twelve": "Chosen on three criteria: (a) the sign carries one of the four core rules, so an error propagates to every other record - SYM-009 is the paradigm case of CC-22 (horizontal fold = excess length), SYM-016 and SYM-004 are the paradigm cases of CC-24 (drag lines point at their source), SYM-027 and SYM-035 are the records where the horizontal-fold class is applied to a shortage, SYM-040 is CC-29 in data form; (b) the sign is the book's own most-frequent or highest-consequence claim - SYM-016 is labelled 'the sign the target reader meets most often', SYM-021 puts a full bust adjustment and moving a button on the same evidence, SYM-001 is where the book says diagnosis is most often missed; (c) the record looked internally unsound before any searching - SYM-013's observation combines two opposite armhole faults, SYM-023 and SYM-036 rest on measurements that are not independent, SYM-033 attributes a bilateral twist to a unilateral construction error. Together they cover both garment halves, all three directional sign classes, and every one of the seven conceptual claims I was asked to attack.",
+  "outcome_summary": "Every one of the twelve required a revision. SYM-023 was the closest to sound - its three evidence fields are genuinely mutually exclusive - but the literature supplies a cause it omits (flat derriere) whose fabric signature is identical to its C1, and a precondition it treats as a sibling (hip width). SYM-009 and SYM-016 survive as claims but rest on colliding evidence. SYM-001, SYM-004, SYM-013, SYM-027, SYM-035, SYM-036 and SYM-040 each carry a substantive error: an inverted symmetry criterion; an observation that is the literature's SLOPING-shoulder sign with a square-shoulder cause filed under it, plus a localisation rule the record's own data contradicts; an observation combining two opposite armhole faults; a sign_class that inverts the book's own core rule; a physical test an extension service states cannot discriminate; a distinguishing_evidence field describing a state its own measurements cannot report; and a candidate-cause list missing the whole fabric-and-cut family. SYM-021 and SYM-033 carry collisions with concrete, avoidable costs. The one structural pattern worth naming: nine of the twelve fail not because the CAUSE is wrong but because the EVIDENCE offered to distinguish it is a restatement of the observation, a measurement the two causes share, or a test that relieves both."
+ },
+ "sources_consulted": [
+  {
+   "label": "Principles of Pattern Alteration, E-372 (02/06) — 4 pp. Full text read via reachable OSU-hosted mirror; canonical AgriLife/OakTrust hosts return HTTP 403.",
+   "publisher": "Texas AgriLife Extension Service, The Texas A&M System (AgriLife Communications)",
+   "url": "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Pattern Alteration, Guide C-228, revised July 2015 by Wendy Hamilton (orig. Susan Wright) — 8 pp. Full text read.",
+   "publisher": "New Mexico State University Cooperative Extension Service, College of Agricultural, Consumer and Environmental Sciences",
+   "url": "https://pubs.nmsu.edu/_c/C228.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Yang, Y. & Baytar, F. (2024). 'Fit models' roles in identifying fit issues in the apparel technical design process and implications for improving 3D virtual fitting.' Fashion and Textiles 11:32. DOI 10.1186/s40691-024-00398-4. Peer-reviewed, open access. Full text read.",
+   "publisher": "Springer / Korean Society of Clothing and Textiles; authors at Dept. of Human Centered Design, Cornell University",
+   "url": "https://doi.org/10.1186/s40691-024-00398-4",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "Build Textile Shape — CTE e-unit, doc 720057 ('Elements of Fit'; 'Lengthwise grain should fall perpendicular to the floor. Crosswise grains should fall parallel to the floor.')",
+   "publisher": "Illinois State Board of Education / CAERT",
+   "url": "https://www.isbe.net/CTEDocuments/FCS-720057.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Clothing Quality Standards, E-403 (05-06) — grain standard carries the 'unless cut on the bias' carve-out",
+   "publisher": "Texas AgriLife Extension Service / Texas 4-H",
+   "url": "https://texas4-h.tamu.edu/wp-content/uploads/fashion_resource_clothing_quality_standards.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Making Perfect Garment Hems, Guide C-314, revised June 2019 ('A new garment must be fitted and finished before marking the hemline. Let the garment hang for 24 hours ... especially if a large part of the garment is on the bias.')",
+   "publisher": "New Mexico State University Cooperative Extension Service",
+   "url": "https://pubs.nmsu.edu/_c/C314.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Understanding Fabric Grain, CT-MMB.210 (Nadine Hackler, Univ. of Florida; adapted for Kentucky by Linda M. Heaton, July 2002) — off-grain cutting produces sagging hems",
+   "publisher": "University of Kentucky Cooperative Extension Service",
+   "url": "https://fcs.mgcafe.uky.edu/sites/fcs.mgcafe.uky.edu/files/ct-mmb-210.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Palmer/Pletsch tissue-fitting order, publisher's excerpt PDF from 'The Palmer/Pletsch Complete Guide to Fitting' (Palmer & Alto, (c) 2018) — 'DO FIRST ONLY WHAT AFFECTS OTHER AREAS OF FIT. DO LAST WHAT DOESN'T.'",
+   "publisher": "Palmer/Pletsch Publishing",
+   "url": "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf",
+   "accessed": "2026-08-29",
+   "quality": "expert_practitioner",
+   "reachable": true
+  },
+  {
+   "label": "Cynthia Guffey, 'Fitting Your Hanger: Perfect Fit from the Shoulders Down' — 'all fitting must start there to be successful'",
+   "publisher": "Threads Magazine (courses.threadsmagazine.com)",
+   "url": "https://courses.threadsmagazine.com/fitting-your-hanger-perfect-fit-from-the-shoulders-down",
+   "accessed": "2026-08-29",
+   "quality": "expert_practitioner",
+   "reachable": true
+  },
+  {
+   "label": "'Fitting Revelations: Read Your Clothes to Identify Key Fit Issues' — the four-cell rule (tight/loose x horizontal/vertical). READ VIA SEARCH-ENGINE EXTRACT ONLY; threadsmagazine.com returns HTTP 403 to WebFetch and to curl with a browser user-agent, so the article body was NOT independently retrieved.",
+   "publisher": "Threads Magazine",
+   "url": "https://www.threadsmagazine.com/project-guides/learn-to-sew/fitting-revelations",
+   "accessed": "2026-08-29",
+   "quality": "expert_practitioner",
+   "reachable": false
+  },
+  {
+   "label": "Q. Li & T. J. Healey, 'Stability boundaries for wrinkling in highly stretched elastic sheets' (arXiv:1509.04140); Dept. of Mathematics, Cornell University. Used only for the mechanics of stretch-induced wrinkling ('the development of transverse wrinkles as the two opposing shorter, clamped ends are pulled apart').",
+   "publisher": "arXiv / Cornell University",
+   "url": "https://arxiv.org/pdf/1509.04140",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "E. Cerda & L. Mahadevan, 'Geometry and Physics of Wrinkling', Phys. Rev. Lett. 90, 074302 (2003) — foundational scaling theory for wrinkling of stretched thin sheets. Cited for mechanism only; PDF at Harvard SEAS soft-matter group.",
+   "publisher": "American Physical Society / Harvard SEAS",
+   "url": "https://softmath.seas.harvard.edu/wp-content/uploads/2019/10/2003-03.pdf",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": true
+  },
+  {
+   "label": "S-0004 ITSELF — 'Challenging Patterns', EM4582, Dorothy A. Ettl & Diane S. Triplett, WSU Cooperative Extension, 8 pp., published September 1980. OBTAINED AND READ IN FULL at the exact URL recorded in the project's own source record (HTTP 200, 123 KB PDF). Its whole fitting content is one page: the five basic points of fitting — Grain, Line, Ease, Balance, Overall smoothness.",
+   "publisher": "Washington State University Cooperative Extension and the U.S. Department of Agriculture",
+   "url": "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "E.M. 2246 'Garment Fitting', Hazel L. Roberts, December 1962 — a dedicated WSU Extension FITTING publication with a full sign-to-cause list, read in full. NOT cited by the project, and a far better source for its purpose than EM4582. Carries the verified counterexamples to CC-22 and the square/sloping shoulder distinction.",
+   "publisher": "Agricultural Extension Service, Washington State University, Pullman",
+   "url": "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Galada, A. & Baytar, F. (2025). 'Developing an instrument with simulations to measure 3D to 2D fit correction skills in fashion design.' Fashion and Textiles 12(1). DOI 10.1186/s40691-025-00417-y, CC-BY 4.0, NSF-funded. EXISTENCE, AUTHORS, JOURNAL, DOI, LICENCE AND REFERENCE LIST VERIFIED BY ME via DOI content negotiation (its references include Veblen 2012 and Liechty/Rasband/Pottberg-Steineckert 2016). FULL TEXT NOT READ BY ME — Springer redirects to an identity provider. The two sentences attributed to it in this report reached me second-hand and are flagged as such wherever used.",
+   "publisher": "Springer / Korean Society of Clothing and Textiles",
+   "url": "https://doi.org/10.1186/s40691-025-00417-y",
+   "accessed": "2026-08-29",
+   "quality": "university",
+   "reachable": false
+  },
+  {
+   "label": "OpenLibrary/MARC bibliographic record for WSU Extension mimeo 4582 — used to establish date, pagination and OCLC number (41800145) before the document itself was obtained.",
+   "publisher": "OpenLibrary (from Washington State University MARC export)",
+   "url": "https://openlibrary.org/books/OL17610474M.json",
+   "accessed": "2026-08-29",
+   "quality": "educational",
+   "reachable": true
+  },
+  {
+   "label": "WSU Extension publication catalogue search for 'EM4582' — 'No results found'; a search for 'fitting' returns no clothing/textiles publications. Establishes that the title is RETIRED from the current catalogue, not that it is unobtainable: it remains served from the WSU libraries repository.",
+   "publisher": "Washington State University Extension",
+   "url": "https://pubs.extension.wsu.edu/?s=EM4582",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Sarah Joiner, 'How To Hem a Circle Skirt' (5 Jan 2024) — a circle-skirt hem crosses straight grain, crossgrain and bias in one piece; the bias sections stretch and the others do not",
+   "publisher": "WeAllSew (BERNINA of America)",
+   "url": "https://weallsew.com/how-to-hem-a-circle-skirt/",
+   "accessed": "2026-08-29",
+   "quality": "educational",
+   "reachable": true
+  },
+  {
+   "label": "Making Perfect Pants, Guide C-227, revised April 2015 — full text read. Carries: 'Alter pattern crotch depth first because it affects crotch length.' (p.5 fn.2); 'In well-fitted pants, the lengthwise grainline is perpendicular to the floor and creases in the legs are on the straight grain.'; forward- and backward-tilted hip as named posture causes.",
+   "publisher": "New Mexico State University Cooperative Extension Service",
+   "url": "https://pubs.nmsu.edu/_c/C227.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Measurements for Fitting Pants, Guide C-209, revised June 2021 by Insook Ahn — records waistline-to-hip and waist-to-ankle-at-side-seam with separate Left and Right rows.",
+   "publisher": "New Mexico State University Cooperative Extension Service",
+   "url": "https://pubs.nmsu.edu/_c/C209.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "Check your Pattern for Proper Fit, Guide C-220 — 'for right (R) and left (L) sides where indicated'; items 27-28 'Side skirt length R / L' and 'Skirt length. Measure from waistline to the floor center front, center back, and on each side.'",
+   "publisher": "New Mexico State University Cooperative Extension Service",
+   "url": "https://pubs.nmsu.edu/_c/C220.pdf",
+   "accessed": "2026-08-29",
+   "quality": "official_institutional",
+   "reachable": true
+  },
+  {
+   "label": "The Palmer/Pletsch Complete Guide to Fitting (Pati Palmer & Marta Alto, (c) 2018) — publisher's complimentary excerpt, 'the palmer/pletsch tissue-fitting method', read in full. Carries the fitting sequence, 'DO FIRST ONLY WHAT AFFECTS OTHER AREAS OF FIT', 'Sway/flat/erect back - Don't check this until hip width is correct', 'Do vertical before horizontal alterations!' and 'There's no need to make a muslin!'",
+   "publisher": "Palmer/Pletsch Incorporated",
+   "url": "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf",
+   "accessed": "2026-08-29",
+   "quality": "expert_practitioner",
+   "reachable": true
+  }
+ ],
+ "findings": [
+  {
+   "claim_id": "CC-02",
+   "claim": "A fit sign is an observation and a cause is an inference; the place a sign appears is not necessarily the place it originates.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://doi.org/10.1186/s40691-024-00398-4",
+    "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf"
+   ],
+   "source_quality": "official_institutional + peer-reviewed university",
+   "conclusion": "SUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": false,
+   "proposed_wording": null,
+   "notes": "Directly supported by the book's own cited source, verbatim: Texas AgriLife E-372, 'Make alterations at the source of the problem. For example, when the bust measurement is larger than the pattern, increase the pattern at the fullest part of the bust rather than at the side seams to make the garment fit better.' Sign at the side seam, cause at the apex. The same document supplies a second instance: 'Many problems in side seams, bust area or length disappear when the pattern is correctly fitted in the neck and shoulder area.' The observation/inference split is corroborated in peer-reviewed work - Yang & Baytar (2024): 'Technical designers and designers detect the fit issues by identifying visual cues (i.e., set). The more experienced they are, the better they become at identifying causes and solutions to the issues.' One housekeeping point: if the manuscript renders E-372 as 'correct the problem at its source', that is a paraphrase; the source string is 'Make alterations at the source of the problem'. This is the strongest-supported claim in my domain and it is also the one the taxonomy most often fails to honour in practice - see the collisions below, where a cause's distinguishing_evidence repeatedly consists of restating where the sign appears."
+  },
+  {
+   "claim_id": "CC-20",
+   "claim": "The cheapest reversible physical test should always be applied before the pattern is cut, because cutting is not reversible. DIAGNOSTIC_SYSTEM 3-6.2 states the operational form: 'Ignele, katla, serit kumas ekle - KESME. Kesilen kumas geri gelmez.' (Pin, fold, add a strip - do NOT cut.)",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Test in ascending order of cost: (1) change the fitting condition - stance, undergarment, weight distribution; (2) pin, fold or tuck; (3) add a strip of cloth at a slash; (4) slash the toile and spread. Steps 1 and 2 are free and fully reversible. Steps 3 and 4 consume the toile but never the pattern: 'Kesilen kumas geri gelmez' applies to the PATTERN and to the fashion fabric, not to a toile, which exists to be cut. Never begin at a step that removes fabric from an edge - a neckline, an armhole or a crotch curve cut deeper cannot be restored, and no toile-level test justifies it.",
+   "notes": "CONTRADICTED BY THE BOOK'S OWN DATA, not by a source. The rule forbids cutting; 17 of the 129 candidate causes prescribe cutting as their FIRST and only physical test. Twelve use the explicit verb 'kes': SYM-002.C2, SYM-003.C1, SYM-003.C2, SYM-006.C2, SYM-006.C3, SYM-008.C1, SYM-011.C1, SYM-012.C2, SYM-016.C1, SYM-017.C2, SYM-027.C1, SYM-028.C1. Five more remove fabric from a finished edge and are irreversible in the strict sense: SYM-002.C1 and SYM-003.C3 and SYM-009.C3 (deepen the neckline), SYM-013.C1 (lower the underarm 5-10 mm), SYM-015.C3 (redraw the armhole curve). The neckline cases are a flat self-contradiction: SYM-001's own do_not_change_yet says 'Yaka egrisini KESME - yaka kesildikten sonra geri eklenemez', and three sibling records then prescribe exactly that as a test. A further 5 causes require unpicking a sewn seam (SYM-006.C1, SYM-012.C3, SYM-019.C3, SYM-033.C1, SYM-034.C2) - reversible but not cheap. Resolve in one direction or the other: either restate the rule (slashing a toile is standard practice and the rule is too strong) or replace those 17 tests with pinned equivalents. As it stands the method's most-quoted safety rule is violated by 13 percent of its own test set."
+  },
+  {
+   "claim_id": "CC-25",
+   "claim": "Eleven ordinary non-pattern conditions can produce fit signs that are indistinguishable from pattern faults, and they must be ruled out BEFORE a pattern diagnosis is accepted. (Step 1 SETUP is described as the elimination step.)",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Keep the claim, and make the data obey it: within each fit sign, list the confounder-class causes (fitting condition, cutting error, construction error, size choice, design intent) FIRST among the candidate causes, before any pattern-adjustment cause, and mark them as gates rather than as alternatives.",
+   "notes": "The principle is sound and partly supported by E-372's insistence on undergarments, shoes and repeat measurement. But the taxonomy inverts its own rule. The file carries exactly 20 candidate causes with adjustment_family_ref = null - construction errors, cutting errors, fitting-stance errors and deliberate design. NOT ONE of them is listed first. Thirteen are listed last and seven second, in every case after at least one pattern-adjustment cause. Examples: SYM-029 opens with body asymmetry (C1) and puts 'weight on one foot' at C2 and 'cut off-grain' at C3, while its own origin_rule says the opposite order - 'once prova kosulu, sonra kesim, en son vucut asimetrisi elenir'. The same inversion occurs at SYM-001.C3, SYM-012.C3, SYM-018.C3, SYM-019.C3, SYM-030.C3, SYM-033.C3, SYM-038.C3, SYM-041.C3 and SYM-042.C3. Because step 6 tells the reader to form ONE hypothesis and test the cheapest one, and readers work down a list, the ordering makes the reader test a pattern change before eliminating a free, reversible confounder. This is the single cheapest fix in the whole file: reorder the candidate_causes arrays."
+  },
+  {
+   "claim_id": "SYM-001.C3",
+   "claim": "confirming_measurement = 'NO_MEASUREMENT_EXISTS - physical test only' for the cause 'the neckline edge was stretched during sewing'.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "confirming_measurement: 'Sewn neckline seam length measured along the seamline, compared with the pattern neckline seam length (front + back, seam allowances excluded). A garment neckline longer than the pattern's is a stretched edge.'",
+   "notes": "The declared 'no measurement exists' is false, and the record refutes itself: its own physical_test is that measurement performed by superimposition ('lay the neckline edge over the pattern neckline curve; if the fabric has stretched it is longer than the pattern'). E-372 explicitly teaches seamline-to-seamline pattern measurement with the tape following the curve, which is exactly the comparison needed. Four other NO_MEASUREMENT_EXISTS entries have the same problem in weaker form: SYM-012.C3, SYM-019.C3 and SYM-034.C2 are all length-of-seam comparisons, and SYM-018.C3 / SYM-029.C3 / SYM-030.C3 / SYM-033.C3 / SYM-038.C3 / SYM-041.C3 / SYM-042.C3 (off-grain cutting) are checkable by measuring the two diagonals of a pattern piece against the fabric, or the grainline against the selvage at two points. Of the 12 NO_MEASUREMENT_EXISTS declarations, at most three are genuinely unmeasurable."
+  },
+  {
+   "claim_id": "SYM-007.C1",
+   "claim": "confirming_measurement = 'M-014 (shoulder width) vs the pattern shoulder seam length' for the cause 'shoulder width excessive'.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "confirming_measurement: 'M-014 vs the pattern shoulder seam length AND the pattern's published finished shoulder/across-shoulder measurement. A pattern longer than the body is diagnostic only if the pattern's own finished measurement matches the body; if the pattern's finished measurement is deliberately greater, the sign is design ease (T-07), not a fault.'",
+   "notes": "The stated measurement returns the same result for C1 (broad-shoulder pattern on a narrow-shouldered body) and for C2 (drop-shoulder design). A number that both candidate causes satisfy cannot confirm either. The same defect recurs wherever a design-intent cause sits beside a fit cause: SYM-022.C1/C3, SYM-032.C1/C2, SYM-039.C1/C2, SYM-043.C1/C2. In each case the fix is the same - the confirming_measurement must be against the pattern's FINISHED GARMENT measurement (T-08), not against the flat pattern, because only the finished measurement encodes intent."
+  },
+  {
+   "claim_id": "SYM-023.C1",
+   "claim": "confirming_measurement = 'pattern centre-back length at waist level vs the part of M-016 that falls at waist level'.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "confirming_measurement: 'With the natural waist marked, measure nape-to-waist along the spine (M-016) and, separately, nape-to-waist measured straight down from the nape rather than following the spine. On a lumbar hollow the two differ; the difference is the sway-back amount. Compare against the pattern's centre-back length measured along the same two paths.'",
+   "notes": "M-016 is a single nape-to-waist length; it has no identifiable 'part falling at waist level', so the stated comparison has no defined right-hand side and cannot be executed as written. A sway back is a difference between the CONTOUR path and the CHORD, and that is what has to be measured. SYM-024.C1 depends on the same undefined quantity ('waist/hip ratio and M-016')."
+  },
+  {
+   "claim_id": "SYM-029.C1",
+   "claim": "confirming_measurement = 'measure from the waist mark to the floor separately on each side (M-024, right and left)' for the cause 'body asymmetry - one hip higher or fuller'.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C314.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "confirming_measurement: 'Waist-mark-to-floor measured separately right and left, AND hip circumference measured separately right and left from centre front to centre back. The first difference alone cannot separate a higher hip from a longer leg; the second locates it. Both are taken with the weight evenly distributed and repeated.'",
+   "notes": "A right/left waist-to-floor difference confirms that the two sides differ; it does not confirm that a hip is 'higher or fuller', because an unequal leg length produces the identical number and has a different remedy (the hem, not the hip). The record's own C2 (weight on one foot) is the free confounder for the same measurement and is listed after it."
+  },
+  {
+   "claim_id": "SYM-020.C3",
+   "claim": "confirming_measurement = 'M-001 (high bust) vs the pattern's high-bust equivalent'.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "confirming_measurement: 'Flat pattern width of the front bodice measured at high-bust level, seam allowances and darts excluded, doubled, compared with half of M-001 plus the pattern's stated ease at that level.'",
+   "notes": "Commercial patterns do not publish a 'high-bust equivalent'; the right-hand side of the stated comparison does not exist on the artefact the reader has. The comparison has to be made on the flat pattern at a stated level, as E-372 instructs ('Measure each pattern piece at points that correspond with body measurements ... Measure from seamline to seamline'). SYM-016.C1 has a milder version of the same problem: 'the difference the pattern assumes' is a B-cup drafting convention, not a number printed on the envelope, and the book must state that convention explicitly if readers are to use it."
+  },
+  {
+   "claim_id": "SYM-034.C3",
+   "claim": "confirming_measurement = 'sewn armhole circumference vs pattern armhole circumference'; physical_test = 'measure the seam allowances'.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "physical_test: 'Unpick 10 cm of the cap seam and re-baste it at the seam allowance the pattern assumes. If the puckering disappears, the cause is the seam allowance, not the cap ease.'",
+   "notes": "The confirming_measurement and the physical_test are the same act, so the record offers no independent confirmation - measuring twice is not testing. Step 6 requires an intervention whose result can falsify the hypothesis."
+  },
+  {
+   "claim_id": "SYM-002.C1",
+   "claim": "physical_test = 'deepen the neckline by 3-5 mm and re-assess' (also SYM-003.C3 and SYM-009.C3: 'deepen the back neckline').",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "physical_test: 'Clip the neckline seam allowance at 2 cm intervals to, but not through, the seamline, and let the neckline relax onto the body. If the pressure goes, the neckline is too small. Clipping is reversible in the diagnostic sense - it does not remove fabric from the finished edge.'",
+   "notes": "Three records prescribe cutting a neckline deeper as a first test, and SYM-001's own do_not_change_yet forbids exactly that: 'Yaka egrisini KESME - yaka kesildikten sonra geri eklenemez.' The book contradicts itself inside the same file. E-372 independently warns against reshaping these areas at all: 'Do not change the shape of the shoulders, armholes or neckline any more than necessary. These areas are difficult to reshape and alter.' The same objection applies to SYM-013.C1 ('lower the underarm 5-10 mm') and SYM-015.C3 ('redraw the armhole curve') - both remove fabric from an edge that cannot be restored, and both are offered as the FIRST test."
+  },
+  {
+   "claim_id": "SYM-016.C2",
+   "claim": "physical_test = 'NO_PHYSICAL_TEST - return to the size chart' (also SYM-007.C2, SYM-010.C2, SYM-022.C3, SYM-025.C3, SYM-032.C2, SYM-039.C2, SYM-043.C2).",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Give each documentary cause a documentary TEST with a pass/fail: 'Compare the pattern's finished-garment measurement at this point with the body measurement plus the wearing ease the design requires. If the surplus equals the design ease the envelope states, the sign is design ease and this record is closed. If it exceeds it, continue.' Then state where the cycle resumes, because step 6 has no branch for a hypothesis that cannot be physically tested.",
+   "notes": "Eight of the 129 causes carry NO_PHYSICAL_TEST. That is defensible in itself - some causes really are documentary - but the seven-step cycle has no path for them: step 6 is defined as a physical test and its three exits are all defined by what happens to the symptom after an intervention. DIAGNOSTIC_SYSTEM section 4 (stopping conditions) likewise has no row for 'the hypothesis is documentary'. As written, a reader who reaches one of these eight causes falls out of the method. A further 12 causes have inspections rather than interventions as their physical_test (grainline checks, superimposition, re-measurement); these are cheap and reversible, which satisfies CC-20, but they cannot deliver step 6's 'the sign disappeared and no new sign appeared' verdict."
+  },
+  {
+   "claim_id": "SYM-001",
+   "claim": "origin_rule: 'If the gap is ASYMMETRIC and increases on bending forward, the source is not the neckline but the VOLUME BENEATH it.' Candidate causes: neckline too wide/deep, bust volume, stretched neckline edge.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://doi.org/10.1186/s40691-024-00398-4"
+   ],
+   "source_quality": "official_institutional + peer-reviewed university",
+   "conclusion": "CONTRADICTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "origin_rule: 'A neckline gape is multi-causal and is normally SYMMETRIC. Symmetry does not identify the cause. Read it in this order: (1) is the shoulder correct? a shoulder too wide for the body drags the neckline forward; (2) is the chest above the bust hollow relative to the pattern? (3) is the bust larger than the pattern assumes? (4) is the neckline itself larger than the body needs? (5) was the edge stretched in sewing? An ASYMMETRIC gape points to body asymmetry or to a cutting fault, not to bust volume.'",
+   "notes": "Two failures. (1) The asymmetry criterion is inverted: bust volume is bilateral in the ordinary case, so the book's rule sends the commonest presentation to the wrong branch. (2) The candidate list is incomplete against the literature. The two causes named most often for a gaping neckline - HOLLOW CHEST and a SHOULDER TOO WIDE FOR THE BODY - are absent from SYM-001. NMSU C-228 carries 'Gaping Neckline' as its own alteration (slash from neckline through the bust to the waist, overlap at the neck edge, the waist dart grows) and separately carries hollow chest as a distinct figure variation. Practitioner sources describe narrow shoulders producing bunching at the shoulder seam that drags the neckline forward and opens folds at the neckline curve. The book routes the hollow chest to a different record entirely (SYM-020) and the shoulder cause to SYM-004/SYM-014, so a reader who observes a gaping neckline never meets either. Add both as candidate causes here."
+  },
+  {
+   "claim_id": "SYM-040",
+   "claim": "'The hem is not parallel to the floor.' Candidate causes: (1) a volume pulling the fabric up, (2) front/back balance off, (3) body asymmetry.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C314.pdf",
+    "https://fcs.mgcafe.uky.edu/sites/fcs.mgcafe.uky.edu/files/ct-mmb-210.pdf",
+    "https://weallsew.com/how-to-hem-a-circle-skirt/",
+    "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf"
+   ],
+   "source_quality": "official_institutional + expert_practitioner",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Add two candidate causes ahead of the three present. C0a FABRIC: 'the garment has flared or bias-cut sections that have dropped under their own weight. Evidence: the drop is greatest where the hem crosses the true bias and least where it crosses straight grain; it increases the longer the garment hangs. Test: hang the garment for 24 hours and re-mark. adjustment_family_ref: null - this is not a pattern fault.' C0b CUT/CONSTRUCTION: 'the piece was cut off-grain, or the hem itself was cut or turned unevenly. Evidence: the deviation does not correspond to any body prominence. Test: check the grainline against the selvage at two points; open the hem and measure its depth at eight points.' Only then read the three body causes.",
+   "notes": "All three listed causes are faults ABOVE the hem, which is CC-29 asserted as data. Two whole cause families are missing. (a) FABRIC: NMSU C-314 prescribes 'Let the garment hang for 24 hours ... especially if a large part of the garment is on the bias' precisely because bias sections drop; a circle-skirt hem crosses straight grain, crossgrain and bias in one piece, and the bias parts stretch while the others do not. (b) CUT: University of Kentucky CT-MMB.210 - 'Garments that are not cut and sewn according to the fabric grain can stretch in places they should not, HAVE SAGGING HEMS and be uncomfortable to wear.' Both appear in SYM-040 only as confounders_to_rule_out, which under this file's own convention places them outside the diagnosis. The consequence is concrete: a reader with a correctly drafted circle skirt is routed to a full bust adjustment or a shoulder balance correction."
+  },
+  {
+   "claim_id": "SYM-027",
+   "claim": "sign_class = 'horizontal_fold' for an observation that reads 'horizontal DRAG LINES over the seat; the fabric is STRAINED over the seat', with all three candidate causes being shortages. Same defect at SYM-035 and SYM-020.",
+   "sources": [
+    "https://doi.org/10.1186/s40691-024-00398-4"
+   ],
+   "source_quality": "peer-reviewed university",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Extend the controlled vocabulary so that the tight/loose axis is independent of the direction axis: horizontal_fold_slack, horizontal_wrinkle_taut, vertical_fold_slack, vertical_wrinkle_taut, diagonal_drag_line, plus the non-directional classes. Reclassify SYM-027 and SYM-035 as horizontal_wrinkle_taut and SYM-020 as a hollow (gape or a new 'hollow' class), and delete the redundant strain_pull class or define its relationship to the taut classes explicitly.",
+   "notes": "This is the taxonomy paying the price for CC-22. The enum offers horizontal_fold, vertical_fold, diagonal_drag_line and strain_pull as if tightness were a fourth DIRECTION, so a taut horizontal wrinkle has no home and gets filed as a fold. Three of the five horizontal_fold records are misfiled: SYM-027 (drag/strain), SYM-035 (drag/strain), SYM-020 (a hollow). Under the Chapter-7 table a reader who classifies SYM-027 correctly as 'horizontal fold' is then told it means excess LENGTH, when the record's own three causes are all shortages of GIRTH or CROTCH LENGTH. Peer-reviewed support for the two-axis structure: Yang & Baytar (2024) after Brown & Rice (2014) and Liechty et al. (2010) - 'Two main categories of wrinkles, namely tight and loose, come in three different forms: horizontal, vertical, and diagonal.' Related: only ONE of the ten sign_class values is defined anywhere in the project - terminology.json defines 'drag line' (T-13) and nothing else. Step 3 tells the reader to name what they see 'from the controlled vocabulary'; nine tenths of that vocabulary has no definition, and SYM-023's observation ('kumas YATAY KIVRIMLAR halinde havuzlaniyor') is classed pooling while SYM-009's near-identical appearance is classed horizontal_fold, with no rule for choosing."
+  },
+  {
+   "claim_id": "SYM-035.C1",
+   "claim": "physical_test for 'crotch depth insufficient' = 'increase the crotch depth at the lengthen line'; confirming_measurement = M-026 (seated crotch depth). C2 is 'back crotch LENGTH insufficient' with confirming_measurement M-027.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C227.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "physical_test: 'Increase the crotch depth at the lengthen line. WARNING: this test is NOT discriminating - changing crotch depth also changes crotch length (NMSU C-227, p. 5, footnote 2). C1 and C2 cannot be separated by observation. Measure TOTAL CROTCH LENGTH (M-027) first and settle it before attributing anything to depth.' Add a fourth candidate cause, 'Durus: kalca one egik (forward-tilted hip)', and a fifth, 'Uyluk cevresi yetersiz'.",
+   "notes": "An extension service states the coupling outright, and I verified the sentence in the PDF myself: NMSU Guide C-227 'Making Perfect Pants' (rev. April 2015), p. 5 footnote 2 - 'Alter pattern crotch depth first because it affects crotch length.' Performing C1's test therefore relieves C2 as well, and under step 6 the reader concludes 'the symptom disappeared, hypothesis confirmed' for whichever they tested first. Note that the record's adjustment_order_note (AF-15 depth/length before AF-16 curve shape) is DIRECTLY supported by the same footnote and should be kept. Two missing causes, both named as causes rather than confounders by C-227: 'Forward-tilted hip. Stands in somewhat slouched manner; fairly flat, low seat, and a high prominent roll below the front waist or high prominent hip bones. THIS POSTURE CAUSES PANTS TO SAG UNDER THE SEAT unless the pattern is altered.' The book carries posture only in confounders_to_rule_out ('okur prova sirasinda dogal durusunda degil'), which frames it as a fitting artefact to be eliminated rather than a body characteristic to be diagnosed and carried into the fit profile. Thigh circumference, a common source of horizontal drag directly under the seat, is absent entirely."
+  },
+  {
+   "claim_id": "SYM-027.C1",
+   "claim": "C1 'seat volume greater than the pattern assumes' (AF-13) and C2 'crotch length insufficient' (AF-15) are presented as two separable candidate causes with distinct evidence.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://pubs.nmsu.edu/_c/C227.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Merge C1 and C2: 'Arka hacim yetersiz - oturak hacmi ve/veya arka ag uzunlugu. NOT: bunlar ayri teshisler degildir; arka parcaya hacim eklemek ag uzunlugunu da uzatir (NMSU C-228, Protruding Derriere). Tek duzeltmede birlikte ele alinir.' confirming_measurement: 'M-006 vs pattern hip girth AND M-027 vs pattern back crotch length - read together.'",
+   "notes": "NMSU C-228's own remedy for a protruding derriere performs both changes in one operation, and I read the sentence in the source: 'Protruding Derriere - Slash pattern back from waistline down center of leg parallel to grainline. In hip area, slash across from center back to side seam. Spread to add desired amount. Redraw darts. REDRAW CROTCH SEAM AND INSEAM TO ADD NEEDED LENGTH.' Seat volume and back crotch length are one deficiency measured two ways. This is confirmed by the taxonomy's own adjustment layer, which already knows it: AF-13's order_constraint reads 'AF-15/16 (ag) ile AYNI ANDA degerlendirilir; ayri ayri duzeltilirse birbirini bozar.' The symptom layer presents as two testable alternatives what the adjustment layer declares a single simultaneous decision. Also missing here as a named cause: backward-tilted hip posture - C-227, 'Backward-tilted hip. Stands with tummy lower and posterior out and up. PANTS HIKE UP OVER THE SEAT if the pattern crotch length is not corrected' - which is this record's observation plus its C1 evidence ('arka etek ucu yukseliyor')."
+  },
+  {
+   "claim_id": "SYM-036.C3",
+   "claim": "C3 'front crotch curve too deeply curved', distinguishing_evidence 'the numbers are correct but the curve is too deep'.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "distinguishing_evidence: 'SIRALI TESHIS - gozlemle dogrudan saptanamaz. Ancak M-027 on ag uzunlugu ve M-026 ag derinligi sayisal olarak DOGRULANDIKTAN sonra havuzlanma suruyorsa bu nedene gecilir. Egri derinligi ile dikis uzunlugu geometrik olarak baglidir; 'sayilar dogru ama egri derin' bir gozlem degil, bir ELEME sonucudur.'",
+   "notes": "All three of this record's candidate causes move the SAME quantity. A deeper front crotch curve is a longer front crotch seam (C1), and per NMSU C-227 footnote 2 changing crotch depth (C2) also changes crotch length. So the state C3 describes - numbers correct, curve too deep - is not one the two stated measurements can jointly report. C3 is a residual reached by elimination, and the schema requires an OBSERVATION in this field, so the field should say so rather than pretending to an observation. NMSU C-228 shows the same coupling on the front: 'Protruding Abdomen - Slash at center front and spread ... Redraw crotch seam and inseam to add amount needed to front crotch length and leg.' One missing cause worth adding: a flat or small abdomen relative to the pattern's assumption. NOTE, correcting an overstatement I was offered and checked: C-228 does NOT pair every protrusion with a flat counterpart - it pairs Protruding Derriere with Flat Derriere and Bulging Thigh/Wide Hips with Flat Side Hip, but carries Protruding Abdomen with no flat counterpart. The flat-abdomen cause is a reasonable inference from the pairing pattern, not a sourced alteration."
+  },
+  {
+   "claim_id": "SYM-029.C1",
+   "claim": "C1 merges two faults into one cause: 'body asymmetry - one hip HIGHER or FULLER'.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C209.pdf",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://pubs.nmsu.edu/_c/C314.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Split C1 into three: (a) 'one hip HIGHER' - evidence: waist-mark-to-floor differs between the two sides, girths equal; measurement: M-024 right and left. (b) 'one hip FULLER' - evidence: the rise is accompanied by drag lines on that side and the side seam swings toward it; measurement: hip girth taken as two half-measures from centre back to centre front. (c) 'leg-length difference (trousers)' - evidence: the hem differs but there is no sign at hip level; measurement: waist-to-floor at the side seam, right and left.",
+   "notes": "A higher hip needs length redistributed; a fuller hip needs volume; a longer leg needs the hem. Three different corrections behind one cause string and one measurement. Extension measurement charts already separate them and I verified both: NMSU C-209 'Measurements for Fitting Pants' (rev. Insook Ahn, June 2021) records 'waistline to hip' and 'waist to ankle at side seam' with separate Left and Right rows; NMSU C-220 'Check your Pattern for Proper Fit' states that measurements are recorded 'for right (R) and left (L) sides where indicated' and its items 27-28 read 'Side skirt length R / L' and 'Skirt length. Measure from waistline to the floor center front, center back, and on each side.' That four-point floor measurement institutionalises front/back balance and left/right asymmetry in one instrument, and it is a better confirming_measurement than the one the record gives. On prevalence of asymmetry: I was offered a '97 percent of adults' figure and did not reach a primary source for it - do not use a number. The defensible statement is procedural: land-grant extension charts specify separate left and right entries by default, which is an institutional statement that asymmetry is expected rather than exceptional. C2 (stance) is independently supported: NMSU C-314 instructs 'Stand straight, arms down, and weight distributed on both feet.'"
+  },
+  {
+   "claim_id": "SYM-043",
+   "claim": "adjustment_order_note: 'Boy duzeltmeleri HER ZAMAN genislik duzeltmelerinden ONCE gelir - serinin sira kuralinin birinci maddesi.' (Also SYM-003, SYM-009, SYM-022, AF-11.)",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf"
+   ],
+   "source_quality": "official_institutional + expert_practitioner",
+   "conclusion": "CONTESTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Record the conflict rather than suppressing it: 'Length before width is the rule this book follows, and it is the rule Texas AgriLife E-372 states: 'Begin with lengthwise alterations at the shoulder or neck and work down. Finish with the alterations for width.' Note that it is not universal. Palmer/Pletsch, fitting the tissue rather than a toile, instruct the opposite for the back - 'Do vertical before horizontal alterations!' Where the two conflict, follow one consistently and record which.'",
+   "notes": "SOURCE-vs-SOURCE CONFLICT, verified on both sides. E-372 supports length-before-width explicitly. The Palmer/Pletsch tissue-fitting excerpt, in the back-fitting step immediately after 'Check for high/low round, broad/narrow', instructs 'Do vertical before horizontal alterations!' - vertical slashes being the width change and horizontal ones the length change - which reverses the book's core order rule for that region. DIAGNOSTIC_SYSTEM section 6.5 already flags that only two of the five ordering rules are sourced; this conflict belongs in that note. A second, larger methodological conflict from the same document, which bears directly on step 6: Palmer/Pletsch's method is explicitly toile-free - 'There's no need to make a muslin!' - and diagnoses on the tissue pattern before cutting. The book's entire physical-test apparatus presupposes a sewn toile. That is a legitimate design choice, but a recognised authority rejects the premise, and the book should say so rather than presenting the toile as the only route."
+  },
+  {
+   "claim_id": "SYM-003",
+   "claim": "Cross-sign routing: SYM-003 and SYM-011 carry the identical cause string 'Arka beden boyu yetersiz (yuvarlak sirt)' and route it to DIFFERENT adjustment families - AF-11 in SYM-003, AF-07 in SYM-011 - and to different chapters (B1-CH10 vs B1-CH12).",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Assign round back consistently. NMSU C-228's own round-shoulder alteration adds LENGTH across the upper back and converts the surplus at the neckline into a dart, i.e. it is simultaneously a length and a shaping change: 'Round Shoulders: Slash across the back from center back to armscye. Slash down from middle of neckline curve. Spread the desired amounts, making the addition at the neckline a new dart.' Route round back to AF-07 everywhere, and state in AF-07 that it carries a length component. Then make SYM-003.C1 read AF-07, not AF-11.",
+   "notes": "Four records name round back as a cause (SYM-002.C2, SYM-003.C1, SYM-006.C2, SYM-011.C1, SYM-012.C2). Four of the five send it to AF-07; SYM-003.C1 alone sends it to AF-11. Since AF-07 and AF-11 are the handoff points to two different Book-2 chapters, the same reader with the same body gets a different instruction depending on which sign they happened to look up first. AF-07's own order_constraint already acknowledges the overlap ('yuvarlak sirt hem genislik hem boy ister'), which makes the inconsistency an editing error rather than a conceptual one - but it is exactly the kind a reader cannot detect."
+  },
+  {
+   "claim_id": "SYM-040",
+   "claim": "Cross-sign routing: five records (SYM-003, SYM-011, SYM-017, SYM-029, SYM-040) all carry sign_class 'hem_hike' and all begin from the observation 'the hem is not level'. They route to four different chapters (CH10, CH11, CH12, CH13, CH16) and to AF-01/AF-07/AF-11/AF-13.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C314.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Make SYM-040 the single entry point for every uneven hem and turn the other four into its branches. SYM-040 gains an explicit triage rule as its origin_rule: 'Where is the hem high? BACK ONLY, with the back neck also riding up -> SYM-003. BACK ONLY, hem alone -> SYM-011. FRONT ONLY -> SYM-017. ONE SIDE ONLY -> SYM-029. If the deviation follows no body prominence, or the garment is flared or bias-cut, the cause is fabric or cut, not fitting - hang for 24 hours and re-mark before diagnosing anything.'",
+   "notes": "This is the most consequential routing collision in the file, and it is created by CC-29 itself: the hem is declared a mirror of everything above, so every upstream fault gets a hem record. A reader who observes only 'the hem is not level' has five entry points, no stated gate between them, and no instruction to read all five. SYM-017 is a strict subset of SYM-040 (front hem high) with the same three adjustment families and a different chapter. Note the contrast with SYM-043, the one record in the file that states a validity gate ('if any other sign is present this record is INVALID'); every hem_hike record needs one."
+  },
+  {
+   "claim_id": "SYM-035",
+   "claim": "Cross-sign routing: SYM-027.C2's distinguishing_evidence ('lines together with the crotch pulling up and difficulty sitting') IS SYM-035's observation ('horizontal drag lines; the crotch is pulled up and uncomfortable'). SYM-027 routes to B1-CH13 / AF-13; SYM-035 routes to B1-CH15 / AF-15 and AF-16.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "State the anatomical boundary in both observations and cross-reference them. SYM-027: 'Horizontal drag lines ON the seat, at and above the level of its fullest point. If the lines are BELOW the seat and the crotch is pulling up, read SYM-035 first - crotch length is settled before seat volume.' SYM-035: 'Horizontal drag lines BELOW the seat ... If there is also strain across the fullest part of the seat, read SYM-027 as well: the two are usually one shortage.'",
+   "notes": "A reader in a badly fitting trouser sees one thing and the file gives two records with an ordering conflict between them: SYM-027's order note is silent, SYM-035's says AF-15 before AF-16, and AF-13's own order_constraint says AF-13 must be evaluated SIMULTANEOUSLY with AF-15/16 ('ayri ayri duzeltilirse birbirini bozar'). So the adjustment layer already knows these are one decision while the symptom layer presents them as two signs with two entry points. Three further pairs of the same kind: SYM-036.C2 evidence ('the crotch does not touch the body') vs SYM-039 observation; SYM-014 observation ('the front armhole edge gapes') vs SYM-020.C2 evidence, which share a remedy and a family; SYM-010 observation ('vertical slack folds in the back') vs SYM-015.C1 evidence."
+  },
+  {
+   "claim_id": "SYM-002.C3",
+   "claim": "SYM-002.C3 assigns AF-05 (Shoulder position - FORWARD shoulder) to the cause 'the shoulder seam has shifted FORWARD, pushing the neckline onto the neck', while SYM-006.C1 assigns the same AF-05 to a shoulder seam sitting BEHIND the centreline.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "SYM-006.C1 is correct and should keep AF-05: a forward-shoulder BODY leaves the garment's shoulder seam sitting BEHIND the top-of-shoulder line, and the remedy moves the seam forward. SYM-002.C3 describes the opposite displacement and should not carry AF-05; either restate its cause as 'the pattern's shoulder seam is drawn too far forward for this body' with its own family, or delete it and refer the reader to SYM-006.",
+   "notes": "One family is being used for two opposite displacements with no statement of the mechanism that produces each, so the reader cannot tell which way to move the seam. The two records also give opposite remedies for the same family: SYM-002.C3 'pin the shoulder seam BACKWARD', SYM-006.C1 'unpick the shoulder seam and pin it FORWARD'. Both cannot be AF-05."
+  },
+  {
+   "claim_id": "SYM-029",
+   "claim": "SYM-029's origin_rule states the elimination order 'first the fitting condition, then the cut, LAST body asymmetry', and the record then lists body asymmetry as C1, stance as C2 and off-grain cutting as C3.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Reorder to C1 = stance/weight distribution, C2 = off-grain cut, C3 = body asymmetry, matching the record's own origin_rule and CC-25.",
+   "notes": "The record contradicts its own stated rule in the same JSON object. It is the clearest instance of a file-wide pattern: of the 20 candidate causes that are confounders or design intent rather than pattern faults, NOT ONE is listed first - thirteen are last and seven second. Because step 6 tells the reader to form one hypothesis and test the cheapest, and readers work down a list, the ordering systematically defers the free, fully reversible test (stand evenly, check the grainline) behind a pattern alteration. Reordering the candidate_causes arrays is the single cheapest correction available in the whole dataset and it does not require any new research."
+  },
+  {
+   "claim_id": "SYM-033.C1",
+   "claim": "SYM-033.C1's likelihood_note declares the cause an ASSEMBLY error ('KALIP DEGIL, MONTAJ hatasi olabilen bir belirti') and the record nonetheless assigns adjustment_family_ref = AF-09. SYM-034.C3 does the same with AF-08.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Set adjustment_family_ref to null for SYM-033.C1 and SYM-034.C3, matching the 18 other construction- and cutting-error causes in the file.",
+   "notes": "symptom_schema.json states the rule explicitly in its own comment on the field: 'null = bu neden bir kalip duzeltmesi DEGILDIR (or. yapim hatasi)'. Two causes break it, and both hand the reader off to a Book-2 pattern chapter for a fault that is in the sewing. Also missing from SYM-033: forward shoulder (AF-05) as a candidate cause. The practitioner literature ties sleeve rotation directly to forward shoulder carriage and to sleeve pitch; the record covers pitch only obliquely, as 'the sleeve's elbow curve does not suit the body', which is a different mechanism."
+  },
+  {
+   "claim_id": "CC-02",
+   "claim": "Step 4 of the seven-step cycle (LOCALIZE - 'the place a sign is SEEN is not the place it ORIGINATES') is operationalised in the data by the per-sign field `origin_rule`.",
+   "sources": [
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Either give every sign an origin_rule, or state in Chapter 7 that where no localisation rule exists the reader proceeds directly to the candidate causes and treats step 4 as satisfied by the where_it_appears field. Silence is currently indistinguishable from 'the sign originates where it appears', which is the belief the whole method exists to correct.",
+   "notes": "MEASURED, not asserted: 20 of the 43 signs carry origin_rule = null. Step 4 therefore has no mechanism at all for 47 percent of the dataset, including several where displacement is exactly the difficulty - SYM-005 (shoulder fold), SYM-007 (shoulder overhang), SYM-013 (armhole strain), SYM-015 (back armhole gape), SYM-019, SYM-020, SYM-021 (bust-level gaping), SYM-022, SYM-024, SYM-025, SYM-026, SYM-028, SYM-030, SYM-031, SYM-032, SYM-034, SYM-035, SYM-036, SYM-039, SYM-041 (list verified by machine count against the file, not eyeballed). Of the 23 rules that do exist, several are restatements of the observation rather than localisation rules (SYM-014: 'an empty gap shows there is MORE fabric there than needed; where the surplus is must be found separately' - which defers the question rather than answering it). The claim CC-02 is sound and well sourced; its implementation covers half the data."
+  },
+  {
+   "claim_id": "S-0001",
+   "claim": "[Source record, not a claim.] Source attribution across the taxonomy: every one of the 43 signs carries source_refs, of which S-0001 (NMSU Guide C-228) appears on 34 and S-0004 on all 43.",
+   "sources": [
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "UNSUPPORTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Split source_refs into two fields: `remedy_source_refs` (what supports the ADJUSTMENT this cause points to) and `evidence_source_refs` (what supports the DISCRIMINATING OBSERVATION). The second field will be empty for all 129 causes, and that is the honest position - it is also exactly what VALIDATION_PROTOCOL's Y-2 tests are for.",
+   "notes": "I read NMSU C-228 end to end. It is a catalogue of alteration recipes - 'Full Bust (large cup size): Slash across the pattern along bust dart foldline to center front...' - organised by figure variation. It contains no discussion of wrinkles, folds, drag lines, observation order, symptom-to-cause reasoning, or how to tell two causes of one sign apart. Its only fit-diagnosis content is a four-line list of general guidelines and one sentence on grain ('Keep all fabric grainlines, the center front, and the center back on the fabric's straight of grain'), which is a CUTTING instruction, not the floor-referenced claim of CC-26. It therefore supports the REMEDIES the taxonomy names - and it does support them well, including the directions of the square/sloping shoulder fixes in SYM-004 - but it cannot support any of the 129 distinguishing_evidence claims, and its appearance on 34 records overstates the evidential position to any reader who checks. To the project's credit, verification_summary in fit_signs.json states plainly that all 43 records remain 'agent_drafted_unverified' and DIAGNOSTIC_SYSTEM section 6.4 names this as the framework's largest gap. The disclosure is honest; the per-record source_refs quietly work against it."
+  },
+  {
+   "claim_id": "S-0004",
+   "claim": "[Source record, not a claim.] S-0004 'Challenging Patterns - EM4582' (WSU Cooperative Extension) is cited as a source_ref on all 43 fit signs and is the SOLE source for CC-22, CC-23, CC-24 and CC-29.",
+   "sources": [
+    "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Keep S-0004 on CC-23, CC-26, the dart rule and the seam-position rules, which it states verbatim. REMOVE it from CC-22 and CC-24 - it contains neither - and from CC-29, which it does not state. Then add the document WSU actually published on this subject: WSU Agricultural Extension Service E.M. 2246, 'Garment Fitting', Hazel L. Roberts, December 1962, reachable at content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download. It is a dedicated fitting publication with a full sign-to-cause list and it is a far better fit for this book's purpose than an eight-page 4-H project booklet.",
+   "notes": "CORRECTION TO MY OWN EARLIER POSITION, recorded deliberately. I first reported this document as unobtainable on the strength of a failed retrieval. It is obtainable: the exact URL recorded in 01_SOURCE/records/S-0004.json returns HTTP 200 and a 123 KB PDF, and I have now read all eight pages. The project's citation is honest as to existence and the record's verification_level 'fulltext' is defensible. The problem is ATTRIBUTION, and it is precise. EM4582's entire fitting content is one page headed FITTING and five bullets: 'As you fit, keep in mind the five basic points of fitting: Grain. The lengthwise grain should be perpendicular to the floor. The crosswise grain should be parallel to the floor. The grainline should be the same for both sides of the garment. / Line. The silhouette lines on the garment should follow the silhouette lines of the body. The shoulder seams should be on top of the shoulders. Vertical seams should be perpendicular to the floor. Horizontal seamlines should follow the body circumference in the neckline, waistline, and armhole areas. Darts should point toward the [and] stop short of the fullest part of the area they shape. Hems should be parallel to the floor. / Ease. The garment should be neither too loose nor too tight. It should be smooth and comfortable. Too little ease will produce wrinkles that pull and draw the fabric. Wrinkles that lie in folds indicate too much ease. / Balance. The garment should appear to be balanced from right to left, from top to bottom, and from front to back. / Overall smoothness. The garment should be smooth on the body and free from wrinkles.' That is the whole of it. WHAT S-0004 DOES SUPPORT: CC-23, almost word for word ('Too little ease will produce wrinkles that pull and draw the fabric. Wrinkles that lie in folds indicate too much ease'); CC-26, verbatim; the dart rule and the seam-position rules the source record claims. WHAT IT DOES NOT CONTAIN: any mapping of fold direction to length or width - CC-22 is absent; any mention of drag lines, diagonal wrinkles, or wrinkles pointing anywhere - CC-24 is absent (the word 'diagonal' occurs once in the booklet, in a section on design lines, not fitting); and any statement that the hem is read last or is a consequence of a fault above - CC-29 is absent, the source says only 'Hems should be parallel to the floor', which is the observation, not the claim. So two of the book's four core rules and its hem doctrine are cited to a document that does not contain them. That is a more serious finding than unreachability, because it is checkable and wrong rather than merely unverifiable."
+  },
+  {
+   "claim_id": "CC-22",
+   "claim": "A fold consumes the dimension perpendicular to its own line: a horizontal fold indicates excess length, a vertical fold indicates excess width. source_refs: ['S-0004'].",
+   "sources": [
+    "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download",
+    "https://doi.org/10.1186/s40691-024-00398-4",
+    "https://doi.org/10.1186/s40691-025-00417-y",
+    "https://arxiv.org/pdf/1509.04140",
+    "https://softmath.seas.harvard.edu/wp-content/uploads/2019/10/2003-03.pdf"
+   ],
+   "source_quality": "official_institutional + peer-reviewed university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Folds indicate surplus fabric, and a fold's own line tells you which dimension the surplus lies in: a vertical fold means surplus width (circumference), a horizontal fold means surplus length. Apply this ONLY after the mark has been classified as a fold rather than a pull, because a taut horizontal wrinkle means the opposite - a shortage of circumference at that level - and a taut vertical wrinkle means a shortage of length. The axis names the dimension of the surplus, never its location: surplus length can exist because width is short below it.",
+   "notes": "THE CITED SOURCE DOES NOT CONTAIN THIS RULE. I read EM4582 in full; there is no fold-axis rule in it. CC-22 is currently an unsourced claim wearing a citation. The rule is nevertheless defensible in narrowed form, and better support exists: Galada & Baytar (2025), Fashion and Textiles 12(1), DOI 10.1186/s40691-025-00417-y, attributing Veblen (2012), is reported to state 'Vertical folds imply excess circumference measurement and horizontal folds imply excess vertical measurement'. HONESTY NOTE: I confirmed that paper's existence, authors, journal, DOI, CC-BY licence and that its reference list contains Veblen (2012) and Liechty/Rasband/Pottberg-Steineckert (2016), but Springer redirects to an identity provider and I could NOT read the full text myself - that sentence reaches me second-hand and must be checked before it is printed. My own primary evidence is different and stronger. (1) THE COUNTEREXAMPLES ARE REAL AND THEY COME FROM THE BOOK'S OWN PUBLISHER. WSU Agricultural Extension Service E.M. 2246, 'Garment Fitting' (Hazel L. Roberts, December 1962), which I read in full: 'Crosswise folds across the back between waist and hips - the skirt may be TOO TIGHT AT THE HIPS or the figure may have a swayback.' A horizontal FOLD - the source's own word, not 'wrinkle' - is given a tightness reading, and it is listed FIRST, ahead of the excess-length reading. The vertical half fails the same way in the same document: 'Armhole tight, with crosswise wrinkles in bodice from armhole and LENGTHWISE WRINKLES extending down at undersleeve' - vertical marks produced by tightness. (2) THE TWO-AXIS STRUCTURE IS PEER-REVIEWED: Yang & Baytar (2024), Fashion and Textiles 11:32, after Brown & Rice (2014) and Liechty et al. (2010) - 'Two main categories of wrinkles, namely tight and loose, come in three different forms: horizontal, vertical, and diagonal.' Six cells; the book's Chapter-7 table has three. (3) THE MECHANISM AGREES: slack fabric buckles perpendicular to the surplus, but fabric in tension wrinkles ALONG the pull (Cerda & Mahadevan 2003; Li & Healey arXiv:1509.04140). The axis inverts between slack and taut. (4) THE DERIVATION ITSELF IS FINE. 'A fold consumes the dimension perpendicular to its own line' does not conflate fold direction with fold axis - a horizontal crease is made by taking up vertical extent, and that is correct. The failure is empirical, not geometric: not every horizontal mark is a fold. (5) THE BOOK'S OWN DATA ALREADY CONTAINS THE FAILURE. SYM-027's origin_rule reads 'Yatay cekme cizgileri, o hizada CEVRE yetersizligini gosterir' - horizontal drag lines indicate insufficient circumference - which is the exact counterexample to the Chapter-7 table, written by the book, sitting inside a record the book classes horizontal_fold. Applying the table to SYM-027 or SYM-035 gives the opposite of the correct fix."
+  },
+  {
+   "claim_id": "CC-23",
+   "claim": "Fabric standing in folds indicates too much ease IN THAT DIRECTION, while fabric being pulled or strained indicates too little.",
+   "sources": [
+    "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://doi.org/10.1186/s40691-024-00398-4"
+   ],
+   "source_quality": "official_institutional + peer-reviewed university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": false,
+   "required_revision": true,
+   "proposed_wording": "Wrinkles that lie in folds indicate too much ease; wrinkles that pull and draw the fabric indicate too little. Direction is not part of this test - it is established separately, and only after this one. (WSU EM4582, 'Ease', among the five basic points of fitting.)",
+   "notes": "The best-sourced claim in Chapter 7 and the only one EM4582 actually carries. Verbatim, from the copy I read: 'Ease. The garment should be neither too loose nor too tight. It should be smooth and comfortable. Too little ease will produce wrinkles that pull and draw the fabric. Wrinkles that lie in folds indicate too much ease.' Corroborated by NMSU C-228's definition of a well-fitting garment - 'conforms to the contours of the body without binding, pulling, sagging, straining, or wrinkling' - which likewise enumerates pulling and wrinkling as distinct defects, and by E-372's checklist item 'Pants have no pulls or excess fabric across the front or back crotch level'. ONE REQUIRED DELETION: the phrase 'in that direction'. EM4582 says nothing about direction. That rider imports CC-22 into CC-23 and makes an unsourced claim look sourced by sitting inside a sourced one. Delete it; CC-23 is the surplus/shortage binary and nothing more. SECOND ADDITION: the peer-reviewed sources name three states, not two - 'inadequate, excessive, or MISPLACED ease' (Yang & Baytar 2024). The taxonomy needs the third: SYM-019, SYM-020 and SYM-014 are all misplaced-ease signs that a two-state rule cannot name. Note finally that CC-23 is the GATE on which CC-22 depends: in the extension corpus the tight case is consistently called wrinkles or pulls and the loose case folds, so the axis rule is valid only downstream of this test. Chapter 7 should present them in that order and say so."
+  },
+  {
+   "claim_id": "CC-24",
+   "claim": "A diagonal drag line points toward the location of the shortfall that produces it. source_refs: ['S-0004']. Visual token TK-05 renders this as an arrowhead ('ok KAYNAGA bakar').",
+   "sources": [
+    "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download",
+    "https://arxiv.org/pdf/1509.04140",
+    "https://softmath.seas.harvard.edu/wp-content/uploads/2019/10/2003-03.pdf",
+    "https://doi.org/10.1186/s40691-025-00417-y"
+   ],
+   "source_quality": "official_institutional + university (mechanics)",
+   "conclusion": "CONTESTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Drag lines are pulls - horizontal or diagonal - that radiate from a place that is too tight, or that lacks the three-dimensional shaping the body needs there. Where several drag lines converge, the convergence point, not the far end they appear to aim at, is the candidate site. A drag line lies along the direction of pull and has TWO ends; deciding which end carries the fault requires knowing where the garment is anchored, and that is a separate question the line cannot answer. Replace the arrowhead in TK-05 with a line and a marked convergence point.",
+   "notes": "THE CITED SOURCE CONTAINS NOTHING ABOUT DRAG LINES. I read EM4582 in full: no diagonal wrinkles, no drag lines, no wrinkles pointing anywhere. CC-24 is an unsourced claim carrying a citation, and step 4 of the seven-step cycle rests on it alone. Beyond the citation, the authorities offer THREE incompatible geometric models and the book's wording picks the one that does not disambiguate: 'points toward' (SDSU Extension, Facts about Fitting, 1968, reported to me as 'If there is a group of wrinkles they will generally point in the direction of the seam to be let out. A line drawn at right angles from the center of a diagonal wrinkle will point to the seam to be taken in' - I did NOT reach this document myself and flag the quote as second-hand); 'radiates from' (Veblen 2012 via Galada & Baytar 2025, also second-hand to me); and 'runs between two named points', which is what the one primary source I did read does. WSU E.M. 2246 describes every diagonal by its two endpoints and never by a direction: 'Diagonal wrinkles from bust line to underarm waistline ... caused by a large bust'; 'Diagonal wrinkles fall from shoulder blade to underarm ... Most common with round shoulders, prominent shoulder blades or a roll of flesh at the back of the neck'; 'diagonal wrinkles from shoulder tip to center front or back' for square shoulders. In each case the cause is named separately from the line; the line locates a REGION, and the source then supplies the cause. THE MECHANICS SETTLE THE GEOMETRY: a wrinkle runs along the tension with the buckling compression perpendicular to it, so a drag line is a segment with two ends, not an arrow (Cerda & Mahadevan 2003; Li & Healey arXiv:1509.04140). THE BOOK CONTRADICTS ITSELF ON THE DIRECTION: terminology.json T-13 defines a drag line as extending AWAY FROM the tension point while CC-24 says it points TOWARD the shortfall. Both cannot stand. TWO FURTHER WORDING PROBLEMS: the peer-reviewed relay makes draglines 'horizontal OR diagonal', while the book's sign_class is diagonal-only and has no cell for a horizontal drag line - which is exactly why SYM-027 and SYM-035 are misfiled; and the source's cause is 'too tight OR does not have adequate 3D shaping', which is broader than 'shortfall'. Recommend the narrowed wording plus a flag that this remains the top item for physical validation."
+  },
+  {
+   "claim_id": "CC-26",
+   "claim": "On a correctly cut and correctly hanging garment the lengthwise grain runs perpendicular to the floor and the crosswise grain runs parallel to it.",
+   "sources": [
+    "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download",
+    "https://www.isbe.net/CTEDocuments/FCS-720057.pdf",
+    "https://doi.org/10.1186/s40691-024-00398-4",
+    "https://texas4-h.tamu.edu/wp-content/uploads/fashion_resource_clothing_quality_standards.pdf",
+    "https://pubs.nmsu.edu/_c/C227.pdf",
+    "https://weallsew.com/how-to-hem-a-circle-skirt/"
+   ],
+   "source_quality": "official_institutional + peer-reviewed university",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "On a garment CUT ON THE STRAIGHT GRAIN and hanging correctly, the lengthwise grain falls at a right angle to the floor down the major vertical lines of the body - centre front, centre back and the side seams - and the crosswise grain is parallel to the floor AT THE LEVEL OF THE FULLEST HORIZONTAL CURVES, principally the bust and the hip. The grainline must also be the same on both sides of the garment. This describes the straight-grain fitted bodice, skirt and trouser. It does not describe a bias-cut garment, a flared or circular skirt (a single pattern piece of which crosses straight grain, crossgrain and bias at once), a garment cut on the crossgrain by design, or a sleeve - whose grain is referred to the hanging arm, not to the floor.",
+   "notes": "THIS ONE THE CITED SOURCE DOES CARRY, VERBATIM. WSU EM4582: 'Grain. The lengthwise grain should be perpendicular to the floor. The crosswise grain should be parallel to the floor. The grainline should be the same for both sides of the garment.' Note the third sentence, which CC-26 drops: a bilateral-symmetry requirement, and it is the one clause that would matter to the asymmetric signs SYM-029, SYM-041 and SYM-042. Add it. Three further institutional sources say the same thing with their own qualifiers, and the qualifiers are the finding. Texas AgriLife E-372: 'the lengthwise grain of the fabric must lie at a right angle to the floor ALONG MAJOR PARTS OF THE BODY SUCH AS THE CENTER FRONT AND BACK UNLESS THE PATTERN IS CUT ON THE BIAS.' Texas E-403: 'the lengthwise and crosswise threads will be at right angles UNLESS CUT ON THE BIAS.' NMSU C-227 for trousers: 'In well-fitted pants, the lengthwise grainline is perpendicular to the floor and creases in the legs are on the straight grain.' WSU E.M. 2246 is the sharpest on the crossgrain half and it is a heading in capitals in the original: 'TO FIT THE SKIRT, KEEP THE CROSSWISE GRAIN OF THE FABRIC STRAIGHT ACROSS THE HIP LINE' - crossgrain at a stated LEVEL, not everywhere. The peer-reviewed statement refers grain to the body rather than the floor and covers the sleeve, where 'perpendicular to the floor' is false for a hanging arm: Yang & Baytar (2024) after Lee & Steen (2014), 'The vertical grainline of the garment must be parallel to the length of the wearer's torso at the front and back, along with the center of their arms between shoulders and elbows, and the center through their legs. Similarly, the vertical grainline of the garment should be perpendicular to the wearer's bust and hip levels.' The direction of travel across six sources is consistent: the closer a source is to technical practice, the more tightly it bounds the claim. Geometric counterexample: one circular-skirt panel necessarily contains straight grain, crossgrain and bias, so crossgrain cannot be horizontal everywhere on it. As written CC-26 flags correctly cut bias, flared and crossgrain-cut garments as faults, and it is the ground of the entire balance step and of SYM-042."
+  },
+  {
+   "claim_id": "CC-17",
+   "claim": "The observation order is fixed and BEGINS with grain and balance, because a garment hanging off-grain invalidates every reading taken below it. DIAGNOSTIC_SYSTEM 3-2 adds that both cited sources 'give the first item of observation as grain/balance' and that one carries 'a 13-item fit checklist whose first two items are grain'.",
+   "sources": [
+    "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+    "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+    "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf",
+    "https://courses.threadsmagazine.com/fitting-your-hanger-perfect-fit-from-the-shoulders-down",
+    "https://doi.org/10.1186/s40691-024-00398-4",
+    "https://www.isbe.net/CTEDocuments/FCS-720057.pdf"
+   ],
+   "source_quality": "official_institutional + expert_practitioner + peer-reviewed university",
+   "conclusion": "CONTESTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Grain and balance are read FIRST, because a garment hanging off-grain makes every reading taken below it unreliable. This is a rule about the order of READING and it is this book's own; no source states it. It is not the order of CORRECTING: the published sequences correct from the top down, because the garment hangs from the shoulders. Texas AgriLife E-372: 'Begin with lengthwise alterations at the shoulder or neck and work down ... Many problems in side seams, bust area or length disappear when the pattern is correctly fitted in the neck and shoulder area.' Palmer/Pletsch state the same principle in general form: 'DO FIRST ONLY WHAT AFFECTS OTHER AREAS OF FIT. DO LAST WHAT DOESN'T.' The 'five basic points of fitting' - grain, line, ease, balance, overall smoothness - are a list of criteria, not a sequence; sources enumerate them in different orders.",
+   "notes": "Four failures, three of them now checked against the primary texts. (1) THE SOURCES DO NOT GIVE A SEQUENCE. EM4582's own framing is 'As you fit, KEEP IN MIND the five basic points of fitting' - a list to hold in mind, explicitly not an order of operations. E-372 introduces its checklist as 'Use the following checklist to help you determine if further alterations or minor fitting is needed'. Yang & Baytar are explicit: 'Fit issues arise when ONE OR MORE of these five elements of fit are not met.' (2) 'GRAIN AND BALANCE' IS NOT A PAIR IN EITHER SOURCE. EM4582's order is Grain, Line, Ease, BALANCE, Overall smoothness - grain first, balance FOURTH, with Line and Ease between them. The book's paired first item is a construction of its own. (3) THE FACTUAL ERROR: E-372's checklist has FOURTEEN bullets, not thirteen (the fourteenth is 'The length of the garment is becoming'). The claim that its first two items are grain IS correct. (4) THE BOOK'S OWN SOURCE PRESCRIBES A DIFFERENT FIRST STEP: E-372's only explicit ordering statement is 'Begin with lengthwise alterations at the shoulder or neck and work down.' Palmer/Pletsch's sequence begins with bodice length and back, then shoulder height, full bust, hip width; grain is not a step at all. Cynthia Guffey: 'all fitting must start there to be successful', of the shoulders and upper back. Three authorities agree with each other and disagree with CC-17. ONE CORRECTION TO MY OWN EARLIER NOTE, made after reading EM4582: I had recorded 'balance' as meaning left-right symmetry only, on the strength of ISBE and Yang & Baytar. EM4582's definition is broader and does include the book's sense - 'Balance. The garment should appear to be balanced from right to left, from top to bottom, and from front to back.' So the book's usage is supported by its own cited source; what remains true is that the term is defined differently across sources and the book must state which sense it uses."
+  },
+  {
+   "claim_id": "CC-29",
+   "claim": "A hem that hangs unevenly is read last, because it is usually a consequence of a length or balance fault above it rather than a fault of its own. source_refs: ['S-0004'].",
+   "sources": [
+    "https://rex.libraries.wsu.edu/view/pdfCoverPage?instCode=01ALLIANCE_WSU&filePid=13333014070001842&download=true",
+    "https://pubs.nmsu.edu/_c/C314.pdf",
+    "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf",
+    "https://fcs.mgcafe.uky.edu/sites/fcs.mgcafe.uky.edu/files/ct-mmb-210.pdf",
+    "https://weallsew.com/how-to-hem-a-circle-skirt/",
+    "https://pubs.nmsu.edu/_c/C220.pdf",
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download"
+   ],
+   "source_quality": "official_institutional + expert_practitioner",
+   "conclusion": "SUPPORTED_NARROWER",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "A hem that hangs unevenly is read LAST, and it is read as a question, not as an answer. It may be the downstream consequence of a length or balance fault above it - a sway back, a full seat, one hip higher - and the fitting literature does use it that way. But it may equally be a fault of the FABRIC or of the HEM ITSELF: bias sections in a flared or circular skirt dropping under their own weight, an off-grain cut, or a hem cut or stitched unevenly. Because both are common, the hem is never diagnosed from its own appearance: it is levelled on the body, after every fault above it has been resolved and after the garment has hung.",
+   "notes": "THE CITED SOURCE DOES NOT STATE THIS CLAIM. EM4582 says only 'Hems should be parallel to the floor', listed under Line among the five basic points - that is the observation, not the doctrine, and it carries no statement about reading order or about the hem being derivative. A third over-attribution to S-0004. The claim's two halves then fare differently against sources I did read. 'Read last' is well supported, but as a CONSTRUCTION-ORDER claim: NMSU C-314, 'A new garment must be fitted and finished before marking the hemline. Let the garment hang for 24 hours on a cushioned hanger before marking the hem, especially if a large part of the garment is on the bias.' The hem is last because it is downstream in the process. The diagnostic reading is attested but narrowly - Palmer/Pletsch diagnose a sway/flat/erect back by tucking at the centre back until 'the back hem parallel to the floor', and WSU E.M. 2246 uses the hem the same way ('Lower edge of skirt swings out in back, the side seams swing back. The figure may have large hips or a sway back'). 'USUALLY' IS UNSUPPORTED IN EITHER DIRECTION and there are strong counterexamples with no fault above at all: bias drop in flared and circular skirts - the very reason the 24-hour hang instruction exists - and off-grain cutting, University of Kentucky CT-MMB.210, 'Garments that are not cut and sewn according to the fabric grain can stretch in places they should not, HAVE SAGGING HEMS and be uncomfortable to wear.' Small counter-datum from E-372: 'Hemline is even' is item 9 of 14, not last. CONSEQUENCE IN THE DATA: SYM-040 lists three candidate causes, all faults above; bias drop and off-grain cutting appear only as confounders, and off-grain is inconsistently a CAUSE in SYM-029 and a confounder in SYM-040. A reader with a correctly drafted circle skirt is routed to a full bust adjustment. NMSU C-220 items 27-28 supply the instrument the record lacks: 'Skirt length. Measure from waistline to the floor center front, center back, and on each side.'"
+  },
+  {
+   "claim_id": "SYM-004",
+   "claim": "observation: 'Diagonal drag lines running from the NECK POINT toward the UNDERARM.' sign_class diagonal_drag_line. C1 = shoulder squarer than the pattern assumes; C2 = shoulder more sloping than the pattern assumes; C3 = shoulder width insufficient. origin_rule: 'the end where the lines converge is the place of the problem.'",
+   "sources": [
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download",
+    "https://pubs.nmsu.edu/_c/C228.pdf"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Split the record along the line's ENDPOINTS and its TENSION, which is what the literature actually uses. SYM-004a, square shoulder: 'Diagonal WRINKLES from the SHOULDER TIP toward centre front or centre back; the shoulder seam stands up from the shoulder near the base of the neck and the armhole looks strained at the shoulder seam.' Remedy: raise the shoulder end. SYM-004b, sloping shoulder: 'Slanting FOLDS from the base of the NECK to the UNDERARM.' Remedy: lower the shoulder end. The discriminator is not the direction of the diagonal - a diagonal has no arrow - it is which two points the line joins, and whether the fabric is taut (square) or slack (sloping).",
+   "notes": "WSU E.M. 2246 'Garment Fitting' separates these two faults by endpoints and by tension, and I read both entries in the original. Square: 'Shoulders too square for shoulder line of garment - indicated by diagonal wrinkles from SHOULDER TIP to center front or back. The shoulder seam stands up from the shoulder line near the base of the neck and the armhole appears STRAINED at the shoulder seam.' Sloping: 'Shoulders too sloping for shoulder line of garment - indicated by slanting FOLDS from the BASE OF THE NECK to the UNDERARM.' Three consequences for SYM-004. (a) The record's observation - diagonal lines from the neck point to the underarm - is the source's SLOPING-shoulder sign, and the record files a square-shoulder cause under it. (b) The source calls the sloping sign FOLDS, i.e. surplus; the record classes the whole thing diagonal_drag_line, i.e. shortage. Under the book's own CC-23 gate those are different classes of mark and cannot share one record. (c) The 'direction of the diagonal' discriminator, which is unusable because a diagonal has two ends and no arrow, becomes unnecessary once the endpoints and the tension are stated - the source never needs it. The remedies in the record are correct and match NMSU C-228 ('Square Shoulders: Redraw shoulder seam and armscye seams, RAISING them'; 'Sloping Shoulders: ... sloping and LOWERING them'), so only the observation and the discriminator need rewriting. This is the highest-consequence correction available in the sign data: C1 and C2 currently prescribe opposite adjustments of the same magnitude at the same point, separated by a criterion the reader cannot apply."
+  },
+  {
+   "claim_id": "SYM-016",
+   "claim": "Cross-sign structure: SYM-016 (diagonal drag from the bust apex), SYM-017 (front hem higher than back) and SYM-018 (side seams swinging forward) are three separate records, in the same chapter, each with its own three candidate causes.",
+   "sources": [
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Make SYM-016 the parent record and name the other two as its accompanying signs in the observation itself, as the source does: 'Diagonal pulls from the bust apex toward the side seam or armhole, WITH the lower front edge of the bodice swinging out and the underarm seam swinging toward the front.' Then let SYM-017 and SYM-018 open with a pointer: 'If this appears together with diagonal pulls from the bust, read SYM-016 - the three are one sign.'",
+   "notes": "WSU E.M. 2246 treats all three as ONE observation with ONE cause, and I read the entry in the original: 'Diagonal wrinkles from bust line to underarm waistline, THE LOWER FRONT EDGE OF THE BODICE SWINGS OUT, AND THE UNDERARM SEAM SWINGS TO THE FRONT, caused by a large bust. More length is needed in bodice front than is allowed.' The book splits that single sign into three records with three different candidate-cause lists and three different entry points, and the splits are exactly where the routing collisions appear - SYM-017.C1 and SYM-018.C1 both name bust volume, but a reader who enters at SYM-017 or SYM-018 gets a different cause list from a reader who enters at SYM-016. Two further points from the same entry. First, the source says a large bust needs more LENGTH in the bodice front, not only volume or width; the taxonomy routes bust volume to AF-01 and length to AF-11 and never says they are the same adjustment here. Second, this is direct evidence for the general shape of my task-5 findings: where an authority writes one record, the book writes three, and the three then need disambiguation rules that do not exist. The same pattern recurs at the hem (five hem_hike records for one observation) and at the seat (SYM-027 and SYM-035 for one trouser complaint)."
+  },
+  {
+   "claim_id": "SYM-013",
+   "claim": "observation: 'When the arm is LOWERED the underarm binds; the garment is pulled UP FROM THE SHOULDER.' C1 = armhole too shallow (underarm too high); physical_test = lower the underarm 5-10 mm.",
+   "sources": [
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download"
+   ],
+   "source_quality": "official_institutional",
+   "conclusion": "CONTRADICTED",
+   "confidence": "MEDIUM",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Restate the observation as the source does, keeping the two marks and dropping the shoulder clause: 'The armhole binds at the armpit, with crosswise wrinkles in the bodice running from the armhole and lengthwise wrinkles running down the undersleeve.' Then give the source's three-way cause set explicitly, since it does not discriminate them either: the armhole is too tight, or too high, or the sleeve is too tight at armpit level. Move 'the garment lifts off the shoulders when the arm is RAISED' into a separate record for the opposite fault, an armhole cut too low.",
+   "notes": "The observation string combines two mutually exclusive signs. WSU E.M. 2246 gives the binding case and its marks precisely: 'Armhole tight, with crosswise wrinkles in bodice from armhole and lengthwise wrinkles extending down at undersleeve, the armhole is too tight OR TOO HIGH or the sleeve too tight at the armpit level. Enlarge the armhole, reset the sleeve keeping the crosswise grain straight. If the armhole is too high then baste a new, lower seam line.' Note that the source's remedy for a too-high armhole matches C1's, so C1 is not wrong - but the source's SIGN is wrinkles at the armhole and undersleeve, not the garment lifting at the shoulder. A garment that lifts off the shoulders when the arm is raised is the classic sign of an armhole cut too LOW, the opposite fault, whose remedy is to raise the underarm. As written a reader can arrive at C1 from either sign and will lower an armhole that should be raised. Note also that the source offers three causes for this one sign without discriminating between them - which is the honest position, and the position the project's own SOURCE_MAP already takes."
+  },
+  {
+   "claim_id": "SYM-023.C1",
+   "claim": "C1 'sway back' distinguishing_evidence: 'surplus concentrated ONLY at centre back, fading toward the side seams; the front is clean.'",
+   "sources": [
+    "https://content.libraries.wsu.edu/digital/api/collection/ext/id/34743/download",
+    "https://pubs.nmsu.edu/_c/C228.pdf",
+    "https://www.palmerpletsch.com/wp-content/uploads/2019/02/palmer-pletsch-tissue-fitting-order-optimized.pdf"
+   ],
+   "source_quality": "official_institutional + expert_practitioner",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": "Add hip tightness as the first thing to exclude and name the flat-seat and erect-back alternatives: 'Fazlalik yalnizca arka ortada yogun, yan dikislere dogru azaliyor; on taraf temiz. UYARI 1: once kalca/oturak GENISLIGININ yeterli oldugu dogrulanir - dar kalca kumasi yukari iter ve ayni gorunumu uretir. UYARI 2: bu dagilim sway back'i duz oturaktan (flat derriere) ve dik sirttan (erect back) AYIRMAZ; ucu de ayni arka orta kivrimla duzeltilir.'",
+   "notes": "Two sourced problems, both now checked in primary texts. (1) HIP TIGHTNESS PRODUCES THE SAME SIGN AND THE LITERATURE LISTS IT FIRST. WSU E.M. 2246: 'Crosswise folds across the back between waist and hips - the skirt may be TOO TIGHT AT THE HIPS or the figure may have a swayback.' Palmer/Pletsch make it a gate rather than an alternative: 'Sway/flat/erect back - DON'T CHECK THIS UNTIL HIP WIDTH IS CORRECT.' The record has seat volume as C3, tested in parallel, which is the mechanism by which sway back is over-diagnosed. (2) A CAUSE WITH AN IDENTICAL SIGNATURE IS MISSING. NMSU C-228 carries sway back and FLAT DERRIERE as separate figure variations whose remedies are the same operation in the same place - 'Sway Back - On bodice back just above waistline, fold out desired amount' versus 'Flat Derriere - Fold pattern at center back to decrease fullness the desired amount, tapering waistline to the side seam.' Palmer/Pletsch treat the three as one family, 'sway/flat/erect back'. Flat seat exists elsewhere in this taxonomy (SYM-028.C1) but is absent from the one record where it collides with sway back. The record's physical test is sound as an ADJUSTMENT test and matches Palmer/Pletsch practice exactly; it is not a cause discriminator, because it relieves all three members of the family."
+  },
+  {
+   "claim_id": "SYM-001.C1",
+   "claim": "distinguishing_evidence for SYM-001.C1 / SYM-001.C2 in SYM-001 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: A front neckline that stands away from the chest, present while the wearer is upright, on both sides. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'gap present while standing upright AND symmetric'; C2's is 'gap ASYMMETRIC toward the bust ... increases markedly on bending forward'. Two defects. First, the observation itself already contains 'the gap grows when the reader bends forward', so C2's second marker is not a discriminator, it is the sign. Second, the symmetry test is INVERTED: a neckline gape caused by bust volume is bilateral in the ordinary case, because both breasts pull the front upward and inward. Making asymmetry the marker of the bust cause means the commonest presentation of the bust cause satisfies C1's evidence exactly. || COST: The reader narrows a neckline that is the correct size, on a body that needs a full bust adjustment. The book's own likelihood_note calls this 'the displacement most often missed in diagnosis' - and its evidence field is what causes the miss. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-003.C1",
+   "claim": "distinguishing_evidence for SYM-003.C1 / SYM-003.C2 / SYM-003.C3 in SYM-003 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: Back neckline riding up and the back hem rising, with the front hem hanging correctly. || WHY THE STATED EVIDENCE FAILS: C1's entire distinguishing evidence is 'the front hem is fine, ONLY the back rises'. All three candidate causes are located in the back, so all three produce exactly that. C2 and C3 each add an exclusive positive marker (tension at blade level present / absent); C1 adds none, so nothing excludes C2 or C3 when the reader is standing at C1. || COST: C1 sends the reader to a horizontal slash-and-spread of the whole back bodice (AF-11); C2 to a vertical spread at blade level (AF-07); C3 to the neckline (AF-06). Three different pattern operations, one undifferentiated entry condition. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-004.C1",
+   "claim": "distinguishing_evidence for SYM-004.C1 / SYM-004.C2 in SYM-004 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: Diagonal drag lines running between the neck point and the underarm. || WHY THE STATED EVIDENCE FAILS: The stated primary discriminator is the line's DIRECTION - C1 'lines run from the neck point OUT AND DOWN', C2 'lines run the other way, from the shoulder tip toward the neck'. A diagonal line has two ends and no intrinsic arrow; naming its direction presupposes knowing where the tension originates, which is the conclusion. Only the secondary markers actually work (fabric taut at the shoulder tip vs fabric collecting there), and they are stated as add-ons rather than as the test. || COST: C1 raises the shoulder seam 5-10 mm, C2 lowers it 5-10 mm. The two candidate causes prescribe opposite adjustments of the same magnitude at the same point, separated by a criterion the reader cannot apply. This is the highest-consequence collision in the file. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-005.C1",
+   "claim": "distinguishing_evidence for SYM-005.C1 / SYM-005.C2 / SYM-005.C3 in SYM-005 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: A horizontal fold gathering just below the shoulder seam near the armhole. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the fold is near the shoulder TIP, absent on the neck side'. The upper armhole is the shoulder-tip region, so C2's location marker ('the fold follows the armhole curve') describes the same place, and C3's fault (shoulder too wide) also puts its fold at the shoulder tip. C2 and C3 carry exclusive markers (fold disappears when the arm is raised / sleeve cap drooping outside the shoulder point); C1 carries none. || COST: Raising the shoulder tip (C1) when the true fault is a too-deep armhole (C2) shortens the armhole further and moves the sign rather than removing it. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-006.C1",
+   "claim": "distinguishing_evidence for SYM-006.C1 / SYM-006.C2 / SYM-006.C3 in SYM-006 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: Shoulder seam sitting behind the top-of-shoulder centreline on both shoulders, in a relaxed stance. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the seam is behind on BOTH shoulders; it is like this in a relaxed stance too'. A round back (C2) is bilateral and present in a relaxed stance. A short front bodice (C3) is bilateral and present in a relaxed stance. C1's evidence is a necessary condition of all three, not a discriminator of any. || COST: AF-05 (forward shoulder) versus AF-07 (upper back) versus AF-11 (front/back balance) are three different pattern families. Forward shoulder and round back also co-occur clinically as one postural complex, so the file asserts a separation the literature does not make. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-007.C1",
+   "claim": "distinguishing_evidence for SYM-007.C1 / SYM-007.C2 in SYM-007 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: The shoulder seam extends past the shoulder point onto the arm, symmetrically, with the armhole seam outside the end of the shoulder bone. || WHY THE STATED EVIDENCE FAILS: C2 is 'the design is deliberately drop-shouldered'. A drop-shoulder design produces C1's evidence word for word: symmetric overhang, armhole seam outside the arm bone. C1 offers nothing that excludes it. Worse, C1's confirming_measurement (M-014 shoulder width vs the pattern's shoulder seam length) returns 'pattern longer than body' for BOTH causes, so the number cannot break the tie either. Only C2's documentary check (the technical drawing) separates them, and the file lists it second. || COST: The reader narrows the shoulder of a garment that is correct as designed - the book's own most-warned-against error ('design ease'i duzeltmeye calismak Kitap 1'in en sik uyardigi hatadir', SYM-007.C2 likelihood_note). The record's structure invites the very mistake its note forbids. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-008.C1",
+   "claim": "distinguishing_evidence for SYM-008.C1 / SYM-008.C2 / SYM-008.C3 in SYM-008 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: A hard pull across the back when the arm reaches forward, absent with the arm at the side. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'no sign with the arm at the side; only when the arm comes forward' - which is the observation restated. All three causes are movement-revealed. C2 and C3 add location markers (pull concentrated at the armhole edge / felt inside the sleeve); C1 adds none. || COST: A vertical slash-and-spread at blade level (C1) on a body whose real shortage is bicep girth (C3) adds width where it is not needed and leaves the restriction in place. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-009.C1",
+   "claim": "distinguishing_evidence for SYM-009.C1 / SYM-009.C2 in SYM-009 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: A horizontal fold standing across the back at shoulder-blade level. || WHY THE STATED EVIDENCE FAILS: C2's location marker ('the fold is CONCENTRATED at blade level, fading downward') restates where_it_appears, which is already 'blade level, between the two armholes'. C1's markers ('the fold remains when the arm is raised; the neckline and shoulder are in place') are equally true of C2 - a flat back that does not fill the pattern's shoulder shaping leaves the neckline and shoulder in place and the fold does not vanish when the arm is raised. Neither cause has an exclusive observation; only their physical tests differ. || COST: This is the paradigm case of CC-22 and the record the rule will be taught from. C1 shortens the back bodice; C2 reduces the shoulder dart. Shortening a back bodice that is the right length raises the back hem and manufactures SYM-011. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-010.C1",
+   "claim": "distinguishing_evidence for SYM-010.C1 / SYM-010.C2 in SYM-010 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Vertical slack folds down the back between the armholes. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the folds are vertical and symmetric'. A pattern one size too large (C2) produces vertical symmetric folds in the back. C2's exclusive marker is 'the same surplus is also in the front, the sleeve and the waist' - but C1 does not require the reader to check those regions, so a reader who stops at C1 never looks. || COST: Narrowing the back (AF-07) on a garment that is a whole size too big fixes one region and leaves five. The book's own T-17 distinction (size choice is not an adjustment) is defeated by the ordering. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-014.C1",
+   "claim": "distinguishing_evidence for SYM-014.C1 / SYM-014.C2 in SYM-014 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: The front armhole edge standing away from the body, with slack over the upper chest. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'looseness is felt over the upper chest'; C2's is 'together with the gap there is an EMPTY AREA ABOVE THE BUST'. The upper chest and the area above the bust are the same region of the body described twice. There is no observation that holds for one and not the other. || COST: C1 takes a dart at the armhole edge (AF-08); C2 moves the dart apex (AF-02). Moving an apex that is correctly placed introduces a new dart-tip fault (SYM-019). || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-016.C1",
+   "claim": "distinguishing_evidence for SYM-016.C1 / SYM-016.C3 in SYM-016 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: Drag lines radiating from the bust apex toward the side seam and armhole. || WHY THE STATED EVIDENCE FAILS: A dart whose tip stops well short of the apex (C3) also produces lines radiating from the apex and can also lift the front hem. C3's discriminator is 'total front width is ADEQUATE' - a measurement, not an observation, and one the reader can only take after already suspecting C3. C1's confirming_measurement (bust minus high bust larger than the pattern assumes) is satisfied by many bodies that also have a correctly placed dart, so the number does not exclude C3 either. || COST: This is the book's self-declared most common sign. A full bust adjustment performed when the real fault is dart placement adds volume the body does not need and displaces the apex further. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-019.C1",
+   "claim": "distinguishing_evidence for SYM-019.C1 / SYM-019.C2 / SYM-019.C3 in SYM-019 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Puckering or a small bubble at the point of the bust dart. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the bubble is exactly at the dart tip' - which is the observation and the where_it_appears field, restated. Nothing in C1 excludes an over-deep dart (C2) or a badly finished dart point (C3). || COST: Shortening the dart (C1) when the fault is a sewing finish (C3) alters a correct pattern to hide a construction error - precisely the failure CC-25 exists to prevent. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-020.C2",
+   "claim": "distinguishing_evidence for SYM-020.C2 / SYM-020.C3 in SYM-020 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: A hollow, collapsing area across the upper front between the collarbone and the bust. || WHY THE STATED EVIDENCE FAILS: C2 is 'upper front width excessive' with evidence 'the hollow is spread over a WIDE AREA'; C3 is 'the pattern was drawn for a fuller upper bust' with evidence 'the hollow is around the UPPER BUST' and the measurement 'M-001 smaller than the pattern assumes'. These are the same condition stated twice: a pattern drawn for a fuller upper chest IS a pattern whose upper front is too wide, and the confirming measurement for C3 is what C2 means. The physical tests differ (dart at the armhole edge vs narrow the upper front) but the entry conditions do not. || COST: Routing is also inconsistent: C2 goes to AF-08 (armhole) and C3 to AF-01 (bust volume), neither of which is an upper-front-width family. The taxonomy has AF-07 for the upper BACK and no counterpart for the upper FRONT, which is why these two causes have nowhere correct to go. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-021.C1",
+   "claim": "distinguishing_evidence for SYM-021.C1 / SYM-021.C3 in SYM-021 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: The button band pulling open at bust level, with the closure lying flat above and below. || WHY THE STATED EVIDENCE FAILS: C3 is 'there is no button at apex level'. When there is no button at the apex the gap opens at bust level and the closure is clean above and below - which is C1's distinguishing evidence verbatim. C1 does not require the reader to check button positions, so nothing stops the reader at C1. || COST: A full bust adjustment (a slash-and-spread of the front bodice) performed when the correct fix is to move one button. This is the largest cost-to-cause mismatch in the file, and it is fixable by making C3 a gate: 'before treating a bust-level gape as volume, check that a button falls at apex level.' Independent practitioner guidance agrees that apex button placement is the first check for bust gaping. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-022.C1",
+   "claim": "distinguishing_evidence for SYM-022.C1 / SYM-022.C3 in SYM-022 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: The waist seam sitting above or below the natural waist by the same amount all round. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the displacement is EQUAL all round, the same in front and back'. A deliberately raised or dropped waistline (C3) is equal all round by construction. C1 cannot exclude the design. || COST: The reader shortens or lengthens a bodice that is correct as designed. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-024.C1",
+   "claim": "distinguishing_evidence for SYM-024.C1 / SYM-024.C2 in SYM-024 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: The waistband standing away from the body at the centre back. || WHY THE STATED EVIDENCE FAILS: C2 is 'the waist-to-hip ratio differs from the pattern's' but its evidence describes HIP fit ('the waistband sits on the waist but the hip area is tight or loose') and says nothing about the gap. A body with a larger hip-to-waist difference than the pattern assumes produces a gap that is widest at centre back and closes at the sides - which is C1's evidence. C2's field does not describe the sign it is a candidate cause of. || COST: A sway-back tuck (AF-14) taken on a body whose real need is grading between sizes (AF-18) removes length from a back that is the correct length. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-025.C1",
+   "claim": "distinguishing_evidence for SYM-025.C1 / SYM-025.C2 in SYM-025 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Vertical slack folds at the waist near the side seams, with the bust and hip fitting. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'folds vertical and symmetric; bust and hip FIT'. If the bust and hip fit and only the waist is loose, that is the definition of insufficient waist shaping, which is C2. The two causes are one condition described twice. C2's stated discriminator ('taking it at the side seam makes the hip tight') is only observable AFTER performing C1's physical test, so the file's own ordering forces the reader through C1 regardless. || COST: Low: both route to AF-12. But the record teaches the reader that two distinguishable causes exist where there is one decision (where to remove, not whether). || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-026.C2",
+   "claim": "distinguishing_evidence for SYM-026.C2 / SYM-026.C3 in SYM-026 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: The waistband binding low down, over the abdomen. || WHY THE STATED EVIDENCE FAILS: C2's evidence is 'the constriction is below the waist, at abdomen level'; C3's is 'the constriction is only in FRONT; the back is comfortable'. The abdomen is in front. Both fields describe the same felt location. || COST: C2 lengthens the bodice or raises the waistline (AF-11); C3 adds abdominal volume (AF-13). A length change made for a girth shortage leaves the shortage. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-031.C1",
+   "claim": "distinguishing_evidence for SYM-031.C1 / SYM-031.C2 / SYM-031.C3 in SYM-031 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Diagonal drag lines from the sleeve cap toward the bicep, worse when the arm is raised. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the lines are concentrated at the bicep line; they increase markedly when the arm is raised' - the second half is the observation restated. More fundamentally, cap height (C2) and bicep width (C1) are not independent: they trade off along the same armhole circumference, so a pattern with an over-high cap IS a pattern with a narrow bicep at that armhole. The file asserts a separation the geometry does not support. || COST: C1 widens the sleeve; C2 lowers and widens the cap; C3 enlarges the armhole and only then re-measures. C3's own order note ('AF-08 must be settled before AF-09') implies these cannot be tested in the listed order. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-032.C1",
+   "claim": "distinguishing_evidence for SYM-032.C1 / SYM-032.C2 in SYM-032 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Vertical slack folds in the upper sleeve; the sleeve hangs like a bag; the arm moves freely. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the folds are vertical; arm movement is completely free'. A deliberately full sleeve (C2) gives vertical folds and free movement. C1 does not exclude the design. || COST: The reader narrows a sleeve that is correct as designed. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-033.C1",
+   "claim": "distinguishing_evidence for SYM-033.C1 / SYM-033.C2 in SYM-033 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Both sleeves twisting in the same direction, the underarm seam spiralling. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the twist is in the SAME direction on both sleeves'. A forward arm carriage - the sleeve-pitch mismatch that C2 describes - is bilateral and produces exactly that. C1's second marker (cap notches not matching the shoulder seam) does work, but it is stated as an addition rather than as the test. || COST: Also a routing fault: C1's likelihood_note calls it an ASSEMBLY error ('KALIP DEGIL, MONTAJ hatasi') but assigns adjustment_family_ref AF-09, which the schema reserves for pattern adjustments - the schema's own comment says null means 'this cause is NOT a pattern adjustment (e.g. a construction error)'. SYM-034.C3 breaks the same rule. Separately, the record omits FORWARD SHOULDER (AF-05) as a candidate, although the practitioner literature links forward shoulder posture directly to sleeve rotation. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-035.C1",
+   "claim": "distinguishing_evidence for SYM-035.C1 / SYM-035.C2 in SYM-035 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity high). Both causes produce: Horizontal drag lines below the seat with the crotch pulling up. || WHY THE STATED EVIDENCE FAILS: Crotch depth is a component of crotch length; the two measurements (M-026, M-027) are not independent. C1's own physical test - 'increase the crotch depth at the lengthen line' - also increases the back crotch length, so performing C1's test cannot distinguish C1 from C2: it relieves both. Under step 6 the reader would conclude 'the symptom disappeared, hypothesis confirmed' for whichever cause they happened to test first. || COST: Adding depth when the shortage is in the back crotch curve lowers the crotch on a body that did not need it, and the record's own order note (AF-15 before AF-16) then locks the error in. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-036.C1",
+   "claim": "distinguishing_evidence for SYM-036.C1 / SYM-036.C3 in SYM-036 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Fabric pooling in a 'U' at the front crotch, back clean. || WHY THE STATED EVIDENCE FAILS: C3's evidence is 'the NUMBERS ARE CORRECT but the curve is too deep'. A deeper front crotch curve necessarily lengthens the front crotch seam, which is the number C1 measures. 'Numbers correct, curve too deep' is therefore not a state the two measurements can jointly report, and C1's evidence ('pooling in front, back clean') is equally true of C3. || COST: C1 shortens the front crotch seam, C3 flattens the curve - two different alterations of the same seam separated by a criterion the measurement cannot deliver. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-038.C1",
+   "claim": "distinguishing_evidence for SYM-038.C1 / SYM-038.C2 in SYM-038 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: Both trouser legs twisting, evident standing. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the twist is symmetric on both legs and evident standing'. An unbalanced front/back crotch curve (C2) is a pattern fault and therefore bilateral and evident standing. C2's marker ('the twist starts at crotch level') is exclusive; C1 has none. || COST: Shifting the knee-level inseam/outseam balance (C1) on a trouser whose real fault is at the crotch moves the twist rather than removing it. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-039.C1",
+   "claim": "distinguishing_evidence for SYM-039.C1 / SYM-039.C2 / SYM-039.C3 in SYM-039 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: The crotch hanging low and away from the body, making it hard to stride. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the gap between crotch and body is present standing; comfortable sitting'. A deliberately dropped crotch (C2) gives the same. A waistband sitting below the natural waist (C3) drops the crotch with it and gives the same. C1 is satisfied by all three. || COST: Reducing crotch depth (C1) when the waistband is simply sitting low (C3) shortens a rise that was correct, and the trouser then binds when the waistband is worn at the intended level. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-041.C1",
+   "claim": "distinguishing_evidence for SYM-041.C1 / SYM-041.C2 in SYM-041 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity low). Both causes produce: The garment rotating consistently in one direction on the body. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the rotation is consistent in one direction and the same at every wearing'. Body asymmetry (C2) also rotates consistently in one direction at every wearing. C2 adds 'together with one-sided signs' but C1 does not require their absence. || COST: Low - both route to AF-13 - but the symmetric fix and the asymmetric fix are different operations. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-042.C1",
+   "claim": "distinguishing_evidence for SYM-042.C1 / SYM-042.C2 in SYM-042 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity medium). Both causes produce: The centre-front or centre-back line not hanging perpendicular to the floor. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the deviation is symmetric and persists in the reader's natural stance'. A volume pulling the fabric (C2) is symmetric and persists in the natural stance. C2's marker ('the deviation starts at the level of that volume') is exclusive; C1 has none. || COST: High leverage, because SYM-042 is the record the whole balance step rests on: a shoulder balance correction (C1) applied when the true cause is bust or seat volume moves the balance lines without removing the cause, and every reading taken afterwards is then taken on a garment that has been altered for the wrong reason. || See top-level key 'evidence_collisions' for the full list."
+  },
+  {
+   "claim_id": "SYM-043.C1",
+   "claim": "distinguishing_evidence for SYM-043.C1 / SYM-043.C2 / SYM-043.C3 in SYM-043 is asserted to separate these causes from each other.",
+   "sources": [],
+   "source_quality": "internal_logic",
+   "conclusion": "CONTRADICTED",
+   "confidence": "HIGH",
+   "conflict_found": true,
+   "required_revision": true,
+   "proposed_wording": null,
+   "notes": "EVIDENCE COLLISION (severity low). Both causes produce: One dimension is the wrong length and there is no other sign at all. || WHY THE STATED EVIDENCE FAILS: C1's evidence is 'the garment sits correctly everywhere, balance lines correct, no drag or fold - ONLY the length differs'. A deliberate design length (C2) and a differently folded hem allowance (C3) both produce exactly that. C3 adds a quantitative marker (the difference equals the hem allowance) and C2 a documentary one; C1 excludes neither. || COST: Low. Note that SYM-043 is otherwise the best-constructed record in the file: it is the ONLY one whose origin_rule states an explicit validity gate ('if any other sign is present this record is INVALID - diagnose the other sign first'). That gate is the pattern the other 42 records need. || See top-level key 'evidence_collisions' for the full list."
+  }
+ ],
+ "evidence_collisions": [
+  {
+   "symptom_id": "SYM-001",
+   "causes": [
+    "SYM-001.C1",
+    "SYM-001.C2"
+   ],
+   "severity": "high",
+   "shared_observation": "A front neckline that stands away from the chest, present while the wearer is upright, on both sides.",
+   "why_it_fails": "C1's evidence is 'gap present while standing upright AND symmetric'; C2's is 'gap ASYMMETRIC toward the bust ... increases markedly on bending forward'. Two defects. First, the observation itself already contains 'the gap grows when the reader bends forward', so C2's second marker is not a discriminator, it is the sign. Second, the symmetry test is INVERTED: a neckline gape caused by bust volume is bilateral in the ordinary case, because both breasts pull the front upward and inward. Making asymmetry the marker of the bust cause means the commonest presentation of the bust cause satisfies C1's evidence exactly.",
+   "cost_if_wrong": "The reader narrows a neckline that is the correct size, on a body that needs a full bust adjustment. The book's own likelihood_note calls this 'the displacement most often missed in diagnosis' - and its evidence field is what causes the miss."
+  },
+  {
+   "symptom_id": "SYM-003",
+   "causes": [
+    "SYM-003.C1",
+    "SYM-003.C2",
+    "SYM-003.C3"
+   ],
+   "severity": "high",
+   "shared_observation": "Back neckline riding up and the back hem rising, with the front hem hanging correctly.",
+   "why_it_fails": "C1's entire distinguishing evidence is 'the front hem is fine, ONLY the back rises'. All three candidate causes are located in the back, so all three produce exactly that. C2 and C3 each add an exclusive positive marker (tension at blade level present / absent); C1 adds none, so nothing excludes C2 or C3 when the reader is standing at C1.",
+   "cost_if_wrong": "C1 sends the reader to a horizontal slash-and-spread of the whole back bodice (AF-11); C2 to a vertical spread at blade level (AF-07); C3 to the neckline (AF-06). Three different pattern operations, one undifferentiated entry condition."
+  },
+  {
+   "symptom_id": "SYM-004",
+   "causes": [
+    "SYM-004.C1",
+    "SYM-004.C2"
+   ],
+   "severity": "high",
+   "shared_observation": "Diagonal drag lines running between the neck point and the underarm.",
+   "why_it_fails": "The stated primary discriminator is the line's DIRECTION - C1 'lines run from the neck point OUT AND DOWN', C2 'lines run the other way, from the shoulder tip toward the neck'. A diagonal line has two ends and no intrinsic arrow; naming its direction presupposes knowing where the tension originates, which is the conclusion. Only the secondary markers actually work (fabric taut at the shoulder tip vs fabric collecting there), and they are stated as add-ons rather than as the test.",
+   "cost_if_wrong": "C1 raises the shoulder seam 5-10 mm, C2 lowers it 5-10 mm. The two candidate causes prescribe opposite adjustments of the same magnitude at the same point, separated by a criterion the reader cannot apply. This is the highest-consequence collision in the file."
+  },
+  {
+   "symptom_id": "SYM-005",
+   "causes": [
+    "SYM-005.C1",
+    "SYM-005.C2",
+    "SYM-005.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "A horizontal fold gathering just below the shoulder seam near the armhole.",
+   "why_it_fails": "C1's evidence is 'the fold is near the shoulder TIP, absent on the neck side'. The upper armhole is the shoulder-tip region, so C2's location marker ('the fold follows the armhole curve') describes the same place, and C3's fault (shoulder too wide) also puts its fold at the shoulder tip. C2 and C3 carry exclusive markers (fold disappears when the arm is raised / sleeve cap drooping outside the shoulder point); C1 carries none.",
+   "cost_if_wrong": "Raising the shoulder tip (C1) when the true fault is a too-deep armhole (C2) shortens the armhole further and moves the sign rather than removing it."
+  },
+  {
+   "symptom_id": "SYM-006",
+   "causes": [
+    "SYM-006.C1",
+    "SYM-006.C2",
+    "SYM-006.C3"
+   ],
+   "severity": "high",
+   "shared_observation": "Shoulder seam sitting behind the top-of-shoulder centreline on both shoulders, in a relaxed stance.",
+   "why_it_fails": "C1's evidence is 'the seam is behind on BOTH shoulders; it is like this in a relaxed stance too'. A round back (C2) is bilateral and present in a relaxed stance. A short front bodice (C3) is bilateral and present in a relaxed stance. C1's evidence is a necessary condition of all three, not a discriminator of any.",
+   "cost_if_wrong": "AF-05 (forward shoulder) versus AF-07 (upper back) versus AF-11 (front/back balance) are three different pattern families. Forward shoulder and round back also co-occur clinically as one postural complex, so the file asserts a separation the literature does not make."
+  },
+  {
+   "symptom_id": "SYM-007",
+   "causes": [
+    "SYM-007.C1",
+    "SYM-007.C2"
+   ],
+   "severity": "high",
+   "shared_observation": "The shoulder seam extends past the shoulder point onto the arm, symmetrically, with the armhole seam outside the end of the shoulder bone.",
+   "why_it_fails": "C2 is 'the design is deliberately drop-shouldered'. A drop-shoulder design produces C1's evidence word for word: symmetric overhang, armhole seam outside the arm bone. C1 offers nothing that excludes it. Worse, C1's confirming_measurement (M-014 shoulder width vs the pattern's shoulder seam length) returns 'pattern longer than body' for BOTH causes, so the number cannot break the tie either. Only C2's documentary check (the technical drawing) separates them, and the file lists it second.",
+   "cost_if_wrong": "The reader narrows the shoulder of a garment that is correct as designed - the book's own most-warned-against error ('design ease'i duzeltmeye calismak Kitap 1'in en sik uyardigi hatadir', SYM-007.C2 likelihood_note). The record's structure invites the very mistake its note forbids."
+  },
+  {
+   "symptom_id": "SYM-008",
+   "causes": [
+    "SYM-008.C1",
+    "SYM-008.C2",
+    "SYM-008.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "A hard pull across the back when the arm reaches forward, absent with the arm at the side.",
+   "why_it_fails": "C1's evidence is 'no sign with the arm at the side; only when the arm comes forward' - which is the observation restated. All three causes are movement-revealed. C2 and C3 add location markers (pull concentrated at the armhole edge / felt inside the sleeve); C1 adds none.",
+   "cost_if_wrong": "A vertical slash-and-spread at blade level (C1) on a body whose real shortage is bicep girth (C3) adds width where it is not needed and leaves the restriction in place."
+  },
+  {
+   "symptom_id": "SYM-009",
+   "causes": [
+    "SYM-009.C1",
+    "SYM-009.C2"
+   ],
+   "severity": "high",
+   "shared_observation": "A horizontal fold standing across the back at shoulder-blade level.",
+   "why_it_fails": "C2's location marker ('the fold is CONCENTRATED at blade level, fading downward') restates where_it_appears, which is already 'blade level, between the two armholes'. C1's markers ('the fold remains when the arm is raised; the neckline and shoulder are in place') are equally true of C2 - a flat back that does not fill the pattern's shoulder shaping leaves the neckline and shoulder in place and the fold does not vanish when the arm is raised. Neither cause has an exclusive observation; only their physical tests differ.",
+   "cost_if_wrong": "This is the paradigm case of CC-22 and the record the rule will be taught from. C1 shortens the back bodice; C2 reduces the shoulder dart. Shortening a back bodice that is the right length raises the back hem and manufactures SYM-011."
+  },
+  {
+   "symptom_id": "SYM-010",
+   "causes": [
+    "SYM-010.C1",
+    "SYM-010.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "Vertical slack folds down the back between the armholes.",
+   "why_it_fails": "C1's evidence is 'the folds are vertical and symmetric'. A pattern one size too large (C2) produces vertical symmetric folds in the back. C2's exclusive marker is 'the same surplus is also in the front, the sleeve and the waist' - but C1 does not require the reader to check those regions, so a reader who stops at C1 never looks.",
+   "cost_if_wrong": "Narrowing the back (AF-07) on a garment that is a whole size too big fixes one region and leaves five. The book's own T-17 distinction (size choice is not an adjustment) is defeated by the ordering."
+  },
+  {
+   "symptom_id": "SYM-014",
+   "causes": [
+    "SYM-014.C1",
+    "SYM-014.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "The front armhole edge standing away from the body, with slack over the upper chest.",
+   "why_it_fails": "C1's evidence is 'looseness is felt over the upper chest'; C2's is 'together with the gap there is an EMPTY AREA ABOVE THE BUST'. The upper chest and the area above the bust are the same region of the body described twice. There is no observation that holds for one and not the other.",
+   "cost_if_wrong": "C1 takes a dart at the armhole edge (AF-08); C2 moves the dart apex (AF-02). Moving an apex that is correctly placed introduces a new dart-tip fault (SYM-019)."
+  },
+  {
+   "symptom_id": "SYM-016",
+   "causes": [
+    "SYM-016.C1",
+    "SYM-016.C3"
+   ],
+   "severity": "high",
+   "shared_observation": "Drag lines radiating from the bust apex toward the side seam and armhole.",
+   "why_it_fails": "A dart whose tip stops well short of the apex (C3) also produces lines radiating from the apex and can also lift the front hem. C3's discriminator is 'total front width is ADEQUATE' - a measurement, not an observation, and one the reader can only take after already suspecting C3. C1's confirming_measurement (bust minus high bust larger than the pattern assumes) is satisfied by many bodies that also have a correctly placed dart, so the number does not exclude C3 either.",
+   "cost_if_wrong": "This is the book's self-declared most common sign. A full bust adjustment performed when the real fault is dart placement adds volume the body does not need and displaces the apex further."
+  },
+  {
+   "symptom_id": "SYM-019",
+   "causes": [
+    "SYM-019.C1",
+    "SYM-019.C2",
+    "SYM-019.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "Puckering or a small bubble at the point of the bust dart.",
+   "why_it_fails": "C1's evidence is 'the bubble is exactly at the dart tip' - which is the observation and the where_it_appears field, restated. Nothing in C1 excludes an over-deep dart (C2) or a badly finished dart point (C3).",
+   "cost_if_wrong": "Shortening the dart (C1) when the fault is a sewing finish (C3) alters a correct pattern to hide a construction error - precisely the failure CC-25 exists to prevent."
+  },
+  {
+   "symptom_id": "SYM-020",
+   "causes": [
+    "SYM-020.C2",
+    "SYM-020.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "A hollow, collapsing area across the upper front between the collarbone and the bust.",
+   "why_it_fails": "C2 is 'upper front width excessive' with evidence 'the hollow is spread over a WIDE AREA'; C3 is 'the pattern was drawn for a fuller upper bust' with evidence 'the hollow is around the UPPER BUST' and the measurement 'M-001 smaller than the pattern assumes'. These are the same condition stated twice: a pattern drawn for a fuller upper chest IS a pattern whose upper front is too wide, and the confirming measurement for C3 is what C2 means. The physical tests differ (dart at the armhole edge vs narrow the upper front) but the entry conditions do not.",
+   "cost_if_wrong": "Routing is also inconsistent: C2 goes to AF-08 (armhole) and C3 to AF-01 (bust volume), neither of which is an upper-front-width family. The taxonomy has AF-07 for the upper BACK and no counterpart for the upper FRONT, which is why these two causes have nowhere correct to go."
+  },
+  {
+   "symptom_id": "SYM-021",
+   "causes": [
+    "SYM-021.C1",
+    "SYM-021.C3"
+   ],
+   "severity": "high",
+   "shared_observation": "The button band pulling open at bust level, with the closure lying flat above and below.",
+   "why_it_fails": "C3 is 'there is no button at apex level'. When there is no button at the apex the gap opens at bust level and the closure is clean above and below - which is C1's distinguishing evidence verbatim. C1 does not require the reader to check button positions, so nothing stops the reader at C1.",
+   "cost_if_wrong": "A full bust adjustment (a slash-and-spread of the front bodice) performed when the correct fix is to move one button. This is the largest cost-to-cause mismatch in the file, and it is fixable by making C3 a gate: 'before treating a bust-level gape as volume, check that a button falls at apex level.' Independent practitioner guidance agrees that apex button placement is the first check for bust gaping."
+  },
+  {
+   "symptom_id": "SYM-022",
+   "causes": [
+    "SYM-022.C1",
+    "SYM-022.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "The waist seam sitting above or below the natural waist by the same amount all round.",
+   "why_it_fails": "C1's evidence is 'the displacement is EQUAL all round, the same in front and back'. A deliberately raised or dropped waistline (C3) is equal all round by construction. C1 cannot exclude the design.",
+   "cost_if_wrong": "The reader shortens or lengthens a bodice that is correct as designed."
+  },
+  {
+   "symptom_id": "SYM-024",
+   "causes": [
+    "SYM-024.C1",
+    "SYM-024.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "The waistband standing away from the body at the centre back.",
+   "why_it_fails": "C2 is 'the waist-to-hip ratio differs from the pattern's' but its evidence describes HIP fit ('the waistband sits on the waist but the hip area is tight or loose') and says nothing about the gap. A body with a larger hip-to-waist difference than the pattern assumes produces a gap that is widest at centre back and closes at the sides - which is C1's evidence. C2's field does not describe the sign it is a candidate cause of.",
+   "cost_if_wrong": "A sway-back tuck (AF-14) taken on a body whose real need is grading between sizes (AF-18) removes length from a back that is the correct length."
+  },
+  {
+   "symptom_id": "SYM-025",
+   "causes": [
+    "SYM-025.C1",
+    "SYM-025.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "Vertical slack folds at the waist near the side seams, with the bust and hip fitting.",
+   "why_it_fails": "C1's evidence is 'folds vertical and symmetric; bust and hip FIT'. If the bust and hip fit and only the waist is loose, that is the definition of insufficient waist shaping, which is C2. The two causes are one condition described twice. C2's stated discriminator ('taking it at the side seam makes the hip tight') is only observable AFTER performing C1's physical test, so the file's own ordering forces the reader through C1 regardless.",
+   "cost_if_wrong": "Low: both route to AF-12. But the record teaches the reader that two distinguishable causes exist where there is one decision (where to remove, not whether)."
+  },
+  {
+   "symptom_id": "SYM-026",
+   "causes": [
+    "SYM-026.C2",
+    "SYM-026.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "The waistband binding low down, over the abdomen.",
+   "why_it_fails": "C2's evidence is 'the constriction is below the waist, at abdomen level'; C3's is 'the constriction is only in FRONT; the back is comfortable'. The abdomen is in front. Both fields describe the same felt location.",
+   "cost_if_wrong": "C2 lengthens the bodice or raises the waistline (AF-11); C3 adds abdominal volume (AF-13). A length change made for a girth shortage leaves the shortage."
+  },
+  {
+   "symptom_id": "SYM-031",
+   "causes": [
+    "SYM-031.C1",
+    "SYM-031.C2",
+    "SYM-031.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "Diagonal drag lines from the sleeve cap toward the bicep, worse when the arm is raised.",
+   "why_it_fails": "C1's evidence is 'the lines are concentrated at the bicep line; they increase markedly when the arm is raised' - the second half is the observation restated. More fundamentally, cap height (C2) and bicep width (C1) are not independent: they trade off along the same armhole circumference, so a pattern with an over-high cap IS a pattern with a narrow bicep at that armhole. The file asserts a separation the geometry does not support.",
+   "cost_if_wrong": "C1 widens the sleeve; C2 lowers and widens the cap; C3 enlarges the armhole and only then re-measures. C3's own order note ('AF-08 must be settled before AF-09') implies these cannot be tested in the listed order."
+  },
+  {
+   "symptom_id": "SYM-032",
+   "causes": [
+    "SYM-032.C1",
+    "SYM-032.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "Vertical slack folds in the upper sleeve; the sleeve hangs like a bag; the arm moves freely.",
+   "why_it_fails": "C1's evidence is 'the folds are vertical; arm movement is completely free'. A deliberately full sleeve (C2) gives vertical folds and free movement. C1 does not exclude the design.",
+   "cost_if_wrong": "The reader narrows a sleeve that is correct as designed."
+  },
+  {
+   "symptom_id": "SYM-033",
+   "causes": [
+    "SYM-033.C1",
+    "SYM-033.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "Both sleeves twisting in the same direction, the underarm seam spiralling.",
+   "why_it_fails": "C1's evidence is 'the twist is in the SAME direction on both sleeves'. A forward arm carriage - the sleeve-pitch mismatch that C2 describes - is bilateral and produces exactly that. C1's second marker (cap notches not matching the shoulder seam) does work, but it is stated as an addition rather than as the test.",
+   "cost_if_wrong": "Also a routing fault: C1's likelihood_note calls it an ASSEMBLY error ('KALIP DEGIL, MONTAJ hatasi') but assigns adjustment_family_ref AF-09, which the schema reserves for pattern adjustments - the schema's own comment says null means 'this cause is NOT a pattern adjustment (e.g. a construction error)'. SYM-034.C3 breaks the same rule. Separately, the record omits FORWARD SHOULDER (AF-05) as a candidate, although the practitioner literature links forward shoulder posture directly to sleeve rotation."
+  },
+  {
+   "symptom_id": "SYM-035",
+   "causes": [
+    "SYM-035.C1",
+    "SYM-035.C2"
+   ],
+   "severity": "high",
+   "shared_observation": "Horizontal drag lines below the seat with the crotch pulling up.",
+   "why_it_fails": "Crotch depth is a component of crotch length; the two measurements (M-026, M-027) are not independent. C1's own physical test - 'increase the crotch depth at the lengthen line' - also increases the back crotch length, so performing C1's test cannot distinguish C1 from C2: it relieves both. Under step 6 the reader would conclude 'the symptom disappeared, hypothesis confirmed' for whichever cause they happened to test first.",
+   "cost_if_wrong": "Adding depth when the shortage is in the back crotch curve lowers the crotch on a body that did not need it, and the record's own order note (AF-15 before AF-16) then locks the error in."
+  },
+  {
+   "symptom_id": "SYM-036",
+   "causes": [
+    "SYM-036.C1",
+    "SYM-036.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "Fabric pooling in a 'U' at the front crotch, back clean.",
+   "why_it_fails": "C3's evidence is 'the NUMBERS ARE CORRECT but the curve is too deep'. A deeper front crotch curve necessarily lengthens the front crotch seam, which is the number C1 measures. 'Numbers correct, curve too deep' is therefore not a state the two measurements can jointly report, and C1's evidence ('pooling in front, back clean') is equally true of C3.",
+   "cost_if_wrong": "C1 shortens the front crotch seam, C3 flattens the curve - two different alterations of the same seam separated by a criterion the measurement cannot deliver."
+  },
+  {
+   "symptom_id": "SYM-038",
+   "causes": [
+    "SYM-038.C1",
+    "SYM-038.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "Both trouser legs twisting, evident standing.",
+   "why_it_fails": "C1's evidence is 'the twist is symmetric on both legs and evident standing'. An unbalanced front/back crotch curve (C2) is a pattern fault and therefore bilateral and evident standing. C2's marker ('the twist starts at crotch level') is exclusive; C1 has none.",
+   "cost_if_wrong": "Shifting the knee-level inseam/outseam balance (C1) on a trouser whose real fault is at the crotch moves the twist rather than removing it."
+  },
+  {
+   "symptom_id": "SYM-039",
+   "causes": [
+    "SYM-039.C1",
+    "SYM-039.C2",
+    "SYM-039.C3"
+   ],
+   "severity": "medium",
+   "shared_observation": "The crotch hanging low and away from the body, making it hard to stride.",
+   "why_it_fails": "C1's evidence is 'the gap between crotch and body is present standing; comfortable sitting'. A deliberately dropped crotch (C2) gives the same. A waistband sitting below the natural waist (C3) drops the crotch with it and gives the same. C1 is satisfied by all three.",
+   "cost_if_wrong": "Reducing crotch depth (C1) when the waistband is simply sitting low (C3) shortens a rise that was correct, and the trouser then binds when the waistband is worn at the intended level."
+  },
+  {
+   "symptom_id": "SYM-041",
+   "causes": [
+    "SYM-041.C1",
+    "SYM-041.C2"
+   ],
+   "severity": "low",
+   "shared_observation": "The garment rotating consistently in one direction on the body.",
+   "why_it_fails": "C1's evidence is 'the rotation is consistent in one direction and the same at every wearing'. Body asymmetry (C2) also rotates consistently in one direction at every wearing. C2 adds 'together with one-sided signs' but C1 does not require their absence.",
+   "cost_if_wrong": "Low - both route to AF-13 - but the symmetric fix and the asymmetric fix are different operations."
+  },
+  {
+   "symptom_id": "SYM-042",
+   "causes": [
+    "SYM-042.C1",
+    "SYM-042.C2"
+   ],
+   "severity": "medium",
+   "shared_observation": "The centre-front or centre-back line not hanging perpendicular to the floor.",
+   "why_it_fails": "C1's evidence is 'the deviation is symmetric and persists in the reader's natural stance'. A volume pulling the fabric (C2) is symmetric and persists in the natural stance. C2's marker ('the deviation starts at the level of that volume') is exclusive; C1 has none.",
+   "cost_if_wrong": "High leverage, because SYM-042 is the record the whole balance step rests on: a shoulder balance correction (C1) applied when the true cause is bust or seat volume moves the balance lines without removing the cause, and every reading taken afterwards is then taken on a garment that has been altered for the wrong reason."
+  },
+  {
+   "symptom_id": "SYM-043",
+   "causes": [
+    "SYM-043.C1",
+    "SYM-043.C2",
+    "SYM-043.C3"
+   ],
+   "severity": "low",
+   "shared_observation": "One dimension is the wrong length and there is no other sign at all.",
+   "why_it_fails": "C1's evidence is 'the garment sits correctly everywhere, balance lines correct, no drag or fold - ONLY the length differs'. A deliberate design length (C2) and a differently folded hem allowance (C3) both produce exactly that. C3 adds a quantitative marker (the difference equals the hem allowance) and C2 a documentary one; C1 excludes neither.",
+   "cost_if_wrong": "Low. Note that SYM-043 is otherwise the best-constructed record in the file: it is the ONLY one whose origin_rule states an explicit validity gate ('if any other sign is present this record is INVALID - diagnose the other sign first'). That gate is the pattern the other 42 records need."
+  }
+ ],
+ "top_risks": [
+  {
+   "claim_id": "S-0004",
+   "why": "Two of the book's four core rules are cited to a document that does not contain them. I obtained EM4582 at the exact URL in the project's own source record and read all eight pages: it carries CC-23 almost verbatim and CC-26 verbatim, and it contains NO fold-axis rule (CC-22), NO drag-line content of any kind (CC-24) and no statement that the hem is read last or is derivative (CC-29). S-0004 is a source_ref on all 43 signs. The fix is available and cheap: WSU published a real fitting document, E.M. 2246 'Garment Fitting' (1962), which is reachable, carries a full sign-to-cause list, and settles several of the questions this book is asking.",
+   "recommended_action": "additional_source"
+  },
+  {
+   "claim_id": "CC-22",
+   "why": "The most-used rule in the book is (a) not in the source it cites - I read EM4582 in full and it contains no fold-axis rule - and (b) stated in a form that has no cell for a taut horizontal wrinkle. The book's own data proves the second point: three of the five records classed horizontal_fold describe shortage, not surplus, and SYM-027's own origin_rule states the counterexample outright. A reader who applies the Chapter-7 table to SYM-027 or SYM-035 will shorten a garment that is too narrow - the exact failure the claim's own risk_note names. The fix is small and additive: read slack-or-taut before horizontal-or-vertical, note that the axis inverts between them, and re-point the citation.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "CC-24",
+   "why": "Step 4 of the seven-step cycle (LOCALIZE) has no mechanism other than this claim. Its cited source contains nothing about drag lines at all - I read EM4582 in full. The authorities that do discuss them offer three incompatible geometries (points toward / radiates from / runs between two named points), the mechanics say a drag line is a segment with two ends rather than an arrow, the project's own terminology entry T-13 states the opposite direction from CC-24, and two of the book's own records (SYM-004, SYM-037) are counterexamples. The visual token TK-05 draws it as an arrowhead, which the geometry does not license.",
+   "recommended_action": "physical_validation"
+  },
+  {
+   "claim_id": "SYM-021.C1",
+   "why": "Largest cost-to-cause mismatch found. A gap at bust level with the closure clean above and below is C1's evidence verbatim AND the necessary consequence of C3 (no button at apex level). The reader who stops at C1 performs a full bust adjustment when the correct fix is moving one button. Fixable by making the button-position check a gate rather than a third alternative.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "SYM-004",
+   "why": "C1 and C2 prescribe opposite adjustments of the same magnitude at the same point (raise the shoulder tip 5-10 mm / lower it 5-10 mm), separated by a criterion the reader cannot apply: the 'direction' of a diagonal line. This is the one collision where following the wrong branch actively worsens the fit. It is also the one with a ready-made fix: WSU E.M. 2246 separates the two faults by ENDPOINTS and TENSION - square shoulders give taut diagonals from the SHOULDER TIP to centre front or back, sloping shoulders give slanting FOLDS from the BASE OF THE NECK to the underarm - and the record's current observation is the sloping sign, with a square-shoulder cause filed under it.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "CC-20",
+   "why": "The method's most-quoted safety rule - pin, fold, add a strip, do NOT cut - is violated by 17 of the 129 candidate causes, three of which cut a neckline that SYM-001's own do_not_change_yet declares unrestorable. Either the rule is too strong for a toile or 13 percent of the test set must be rewritten; the book cannot ship holding both.",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "CC-17",
+   "why": "Three independent authorities - the book's own cited E-372, Palmer/Pletsch and Cynthia Guffey - agree with each other that fitting begins at the shoulder and neck, and disagree with 'begins with grain and balance'. The supporting citation is also miscounted (the checklist has 14 items, not 13) and is a checklist rather than a sequence. The claim can be kept if it is separated into order-of-READING (the book's own, unsourced) and order-of-CORRECTING (top-down, sourced).",
+   "recommended_action": "cautious_wording"
+  },
+  {
+   "claim_id": "SYM-040",
+   "why": "CC-29 asserted as data. All three candidate causes are faults above the hem; bias drop in flared and bias-cut garments and off-grain cutting - both attested in extension publications, and one of them the reason the 24-hour hang exists - appear only as confounders. A reader with a correctly drafted circle skirt is routed to a full bust adjustment.",
+   "recommended_action": "further_research"
+  },
+  {
+   "claim_id": "SYM-013",
+   "why": "The observation string combines two opposite armhole faults ('binds when the arm is lowered' = armhole too high; 'the garment is pulled up from the shoulder' = armhole too low). C1's remedy lowers the underarm, which moves the garment toward the second fault. Split the record.",
+   "recommended_action": "physical_validation"
+  },
+  {
+   "claim_id": "CC-25",
+   "why": "Not one of the 20 confounder-class or design-intent causes is listed first in its sign; 13 are last and 7 second. Step 6 tells the reader to test one hypothesis and to test the cheapest first, and readers work down lists - so the ordering systematically defers the free reversible check behind a pattern alteration. SYM-029 states the correct order in its own origin_rule and then violates it in the same object. This is the cheapest high-value correction in the dataset and needs no new research.",
+   "recommended_action": "further_research"
+  }
+ ],
+ "could_not_verify": [
+  "Galada, A. & Baytar, F. (2025), Fashion and Textiles 12(1), DOI 10.1186/s40691-025-00417-y — FULL TEXT. I verified the article's existence, authors, journal, DOI, CC-BY licence and reference list (which includes Veblen 2012 and Liechty/Rasband/Pottberg-Steineckert 2016) through DOI content negotiation, but link.springer.com redirects to an identity provider and fashionandtextiles.springeropen.com redirects back to it, so I could not read the body. Two sentences attributed to this paper in my CC-22 and CC-24 findings — 'Vertical folds imply excess circumference measurement and horizontal folds imply excess vertical measurement' and 'Draglines are horizontal or diagonal pulls that radiate from a location that is too tight or does not have adequate 3D shaping' — reached me second-hand from a sub-researcher who states they fetched it. They are the best available modern sourcing for CC-22 and should be confirmed against the paper before printing. My own conclusions do not depend on them.",
+  "SDSU Extension Circular, 'Facts about Fitting' (1968), openprairie.sdstate.edu — reported to contain the most precise drag-line rule found anywhere ('If there is a group of wrinkles they will generally point in the direction of the seam to be let out. A line drawn at right angles from the center of a diagonal wrinkle will point to the seam to be taken in'). I did NOT reach it; the quote is second-hand. If it holds it is the closest thing to a source for CC-24 and should be obtained.",
+  "Texas AgriLife single-topic alteration leaflets E-375 (Bodice Back Width), E-376, E-377, E-383 (Upper Arm Sleeve Width) and E-384 — the same series as the book's own S-0003, reported to contain further horizontal-wrinkle-from-tightness counterexamples and one direct source-vs-source conflict on the hollow chest (E-376 horizontal folds vs WSU EC 306 lengthwise wrinkles). oaktrust.library.tamu.edu returns HTTP 403 to WebFetch and to curl with a browser user-agent; I did not reach any of them and cite none of them.",
+  "Threads Magazine, 'Fitting Revelations: Read Your Clothes to Identify Key Fit Issues' - the four-cell wrinkle rule (tight/loose x horizontal/vertical) reached me only through a search-engine extract. threadsmagazine.com returns HTTP 403 to WebFetch and to curl with a browser user-agent; I could not read the article body. The four-cell structure is independently corroborated by Yang & Baytar (2024), so the finding does not rest on it, but the specific wording must not be quoted as verified.",
+  "Texas A&M AgriLife 'Shoulder Slope' publication (oaktrust.library.tamu.edu/bitstream/handle/1969.1/87753/pdf_693.pdf) - HTTP 403 to WebFetch and to curl with a browser UA. This is the document that would settle whether square shoulders present as diagonal drag lines (as SYM-004 asserts) or as horizontal wrinkling across the upper back (as practitioner summaries report). I record the conflict; I could not resolve it.",
+  "Wild Ginger, 'Solving Fit Issues' (Shanley & Campbell), wildginger.com/pdffiles/pmfittingguide.pdf - connection refused (ECONNREFUSED). Repeatedly surfaced in searches as a systematic wrinkle-diagnosis reference; not read.",
+  "Liechty, Rasband & Pottberg-Steineckert, 'Fitting & Pattern Alteration' - the standard textbook for drag-line diagnosis, and the source Yang & Baytar cite for the tight/loose x horizontal/vertical/diagonal taxonomy. Not obtained; only its bibliographic description and publisher copy were seen. The six-cell taxonomy is therefore verified at one remove, through a peer-reviewed paper that cites it, not from the text itself.",
+  "Utah Education Network CTE handout S5_PatternAlterationsTips.pdf - HTTP 404.",
+  "Porter, M. E. (1969), 'Analysis of the Fit of Women's Custom-Made Pants', M.S. thesis, Oregon State University - reported to me by a sub-researcher as showing that total-crotch-length measurement predicts the needed alteration significantly better than crotch-depth measurement (tailor's square accurate for 22.2 percent of garments). I could NOT retrieve this document and do not cite its numbers. If it holds it strengthens the SYM-035 finding considerably, because the record makes seated crotch depth (M-026) the confirming measurement for C1. Worth the author obtaining from ScholarsArchive@OSU.",
+  "Threads Magazine, 'Fitting a High Hip vs. Sway Back' - the exact distinction SYM-023 and SYM-029 need. HTTP 403.",
+  "Texas A&M AgriLife E-390 'Special Alterations for Pants' and B-1295, and UNL Extension EC69-455 - the trouser-diagnosis publications that would most directly test SYM-027, SYM-035 and SYM-036. All returned 403/503.",
+  "Palmer/Pletsch, 'Pants for Real People' - the primary practitioner authority for SYM-035 and SYM-036. Only the publisher's fitting excerpt from a different title was obtainable.",
+  "Whether 'sway back' as used in fitting is the same condition as 'sway back posture' in kinesiology (which denotes posterior pelvic tilt with a FLATTENED lumbar spine, not the lumbar hollow the sewing sense implies). The book uses the sewing sense throughout; the possible collision with the clinical term is unresolved and matters because readers will search the clinical term. Not settled from documents.",
+  "THE CENTRAL UNVERIFIABLE ITEM, stated plainly: the 129 distinguishing_evidence fields are the book's actual product, and no documentary source distinguishes two causes of the SAME sign from each other. The project says this itself (SOURCE_MAP.md section 6; DIAGNOSTIC_SYSTEM.md section 6.4) and I confirm it independently - I found no publication that sets out competing causes for one observed sign with a discriminating test for each. Every collision I report is therefore an INTERNAL-LOGIC finding: it shows that the stated evidence cannot do the job the schema requires of it. Whether a corrected evidence field would discriminate on a real body is REQUIRES_PHYSICAL_TEST for all 129 and cannot be settled from documents."
+ ]
+}

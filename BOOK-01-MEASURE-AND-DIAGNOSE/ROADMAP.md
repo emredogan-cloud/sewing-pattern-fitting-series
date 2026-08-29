@@ -23,11 +23,19 @@
     │
     ▼
    P3 Pilot + KILL-GATE ──[FAIL]──HARD STOP──► SERİ DURUR
-    │  ◄── ŞU AN BURADA · içeriden yapılabilen TAMAM,
-    │      iki DIŞ ölçüm YAPILMADI (D-01, D-02)
+    │  ◄── HÂLÂ BURADA DURUYOR · iki DIŞ ölçüm YAPILMADI (D-01, D-02)
     │  [PASS]
     ▼
    P4 Tam İçerik Üretimi                 [phase4-production]
+
+   ┌─ KURUCU GEÇERSİZ KILMASI (K49) ────────────────────────────┐
+   │  P4 üretimi P3 BEKLENMEDEN yürütüldü ve TAMAMLANDI.        │
+   │  Kapı: phase4-production-conditional                       │
+   │  · "P2 bitti"        → DOĞRU                               │
+   │  · "P3 geçildi"      → HÂLÂ YANLIŞ                         │
+   │  · "P5 açılabilir"   → HÂLÂ YANLIŞ                         │
+   │  ◄── ŞU AN BURADA                                          │
+   └────────────────────────────────────────────────────────────┘
     │
     ▼
    P5 KA (teknik · editoryal · görsel · fiziksel)
@@ -209,16 +217,55 @@ verebilmelidir.
 
 ---
 
-## P4 — TAM İÇERİK ÜRETİMİ · kapı `phase4-production`
+## P4 — TAM İÇERİK ÜRETİMİ · kapı `phase4-production-conditional`
 
-**Bağımlılık:** P3 **PASS** · **Kurucu bağımlılığı:** DÜŞÜK
+**Bağımlılık:** ~~P3 PASS~~ → **KURUCU GEÇERSİZ KILMASI** (`DECISIONS.md K49`)
+· **Kurucu bağımlılığı:** DÜŞÜK
 
-**Amaç:** kanıtlanmış pilot mimarisini tam kitaba ölçeklemek.
+**Amaç:** pilot mimarisini tam kitaba ölçeklemek.
 
-**Definition of Done:** 18 bölümün tamamı yazıldı · 43 belirtinin
-tamamı bölge atlasına yerleşti · her bölüm pilotla AYNI KA hattından
-geçti · alt başlıktaki sayı vaadi taksonomiyle bağlandı
-(`STYLE.md § 6`) · `.gate` → `phase4-production`.
+> ⚠ **Bu faz, bağımlılığı KARŞILANMADAN yürütüldü.** Kurucu 29 Ağustos
+> 2026'da üretimin sürmesine izin verdi ve aynı talimatta eksik P3
+> sonuçlarının PASS yazılmasını **açıkça yasakladı**. Kapı bu yüzden
+> `phase4-production` DEĞİL, `phase4-production-conditional`'dır ve
+> kümülatif sırada `phase3-pilot`'ın **önündedir**: yapılan iş kayıtlı,
+> yapılmayan ölçüm hâlâ yapılmamış.
+
+### Yürütüldü
+
+| # | Çıktı | Ölçüm |
+|---|---|---|
+| 1 | Tam manüskript | **232 sayfa · 21 bölüm · 36 107 kelime** |
+| 2 | 43 belirti girişi | tamamı bölge atlasında · her biri yeniden gözlem adımı + belirtiye özgü eleme + "henüz değiştirme" taşıyor |
+| 3 | Figür entegrasyonu | **158/158** yerleştirilebilir figür kullanıldı · 175 yerleşim |
+| 4 | İddia sicili | **307 iddia**, kanıt seviyesi TÜREVdir |
+| 5 | İddia→kaynak haritası | `00_SPEC/CLAIM_SOURCE_MAP.md` (üretilen) |
+| 6 | Bağımsız teknik inceleme | dört hat · **149 bulgu** · 68 kaynak · **132 revizyon** |
+| 7 | Yeni kapı | `qa_manuscript.py` — on bir denetim |
+| 8 | Yeni dizgi katmanı | `typeset.py` (TEK yol) + `build_book.py` |
+| 9 | Vücut varyantları | `B-05` kapatıldı — 26/43 belirti figürü artık standart-dışı bir gövde kullanıyor |
+
+### Çelişmeli inceleme kısıtları — durum
+
+| Bulgu | Faz 4'te ne oldu |
+|---|---|
+| `B-01` yeniden gözlem döngüsü | **KAPATILDI** — yapısal, 43/43 girişte; ayrıca `flow_CYCLE` şemasında döngüyü kapatan çizgi |
+| `B-02` `AF-18` bir çıkış kapısıdır | **KAPATILDI** — o düğüme giden her yol "bu bir beden kararıdır" ile karşılanıyor |
+| `B-03` eleme listesi çok uzun | **KAPATILDI** — belirtiye özgü üç kalem + tam liste Bölüm 8'de bir kez |
+| `B-05` tek kroki | **KAPATILDI** — üç varyant, veriden türetilerek atanıyor, `qa_visual § ⑪` koruyor |
+| `B-08` sayfa bütçesi | **AŞILDI ve GEREKÇELENDİ** — atlas 177 s.; toplam 232 s. bandın içinde |
+| `B-04` figürlerde gerçek kumaş dökümü yok | **AÇIK** — `D-02`'ye bağlı |
+| `B-06` ⅝ inç dikiş payı | **KAPATILDI** — Bölüm 3 ve 4 payı varsaymıyor, kalıbın beyanına yönlendiriyor |
+
+**Definition of Done — karşılanan:** 18 bölümün tamamı + Parça 0 +
+ekler yazıldı · 43 belirtinin tamamı yerleşti · manüskript kapısı 0
+bulgu · sayfa bütçesi içinde · bağımsız inceleme tamamlandı ·
+`.gate` → `phase4-production-conditional`.
+
+**Karşılanmayan:** `.gate` → `phase4-production` (P3'ün PASS'ini ister
+ve P3 ölçülmedi).
+
+Rapor: [`../08_REPORTS/PHASE_4_EXECUTION_REPORT.md`](../08_REPORTS/PHASE_4_EXECUTION_REPORT.md)
 
 ---
 

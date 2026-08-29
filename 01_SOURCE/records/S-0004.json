@@ -13,14 +13,12 @@
   "locator": "EM4582, bölüm 'FITTING': uyumun beş temel noktası — Grain, Line, Ease, Balance, Overall smoothness",
   "accessed_on": "2026-08-28",
   "used_for": [
-    "C-C EN KRİTİK AYRIM — kumaşı ÇEKEN kırışıklık yetersizliği, KIVRIM hâlinde duran kırışıklık fazlalığı gösterir (TK-05 ↔ TK-06 ayrımı; Bölüm 7.4; Adım ③)",
-    "C-B çözgü kuralı — boy çözgüsü yere dik, en çözgüsü yere paralel (Bölüm 16.3)",
-    "C-B dikiş konumu kuralları — omuz dikişi omzun üstünde, dikey dikişler yere dik, etek ucu yere paralel (seam_displacement ve hem_hike sınıfları)",
-    "C-B pens kuralı — pens en dolgun noktaya işaret eder ve ondan ÖNCE biter (AF-02)",
-    "Bölüm 5, Bölüm 7, Bölüm 16"
+    "C-B ease yorumu: 'kıvrım hâlindeki kırışıklık = fazla ease, çeken kırışıklık = az ease' (BİREBİR)",
+    "C-H çözgü/denge: boy çözgüsü yere dik, en çözgüsü yere paralel (BİREBİR)",
+    "Bölüm 5 gözlem, Bölüm 7 kıvrım/çekme ayrımı"
   ],
   "superseded_by": null,
   "license_constraint": null,
   "acquisition_status": "public_access",
-  "notes": "Bu kaynak, projenin EN ÇOK KULLANILAN kuralının (fazlalık mı yetersizlik mi) kurumsal karşılığıdır. Belge 4-H proje kitapçığıdır; uyum bölümü kısa ama açıktır."
+  "notes": "Bu kaynak, projenin EN ÇOK KULLANILAN kuralının (fazlalık mı yetersizlik mi) kurumsal karşılığıdır. Belge 4-H proje kitapçığıdır; uyum bölümü kısa ama açıktır. ⚠ FAZ 4 ATIF DÜZELTMESİ: belge tam metin (8 sayfa) yeniden okundu. Uyum içeriğinin TAMAMI tek sayfada beş maddedir. CC-22 (kıvrım ekseni), CC-24 (çekme çizgisi) ve CC-29 (etek ucu türevdir) bu belgede YOKTUR ve atıflar KALDIRILDI. Belge CC-23 ve CC-26'yı birebir taşır ve orada kalır. WSU'nun bu konuda yayımladığı asıl belge (E.M. 2246, 'Garment Fitting', 1962) henüz edinilmedi — EXTERNAL_DEPENDENCIES D-10."
 }

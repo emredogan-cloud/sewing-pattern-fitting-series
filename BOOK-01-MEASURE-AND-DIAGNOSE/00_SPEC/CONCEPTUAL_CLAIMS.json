@@ -1,0 +1,414 @@
+{
+  "$comment": [
+    "CONCEPTUAL_CLAIMS — Faz 4 girdisi.",
+    "",
+    "Taksonomi kayıtları (M-xxx, AF-xx, SYM-xxx) kitabın VERİ iddialarını",
+    "taşır. Ama kitap bir veri dökümü değildir: öğrettiği YÖNTEM de teknik",
+    "iddialar içerir ve o iddiaların hiçbiri taksonomide DURMUYORDU.",
+    "Bu dosya onları açıkça yazar ki bağımsız inceleme onlara da",
+    "saldırabilsin. Yazılmayan bir iddia denetlenemez.",
+    "",
+    "evidence_level BU DOSYADA YAZILMAZ — 06_BUILD/build_claims.py onu",
+    "source_refs + kaynak otoritesinden TÜRETİR. Bir iddia kendi kanıt",
+    "seviyesini beyan edemez (DECISIONS.md K33 ölçüm kuralının iddia",
+    "katmanındaki karşılığı).",
+    "",
+    "risk_note: bu iddia yanlışsa okur ne yapar. Boş bırakılamaz.",
+    "FAZ 4: 14 kavramsal iddia bağımsız inceleme sonucunda YENİDEN YAZILDI. Değişenler phase4_review alanı taşır. CC-19 ve CC-20'nin 'kaynaksız' kaydı bir DEPO HATASIYDI — S-0003 kuralı birebir yazıyor; düzeltildi.",
+    "FAZ 4 İKİNCİ TUR: CC-17, CC-20, CC-22, CC-23, CC-24, CC-25, CC-29 teşhis mantığı incelemesi sonucunda yeniden yazıldı. Dördü ATIF DÜZELTMESİDİR: S-0004 tam metin okundu ve o iddiaları İÇERMİYOR."
+  ],
+  "count": 31,
+  "claims": [
+    {
+      "id": "CC-01",
+      "chapter": "B1-CH01",
+      "claim": "Body measurement, pattern measurement and finished garment measurement are three different numbers, and a fitting failure is often a mistranslation between them rather than a sewing error — though non-pattern causes such as construction, pressing, grain and fabric produce the same signs and are ruled out first.",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "risk_note": "If false, the whole diagnostic frame collapses into 'sew better'.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-02",
+      "chapter": "B1-CH01",
+      "claim": "A fit sign is an observation and a cause is an inference; the place a sign appears is not necessarily the place it originates.",
+      "source_refs": [
+        "S-0004"
+      ],
+      "risk_note": "If false, readers may correctly cut where they see the sign and the book's core method is unnecessary."
+    },
+    {
+      "id": "CC-03",
+      "chapter": "B1-CH02",
+      "claim": "The natural waist must be physically marked before any vertical measurement is taken, because vertical measurements are defined from it.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "Unmarked waist makes vertical measures non-repeatable; every length diagnosis downstream is noise."
+    },
+    {
+      "id": "CC-04",
+      "chapter": "B1-CH02",
+      "claim": "The tape must stay parallel to the floor and must not compress the tissue; a tape pulled tight records a smaller body than the one that will wear the garment.",
+      "source_refs": [
+        "S-0006",
+        "S-0001"
+      ],
+      "risk_note": "Systematically undersized measurements produce garments that are too tight everywhere and look like a size problem."
+    },
+    {
+      "id": "CC-05",
+      "chapter": "B1-CH02",
+      "claim": "A measurement that is not repeatable is not a measurement; taking each critical measure twice and recording the difference is part of the method.",
+      "source_refs": [
+        "S-0006"
+      ],
+      "risk_note": "Without repeat discipline the reader cannot tell a body change from a method error."
+    },
+    {
+      "id": "CC-06",
+      "chapter": "B1-CH02",
+      "claim": "The difference between full bust and high bust is what pattern companies use to decide whether a reader should step down a size and treat the bust separately. It is a size-selection input; it is not a published measure of how much shaping to add, and cup size in the clothing-size standard is defined on bust minus underbust rather than on this difference.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "If the difference does not carry that information, the size-selection rule in Chapter 3 and most of Chapter 11 lose their basis.",
+      "phase4_review": {
+        "reviewer": "measurements",
+        "resolution": "ACCEPTED",
+        "note": "Önceki hâli 'ne kadar şekillendirme gerektiğini söyler' diyordu; kaynak yalnızca BEDEN SEÇİMİ eşiğini destekliyor."
+      }
+    },
+    {
+      "id": "CC-07",
+      "chapter": "B1-CH02",
+      "claim": "Body measurements change over time and should be retaken periodically rather than reused indefinitely.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "Stale measurements are diagnosed as pattern faults."
+    },
+    {
+      "id": "CC-08",
+      "chapter": "B1-CH03",
+      "claim": "Pattern sizing and ready-to-wear sizing are separate systems; the reader's ready-to-wear size does not predict the pattern size.",
+      "source_refs": [
+        "S-0003",
+        "S-0007"
+      ],
+      "risk_note": "Wrong size choice produces signs in every zone at once and is misread as many separate faults."
+    },
+    {
+      "id": "CC-09",
+      "chapter": "B1-CH03",
+      "claim": "Ease is the difference between the finished garment measurement and the body measurement, and it separates into wearing ease (movement) and design ease (silhouette). Published wearing-ease figures differ between sources and between garment types, so a pattern's own finished measurements are the authority for that pattern.",
+      "source_refs": [
+        "S-0001"
+      ],
+      "risk_note": "Without the split, readers remove design ease and produce garments that no longer match the design they chose.",
+      "phase4_review": {
+        "reviewer": "ease_sizing",
+        "resolution": "ACCEPTED",
+        "note": "Deponun tek ease kaynağı (S-0001 Table 1) bel satırı taşımıyor ve kendi dipnotuyla çelişiyor; tek otorite olarak sunulamaz."
+      }
+    },
+    {
+      "id": "CC-10",
+      "chapter": "B1-CH03",
+      "claim": "A bodice pattern is drafted to one assumed difference between its own high bust and full bust, and companies state different figures. Compare your own difference with the figure the pattern in your hand states: if it is no larger, take the size from the full bust; if it is larger, take the size from the high bust and treat the bust volume as a separate adjustment.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "Choosing by full bust oversizes the shoulder, neckline and armhole to fix a bust-only shortfall.",
+      "phase4_review": {
+        "reviewer": "ease_sizing",
+        "resolution": "ACCEPTED",
+        "note": "Düz '2 inç' eşiği üç ayrı yayıncıda farklıdır ve tam 2 inçte doğru bedendeki okuru gereksiz bir düzeltmeye gönderiyordu."
+      }
+    },
+    {
+      "id": "CC-11",
+      "chapter": "B1-CH03",
+      "claim": "Which measurement selects the size for a skirt or trousers is not settled: some pattern companies select by the waist and move to the hip only when the hip is much larger, and others select by the full hip on the grounds that hip adjustments are harder. Follow the instruction printed with the pattern in your hand.",
+      "source_refs": [
+        "S-0002"
+      ],
+      "risk_note": "Choosing by waist forces the hardest adjustment on the reader unnecessarily.",
+      "phase4_review": {
+        "reviewer": "ease_sizing",
+        "resolution": "ACCEPTED",
+        "note": "Bir kampın kuralı nedensel bir gerçek gibi yazılmıştı; okurun satın alacağı kalıpların bir kısmı bunun tersini basıyor."
+      }
+    },
+    {
+      "id": "CC-12",
+      "chapter": "B1-CH03",
+      "claim": "A flat pattern measurement is only comparable to a body measurement after seam allowances, darts and overlaps have been accounted for.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "Uncorrected flat measurement makes every pattern look too small and triggers unnecessary adjustments."
+    },
+    {
+      "id": "CC-13",
+      "chapter": "B1-CH04",
+      "claim": "Toile fabric choice is a real and contested decision rather than a settled rule: match weight, drape and stretch to the fashion fabric when the fault being hunted is drape-dependent, and use a plain stable calico for skeleton fitting of length, width, balance and dart position.",
+      "source_refs": [],
+      "risk_note": "A stiff calico toile of a drapey design produces folds that will never appear in the real garment.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-14",
+      "chapter": "B1-CH04",
+      "claim": "Centre front, centre back, the grainlines and horizontal reference lines at bust, waist and hip are marked on the toile before it is worn, because these lines are the reference against which displacement is read; they are read against the room — horizontals parallel to the floor, verticals perpendicular to it.",
+      "source_refs": [],
+      "risk_note": "Without reference lines, seam displacement cannot be distinguished from a garment simply sitting askew.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-15",
+      "chapter": "B1-CH04",
+      "claim": "A measurement read from a toile is invalid unless you know where the stitching line is. It is the stitching line, not the seam allowance width, that must match the pattern — standard toile practice cuts wider allowances and marks the seamline so the garment can be let out.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "A half-inch discrepancy at four seams is two inches of girth attributed to the pattern.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-16",
+      "chapter": "B1-CH05",
+      "claim": "A fitting is valid only over the undergarments that will be worn with the finished garment, and in shoes of the heel height that will be worn with it.",
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ],
+      "risk_note": "Bust position and waist level shift with underwear; the reader diagnoses the underwear and cuts the pattern.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-17",
+      "chapter": "B1-CH05",
+      "claim": "Grain and balance are read first, because a garment hanging off-grain makes every reading below it unreliable. This is a rule about the order of READING and it is this book's own; no source states it as a sequence. The order of CORRECTING is separate and is sourced: work from the shoulder or neck downward.",
+      "source_refs": [
+        "S-0004",
+        "S-0003"
+      ],
+      "risk_note": "Reading local signs first produces a list of symptoms of one upstream fault.",
+      "phase4_review": {
+        "reviewer": "diagnostic_logic",
+        "resolution": "ACCEPTED",
+        "note": "Kaynaklar bir SIRA vermiyor — 'aklında tut' diyorlar ve o listede denge DÖRDÜNCÜ sırada. Okuma sırası ile düzeltme sırası ayrıldı; birincisi kitabın kendi kuralı olarak beyan edildi."
+      }
+    },
+    {
+      "id": "CC-18",
+      "chapter": "B1-CH05",
+      "claim": "A fitting that never moves is incomplete: arms overhead, arms forward and folded across the chest, bending, sitting on a hard chair, and a full stride each reveal ease shortfalls that are invisible while standing still.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "Garment passes the fitting and fails in wear; reader loses trust in the method.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-19",
+      "chapter": "B1-CH06",
+      "claim": "Only one variable may be changed per test. Authoritative pattern-alteration guidance states the rule directly, and the reason is that two simultaneous changes cannot be attributed to either.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "Reader cannot learn which change worked and cannot record a reusable amount.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-20",
+      "chapter": "B1-CH06",
+      "claim": "Cutting the pattern is not reversible, so tests escalate by cost: change the fitting condition, then pin, then add a strip at a slash, then slash the fitting garment. The fitting garment exists to be cut and cutting it is not the thing being avoided — what is avoided is cutting the pattern, and removing fabric from an edge, which cannot be undone even on a toile.",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "risk_note": "Irreversible damage to a pattern on an unconfirmed hypothesis.",
+      "phase4_review": {
+        "reviewer": "diagnostic_logic",
+        "resolution": "ACCEPTED",
+        "note": "Kendi verisiyle ÇELİŞİYORDU: 129 testin 17'si ilk adım olarak kesiyordu ve üçü, SYM-001'in kendi uyarısının 'geri eklenemez' dediği yakayı kesiyordu. Ayrım netleştirildi: toile kesilir, KALIP ve KENAR kesilmez."
+      }
+    },
+    {
+      "id": "CC-21",
+      "chapter": "B1-CH06",
+      "claim": "A diagnostic cycle is not complete until the change has been applied and the region re-observed. A sign that is reduced but not gone has two possible explanations that must be distinguished: the cause was right and the amount too small, which is the commoner case, or a second cause is present as well.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "risk_note": "Reader stops at partial improvement with no next step — the failure mode named in adversarial finding B-01.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-22",
+      "chapter": "B1-CH07",
+      "claim": "A fold's own line tells you which dimension the surplus lies in: a vertical fold means surplus width, a horizontal fold means surplus length. The rule applies ONLY after the mark has been classified as a fold rather than a pull — a taut horizontal wrinkle means the opposite, a shortage of circumference at that level.",
+      "source_refs": [],
+      "risk_note": "The most-used rule in the book. If the axis is wrong, readers shorten what should be narrowed.",
+      "phase4_review": {
+        "reviewer": "diagnostic_logic",
+        "resolution": "ACCEPTED",
+        "note": "Kural KAYNAKSIZDI: atıf yapılan belge (S-0004) tam metin okundu ve içinde kıvrım-ekseni kuralı YOK. Ayrıca tabloda GERGİN yatay kırışık için hücre yoktu ve deponun kendi verisi bunu kanıtlıyordu: horizontal_fold sınıfındaki beş kaydın üçü fazlalığı değil YETERSİZLİĞİ anlatıyor (SYM-027'nin kendi origin_rule'u bunu açıkça yazıyor). Okur dar bir giysiyi KISALTIRDI."
+      }
+    },
+    {
+      "id": "CC-23",
+      "chapter": "B1-CH07",
+      "claim": "Fabric standing in folds indicates too much ease; fabric being pulled or strained indicates too little. Direction is not part of this test and is established separately, afterwards.",
+      "source_refs": [
+        "S-0004"
+      ],
+      "risk_note": "Confusing the two reverses the direction of every adjustment.",
+      "phase4_review": {
+        "reviewer": "diagnostic_logic",
+        "resolution": "ACCEPTED",
+        "note": "'o yönde' ibaresi SİLİNDİ: kaynak yön hakkında hiçbir şey söylemiyor ve o ek, CC-22'yi CC-23'ün içine sokarak kaynaksız bir iddiayı kaynaklı gösteriyordu."
+      }
+    },
+    {
+      "id": "CC-24",
+      "chapter": "B1-CH07",
+      "claim": "Drag lines lie along the direction of pull. Where several converge, the convergence point is the candidate site. A single drag line has two ends and cannot on its own say which end carries the fault.",
+      "source_refs": [],
+      "risk_note": "If drag lines do not point at their source, step 4 of the cycle (locate) has no mechanism.",
+      "phase4_review": {
+        "reviewer": "diagnostic_logic",
+        "resolution": "ACCEPTED",
+        "note": "Atıf yapılan belgede çekme çizgisi HİÇ geçmiyor. Üç ayrı geometrik model var ve iddia en az ayırt edici olanını seçmişti. Adım 4 tek başına buna dayanıyor; daraltıldı ve fiziksel doğrulamaya bağlandı."
+      }
+    },
+    {
+      "id": "CC-25",
+      "chapter": "B1-CH08",
+      "claim": "A defined list of ordinary non-pattern conditions produces fit signs that are easily mistaken for pattern faults, and the list is walked once at the start of a fitting before any pattern diagnosis is accepted.",
+      "source_refs": [
+        "S-0003",
+        "S-0004"
+      ],
+      "risk_note": "Every downstream diagnosis is contaminated; the reader alters a correct pattern.",
+      "phase4_review": {
+        "reviewer": "diagnostic_logic",
+        "resolution": "ACCEPTED",
+        "note": "Veri kendi kuralını TERS uyguluyordu: 20 kalıp-dışı nedenin hiçbiri ilk sırada değildi, 13'ü sonuncuydu. Sunum sırası kapı-önce olacak biçimde değiştirildi (atlas.py)."
+      }
+    },
+    {
+      "id": "CC-26",
+      "chapter": "B1-CH08",
+      "claim": "On a correctly cut and correctly hanging garment the lengthwise grain runs perpendicular to the floor and the crosswise grain runs parallel to it.",
+      "source_refs": [
+        "S-0004",
+        "S-0003"
+      ],
+      "risk_note": "Off-grain cutting mimics almost every asymmetric fit sign in the book."
+    },
+    {
+      "id": "CC-27",
+      "chapter": "B1-CH08",
+      "claim": "A pattern printed at home must be verified against its printed test square, measured in both directions because some printers scale differently along and across the paper, before any measurement is taken from it. No standards body publishes a tolerance; the working figure is practitioner convention.",
+      "source_refs": [],
+      "risk_note": "A pattern printed at 97 percent is diagnosed as a body that is 3 percent larger.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-28",
+      "chapter": "B1-CH16",
+      "claim": "Four ordering rules are established — length before width, bodice before sleeve, armhole settled before the sleeve cap, and crotch depth before crotch length — and the fifth, working from the upper body downward, is contested: a competing published method orders by dependency instead, doing first whatever affects other areas of fit.",
+      "source_refs": [
+        "S-0001",
+        "S-0002",
+        "S-0003"
+      ],
+      "risk_note": "Out-of-order work invalidates completed adjustments and forces the reader to start again.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-29",
+      "chapter": "B1-CH16",
+      "claim": "A hem that hangs unevenly is read last, because it is usually a consequence of a length or balance fault above it rather than a fault of its own.",
+      "source_refs": [],
+      "risk_note": "Levelling the hem hides the upstream fault and makes it undiagnosable.",
+      "phase4_review": {
+        "reviewer": "diagnostic_logic",
+        "resolution": "ACCEPTED",
+        "note": "S-0004'ten ÇIKARILDI — belge etek ucunun türev olduğunu söylemiyor. Kalibre hâliyle korunuyor ama artık kaynaksız olduğunu beyan ediyor."
+      }
+    },
+    {
+      "id": "CC-30",
+      "chapter": "B1-CH17",
+      "claim": "An adjustment is only reusable if the amount survives the session in a form that can be applied again. Authoritative practice records it on the pattern itself; recording it additionally as a number is what makes it transferable to a different pattern.",
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ],
+      "risk_note": "The fit profile — the book's main deliverable — becomes unusable.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    },
+    {
+      "id": "CC-31",
+      "chapter": "B1-CH18",
+      "claim": "An adjustment that recurs across patterns from more than one pattern company is evidence about the body rather than about any one pattern. Within a single company it is not, because every house drafts from its own block.",
+      "source_refs": [],
+      "risk_note": "Book 3's premise. If false, the series bridge is a sales argument rather than a technical one.",
+      "phase4_review": {
+        "reviewer": "protocol",
+        "resolution": "ACCEPTED",
+        "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
+      }
+    }
+  ]
+}

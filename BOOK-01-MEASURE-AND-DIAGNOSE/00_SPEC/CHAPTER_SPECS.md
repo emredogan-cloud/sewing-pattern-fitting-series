@@ -395,13 +395,13 @@ Yok — bu bölüm bir teknik iddia taşımaz; kapsam ve yöntem tanıtımıdır
 
 | | |
 |---|---|
-| **Amaç** | Kalıpla ilgisi olmayan dokuz nedeni sistematik olarak elemek — kalıba dokunmadan önceki son güvenlik kapısı. |
+| **Amaç** | Kalıpla ilgisi olmayan on dört nedeni sistematik olarak elemek — kalıba dokunmadan önceki son güvenlik kapısı. |
 | **Okur çıktısı** | Okur, kalıbı değiştirmeden önce kumaş, kesim, iç giyim, yapım, ütü, dikiş payı, beden seçimi, kalıp basımı ve duruşu elemiştir. |
 | **Ön koşul** | Bölüm 7 (adlandırılmış belirti). |
 
 **Tanıtılan kavramlar**
 
-- Dokuz eleme kalemi
+- On dört eleme kalemi
 - Her kalem için tek soru + tek test
 - PDF kalıp test karesi
 - Geri alınamazlık ilkesi
@@ -414,12 +414,12 @@ Yok — bu bölüm bir teknik iddia taşımaz; kapsam ve yöntem tanıtımıdır
 
 **Gerekli görseller**
 
-- Dokuz kalemin kontrol listesi (fotokopi edilebilir)
+- On dört kalemin kontrol listesi (fotokopi edilebilir)
 - PDF test karesi ölçüm figürü
 - Çözgü kontrolü figürü
 - Eleme akış şeması (`TK-16`)
 
-**Pratik etkinlik** — **Alıştırma 8A** — dokuz kalemi kendi toile'inde tek tek uygula ve sonucu kaydet.
+**Pratik etkinlik** — **Alıştırma 8A** — on dört kalemi kendi toile'inde tek tek uygula ve sonucu kaydet.
 
 **Doğrulama yöntemi** — Eleme sonrası kaç belirti 'kalıp kaynaklı' olarak kaldı — bu sayı Parça IV'ün girdisidir.
 
@@ -429,7 +429,7 @@ Yok — bu bölüm bir teknik iddia taşımaz; kapsam ve yöntem tanıtımıdır
 
 **Karar noktaları**
 
-- Dokuz eleme kaleminin **her biri** tek bir evet/hayır kararıdır
+- On dört eleme kaleminin **her biri** tek bir evet/hayır kararıdır
 - **Kalıba dokunmadan önce hepsi elendi mi?** — elenmedi ise ① adımına dönülür
 - **Bu bir yapım hatası mı?** — evetse Kitap 2'ye devir YOKTUR (21 istisnanın kaynağı)
 

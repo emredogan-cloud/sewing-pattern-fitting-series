@@ -1240,3 +1240,123 @@ CI'nin ne için var olduğudur. Ama bulmasının nedeni şanstır: eğer CI de
 reportlab kurmuş olsaydı, "veri kapıları bağımlılıksızdır" iddiası
 sessizce **yalan** hâline gelirdi ve kimse fark etmezdi. Bir mimari
 ilke, onu **sınayan bir mekanizma** olmadan bir dilektir.
+
+---
+
+## K49 — Faz 4 kurucu geçersiz kılması: koşullu üretim kapısı
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 4 · **Durum:** UYGULANDI
+
+Yol haritası P4'ü P3'ün **PASS**'ine bağlar. Kurucu, P3'ün iki dış
+ölçümünü (`D-01` fark testi, `D-02` fiziksel doğrulama) beklemeden tam
+içerik üretiminin sürmesine izin verdi ve aynı talimatta **ölçümlerin
+PASS yazılmasını AÇIKÇA yasakladı**: *"DO NOT FAKE THE MISSING P3
+RESULTS."*
+
+Bu iki şey aynı anda kaydedilmek zorundaydı. Seçenekler:
+
+| Seçenek | Neden reddedildi |
+|---|---|
+| `.gate` → `phase4-production` | Kümülatif sırada `phase3-pilot`'ı da geçilmiş gösterirdi. **Tarih yeniden yazılırdı.** |
+| `.gate` = `phase2-visual` bırakılsın | Yapılan iş kaydedilmezdi; bir sonraki tur nereden devam edeceğini bilemezdi. |
+| `book_config.json`'a serbest bir alan | Kapı mekanizmasının dışında kalırdı — hiçbir kapı onu denetlemezdi. |
+
+**Karar: `BOOK_GATE_ORDER`'a `phase4-production-conditional` eklendi ve
+kümülatif sırada `phase3-pilot`'tan ÖNCEYE konuldu.**
+
+Sonuç, mekanik olarak doğru olan tam da şudur:
+
+- `gate_at_least(g, "phase2-visual")` → **doğru** (Faz 2 bitti)
+- `gate_at_least(g, "phase3-pilot")` → **YANLIŞ** (kill-gate ölçülmedi)
+- `gate_at_least(g, "phase5-qa")` → **YANLIŞ** (P5 bu yoldan açılamaz)
+
+`kill_gate.py` hâlâ **iki engel** raporluyor ve "Faz 4 AÇILAMAZ" diyor.
+Bu **çelişki değil, tam olarak istenen durumdur**: üretim ilerledi,
+doğrulama kapısı ilerlemedi. İkisi ayrı eksenlerdir ve ayrı kalmalıdır.
+
+İki yeni denetim bunu korur: `check_book_phase4_requirements` (Faz 4
+çıktıları BEYAN değil DOSYA olarak aranır) ve `check_kill_gate_not_claimed`
+(kapı sırası bozulursa ya da bir kill-gate bayrağı açılırsa hata).
+Regresyon: `selftest.py § test_conditional_phase4_does_not_claim_kill_gate`.
+
+---
+
+## K50 — Manüskript üretilir, prozа yazılır
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 4 · **Durum:** UYGULANDI
+
+Bölüm 2 (32 ölçü) ve bölge atlası (43 belirti girişi) **üretilir**;
+Bölüm 1, 3–8 ve 16–18 **yazılır**.
+
+**Gerekçe:** o iki bölümün iç yapısı bir spesifikasyondur, bir yazarlık
+tercihi değil. 43 giriş elle yazılsaydı, er geç biri "henüz değiştirme"
+uyarısını ya da yeniden gözlem adımını taşımazdı ve **hiçbir kapı bunu
+göremezdi** — çünkü kapı, metinde olmayan bir bölümü arayamaz. Üretilen
+bir yapıda eksik alan **derlenmez**.
+
+Yazılan proza `sign_content_en.json`, `zones_en.json`,
+`measurements_en.json` dosyalarında durur; `06_BUILD/atlas.py` sırayı,
+başlık hiyerarşisini, figür yerleşimini ve **üç yapısal zorunluluğu**
+(`B-01` yeniden gözlem · `B-02` beden kapısı · `B-03` belirtiye özgü
+eleme) üretir.
+
+---
+
+## K51 — İki dizgi yolu YOK: `typeset.py`
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 4 · **Durum:** UYGULANDI
+
+Faz 3'te dizgi kodu `build_pilot.py`'nin içindeydi. Faz 4 tam kitabı
+dizmek zorundaydı ve o kodu **kopyalamak** iki dizgi yolu yaratırdı.
+
+Figür sisteminde bu hatadan bilinçle kaçınılmıştı (`figure_engine.render()`
+tek yoldur). Aynı disiplin dizgiye uygulandı: `06_BUILD/typeset.py`
+çıkarıldı, `build_pilot.py` ondan okuyor. **Pilot çıktısı değişmedi:
+8 sayfa, 7 figür** — refactor'ın doğruluk kanıtı budur.
+
+Neden önemli: iki yol olsaydı pilotun 8 sayfası ile kitabın aynı bölümü
+**farklı** dizilebilirdi ve fark testi (`D-01`) karşılaştırılamaz hâle
+gelirdi.
+
+---
+
+## K52 — Ayırt edici kanıt çakışmaları UYDURMA bir ayrımla kapatılmadı
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 4 · **Durum:** UYGULANDI
+
+Bağımsız inceleme, 43 belirtinin **28'inde** iki aday nedenin aynı
+gözlemi ürettiğini ve `distinguishing_evidence` alanlarının onları
+**gerçekten ayırmadığını** ölçtü. Şema alanın DOLU olmasını dayatıyordu;
+alanın **işini yapmasını** hiçbir şey dayatmıyordu.
+
+İki yol vardı:
+
+1. Her çakışma için yeni bir ayırt edici kanıt **yazmak.** Kolaydı ve
+   **uydurma** olurdu: elde o ayrımı destekleyen kanıt yok.
+2. Çakışmayı **kaydetmek ve okura söylemek.**
+
+**İkincisi seçildi.** `02_TAXONOMY/public/evidence_collisions.json`
+28 çakışmayı taşır; `atlas.py` ilgili girişe şu kutuyu basar:
+*"bu iki neden aynı görünebilir, ikisini de en ucuz testten başlayarak
+sına — bu senin kaçırdığın bir şey değil, yayımlanmış kanıtın bilinen
+sınırı."*
+
+**Bir teşhis kitabının en az yapabileceği şey, nerede teşhis
+koyamadığını bilmektir.** Ayrımların kendisi `D-02`'ye bağlıdır.
+
+---
+
+## K53 — Kalıp-dışı nedenler ÖNCE sunulur
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 4 · **Durum:** UYGULANDI
+
+Taksonomi aday nedenleri **olasılık** sırasına diziyordu. Adım 6 ise
+"en ucuz testi önce uygula" diyor ve en ucuz nedenler kalıba
+dokunmayanlardır (yapım, kesim, prova koşulu, tasarım).
+
+Bağımsız inceleme ölçtü: **20 kalıp-dışı nedenin hiçbiri ilk sırada
+değildi; 13'ü sonuncuydu.** Kitap kendi kuralının tersini yaptırıyordu.
+
+`atlas.py` sunum sırasını **kapı-önce** yaptı. Taksonominin olasılık
+sırası korunur; değişen yalnızca okura gösterilme sırasıdır ve gerekçe
+`h3` başlığında yazılıdır: *"Check these before the pattern."*

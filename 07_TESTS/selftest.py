@@ -1023,6 +1023,189 @@ def test_croquis_fit_never_overflows():
     check("croquis.fit() hiçbir kutuda TAŞMIYOR", not bad, f"taşanlar={bad[:3]}")
 
 
+# ══ FAZ 4 KAPILARI ═══════════════════════════════════════════════════
+
+def test_manuscript_gate_catches_missing_reobservation():
+    """B-01 yapısal olarak dayatılıyor mu — yoksa yalnızca umut mu ediliyor.
+
+    Çelişmeli inceleme B-01'i (YÜKSEK) Faz 4'e yazılı kısıt olarak
+    taşıdı. Bir kısıt, ihlal edildiğinde BİR ŞEY OLMUYORSA kısıt
+    değildir. Bu test yeniden gözlem adımını üreten kodu bozar ve
+    kapının bunu gördüğünü kanıtlar."""
+    sys.path.insert(0, str(paths.BUILD))
+    import atlas as _atlas
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    if not mdir.exists():
+        check("manüskript kapısı: manüskript yok, atlandı", True)
+        return
+    a = _atlas.AtlasBuilder("book-01", mdir)
+    sid = "SYM-001"
+    blocks = a.sign_entry(sid)
+    txt = " ".join(str(b.get("text", "")) for b in blocks)
+    check("her belirti girişi YENİDEN GÖZLEM adımı taşıyor (B-01)",
+          "reduced but has not gone" in txt)
+    check("her belirti girişi BELİRTİYE ÖZGÜ eleme taşıyor (B-03)",
+          any(b.get("text") == "Rule these out first" for b in blocks))
+    check("her belirti girişi 'henüz değiştirme' uyarısı taşıyor",
+          any(b.get("type") == "callout" for b in blocks))
+    # kusurlu içerik: 'partial' alanı boşaltılırsa kapı görmeli
+    saved = a.content[sid]["partial"]
+    a.content[sid]["partial"] = ""
+    blocks2 = a.sign_entry(sid)
+    txt2 = " ".join(str(b.get("text", "")) for b in blocks2)
+    a.content[sid]["partial"] = saved
+    check("boş 'azaldı ama gitmedi' metni girişi BOŞ bırakıyor",
+          txt2.rstrip().endswith("as well:"))
+
+
+def test_manuscript_gate_rejects_overclaim():
+    """§ 32 kalibre dil kapısı — hem yakalamalı hem YANLIŞ POZİTİF vermemeli.
+
+    İlk sürüm 13 yanlış pozitif üretti ve hepsi koşullu cümlelerdeydi
+    ('If the pressure goes, the cause is in the back'). Bir kapı,
+    yakalaması gerekeni yakalamalı ve BAŞKA HİÇBİR ŞEYİ
+    yakalamamalıdır."""
+    sys.path.insert(0, str(paths.BUILD))
+    import qa_manuscript as qm
+    import re as _re
+    hard = [_re.compile(x, _re.I) for x in qm.OVERCLAIM_HARD]
+    cond = [_re.compile(x, _re.I) for x in qm.OVERCLAIM_CONDITIONAL]
+
+    def flagged(sent: str) -> bool:
+        low = sent.lower()
+        neg = any(n in low for n in qm.NEGATION)
+        conditioned = any(c in low for c in qm.CONDITION_CUES)
+        if any(p.search(low) for p in hard) and not neg:
+            return True
+        return any(p.search(low) for p in cond) and not neg and not conditioned
+
+    check("KOŞULSUZ nedensellik yakalanıyor",
+          flagged("A horizontal fold always means the bodice is too long."))
+    check("'guarantee' yakalanıyor", flagged("This adjustment guarantees a good fit."))
+    check("KOŞULLU cümle SERBEST (yanlış pozitif yok)",
+          not flagged("If the pressure goes, the cause is in the back."))
+    check("HEDGE'li cümle SERBEST (yanlış pozitif yok)",
+          not flagged("The cause is often about fifteen centimetres lower."))
+    check("yasağı TANIMLAYAN cümle SERBEST",
+          not flagged("Do not write that a fold always means excess length."))
+    check("YORDAM kuralı SERBEST ('always' nedensel değil)",
+          not flagged("The hem is read last, always."))
+
+
+def test_adjustment_interactions_are_symmetric():
+    """interacts_with asimetrisi B-01'in cevabını çürütüyordu."""
+    fams = json.loads(paths.ADJUSTMENT_FAMILIES.read_text(encoding="utf-8"))["families"]
+    idx = {f["adjustment_family_id"]: set(f.get("interacts_with") or []) for f in fams}
+    bad = [(a, b) for a, peers in idx.items() for b in peers if a not in idx.get(b, set())]
+    check("interacts_with SİMETRİK (gerçek veri)", not bad, str(bad[:3]))
+    errors: list = []
+    broken = [dict(f) for f in fams]
+    broken[0] = dict(broken[0])
+    broken[0]["interacts_with"] = []
+    sys.path.insert(0, str(paths.BUILD))
+    from validate_spec import check_adjustment_interaction_symmetry
+    check_adjustment_interaction_symmetry(broken, errors)
+    check("kapı ASİMETRİK kaydı yakalıyor",
+          any("ASİMETRİK" in e for e in errors))
+
+
+def test_every_measurement_has_a_figure_in_the_book():
+    """Faz 4'te ÖLÇÜLEN kusur: 29 ölçüm figürünün hiçbiri kitapta yoktu.
+
+    Bütün kapılar yeşildi. Bir ölçü bölümünün işi şeridin yolunu
+    GÖSTERMEKTİR; metin tek başına onu yapamaz. B-10 sınıfı."""
+    sys.path.insert(0, str(paths.BUILD))
+    import atlas as _atlas
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    if not mdir.exists():
+        check("ölçüm figürü kapısı: manüskript yok, atlandı", True)
+        return
+    a = _atlas.AtlasBuilder("book-01", mdir)
+    blocks = a.measurement_chapter()
+    figured = {b["key"][len("meas_"):] for b in blocks
+               if b.get("type") in ("figure", "figtable")
+               and str(b.get("key", "")).startswith("meas_")}
+    missing = sorted(set(a.measures) - figured)
+    check("32 ölçünün HEPSİ kitapta bir figürle gösteriliyor",
+          not missing, f"eksik: {missing[:6]}")
+
+
+def test_internal_figures_never_reach_the_book():
+    """İç araç figürleri (tbl_af_index gibi) kitaba GİREMEZ."""
+    figs = json.loads(paths.book_figures("book-01").read_text(encoding="utf-8"))
+    internal = {m["source_file"][:-4] for m in figs["figure_meta"].values()
+                if m.get("source_file") and m.get("internal")}
+    check("sicilde iç araç figürü İŞARETLİ", len(internal) >= 1)
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    if not mdir.exists():
+        return
+    used = set()
+    for f in sorted(mdir.glob("*.json")):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for b in (d.get("blocks") or []):
+            if b.get("type") in ("figure", "figtable"):
+                used.add(b["key"])
+    check("hiçbir iç araç figürü manüskriptte KULLANILMIYOR",
+          not (used & internal), str(sorted(used & internal)))
+
+
+def test_claim_registry_derives_its_evidence_level():
+    """Bir iddia kendi kanıt seviyesini BEYAN EDEMEZ."""
+    sys.path.insert(0, str(paths.BUILD))
+    from build_claims import evidence_level
+    srcs = {"S-A": {"technical_authority": True, "verification_level": "fulltext",
+                    "acquisition_status": "public_access"},
+            "S-B": {"technical_authority": False, "verification_level": "official_web",
+                    "acquisition_status": "public_access"},
+            "S-C": {"technical_authority": True, "verification_level": "not_yet_acquired",
+                    "acquisition_status": "budget_pending"}}
+    check("kaynaksız iddia UNVERIFIED",
+          evidence_level("technical_reference_verified", [], srcs, False) == "UNVERIFIED")
+    check("otorite olmayan kaynak UNVERIFIED",
+          evidence_level("technical_reference_verified", ["S-B"], srcs, False) == "UNVERIFIED")
+    check("tam metin otorite + doğrulanmış kayıt VERIFIED",
+          evidence_level("technical_reference_verified", ["S-A"], srcs, False) == "VERIFIED")
+    check("ajan türevi kayıt VERIFIED OLAMAZ",
+          evidence_level("agent_drafted_unverified", ["S-A"], srcs, False) == "INFERRED")
+    check("edinilmemiş kaynak yükseltemez",
+          evidence_level("agent_drafted_unverified", ["S-C"], srcs, False) == "UNVERIFIED")
+    check("kayıtlı tanım çelişkisi CONTESTED",
+          evidence_level("technical_reference_verified", ["S-A"], srcs, True) == "CONTESTED")
+
+
+def test_conditional_phase4_does_not_claim_kill_gate():
+    """Kurucu geçersiz kılması (K49) kill-gate'i GEÇİLMİŞ gösteremez.
+
+    `phase4-production-conditional` kümülatif sırada `phase3-pilot`'tan
+    ÖNCEDİR. Bu, bir isimlendirme tercihi değil bir GÜVENLİKTİR: kapı
+    adı değiştirilerek yapılmamış bir ölçüm var edilemez."""
+    order = paths.BOOK_GATE_ORDER
+    check("koşullu Faz 4, phase3-pilot'tan ÖNCE",
+          order.index("phase4-production-conditional") < order.index("phase3-pilot"))
+    check("koşullu Faz 4 'phase3-pilot geçildi' DEMİYOR",
+          not paths.gate_at_least("phase4-production-conditional", "phase3-pilot", order))
+    check("koşullu Faz 4 'phase5-qa açık' DEMİYOR",
+          not paths.gate_at_least("phase4-production-conditional", "phase5-qa", order))
+    check("koşullu Faz 4 'phase2-visual tamam' DİYOR",
+          paths.gate_at_least("phase4-production-conditional", "phase2-visual", order))
+    # kill-gate bayrakları hâlâ kapalı olmalı
+    cfg = json.loads(paths.SERIES_CONFIG.read_text(encoding="utf-8"))
+    kg = cfg.get("killGate", {})
+    check("fark testi HÂLÂ ölçülmemiş",
+          not kg.get("differentiationTest", {}).get("measured"))
+    check("fiziksel doğrulama HÂLÂ ölçülmemiş",
+          not kg.get("physicalValidation", {}).get("measured"))
+    # kapı, bayrak açılırsa BAĞIRMALI
+    sys.path.insert(0, str(paths.BUILD))
+    from validate_spec import check_kill_gate_not_claimed
+    errs: list = []
+    check_kill_gate_not_claimed("book-01", errs)
+    check("gerçek veriyle koşullu Faz 4 denetimi TEMİZ", not errs, str(errs[:2]))
+
+
 def main():
     print("▸ selftest.py — kapıların kendi testi\n")
     for fn in (
@@ -1052,6 +1235,13 @@ def main():
         test_calibration_is_not_claimed_without_evidence,
         test_croquis_is_declared_non_anthropometric,
         test_croquis_fit_never_overflows,
+        test_manuscript_gate_catches_missing_reobservation,
+        test_manuscript_gate_rejects_overclaim,
+        test_adjustment_interactions_are_symmetric,
+        test_every_measurement_has_a_figure_in_the_book,
+        test_internal_figures_never_reach_the_book,
+        test_claim_registry_derives_its_evidence_level,
+        test_conditional_phase4_does_not_claim_kill_gate,
     ):
         fn()
 

@@ -17,6 +17,8 @@ run 06_BUILD/qa_boundary.py --verbose
 run 06_BUILD/qa_claims.py --verbose
 run 06_BUILD/qa_terminology.py --verbose
 run 06_BUILD/qa_visual.py --verbose
+run 06_BUILD/build_claims.py --check
+run 06_BUILD/qa_manuscript.py --verbose
 run 07_TESTS/selftest.py
 
 # ── RENDER KATMANI ────────────────────────────────────────────────────
@@ -25,6 +27,10 @@ run 07_TESTS/selftest.py
 # Bağımlılık yoksa çıkış kodu 2'dir ve UYARI sayılır, başarısızlık değil.
 echo "──────────────────────────────────────────────────────────────"
 "$PY" 06_BUILD/fetch_fonts.py --verify
+RC=$?
+if [ "$RC" -eq 1 ]; then FAIL=1; fi
+echo "──────────────────────────────────────────────────────────────"
+"$PY" 06_BUILD/build_book.py
 RC=$?
 if [ "$RC" -eq 1 ]; then FAIL=1; fi
 echo "──────────────────────────────────────────────────────────────"

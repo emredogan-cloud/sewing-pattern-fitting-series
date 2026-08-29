@@ -1,0 +1,681 @@
+{
+  "reviewer": "ease, pattern reading, size selection, and the pattern-adjustment family taxonomy",
+  "sources_consulted": [
+    {
+      "label": "Pattern Alteration, Guide C-228 (rev. Wendy Hamilton, orig. Susan Wright), Table 1 'Determining Total Pattern Measurements Using Personal Measurements Plus Ease' + footnote 3 + all bodice/skirt/pants alterations",
+      "publisher": "New Mexico State University Cooperative Extension Service",
+      "url": "https://pubs.nmsu.edu/_c/C228.pdf",
+      "accessed": "2026-08-29",
+      "quality": "official_institutional",
+      "reachable": true
+    },
+    {
+      "label": "Principles of Pattern Alteration, E-372 (Becky Culp, orig. manuscript), sections 'Know your measurements', 'To measure the pattern pieces', 'To alter the pattern', 'Check the altered fit'",
+      "publisher": "Texas AgriLife Extension Service, The Texas A&M System (copy hosted by Ohio State University Extension, Tuscarawas County)",
+      "url": "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+      "accessed": "2026-08-29",
+      "quality": "official_institutional",
+      "reachable": true
+    },
+    {
+      "label": "Making Perfect Pants, Guide C-227 — 'SELECTING A PATTERN SIZE', 'Measure Pattern', PANTS MEASUREMENT CHART (ease column + footnotes 1 and 2), 'ALTERING YOUR PATTERN'",
+      "publisher": "New Mexico State University Cooperative Extension Service",
+      "url": "https://pubs.nmsu.edu/_c/C227.pdf",
+      "accessed": "2026-08-29",
+      "quality": "official_institutional",
+      "reachable": true
+    },
+    {
+      "label": "Selecting a Pattern Size for Perfect Fit, Guide C-205 (rev. January 2015)",
+      "publisher": "New Mexico State University Cooperative Extension Service",
+      "url": "https://pubs.nmsu.edu/_c/C205.pdf",
+      "accessed": "2026-08-29",
+      "quality": "official_institutional",
+      "reachable": true
+    },
+    {
+      "label": "Check Your Pattern for Proper Fit, Guide C-220 (rev. April 2015) — 'The amount of ease in a pattern will vary from fashion to fashion and from one brand of pattern to another'; 28-point body/pattern comparison chart with a blank 'Usual Allowance for Ease' column",
+      "publisher": "New Mexico State University Cooperative Extension Service",
+      "url": "https://pubs.nmsu.edu/_c/C220.pdf",
+      "accessed": "2026-08-29",
+      "quality": "official_institutional",
+      "reachable": true
+    },
+    {
+      "label": "Louise Cutting, 'Ease Into Place', Threads #221, Spring 2023, pp. 70-71 — 'MINIMUM EASE / also called wearing ease' list and the 'FIT AND EASE' table",
+      "publisher": "Threads Magazine (The Taunton Press)",
+      "url": "https://www.threadsmagazine.com/membership/pdf/260641/T221-FT-Ease-Place.pdf",
+      "accessed": "2026-08-29",
+      "quality": "educational",
+      "reachable": true
+    },
+    {
+      "label": "Simplicity official size charts and measuring guide — B-cup drafting difference, high bust measuring instruction, size-selection rules for bust and for skirts & pants",
+      "publisher": "Simplicity Pattern Co. (pattern publisher technical documentation)",
+      "url": "https://simplicity.com/size-charts/",
+      "accessed": "2026-08-29",
+      "quality": "educational",
+      "reachable": true
+    },
+    {
+      "label": "Vogue / Butterick / McCall's official Fitting & Measuring Guide (retailer reproduction) — 'Select Your Pattern Size' tips, cup-size difference chart, Misses' ease-allowance table for dresses/blouses and for skirts/pants",
+      "publisher": "Jaycotts (reproduction of the Vogue-Butterick-McCall's fitting guide)",
+      "url": "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall",
+      "accessed": "2026-08-29",
+      "quality": "educational",
+      "reachable": true
+    },
+    {
+      "label": "Vogue / Butterick / McCall's size guide (second, independent retailer reproduction of the same fitting guide) — used to cross-check the Jaycotts text",
+      "publisher": "WeaverDee",
+      "url": "https://weaverdee.com/pages/sizes_vogue-butterick-mccall",
+      "accessed": "2026-08-29",
+      "quality": "educational",
+      "reachable": true
+    },
+    {
+      "label": "Ease (sewing) — definition, wearing ease vs design ease, two published numeric sets, citing Sophie English, 'Sewing Patterns: 200 Questions and Answers' (Chartwell Books, 2016) pp. 68-9 and Kenneth D. King, 'Smart Fitting Solutions' (Taunton Press, 2018)",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Ease_(sewing)",
+      "accessed": "2026-08-29",
+      "quality": "educational",
+      "reachable": true
+    },
+    {
+      "label": "Seam allowance — 'Commercial patterns for home sewers have seam allowances ranging from 1/4 to 5/8 inch (6.4 to 15.9 mm)'",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Seam_allowance",
+      "accessed": "2026-08-29",
+      "quality": "educational",
+      "reachable": true
+    },
+    {
+      "label": "'How to select pattern size for tops' — Palmer/Pletsch high-bust method, angled measuring technique, 'Misses' patterns are made for a B cup with 2\" (5cm) difference between bust and high bust measurement for each size'",
+      "publisher": "Palmer/Pletsch (Pati Palmer & Marta Alto), the originators of the high-bust size-selection method",
+      "url": "https://palmerpletsch.blog/how-to-select-pattern-size-for-tops/",
+      "accessed": "2026-08-29",
+      "quality": "expert_practitioner",
+      "reachable": true
+    },
+    {
+      "label": "'How to Calculate the Size of a Full Bust Adjustment' — sewing cup convention (B=2\", C=3\", D=4\"), 'the average sewing pattern is drafted using a B cup, but the average woman wears a D or DD bra cup'",
+      "publisher": "Cashmerette Patterns",
+      "url": "https://blog.cashmerette.com/2020/10/how-to-calculate-the-size-of-a-full-bust-adjustment.html",
+      "accessed": "2026-08-29",
+      "quality": "expert_practitioner",
+      "reachable": true
+    },
+    {
+      "label": "'Introducing High Bust Measurements on Cashmerette Patterns' — high bust used to pick a starting size against a published high-bust column rather than by subtracting a constant; 'there's no perfect, infallible method to picking a cup size'",
+      "publisher": "Cashmerette Patterns",
+      "url": "https://blog.cashmerette.com/2020/08/high-bust-measurements.html",
+      "accessed": "2026-08-29",
+      "quality": "expert_practitioner",
+      "reachable": true
+    },
+    {
+      "label": "'Why Upper Bust, Rather than Bust?' — 'No difference for Women with a standard B-Bust-Cup ... they will end up with the same result regardless'; cup ladder 1\"=A, 2\"=B, 3\"=C, 4\"=D, 5\"=DD",
+      "publisher": "dresspatternmaking.com (patternmaking reference site)",
+      "url": "https://dresspatternmaking.com/blog/why-upper-bust",
+      "accessed": "2026-08-29",
+      "quality": "expert_practitioner",
+      "reachable": true
+    },
+    {
+      "label": "ASTM D5585-21 Standard Tables of Body Measurements for Adult Female Misses Figure Type, Size Range 00-20 (catalogue record only; full standard is paywalled and was NOT read)",
+      "publisher": "ASTM International",
+      "url": "https://store.astm.org/d5585-21.html",
+      "accessed": "2026-08-29",
+      "quality": "standards_body",
+      "reachable": true
+    },
+    {
+      "label": "ASTM D5586/D5586M-10 Standard Tables of Body Measurements for Women Aged 55 and Older — withdrawn 2019 (catalogue record only; full standard NOT read)",
+      "publisher": "ASTM International",
+      "url": "https://www.astm.org/DATABASE.CART/WITHDRAWN/D5586D5586M.htm",
+      "accessed": "2026-08-29",
+      "quality": "standards_body",
+      "reachable": true
+    }
+  ],
+  "findings": [
+    {
+      "claim_id": "CC-08",
+      "claim": "Pattern sizing and ready-to-wear sizing are separate systems; the reader's ready-to-wear size does not predict the pattern size.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C220.pdf",
+        "https://pubs.nmsu.edu/_c/C227.pdf",
+        "https://store.astm.org/d5585-21.html",
+        "https://simplicity.com/size-charts/",
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall"
+      ],
+      "source_quality": "official_institutional + standards_body + pattern-publisher documentation",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "Pattern sizing and ready-to-wear sizing are separate systems, and a reader's ready-to-wear size does not predict the pattern size. Neither system is standardised: the US voluntary standard that once underpinned pattern sizing (PS 42-70, effective 1970, superseding Commercial Standard CS 215-58) was withdrawn by the Department of Commerce in 1983, and each pattern company now publishes its own body-measurement chart. Pattern sizes are therefore not interchangeable between pattern companies either, and the size number is never the thing to compare — only the measurements printed beside it.",
+      "notes": "The separation itself is not in doubt and is stated by the extension literature in a form the book can use: NMSU C-220 says verbatim 'The amount of ease in a pattern will vary from fashion to fashion and from one brand of pattern to another. Because of this, your usual size 12 pattern may not always fit you.' NMSU C-227 says 'patterns vary in fit from design to design, as well as from one brand of pattern to another.' WHAT THE CLAIM GETS WRONG BY OMISSION: it implies pattern sizing IS a coherent system. It is not. PS 42-70 was withdrawn in 1983 and nothing replaced it for patterns; ASTM D5585 (Misses, 00-20) and D5586 (women 55+) exist but are voluntary, D5586 was withdrawn in 2019, and they are consumer-apparel tables that pattern publishers do not follow. I read the ASTM catalogue records only - the standards themselves are paywalled and I did NOT read them, so the 'not followed by pattern companies' point rests on secondary reporting plus the direct observation that Simplicity's and the Vogue/Butterick/McCall's charts differ from Burda's. SOURCING DEFECT (separate from the claim's truth): CC-08 cites S-0007 (MSU Extension E-419, 'Fit for Fashion: The A-B-C's', 1963). The repository's own S-0007 record states 'KUNYE OKUNDU, ICERIK OKUNMADI' - the PDF is a scanned image with no text layer, its content was never read - and that the archive copy carries a 'do not use for current recommendations' warning. A claim about the current state of two sizing systems cannot rest on an unread 1963 document. Remove S-0007 from CC-08's source_refs or replace it with C-220."
+    },
+    {
+      "claim_id": "CC-09",
+      "claim": "Ease is the difference between the finished garment measurement and the body measurement, and it separates into wearing ease (movement) and design ease (silhouette).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Ease_(sewing)",
+        "https://www.threadsmagazine.com/membership/pdf/260641/T221-FT-Ease-Place.pdf",
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall",
+        "https://pubs.nmsu.edu/_c/C228.pdf"
+      ],
+      "source_quality": "educational (technical magazine + published books via encyclopaedia) + pattern-publisher documentation + official_institutional",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "Ease is the difference between the finished garment measurement and the body measurement. Convention divides it into wearing ease - the minimum a garment needs so the body can move and breathe - and design ease, the extra volume the designer added for silhouette. The boundary between the two is a judgement, not a measurement: a pattern described as 'fitted' carries roughly wearing ease alone, and everything a 'loose-fitting' pattern carries beyond that is design ease.",
+      "notes": "The wearing/design split is a genuine, long-standing industry distinction and NOT this project's invention. Threads #221 (Louise Cutting) heads its list 'MINIMUM EASE - Also called \"wearing ease\"' and gives 'DESIGN EASE - This is volume added to a pattern to achieve a desired look.' Wikipedia's Ease (sewing) article carries both terms with the same senses, citing Sophie English, Sewing Patterns: 200 Questions and Answers (Chartwell Books, 2016) pp. 68-9 and Kenneth D. King, Smart Fitting Solutions (Taunton, 2018). The Vogue/Butterick/McCall's fitting guide operationalises design ease as its Misses' ease-allowance table. THE CONFLICT IS WITH THE PROJECT'S OWN CITED SOURCE. CC-09 cites S-0001 (NMSU C-228) and nothing else. C-228 does not define ease as finished-garment-minus-body and never uses the phrase 'design ease' anywhere in the document (I extracted the full text and grepped it). Its only definition is footnote 3: 'Ease is the amount of give or movement a pattern has allowed beyond actual body measurements for flexibility of movement (e.g., a pattern may be sized to fit a 36-inch bust but may also include 2.5 inches of ease in the bust, providing a pattern bust measurement of 38.5 inches).' That is wearing ease only, expressed against the PATTERN measurement rather than the finished garment measurement - the very distinction the repository's own T-08/T-09 insist are different numbers. The claim is true; its citation does not support it. Add Threads #221 and the BMV ease table as sources. Also note a boundary the chapter must state: the binary split does not describe stretch fabrics, where negative ease is normal - the repository already excludes knits in SCOPE.md, so this only needs saying, not fixing."
+    },
+    {
+      "claim_id": "S-0001",
+      "claim": "S-0001 used_for: 'C-G ease konvansiyonu - Table 1 ease bantlari (bu depodaki TEK ease kaynagi)' - NMSU C-228 Table 1 is the repository's ease convention and its only ease source.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://pubs.nmsu.edu/_c/C227.pdf",
+        "https://www.threadsmagazine.com/membership/pdf/260641/T221-FT-Ease-Place.pdf",
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall"
+      ],
+      "source_quality": "official_institutional + educational + pattern-publisher documentation",
+      "conclusion": "CONTESTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "Do not present C-228 Table 1 as the book's ease convention. Present ease as two separately sourced things: (1) WEARING EASE, the minimum for movement - bust 2 1/2 to 3 in, waist 1 in or more for dresses and 1 to 1 1/2 in for skirts and trousers, hip 2 to 3 in, crotch depth 1/2 to 3/4 in (Threads #221); NMSU C-227's pants chart is slightly tighter at waist 1/2 to 1 in, high hip 1/4 to 1 in, hip 2 in, thigh 1 in, crotch depth and each crotch length 1/2 to 3/4 in. (2) TOTAL EASE BY FIT CATEGORY, which is what a pattern envelope's 'fitted / semi-fitted / loose-fitting' wording means - at the bust: close-fitting 0 to 2 7/8 in, fitted 3 to 4 in, semi-fitted 4 1/8 to 5 in, loose-fitting 5 1/8 to 8 in, very loose over 8 in; at the hip for skirts and trousers: close-fitting 0 to 1 7/8 in, fitted 2 to 3 in, semi-fitted 3 1/8 to 4 in, loose-fitting 4 1/8 to 6 in, very loose over 6 in. State that these are ranges from independent publishers and that the pattern in the reader's hand overrides them.",
+      "notes": "I VERIFIED C-228 TABLE 1 LINE BY LINE FROM THE PDF and it does not carry the load the repository puts on it. Its ease column reads: Bust 3-4; High Bust 3-4; Low Bust 3-4; Neckline 0.5-1; Shoulders 0.5; Back (shoulder to shoulder) 1-1.5; Upper Arm Circumference 0.5-2; Wrist 0.5-1; Derriere 2-4; Back (nape to waist) 1-2; Thighs 1-3; Inseam 0.5-1. Problems, in order of severity. (a) THERE IS NO WAIST ROW AT ALL. The book teaches size selection and ease at the waist and its declared ease source is silent there. (b) The table assigns 3-4 in of ease to HIGH BUST and LOW BUST. High bust is a size-selection reference, not a finished-garment circumference; adding ease to it is not standard practice in any other source I found, and a reader instructed to do so will compute a garment dimension that does not exist. (c) The table mixes girth ease with length allowances (Shoulders 0.5, Back nape-to-waist 1-2, Inseam 0.5-1) without saying they are different in kind. (d) The document contradicts itself: footnote 3's worked example uses 2.5 in of bust ease while Table 1's fitted band is 3-4 in. (e) The footnote to the table says the column is 'a range of ease measurements for constructing a fitted garment' - so it is TOTAL ease for one fit category, not wearing ease, and cannot be used to separate wearing from design ease, which is exactly what Chapter 3 needs it for. CORROBORATION AND CONTRADICTION AGAINST INDEPENDENT SOURCES: C-228's fitted bust band of 3-4 in is CORROBORATED exactly by two independent publishers - the Vogue/Butterick/McCall's Misses' ease-allowance table ('Fitted 3-4\"') and the Threads #221 FIT AND EASE table ('Fitted 3 inches to 4 inches'). That is real three-way agreement and the book can rely on it. C-228's 'Derriere 2-4' is WIDER than both (BMV skirts/pants fitted 2-3 in; Threads hips 2-3 in) and spans two fit categories. C-228's 'Thighs 1-3' CONTRADICTS the repository's own second NMSU source, C-227, which specifies thigh ease of 1 in flat. C-227 also carries a full ease column (waist 1/2-1 in, high hip 1/4-1 in, hip 2 in, crotch depth 1/2-3/4 in, crotch length front and back 1/2-3/4 in each) with the footnote 'Ease is for comfort. It varies with style, fabric, and how you wear your clothes.' So the assertion in the S-0001 record that C-228 is 'bu depodaki TEK ease kaynagi' is FALSE ON THE REPOSITORY'S OWN EVIDENCE: S-0002 (C-227) already in the repository carries a second and numerically different ease table that the source record does not mention. Finally, the waist figures genuinely disagree between authorities - C-227 says 1/2-1 in, Threads says 1 to 1 1/2 in for skirts and pants - and the book should record that disagreement rather than pick a number."
+    },
+    {
+      "claim_id": "CC-10",
+      "claim": "When the full bust exceeds the high bust by about 2 inches (5 cm) or more, the bodice size should be chosen from the high bust and the bust volume handled as a separate adjustment.",
+      "sources": [
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+        "https://simplicity.com/size-charts/",
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall",
+        "https://palmerpletsch.blog/how-to-select-pattern-size-for-tops/",
+        "https://dresspatternmaking.com/blog/why-upper-bust",
+        "https://blog.cashmerette.com/2020/10/how-to-calculate-the-size-of-a-full-bust-adjustment.html"
+      ],
+      "source_quality": "official_institutional + pattern-publisher documentation + expert_practitioner",
+      "conclusion": "CONTESTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "A bodice pattern is drafted to one assumed bust cup, stated as a fixed difference between the pattern's own high bust and full bust: Vogue, Butterick and McCall's state 2 in (5 cm); Simplicity states 2 in (5 cm) in its chart and 2 1/2 in (6.3 cm) in the footnote to its own size-selection rule. Measure your high bust by the method that pattern specifies, subtract it from your full bust, and compare the difference to the figure that pattern states. If your difference is no larger than the pattern's figure, take the size from the full bust and make no bust adjustment. If it is larger, take the bodice size from the high bust and carry the remainder as a separate bust adjustment. Two inches is not a universal threshold - it is one company's drafting assumption, and the same body gives different high bust readings depending on whether the tape is run straight under the arms or angled, so the measuring method must be fixed before the threshold means anything.",
+      "notes": "THIS IS THE HIGHEST-RISK CLAIM IN MY DOMAIN AND IT FAILS ON THREE SEPARATE COUNTS. (1) IT MISSTATES ITS OWN SOURCE. CC-10 cites S-0003 (Texas AgriLife E-372) and nothing else. I extracted E-372's full text. It says verbatim: 'For best results, top and dress pattern sizes are usually selected according the best fit between the high bust and full bust measurement. Select the smaller size pattern if the full bust measurement is 2 or more inches larger than the high bust measurement. Fit across the upper chest is a wiser choice because of the difficulty of altering the upper chest, neck and shoulder areas.' The instruction is SELECT THE SMALLER SIZE PATTERN - step down one size between two candidates. It is NOT 'choose the bodice size from the high bust'. For a 5-inch difference those two instructions diverge by several sizes. E-372 also never says to handle the bust as a separate adjustment in that passage. (2) THE THRESHOLD IS NOT 2 INCHES ACROSS AUTHORITIES. Vogue/Butterick/McCall's fitting guide: 'If there is more than 2\"(5cm) difference between your Bust and Chest measurement, select pattern size by your chest measurement, because you will achieve a better fit through your shoulders, chest and upper back; adjust the Bust if necessary' - MORE THAN 2 in, and its cup chart reads 'Up to 1\" (2.5cm) A; Up to 2\" (5cm) B; Up to 3\" (7.5cm) C; Up to 4\" (10cm) D', so exactly 2 in is still the drafted B cup. Simplicity: 'Bust: If you have more than 2 1/2\" (6.3cm) difference between bust and high bust, select your pattern size by high bust measurement' - MORE THAN 2 1/2 in. Texas E-372: 2 or more inches, different action. Palmer/Pletsch, who originated the method, use NO threshold at all: they read the high bust number straight against the bust column of the size chart every time. So the published thresholds are >2, >2.5, and >=2-with-a-different-action, plus one authority that rejects thresholds. (3) THE RULE IS DEPENDENT ON THE PATTERN'S OWN DRAFTED CUP AND THE CLAIM IS WRONG AT ITS OWN BOUNDARY. Every source agrees the threshold exists only because patterns are drafted to an assumed cup: Palmer/Pletsch, 'Misses' patterns are made for a B cup with 2\" (5cm) difference between bust and high bust measurement for each size'; Cashmerette, 'The average sewing pattern is drafted using a B cup ... subtract 2\" (5cm) from the full bust measurement to find the corresponding high bust measurement'. dresspatternmaking states the consequence explicitly: 'No difference for Women with a standard B-Bust-Cup - for women with B-bust-cups, there is no added benefit of using this method rather than the usual method; they will end up with the same result regardless.' At exactly 2 inches the reader IS the drafted cup: sizing by high bust is a no-op, and the second half of CC-10 - 'the bust volume handled as a separate adjustment' - instructs a reader who needs no bust adjustment to make one, which adds volume that is not needed. The harm is real and it is caused by 'or more' where the sources say 'more than'. (4) A FURTHER INSTABILITY THE BOOK MUST NOT HIDE: the high bust itself is not measured the same way by all authorities. Simplicity: 'directly under the arms, straight across the back and above the bust'. BMV: 'Measure across the back, high up under the arm and across top of bust'. NMSU C-228: 'Measure just above breasts, under the arms, and across the fullest part of the back'. Palmer/Pletsch: 'Measure below the shoulder blades in the back and above the full bust in the front' - an angled tape, and their own post says the pattern companies' straight-under-the-arms technique 'proved difficult to measure consistently'. A body can land on either side of a 2-inch line depending on which method is used, so a numeric threshold is only meaningful once the measuring method is pinned. Also worth recording: Simplicity's single page states its B-cup drafting difference as BOTH 2\" and 2 1/2\" - the pattern company cannot state its own assumption consistently, which is itself the strongest argument for teaching the reader to read the pattern rather than memorise a number. NO SOURCE I FOUND DISPUTES the underlying rationale (fit the shoulder/upper chest first because those areas are hardest to alter); the dispute is entirely about the number and the action."
+    },
+    {
+      "claim_id": "CC-11",
+      "claim": "For skirts and trousers the size is chosen from the hip, because hip adjustments are harder to make than waist adjustments.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C227.pdf",
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall",
+        "https://simplicity.com/size-charts/",
+        "https://weaverdee.com/pages/sizes_vogue-butterick-mccall"
+      ],
+      "source_quality": "official_institutional + pattern-publisher documentation",
+      "conclusion": "CONTESTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "Which measurement selects the size for a skirt or trousers is not settled, and the pattern in your hand decides it. New Mexico State University's pants guide selects by the full hip - 'Because fit at the hip is difficult to alter, select a pattern size according to measurements at the fullest part of your hips' - and Burda selects skirts and trousers by the hip. The Vogue/Butterick/McCall's and Simplicity fitting guides select by the WAIST and move to the hip only when the hip is much larger (Simplicity: two sizes or more). Follow the instruction printed with your pattern. Where none is given, select by the hip and blend to your waist size, and record on your fit profile which rule you used, because the two rules put the unavoidable alteration in different places.",
+      "notes": "THE RULE AS WRITTEN IS CONTRADICTED BY THE INSTRUCTIONS PRINTED ON THE PATTERNS THIS BOOK'S DECLARED US READER WILL ACTUALLY BUY. Vogue/Butterick/McCall's official fitting guide, verbatim: 'For Skirts, Pants, Shorts, and Culottes, select size to correspond with your Waist measurement. Adjust the Hip, if necessary. If your Hips are much larger than your Waist, select the size closest to your Hip measurement and adjust the Waist.' I confirmed this text on two independent retailer reproductions of the same guide (Jaycotts and WeaverDee) after mccallpattern.mccall.com 301-redirected to simplicity.com - I could NOT reach the guide on a publisher-owned domain, and I say so. Simplicity official, verbatim: 'Skirts & Pants: Waist measurement: If your hips are two sizes or more larger than your waist, use hip measurement.' Both major US pattern groups therefore make the WAIST the default and the hip the exception. FOR THE CLAIM: NMSU C-227 says verbatim 'Because fit at the hip is difficult to alter, select a pattern size according to measurements at the fullest part of your hips, usually 8-9 inches below the waistline' - this is the exact rule AND the exact reason CC-11 gives, so the claim is not invented. Burda's published guidance also selects skirts and trousers by the hip. Modern indie practice (Closet Core, Tilly and the Buttons) selects by hip and blends to the waist. TWO NARROWER PROBLEMS. First, SCOPE: S-0002 is titled 'Making Perfect Pants' and its size-selection sentence is about pants. Extending it to SKIRTS is the project's extrapolation, not the source's statement; Burda covers skirts but was reached only through a search-engine summary because the official Burda sizing PDF returned HTTP 403 and I could not read it. Second, THE REASON IS ONE CAMP'S REASON, NOT A FACT: no source I found states comparatively that 'hip adjustments are harder than waist adjustments'. C-227 says hip fit is difficult to alter; the Big Four's default implies they consider the waist the harder anchor on a waistband garment. Presenting a contested default as a causal rule is the failure mode here. Also incidental but relevant to Chapter 2: the sources place the full hip at four different depths - C-227 '7-9 inches below waist' in one place and '8-9 inches' in another, E-372 '10 inches below the waist', C-220 'usually, it is 6-10 inches below the waist'. A hip-based size rule inherits that spread."
+    },
+    {
+      "claim_id": "CC-12",
+      "claim": "A flat pattern measurement is only comparable to a body measurement after seam allowances, darts and overlaps have been accounted for.",
+      "sources": [
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+        "https://pubs.nmsu.edu/_c/C227.pdf",
+        "https://en.wikipedia.org/wiki/Seam_allowance"
+      ],
+      "source_quality": "official_institutional + educational",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "A flat pattern measurement is comparable to a body measurement only when it is taken along the seamlines, with darts, pleats, tucks and gathers folded or pinned out as they will be sewn, any button or front extension excluded, the tape following the curve of the piece, and every piece cut double or on the fold counted twice. Where a pattern prints seamlines, measure between them and no arithmetic is needed. Where it prints only a cutting line, subtract the seam allowance that pattern states: it is not always 5/8 in (1.5 cm). Home-sewing patterns carry seam allowances from 1/4 in to 5/8 in, many independent patterns use 3/8 in or 1 cm, and Burda magazine patterns include no seam allowance at all.",
+      "notes": "THE PRINCIPLE IS WELL SOURCED. Texas E-372, verbatim: 'First, smooth the pattern pieces flat. Pin in darts, pleats or gathers as though sewn. Measure from seamline to seamline. Carefully follow the shape of the pattern piece in the area measured. For example, waist and side seamlines often curve, so the tape measure also should curve along the seamline. For a sharp curve such as the crotch, turn the tape measure on its side for ease in following the curve.' And: 'Be sure that totals reflect how the pattern will be cut ... For each pattern piece cut double or on the fold, multiply by 2.' NMSU C-227, verbatim: 'Place the measuring tape flat across pattern for all straight measurements. Stand the tape on edge for all measurements that are on a curve. Do not include darts or seam allowances in any of the measurements.' Both sources therefore support 'seam allowances' and 'darts'. TWO CORRECTIONS. (1) 'OVERLAPS' IS UNSOURCED. Neither cited source mentions extensions or overlaps. The instruction is technically right for a button-front piece (you measure to the centre front, not to the extension edge) but it is the project's own addition and should be sourced or reworded. Note also that both sources add requirements CC-12 omits and that matter more in practice: pin the darts AS SEWN rather than merely subtracting intake, follow curves with the tape on edge, and double the pieces cut on the fold - the last of these is the most common arithmetic error in pattern measuring and the claim does not mention it. (2) THE PROJECT'S OWN ADVERSARIAL FINDING B-06 IS CORRECT AND ITS SEVERITY IS UNDERSTATED. DECISIONS.md asserts in three places that 'ABD ev dikisinin standart dikis payi 5/8 inctir ve buyuk kalip yayincilarinin ortak konvansiyonudur' with evidence level OBSERVED. The narrow version - the four largest US home-sewing pattern brands print 5/8 in - is true. The version the measuring method needs - that 5/8 in is a safe default for any pattern the reader picks up - is NOT. Wikipedia's Seam allowance article states 'Commercial patterns for home sewers have seam allowances ranging from 1/4 to 5/8 inch (6.4 to 15.9 mm)', Burda magazine patterns are drafted with NO seam allowance and expect the sewer to add their own, and independent PDF patterns commonly use 3/8 in, 1/2 in, 1 cm or 1.6 cm. B-06 is logged at severity DUSUK ('LOW') on the ground that it 'does not appear in the pilot'. That is a scope argument, not a safety argument: the moment Chapter 3 teaches flat pattern measurement it becomes load-bearing, and a wrong 5/8 in assumption on four seams is 1 1/4 in of girth mis-attributed to the pattern - the identical error CC-15 already warns about for toiles. Raise B-06 and make the seam-allowance value a thing the reader READS off the pattern, never assumes. THE SAFEST FRAMING, and the one both extension sources use, avoids the arithmetic entirely: measure seamline to seamline where seamlines are printed. INTERNAL INCONSISTENCY: terminology.json T-09 defines 'flat pattern measurement' as 'Kalip parcasi uzerinden, DIKIS PAYLARINI CIKARARAK alinan olcu' - seam allowances only. It omits darts, which both cited sources treat as mandatory and which CC-12 itself names. T-09 and CC-12 must be made to agree."
+    },
+    {
+      "claim_id": "T-05",
+      "claim": "block = 'Okurun kendi olculerinden cizilmis, tasarim detayi icermeyen temel kalip', with 'sloper (ABD kullanimi)' recorded as a TAM ESDEGER (full equivalent).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Ease_(sewing)",
+        "https://dresspatternmaking.com/blog/why-upper-bust"
+      ],
+      "source_quality": "educational + expert_practitioner",
+      "conclusion": "CONTESTED",
+      "confidence": "MEDIUM",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "block: a basic pattern carrying no design detail, from which garment patterns are developed. In US usage the near-equivalent term is 'sloper'; the two are commonly used interchangeably, but several patternmaking references reserve 'sloper' for a fitting shell drafted with no seam allowances and little or no ease, while a 'block' normally carries wearing ease. This series uses 'block' for a basic pattern drafted from the reader's own measurements and carrying wearing ease, and treats 'sloper' as the US term for the same object.",
+      "notes": "Two problems with T-05 as written. (a) 'TAM ESDEGER' overstates the equivalence. Multiple patternmaking references distinguish the terms: a sloper is described as drafted from specific body measurements and NOT usually including seam allowance or wearing ease because it is not meant to be worn, whereas a block is described as carrying minimum ease (wearing ease) with design ease added later. Others do use them interchangeably and note only US-versus-international usage. This is a genuine terminological disagreement, so declaring full equivalence in a controlled vocabulary that qa_terminology.py mechanically enforces will make the series assert something the literature does not settle. (b) The definition ties 'block' to the READER'S OWN measurements. That is a personal block. Industry blocks are drafted to a standard size chart. Since Book 3's title carries this term and Book 1 introduces it, the definition should name the ease status (blocks carry wearing ease, which is what makes them different from a zero-ease fitting shell) rather than the provenance. I did not have access to Armstrong or Aldrich directly - only secondary summaries - so I mark this MEDIUM, not HIGH."
+    },
+    {
+      "claim_id": "T-06",
+      "claim": "wearing ease = 'Giysinin hareket ve nefes icin gereken, tasarimdan bagimsiz asgari fazlaligi.'",
+      "sources": [
+        "https://www.threadsmagazine.com/membership/pdf/260641/T221-FT-Ease-Place.pdf",
+        "https://en.wikipedia.org/wiki/Ease_(sewing)"
+      ],
+      "source_quality": "educational",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "wearing ease: the minimum excess a garment needs so the body can move and breathe, independent of the design. It is not a constant - published sources give bust 2 1/2 to 3 in, waist 1 in or more, hip 2 to 3 in for an average figure, and note that larger figures need proportionally more.",
+      "notes": "The definition matches Threads #221's 'MINIMUM EASE / Also called \"wearing ease\", it is needed for a garment to go around the body, be reasonably comfortable, and not look as though it is under much strain.' The narrowing the book needs: Threads adds in the same sentence 'Small figures can follow the list below; larger figures may need proportionally more wearing ease for comfort and mobility.' Since this book's target reader is by definition someone whose body sits outside the pattern's assumed proportions, a definition that presents wearing ease as a fixed constant will fail exactly the reader it was written for."
+    },
+    {
+      "claim_id": "T-07",
+      "claim": "design ease = 'Tasarimcinin siluet icin bilerek ekledigi fazlalik.'",
+      "sources": [
+        "https://www.threadsmagazine.com/membership/pdf/260641/T221-FT-Ease-Place.pdf",
+        "https://en.wikipedia.org/wiki/Ease_(sewing)",
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall"
+      ],
+      "source_quality": "educational + pattern-publisher documentation",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": false,
+      "proposed_wording": null,
+      "notes": "Matches Threads #221: 'DESIGN EASE - This is volume added to a pattern to achieve a desired look. It can be a couple of inches or many. Note that this ease is usually circumferential. Lengthwise ease is added only if a garment is intended to drape or blouse.' The lengthwise point is worth importing into the chapter, since the book's fold-axis rule (CC-22) reads vertical excess as a length fault - and on a garment designed to blouse, lengthwise design ease is exactly that and is not a fault. Also matches the Vogue/Butterick/McCall's ease-allowance table, which is a design-ease table in all but name."
+    },
+    {
+      "claim_id": "T-08",
+      "claim": "finished garment measurement = 'Bitmis giysinin belirli bir noktadaki gercek olcusu (vucut olcusu + wearing ease + design ease)'.",
+      "sources": [
+        "https://www.threadsmagazine.com/membership/pdf/260641/T221-FT-Ease-Place.pdf",
+        "https://pubs.nmsu.edu/_c/C228.pdf"
+      ],
+      "source_quality": "educational + official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "MEDIUM",
+      "conflict_found": false,
+      "required_revision": false,
+      "proposed_wording": null,
+      "notes": "The decomposition is the standard one and is consistent with C-228's footnote arithmetic (36 in body + 2.5 in ease = 38.5 in pattern measurement). One caution the chapter should carry rather than a defect in the term: the decomposition only holds where the garment circumference is taken at a level the body actually occupies. A printed finished-garment measurement at the hem or sweep of a flared skirt, or at the hip of a garment that hangs from the shoulders and never touches the hip, is not 'body plus ease' in any diagnostic sense, and subtracting the body measurement from it produces a number that means nothing. Also note C-228 expresses the sum against the PATTERN measurement, not the finished garment measurement - the repository's own T-08/T-09 treat those as different numbers, so C-228 cannot be cited for T-08 without that caveat."
+    },
+    {
+      "claim_id": "T-09",
+      "claim": "flat pattern measurement = 'Kalip parcasi uzerinden, dikis paylarini cikararak alinan olcu.'",
+      "sources": [
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+        "https://pubs.nmsu.edu/_c/C227.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "flat pattern measurement: a measurement taken on the pattern piece along its seamlines, with darts, pleats, tucks and gathers folded out as they will be sewn and any front extension excluded, following the curve of the piece; pieces cut double or on the fold are counted twice.",
+      "notes": "The definition names only seam allowances. Both cited extension sources make dart exclusion mandatory and equally important - C-227: 'Do not include darts or seam allowances in any of the measurements'; E-372: 'Pin in darts, pleats or gathers as though sewn. Measure from seamline to seamline.' As written, T-09 is narrower than CC-12, which names seam allowances, darts AND overlaps. A controlled vocabulary whose term definition contradicts the conceptual claim that uses it is an internal-consistency failure that qa_terminology.py will not catch, because it checks banned synonyms, not definitional scope - this is a live instance of the memory note that gates do not catch the question they were not asked."
+    },
+    {
+      "claim_id": "T-10",
+      "claim": "high bust = 'Kollarin USTUNDEN, gogus dokusunun uzerinden gecen ust gogus cevresi.'",
+      "sources": [
+        "https://simplicity.com/size-charts/",
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall",
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://palmerpletsch.blog/how-to-select-pattern-size-for-tops/"
+      ],
+      "source_quality": "pattern-publisher documentation + official_institutional + expert_practitioner",
+      "conclusion": "CONTRADICTED",
+      "confidence": "MEDIUM",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "high bust: the upper chest circumference taken with the tape passing UNDER the arms, above the breast tissue in front and straight across the back. Different authorities specify different paths for the tape - Simplicity 'directly under the arms, straight across the back and above the bust'; Vogue/Butterick/McCall's 'across the back, high up under the arm and across top of bust'; Palmer/Pletsch angle it, 'below the shoulder blades in the back and above the full bust in the front' - and these give different numbers on the same body. Use the method your pattern company specifies and record which one you used.",
+      "notes": "Every authority I found runs the tape UNDER the arms. T-10 says 'kollarin USTUNDEN' - over/above the arms. If a reader takes that literally the tape crosses the deltoids and the high bust reading is inflated, which shrinks the full-bust-minus-high-bust difference and can flip the CC-10 decision to the wrong branch. I flag this at MEDIUM rather than HIGH confidence because the Turkish phrase is ambiguous and may be a translation slip for 'from the top of the arms', i.e. at armpit level, rather than a technical error - but a decision-bearing definition cannot be left ambiguous. The second half, 'gogus dokusunun uzerinden gecen', should read ABOVE the breast tissue, not over it, for the same reason. Because CC-10's threshold is method-dependent (see that finding), the definition must name the method, not just the landmark."
+    },
+    {
+      "claim_id": "AF-01",
+      "claim": "Bust volume (full / small bust adjustment). pattern_area: 'Front bodice: apex region, side seam, bust dart, armhole edge'. order_constraint: after shoulder and neck adjustments; before side seam / waist adjustments.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "pattern_area: 'Front bodice: apex region, centre front, side seam, bust dart, waist dart, armhole edge'",
+      "notes": "The order is well supported. E-372: 'Begin with lengthwise alterations at the shoulder or neck and work down ... Many problems in side seams, bust area or length disappear when the pattern is correctly fitted in the neck and shoulder area.' Published fitting sequences put the bust adjustment after length and after the upper back/shoulder and before the side seams and hips. THE PATTERN_AREA IS INCOMPLETE against its own cited source: C-228's Full Bust procedure reads 'Slash across the pattern along bust dart foldline to CENTER FRONT. Slash across the pattern from waist to shoulder along WAIST DART foldline. Spread the desired amount at CENTER FRONT and bust area. Do not spread at shoulder seam.' Centre front and the waist dart are named by the source and missing from the record; both are places the reader must look, and a diagnostic book that names pattern areas must name the ones the adjustment actually moves."
+    },
+    {
+      "claim_id": "AF-02",
+      "claim": "Bust position (apex height / width, dart angle). pattern_area: 'Front bodice: dart legs, dart point, apex marker'. order_constraint: with or immediately after AF-01; the two are separate decisions.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "MEDIUM",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "interacts_with: add AF-11 and AF-14 (a torso-length or back-length change moves the apex relative to the waist, so apex height must be re-read after any length adjustment).",
+      "notes": "The pattern_area is technically correct and C-228's 'High Bust' and 'Low Bust' alterations are exactly this family (fold out above or below the dart and re-lengthen or shorten the waistline dart). Separating volume from position is sound and matches practice. THE GAP IS THE INTERACTION SET: AF-02 lists only AF-01. Apex height is measured from the shoulder or the waist, so any AF-11 (torso length) or AF-14 (sway back, which moves the back waist) change relocates it. Given the book's own length-before-width rule, apex position is the family most likely to be silently invalidated by an earlier length adjustment, and the record does not say so."
+    },
+    {
+      "claim_id": "AF-03",
+      "claim": "Shoulder slope (square / sloping shoulder). pattern_area: 'Front and back bodice: shoulder seam, armhole top'. order_constraint: one of the EARLIEST adjustments - when the shoulder position changes, everything below it shifts.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": false,
+      "proposed_wording": null,
+      "notes": "Both pattern_area and order_constraint are correct and directly sourced. C-228 'Sloping Shoulders: Redraw shoulder seam and armscye seams, sloping and lowering them the desired amount. Be sure to redraw seams on both front and back pattern pieces' and 'Square Shoulders: Redraw shoulder seam and armscye seams, raising them the desired amount.' E-372: 'Begin with lengthwise alterations at the shoulder or neck and work down.' This is the best-founded record in the file."
+    },
+    {
+      "claim_id": "AF-04",
+      "claim": "Shoulder width (narrow / broad shoulder). pattern_area: 'Front and back bodice: shoulder seam length, armhole position'. order_constraint: after AF-03, before AF-08.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "Data fix only: AF-04 lists AF-09 in interacts_with but AF-09 does not list AF-04. Make the relation reciprocal or drop it.",
+      "notes": "Technically correct and sourced. C-228 'Broad Shoulders: Slash from midpoint of shoulder down and across to the middle of armscye. Spread pattern the desired amount ... Be sure to complete alterations for both bodice front and back'; 'Narrow Shoulders' is the mirror. Order is consistent with E-372's top-down width pass. The only defect is the asymmetric interacts_with edge."
+    },
+    {
+      "claim_id": "AF-05",
+      "claim": "Shoulder position (forward shoulder). pattern_area: 'Front and back bodice: shoulder seam line, armhole'. order_constraint: evaluated together with AF-03; the two are often confused. source_refs: [] , verification_status: agent_drafted_unverified.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf"
+      ],
+      "source_quality": "official_institutional + expert_practitioner",
+      "conclusion": "UNSUPPORTED",
+      "confidence": "MEDIUM",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "order_constraint: 'Bir OMUZ DIKISI KONUMU degisikligidir - AF-03 (egim) ve AF-04 (genislik) ile karistirilir; ucu de omuz turunden ONCE ayirt edilmelidir. AF-08 kol oyuntusunu degistirdigi icin AF-08 ile birlikte okunur.' Also add AF-04 and AF-08 to interacts_with.",
+      "notes": "The pattern_area is technically correct: a forward-shoulder adjustment removes width from the front shoulder, adds the same amount to the back shoulder, and the back armscye is then re-smoothed. But this is the only family in the file with an EMPTY source_refs list, and its status is honestly marked agent_drafted_unverified. I could not find it in C-228, C-227, C-220, C-205 or E-372 - none of the five extension guides I read contains a forward-shoulder adjustment. It is well attested in the practitioner literature but not in the repository's institutional source base, so it currently rests on nothing. Two scope defects: (a) the order_constraint pairs it only with AF-03 (slope), whereas the more common misdiagnosis is against AF-04 (narrow shoulder), since both present as a shoulder seam not landing on the shoulder; (b) its own pattern_area names the armhole but AF-08 is absent from interacts_with. Practitioner sources also bound the adjustment - typically 3/8 in and rarely more than 5/8 in before a different adjustment is indicated - and the record carries no magnitude boundary, which for a Book 1 diagnostic entry point is the difference between 'this is your fault' and 'this is not your fault'."
+    },
+    {
+      "claim_id": "AF-06",
+      "claim": "Neckline size and shape. method_families: ['curve_reshape','seam_line_shift']. order_constraint: AFTER shoulder adjustments - if the shoulder moves, the neck curve moves with it.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "method_families: ['curve_reshape','seam_line_shift','dart_manipulation']. Add to notes: 'S-0003 uyarisi - boyun, omuz ve kol oyuntusu bicimini gerekenden fazla degistirme; bu bolgeler yeniden sekillendirmesi en zor bolgelerdir.'",
+      "notes": "TWO DEFECTS, both against the record's own cited source. (a) METHOD FAMILY MISSING. C-228's neckline alterations are not all curve reshaping: 'Gaping Neckline: Slash from neckline down through bust area to waist. Overlap the desired amount on neck edge; the waistline dart will become larger.' That is dart manipulation - the excess is transferred into the waist dart - and it is the single most common neckline fault a fitting book will meet. The record's method_families omit it, so the family as scoped cannot express its own source's principal procedure. (b) A SOURCED CAUTION IS MISSING. E-372 says verbatim 'Do not change the shape of the shoulders, armholes or neckline any more than necessary. These areas are difficult to reshape and alter. Usually, it is better to buy a pattern that fits these areas and then alter other parts of the pattern.' For a book whose whole method is 'diagnose before you cut', an explicit source-backed 'do not cut here if you can avoid it' belongs in the record. ON THE ORDER: geometrically defensible, but note it sits in mild tension with E-372's literal width-pass instruction, 'Finish with the alterations for width, again beginning at the neck and working down', which starts the width pass AT the neck. The tension resolves if the book states that the neckline is re-trued after shoulder work rather than adjusted before it - but the book must say which, because the source can be read either way. AF-06 also lists AF-03 in interacts_with without reciprocation."
+    },
+    {
+      "claim_id": "AF-07",
+      "claim": "Upper back (round back / broad back / narrow back) as a single family. order_constraint: read together with AF-11 (length/balance) - a round back needs both width and length.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "CONTRADICTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "Split AF-07. Keep 'Upper back width (broad / narrow back)' as a WIDTH family belonging to the width pass, and move round back to a posture/length family read with AF-11 in the LENGTH pass. If the split is refused, the order_constraint must read: 'Yuvarlak sirt BOY gecisinde, genis/dar sirt GENISLIK gecisinde yapilir - ikisi ayni ailede ama AYNI TURDA DEGIL ve ayni anda yapilamaz (S-0003 boy-once-genislik kurali).'",
+      "notes": "THE FAMILY VIOLATES THE SERIES' OWN ORDERING RULE. E-372, verbatim: 'Make only one alteration at a time. Begin with lengthwise alterations at the shoulder or neck and work down. Finish with the alterations for width, again beginning at the neck and working down.' A round back is a length-and-posture correction (C-228 'Round Shoulders: Slash across the back from center back to armscye. Slash down from middle of neckline curve. Spread the desired amounts, making the addition at the neckline a new dart'), while broad back and narrow back are pure width corrections (C-228 'Narrow Back: Slash from shoulder to waist. Slash from underarm side seam to first slash. Overlap pattern sections the desired amount'). CC-28 asserts the length-before-width rule as a book-level claim; AF-07 packages a length correction and a width correction into one family whose order_constraint says only 'read together with AF-11'. A reader following the record does both in one pass and violates the rule the book states two chapters earlier. This is an internal contradiction between the taxonomy and the claim set, and it is grounded in the wording of the source both cite. AF-07 also lists AF-08 in interacts_with without reciprocation - which matters here, because a broad-back or round-back change definitely alters the back armscye."
+    },
+    {
+      "claim_id": "AF-08",
+      "claim": "Armhole depth and shape. order_constraint: the LAST bodice adjustment - every adjustment above it changes the armhole. verification_status: agent_drafted_unverified, source_refs: ['S-0001'].",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional + expert_practitioner",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "MEDIUM",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "order_constraint: 'SON bodice duzeltmesi - ustundeki her duzeltme kol oyuntusunu degistirir, bu yuzden kol oyuntusu KENDI BASINA duzeltilmeden once yukarisinin bittigi dogrulanir. S-0003 uyarisi: kol oyuntusu bicimini gerekenden fazla degistirme; cogu durumda kol oyuntusu, yukaridaki duzeltmeler bitince KENDILIGINDEN duzelir ve ayri bir mudahale gerektirmez.'",
+      "notes": "The ordering principle is sound and is the consensus of the practitioner literature: the shoulder slope, armhole depth, across-back, across-front and armhole width must all be correct before sleeve fit can be assessed, and the standard teaching is that a correct armhole is a CONSEQUENCE of a correctly fitted bodice rather than an independent target. TWO PROBLEMS. (a) THE SOURCE REFERENCE DOES NOT COVER IT. C-228 is listed in source_refs but contains no standalone armhole alteration - it treats the armscye only as something redrawn by the shoulder alterations. The record's own agent_drafted_unverified status is therefore correct and the S-0001 reference is decorative; either find a source or drop the reference so the evidence layer is not inflated. (b) THE SOURCED CAUTION IS ABSENT. E-372 explicitly advises against reshaping armholes: 'Do not change the shape of the shoulders, armholes or neckline any more than necessary. These areas are difficult to reshape and alter.' A family whose order says 'do this last' but never says 'you may well not need to do this at all' will push readers into the hardest available cut. Also: AF-07 names AF-08 as an interaction and AF-08 does not reciprocate, which is precisely backwards given this record's own stated rationale."
+    },
+    {
+      "claim_id": "AF-09",
+      "claim": "Sleeve cap (height, shape, ease). order_constraint: the sleeve cap is not adjusted until the armhole (AF-08) is SETTLED - the most common ordering error.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf"
+      ],
+      "source_quality": "official_institutional + expert_practitioner",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": false,
+      "proposed_wording": null,
+      "notes": "Correct and well founded. The armhole-before-cap dependency is standard, and C-228's large-arm procedure demonstrates the coupling arithmetically: 'Measure the length of the original seam at the top of the sleeve and record the measurement ... Measure the length of the new seam at the top of the sleeve. Figure the difference from the original seam. Add 1/2 of the difference to the underarm seams of both the bodice front and back.' ONE NUANCE WORTH RECORDING RATHER THAN CORRECTING: that same procedure shows the dependency running BOTH ways - a sleeve change forces a bodice underarm change. A strictly one-directional 'armhole first, then cap' order does not capture that the pair must be re-balanced after either is touched, and the record's interacts_with does carry AF-08, so the data supports saying so in the text."
+    },
+    {
+      "claim_id": "AF-10",
+      "claim": "Sleeve girth and length (bicep, forearm, length). pattern_area: 'Sleeve pattern: bicep line, underarm seam, hem'. order_constraint: length adjustment BEFORE width adjustment.",
+      "sources": [
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
+        "https://pubs.nmsu.edu/_c/C228.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": false,
+      "proposed_wording": null,
+      "notes": "pattern_area is correct and the order_constraint is a local instance of E-372's global length-before-width rule. C-228's Large Arm alteration operates on exactly these lines. No defect found."
+    },
+    {
+      "claim_id": "AF-11",
+      "claim": "Torso length and front/back balance. order_constraint: 'BOY ONCE, GENISLIK SONRA - serinin sira kuralinin cekirdegi'. verification_status: agent_drafted_unverified.",
+      "sources": [
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "Metadata fix: verification_status should not be 'agent_drafted_unverified'. This record carries the single best-sourced ordering statement in the file, quoted verbatim from S-0003: 'Make only one alteration at a time. Begin with lengthwise alterations at the shoulder or neck and work down. Finish with the alterations for width, again beginning at the neck and working down.'",
+      "notes": "The claim is directly and verbatim supported by the record's own cited source, yet the record grades itself unverified. That is an evidence-layer error in the opposite direction from the usual one - the project is UNDER-claiming here while OVER-claiming on AF-19 - and it means the file's verification_status field is not a reliable signal of anything. Worth checking whether build_claims.py's derived evidence_level inherits this field; if it does, the series' strongest ordering claim will be published at a lower evidence level than its weakest. The pattern_area ('Front and back bodice: lengthen/shorten lines, waist seam') is technically correct. AF-19 lists AF-11 without reciprocation."
+    },
+    {
+      "claim_id": "AF-12",
+      "claim": "Waist girth. pattern_area: 'Side seams, waist darts, waist seam'. order_constraint: AFTER all length adjustments. source_refs: [], verification_status: agent_drafted_unverified.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C227.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "source_refs: ['S-0002','S-0003'] and raise verification_status accordingly.",
+      "notes": "Both the pattern_area and the order are correct and are covered by sources ALREADY IN THE REPOSITORY, yet source_refs is empty. C-227 gives the procedure verbatim: 'To increase waistline: Add 1/4 of the total alteration required at each side seam ... To decrease waistline: Remove 1/4 of the total alteration required at each side seam.' E-372 supplies the ordering. This is an under-citation, not a technical error, but it is the second record in the file whose verification_status misrepresents the available evidence."
+    },
+    {
+      "claim_id": "AF-13",
+      "claim": "Hip and seat volume (full / flat seat, high hip). pattern_area: 'Back trouser/skirt: seat curve, side seam, back dart'.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://pubs.nmsu.edu/_c/C227.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "CONTRADICTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "pattern_area: 'Trouser/skirt FRONT and BACK: seat curve, side seams, front and back darts, centre front and centre back'. And: add a separate family for abdomen volume (protruding / flat abdomen), pattern_area 'Trouser/skirt front: centre front, front dart, waist seam', which the current 19 do not contain.",
+      "notes": "THIS IS THE MOST CONSEQUENTIAL TAXONOMY DEFECT I FOUND, BECAUSE THE CROSSWALK ALREADY ROUTES READERS INTO IT. (a) THE PATTERN_AREA IS CONTRADICTED BY BOTH CITED SOURCES. C-228: 'Bulging Thigh or Wide Hips: Slash parallel to the side seam from hemline up to thigh or hip area, then across to side seam' and 'Flat Side Hip: Fold out the desired amount along the side seam of SKIRT FRONT AND SKIRT BACK. Fold should be parallel to center front and center back.' C-227: 'Sway Back: Slash at FRONT side hip and spread pattern the desired amount ... Repeat for back side hip.' Hip and side-hip volume is a front-and-back adjustment; declaring it 'Back trouser/skirt' is wrong. 'High hip' in the family name is likewise a front-and-side feature. (b) THERE IS NO ABDOMEN FAMILY IN THE TAXONOMY AT ALL, AND THE CROSSWALK PAPERS OVER THE GAP. C-228 names the abdomen in its opening list of the seven basic fitting areas ('neckline, bustline, hipline, arms, shoulderline, back waistline, or abdomen') and gives 'Protruding Abdomen' alterations for BOTH the skirt and the pants, each worked at CENTRE FRONT. None of the 19 families owns it. The consequence is visible in 02_TAXONOMY/public/crosswalk.json: XW-051 (SYM-017, 'Karin hacmi kumasi yukari cekiyor'), XW-078 (SYM-026, 'Karin hacmi') and XW-111 (SYM-037, 'Karin/oturak hacmi') all route to AF-13, whose declared pattern area is the BACK of the garment; XW-052 (SYM-018) and XW-118 (SYM-040) route abdomen volume to AF-01, 'Bust volume (full / small bust adjustment)', whose pattern area is the bust apex and bust dart. A reader with a full abdomen is therefore sent either to the back of the garment or to a bust dart. All five crosswalks are marked agent_drafted_unverified, which is honest, but the routing is not a labelling problem - the destination family does not exist. (c) SCOPE: AF-13 covers skirts as well as trousers, but its order_constraint ('evaluated simultaneously with AF-15/16, the crotch families') is meaningless for a skirt, which has no crotch. The record gives a skirt reader no ordering at all."
+    },
+    {
+      "claim_id": "AF-14",
+      "claim": "Sway back / lumbar hollow. pattern_area: 'Back bodice/skirt: center back, waist seam, back length'. order_constraint: must NOT be confused with the AF-11 length adjustment - one is overall length, the other a local hollow.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://pubs.nmsu.edu/_c/C227.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "MEDIUM",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "order_constraint: add the missing ordering - 'AF-12 (bel) ve AF-13 (kalca) duzeltmelerinden SONRA degerlendirilir; yayimlanmis uyum sirasinda sway back / flat back en son okunan govde duzeltmesidir.' And add to notes the recorded source conflict on the term (see below).",
+      "notes": "pattern_area is correct for the classic centre-back shortening. TWO ISSUES. (a) A RECORDED SOURCE CONFLICT ON THE TERM ITSELF, which the repository does not appear to carry. C-228's 'Sway Back' is a centre-back length removal: 'On bodice back just above waistline, fold out desired amount and redraw side seam, dart, and center back seam. On skirt back just below waistline, fold out desired amount...'. C-227's 'Sway Back' is something else entirely: 'Slash at front side hip and spread pattern the desired amount. Redraw to smooth seamline. Repeat for back side hip' - a hip-tilt correction worked at the SIDE HIP, front and back. Two publications the repository already treats as technical authorities use the same name for two different alterations. The book's controlled vocabulary must pick one and record the other, exactly as SOURCE_MAP already does for the wrist and neckline definitions. (b) THE ORDER FIELD CARRIES NO ORDER. It states a differential-diagnosis warning against AF-11, which is useful, but the field is order_constraint and every published fitting sequence I found places sway back / flat back near the END of the torso sequence, after the side seams and hips. The record gives the reader nothing on where it sits."
+    },
+    {
+      "claim_id": "AF-15",
+      "claim": "Crotch depth AND length as one family, method_families ['lengthen_shorten_line','slash_and_spread','slash_and_overlap']. order_constraint: 'AG DERINLIGI ONCE, AG EGRISI SONRA - ikisi ayri kararlardir.'",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C227.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "CONTRADICTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "Move crotch LENGTH out of AF-15 into AF-16. AF-15 becomes 'Crotch depth (rise)', method_families ['lengthen_shorten_line','slash_and_spread','slash_and_overlap'], pattern_area 'Trouser front and back: crotch depth adjustment line, rise'. AF-16 becomes 'Crotch length and curve shape (front / back hook)', method_families ['curve_reshape','seam_line_shift'], pattern_area 'Trouser front and back: crotch curve, crotch point, inseam start'. order_constraint on AF-15: 'AG DERINLIGI ONCE - S-0002: crotch depth crotch length'i etkiler, bu yuzden derinlik kesinlesmeden uzunluk okunmaz.'",
+      "notes": "THE ORDER IS RIGHT AND IS THE ONLY ORDERING CLAIM IN THE FILE QUOTED FROM A SOURCE'S OWN FOOTNOTE - C-227, footnote 2 to the PANTS MEASUREMENT CHART: 'Alter pattern crotch depth first because it affects crotch length.' Note the source says depth-before-LENGTH; the record says depth-before-CURVE, which is a defensible reading only because the source alters length by reshaping the curve. THE FAMILY BOUNDARY IS DRAWN IN THE WRONG PLACE, and the same source shows it. C-227 alters crotch DEPTH on a printed adjustment line ('To lengthen crotch depth: Cut pattern apart on adjustment line. Place tissue paper under cut areas and spread pattern needed amount, keeping edges parallel'), but it alters crotch LENGTH at the crotch point on the inner leg seam ('To lengthen crotch line: Add to front and/or back inner leg seams by extending seam at crotch point. Redraw crotch curve from adjustment line to new crotch point on inner leg seam. Redraw inseam from new crotch point to the knee'). That second procedure is curve reshaping at the hook - AF-16's mechanic and AF-16's pattern area - not a lengthen/shorten line. So AF-15 claims a method for half its scope that its own cited source does not use, and the depth/length pair it bundles are not 'the same pattern area changed by the same mechanic', which is the definition of adjustment family the repository states in T-17. This also makes the record's own order_constraint incoherent: it says depth and curve are separate decisions while placing depth and length - which the source treats as depth and curve - in one family."
+    },
+    {
+      "claim_id": "AF-16",
+      "claim": "Crotch curve shape (front / back hook). pattern_area: 'Trouser front and back: crotch curve, inseam start'. method_families: ['curve_reshape']. order_constraint: not done until AF-15 is settled.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C227.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "HIGH",
+      "conflict_found": false,
+      "required_revision": true,
+      "proposed_wording": "method_families: ['curve_reshape','seam_line_shift'] - S-0002's procedure extends the inner leg seam at the crotch point before the curve is redrawn, which is a seam-line shift, not curve reshaping alone. Scope should also absorb crotch length from AF-15 (see AF-15).",
+      "notes": "pattern_area is exactly right and matches C-227's procedure ('extending seam at crotch point ... redraw crotch curve ... redraw inseam from new crotch point to the knee'). The order constraint is directly supported by C-227's footnote 2. The single-method declaration is too narrow for its own source's procedure. Note also that the record is marked agent_drafted_unverified while carrying two source refs that do in fact cover it - the third instance of the verification_status field disagreeing with the evidence."
+    },
+    {
+      "claim_id": "AF-17",
+      "claim": "Leg girth and shape (thigh, knee, calf). pattern_area: 'Trouser: inseam, outseam, leg width lines'. order_constraint: AFTER the crotch adjustments.",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C227.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "SUPPORTED_NARROWER",
+      "confidence": "MEDIUM",
+      "conflict_found": false,
+      "required_revision": false,
+      "proposed_wording": null,
+      "notes": "pattern_area is correct and verbatim supported: C-227, 'To increase leg circumference: Place a piece of paper under the front and back pattern pieces. Add 1/4 of the total increase to the inseam and outer seam of both front and back pieces.' THE ORDER IS NOT SOURCED. C-227 lists leg shape and crotch as separate procedures and never states that the crotch must come first. The claim is plausible - crotch depth changes the upper leg width lines - but it is the record's inference, and it sits inside a family whose siblings' ordering IS sourced, which makes the unsourced one look equally authoritative. Mark it as inferred or find a source."
+    },
+    {
+      "claim_id": "AF-18",
+      "claim": "Grading between sizes. zone whole_garment; method_families ['grade_between_sizes']; order_constraint: 'Beden gecisi bir DUZELTME DEGIL, beden SECIMIDIR - teshiste ayri tutulur.'",
+      "sources": [
+        "https://jaycotts.co.uk/pages/fit_vogue-butterick-mccall",
+        "https://simplicity.com/size-charts/",
+        "https://pubs.nmsu.edu/_c/C227.pdf"
+      ],
+      "source_quality": "pattern-publisher documentation + official_institutional",
+      "conclusion": "CONTRADICTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "name: 'Blending between sizes (grading between sizes)'. order_constraint: 'Beden SECIMI bir duzeltme degildir; ama secilen iki beden cizgisi arasinda gecis cizmek kalip uzerinde yapilan GERCEK bir degisikliktir ve boy duzeltmelerinden SONRA, sekil duzeltmelerinden ONCE yapilir - cunku sonraki her duzeltme harmanlanmis kesim cizgisinden olculur.' Add a note distinguishing this from industrial grading, which produces a whole size range from a base pattern and is not a fitting operation.",
+      "notes": "TWO DEFECTS. (a) THE ORDER_CONSTRAINT IS A CATEGORY ERROR AND CONTRADICTS THE FILE IT SITS IN. Choosing which two size lines to use IS a size selection. Drawing the transition between them is a physical modification of the pattern - you redraw the cutting line across the nest with a hip curve - and every source treats it as a pattern-modification technique, not a selection. The record is in adjustment_families.json and simultaneously denies that it is an adjustment. Worse, the order_constraint field consequently carries NO ORDER, in a file whose entire purpose is to carry order. This is also the exact confusion the project's own adversarial finding B-02 identified from the opposite direction: B-02 accepted that AF-18 is 'not a diagnosis' and asked the text to say so; the record answers by denying it is an adjustment either, which leaves the reader with a node that is neither. (b) THE NAME IS AMBIGUOUS AGAINST BOOK 3'S VOCABULARY. In the trade, 'grading' means producing a full size range from a base pattern - a manufacturing operation. What AF-18 describes is what the home-sewing literature calls blending, or 'grading between sizes'. Book 3 teaches drafting and will need the industrial sense; a controlled vocabulary that has already banned synonyms elsewhere should not leave this one to context. (c) Minor data defect: AF-18 lists AF-13 in interacts_with without reciprocation. FOR THE RECORD, THE UNDERLYING NEED IS REAL AND SOURCED: both major pattern publishers instruct readers into exactly this operation - Simplicity, 'If your hips are two sizes or more larger than your waist, use hip measurement'; Vogue/Butterick/McCall's, 'If your Hips are much larger than your Waist, select the size closest to your Hip measurement and adjust the Waist.'"
+    },
+    {
+      "claim_id": "AF-19",
+      "claim": "Overall length (lengthen / shorten lines). zone whole_garment; pattern_area 'All pieces carrying printed lengthen/shorten lines'; method_families ['lengthen_shorten_line']; order_constraint 'ALWAYS one of the first-group adjustments'; verification_status technical_reference_verified, source_refs ['S-0001','S-0003'].",
+      "sources": [
+        "https://pubs.nmsu.edu/_c/C228.pdf",
+        "https://pubs.nmsu.edu/_c/C227.pdf",
+        "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf"
+      ],
+      "source_quality": "official_institutional",
+      "conclusion": "UNSUPPORTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "Either (a) demote AF-19 from a family to a METHOD (it already is one - it is the sole member of its own method_families list) and let AF-10, AF-11, AF-15 and AF-17 carry it; or (b) if it is kept, replace pattern_area with a real area and correct the sourcing: source_refs ['S-0002'] plus C-228's single sentence 'Whenever possible, use adjustment lines already provided on a pattern', and lower verification_status from technical_reference_verified.",
+      "notes": "THREE PROBLEMS. (a) IT IS NOT A FAMILY UNDER THE REPOSITORY'S OWN DEFINITION. T-17 defines adjustment family as 'Ayni kalip bolgesini ayni mekanikle degistiren duzeltmeler kumesi'. AF-19's pattern_area, 'All pieces carrying printed lengthen/shorten lines', is not a pattern area - it is a method scope. The same objection applies to AF-18, whose method_families list also contains exactly one entry. Both are methods promoted to families, and both then duplicate real families: AF-19 overlaps AF-10 (sleeve length), AF-11 (torso length), AF-15 (crotch depth) and AF-17 (leg length), all of which already declare lengthen_shorten_line among their methods. This produces a taxonomy in which the same reader decision has two entry points. (b) THE SOURCING IS OVER-GRADED. AF-19 is marked technical_reference_verified against S-0001 and S-0003. I extracted both in full and grepped them: E-372 (S-0003) contains NO occurrence of 'lengthen', 'shorten' or 'adjustment line' anywhere; C-228 (S-0001) mentions them once, in passing, in a bulleted guideline - 'Whenever possible, use adjustment lines already provided on a pattern' - and gives no procedure. The guide that actually teaches the technique is C-227 (S-0002), which is NOT cited: 'To increase leg length: Cut the pattern apart on length adjustment lines. Place tissue paper under pattern and spread the amount needed, keeping edges parallel'; 'To lengthen crotch depth: Cut pattern apart on adjustment line ...'. So the highest verification grade in the file is attached to the record with the weakest citation, while AF-11 and AF-12, both fully covered by sources, are graded unverified. The verification_status field is not tracking evidence. (c) Minor: AF-19 lists AF-11 in interacts_with without reciprocation."
+    },
+    {
+      "claim_id": "AF-00",
+      "claim": "FILE-LEVEL (adjustment_families.json, not a single record): interacts_with is used throughout as the relationship graph and PHASE_3_ADVERSARIAL_REVIEW B-01 proposes to build the Faz 4 re-observation loop on it.",
+      "sources": [],
+      "source_quality": "internal repository check, no external source required",
+      "conclusion": "CONTRADICTED",
+      "confidence": "HIGH",
+      "conflict_found": true,
+      "required_revision": true,
+      "proposed_wording": "Make interacts_with symmetric, or declare it directed and say what the direction means. Add a mechanical check to qa_* so the asymmetry cannot return.",
+      "notes": "SIX interacts_with edges are one-way, verified by script over the file: AF-04 to AF-09, AF-05 to AF-09, AF-06 to AF-03, AF-07 to AF-08, AF-18 to AF-13, AF-19 to AF-11. The field is nowhere declared directed, and the semantics ('interacts with') are symmetric in ordinary reading. The AF-07 to AF-08 case is the one that bites: AF-08's whole rationale is that everything above it changes the armhole, and a broad-back or round-back correction is squarely one of those, yet AF-08 does not know about AF-07. PHASE_3_ADVERSARIAL_REVIEW's answer to finding B-01 says the Faz 4 re-observation loop is supported because 'her AF-xx kaydinda interacts_with alani zaten var'. That answer is only as good as the graph, and the graph is currently inconsistent in six places. I am filing this under AF-01 because the schema offers no file-level claim id; it is a file-level defect, not an AF-01 defect."
+    }
+  ],
+  "top_risks": [
+    {
+      "claim_id": "CC-10",
+      "why": "The book states a flat '2 inches (5 cm) or more' threshold and then instructs a separate bust adjustment. The published thresholds are 'more than 2 in' (Vogue/Butterick/McCall's), 'more than 2 1/2 in' (Simplicity), '2 or more inches, select the SMALLER SIZE' (Texas AgriLife E-372, the only source CC-10 cites), and 'no threshold, always size by high bust' (Palmer/Pletsch, who originated the method). At exactly 2 in the reader IS the drafted B cup, so the instruction to treat bust volume as a separate adjustment tells a correctly-sized reader to add volume she does not need. The threshold is also unstable against the measuring method, which the four authorities define differently. This is the single highest-consequence claim in my domain and it currently misstates its own source.",
+      "recommended_action": "cautious_wording"
+    },
+    {
+      "claim_id": "AF-13",
+      "why": "AF-13's pattern_area is declared 'Back trouser/skirt' but its own cited sources place hip and side-hip volume on front AND back, and the taxonomy has NO abdomen family despite C-228 naming the abdomen as one of the seven basic fitting areas and giving separate skirt and pants abdomen procedures. The consequence is already live in the data: crosswalks XW-051, XW-078 and XW-111 route abdomen symptoms to a back-of-garment family, and XW-052 and XW-118 route abdomen volume to AF-01, the bust-dart family. A reader with a full abdomen is sent to the wrong half of the garment.",
+      "recommended_action": "further_research"
+    },
+    {
+      "claim_id": "CC-11",
+      "why": "The book states as a rule with a causal reason what the two largest US pattern publishers contradict in their own printed fitting guides. Vogue/Butterick/McCall's: 'For Skirts, Pants, Shorts, and Culottes, select size to correspond with your Waist measurement.' Simplicity: waist, and hip only 'if your hips are two sizes or more larger than your waist'. NMSU C-227 and Burda say hip. The book's declared reader will be holding one of the patterns whose instruction sheet says the opposite of what the book says, on page one of the size-selection chapter.",
+      "recommended_action": "cautious_wording"
+    },
+    {
+      "claim_id": "S-0001",
+      "why": "The repository's declared single ease source, NMSU C-228 Table 1, has no waist row at all, assigns girth ease to the high bust and low bust (which are not garment circumferences), mixes girth ease with length allowances, contradicts its own footnote (2.5 in vs 3-4 in at the bust), and contradicts the repository's other NMSU source C-227 on thigh ease. The source record additionally asserts C-228 is the repository's only ease source, which is false: C-227 carries a full and numerically different ease table already in the repository. Chapter 3's whole numeric spine rests on this table.",
+      "recommended_action": "additional_source"
+    },
+    {
+      "claim_id": "CC-12",
+      "why": "The project's own adversarial finding B-06 flagged the 5/8 in seam-allowance assumption and closed it at severity LOW on the ground that it does not appear in the pilot. That is a scope argument, not a safety one. Home-sewing seam allowances range from 1/4 in to 5/8 in, Burda magazine patterns include none, and many PDF patterns print no seamline to measure between. A wrong assumption at four seams is 1 1/4 in of girth attributed to the pattern - the identical error CC-15 already warns about for toiles. Confirmed unsafe.",
+      "recommended_action": "cautious_wording"
+    },
+    {
+      "claim_id": "AF-07",
+      "why": "AF-07 bundles round back (a length and posture correction) with broad and narrow back (width corrections) in one family whose only ordering note is 'read together with AF-11'. CC-28 asserts length-before-width as a book-level rule, sourced verbatim from E-372. A reader who works AF-07 as one family breaks that rule. AF-15 has the mirror-image defect at the crotch, where the source alters crotch length by the mechanic the record assigns to AF-16.",
+      "recommended_action": "further_research"
+    },
+    {
+      "claim_id": "AF-19",
+      "why": "AF-18 and AF-19 are methods presented as families - each has exactly one method_family and neither has a real pattern area - and they duplicate decisions already owned by AF-10, AF-11, AF-15, AF-17 (length) and by the size-selection step (blending). AF-19 additionally carries the file's highest verification grade on a citation that does not exist: E-372 contains no occurrence of 'lengthen', 'shorten' or 'adjustment line', and the guide that does teach the technique, C-227, is not cited. Meanwhile AF-11 and AF-12, both fully covered by sources, are graded unverified. verification_status is not tracking evidence anywhere in this file.",
+      "recommended_action": "further_research"
+    }
+  ],
+  "could_not_verify": [
+    "Burda's official size-selection guidance for skirts and trousers. The official Burda sizing PDF (burdastyle.fr/media/productattach/s/i/sizes_burda_style.pdf) returned HTTP 403 and I could not read it. My statement that Burda selects skirts and trousers by the hip rests on a search-engine summary, not on a document I opened. Treat it as unconfirmed.",
+    "The Vogue/Butterick/McCall's fitting guide on a publisher-owned domain. mccallpattern.mccall.com/size-charts now 301-redirects to simplicity.com/mccalls-patterns. I read the guide's text on two independent retailer reproductions (jaycotts.co.uk and weaverdee.com), which agree with each other, but I could not confirm it on a McCall's/Vogue/Butterick domain.",
+    "ASTM D5585-21 and D5586/D5586M-10. I read only the ASTM catalogue records; both standards are paywalled and I did NOT read their contents. The statement that pattern publishers do not follow them rests on secondary reporting plus the direct observation that the published pattern-company charts differ from each other.",
+    "PS 42-70 and CS 215-58 themselves. I did not open either document. The 1970 effective date, the supersession of CS 215-58, and the 1983 withdrawal come from secondary academic and trade sources, not from the standards.",
+    "Threads Magazine article pages (threadsmagazine.com/2023/01/18/learn-about-garment-ease, /2016/07/20/qa-proper-sequence-for-pattern-adjustments, /project-guides/...) all returned HTTP 403. The only Threads material I actually read is the Threads #221 PDF, which is why every Threads figure I quote is attributed to that one article.",
+    "American Sewing Guild, 'Adding Ease to Your Garment' - HTTP 503, not read.",
+    "Simplicity's downloadable Sizing.pdf - fetched but contains no extractable text layer, so I used the HTML size-charts page instead.",
+    "Patternmaking textbook ease values (Helen Joseph Armstrong, Patternmaking for Fashion Design; Winifred Aldrich, Metric Pattern Cutting for Women's Wear). I did not open either book; only secondary summaries were available, which disagreed with each other (Armstrong's fitted bodice block is reported at roughly 3.25-3.5 in total bust ease depending on edition; Aldrich's close-fitting bodice block is reported at about 10 cm). I have therefore NOT used textbook block ease as evidence for garment ease anywhere above - block ease and garment wearing ease are different quantities and conflating them would be an error.",
+    "Whether the 2-inch and 2.5-inch drafted cup differences hold across the whole size range of any given company, or widen with size. Cashmerette publishes per-size high bust columns rather than a constant offset, which implies the offset is not constant, but I found no publisher statement of how it varies. This is the part of CC-10 that documentary evidence cannot settle - REQUIRES_PHYSICAL_TEST against the actual pattern in the reader's hand, which is exactly what the proposed CC-10 wording tells the reader to do.",
+    "Whether AF-08's 'armhole is the last bodice adjustment' and AF-17's 'leg girth after the crotch' are taught as ordering rules by any institutional source. Neither appears in the five extension guides I read in full; both rest on practitioner consensus only."
+  ]
+}

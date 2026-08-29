@@ -122,6 +122,26 @@ def check_symptom_af_refs(sign: dict, af_ids: set, errors: list):
             errors.append(f"{sid}: adjustment_family_ref={af} tanımlı bir düzeltme ailesi DEĞİL.")
 
 
+def check_adjustment_interaction_symmetry(families: list, errors: list):
+    """`interacts_with` SİMETRİK olmalıdır.
+
+    Faz 3 çelişmeli incelemesinin B-01'e (yeniden gözlem döngüsü) verdiği
+    cevap "her AF kaydında interacts_with alanı zaten var" idi. Faz 4
+    bağımsız incelemesi o cevabın ancak alan kadar iyi olduğunu ölçtü:
+    ALTI kenar tek yönlüydü. En kötüsü AF-07 → AF-08'di — kol oyuntusunun
+    bütün gerekçesi üstündeki her şeyin onu değiştirmesidir, ama AF-08
+    sırt düzeltmesinden HABERSİZDİ. Yön belirtilmemiş bir alanda
+    asimetri bir veri hatasıdır, bir modelleme tercihi değil."""
+    idx = {f["adjustment_family_id"]: set(f.get("interacts_with") or [])
+           for f in families}
+    for a, peers in idx.items():
+        for b in peers:
+            if b not in idx:
+                errors.append(f"{a}: interacts_with tanımsız aileye işaret ediyor: {b}")
+            elif a not in idx[b]:
+                errors.append(f"interacts_with ASİMETRİK: {a} → {b} var, {b} → {a} YOK.")
+
+
 def check_measurement_derivation(rec: dict, m_ids: set, errors: list):
     mid = rec.get("measurement_id", "?")
     for d in rec.get("derived_from", []):
@@ -199,6 +219,60 @@ def check_book_phase2_requirements(book_id: str, errors: list):
             errors.append(f"kapı phase2-visual ({book_id}): visual_language_tokens.status="
                           f"{st!r} — Faz 2 kalibrasyon fazıdır, kalibre edilmemiş bir "
                           f"token sözlüğüyle kapatılamaz.")
+
+
+def check_book_phase4_requirements(book_id: str, errors: list):
+    """Kapısı Faz 4'e ulaşmış bir kitabın MANÜSKRİPT SİSTEMİ olmalıdır.
+
+    Faz 2'nin dersi (`B-10`): bir kapı, sormadığı soruyu yakalayamaz.
+    Bu yüzden burada 'manüskript yazıldı' beyanı aranmaz — üretilmiş
+    ÖLÇÜM dosyaları aranır. Beyan değil, çıktı."""
+    bdir = paths.BOOK_DIRS[book_id]
+    for rel, why in (
+        ("00_SPEC/CONCEPTUAL_CLAIMS.json", "kavramsal iddia sicili"),
+        ("00_SPEC/CLAIM_SOURCE_MAP.md", "iddia→kaynak haritası"),
+        ("02_CONTENT/public/claims.public.json", "iddia sicili"),
+        ("02_CONTENT/public/manuscript_index.public.json", "manüskript ölçümü"),
+    ):
+        if not (bdir / rel).exists():
+            errors.append(f"kapı phase4 ({book_id}): {why} eksik — {rel}")
+    idx = bdir / "02_CONTENT" / "public" / "manuscript_index.public.json"
+    if idx.exists():
+        m = load(idx)
+        if m.get("chapters_missing"):
+            errors.append(f"kapı phase4 ({book_id}): {len(m['chapters_missing'])} bölüm "
+                          f"YAZILMADI — {', '.join(m['chapters_missing'])}")
+        band = m.get("page_target")
+        if band and not (band[0] <= m["pages_total"] <= band[1]):
+            errors.append(f"kapı phase4 ({book_id}): sayfa bütçesi dışında — "
+                          f"{m['pages_total']}, hedef {band[0]}–{band[1]}")
+        if len(m.get("signs_covered") or []) != 43:
+            errors.append(f"kapı phase4 ({book_id}): 43 belirtinin "
+                          f"{len(m.get('signs_covered') or [])}'i yerleşti.")
+    rep = paths.REPORTS / "PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md"
+    if not rep.exists():
+        errors.append(f"kapı phase4 ({book_id}): bağımsız teknik inceleme raporu YOK.")
+
+
+def check_kill_gate_not_claimed(book_id: str, errors: list):
+    """Koşullu Faz 4, P3'ün geçildiğini İMA EDEMEZ.
+
+    `phase4-production-conditional` kümülatif sırada `phase3-pilot`'tan
+    ÖNCEDİR. Bu denetim o sıranın bozulmadığını ve kill-gate ölçümlerinin
+    hâlâ ölçülmemiş göründüğünü doğrular — kapı adı değiştirilerek
+    ölçüm var edilemez."""
+    i_cond = paths.BOOK_GATE_ORDER.index("phase4-production-conditional")
+    i_p3 = paths.BOOK_GATE_ORDER.index("phase3-pilot")
+    if i_cond >= i_p3:
+        errors.append("kapı sırası BOZUK: phase4-production-conditional, "
+                      "phase3-pilot'tan SONRA geliyor — koşullu üretim, "
+                      "yapılmamış bir kill-gate'i geçilmiş gösterir.")
+    cfg = load(paths.SERIES_CONFIG)
+    kg = cfg.get("killGate", {})
+    for k in ("differentiationTest", "physicalValidation"):
+        if kg.get(k, {}).get("measured"):
+            errors.append(f"kapı phase4-koşullu ({book_id}): {k}.measured=true — "
+                          f"koşullu üretim bu bayrağı AÇAMAZ.")
 
 
 def check_series_architecture_requirements(errors: list):
@@ -323,6 +397,10 @@ def main():
             errors.extend(schema_validate(rec, fschema, path=rid))
             check_figure_tokens(rec, token_ids, errors)
 
+    fam_file = paths.ADJUSTMENT_FAMILIES
+    if fam_file.exists():
+        check_adjustment_interaction_symmetry(load(fam_file)["families"], errors)
+
     # ── kapı gereksinimleri ──
     if paths.gate_at_least(gate, "series-architecture", paths.SERIES_GATE_ORDER):
         check_series_architecture_requirements(errors)
@@ -332,6 +410,10 @@ def main():
             check_book_phase1_requirements(book_id, errors)
         if paths.gate_at_least(bgate, "phase2-visual", paths.BOOK_GATE_ORDER):
             check_book_phase2_requirements(book_id, errors)
+        if paths.gate_at_least(bgate, "phase4-production-conditional",
+                               paths.BOOK_GATE_ORDER):
+            check_book_phase4_requirements(book_id, errors)
+            check_kill_gate_not_claimed(book_id, errors)
 
     result = {"series_gate": gate,
               "book_gates": {b: paths.read_book_gate(b) for b in paths.BOOK_DIRS},

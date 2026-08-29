@@ -4,9 +4,10 @@
     "Faz 1 taslağı. HİÇBİR ADIM İÇERMEZ — bu bilinçlidir: adım vermek Kitap 2'nin işidir",
     "(BOUNDARY_MATRIX TOP-13/TOP-14). Bu dosya yalnızca AİLE ADI + KAPSAM + SIRA KISITI taşır.",
     "verification_status hepsinde 'agent_drafted_unverified' — dış otoriteye karşı",
-    "doğrulanmadı (SOURCE_MAP C-serisi iddiaları, OPEN_QUESTIONS A3)."
+    "doğrulanmadı (SOURCE_MAP C-serisi iddiaları, OPEN_QUESTIONS A3).",
+    "FAZ 4: AF-20 (karın hacmi) EKLENDİ; AF-13/AF-15/AF-16/AF-18/AF-19 düzeltildi. Gerekçeler her kaydın notes alanında."
   ],
-  "count": 19,
+  "count": 20,
   "families": [
     {
       "adjustment_family_id": "AF-01",
@@ -70,6 +71,7 @@
       "interacts_with": [
         "AF-04",
         "AF-05",
+        "AF-06",
         "AF-08",
         "AF-09"
       ],
@@ -121,7 +123,7 @@
         "AF-07",
         "AF-09"
       ],
-      "order_constraint": "AF-03 ile birlikte değerlendirilir; ikisi sık karıştırılır.",
+      "order_constraint": "Bir OMUZ DİKİŞİ KONUMU değişikliğidir — AF-03 (eğim) ve AF-04 (genişlik) ile karıştırılır; üçü de omuz türünden ÖNCE ayırt edilmelidir. Kol oyuntusunu değiştirdiği için AF-08 ile birlikte okunur.",
       "book3_relevance": "Blokta duruş analizi (TOP-06) girdi olur.",
       "source_refs": [],
       "verification_status": "agent_drafted_unverified",
@@ -168,7 +170,7 @@
         "AF-08",
         "AF-11"
       ],
-      "order_constraint": "AF-11 (boy/denge) ile birlikte okunur — yuvarlak sırt hem genişlik hem boy ister.",
+      "order_constraint": "Yuvarlak sırt BOY geçişinde, geniş/dar sırt GENİŞLİK geçişinde yapılır — ikisi aynı ailede ama AYNI TÜRDE DEĞİL ve aynı anda yapılamaz (S-0003: boy önce, genişlik sonra).",
       "book3_relevance": "Blokta sırt genişliği ve sırt boyu ayrı ölçülerdir (M-020, M-016).",
       "source_refs": [
         "S-0001",
@@ -189,10 +191,11 @@
       "book1_entry_point": true,
       "difficulty": "intermediate",
       "interacts_with": [
+        "AF-01",
         "AF-03",
         "AF-04",
-        "AF-09",
-        "AF-01"
+        "AF-07",
+        "AF-09"
       ],
       "order_constraint": "SON bodice düzeltmesi — üstündeki tüm düzeltmeler kol oyuntusunu değiştirir.",
       "book3_relevance": "Blokta kol oyuntusu derinliği M-022'den türetilir.",
@@ -215,9 +218,11 @@
       "book1_entry_point": true,
       "difficulty": "advanced",
       "interacts_with": [
+        "AF-03",
+        "AF-04",
+        "AF-05",
         "AF-08",
-        "AF-10",
-        "AF-03"
+        "AF-10"
       ],
       "order_constraint": "Kol oyuntusu (AF-08) KESİNLEŞMEDEN kol başı düzeltilmez — en sık yapılan sıra hatası.",
       "book3_relevance": "Blokta kol başı, bitmiş kol oyuntusundan hesaplanır.",
@@ -266,7 +271,9 @@
       "interacts_with": [
         "AF-01",
         "AF-07",
-        "AF-14"
+        "AF-14",
+        "AF-19",
+        "AF-20"
       ],
       "order_constraint": "BOY ÖNCE, GENİŞLİK SONRA — serinin sıra kuralının çekirdeği.",
       "book3_relevance": "Blokta ön/arka boy ayrı ölçülerdir (M-015, M-016) — denge çizimde kurulur.",
@@ -290,7 +297,8 @@
       "difficulty": "basic",
       "interacts_with": [
         "AF-13",
-        "AF-18"
+        "AF-18",
+        "AF-20"
       ],
       "order_constraint": "Tüm boy düzeltmelerinden SONRA.",
       "book3_relevance": "Blokta bel ölçüsü M-004'ten doğrudan gelir.",
@@ -302,7 +310,7 @@
       "adjustment_family_id": "AF-13",
       "name": "Hip and seat volume (full / flat seat, high hip)",
       "zone": "hip_seat",
-      "pattern_area": "Back trouser/skirt: seat curve, side seam, back dart",
+      "pattern_area": "Trouser/skirt FRONT and BACK: seat curve, side seams, front and back darts, centre front and centre back",
       "method_families": [
         "slash_and_spread",
         "slash_and_overlap",
@@ -315,7 +323,9 @@
         "AF-12",
         "AF-14",
         "AF-15",
-        "AF-16"
+        "AF-16",
+        "AF-18",
+        "AF-20"
       ],
       "order_constraint": "AF-15/16 (ağ) ile AYNI ANDA değerlendirilir; ayrı ayrı düzeltilirse birbirini bozar.",
       "book3_relevance": "Blokta kalça şekillendirmesi M-005/M-006 ve duruş analizinden gelir.",
@@ -324,7 +334,7 @@
         "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": "Faz 4: pattern_area 'arka' diyordu; iki kaynak da yan kalça hacmini ÖN VE ARKA parçada düzeltiyor. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
     },
     {
       "adjustment_family_id": "AF-14",
@@ -353,9 +363,9 @@
     },
     {
       "adjustment_family_id": "AF-15",
-      "name": "Crotch depth and length",
+      "name": "Crotch depth (rise)",
       "zone": "crotch_leg",
-      "pattern_area": "Trouser front and back: crotch line, rise, lengthen/shorten line",
+      "pattern_area": "Trouser front and back: crotch depth adjustment line, rise",
       "method_families": [
         "lengthen_shorten_line",
         "slash_and_spread",
@@ -366,24 +376,26 @@
       "interacts_with": [
         "AF-13",
         "AF-16",
-        "AF-17"
+        "AF-17",
+        "AF-20"
       ],
-      "order_constraint": "AĞ DERİNLİĞİ ÖNCE, AĞ EĞRİSİ SONRA — ikisi ayrı kararlardır.",
+      "order_constraint": "AĞ DERİNLİĞİ ÖNCE — kaynak (S-0002 dipnot 2) 'crotch depth crotch length'i etkiler' diyor; derinlik kesinleşmeden uzunluk okunmaz.",
       "book3_relevance": "Blokta ağ derinliği M-026'dan, ağ uzunluğu M-027'den gelir.",
       "source_refs": [
         "S-0001",
         "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": "Faz 4: ağ UZUNLUĞU bu aileden çıkarılıp AF-16'ya taşındı. Kaynak derinliği basılı ayar çizgisinden, uzunluğu ise EĞRİYİ yeniden çizerek değiştiriyor — iki farklı mekanik, T-17'ye göre iki farklı aile. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
     },
     {
       "adjustment_family_id": "AF-16",
-      "name": "Crotch curve shape (front / back hook)",
+      "name": "Crotch length and curve shape (front / back hook)",
       "zone": "crotch_leg",
-      "pattern_area": "Trouser front and back: crotch curve, inseam start",
+      "pattern_area": "Trouser front and back: crotch curve, crotch point, inseam start",
       "method_families": [
-        "curve_reshape"
+        "curve_reshape",
+        "seam_line_shift"
       ],
       "book1_entry_point": true,
       "difficulty": "advanced",
@@ -391,14 +403,14 @@
         "AF-13",
         "AF-15"
       ],
-      "order_constraint": "AF-15 kesinleşmeden yapılmaz.",
+      "order_constraint": "AF-15 (derinlik) KESİNLEŞMEDEN yapılmaz.",
       "book3_relevance": "Blokta ağ eğrisi taslak sisteminin en hassas bölümüdür.",
       "source_refs": [
         "S-0001",
         "S-0002"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": "Faz 4: ağ uzunluğu AF-15'ten buraya taşındı. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
     },
     {
       "adjustment_family_id": "AF-17",
@@ -428,7 +440,7 @@
     },
     {
       "adjustment_family_id": "AF-18",
-      "name": "Grading between sizes",
+      "name": "Blending between sizes",
       "zone": "whole_garment",
       "pattern_area": "All pattern pieces: side seams, cutting lines across size range",
       "method_families": [
@@ -441,13 +453,13 @@
         "AF-12",
         "AF-13"
       ],
-      "order_constraint": "Beden geçişi bir DÜZELTME DEĞİL, beden SEÇİMİDİR — teşhiste ayrı tutulur.",
+      "order_constraint": "Beden SEÇİMİ bir düzeltme değildir; ama seçilen iki beden çizgisi arasında geçiş çizmek kalıp üzerinde GERÇEK bir değişikliktir ve boy düzeltmelerinden SONRA, şekil düzeltmelerinden ÖNCE yapılır — sonraki her ölçüm harmanlanmış kesim çizgisinden alınır.",
       "book3_relevance": "Blokta kavram YOKTUR — tek beden çizilir. Bu, Kitap 3'ün en güçlü satış argümanlarından biridir.",
       "source_refs": [
         "S-0003"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": "Faz 4: kayıt hem 'bu bir düzeltme değil' diyor hem de düzeltme dosyasında duruyordu ve order_constraint'i BOŞTU. Endüstriyel derecelendirmeyle karıştırılmamalıdır: o, bir taban kalıptan tüm beden serisini üretir ve bir uyum işlemi değildir. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
     },
     {
       "adjustment_family_id": "AF-19",
@@ -467,11 +479,37 @@
       "order_constraint": "HER ZAMAN ilk gruptaki düzeltmelerden biri.",
       "book3_relevance": "Blokta boy ölçüden gelir.",
       "source_refs": [
-        "S-0001",
-        "S-0003"
+        "S-0002"
       ],
-      "verification_status": "technical_reference_verified",
-      "notes": null
+      "verification_status": "agent_drafted_unverified",
+      "notes": "Faz 4: verification_status 'technical_reference_verified' idi ve S-0001'e dayanıyordu; incelemeci S-0001'in tam metninde 'lengthen', 'shorten' veya 'adjustment line' geçmediğini ölçtü. Not düşüldü, not DÜŞÜRÜLDÜ. Ayrıca bu bir YÖNTEMDİR ve AF-10/AF-11/AF-15/AF-17 zaten onu method_families'inde taşır — aile mi yöntem mi olduğu Kitap 2'nin açık kararıdır. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
+    },
+    {
+      "adjustment_family_id": "AF-20",
+      "name": "Abdomen volume (protruding / flat abdomen)",
+      "zone": "waist_torso",
+      "pattern_area": "Trouser/skirt/bodice front: centre front, front dart, waist seam, front side seam",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap",
+        "dart_manipulation"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-11",
+        "AF-12",
+        "AF-13",
+        "AF-15"
+      ],
+      "order_constraint": "Bel hattı (AF-11) yerleştikten SONRA; kalça hacmiyle (AF-13) birlikte okunur.",
+      "book3_relevance": "Blokta karın şekillendirmesi doğrudan çizilir.",
+      "source_refs": [
+        "S-0001",
+        "S-0002"
+      ],
+      "verification_status": "agent_drafted_unverified",
+      "notes": "Faz 4'te EKLENDİ. 19 ailede karın hacmi yoktu; crosswalk beş kaydı karın nedenlerini ya AF-13'e (giysinin ARKASI) ya da AF-01'e (GÖĞÜS PENSİ ailesi) yönlendiriyordu. Okur için bu yanlış bir varış noktasıdır. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
     }
   ]
 }

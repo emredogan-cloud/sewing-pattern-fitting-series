@@ -1,6 +1,6 @@
 # ROADMAP PROGRESS — BEFORE YOU CUT
 
-> Son ölçüm: **2026-08-28** · dal `master`
+> Son ölçüm: **2026-08-29** · dal `master`
 > · depo: `emredogan-cloud/sewing-pattern-fitting-series` (**public**,
 > marka-nötr ad)
 >
@@ -13,9 +13,11 @@
 
 ## 0 · Tek cümlelik durum
 
-> **Kitap 1 Faz 2 tamamlandı. Faz 3, kill-gate'inde DURDU.**
-> İki ölçüm de dış dünyada yapılır ve **yapılmadı**.
-> `kill_gate.py` → **2 engel** · Faz 4 **AÇILAMAZ**.
+> **Kitap 1 Faz 4 üretimi TAMAMLANDI — kurucu geçersiz kılmasıyla (`K49`),
+> kill-gate GEÇİLMEDEN.** 232 sayfa · 21 bölüm · 158 figür · 307 iddia.
+> `kill_gate.py` hâlâ **2 engel** raporluyor ve raporlamaya DEVAM EDİYOR:
+> kitap kapısı `phase4-production-conditional`'dır ve kümülatif sırada
+> `phase3-pilot`'ın **ÖNÜNDEDİR**. Üretim ilerledi; doğrulama ilerlemedi.
 
 ## Seri fazları
 
@@ -23,7 +25,7 @@
 |---:|---|---|---|
 | **S0** | Seri Bootstrap | `████████████████` tamamlandı | `bootstrap` ✓ |
 | **S1** | Seri Mimarisi | `████████████████` **TAMAMLANDI** — kurucu onayı alındı, ortak mimari donduruldu | `series-architecture` ✓ **İLERLEDİ** |
-| **S2** | Kitap 1 yaşam döngüsü | `██████░░░░░░░░░░` P0 ✓ · P1 ✓ · **P2 ✓** · P3 **KILL-GATE'TE DURDU** | — |
+| **S2** | Kitap 1 yaşam döngüsü | `██████████░░░░░░` P0 ✓ · P1 ✓ · P2 ✓ · **P4 ✓ KOŞULLU** · P3 **KILL-GATE'TE DURUYOR** | — |
 | **S3** | Kitap 2 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı — seri kapısı `production` değil | `init` |
 | **S4** | Kitap 3 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı · yalnızca `A10` araştırma mimarisi | `init` |
 | **S5** | Seri KA / Katalog | `░░░░░░░░░░░░░░░░` başlamadı — gerçek çok-kitap verisi yok | — |
@@ -32,30 +34,35 @@
 
 | Kitap | Kapı | P0 | P1 | P2 | P3 | P4 | P5 | P6 | P7 |
 |---|---|---|---|---|---|---|---|---|---|
-| **1 — Measure & Diagnose** | **`phase2-visual`** | ✓ | ✓ | **✓** | **DIŞ BEKLEMEDE** | — | — | — | — |
+| **1 — Measure & Diagnose** | **`phase4-production-conditional`** | ✓ | ✓ | ✓ | **DIŞ BEKLEMEDE** | **✓ KOŞULLU** | — | — | — |
 | **2 — The Adjustment Atlas** | `init` | roadmap var | — | — | — | — | — | — | — |
 | **3 — Draft Your Own Sloper** | `init` | roadmap + `A10` araştırma mimarisi | — | — | — | — | — | — | — |
 
-> **Bu turda iki kapı ilerledi:** seri `bootstrap` → `series-architecture`,
-> Kitap 1 `foundation` → `phase2-visual`.
-> **Üçüncü kapı (`phase3-pilot`) İLERLEMEDİ** ve bu turda ilerleyemez.
+> **Bu turda bir kapı ilerledi:** Kitap 1 `phase2-visual` →
+> `phase4-production-conditional` (`DECISIONS.md K49`).
+> **`phase3-pilot` İLERLEMEDİ ve ilerleyemez** — iki dış ölçüm hâlâ
+> yapılmadı. Koşullu kapı bunu mekanik olarak korur: `phase5-qa` bu
+> yoldan **açılamaz**.
 
 ## Kalite kapıları — son ölçüm
 
-Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-28
+Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-29
 
 | Kapı | Komut | Sonuç |
 |---|---|---|
-| Şema · bütünlük · kaynak otoritesi | `validate_spec.py` | ✓ 0 hata (**18 kaynak** · 43 belirti · 19 aile · 32 ölçü · 148 crosswalk · 12 blok · **154 figür**) |
-| Depo · koruma · marka · izolasyon | `validate_structure.py` | ✓ 0 hata (**139 izlenen dosya** · **altı denetim hattı**) |
+| Şema · bütünlük · kaynak otoritesi | `validate_spec.py` | ✓ 0 hata (18 kaynak · 43 belirti · **20 aile** · 32 ölçü · 148 crosswalk · 12 blok · **161 figür**) |
+| Depo · koruma · marka · izolasyon | `validate_structure.py` | ✓ 0 hata (**173 izlenen dosya** · altı denetim hattı) |
 | Crosswalk tazeliği | `build_crosswalk.py --check` | ✓ güncel (148 kayıt) |
-| Crosswalk bütünlüğü | `qa_crosswalk.py` | ✓ 0 bulgu — 19/19 aileye ulaşılıyor |
+| Crosswalk bütünlüğü | `qa_crosswalk.py` | ✓ 0 bulgu — **20/20** aileye ulaşılıyor |
 | Kitap sınırı | `qa_boundary.py` | ✓ 0 bulgu (35 topik) |
 | İddia disiplini | `qa_claims.py` | ✓ 0 bulgu (40 belge) |
 | Terminoloji | `qa_terminology.py` | ✓ 0 bulgu (30 belge · 20 terim) |
-| **Görsel sistem** *(yeni)* | `qa_visual.py` | ✓ **0 bulgu** — **on denetim** |
+| **Görsel sistem** | `qa_visual.py` | ✓ 0 bulgu — **on bir denetim** *(vücut varyantı eklendi)* |
+| **İddia sicili tazeliği** *(yeni)* | `build_claims.py --check` | ✓ güncel (**307 iddia**) |
+| **Manüskript** *(yeni)* | `qa_manuscript.py` | ✓ **0 bulgu** — **on bir denetim** |
+| **Tam kitap dizgisi** *(yeni)* | `build_book.py` | ✓ **232 sayfa**, bütçe 220–260 içinde |
 | **Yazı tipi bütünlüğü** *(yeni)* | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
-| **Kapıların kendi testi** | `selftest.py` | ✓ **116/116** — veri katmanı *(önceki tur: 91)* |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **144/144** — veri katmanı *(önceki tur: 116)* |
 | Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
 ## Görsel sistem — Faz 2 ÖLÇÜMLERİ
@@ -88,19 +95,121 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-28
 | `toile_state` | 6 |
 | **Toplam** | **154** |
 
+## Faz 4 — MANÜSKRİPT ÖLÇÜMLERİ
+
+Komut: `python3 06_BUILD/build_book.py` · ölçüm dosyası
+`BOOK-01/02_CONTENT/public/manuscript_index.public.json`
+
+| Ölçüt | Spec hedefi | **ÖLÇÜLEN** |
+|---|---:|---:|
+| Toplam sayfa | 220–260 | **232** ✓ |
+| Bölüm (parça + bölüm + ek) | 21 | **21** ✓ |
+| Kelime | — | **36 107** |
+| Ayrı figür kullanımı | — | **158 / 158** yerleştirilebilir figürün tamamı |
+| Figür yerleşimi | — | **175** (17 figür birden çok yerde) |
+| Bölge atlası | ≤100 *(B-08)* | **177** — kısıt AŞILDI, aşağıya bakınız |
+| Boş sayfa (bölüm açılışı verso) | — | **13**, hiçbiri numara taşımıyor |
+| Kalibre edilmemiş kesinlik | 0 | **0** |
+| Okur metnine sızan iç kimlik | 0 | **0** |
+| Kitaba giren iç araç figürü | 0 | **0** |
+
+### Bölüm bazında
+
+| Bölüm | Sayfa | Figür | Kelime |
+|---|---:|---:|---:|
+| Parça 0 · Nasıl kullanılır | 2 | 0 | 621 |
+| 1 · Kalıp neden oturmaz | 4 | 2 | 698 |
+| **2 · Vücudunuzu ölçmek** *(üretilen)* | **38** | **40** | 2 702 |
+| 3 · Kalıbı okumak | 7 | 6 | 1 166 |
+| 4 · Teşhis toile'i | 6 | 3 | 1 091 |
+| 5 · Prova oturumu | 5 | 1 | 878 |
+| 6 · Yedi adımlı döngü | 10 | 3 | 1 861 |
+| 7 · Belirtileri adlandırmak | 8 | 11 | 1 011 |
+| 8 · Sahte nedenleri elemek | 5 | 3 | 709 |
+| **9–15 + 16 atlas · Bölge atlası** *(üretilen)* | **177** | **94** | 20 000+ |
+| 16 · Düzeltme sırası | 6 | 3 | 1 019 |
+| 17 · Uyum profili | 3 | 1 | 529 |
+| 18 · Profili taşımak | 3 | 0 | 634 |
+| Ekler A–H | 5 | 8 | 465 |
+
+### `B-08` sayfa bütçesi kısıtı — AŞILDI, gerekçe yazıldı
+
+Çelişmeli inceleme `B-08` şunu yazmıştı: *"Bölge atlası 100 sayfayı
+aşarsa kapsam daraltılır."* Atlas **177 sayfa** çıktı.
+
+**Ne yapıldı:** önce kapsam daraltıldı. Tekrarlanan metin ölçülerek
+kesildi — 43 girişte tekrar eden dört blok (eleme gerekçesi, figür
+başlığı uyarısı, devir cümlesi kalıbı, yeniden gözlem başlığı)
+kaldırıldığında atlas **127 → 115 sayfa**ya indi. Bu, `B-09`'un
+(işlevsel tekrar) ölçülmüş maliyetidir: **12 sayfa.**
+
+**Sonra kapsam BÜYÜDÜ ve bu bilinçliydi.** Aynı çelişmeli incelemenin
+diğer bulguları Faz 4'e yazılı kısıt olarak geliyordu ve hepsi yer
+tutuyor: `B-01` yeniden gözlem adımı (43 giriş × 2 paragraf),
+`B-03` belirtiye özgü eleme (43 × 3 satır), Faz 4 bağımsız incelemesinin
+`CC-25` bulgusu (kapı-önce sunum) ve **28 kanıt çakışması beyanı**
+(`K52`). Ayrıca ilk tam dizgide **29 ölçüm figürünün hiçbirinin kitapta
+olmadığı** ölçüldü ve eklendi (+25 sayfa).
+
+**Karar:** `B-08`'in 100 sayfalık rakamı, bu eklerin ZORUNLU olduğu
+bilinmeden yapılmış **doğrusal bir tahmindi**. Gerçek kısıt, onun
+koruduğu şeydir: **300 sayfada cilt payı değişir ve sayfa geometrisi
+yeniden hesaplanır.** 232 sayfa o bandın rahatça içindedir ve
+`qa_visual § ⑨` ile `build_book` bunu her koşumda denetler.
+
+## Faz 4 — BAĞIMSIZ TEKNİK İNCELEME
+
+Dört ayrı inceleme hattı, birincil üretimden AYRI çalıştırıldı.
+
+| | |
+|---|---:|
+| Bulgu | **149** |
+| Danışılan kaynak (tekilleştirilmiş) | **68** |
+| `CONTRADICTED` | **56** |
+| `CONTESTED` | 14 |
+| `UNSUPPORTED` | 10 |
+| `SUPPORTED_NARROWER` | 40 |
+| `SUPPORTED` | 29 |
+| **Revizyon gerektiren** | **132 / 149** |
+| Ayırt edici kanıt çakışması | **28** (43 belirtinin 28'inde) |
+
+**Revizyon gerektirmeyen tek iddia: `CC-02` — "belirti ≠ neden".**
+Kitabın tezi ayakta kaldı; ayrıntılarının çoğu kalmadı.
+
+**Uygulanan başlıca düzeltmeler:**
+
+| Ne | Neydi | Ne oldu |
+|---|---|---|
+| `CC-21` yeniden gözlem | "azaldı ama gitmedi = ikinci neden var" | **Mantık hatasıydı.** Önce YETERSİZ DÜZELTME, sonra ikinci neden. 43 girişin tamamında yapısal düzeltme |
+| `AF-20` karın hacmi | **aile YOKTU**; beş crosswalk kaydı okuru göğüs pensi ya da giysinin arkası ailesine yolluyordu | Aile eklendi, beş yol düzeltildi |
+| `M-015` ön orta boy | iki ayrı ölçü birleştirilmişti; kaynağın kendi yöntemi "hata" diye listelenmişti | Ayrıldı — `M-032` denge sayısı artık göğüs çıkıntısı taşımıyor |
+| `T-10` / `M-001` üst göğüs | "kolların ÜSTÜNDEN" | **Kolların ALTINDAN.** Yanlış hâli beden seçimini yanlış dala gönderiyordu |
+| `CC-10` beden kuralı | düz "2 inç" eşiği | Kalıbın KENDİ beyan ettiği fark; tam 2 inçte doğru bedendeki okuru gereksiz düzeltmeye yolluyordu |
+| `CC-20` geri alınamazlık | "kesme" | 129 testin **17'si ilk adımda kesiyordu**, üçü kitabın kendi yasakladığı yakayı. Toile kesilir, KALIP ve KENAR kesilmez |
+| `interacts_with` | 6 kenar tek yönlü | Simetrik + kapı + regresyon |
+| `S-0004` atfı | 43 belirtinin tamamında kaynaktı | Tam metin okundu: iki çekirdek kuralı **içermiyor**. Atıf kaldırıldı, iddialar kaynaksız olduklarını beyan ediyor |
+| Karıştırıcı sayısı | 9 (üç belgede) / 11 (veride) | **14** — dört sınıf eklendi, ikisinin kapsamı genişletildi |
+
+Tam rapor:
+[`08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md`](08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)
+· ham çıktı `08_REPORTS/tracked/phase4_review/`
+
 ## İçerik envanteri
 
 | Varlık | Sayı | Doğrulama durumu |
 |---|---|---|
 | Uyum belirtisi (`SYM-xxx`) | 43 | **0 doğrulandı · 43 kaynağa bağlı ama YÜKSELTİLMEDİ** — bilinçli |
 | Aday neden | 129 | **0 doğrulandı** — `C-C` sınıfı, birincil doğrulama FİZİKSEL |
-| Düzeltme ailesi (`AF-xx`) | 19 | **13 doğrulandı** · 4 kısmi · 2 kaynaksız |
+| Düzeltme ailesi (`AF-xx`) | **20** *(`AF-20` karın Faz 4'te eklendi)* | 13 doğrulandı · 4 kısmi · 3 kaynaksız |
 | Ölçü (`M-xxx`) | 32 | **16 doğrulandı** · 7 kısmi · 9 kaynaksız |
 | Blok bileşeni (`BLK-xx`) | 12 | 0 — kamu kaynağı **çizim** anlatmıyor (`A10`) |
 | Crosswalk (`XW-xxx`) | 148 | iç bütünlük denetlendi · dış doğrulama yok |
-| Terim (`T-xx`) | 20 | taslak |
+| Terim (`T-xx`) | 20 | taslak · `T-05` ve `T-10` Faz 4'te DÜZELTİLDİ |
+| **İddia (`CLM-xxxx`)** | **307** | 56 `VERIFIED` · 8 `CONTESTED` · 214 `INFERRED` · 29 `UNVERIFIED` |
+| **Kanıt çakışması** | **28** | okura BEYAN ediliyor; çözümü `D-02`'dedir |
+| **Manüskript** | **232 sayfa · 21 bölüm · 36 107 kelime** | proza izlenmiyor (`K9`); ÖLÇÜM izleniyor |
 | Görsel token (`TK-xx`) | 18 | **`CALIBRATED_DIGITAL_RENDER`** |
-| **Figür (`FIG-B1-xxx`)** | **154** | **105 `drafted` · 49 `specified` · 0 `physically_validated`** |
+| **Figür (`FIG-B1-xxx`)** | **161** *(+7 manüskript figürü)* | **112 `drafted` · 49 `specified` · 0 `physically_validated`** |
 | **Okur etiketi (İngilizce)** | **43 belirti · 129 neden** | sunum katmanı — doğrulama durumunu **değiştirmez** |
 | **Kaynak kaydı (`S-xxxx`)** | **18** | 6 teknik otorite + tam metin · 2 taranmış · **8 platform/lisans** · 2 edinilmemiş |
 | **Fiziksel sınama (`VAL-xxxx`)** | **19 kayıt üretildi · 0 YAPILDI** | kit hazır: `BOOK-01/09_OUTPUT/VALIDATION_KIT.md` |

@@ -15,14 +15,16 @@
     "'agent_drafted_unverified'dır ve birincil doğrulaması FİZİKSELDİR.",
     "",
     "qa_visual.py § ⑩ her belirti ve her aday neden için karşılık arar;",
-    "eksik bir etiket figürü Türkçe bırakır ve kapı KIRMIZI yanar."
+    "eksik bir etiket figürü Türkçe bırakır ve kapı KIRMIZI yanar.",
+    "Faz 4 EKİ: sign_classes ve forms — manüskript katmanının okur etiketleri. Bu ek de doğrulama durumunu DEĞİŞTİRMEZ."
   ],
   "language": "en",
   "status": "agent_drafted_reader_facing_labels",
   "does_not_change_verification_status": true,
   "count": {
     "signs": 43,
-    "causes": 129
+    "causes": 129,
+    "sign_classes": 10
   },
   "ui": {
     "yes": "Yes",
@@ -67,7 +69,10 @@
     "Ütü": "Pressing",
     "Dikiş payı": "Seam allowance",
     "Ease": "Ease",
-    "Ölçüm": "Measuring"
+    "Ölçüm": "Measuring",
+    "Prova desteği": "Fitting support",
+    "Ayakkabı": "Footwear",
+    "Ölçüm yaşı": "Measurement age"
   },
   "table_headers": {
     "zone_index": [
@@ -821,5 +826,78 @@
         }
       ]
     }
+  },
+  "sign_classes": {
+    "horizontal_fold": [
+      "Horizontal fold",
+      "Fabric standing in a fold across the body — excess LENGTH in that direction"
+    ],
+    "vertical_fold": [
+      "Vertical fold",
+      "Fabric standing in a fold up and down — excess WIDTH in that direction"
+    ],
+    "diagonal_drag_line": [
+      "Drag line",
+      "Fabric pulled into diagonal lines — a shortage, and the lines point toward it"
+    ],
+    "gape": [
+      "Gape",
+      "An edge standing away from the body with nothing holding it"
+    ],
+    "strain_pull": [
+      "Strain",
+      "Fabric under tension: it binds, marks the skin, or restricts movement"
+    ],
+    "pooling": [
+      "Pooling",
+      "Fabric collecting and sagging where it is not supported"
+    ],
+    "hem_hike": [
+      "Hem hike",
+      "A hem no longer parallel to the floor — almost always a consequence"
+    ],
+    "seam_displacement": [
+      "Seam displacement",
+      "A seam not where it was drawn to be — an indicator, rarely a cause"
+    ],
+    "grain_distortion": [
+      "Grain distortion",
+      "Lengthwise or crosswise grain no longer square to the floor"
+    ],
+    "silhouette_deviation": [
+      "Silhouette deviation",
+      "The garment's outline differs from the one the design drew"
+    ]
+  },
+  "forms": {
+    "measurement_card": [
+      "Measurement card",
+      [
+        "Measurement",
+        "First reading",
+        "Second reading",
+        "Difference",
+        "Date"
+      ]
+    ],
+    "fitting_record": [
+      "Fitting record",
+      [
+        "Sign seen",
+        "Where",
+        "Class",
+        "Cause tested",
+        "Result"
+      ]
+    ],
+    "fit_profile": [
+      "Fit profile",
+      [
+        "Adjustment family",
+        "Amount",
+        "Where measured",
+        "Patterns it applied to"
+      ]
+    ]
   }
 }

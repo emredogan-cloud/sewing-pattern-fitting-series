@@ -67,7 +67,7 @@ uygular ve her adımda tek bir karar verir.
 
 Yanlış iç giyimle, yanlış duruşta, denge çizgisi çizilmemiş bir toile
 üzerinde yapılan her gözlem **geçersizdir**. Bu adım
-`confounders_to_rule_out` listesinin (dokuz kalem) uygulandığı yerdir.
+`confounders_to_rule_out` listesinin (**on dört kalem** — Faz 4 bağımsız incelemesi dördünü ekledi) uygulandığı yerdir.
 
 Bu, kitabın en somut farklılaşma iddialarından biridir: rakip
 mimarilerinde bu adımın sistematik bir karşılığı **görülmedi**

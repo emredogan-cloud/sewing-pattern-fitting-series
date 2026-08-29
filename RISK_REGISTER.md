@@ -311,6 +311,48 @@ numaralandırma `R-18`'den devam eder.)*
 | **Sahip** | Kurucu |
 | **Faz** | Kitap 1 `release` sonrası, sürekli |
 
+## R-22 · Ayırt edici kanıtın gerçekten ayırmaması
+
+| Alan | |
+|---|---|
+| **Olasılık** | **GERÇEKLEŞTİ — 43 belirtinin 28'inde ölçüldü** |
+| **Etki** | **YÜKSEK** — okur iki nedenden yanlış olanını seçer, doğru miktarı kaydeder ve o miktarı sonraki her kalıba taşır |
+| **Kanıt** | Faz 4 bağımsız teknik incelemesi, 129 aday nedenin `distinguishing_evidence` alanlarını iç mantık üzerinden denetledi: 28 belirtide iki neden **aynı gözlemi** üretiyor. Dokuzu yüksek şiddette. En pahalısı `SYM-021`: göğüs hizasında açılan bir kapama hem "göğüs hacmi yetersiz" hem de "apeks hizasında düğme yok" nedeninin **zorunlu sonucudur** — okur tek bir düğme taşınması gerekirken tam bir göğüs düzeltmesi yapar. |
+| **Kök neden** | Şema alanın **DOLU** olmasını dayatıyordu; alanın **işini yapmasını** hiçbir şey dayatmıyordu. `validate_spec § check_cause_distinguishability` yalnızca alanın varlığını ve tekilliğini denetliyor. |
+| **Azaltma** | Uydurma ayrım **yazılmadı** (`K52`). Çakışmalar `evidence_collisions.json`'a kaydedildi ve okura **beyan ediliyor**. Bu riski **azaltmaz**, görünür kılar. |
+| **Gerçek çözüm** | `D-02` fiziksel doğrulama. Bir ayrımın ayırıp ayırmadığı ancak kumaşta sınanarak bilinir. |
+| **Tespit** | `02_TAXONOMY/public/evidence_collisions.json` · inceleme raporu § 5 |
+| **Sahip** | Kurucu (`D-02`) |
+| **Faz** | Faz 5, `D-02` sonrası |
+
+## R-23 · Kaynağın söylemediği şeyin ona atfedilmesi
+
+| Alan | |
+|---|---|
+| **Olasılık** | **GERÇEKLEŞTİ — dört ayrı atıfta** |
+| **Etki** | **YÜKSEK** — kaynaklı görünen kaynaksız bir iddia, kaynaksız bir iddiadan **daha tehlikelidir**: denetimden geçer |
+| **Kanıt** | `S-0004` (WSU EM4582) 43 belirtinin **tamamında** kaynak olarak duruyordu. İncelemeci belgeyi tam metin (8 sayfa) okudu: uyum içeriğinin tamamı **tek sayfada beş maddedir**. `CC-23` ve `CC-26` birebir vardır. `CC-22` (kıvrım ekseni), `CC-24` (çekme çizgisi) ve `CC-29` (etek ucu türevdir) **YOKTUR**. Aynı sınıftan: `S-0003` sekiz ölçünün işaret noktası tanımı için gösteriliyordu ama hiç tanım içermiyor; `AF-19` dosyanın en yüksek notunu, metninde geçmeyen bir atıfla taşıyordu. |
+| **Kök neden** | Kaynak kaydı **edinildi mi** ve **otorite mi** diye denetleniyordu; **o cümleyi içeriyor mu** diye denetlenmiyordu. Bu depo içinden denetlenemez. |
+| **Azaltma** | Dört atıf **kaldırıldı**, `AF-19`'un notu **düşürüldü**, ilgili iddialar kaynaksız olduklarını **beyan ederek** korundu (`CC-22` metinde açıkça "bu bir geometrik türetmedir, kurumsal bir kaynakta bulunmadı" der). |
+| **Kalan risk** | Kalan 18 kaynağın hepsi tam metin okunmadı. Faz 5'in işi. |
+| **Tespit** | Bağımsız inceleme · `CLAIM_SOURCE_MAP.md § 4` |
+| **Sahip** | Ajan (Faz 5) |
+| **Faz** | Faz 5 |
+
+## R-24 · Manüskript kapılarının CI'da çalışamaması
+
+| Alan | |
+|---|---|
+| **Olasılık** | **YAPISAL — her zaman böyle** |
+| **Etki** | ORTA — `R-19`'un manüskript katmanındaki karşılığı |
+| **Kanıt** | Manüskript prozası bilerek izlenmiyor (`.gitignore § ①`, `K9`). Temiz bir klonda `qa_manuscript.py` **prozayı göremez** ve kendini atlar. On bir denetimin tamamı **yalnızca yerelde** koşar. |
+| **Neden kabul edildi** | Alternatif, yayın-öncesi tam metni public bir depoya koymaktı. Ticari olarak yanlış ve `K9`'un tersi. |
+| **Azaltma** | CI işi yine de eklendi ve **atladığını açıkça yazar** (`::notice`). İki türev **izlenir ve CI'da denetlenir**: `claims.public.json` ve `CLAIM_SOURCE_MAP.md` — ikisi de izlenen taksonomiden üretilir, yani iddia katmanının bayatlığı CI'da yakalanır. |
+| **Kalan risk** | Bölüm yapısı, yeniden gözlem döngüsü ve kalibre dil denetimi **yerel koşuma bağlıdır.** Bir tur atlanırsa kimse görmez. |
+| **Tespit** | — (yapısal) |
+| **Sahip** | Ajan |
+| **Faz** | Faz 4–7 boyunca |
+
 ---
 
 ## Terk etme koşulları — ölçülebilir
@@ -327,4 +369,4 @@ Araştırma raporu § 32'den devralındı; Faz 1'de sayılar doğrulandı.
 
 ---
 
-*Vâliçe Press · TRUE FIT · Risk Register · 28 Ağustos 2026 (Faz 1 yürütmesi)*
+*Vâliçe Press · BEFORE YOU CUT · Risk Register · 29 Ağustos 2026 (Faz 4 yürütmesi)*

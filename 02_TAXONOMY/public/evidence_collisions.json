@@ -1,0 +1,337 @@
+{
+  "": [
+    "AYIRT EDİCİ KANIT ÇAKIŞMALARI — Faz 4 bağımsız teknik incelemesi bulgusu.",
+    "",
+    "Şema her aday nedenin bir 'distinguishing_evidence' taşımasını DAYATIR.",
+    "İncelemeci o alanların GERÇEKTEN ayırt edip etmediğini denetledi ve 28",
+    "belirtide etmediğini buldu: iki neden aynı gözlemi üretiyor, ya da bir",
+    "nedenin 'kanıtı' gözlemin kendisini tekrar ediyor.",
+    "",
+    "⚠ BU DOSYA BİR ÇÖZÜM DEĞİL, BİR BEYANDIR. Çakışan kanıtlar UYDURMA bir",
+    "ayrımla kapatılMADI. Kitap bunun yerine okura DOĞRUYU söyler: bu iki",
+    "neden buradaki kanıtla ayrılamaz, ikisini de en ucuz testten başlayarak",
+    "sına. Ayrımın kendisi FİZİKSEL doğrulama gerektirir (D-02).",
+    "",
+    "Kaynak: 08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md"
+  ],
+  "generated_from": "Faz 4 bağımsız inceleme — teşhis mantığı hattı",
+  "count": 28,
+  "collisions": [
+    {
+      "symptom_id": "SYM-001",
+      "causes": [
+        "SYM-001.C1",
+        "SYM-001.C2"
+      ],
+      "severity": "high",
+      "shared_observation": "A front neckline that stands away from the chest, present while the wearer is upright, on both sides.",
+      "why_it_fails": "C1's evidence is 'gap present while standing upright AND symmetric'; C2's is 'gap ASYMMETRIC toward the bust ... increases markedly on bending forward'. Two defects. First, the observation itself already contains 'the gap grows when the reader bends forward', so C2's second marker is not a discriminator, it is the sign. Second, the symmetry test is INVERTED: a neckline gape caused by bust volume is bilateral in the ordinary case, because both breasts pull the front upward and inward. Making asymmetry the marker of the bust cause means the commonest presentation of the bust cause satisfies C1's",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-003",
+      "causes": [
+        "SYM-003.C1",
+        "SYM-003.C2",
+        "SYM-003.C3"
+      ],
+      "severity": "high",
+      "shared_observation": "Back neckline riding up and the back hem rising, with the front hem hanging correctly.",
+      "why_it_fails": "C1's entire distinguishing evidence is 'the front hem is fine, ONLY the back rises'. All three candidate causes are located in the back, so all three produce exactly that. C2 and C3 each add an exclusive positive marker (tension at blade level present / absent); C1 adds none, so nothing excludes C2 or C3 when the reader is standing at C1.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-004",
+      "causes": [
+        "SYM-004.C1",
+        "SYM-004.C2"
+      ],
+      "severity": "high",
+      "shared_observation": "Diagonal drag lines running between the neck point and the underarm.",
+      "why_it_fails": "The stated primary discriminator is the line's DIRECTION - C1 'lines run from the neck point OUT AND DOWN', C2 'lines run the other way, from the shoulder tip toward the neck'. A diagonal line has two ends and no intrinsic arrow; naming its direction presupposes knowing where the tension originates, which is the conclusion. Only the secondary markers actually work (fabric taut at the shoulder tip vs fabric collecting there), and they are stated as add-ons rather than as the test.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-005",
+      "causes": [
+        "SYM-005.C1",
+        "SYM-005.C2",
+        "SYM-005.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "A horizontal fold gathering just below the shoulder seam near the armhole.",
+      "why_it_fails": "C1's evidence is 'the fold is near the shoulder TIP, absent on the neck side'. The upper armhole is the shoulder-tip region, so C2's location marker ('the fold follows the armhole curve') describes the same place, and C3's fault (shoulder too wide) also puts its fold at the shoulder tip. C2 and C3 carry exclusive markers (fold disappears when the arm is raised / sleeve cap drooping outside the shoulder point); C1 carries none.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-006",
+      "causes": [
+        "SYM-006.C1",
+        "SYM-006.C2",
+        "SYM-006.C3"
+      ],
+      "severity": "high",
+      "shared_observation": "Shoulder seam sitting behind the top-of-shoulder centreline on both shoulders, in a relaxed stance.",
+      "why_it_fails": "C1's evidence is 'the seam is behind on BOTH shoulders; it is like this in a relaxed stance too'. A round back (C2) is bilateral and present in a relaxed stance. A short front bodice (C3) is bilateral and present in a relaxed stance. C1's evidence is a necessary condition of all three, not a discriminator of any.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-007",
+      "causes": [
+        "SYM-007.C1",
+        "SYM-007.C2"
+      ],
+      "severity": "high",
+      "shared_observation": "The shoulder seam extends past the shoulder point onto the arm, symmetrically, with the armhole seam outside the end of the shoulder bone.",
+      "why_it_fails": "C2 is 'the design is deliberately drop-shouldered'. A drop-shoulder design produces C1's evidence word for word: symmetric overhang, armhole seam outside the arm bone. C1 offers nothing that excludes it. Worse, C1's confirming_measurement (M-014 shoulder width vs the pattern's shoulder seam length) returns 'pattern longer than body' for BOTH causes, so the number cannot break the tie either. Only C2's documentary check (the technical drawing) separates them, and the file lists it second.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-008",
+      "causes": [
+        "SYM-008.C1",
+        "SYM-008.C2",
+        "SYM-008.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "A hard pull across the back when the arm reaches forward, absent with the arm at the side.",
+      "why_it_fails": "C1's evidence is 'no sign with the arm at the side; only when the arm comes forward' - which is the observation restated. All three causes are movement-revealed. C2 and C3 add location markers (pull concentrated at the armhole edge / felt inside the sleeve); C1 adds none.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-009",
+      "causes": [
+        "SYM-009.C1",
+        "SYM-009.C2"
+      ],
+      "severity": "high",
+      "shared_observation": "A horizontal fold standing across the back at shoulder-blade level.",
+      "why_it_fails": "C2's location marker ('the fold is CONCENTRATED at blade level, fading downward') restates where_it_appears, which is already 'blade level, between the two armholes'. C1's markers ('the fold remains when the arm is raised; the neckline and shoulder are in place') are equally true of C2 - a flat back that does not fill the pattern's shoulder shaping leaves the neckline and shoulder in place and the fold does not vanish when the arm is raised. Neither cause has an exclusive observation; only their physical tests differ.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-010",
+      "causes": [
+        "SYM-010.C1",
+        "SYM-010.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "Vertical slack folds down the back between the armholes.",
+      "why_it_fails": "C1's evidence is 'the folds are vertical and symmetric'. A pattern one size too large (C2) produces vertical symmetric folds in the back. C2's exclusive marker is 'the same surplus is also in the front, the sleeve and the waist' - but C1 does not require the reader to check those regions, so a reader who stops at C1 never looks.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-014",
+      "causes": [
+        "SYM-014.C1",
+        "SYM-014.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "The front armhole edge standing away from the body, with slack over the upper chest.",
+      "why_it_fails": "C1's evidence is 'looseness is felt over the upper chest'; C2's is 'together with the gap there is an EMPTY AREA ABOVE THE BUST'. The upper chest and the area above the bust are the same region of the body described twice. There is no observation that holds for one and not the other.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-016",
+      "causes": [
+        "SYM-016.C1",
+        "SYM-016.C3"
+      ],
+      "severity": "high",
+      "shared_observation": "Drag lines radiating from the bust apex toward the side seam and armhole.",
+      "why_it_fails": "A dart whose tip stops well short of the apex (C3) also produces lines radiating from the apex and can also lift the front hem. C3's discriminator is 'total front width is ADEQUATE' - a measurement, not an observation, and one the reader can only take after already suspecting C3. C1's confirming_measurement (bust minus high bust larger than the pattern assumes) is satisfied by many bodies that also have a correctly placed dart, so the number does not exclude C3 either.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-019",
+      "causes": [
+        "SYM-019.C1",
+        "SYM-019.C2",
+        "SYM-019.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "Puckering or a small bubble at the point of the bust dart.",
+      "why_it_fails": "C1's evidence is 'the bubble is exactly at the dart tip' - which is the observation and the where_it_appears field, restated. Nothing in C1 excludes an over-deep dart (C2) or a badly finished dart point (C3).",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-020",
+      "causes": [
+        "SYM-020.C2",
+        "SYM-020.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "A hollow, collapsing area across the upper front between the collarbone and the bust.",
+      "why_it_fails": "C2 is 'upper front width excessive' with evidence 'the hollow is spread over a WIDE AREA'; C3 is 'the pattern was drawn for a fuller upper bust' with evidence 'the hollow is around the UPPER BUST' and the measurement 'M-001 smaller than the pattern assumes'. These are the same condition stated twice: a pattern drawn for a fuller upper chest IS a pattern whose upper front is too wide, and the confirming measurement for C3 is what C2 means. The physical tests differ (dart at the armhole edge vs narrow the upper front) but the entry conditions do not.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-021",
+      "causes": [
+        "SYM-021.C1",
+        "SYM-021.C3"
+      ],
+      "severity": "high",
+      "shared_observation": "The button band pulling open at bust level, with the closure lying flat above and below.",
+      "why_it_fails": "C3 is 'there is no button at apex level'. When there is no button at the apex the gap opens at bust level and the closure is clean above and below - which is C1's distinguishing evidence verbatim. C1 does not require the reader to check button positions, so nothing stops the reader at C1.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-022",
+      "causes": [
+        "SYM-022.C1",
+        "SYM-022.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "The waist seam sitting above or below the natural waist by the same amount all round.",
+      "why_it_fails": "C1's evidence is 'the displacement is EQUAL all round, the same in front and back'. A deliberately raised or dropped waistline (C3) is equal all round by construction. C1 cannot exclude the design.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-024",
+      "causes": [
+        "SYM-024.C1",
+        "SYM-024.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "The waistband standing away from the body at the centre back.",
+      "why_it_fails": "C2 is 'the waist-to-hip ratio differs from the pattern's' but its evidence describes HIP fit ('the waistband sits on the waist but the hip area is tight or loose') and says nothing about the gap. A body with a larger hip-to-waist difference than the pattern assumes produces a gap that is widest at centre back and closes at the sides - which is C1's evidence. C2's field does not describe the sign it is a candidate cause of.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-025",
+      "causes": [
+        "SYM-025.C1",
+        "SYM-025.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "Vertical slack folds at the waist near the side seams, with the bust and hip fitting.",
+      "why_it_fails": "C1's evidence is 'folds vertical and symmetric; bust and hip FIT'. If the bust and hip fit and only the waist is loose, that is the definition of insufficient waist shaping, which is C2. The two causes are one condition described twice. C2's stated discriminator ('taking it at the side seam makes the hip tight') is only observable AFTER performing C1's physical test, so the file's own ordering forces the reader through C1 regardless.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-026",
+      "causes": [
+        "SYM-026.C2",
+        "SYM-026.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "The waistband binding low down, over the abdomen.",
+      "why_it_fails": "C2's evidence is 'the constriction is below the waist, at abdomen level'; C3's is 'the constriction is only in FRONT; the back is comfortable'. The abdomen is in front. Both fields describe the same felt location.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-031",
+      "causes": [
+        "SYM-031.C1",
+        "SYM-031.C2",
+        "SYM-031.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "Diagonal drag lines from the sleeve cap toward the bicep, worse when the arm is raised.",
+      "why_it_fails": "C1's evidence is 'the lines are concentrated at the bicep line; they increase markedly when the arm is raised' - the second half is the observation restated. More fundamentally, cap height (C2) and bicep width (C1) are not independent: they trade off along the same armhole circumference, so a pattern with an over-high cap IS a pattern with a narrow bicep at that armhole. The file asserts a separation the geometry does not support.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-032",
+      "causes": [
+        "SYM-032.C1",
+        "SYM-032.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "Vertical slack folds in the upper sleeve; the sleeve hangs like a bag; the arm moves freely.",
+      "why_it_fails": "C1's evidence is 'the folds are vertical; arm movement is completely free'. A deliberately full sleeve (C2) gives vertical folds and free movement. C1 does not exclude the design.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-033",
+      "causes": [
+        "SYM-033.C1",
+        "SYM-033.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "Both sleeves twisting in the same direction, the underarm seam spiralling.",
+      "why_it_fails": "C1's evidence is 'the twist is in the SAME direction on both sleeves'. A forward arm carriage - the sleeve-pitch mismatch that C2 describes - is bilateral and produces exactly that. C1's second marker (cap notches not matching the shoulder seam) does work, but it is stated as an addition rather than as the test.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-035",
+      "causes": [
+        "SYM-035.C1",
+        "SYM-035.C2"
+      ],
+      "severity": "high",
+      "shared_observation": "Horizontal drag lines below the seat with the crotch pulling up.",
+      "why_it_fails": "Crotch depth is a component of crotch length; the two measurements (M-026, M-027) are not independent. C1's own physical test - 'increase the crotch depth at the lengthen line' - also increases the back crotch length, so performing C1's test cannot distinguish C1 from C2: it relieves both. Under step 6 the reader would conclude 'the symptom disappeared, hypothesis confirmed' for whichever cause they happened to test first.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-036",
+      "causes": [
+        "SYM-036.C1",
+        "SYM-036.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "Fabric pooling in a 'U' at the front crotch, back clean.",
+      "why_it_fails": "C3's evidence is 'the NUMBERS ARE CORRECT but the curve is too deep'. A deeper front crotch curve necessarily lengthens the front crotch seam, which is the number C1 measures. 'Numbers correct, curve too deep' is therefore not a state the two measurements can jointly report, and C1's evidence ('pooling in front, back clean') is equally true of C3.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-038",
+      "causes": [
+        "SYM-038.C1",
+        "SYM-038.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "Both trouser legs twisting, evident standing.",
+      "why_it_fails": "C1's evidence is 'the twist is symmetric on both legs and evident standing'. An unbalanced front/back crotch curve (C2) is a pattern fault and therefore bilateral and evident standing. C2's marker ('the twist starts at crotch level') is exclusive; C1 has none.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-039",
+      "causes": [
+        "SYM-039.C1",
+        "SYM-039.C2",
+        "SYM-039.C3"
+      ],
+      "severity": "medium",
+      "shared_observation": "The crotch hanging low and away from the body, making it hard to stride.",
+      "why_it_fails": "C1's evidence is 'the gap between crotch and body is present standing; comfortable sitting'. A deliberately dropped crotch (C2) gives the same. A waistband sitting below the natural waist (C3) drops the crotch with it and gives the same. C1 is satisfied by all three.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-041",
+      "causes": [
+        "SYM-041.C1",
+        "SYM-041.C2"
+      ],
+      "severity": "low",
+      "shared_observation": "The garment rotating consistently in one direction on the body.",
+      "why_it_fails": "C1's evidence is 'the rotation is consistent in one direction and the same at every wearing'. Body asymmetry (C2) also rotates consistently in one direction at every wearing. C2 adds 'together with one-sided signs' but C1 does not require their absence.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-042",
+      "causes": [
+        "SYM-042.C1",
+        "SYM-042.C2"
+      ],
+      "severity": "medium",
+      "shared_observation": "The centre-front or centre-back line not hanging perpendicular to the floor.",
+      "why_it_fails": "C1's evidence is 'the deviation is symmetric and persists in the reader's natural stance'. A volume pulling the fabric (C2) is symmetric and persists in the natural stance. C2's marker ('the deviation starts at the level of that volume') is exclusive; C1 has none.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    },
+    {
+      "symptom_id": "SYM-043",
+      "causes": [
+        "SYM-043.C1",
+        "SYM-043.C2",
+        "SYM-043.C3"
+      ],
+      "severity": "low",
+      "shared_observation": "One dimension is the wrong length and there is no other sign at all.",
+      "why_it_fails": "C1's evidence is 'the garment sits correctly everywhere, balance lines correct, no drag or fold - ONLY the length differs'. A deliberate design length (C2) and a differently folded hem allowance (C3) both produce exactly that. C3 adds a quantitative marker (the difference equals the hem allowance) and C2 a documentary one; C1 excludes neither.",
+      "resolution": "REQUIRES_PHYSICAL_TEST"
+    }
+  ]
+}

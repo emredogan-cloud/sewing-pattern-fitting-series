@@ -111,9 +111,15 @@ atlası kullanamaz; atlası kullanmadan sıraya karar veremez.
 
 ### Bölüm 8 · Sahte nedenleri elemek *(~8 s.)*
 8.1 Neden önce bunlar elenir: geri alınamaz kesim
-8.2 Dokuz eleme kalemi: kumaş · kesim (çözgü) · iç giyim · yapım ·
-    ütü · dikiş payı · beden seçimi · **kalıp basımı (PDF test karesi)** ·
-    prova duruşu
+8.2 On dört eleme kalemi: kumaş · kesim (çözgü) · iç giyim · yapım ·
+    ütü · dikiş payı · beden seçimi · **kalıp basımı (PDF test karesi,
+    iki eksende ölçülür)** · prova duruşu · **prova desteği** ·
+    **ayakkabı/topuk** · **kumaşın dinlenmesi** · **ölçüm yaşı** · ease
+
+> ⚠ Sayı Faz 1'de dokuzdu. Faz 4 bağımsız teknik incelemesi dördünü
+> EKSİK buldu ve ikisinin kapsamını genişletti; liste **on dörde**
+> çıktı. Gerekçe ve kaynaklar:
+> [`../../08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md`](../../08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md).
 8.3 Her kalem için tek soru + tek test
 8.4 Eleme kontrol listesi — **Alıştırma 8A**
 
@@ -183,7 +189,7 @@ eleme kalemleri · **henüz değiştirme** · varış: düzeltme ailesi.
 | A | Ölçü referansı | 32 ölçü, tanım + figür + sık hata |
 | B | Belirti sözlüğü | 10 sınıf + 43 belirti, tek sayfalık dizin |
 | C | **Teşhis → düzeltme dizini** | 43 belirti → 19 aile eşlemesi |
-| D | Eleme kontrol listesi | Dokuz kalem, tek sayfa (fotokopi edilebilir) |
+| D | Eleme kontrol listesi | On dört kalem, tek sayfa (fotokopi edilebilir) |
 | E | Boş formlar | Ölçü kartı · prova kaydı · uyum profili |
 | F | Terim sözlüğü | 20 terim |
 | G | Bölge akış şemaları | Yedi bölge şeması bir arada |

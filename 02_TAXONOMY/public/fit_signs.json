@@ -18,7 +18,9 @@
     "birbirinden ayıran KANITTIR (SOURCE_MAP.md § 1, C-C sınıfı) ve elde",
     "tutulan hiçbir kamu kaynağı bu ayrımı yapmaz. C-C sınıfının birincil",
     "doğrulaması FİZİKSELDİR ve Faz 3'e aittir (VALIDATION_PROTOCOL.md).",
-    "Bkz. DECISIONS.md K19, K20."
+    "Bkz. DECISIONS.md K19, K20.",
+    "FAZ 4 BAĞIMSIZ İNCELEME: dört karıştırıcı sınıfı EKLENDİ (prova desteği, ayakkabı/topuk, kumaş dinlenmesi, ölçüm yaşı) ve ikisinin kapsamı GENİŞLETİLDİ (kalıp basımı: tek eksen + sayfa birleştirme; prova duruşu: kendine bakma etkisi). Gerekçe: 08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md § missing_confounders.",
+    "FAZ 4: karın nedenleri AF-20'ye yönlendirildi. Önceden üçü AF-13'e (giysinin ARKASI), ikisi AF-01'e (GÖĞÜS PENSİ ailesi) gidiyordu — okur için yanlış varış noktası."
   ],
   "count": 43,
   "verification_summary": {
@@ -119,8 +121,8 @@
       "confounders_to_rule_out": [
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
-        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış, test karesi tek yönde ölçülmüş, ya da sayfa birleştirmede kayma birikmiş"
       ],
       "do_not_change_yet": [
         "Yakayı derinleştirmeden ÖNCE arka sırt ve omuz nedenlerini ele — yanlış yeri kesmek geri alınamaz.",
@@ -170,10 +172,12 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
-        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Kumaş: ön çekmesi yapılmadı ya da parça asılıp dinlenmeden okundu (verev, gevşek dokuma, ağır kumaş)"
       ],
       "do_not_change_yet": [
         "Etek ucunu düzeltme — etek ucu BELİRTİDİR, neden yukarıdadır. Ucu kesmek sorunu gizler.",
@@ -228,7 +232,7 @@
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer"
       ],
       "do_not_change_yet": [
         "Kol oyuntusunu (AF-08) DEĞİŞTİRME — omuz düzeltilmeden kol oyuntusu ölçülemez.",
@@ -331,7 +335,7 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
@@ -493,7 +497,7 @@
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Ütü: dikişler açılıp ütülenmemiş",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
       ],
       "do_not_change_yet": [
@@ -546,7 +550,8 @@
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "Sırt genişliğini daraltmadan ÖNCE hareket testini yap — dar sırt hareketi kısıtlar ve bu geri alınması pahalı bir hatadır.",
@@ -596,10 +601,12 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Kumaş: ön çekmesi yapılmadı ya da parça asılıp dinlenmeden okundu (verev, gevşek dokuma, ağır kumaş)"
       ],
       "do_not_change_yet": [
         "Etek ucunu kesme — etek ucu belirtidir, neden değildir.",
@@ -652,7 +659,7 @@
       "confounders_to_rule_out": [
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
         "Ütü: dikişler açılıp ütülenmemiş",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
       ],
       "do_not_change_yet": [
@@ -812,7 +819,7 @@
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
       ],
       "do_not_change_yet": [
@@ -866,7 +873,8 @@
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
-        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış, test karesi tek yönde ölçülmüş, ya da sayfa birleştirmede kayma birikmiş",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "Yan dikişleri açma — yan dikişten eklenen genişlik göğse GİTMEZ, koltuk altına gider ve kol oyuntusunu bozar. Kitap 1'in en önemli 'yapma' uyarısı.",
@@ -912,15 +920,17 @@
           "distinguishing_evidence": "Yükselme bel hizasının altında başlıyor; göğüs temiz.",
           "confirming_measurement": "M-005 (yüksek kalça) vs. kalıp",
           "physical_test": "Ön parçayı karın hizasından aç.",
-          "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "adjustment_family_ref": "AF-20",
+          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz."
         }
       ],
       "confounders_to_rule_out": [
         "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
-        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Kumaş: ön çekmesi yapılmadı ya da parça asılıp dinlenmeden okundu (verev, gevşek dokuma, ağır kumaş)"
       ],
       "do_not_change_yet": [
         "Etek ucunu düzeltme.",
@@ -947,11 +957,11 @@
       "candidate_causes": [
         {
           "cause": "Ön beden hacmi yetersiz (göğüs veya karın)",
-          "distinguishing_evidence": "Kayma ile birlikte göğüs veya karın hizasında gerginlik var.",
+          "distinguishing_evidence": "Kayma ile birlikte göğüs veya karın hizasında gerginlik var. Hangi hacim olduğunu ayır: gerginlik GÖĞÜS hizasındaysa göğüs, BEL ALTI hizasındaysa karın ailesine gidilir.",
           "confirming_measurement": "M-031 veya M-005 vs. kalıp",
           "physical_test": "İlgili hizaya hacim ekle.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": "İki farklı hacim, iki farklı aile: göğüs AF-01, karın AF-20."
         },
         {
           "cause": "Arka beden genişliği fazla",
@@ -974,7 +984,7 @@
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer"
       ],
       "do_not_change_yet": [
         "Yan dikişi 'düzeltmek' için yeniden çizme — dikiş bir GÖSTERGEDİR."
@@ -1078,7 +1088,7 @@
       "confounders_to_rule_out": [
         "İç giyim: prova sırasında farklı/uygunsuz sutyen veya iç çamaşırı",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
       ],
       "do_not_change_yet": [
@@ -1180,10 +1190,11 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış, test karesi tek yönde ölçülmüş, ya da sayfa birleştirmede kayma birikmiş",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır"
       ],
       "do_not_change_yet": [
         "Bel dikişini kesip taşıma — bedeni boy çizgisinden kısaltmak/uzatmak farklı bir işlemdir ve kalıbın orantısını korur."
@@ -1233,10 +1244,11 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Ütü: dikişler açılıp ütülenmemiş",
-        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır"
       ],
       "do_not_change_yet": [
         "Etek/pantolon boyunu kısaltma.",
@@ -1287,10 +1299,12 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
-        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "Bel bandını daraltmadan ÖNCE oyuk nedenini ele — daraltmak oyuğu doldurmaz, yalnızca sıkar."
@@ -1341,7 +1355,9 @@
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Ütü: dikişler açılıp ütülenmemiş"
+        "Ütü: dikişler açılıp ütülenmemiş",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "Yan dikişten çok almak siluети bozar ve kalçayı sıkar — pens/yan dikiş dağılımı bir KARAR'dır (Kitap 2)."
@@ -1385,15 +1401,16 @@
           "distinguishing_evidence": "Sıkışma yalnızca ÖNDE; arkada rahat.",
           "confirming_measurement": "M-005 (yüksek kalça) vs. kalıp",
           "physical_test": "Ön parçaya karın hizasında hacim ekle.",
-          "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "adjustment_family_ref": "AF-20",
+          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz."
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Dikiş payı: kalıbın varsaydığından farklı payla dikilmiş"
+        "Dikiş payı: kalıbın varsaydığından farklı payla dikilmiş",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır"
       ],
       "do_not_change_yet": [
         "Oturarak test etmeden bel kararı verme — bel ölçüsü ayakta ve otururken FARKLIDIR (protokol, Bölüm 5)."
@@ -1445,7 +1462,9 @@
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "Yan dikişleri açma — oturak hacmi ARKA parçada gerekir; yandan eklenen genişlik oraya gitmez.",
@@ -1498,8 +1517,9 @@
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Ütü: dikişler açılıp ütülenmemiş",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
-        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır"
       ],
       "do_not_change_yet": [
         "Bel bandını sıkma — sarkma belden değil, alttaki hacim farkından geliyor.",
@@ -1550,10 +1570,13 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
-        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik"
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Kumaş: ön çekmesi yapılmadı ya da parça asılıp dinlenmeden okundu (verev, gevşek dokuma, ağır kumaş)"
       ],
       "do_not_change_yet": [
         "Etek ucunu tek taraftan kesme — asimetri kaynağı bulunmadan uç düzeltilmez.",
@@ -1606,8 +1629,9 @@
       ],
       "confounders_to_rule_out": [
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
-        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır"
       ],
       "do_not_change_yet": [
         "Yan dikişi yeniden çizerek 'düzeltme' — dikiş göstergedir."
@@ -1870,8 +1894,10 @@
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
-        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış, test karesi tek yönde ölçülmüş, ya da sayfa birleştirmede kayma birikmiş",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı"
       ],
       "do_not_change_yet": [
         "Bel bandını yükseltme/indirme — ağ derinliği ayrı bir ölçüdür.",
@@ -1922,8 +1948,10 @@
       ],
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
-        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı"
       ],
       "do_not_change_yet": [
         "Ön ağ eğrisini kesme — kesilen eğri geri gelmez; önce uzunluk sayısını kontrol et."
@@ -1967,15 +1995,17 @@
           "distinguishing_evidence": "Çizgiler yukarıdan aşağı, karın veya oturak hizasında başlıyor.",
           "confirming_measurement": "M-005 / M-006 vs. kalıp",
           "physical_test": "İlgili hizaya hacim ekle.",
-          "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "adjustment_family_ref": "AF-20",
+          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz."
         }
       ],
       "confounders_to_rule_out": [
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
-        "Kesim: parça çözgüye eğri kesilmiş (off-grain)"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı"
       ],
       "do_not_change_yet": [
         "Ağ eğrisini değiştirmeden ÖNCE uyluk çevresini ele — en sık karıştırılan iki neden.",
@@ -2028,7 +2058,9 @@
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı"
       ],
       "do_not_change_yet": [
         "İç bacak dikişini kaydırma — önce simetriyi ve kesimi ele."
@@ -2080,8 +2112,10 @@
       "confounders_to_rule_out": [
         "Ease: gözlenen fazlalık aslında TASARIM ease'idir (T-07) — kalıbın bitmiş giysi ölçüsü tablosuyla karşılaştırılmadı",
         "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
-        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı"
       ],
       "do_not_change_yet": [
         "Ağ derinliğini azaltmadan ÖNCE bel hattının nerede oturduğunu kontrol et — ikisi aynı belirtiyi verir."
@@ -2107,11 +2141,11 @@
       "candidate_causes": [
         {
           "cause": "Bir hacim (göğüs, karın, oturak) kumaşı yukarı çekiyor",
-          "distinguishing_evidence": "Yükselme o hacmin bulunduğu tarafta; aynı bölgede çekme çizgileri de var.",
+          "distinguishing_evidence": "Yükselme o hacmin bulunduğu tarafta; aynı bölgede çekme çizgileri de var. Hangi hacim olduğunu ayır: gerginlik GÖĞÜS hizasındaysa göğüs, BEL ALTI hizasındaysa karın ailesine gidilir.",
           "confirming_measurement": "İlgili çevre ölçüsü vs. kalıp karşılığı",
           "physical_test": "Hacim ekle ve etek ucunu yeniden gözle.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": "İki farklı hacim, iki farklı aile: göğüs AF-01, karın AF-20."
         },
         {
           "cause": "Ön/arka denge bozuk",
@@ -2131,10 +2165,14 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
-        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Kumaş: ön çekmesi yapılmadı ya da parça asılıp dinlenmeden okundu (verev, gevşek dokuma, ağır kumaş)",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "ETEK UCUNU KESME. Kitap 1'in en sık tekrarlanan uyarısı: etek ucu bir SONUÇTUR.",
@@ -2187,7 +2225,10 @@
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
         "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil"
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "Yan dikişleri yeniden konumlandırma — dikiş göstergedir."
@@ -2237,9 +2278,12 @@
       ],
       "confounders_to_rule_out": [
         "Kesim: parça çözgüye eğri kesilmiş (off-grain)",
-        "Prova duruşu: okur prova sırasında doğal duruşunda değil",
+        "Prova duruşu: okur prova sırasında doğal duruşunda değil — kendi bedenine bakmak için eğilmek ve dönmek de bu sınıfa girer",
         "Kumaş: kalıbın önerdiğinden farklı ağırlık/dökümlülük/esneklik",
-        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış"
+        "Yapım: dikiş payı eşit değil, kenar gerdirilmiş, tela/pekiştirme atlanmış",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "Denge çizgisi çizilmemiş bir prova giysisinde bu belirti ÖLÇÜLEMEZ — protokol (Bölüm 5) çizgileri zorunlu kılar.",
@@ -2289,10 +2333,14 @@
         }
       ],
       "confounders_to_rule_out": [
-        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış (test karesi ölçülmemiş)",
+        "Kalıp basımı: PDF kalıp yanlış ölçekte basılmış, test karesi tek yönde ölçülmüş, ya da sayfa birleştirmede kayma birikmiş",
         "Kumaş: yıkama/ütü sonrası çekme",
         "Ölçüm: boy ölçüsü ayakkabıyla veya yanlış duruşta alınmış",
-        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil"
+        "Beden: kalıp bedeni yanlış seçilmiş — bu bir SEÇİM sorunudur, düzeltme sorunu değil",
+        "Prova desteği: giysi bel hizasından desteklenmedi veya kapaması iliklenmedi — desteklenmeyen bir prova yanlış hizadan asılır",
+        "Ayakkabı: ölçüm ya da prova, giyilecek olandan farklı topuk yüksekliğinde yapıldı",
+        "Kumaş: ön çekmesi yapılmadı ya da parça asılıp dinlenmeden okundu (verev, gevşek dokuma, ağır kumaş)",
+        "Ölçüm yaşı: vücut ölçüleri güncel değil — beden değişti, kayıt değişmedi"
       ],
       "do_not_change_yet": [
         "BAŞKA BİR BELİRTİ VARSA bu kaydı kullanma — boy düzeltmesi diğer belirtileri gizler ve teşhisi bozar.",

@@ -4,28 +4,117 @@
   "$comment": "Üç kitabın ORTAK ölçü çerçevesi (dependency matrix: Kitap 1 birincil, Kitap 3 birincil, Kitap 2 destek). Bir ölçü noktası bir kez tanımlanır ve üç kitapta AYNI adla kullanılır.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["measurement_id", "name", "category", "landmark_start", "landmark_end", "path_rule", "common_errors", "used_by", "verification_status"],
+  "required": [
+    "measurement_id",
+    "name",
+    "category",
+    "landmark_start",
+    "landmark_end",
+    "path_rule",
+    "common_errors",
+    "used_by",
+    "verification_status"
+  ],
   "properties": {
-    "measurement_id": { "type": "string", "pattern": "^M-[0-9]{3}$" },
-    "name": { "type": "string", "minLength": 3 },
-    "category": { "type": "string", "enum": ["girth", "length", "width", "depth", "angle", "derived"] },
-    "landmark_start": { "type": "string", "minLength": 3 },
-    "landmark_end": { "type": "string", "minLength": 3 },
-    "path_rule": { "type": "string", "minLength": 10, "$comment": "Şerit metre hangi yolu izler — 'düz mü, vücut yüzeyini izleyerek mi, yatay mı'." },
-    "tool": { "type": ["string", "null"] },
-    "helper_required": { "type": ["boolean", "null"] },
-    "common_errors": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-    "derived_from": { "type": "array", "items": { "type": "string", "pattern": "^M-[0-9]{3}$" } },
+    "measurement_id": {
+      "type": "string",
+      "pattern": "^M-[0-9]{3}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "girth",
+        "length",
+        "width",
+        "depth",
+        "angle",
+        "derived"
+      ]
+    },
+    "landmark_start": {
+      "type": "string",
+      "minLength": 3
+    },
+    "landmark_end": {
+      "type": "string",
+      "minLength": 3
+    },
+    "path_rule": {
+      "type": "string",
+      "minLength": 10,
+      "$comment": "Şerit metre hangi yolu izler — 'düz mü, vücut yüzeyini izleyerek mi, yatay mı'."
+    },
+    "tool": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "helper_required": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "common_errors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "derived_from": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^M-[0-9]{3}$"
+      }
+    },
     "used_by": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string", "enum": ["book-01", "book-02", "book-03"] }
+      "items": {
+        "type": "string",
+        "enum": [
+          "book-01",
+          "book-02",
+          "book-03"
+        ]
+      }
     },
-    "pattern_counterpart": { "type": ["string", "null"], "$comment": "Kalıp üzerindeki karşılığı (düz ölçüm noktası) — Kitap 1 Bölüm 3." },
-    "source_refs": { "type": "array", "items": { "type": "string", "pattern": "^S-[0-9]{4}$" } },
+    "pattern_counterpart": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "$comment": "Kalıp üzerindeki karşılığı (düz ölçüm noktası) — Kitap 1 Bölüm 3."
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^S-[0-9]{4}$"
+      }
+    },
     "verification_status": {
       "type": "string",
-      "enum": ["agent_drafted_unverified", "agent_reviewed", "technical_reference_verified", "physically_validated"]
+      "enum": [
+        "agent_drafted_unverified",
+        "agent_reviewed",
+        "technical_reference_verified",
+        "physically_validated"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "$comment": "Bir ölçünün tanımı kaynaklar arasında ÇELİŞİYORSA ya da bir atıf tanım kanıtı değil bağlam ise, bunu kaydın KENDİSİ taşımalıdır. Faz 4 bağımsız incelemesi bu alanın yokluğunda çelişkilerin yalnızca SOURCE_MAP'te durduğunu ve ölçüyü okuyan kodun onları GÖREMEDİĞİNİ gösterdi."
     }
   }
 }

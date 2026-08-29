@@ -5,7 +5,9 @@
     "TOP-21 altında ayrıca ekler (bu dosyada YOK — Kitap 3 Faz 1'in işi).",
     "'common_errors' alanı Kitap 1 Bölüm 2'nin çekirdeğidir: araştırma raporunun",
     "içerik mimarisi maddesi 1 ('ölçü almanın doğru yolu ve en sık yapılan altı hata').",
-    "verification_status: agent_drafted_unverified — dış otoriteye karşı DOĞRULANMADI."
+    "verification_status: agent_drafted_unverified — dış otoriteye karşı DOĞRULANMADI.",
+    "FAZ 4 BAĞIMSIZ İNCELEME: M-001'in yolu 'kolların ÜSTÜNDEN' diyordu; doğrusu kolların ALTINDAN, göğüs dokusunun ÜSTÜNDEN'dir. Karar taşıyan bir tanımdı — göğüs−üst göğüs farkını ve dolayısıyla beden seçimini doğrudan etkiliyordu.",
+    "FAZ 4 BAĞIMSIZ İNCELEME: M-015 iki ayrı ölçünün birleştirilmesiydi ve DÜZELTİLDİ; M-004'e ISO 8559-1 tanımı eklendi; M-001'in yolu daraltıldı; helper_required dosya boyunca dolduruldu; S-0003'ün landmark atıfları bağlam olarak yeniden etiketlendi."
   ],
   "count": 32,
   "measurements": [
@@ -15,11 +17,12 @@
       "category": "girth",
       "landmark_start": "under the arms, above the bust",
       "landmark_end": "around the body back to start",
-      "path_rule": "Yatay, kolların hemen altından, göğüs dokusunun ÜZERİNDEN geçer; sırtta yere paralel kalır.",
+      "path_rule": "Yatay, kolların ALTINDAN, önde göğüs dokusunun ÜSTÜNDEN geçer; sırtta yere paralel kalır. Seviye bir iple işaretlenip oturum boyunca yerinde bırakılırsa tekrarlanabilir olur. Kaynaklar yolu farklı tarif eder — kalıp şirketinin yöntemi izlenir ve hangisi olduğu kaydedilir.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "şerit metrenin sırtta düşmesi",
+        "şeridin kolların ÜSTÜNDEN, deltoidlerin üzerinden geçmesi (üst göğsü büyük okur, beden kararını bozar)",
         "kolların yukarı kaldırılması (ölçüyü büyütür)",
         "göğsün üstüne değil ortasına inmek"
       ],
@@ -44,7 +47,7 @@
       "landmark_end": "around the body back to start",
       "path_rule": "Yatay, en dolgun noktadan; şerit metre sıkılmaz, sarkmaz.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "sutyensiz veya farklı sutyenle ölçmek",
         "şeridi çekmek",
@@ -61,7 +64,8 @@
         "S-0001",
         "S-0003"
       ],
-      "verification_status": "technical_reference_verified"
+      "verification_status": "technical_reference_verified",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-003",
@@ -71,7 +75,7 @@
       "landmark_end": "around the body back to start",
       "path_rule": "Yatay, göğsün hemen altından, nefes verilmiş hâlde.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "nefes tutmak",
         "çok sıkı çekmek"
@@ -93,9 +97,9 @@
       "category": "girth",
       "landmark_start": "narrowest point of the torso",
       "landmark_end": "around the body back to start",
-      "path_rule": "Yatay; nokta bir kez BULUNUR (yana eğilme testi) ve lastikle İŞARETLENİR — her ölçüde aynı yerden alınır.",
+      "path_rule": "Yatay, yere paralel. ⚠ TANIM KAYNAKLARA GÖRE DEĞİŞİR: ISO 8559-1:2017 bel seviyesini en alt kaburga ile kalça kemiğinin en üst noktası ARASINDA ORTA NOKTA olarak tanımlar; başka kaynaklar gövdenin en dar yerini, göbek hizasını ya da 'kemerin oturduğu yeri' kullanır. Aynı vücutta aralarında santimetrelerce fark olabilir. Bu kitap tartışmayı ÇÖZMEZ: okur birini seçer, İŞARETLER ve her seferinde aynı işareti kullanır.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "pantolon bel hizasını doğal bel sanmak",
         "karnı içeri çekmek",
@@ -112,7 +116,8 @@
         "S-0002",
         "S-0003"
       ],
-      "verification_status": "agent_drafted_unverified"
+      "verification_status": "agent_drafted_unverified",
+      "notes": "Faz 4: ISO 8559-1:2017 § 3.1.22 tanımı kayda eklendi. Atıf yapılan iki kaynağın (S-0002, S-0003) hiçbiri bel tanımı İÇERMİYOR — bu bir aşırı atıftı. Çelişki SOURCE_MAP § 7'de zaten kayıtlıydı; şimdi ölçünün kendi kaydında da duruyor. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-005",
@@ -122,7 +127,7 @@
       "landmark_end": "around the body back to start",
       "path_rule": "Yatay; mesafe KAYDEDİLİR, çünkü kalıpla karşılaştırma bu mesafeye bağlıdır.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "mesafeyi kaydetmemek",
         "kalça ile karıştırmak"
@@ -148,7 +153,7 @@
       "landmark_end": "around the body back to start",
       "path_rule": "Yatay, en dolgun noktadan; bu noktanın belden uzaklığı da KAYDEDİLİR (M-023).",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "en dolgun noktayı gözle tahmin etmek",
         "şeridi öne doğru düşürmek"
@@ -174,7 +179,7 @@
       "landmark_end": "around the arm back to start",
       "path_rule": "Yatay, kol gevşek yanda; kas kasılmaz.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "kolu kaldırmak",
         "kası kasmak"
@@ -199,7 +204,7 @@
       "landmark_end": "around the wrist back to start",
       "path_rule": "Yatay, el bileği kemiği üzerinden.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "çok sıkı"
       ],
@@ -213,7 +218,8 @@
       "source_refs": [
         "S-0001"
       ],
-      "verification_status": "agent_drafted_unverified"
+      "verification_status": "agent_drafted_unverified",
+      "notes": "Faz 4: bu bir tanım çelişkisi DEĞİLDİR. Bilek çevresi ve el çevresi iki AYRI ölçüdür ve iki ayrı soruyu yanıtlar. Bu depo yalnızca bilek çevresini topluyor; AÇILMAYAN bir manşet elin üzerinden geçmek zorundadır ve o karar el çevresini ister. Kitapta ikisi ayrı ayrı anlatılır. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-009",
@@ -223,7 +229,7 @@
       "landmark_end": "around the leg back to start",
       "path_rule": "Yatay, ayakta ve ağırlık iki ayağa eşit dağılmış hâlde.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "oturarak ölçmek",
         "tek ayağa yüklenmek"
@@ -249,7 +255,7 @@
       "landmark_end": "around the leg back to start",
       "path_rule": "Yatay, bacak düz.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "dizi bükmek"
       ],
@@ -270,7 +276,7 @@
       "landmark_end": "around the leg back to start",
       "path_rule": "Yatay, baldırın en dolgun noktasından; ayak yere düz basar.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "ayak parmak ucunda durmak"
       ],
@@ -291,7 +297,7 @@
       "landmark_end": "around the neck base back to start",
       "path_rule": "Boyun tabanında, omuz ile boynun birleştiği çukurlardan geçer — boyun ortasından DEĞİL.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "boynun ortasından ölçmek",
         "şeridi dik tutmak"
@@ -305,7 +311,8 @@
       "source_refs": [
         "S-0001"
       ],
-      "verification_status": "agent_drafted_unverified"
+      "verification_status": "agent_drafted_unverified",
+      "notes": "Faz 4: bu da bir tanım çelişkisi DEĞİLDİR. Boyun TABANI çevresi ile boyun çevresi iki ayrı ölçüdür. Yaka kararları taban çevresinden okunur. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-014",
@@ -315,7 +322,7 @@
       "landmark_end": "shoulder point (bone tip)",
       "path_rule": "Omuz üstü hattı boyunca; iki uç nokta önce İŞARETLENİR.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "omuz ucunu kol kemiğinin dışına taşımak",
         "boyun noktasını çok içeriden almak"
@@ -340,12 +347,13 @@
       "category": "length",
       "landmark_start": "hollow at base of throat",
       "landmark_end": "marked natural waist",
-      "path_rule": "Vücut yüzeyini izleyerek, göğsün ÜZERİNDEN düşey.",
+      "path_rule": "Boyun tabanındaki çukurdan DÜZ AŞAĞI, ön ortadan, işaretli bele. Göğsün ÜZERİNDEN dolaşmaz — göğüs üzerinden alınan ölçü AYRI bir ölçüdür (beden boyu) ve denge hesabında kullanılamaz.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
-        "göğsü atlamak (düz ölçmek)",
-        "bel işaretini kaçırmak"
+        "şeridin göğsün üzerinden dolaştırılması — bu BAŞKA bir ölçüdür ve denge sayısına göğüs çıkıntısını karıştırır",
+        "şeridin göğsün altında vücuttan ayrılması",
+        "işaretlenmemiş bir bele bitirmek"
       ],
       "derived_from": [],
       "used_by": [
@@ -357,7 +365,8 @@
       "source_refs": [
         "S-0003"
       ],
-      "verification_status": "agent_drafted_unverified"
+      "verification_status": "agent_drafted_unverified",
+      "notes": "Faz 4'te DÜZELTİLDİ. Kayıt iki ayrı ölçüyü (ön orta boy: düz aşağı; beden boyu: göğüs üzerinden) BİRLEŞTİRMİŞ ve kaynağın kendi yöntemini 'sık yapılan hata' diye listelemişti. Sonuç M-032'yi (kitabın denge sayısı) bozuyordu: aynı duruşta farklı göğüs hacmine sahip iki okur farklı 'denge' okuyordu. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-016",
@@ -367,7 +376,7 @@
       "landmark_end": "marked natural waist",
       "path_rule": "Omurga boyunca, sırt yüzeyini izleyerek.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "şeridi düz gerdirmek",
         "nape noktasını yanlış bulmak"
@@ -393,7 +402,7 @@
       "landmark_end": "bust apex",
       "path_rule": "Omuz üstünden göğüs ucuna, vücut yüzeyini izleyerek.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "apeks noktasını işaretlememek"
       ],
@@ -407,7 +416,8 @@
       "source_refs": [
         "S-0003"
       ],
-      "verification_status": "agent_drafted_unverified"
+      "verification_status": "agent_drafted_unverified",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-018",
@@ -417,7 +427,7 @@
       "landmark_end": "right bust apex",
       "path_rule": "Yatay, iki apeks arası.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "sutyensiz ölçmek"
       ],
@@ -439,7 +449,7 @@
       "landmark_end": "marked natural waist",
       "path_rule": "Düşey, vücut yüzeyini izleyerek.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "karın üzerinden sapmak"
       ],
@@ -461,7 +471,7 @@
       "landmark_end": "right back armhole crease",
       "path_rule": "Yatay, kürek kemiği hizasında; kollar gevşek yanda.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "kolları öne getirmek (ölçüyü büyütür)",
         "yanlış yükseklikten ölçmek"
@@ -477,7 +487,8 @@
         "S-0003",
         "S-0005"
       ],
-      "verification_status": "technical_reference_verified"
+      "verification_status": "technical_reference_verified",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-021",
@@ -487,7 +498,7 @@
       "landmark_end": "right front armhole crease",
       "path_rule": "Yatay, göğsün ÜSTÜNDEN, koltuk kıvrımları arasında.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": true,
       "common_errors": [
         "göğüs üzerinden geçmek"
       ],
@@ -532,7 +543,7 @@
       "landmark_end": "full hip level",
       "path_rule": "Yandan düşey; M-006'nın hangi yükseklikte olduğunu sabitler.",
       "tool": "tape measure",
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "kaydetmemek"
       ],
@@ -570,7 +581,8 @@
         "S-0002",
         "S-0003"
       ],
-      "verification_status": "technical_reference_verified"
+      "verification_status": "technical_reference_verified",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-025",
@@ -726,7 +738,7 @@
       "landmark_end": "M-001",
       "path_rule": "M-002 − M-001. Beden seçimi ve göğüs şekillendirme miktarı tartışmasının SAYISAL girdisi.",
       "tool": null,
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "iki ölçüden birini yanlış almak — hata burada İKİYE KATLANIR"
       ],
@@ -743,7 +755,8 @@
       "source_refs": [
         "S-0003"
       ],
-      "verification_status": "technical_reference_verified"
+      "verification_status": "technical_reference_verified",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi."
     },
     {
       "measurement_id": "M-032",
@@ -753,7 +766,7 @@
       "landmark_end": "M-016",
       "path_rule": "M-015 − M-016. Denge (balance) teşhisinin sayısal girdisi.",
       "tool": null,
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "bel işaretinin ön ve arkada farklı yükseklikte olması"
       ],
@@ -778,7 +791,7 @@
       "landmark_end": "M-004",
       "path_rule": "M-006 − M-004. Kalça/bel oranı; beden seçimi ve dereceleme kararının girdisi.",
       "tool": null,
-      "helper_required": null,
+      "helper_required": false,
       "common_errors": [
         "yanlış bel noktası"
       ],

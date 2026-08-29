@@ -118,56 +118,132 @@ MAX_HALF_SIDE = 0.080
 MAX_HALF_TORSO = 0.100
 MAX_HALF_FULL = 0.135
 
+# ── VÜCUT VARYANTLARI ─────────────────────────────────────────────────
+# Çelişmeli inceleme bulgusu B-05 (YÜKSEK): 154 figürün tamamı TEK bir
+# kroki oranından üretiliyordu. Kitap uyum sorunlarının vücut
+# çeşitliliğinden doğduğunu söylüyor ama her figürde aynı vücudu
+# gösteriyordu — kendi tezini görsel olarak yalanlıyordu.
+#
+# ⚠ YUKARIDAKİ DÜRÜSTLÜK SINIRI VARYANTLAR İÇİN DE GEÇERLİDİR.
+# Bu üç varyant ANTROPOMETRİK BİR İDDİA DEĞİLDİR ve bir vücut
+# TİPOLOJİSİ ÖNERMEZ. Hiçbiri bir nüfusu, bir yüzdeyi ya da bir "tip"i
+# temsil etmez. Yaptıkları tek şey şudur: bir belirti figürü, o
+# belirtinin ÜZERİNDE GÖRÜLDÜĞÜ gövde farkını gösterebilsin. Yuvarlak
+# sırt varyantı "yuvarlak sırtlı insanlar böyledir" DEMEZ; "bu belirti
+# bir yuvarlak sırtta böyle görünür" der.
+#
+# Motor değişmedi. Değişen sayı azdır ve hepsi burada durur.
+_VARIANT_DELTAS = {
+    "standard": {},
+    "straight_back": {
+        # Düz sırt: üst sırt derinliği azalır, ense-bel arkası düzleşir.
+        "DEPTH": {"shoulder_point": (0.032, 0.036), "high_bust": (0.062, 0.040),
+                  "bust_apex": (0.072, 0.040), "underbust": (0.052, 0.041),
+                  "waist": (0.040, 0.040), "neck_base": (0.026, 0.024)},
+        "OUTLINE": {"armscye": 0.091, "underarm": 0.087},
+        "HALF_W": {"across_back": 0.085},
+    },
+    "rounded_back": {
+        # Yuvarlak sırt: üst sırt derinliği ve genişliği artar, nape
+        # geriye kayar, omuz noktası öne döner.
+        "DEPTH": {"shoulder_point": (0.030, 0.056), "high_bust": (0.060, 0.060),
+                  "bust_apex": (0.070, 0.058), "underbust": (0.050, 0.055),
+                  "waist": (0.040, 0.054), "neck_base": (0.022, 0.040)},
+        "OUTLINE": {"armscye": 0.098, "underarm": 0.094},
+        "HALF_W": {"across_back": 0.096},
+        "LEVEL": {"nape": 0.849, "side_neck_point": 0.854},
+    },
+    "fuller_bust": {
+        # Dolgun göğüs: apeks genişler, aşağı ve dışa kayar.
+        # ⚠ high_bust DEĞİŞMEZ — M-031 farkının kendisi budur.
+        "OUTLINE": {"bust_apex": 0.104, "underbust": 0.080},
+        "HALF_W": {"apex_offset": 0.048, "across_chest": 0.084},
+        "DEPTH": {"bust_apex": (0.092, 0.048), "high_bust": (0.068, 0.048),
+                  "underbust": (0.058, 0.048)},
+        "LEVEL": {"bust_apex": 0.726},
+    },
+}
+VARIANTS = tuple(_VARIANT_DELTAS)
+
+
+def variant_tables(name: str) -> dict:
+    """Bir varyantın tam tablo kümesi. Taban tablolar HİÇ değişmez.
+
+    Sıra önemlidir: OUTLINE bir gövde KONTURUDUR ve HALF_W (ölçü yolu
+    genişliği) onu miras alır. Varyant konturu genişletip ölçü yolunu
+    genişletmezse şerit metre çizgisi gövdenin İÇİNDE kalır — sessiz ve
+    yanlış bir figür. Bu yüzden OUTLINE deltası HALF_W'ye de yazılır,
+    sonra varyantın AÇIK HALF_W deltası en son uygulanır.
+    """
+    if name not in _VARIANT_DELTAS:
+        raise ValueError(f"bilinmeyen kroki varyantı: {name!r} — {VARIANTS}")
+    d = _VARIANT_DELTAS[name]
+    base = {"LEVEL": dict(LEVEL), "OUTLINE": dict(OUTLINE), "HALF_W": dict(HALF_W),
+            "DEPTH": dict(DEPTH), "LEG_OUT": dict(LEG_OUT), "LEG_IN": dict(LEG_IN),
+            "ARM": dict(ARM)}
+    for tbl in ("LEVEL", "DEPTH", "LEG_OUT", "LEG_IN", "ARM"):
+        base[tbl].update(d.get(tbl, {}))
+    base["OUTLINE"].update(d.get("OUTLINE", {}))
+    base["HALF_W"].update(d.get("OUTLINE", {}))
+    base["HALF_W"].update(d.get("HALF_W", {}))
+    return base
+
 
 class Croquis:
     """Kroki — bir figür kutusuna yerleştirilmiş şematik vücut."""
 
-    def __init__(self, cx: float, base_y: float, height_pt: float, view: str = "front"):
+    def __init__(self, cx: float, base_y: float, height_pt: float, view: str = "front",
+                 variant: str = "standard"):
         if view not in {"front", "back", "side"}:
             raise ValueError(view)
         self.cx, self.base_y, self.H, self.view = cx, base_y, float(height_pt), view
+        self.variant = variant
+        t = variant_tables(variant)
+        self.LEVEL, self.OUTLINE, self.HALF_W = t["LEVEL"], t["OUTLINE"], t["HALF_W"]
+        self.DEPTH, self.LEG_OUT = t["DEPTH"], t["LEG_OUT"]
+        self.LEG_IN, self.ARM = t["LEG_IN"], t["ARM"]
 
     # ── koordinat yardımcıları ────────────────────────────────────────
     def y(self, level: str) -> float:
-        return self.base_y + LEVEL[level] * self.H
+        return self.base_y + self.LEVEL[level] * self.H
 
     def hw(self, key: str) -> float:
-        return HALF_W[key] * self.H
+        return self.HALF_W[key] * self.H
 
     def p(self, level: str, half_key: str | None = None, side: int = 0) -> tuple:
         x = self.cx + (side * self.hw(half_key) if half_key else 0.0)
         return (x, self.y(level))
 
     def apex(self, side: int = 1) -> tuple:
-        return (self.cx + side * HALF_W["apex_offset"] * self.H, self.y("bust_apex"))
+        return (self.cx + side * self.HALF_W["apex_offset"] * self.H, self.y("bust_apex"))
 
     def leg_center(self, side: int) -> float:
         """Bir bacağın orta hattı — bacak çevresi ölçüsü buna göre çizilir."""
-        mid = (LEG_OUT["thigh"] + LEG_IN["thigh"]) / 2.0
+        mid = (self.LEG_OUT["thigh"] + self.LEG_IN["thigh"]) / 2.0
         return self.cx + side * mid * self.H
 
     # ── kontur parçaları ──────────────────────────────────────────────
     def _side_chain(self, s: int, bottom: str) -> list:
         """Omuz ucundan aşağı gövde konturu, `bottom` seviyesinde kesilir."""
-        chain = [("shoulder_point", OUTLINE["shoulder_point"]),
-                 ("armscye", OUTLINE["armscye"]),
-                 ("underarm", OUTLINE["underarm"]),
-                 ("high_bust", OUTLINE["high_bust"]),
-                 ("bust_apex", OUTLINE["bust_apex"]),
-                 ("underbust", OUTLINE["underbust"]),
-                 ("waist", OUTLINE["waist"]),
-                 ("high_hip", OUTLINE["high_hip"]),
-                 ("full_hip", OUTLINE["full_hip"]),
-                 ("crotch", OUTLINE["crotch"])]
-        cut = LEVEL[bottom]
+        chain = [("shoulder_point", self.OUTLINE["shoulder_point"]),
+                 ("armscye", self.OUTLINE["armscye"]),
+                 ("underarm", self.OUTLINE["underarm"]),
+                 ("high_bust", self.OUTLINE["high_bust"]),
+                 ("bust_apex", self.OUTLINE["bust_apex"]),
+                 ("underbust", self.OUTLINE["underbust"]),
+                 ("waist", self.OUTLINE["waist"]),
+                 ("high_hip", self.OUTLINE["high_hip"]),
+                 ("full_hip", self.OUTLINE["full_hip"]),
+                 ("crotch", self.OUTLINE["crotch"])]
+        cut = self.LEVEL[bottom]
         pts = [(self.cx + s * hw * self.H, self.y(lv))
-               for lv, hw in chain if LEVEL[lv] >= cut - 1e-9]
-        if not pts or abs(LEVEL[chain[-1][0]] - cut) > 1e-9:
+               for lv, hw in chain if self.LEVEL[lv] >= cut - 1e-9]
+        if not pts or abs(self.LEVEL[chain[-1][0]] - cut) > 1e-9:
             # kesim seviyesinde ara değer: son iki noktadan doğrusal
             for i in range(len(chain) - 1):
                 a, b = chain[i], chain[i + 1]
-                if LEVEL[b[0]] <= cut <= LEVEL[a[0]]:
-                    f = (LEVEL[a[0]] - cut) / (LEVEL[a[0]] - LEVEL[b[0]])
+                if self.LEVEL[b[0]] <= cut <= self.LEVEL[a[0]]:
+                    f = (self.LEVEL[a[0]] - cut) / (self.LEVEL[a[0]] - self.LEVEL[b[0]])
                     hw = a[1] + (b[1] - a[1]) * f
                     pts.append((self.cx + s * hw * self.H, self.y(bottom)))
                     break
@@ -179,20 +255,20 @@ class Croquis:
                 for lv in ("crotch", "thigh", "knee", "calf", "ankle")]
 
     def _arm_chain(self, s: int) -> list:
-        g = ARM["gap"] * self.H
+        g = self.ARM["gap"] * self.H
         return [
-            (self.cx + s * OUTLINE["shoulder_point"] * self.H, self.y("shoulder_point")),
-            (self.cx + s * (OUTLINE["underarm"] * self.H + g + ARM["bicep_half"] * self.H),
+            (self.cx + s * self.OUTLINE["shoulder_point"] * self.H, self.y("shoulder_point")),
+            (self.cx + s * (self.OUTLINE["underarm"] * self.H + g + self.ARM["bicep_half"] * self.H),
              self.y("bicep")),
-            (self.cx + s * (OUTLINE["waist"] * self.H + g + 2.6 * ARM["elbow_half"] * self.H),
+            (self.cx + s * (self.OUTLINE["waist"] * self.H + g + 2.6 * self.ARM["elbow_half"] * self.H),
              self.y("elbow")),
-            (self.cx + s * (OUTLINE["high_hip"] * self.H + g + 1.6 * ARM["wrist_half"] * self.H),
+            (self.cx + s * (self.OUTLINE["high_hip"] * self.H + g + 1.6 * self.ARM["wrist_half"] * self.H),
              self.y("wrist")),
         ]
 
     # ── çizim ─────────────────────────────────────────────────────────
     def _head_and_neck(self, fc, gray):
-        hw_n = HALF_W["neck_base"] * self.H
+        hw_n = self.HALF_W["neck_base"] * self.H
         for s in (-1, 1):
             fc.curve([(self.cx + s * hw_n, self.y("neck_base")),
                       (self.cx + s * hw_n * 0.92, self.y("chin"))],
@@ -204,7 +280,7 @@ class Croquis:
                      stroke=1, fill=0)
 
     def _neck_stub(self, fc, gray):
-        hw_n = HALF_W["neck_base"] * self.H
+        hw_n = self.HALF_W["neck_base"] * self.H
         top = self.y("neck_base") + 0.016 * self.H
         for s in (-1, 1):
             fc.line(self.cx + s * hw_n, self.y("neck_base"),
@@ -214,13 +290,13 @@ class Croquis:
 
     def _shoulders_and_neckline(self, fc, gray):
         for s in (-1, 1):
-            fc.line(self.cx + s * HALF_W["neck_base"] * self.H, self.y("side_neck_point"),
-                    self.cx + s * OUTLINE["shoulder_point"] * self.H, self.y("shoulder_point"),
+            fc.line(self.cx + s * self.HALF_W["neck_base"] * self.H, self.y("side_neck_point"),
+                    self.cx + s * self.OUTLINE["shoulder_point"] * self.H, self.y("shoulder_point"),
                     role="body_outline", gray=gray)
         drop = 0.012 * self.H if self.view != "back" else 0.005 * self.H
-        fc.curve([(self.cx - HALF_W["neck_base"] * self.H, self.y("side_neck_point")),
+        fc.curve([(self.cx - self.HALF_W["neck_base"] * self.H, self.y("side_neck_point")),
                   (self.cx, self.y("neck_base") - drop),
-                  (self.cx + HALF_W["neck_base"] * self.H, self.y("side_neck_point"))],
+                  (self.cx + self.HALF_W["neck_base"] * self.H, self.y("side_neck_point"))],
                  role="body_outline", gray=gray)
 
     # ── yandan görünüş ────────────────────────────────────────────────
@@ -229,12 +305,12 @@ class Croquis:
                  "waist", "high_hip", "full_hip", "crotch", "knee", "ankle"]
         s = 1 if front else -1
         i = 0 if front else 1
-        return [(self.cx + s * DEPTH[lv][i] * self.H, self.y(lv)) for lv in order]
+        return [(self.cx + s * self.DEPTH[lv][i] * self.H, self.y(lv)) for lv in order]
 
     def draw_side(self, fc, *, head=True, gray=0.0, bottom="ankle"):
         """Profil silueti — ağ derinliği ve ağ uzunluğu YALNIZCA burada
         anlaşılır; önden görünüşte ikisi de görünmez."""
-        cut = LEVEL[bottom]
+        cut = self.LEVEL[bottom]
         for front in (True, False):
             pts = [q for q in self._profile_chain(front)
                    if (q[1] - self.base_y) / self.H >= cut - 1e-9]
@@ -254,15 +330,15 @@ class Croquis:
                          self.cx + self.hw("head") * 0.95, self.y("top_of_head"),
                          stroke=1, fill=0)
             for s in (-1, 1):
-                fc.line(self.cx + s * DEPTH["neck_base"][0 if s > 0 else 1] * self.H * 0.9,
+                fc.line(self.cx + s * self.DEPTH["neck_base"][0 if s > 0 else 1] * self.H * 0.9,
                         self.y("neck_base"),
-                        self.cx + s * DEPTH["neck_base"][0 if s > 0 else 1] * self.H * 0.8,
+                        self.cx + s * self.DEPTH["neck_base"][0 if s > 0 else 1] * self.H * 0.8,
                         self.y("chin"), role="body_outline", gray=gray)
 
     def profile_point(self, level: str, front: bool = True) -> tuple:
         i = 0 if front else 1
         s = 1 if front else -1
-        return (self.cx + s * DEPTH[level][i] * self.H, self.y(level))
+        return (self.cx + s * self.DEPTH[level][i] * self.H, self.y(level))
 
     def draw(self, fc, *, arms=True, head=True, legs=True, gray=0.0):
         """Tam figür. view='side' ise profil çizilir."""
@@ -282,19 +358,19 @@ class Croquis:
         else:
             self._neck_stub(fc, gray)
         if legs:
-            fc.line(self.cx - LEG_OUT["ankle"] * self.H, self.y("ankle"),
-                    self.cx - LEG_IN["ankle"] * self.H, self.y("ankle"),
+            fc.line(self.cx - self.LEG_OUT["ankle"] * self.H, self.y("ankle"),
+                    self.cx - self.LEG_IN["ankle"] * self.H, self.y("ankle"),
                     role="body_outline", gray=gray)
-            fc.line(self.cx + LEG_IN["ankle"] * self.H, self.y("ankle"),
-                    self.cx + LEG_OUT["ankle"] * self.H, self.y("ankle"),
+            fc.line(self.cx + self.LEG_IN["ankle"] * self.H, self.y("ankle"),
+                    self.cx + self.LEG_OUT["ankle"] * self.H, self.y("ankle"),
                     role="body_outline", gray=gray)
-            fc.curve([(self.cx - LEG_IN["crotch"] * self.H, self.y("crotch")),
+            fc.curve([(self.cx - self.LEG_IN["crotch"] * self.H, self.y("crotch")),
                       (self.cx, self.y("crotch") + 0.008 * self.H),
-                      (self.cx + LEG_IN["crotch"] * self.H, self.y("crotch"))],
+                      (self.cx + self.LEG_IN["crotch"] * self.H, self.y("crotch"))],
                      role="body_outline", gray=gray)
         else:
-            fc.line(self.cx - OUTLINE["crotch"] * self.H, self.y("crotch"),
-                    self.cx + OUTLINE["crotch"] * self.H, self.y("crotch"),
+            fc.line(self.cx - self.OUTLINE["crotch"] * self.H, self.y("crotch"),
+                    self.cx + self.OUTLINE["crotch"] * self.H, self.y("crotch"),
                     role="body_outline", gray=gray)
 
     def draw_torso_only(self, fc, *, bottom="high_hip", gray=0.0, head=True):
@@ -303,21 +379,21 @@ class Croquis:
         Baş VARSAYILAN OLARAK çizilir: başsız bir gövde silueti vazoya
         benzer ve okur figürün yönünü kaybeder.
         """
-        if LEVEL[bottom] < LEVEL["crotch"] - 1e-9:
+        if self.LEVEL[bottom] < self.LEVEL["crotch"] - 1e-9:
             # kesim ağın altındaysa bacaklar da çizilir
             for s in (-1, 1):
                 fc.curve(self._side_chain(s, "crotch"), role="body_outline", gray=gray)
                 out = [q for q in self._leg_chain(s, False)
-                       if (q[1] - self.base_y) / self.H >= LEVEL[bottom] - 1e-9]
+                       if (q[1] - self.base_y) / self.H >= self.LEVEL[bottom] - 1e-9]
                 inn = [q for q in self._leg_chain(s, True)
-                       if (q[1] - self.base_y) / self.H >= LEVEL[bottom] - 1e-9]
+                       if (q[1] - self.base_y) / self.H >= self.LEVEL[bottom] - 1e-9]
                 fc.curve(out, role="body_outline", gray=gray)
                 fc.curve(inn, role="body_outline", gray=gray)
                 fc.line(out[-1][0], out[-1][1], inn[-1][0], inn[-1][1],
                         role="body_outline", gray=gray)
-            fc.curve([(self.cx - LEG_IN["crotch"] * self.H, self.y("crotch")),
+            fc.curve([(self.cx - self.LEG_IN["crotch"] * self.H, self.y("crotch")),
                       (self.cx, self.y("crotch") + 0.008 * self.H),
-                      (self.cx + LEG_IN["crotch"] * self.H, self.y("crotch"))],
+                      (self.cx + self.LEG_IN["crotch"] * self.H, self.y("crotch"))],
                      role="body_outline", gray=gray)
         else:
             for s in (-1, 1):
@@ -349,9 +425,9 @@ class Croquis:
         if level in ("thigh", "knee", "calf", "ankle"):
             c = self.leg_center(side)
         else:
-            g = ARM["gap"] * self.H
-            base = {"bicep": OUTLINE["underarm"], "elbow": OUTLINE["waist"],
-                    "wrist": OUTLINE["high_hip"]}[level] * self.H
+            g = self.ARM["gap"] * self.H
+            base = {"bicep": self.OUTLINE["underarm"], "elbow": self.OUTLINE["waist"],
+                    "wrist": self.OUTLINE["high_hip"]}[level] * self.H
             c = self.cx + side * (base + g + self.hw(half_key))
         return self.girth_path(level, half_key, cx=c)
 
@@ -364,14 +440,16 @@ class Croquis:
 
 def fit(box_w: float, box_h: float, lo: str, hi: str, *,
         pad_x: float = 10.0, pad_y: float = 12.0, arms: bool = True,
-        cx: float | None = None, view: str = "front") -> "Croquis":
+        cx: float | None = None, view: str = "front",
+        variant: str = "standard") -> "Croquis":
     """Bir kroki'yi kutuya SIĞDIRIR.
 
     [lo, hi] seviye aralığı kutunun dikey iç alanına oturur; genişlik
     kısıtı ayrıca uygulanır. Ölçek ikisinin KÜÇÜĞÜDÜR — figür kutudan
     taşamaz.
     """
-    span = LEVEL[hi] - LEVEL[lo]
+    V = variant_tables(variant)
+    span = V["LEVEL"][hi] - V["LEVEL"][lo]
     if span <= 0:
         raise ValueError(f"geçersiz aralık: {lo}..{hi}")
     if view == "side":
@@ -379,5 +457,6 @@ def fit(box_w: float, box_h: float, lo: str, hi: str, *,
     else:
         max_half = MAX_HALF_FULL if arms else MAX_HALF_TORSO
     H = min((box_h - 2 * pad_y) / span, (box_w / 2 - pad_x) / max_half)
-    base_y = pad_y - LEVEL[lo] * H
-    return Croquis(cx if cx is not None else box_w / 2, base_y, H, view=view)
+    base_y = pad_y - V["LEVEL"][lo] * H
+    return Croquis(cx if cx is not None else box_w / 2, base_y, H, view=view,
+                   variant=variant)

@@ -32,6 +32,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import paths  # noqa: E402
+import croquis  # noqa: E402
 
 PHOTO_CAP = 6                # VISUAL_SPEC § 5.4 / DECISIONS K35
 COLOR_RATIO_CAP = 0.10       # FORMAT_STRATEGY § 5.3 / DECISIONS K23
@@ -249,6 +250,32 @@ def check(book_id: str, findings: list, stats: dict):
         if missing_lic:
             findings.append(f"YAZI TİPİ LİSANSI eksik: {', '.join(missing_lic)} — "
                             f"TYPOGRAPHY_STANDARD § 1.1 madde 3.")
+
+    # ⑪ VÜCUT VARYANTI — çelişmeli inceleme B-05
+    #
+    # Kitap uyum sorunlarının vücut çeşitliliğinden doğduğunu söyler.
+    # Bunu TEK bir silüetle anlatmak, kitabın kendi tezini görsel olarak
+    # yalanlar. Bu denetim iki şeyi ayrı ayrı arar:
+    #   (a) belirti figürleri varyant kaydı TAŞIYOR mu — kayıtsız bir
+    #       varyant ölçülemez;
+    #   (b) en az iki farklı varyant GERÇEKTEN kullanılıyor mu.
+    # (b) olmadan (a) bir alan doldurma egzersizidir.
+    sign_meta = [m for fid, m in meta.items() if "body_variant" in m]
+    sign_figs = [f for f in figs if f["figure_type"] == "fit_sign_on_figure"]
+    if sign_figs:
+        if len(sign_meta) != len(sign_figs):
+            findings.append(f"{book_id}: {len(sign_figs) - len(sign_meta)} belirti figürü "
+                            f"body_variant KAYDI taşımıyor — B-05 ölçülemez hâle gelir.")
+        used = {m["body_variant"] for m in sign_meta}
+        unknown = used - set(croquis.VARIANTS)
+        if unknown:
+            findings.append(f"{book_id}: tanımsız kroki varyantı: {sorted(unknown)}")
+        if len(used) < 2:
+            findings.append(f"{book_id}: belirti figürlerinin TAMAMI tek bir vücut "
+                            f"varyantında ({sorted(used)}) — çelişmeli inceleme B-05 "
+                            f"(YÜKSEK) yeniden açılır.")
+        stats["body_variants"] = {v: sum(1 for m in sign_meta if m["body_variant"] == v)
+                                  for v in sorted(used)}
 
     stats["figures"] = len(figs)
     stats["deterministic"] = sum(1 for f in figs if f.get("deterministic"))

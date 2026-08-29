@@ -171,3 +171,26 @@ alanları ve `06_BUILD/kill_gate.py`.
 ---
 
 *Vâliçe Press · BEFORE YOU CUT · External Dependencies · 28 Ağustos 2026 (Faz 2 yürütmesi)*
+
+---
+
+## D-10 · WSU E.M. 2246 "Garment Fitting" (1962) — edinim
+
+| Alan | |
+|---|---|
+| **Ne** | Washington State University Agricultural Extension Service, E.M. 2246, *Garment Fitting*, Hazel L. Roberts, Aralık 1962. |
+| **Neden gerekli** | Faz 4 bağımsız incelemesi, deponun `S-0004` olarak kaydettiği WSU belgesinin (EM4582) uyum içeriğinin **tek sayfa, beş madde** olduğunu ve kitabın dört çekirdek kuralından ikisini **içermediğini** tam metin okuyarak ölçtü (`R-23`). İncelemeci, WSU'nun bu konuda yayımladığı **asıl** belgeyi buldu: E.M. 2246 tam bir uyum yayınıdır ve **belirti→neden listesi taşır** — yani `CC-22` ve `CC-24`'ün, ayrıca `SYM-004`'ün ayrım probleminin gerçek kaynağı olabilir. |
+| **Nerede** | `content.libraries.wsu.edu` dijital koleksiyonu (incelemeci erişti ve iki girdisini birebir alıntıladı) |
+| **Engelleyici mi** | **Hayır** — kitap onsuz üretildi ve ilgili iddialar *kaynaksız olduklarını beyan ederek* duruyor. Ama Faz 5'te edinilirse üç iddia `INFERRED`'dan yükselebilir. |
+| **Kim** | Ajan (erişilebilir görünüyor) |
+| **Durum** | **AÇIK** — Faz 5 |
+
+## D-11 · Faz 4 iddialarının ikinci tur kaynak denetimi
+
+| Alan | |
+|---|---|
+| **Ne** | 18 kaynak kaydının **tam metin** okunarak, atıf yapılan her iddiayı gerçekten içerip içermediğinin denetlenmesi. |
+| **Neden gerekli** | Faz 4'te dört atıfın kaynağında karşılığı olmadığı ölçüldü (`R-23`). Denetlenen kaynaklar yalnızca incelemenin dört hattının değdiği kısımdır; **kalan 18 kayıt tam metin okunmadı.** |
+| **Engelleyici mi** | Hayır — ama `CLAIM_SOURCE_MAP.md`'deki `VERIFIED` sayısının (56) gerçek olduğu ancak bundan sonra söylenebilir. |
+| **Kim** | Ajan |
+| **Durum** | **AÇIK** — Faz 5 |

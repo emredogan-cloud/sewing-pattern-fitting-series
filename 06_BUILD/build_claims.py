@@ -1,0 +1,215 @@
+#!/usr/bin/env python3
+"""
+build_claims.py — iddia sicilini ÜRETİR (yazmaz).
+
+Faz 4 talimatı § 15: her teknik olarak maddi ifade izlenebilir olmalıdır.
+Bu script o izlenebilirliği bir BEYAN olarak değil bir TÜREVE olarak
+kurar: kanıt seviyesi (`evidence_level`) taksonomi kaydının
+`verification_status`'ünden ve atıf yaptığı kaynakların OTORİTESİNDEN
+hesaplanır. Hiçbir iddia kendi kanıt seviyesini yazamaz.
+
+Kanıt seviyesi vokabüleri (Faz 4 talimatı § 5):
+
+  VERIFIED             kayıt technical_reference_verified VE en az bir
+                       technical_authority kaynağı tam metin/resmî PDF
+  PARTIALLY_VERIFIED   kayıt doğrulanmış ama kaynak tam metin değil,
+                       ya da yalnızca kısmi kapsama var
+  INFERRED             kaynak bağlamı destekliyor, iddianın KENDİSİ
+                       ajan türevi (agent_drafted_unverified)
+  CONTESTED            kaynaklar arasında kayıtlı tanım farkı var
+                       (SOURCE_MAP § 7)
+  UNVERIFIED           hiçbir kaynağa bağlı değil
+
+⚠ CONTESTED bir HATA DEĞİLDİR. Dört ölçü tanımı kaynaklar arasında
+gerçekten farklıdır ve bu fark Bölüm 2'nin öğretim malzemesidir.
+
+Çıktı: BOOK-xx/02_CONTENT/public/claims.public.json  (.gitignore izin
+listesi: BOOK-*/02_CONTENT/public/*.public.json — proza değil, SİCİL).
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import paths  # noqa: E402
+
+# SOURCE_MAP § 7 — kaynaklar arası kayıtlı tanım farkları.
+CONTESTED_MEASUREMENTS = {"M-004", "M-008", "M-013", "M-025"}
+
+ZONE_TO_CHAPTER = {
+    "neck": "B1-CH09", "shoulder": "B1-CH09",
+    "upper_back": "B1-CH10", "armhole": "B1-CH10",
+    "bust_chest": "B1-CH11",
+    "waist_torso": "B1-CH12",
+    "hip_seat": "B1-CH13",
+    "sleeve_arm": "B1-CH14",
+    "crotch_leg": "B1-CH15",
+    "whole_garment": "B1-CH16",
+}
+
+
+def load(p: Path):
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def source_index() -> dict:
+    idx = {}
+    for f in sorted(paths.SOURCE_RECORDS.glob("S-*.json")):
+        rec = load(f)
+        idx[rec["source_id"]] = rec
+    return idx
+
+
+def evidence_level(status: str, refs: list, srcs: dict, contested: bool) -> str:
+    """Kanıt seviyesi TÜRETİLİR — beyan edilmez."""
+    if contested:
+        return "CONTESTED"
+    if not refs:
+        return "UNVERIFIED"
+    authoritative = [srcs[r] for r in refs if r in srcs and srcs[r].get("technical_authority")]
+    if not authoritative:
+        return "UNVERIFIED"
+    fulltext = [s for s in authoritative
+                if s.get("verification_level") in ("fulltext", "official_pdf")]
+    acquired = [s for s in authoritative
+                if s.get("acquisition_status") in ("public_access", "acquired")]
+    if status == "technical_reference_verified":
+        return "VERIFIED" if fulltext else "PARTIALLY_VERIFIED"
+    if not acquired:
+        return "UNVERIFIED"
+    return "INFERRED"
+
+
+def build(book_id: str) -> dict:
+    srcs = source_index()
+    claims: list = []
+    n = 0
+
+    def add(kind, chapter, text, refs, status, taxonomy_ref, contested=False, risk=None):
+        nonlocal n
+        n += 1
+        claims.append({
+            "claim_id": f"CLM-{n:04d}",
+            "kind": kind,
+            "chapter": chapter,
+            "claim": text,
+            "taxonomy_ref": taxonomy_ref,
+            "source_refs": refs,
+            "record_verification_status": status,
+            "evidence_level": evidence_level(status, refs, srcs, contested),
+            "reviewer_status": "pending",
+            "risk_note": risk,
+        })
+
+    # ① kavramsal iddialar — YÖNTEM katmanı
+    cc = load(paths.book_spec(book_id).parent / "00_SPEC" / "CONCEPTUAL_CLAIMS.json")
+    for c in cc["claims"]:
+        add("conceptual", c["chapter"], c["claim"], c["source_refs"],
+            "agent_drafted_unverified", c["id"], risk=c["risk_note"])
+
+    # ② ölçü tanımları — her ölçü İKİ iddia taşır: TANIM ve YOL
+    for m in load(paths.MEASUREMENTS)["measurements"]:
+        mid = m["measurement_id"]
+        contested = mid in CONTESTED_MEASUREMENTS
+        add("measurement_definition", "B1-CH02",
+            f"{m['name']} is measured from {m['landmark_start']} to {m['landmark_end']}.",
+            m.get("source_refs") or [], m["verification_status"], mid, contested,
+            risk="A measurement taken from the wrong landmark is not a smaller error than "
+                 "no measurement; it is a confident wrong number.")
+        if m.get("path_rule"):
+            add("measurement_path", "B1-CH02",
+                f"{m['name']}: the tape path is constrained, not free "
+                f"(see the record's path_rule).",
+                m.get("source_refs") or [], m["verification_status"], mid, contested,
+                risk="Two readers following the same name but different paths get "
+                     "different numbers and blame the pattern.")
+
+    # ③ düzeltme ailesi kapsamı + sıra kısıtı
+    for a in load(paths.ADJUSTMENT_FAMILIES)["families"]:
+        aid = a["adjustment_family_id"]
+        add("adjustment_family", "B1-CH16",
+            f"{a['name']} acts on: {a['pattern_area']}.",
+            a.get("source_refs") or [], a["verification_status"], aid,
+            risk="Naming the wrong pattern area sends the reader to Book 2 with the "
+                 "wrong family and the adjustment fails there, not here.")
+        if a.get("order_constraint"):
+            add("adjustment_order", "B1-CH16",
+                f"{aid} carries an ordering constraint relative to other families.",
+                a.get("source_refs") or [], a["verification_status"], aid,
+                risk="Out-of-order adjustment invalidates work already done.")
+
+    # ④ belirti gözlemi + her aday nedenin AYIRT EDİCİ KANITI
+    #    Bu, kitabın EN RİSKLİ iddia sınıfıdır: 129 nedensel ilişki,
+    #    hiçbiri fiziksel olarak sınanmadı.
+    for s in load(paths.FIT_SIGNS)["signs"]:
+        sid = s["symptom_id"]
+        ch = ZONE_TO_CHAPTER[s["zone"]]
+        add("sign_observation", ch,
+            f"{sid} ({s['sign_class']}) is observable as described and appears at: "
+            f"{s['where_it_appears']}.",
+            s.get("source_refs") or [], s["verification_status"], sid,
+            risk="If the sign is not reliably observable, the reader cannot enter the "
+                 "diagnostic path at all.")
+        for i, c in enumerate(s["candidate_causes"], 1):
+            add("sign_cause", ch,
+                f"{sid} may be caused by: {c['cause']} — distinguished by: "
+                f"{c['distinguishing_evidence']}",
+                s.get("source_refs") or [], s["verification_status"], f"{sid}.C{i}",
+                risk="A cause whose distinguishing evidence does not actually "
+                     "discriminate sends the reader to the wrong adjustment family.")
+
+    by_level: dict = {}
+    by_kind: dict = {}
+    for c in claims:
+        by_level[c["evidence_level"]] = by_level.get(c["evidence_level"], 0) + 1
+        by_kind[c["kind"]] = by_kind.get(c["kind"], 0) + 1
+
+    return {
+        "$comment": [
+            "ÜRETİLMİŞ DOSYA — elle düzenlenmez. Kaynak: 06_BUILD/build_claims.py",
+            "evidence_level TÜRETİLMİŞTİR; hiçbir iddia kendi seviyesini beyan etmez.",
+            "reviewer_status Faz 4 bağımsız incelemesi tarafından doldurulur.",
+        ],
+        "generated_by": "06_BUILD/build_claims.py",
+        "book": book_id,
+        "count": len(claims),
+        "by_evidence_level": dict(sorted(by_level.items())),
+        "by_kind": dict(sorted(by_kind.items())),
+        "claims": claims,
+    }
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--book", default="book-01")
+    ap.add_argument("--check", action="store_true",
+                    help="diskteki sicil güncel mi — YAZMAZ")
+    args = ap.parse_args()
+
+    data = build(args.book)
+    out = paths.BOOK_DIRS[args.book] / "02_CONTENT" / "public" / "claims.public.json"
+    text = json.dumps(data, indent=2, ensure_ascii=False) + "\n"
+
+    if args.check:
+        if not out.exists():
+            print(f"✗ iddia sicili YOK: {out.relative_to(paths.ROOT)}")
+            return 1
+        if out.read_text(encoding="utf-8") != text:
+            print("✗ iddia sicili BAYAT — 06_BUILD/build_claims.py yeniden çalıştırılmalı")
+            return 1
+        print(f"▸ build_claims.py --check — güncel ({data['count']} iddia)")
+        return 0
+
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(text, encoding="utf-8")
+    print(f"▸ build_claims.py — {out.relative_to(paths.ROOT)}")
+    print(f"  {data['count']} iddia · " +
+          " · ".join(f"{k}:{v}" for k, v in data["by_evidence_level"].items()))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

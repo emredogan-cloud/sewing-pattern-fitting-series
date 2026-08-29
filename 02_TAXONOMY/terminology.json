@@ -56,14 +56,15 @@
     {
       "term_id": "T-05",
       "term": "block",
-      "definition": "Okurun kendi ölçülerinden çizilmiş, tasarım detayı içermeyen temel kalıp.",
+      "definition": "Okurun kendi ölçülerinden çizilmiş, tasarım detayı içermeyen temel kalıp. ABD kullanımında yakın karşılığı 'sloper'dır; kaynakların bir kısmı ikisini eşanlamlı kullanır, bir kısmı 'sloper'ı payı ve ease'i olmayan bir prova kabuğu için ayırır. Bu seri 'block'u hareket payı TAŞIYAN temel kalıp için kullanır.",
       "established_in": "book-03",
       "accepted_variants": [
         "sloper (ABD kullanımı)",
         "foundation pattern"
       ],
       "banned_synonyms": [],
-      "note": "KANONİK BİÇİM 'block' (Kitap 3 başlığı bunu taşır). 'sloper' ABD pazarında baskın olduğu için dizinde, sözlükte ve anahtar kelimede TAM EŞDEĞER olarak korunur — hangisinin başlıkta kullanılacağı OPEN_QUESTIONS A9."
+      "note": "KANONİK BİÇİM 'block' (Kitap 3 başlığı bunu taşır). 'sloper' ABD pazarında baskın olduğu için dizinde, sözlükte ve anahtar kelimede TAM EŞDEĞER olarak korunur — hangisinin başlıkta kullanılacağı OPEN_QUESTIONS A9.",
+      "phase4_review": "Faz 4 bağımsız incelemesi: 'tam eşdeğer' beyanı literatürün settle etmediği bir şeyi settle ediyordu."
     },
     {
       "term_id": "T-06",
@@ -106,13 +107,14 @@
     {
       "term_id": "T-10",
       "term": "high bust",
-      "definition": "Kolların üstünden, göğüs dokusunun üzerinden geçen üst göğüs çevresi.",
+      "definition": "Kolların ALTINDAN, önde göğüs dokusunun ÜSTÜNDEN, arkada yere paralel geçen üst göğüs çevresi. Kaynaklar şeridin yolunu farklı tarif eder ve aynı vücutta farklı sayı verir; kalıp şirketinin tarif ettiği yöntem izlenir ve HANGİSİ olduğu kaydedilir.",
       "established_in": "book-01",
       "accepted_variants": [
         "upper bust"
       ],
       "banned_synonyms": [],
-      "note": "Beden seçimi tartışmasının merkezindeki ölçü."
+      "note": "Beden seçimi tartışmasının merkezindeki ölçü.",
+      "phase4_review": "Faz 4 bağımsız incelemesi: önceki tanım 'kolların ÜSTÜNDEN' diyordu. Şerit deltoidlerin üzerinden geçerse üst göğüs büyük okunur, göğüs−üst göğüs farkı küçülür ve beden seçimi kararı YANLIŞ dala gider. Karar taşıyan bir tanım belirsiz bırakılamaz."
     },
     {
       "term_id": "T-11",

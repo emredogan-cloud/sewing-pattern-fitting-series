@@ -92,8 +92,21 @@ BOOK_GATE_ORDER = [
     "foundation",        # P0 — proje temeli
     "phase1-spec",       # P1 — araştırma + içerik spesifikasyonu
     "phase2-visual",     # P2 — görsel sistem + diyagram motoru
+    # ── KURUCU GEÇERSİZ KILMA (K49) ─────────────────────────────────
+    # P4, yol haritasında P3'ün PASS'ine bağlıdır. Kurucu, P3'ün İKİ
+    # DIŞ ÖLÇÜMÜNÜ beklemeden üretimin sürmesine izin verdi ama
+    # ölçümlerin PASS yazılmasını AÇIKÇA yasakladı.
+    #
+    # Bu seviye o iki şeyi aynı anda kaydeder. Kümülatif sırada
+    # phase3-pilot'tan ÖNCEDİR: yani "P4 üretimi yapıldı" DOĞRU olur,
+    # "P3 geçildi" ise gate_at_least(bgate, 'phase3-pilot') altında
+    # HÂLÂ YANLIŞ kalır. Bir bayrak, olmayan bir ölçümü var edemez.
+    #
+    # Sonuç: P5 (phase5-qa) ve sonrası bu yoldan AÇILAMAZ. Kill-gate
+    # ölçüldüğünde kapı phase3-pilot'a ilerler ve zincir devam eder.
+    "phase4-production-conditional",
     "phase3-pilot",      # P3 — pilot + KILL-GATE (fark testi + fiziksel doğrulama)
-    "phase4-production", # P4 — tam içerik üretimi
+    "phase4-production", # P4 — tam içerik üretimi (kill-gate GEÇİLMİŞ hâli)
     "phase5-qa",         # P5 — teknik/editoryal/görsel/fiziksel KA
     "phase6-format",     # P6 — format + render + KDP
     "release",           # P7 — lansman
