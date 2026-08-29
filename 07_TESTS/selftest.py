@@ -1321,6 +1321,7 @@ def main():
         test_reader_spelling_is_one_variety,
         test_counted_claims_match_the_data,
         test_flowchart_and_entry_agree_on_cause_order,
+        test_gate_layer_never_imports_the_render_layer,
     ):
         fn()
 
@@ -1540,9 +1541,12 @@ def test_appendices_print_in_letter_order():
     Üretilen üç dizin (C, H, I) yazılmış eklerin SONUNA ekleniyordu.
     Ek C kitabın asıl girişidir — 43 akış şemasının hepsi ona işaret
     eder — ve dokuz ekin yedincisinde basılıyordu."""
+    # ⚠ `bookplan` üçüncü taraf paket GEREKTİRMEZ; `build_book` reportlab'a
+    # bağlıdır ve bu kapı BAĞIMLILIKSIZ koşmak zorundadır (CI `selftest`
+    # işi hiçbir paket kurmaz). Faz 5'te bir kez ihlal edildi ve CI düştü.
     sys.path.insert(0, str(paths.BUILD))
-    import build_book as _bb
-    check("build_book `index_slot` doldurucusu TANIMLI",
+    import bookplan as _bb
+    check("`index_slot` doldurucusu TANIMLI ve BAĞIMLILIKSIZ",
           hasattr(_bb, "fill_index_slots"))
     blocks = [{"type": "h2", "text": "Appendix B — x"},
               {"type": "index_slot", "slot": "C"},
@@ -1574,7 +1578,7 @@ def test_no_duplicate_chapter_number():
     basıyordu. Bir başvuru kitabında bu, numaralandırma hatası okunur."""
     import re
     sys.path.insert(0, str(paths.BUILD))
-    import build_book as _bb
+    import bookplan as _bb
     nums = []
     for key, title in _bb.CHAPTER_TITLES.items():
         head = title.split(" · ")[0]
@@ -1633,6 +1637,52 @@ def test_flowchart_and_entry_agree_on_cause_order():
           not bad, f"{len(bad)} belirti ayrışıyor: {bad[:5]}")
     check("'cheapest test first' diyen her girişin ŞEMASI da bedava dalla başlıyor",
           not free_bad, f"{len(free_bad)}/{announced} şema ihlal ediyor: {free_bad[:5]}")
+
+
+def test_gate_layer_never_imports_the_render_layer():
+    """Bağımlılıksız kapı katmanı reportlab'ı İÇE AKTARMIYOR mu.
+
+    ⚠ Faz 5'te GERÇEKLEŞTİ: iki yeni denetim `build_book`'u içe
+    aktarıyordu; `build_book` → `figure_engine` → `figure_tokens` →
+    **reportlab**. CI'nin `selftest` işi hiçbir üçüncü taraf paket
+    KURMAZ (tasarım gereği, `.github/workflows/validate.yml`) ve iş
+    `ModuleNotFoundError` ile düştü. Yerel ağaçta reportlab kurulu
+    olduğu için kusur burada görünmüyordu.
+
+    `bookplan.py` tam bu ayrım için var ve docstring'i bunu söylüyor.
+    Bu denetim ayrımın KORUNDUĞUNU kanıtlar."""
+    import ast as _ast
+    import re as _re
+    src = (paths.ROOT / "07_TESTS" / "selftest.py").read_text(encoding="utf-8")
+    # `_render_layer_missing()` korumasının ARKASINDA olmayan içe aktarmalar
+    forbidden = {"build_book", "typeset", "figure_engine", "figure_tokens",
+                 "croquis", "calibrate_tokens"}
+    tree = _ast.parse(src)
+    guarded = set()
+    for fn in [n for n in _ast.walk(tree) if isinstance(n, _ast.FunctionDef)]:
+        body = _ast.dump(fn)
+        if "_render_layer_missing" in body or "skip" in body:
+            guarded.add(fn.name)
+    bad = []
+    for fn in [n for n in _ast.walk(tree) if isinstance(n, _ast.FunctionDef)]:
+        # Yalnızca DENETİMLER denetlenir. `_mini_typesetter` gibi
+        # yardımcılar render katmanını içe aktarabilir — koruma onları
+        # ÇAĞIRAN denetimdedir ve o denetim burada ayrıca sınanır.
+        if not fn.name.startswith("test_") or fn.name in guarded:
+            continue
+        for node in _ast.walk(fn):
+            if isinstance(node, _ast.Import):
+                for a in node.names:
+                    if a.name in forbidden:
+                        bad.append(f"{fn.name} → {a.name}")
+            elif isinstance(node, _ast.ImportFrom) and node.module in forbidden:
+                bad.append(f"{fn.name} → {node.module}")
+    check("korumasız hiçbir denetim RENDER katmanını içe aktarmıyor",
+          not bad, "; ".join(bad))
+    # bookplan gerçekten bağımlılıksız mı
+    bp = (paths.BUILD / "bookplan.py").read_text(encoding="utf-8")
+    check("bookplan.py üçüncü taraf paket İÇE AKTARMIYOR",
+          not _re.search(r"^\s*(import|from)\s+(reportlab|PIL)", bp, _re.M))
 
 
 def test_counted_claims_match_the_data():
