@@ -6,7 +6,7 @@
   "generated_by": "06_BUILD/build_book.py",
   "book": "book-01",
   "charts_included": true,
-  "pages_total": 256,
+  "pages_total": 254,
   "page_target": [
     220,
     260
@@ -434,7 +434,7 @@
         "SYM-021"
       ],
       "blocks": 132,
-      "words": 3960
+      "words": 3961
     },
     {
       "key": "ch12",
@@ -523,8 +523,8 @@
       "part": 5,
       "generated": true,
       "page_start": 225,
-      "page_end": 239,
-      "pages": 15,
+      "page_end": 238,
+      "pages": 14,
       "figures": 9,
       "signs_covered": [
         "SYM-040",
@@ -539,8 +539,8 @@
       "key": "ch17",
       "part": 5,
       "generated": false,
-      "page_start": 241,
-      "page_end": 242,
+      "page_start": 239,
+      "page_end": 240,
       "pages": 2,
       "figures": 1,
       "signs_covered": [],
@@ -551,8 +551,8 @@
       "key": "ch18",
       "part": 5,
       "generated": false,
-      "page_start": 243,
-      "page_end": 244,
+      "page_start": 241,
+      "page_end": 242,
       "pages": 2,
       "figures": 0,
       "signs_covered": [],
@@ -563,8 +563,8 @@
       "key": "appendix",
       "part": 6,
       "generated": false,
-      "page_start": 247,
-      "page_end": 256,
+      "page_start": 245,
+      "page_end": 254,
       "pages": 10,
       "figures": 8,
       "signs_covered": [],

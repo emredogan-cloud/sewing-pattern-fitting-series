@@ -118,6 +118,11 @@ def resolve_cross_references(blocks: list, page_of: dict) -> list:
     if not page_of:
         return blocks
     pat = re.compile(r"\bChapter (\d{1,2})\b(?! \(page)")
+    # Bütün-giysi bölümü NUMARASIZDIR (iki bölüm 16 olamaz), bu yüzden
+    # "Chapter N" deseniyle çözülemez. Adıyla anılır ve sayfası yine
+    # ÖLÇÜLÜR — okur numarasız bir bölümü de bulabilmelidir.
+    WG = "the whole-garment chapter"
+    wg_page = page_of.get("ch16_atlas")
 
     def fix(v: str) -> str:
         def rep(m):
@@ -125,7 +130,10 @@ def resolve_cross_references(blocks: list, page_of: dict) -> list:
             key = CHAPTER_BY_NUMBER.get(n)
             pg = page_of.get(key)
             return f"Chapter {n} (page {pg})" if pg else m.group(0)
-        return pat.sub(rep, v)
+        v = pat.sub(rep, v)
+        if wg_page and WG in v and f"{WG} (page" not in v:
+            v = v.replace(WG, f"{WG} (page {wg_page})")
+        return v
 
     out = []
     for b in blocks:
@@ -416,7 +424,7 @@ def main() -> int:
             # bunlara işaret eder. Bloklar parça parça dizilir ki her
             # başlığın hangi sayfaya düştüğü ÖLÇÜLSÜN, tahmin edilmesin.
             seg: list = []
-            for b in rest:
+            for bi, b in enumerate(rest):
                 is_sign = (b.get("type") == "h2" and b.get("claims")
                            and str(b["claims"][0]).startswith("SYM-"))
                 # ⚠ Faz 5: içindekiler "Part 6 — Appendices" satırında
@@ -428,6 +436,18 @@ def main() -> int:
                 if is_sign or is_apx:
                     if seg:
                         errs.extend(run_blocks(ts, seg, meta_by_key)); seg = []
+                    # ⚠ Faz 5'te ÖLÇÜLEN KUSUR: sayfa, başlık DİZİLMEDEN
+                    # ÖNCE kaydediliyordu. Başlık sayfanın dibine
+                    # denk gelip sonraki sayfaya kaydığında kaydedilen
+                    # numara BİR ÖNCEKİ sayfa oluyordu. Ek C — kitabın
+                    # ilan ettiği "way in", 43 akış şemasının hepsinin
+                    # işaret ettiği dizin — 43 belirtinin 18'inde okuru
+                    # BİR SAYFA ERKENE gönderiyordu; o sayfaların çoğu
+                    # BAŞKA bir belirtinin karar tablosudur ve
+                    # "Not this sign — go back to the sign index in
+                    # Appendix C" ile biter: kapalı döngü.
+                    # Yer AÇMA işi önce yapılır, sayfa SONRA okunur.
+                    ts.reserve_group(rest, bi, meta_by_key)
                     if is_sign:
                         sign_page[b["claims"][0]] = ts.page
                     else:

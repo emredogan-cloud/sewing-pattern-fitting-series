@@ -1317,6 +1317,7 @@ def main():
         test_no_duplicate_chapter_number,
         test_heading_travels_with_its_content,
         test_measurement_figure_travels_with_its_text,
+        test_sign_index_points_at_the_entry_not_the_page_before,
     ):
         fn()
 
@@ -1582,6 +1583,48 @@ def test_no_duplicate_chapter_number():
           not any(re.match(r"^\d+[a-z]\b", t) for t in _bb.CHAPTER_TITLES.values()),
           str([t for t in _bb.CHAPTER_TITLES.values()
                if re.match(r"^\d+[a-z]\b", t)]))
+
+
+def test_sign_index_points_at_the_entry_not_the_page_before():
+    """Ek C'nin sayfa numarası, girişin GERÇEKTEN başladığı sayfa mı.
+
+    Faz 5'te ölçülen KRİTİK kusur: `sign_page[sid] = ts.page` başlık
+    DİZİLMEDEN ÖNCE okunuyordu. Başlık sayfanın dibine denk gelip
+    sonraki sayfaya kaydığında kaydedilen numara BİR ÖNCEKİ sayfaydı.
+    43 belirtinin 18'inde Ek C okuru bir sayfa erkene gönderiyordu ve o
+    sayfaların çoğu BAŞKA bir belirtinin karar tablosudur, sonu da
+    "Not this sign — go back to the sign index in Appendix C": okur
+    kendisini gönderen satıra geri dönüyordu. Kapalı döngü, hem de
+    kitabın ilan ettiği tek giriş yolunda.
+
+    Bu test sayfanın YER AÇILDIKTAN SONRA okunduğunu kanıtlar."""
+    why = _render_layer_missing()
+    if why:
+        skip("belirti dizini sayfa doğruluğu kapısı", why)
+        return
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        T, ts = _mini_typesetter(Path(d) / "t.pdf")
+        rest = [{"type": "h2", "text": "A sign heading",
+                 "claims": ["SYM-001"]},
+                {"type": "para", "text": "Body text under the heading."},
+                {"type": "bullets", "items": ["one", "two", "three"]}]
+        # sayfanın dibi: başlık kesinlikle sonraki sayfaya kayacak
+        ts.y = ts.bottom + ts.lead * 0.4
+        before = ts.page
+        ts.reserve_group(rest, 0, {})
+        after_reserve = ts.page
+        check("dip kenarda başlık için SAYFA ÇEVRİLİYOR",
+              after_reserve == before + 1)
+        # kaydedilecek numara, başlığın GERÇEKTEN düştüğü sayfa olmalı
+        recorded = ts.page
+        import typeset as _T
+        _T.run_blocks(ts, rest, {})
+        check("kaydedilen sayfa, başlığın DİZİLDİĞİ sayfayla aynı",
+              recorded == after_reserve,
+              f"kaydedilen {recorded}, dizilen {after_reserve}")
+        check("kaydedilen sayfa, yer açılmadan ÖNCEKİ sayfa DEĞİL",
+              recorded != before, f"{recorded} == {before} → bir sayfa erken")
 
 
 def test_measurement_figure_travels_with_its_text():

@@ -461,9 +461,15 @@ class AtlasBuilder:
     # ── bir bölge bölümü ──────────────────────────────────────────────
     def chapter(self, key: str, *, with_charts: bool = True) -> tuple:
         z = self.zones[key]
+        # ⚠ Faz 5: bütün-giysi bölümü (`B1-CH16-ATLAS`) verisinde
+        # `number: 16` taşır ve Bölüm 16 ("The order of work") da 16'dır.
+        # İçindekilerden "16b" kaldırıldı ama SAYFA ÜSTÜNDEKİ kicker
+        # kalmıştı: s. 221 ve s. 225 ikisi de "CHAPTER 16" basıyordu.
+        # Bu bölüm bir BÖLGE değildir; numarasız basılır — tıpkı
+        # "How to use this book" ve "Appendices" gibi.
+        kicker = None if key == "B1-CH16-ATLAS" else f"Chapter {z['number']}"
         blocks: list = [{"type": "recto"},
-                        {"type": "h1", "text": z["title"],
-                         "kicker": f"Chapter {z['number']}"},
+                        {"type": "h1", "text": z["title"], "kicker": kicker},
                         {"type": "lead", "text": z["lead"]}]
         blocks.append({"type": "h2", "text": "What this region is"})
         for p in z["anatomy"]:
