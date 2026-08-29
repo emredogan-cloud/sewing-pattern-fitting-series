@@ -1241,7 +1241,7 @@
       "figure_id": "FIG-B1-067",
       "book": "book-01",
       "figure_type": "measurement_path",
-      "shows": "M-015 Center front length — Boyun tabanındaki çukurdan DÜZ AŞAĞI, ön ortadan, işaretli bele. Göğsün ÜZERİNDEN dolaşma…",
+      "shows": "M-015 Centre front length — Boyun tabanındaki çukurdan DÜZ AŞAĞI, ön ortadan, işaretli bele. Göğsün ÜZERİNDEN dolaşma…",
       "view": "front",
       "notation_tokens": [
         "TK-11"
@@ -1258,7 +1258,7 @@
       "figure_id": "FIG-B1-068",
       "book": "book-01",
       "figure_type": "measurement_path",
-      "shows": "M-016 Center back length — Omurga boyunca, sırt yüzeyini izleyerek.",
+      "shows": "M-016 Centre back length — Omurga boyunca, sırt yüzeyini izleyerek.",
       "view": "back",
       "notation_tokens": [
         "TK-11"
@@ -5689,7 +5689,7 @@
         ],
         [
           "Knee",
-          "center of the kneecap → around the leg back to start",
+          "centre of the kneecap → around the leg back to start",
           "no"
         ],
         [
@@ -5708,12 +5708,12 @@
           "yes"
         ],
         [
-          "Center front length",
+          "Centre front length",
           "hollow at base of throat → marked natural waist",
           "yes"
         ],
         [
-          "Center back length",
+          "Centre back length",
           "nape (prominent neck bone) → marked natural waist",
           "yes"
         ],

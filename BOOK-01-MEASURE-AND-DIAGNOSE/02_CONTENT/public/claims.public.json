@@ -722,7 +722,7 @@
       "claim_id": "CLM-0050",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "Knee is measured from center of the kneecap to around the leg back to start.",
+      "claim": "Knee is measured from centre of the kneecap to around the leg back to start.",
       "taxonomy_ref": "M-010",
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
@@ -830,7 +830,7 @@
       "claim_id": "CLM-0058",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "Center front length is measured from hollow at base of throat to marked natural waist.",
+      "claim": "Centre front length is measured from hollow at base of throat to marked natural waist.",
       "taxonomy_ref": "M-015",
       "source_refs": [
         "S-0003"
@@ -844,7 +844,7 @@
       "claim_id": "CLM-0059",
       "kind": "measurement_path",
       "chapter": "B1-CH02",
-      "claim": "Center front length: the tape path is constrained, not free (see the record's path_rule).",
+      "claim": "Centre front length: the tape path is constrained, not free (see the record's path_rule).",
       "taxonomy_ref": "M-015",
       "source_refs": [
         "S-0003"
@@ -858,7 +858,7 @@
       "claim_id": "CLM-0060",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "Center back length is measured from nape (prominent neck bone) to marked natural waist.",
+      "claim": "Centre back length is measured from nape (prominent neck bone) to marked natural waist.",
       "taxonomy_ref": "M-016",
       "source_refs": [
         "S-0001",
@@ -873,7 +873,7 @@
       "claim_id": "CLM-0061",
       "kind": "measurement_path",
       "chapter": "B1-CH02",
-      "claim": "Center back length: the tape path is constrained, not free (see the record's path_rule).",
+      "claim": "Centre back length: the tape path is constrained, not free (see the record's path_rule).",
       "taxonomy_ref": "M-016",
       "source_refs": [
         "S-0001",
@@ -1514,7 +1514,7 @@
       "claim_id": "CLM-0108",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
-      "claim": "Upper back (round back / broad back / narrow back) acts on: Back bodice: across-back region, center back, back neckline.",
+      "claim": "Upper back (round back / broad back / narrow back) acts on: Back bodice: across-back region, centre back, back neckline.",
       "taxonomy_ref": "AF-07",
       "source_refs": [
         "S-0001",
@@ -1710,7 +1710,7 @@
       "claim_id": "CLM-0122",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
-      "claim": "Sway back / lumbar hollow acts on: Back bodice/skirt: center back, waist seam, back length.",
+      "claim": "Sway back / lumbar hollow acts on: Back bodice/skirt: centre back, waist seam, back length.",
       "taxonomy_ref": "AF-14",
       "source_refs": [
         "S-0001",

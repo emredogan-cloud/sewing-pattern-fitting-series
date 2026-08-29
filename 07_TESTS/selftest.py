@@ -1318,6 +1318,7 @@ def main():
         test_heading_travels_with_its_content,
         test_measurement_figure_travels_with_its_text,
         test_sign_index_points_at_the_entry_not_the_page_before,
+        test_reader_spelling_is_one_variety,
     ):
         fn()
 
@@ -1583,6 +1584,60 @@ def test_no_duplicate_chapter_number():
           not any(re.match(r"^\d+[a-z]\b", t) for t in _bb.CHAPTER_TITLES.values()),
           str([t for t in _bb.CHAPTER_TITLES.values()
                if re.match(r"^\d+[a-z]\b", t)]))
+
+
+def test_reader_spelling_is_one_variety():
+    """Okur katmanı TEK bir imla ailesi kullanıyor mu.
+
+    Faz 5'te ölçülen: kitabın prozası baştan sona İNGİLİZ imlasıydı
+    ("centre front", "centre back" — 88 kez), ama iki ÖLÇÜ ADI Amerikan
+    imlasındaydı: "Center front length", "Center back length" (19 kez).
+    Okur Bölüm 4'te toile'ine "centre front" yazıyor, sonra ölçü
+    kartında "Center front length" arıyor. Aynı nirengi, aynı kitapta
+    iki yazım. `qa_terminology` bunu göremez: eşanlamlı listesine
+    bakar, imla ailesine bakmaz.
+
+    KURUM ADLARI muaftır — "National Center for Health Statistics" bir
+    özel addır ve İngilizleştirilemez."""
+    pairs = [("centre", "center"), ("colour", "color"),
+             ("metre", "meter"), ("grey", "gray")]
+    # okur katmanı: taksonomi adları + İngilizce etiketler
+    blobs = []
+    for rel in ("02_TAXONOMY/public/measurements.json",
+                "02_TAXONOMY/public/adjustment_families.json",
+                "02_TAXONOMY/public/fit_signs.json",
+                "02_TAXONOMY/public/labels_en.json"):
+        f = paths.ROOT / rel
+        if f.exists():
+            blobs.append((rel, json.loads(f.read_text(encoding="utf-8"))))
+    import re as _re
+    bad = []
+    for rel, data in blobs:
+        txt = json.dumps(data, ensure_ascii=False)
+        for br, am in pairs:
+            has_br = bool(_re.search(rf"\b{br}", txt, _re.I))
+            # Amerikan biçimi: özel ad değilse say
+            am_hits = [m.start() for m in _re.finditer(rf"\b{am}\w*", txt, _re.I)]
+            proper = 0
+            for i in am_hits:
+                ctx = txt[max(0, i - 40):i + 40]
+                if _re.search(r"National|U\.S\.|Engineering|Research|University|"
+                              r"Disease|Statistics|Cooperative", ctx):
+                    proper += 1
+            if has_br and len(am_hits) > proper:
+                bad.append(f"{rel}: hem '{br}' hem '{am}' "
+                           f"({len(am_hits) - proper} özel-ad olmayan)")
+    check("okur katmanında karışık İngiliz/Amerikan imlası YOK",
+          not bad, "; ".join(bad))
+    # kurum adları YANLIŞLIKLA yakalanmıyor (yanlış pozitif testi)
+    fake = json.dumps({"a": "centre front",
+                       "b": "National Center for Health Statistics"},
+                      ensure_ascii=False)
+    hits = [m.start() for m in _re.finditer(r"\bcenter\w*", fake, _re.I)]
+    proper = sum(1 for i in hits
+                 if _re.search(r"National|Statistics", fake[max(0, i - 40):i + 40]))
+    check("kurum adı imla denetiminden MUAF (yanlış pozitif yok)",
+          len(hits) == proper, f"{len(hits)} bulundu, {proper} muaf")
 
 
 def test_sign_index_points_at_the_entry_not_the_page_before():

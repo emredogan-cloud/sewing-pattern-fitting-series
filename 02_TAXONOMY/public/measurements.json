@@ -251,7 +251,7 @@
       "measurement_id": "M-010",
       "name": "Knee",
       "category": "girth",
-      "landmark_start": "center of the kneecap",
+      "landmark_start": "centre of the kneecap",
       "landmark_end": "around the leg back to start",
       "path_rule": "Yatay, bacak düz.",
       "tool": "tape measure",
@@ -343,7 +343,7 @@
     },
     {
       "measurement_id": "M-015",
-      "name": "Center front length",
+      "name": "Centre front length",
       "category": "length",
       "landmark_start": "hollow at base of throat",
       "landmark_end": "marked natural waist",
@@ -370,7 +370,7 @@
     },
     {
       "measurement_id": "M-016",
-      "name": "Center back length",
+      "name": "Centre back length",
       "category": "length",
       "landmark_start": "nape (prominent neck bone)",
       "landmark_end": "marked natural waist",

@@ -156,7 +156,7 @@
       "adjustment_family_id": "AF-07",
       "name": "Upper back (round back / broad back / narrow back)",
       "zone": "upper_back",
-      "pattern_area": "Back bodice: across-back region, center back, back neckline",
+      "pattern_area": "Back bodice: across-back region, centre back, back neckline",
       "method_families": [
         "slash_and_spread",
         "slash_and_overlap",
@@ -340,7 +340,7 @@
       "adjustment_family_id": "AF-14",
       "name": "Sway back / lumbar hollow",
       "zone": "waist_torso",
-      "pattern_area": "Back bodice/skirt: center back, waist seam, back length",
+      "pattern_area": "Back bodice/skirt: centre back, waist seam, back length",
       "method_families": [
         "slash_and_overlap",
         "seam_line_shift",
