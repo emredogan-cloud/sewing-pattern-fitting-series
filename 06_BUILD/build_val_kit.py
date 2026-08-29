@@ -138,6 +138,52 @@ def build(book_id: str):
             f"{why}. Yanlış sıra İKİNCİ bir sorun üretmeli; doğru sıra "
             f"ikisini de çözmeli. Üretmiyorsa sıra kuralı KANITSIZDIR.")
 
+    # ── Y-6 · KANIT ÇAKIŞMASI ─────────────────────────────────────────
+    #
+    # Faz 4'te eklendi. Bağımsız teknik inceleme, 43 belirtinin 28'inde
+    # iki aday nedenin AYNI gözlemi ürettiğini ve `distinguishing_evidence`
+    # alanlarının onları gerçekten ayırmadığını ölçtü (`RISK_REGISTER R-22`).
+    #
+    # Kitap bunu uydurma bir ayrımla kapatmadı; OKURA BEYAN ETTİ (`K52`).
+    # Ama bir beyan bir çözüm değildir ve çözüm belgesel kanıtla
+    # bulunamaz — yalnızca kumaşta bulunur. Bu yüzden her YÜKSEK şiddetli
+    # çakışma kendi VAL kaydını alır: iki nedeni SIRAYLA üret ve okurun
+    # onları ayırıp ayıramadığını ÖLÇ.
+    #
+    # ⚠ KAPSAM GENİŞLEDİ: bu kayıtlar Bölüm 11 ile sınırlı DEĞİLDİR.
+    # Faz 3 kiti pilot kesitini sınamak için yapılmıştı; kitap artık tam
+    # ve en büyük teknik riski bölge dışıdır.
+    cpath = paths.TAXONOMY_PUBLIC / "evidence_collisions.json"
+    all_signs = {x["symptom_id"]: x for x in load(paths.FIT_SIGNS)["signs"]}
+    if cpath.exists():
+        for col in [c for c in load(cpath)["collisions"] if c["severity"] == "high"]:
+            sid = col["symptom_id"]
+            sg = all_signs.get(sid)
+            if not sg:
+                continue
+            names = []
+            for ref in col["causes"]:
+                try:
+                    k = int(ref.rsplit(".C", 1)[1]) - 1
+                    names.append(labels["signs"][sid]["causes"][k]["cause"])
+                except (ValueError, IndexError, KeyError):
+                    continue
+            if len(names) < 2:
+                continue
+            add("Y-6 · kanıt çakışması",
+                f"{sid} · {' ↔ '.join(col['causes'])}",
+                f"İki nedeni AYRI AYRI üret, her seferinde kontrol durumuna "
+                f"dönerek: (a) {names[0]}; (b) {names[1]}.",
+                col["shared_observation"],
+                "kitap iki durumu AYIRMALI",
+                "Kitabın o girişteki ayırt edici kanıtı, iki durumu GÖZLE "
+                "ayırmaya yetiyor mu. Yetmiyorsa ya yeni bir ayırt edici "
+                "kanıt ÖLÇÜLÜR ya da giriş iki nedeni birleştirir. "
+                "Uydurma ayrım YAZILMAZ.",
+                note=f"Bağımsız inceleme bulgusu (şiddet: {col['severity']}). "
+                     f"Kitap bu çakışmayı okura BEYAN ediyor; bu kayıt onu "
+                     f"ÇÖZMEK içindir.")
+
     # ── Y-3 · ölçüm tekrarlanabilirliği (1 kayıt) ─────────────────────
     ch11_measures = ["M-001", "M-002", "M-003", "M-017", "M-018", "M-019", "M-031"]
     add("Y-3 · ölçüm tekrarı",

@@ -18,6 +18,7 @@ kapsaması, kitap sınırı) ve iddia disiplini (sahte uzman, korunan
 from __future__ import annotations
 import json
 import sys
+import textwrap
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -1217,6 +1218,39 @@ def test_conditional_phase4_does_not_claim_kill_gate():
     check("gerçek veriyle koşullu Faz 4 denetimi TEMİZ", not errs, str(errs[:2]))
 
 
+def test_manuscript_gate_holds_the_book2_boundary():
+    """Kitap 1 DÜZELTMEYİ anlatmaya başlarsa seri mimarisi çöker (§ 34).
+
+    ⚠ Ayrım ince: fiziksel TEST bir düzeltme DEĞİLDİR. 'Kes ve bak' bir
+    teşhis adımıdır; 'kes, sonra kalıbı yeniden çiz' bir düzeltmedir.
+    Kapı KALIBA kalıcı müdahaleyi arar, toile'a müdahaleyi değil."""
+    import re as _re
+    # Desenler kapının KENDİ kaynağından okunur; ikinci bir kopya
+    # tutulsaydı test, kapının gerçekte ne aradığını değil testin ne
+    # hatırladığını sınardı.
+    src = (paths.BUILD / "qa_manuscript.py").read_text(encoding="utf-8")
+    check("kapı KİTAP 2 SINIRI denetimi içeriyor", "PATTERN_HOWTO" in src)
+    block = src[src.index("PATTERN_HOWTO = ["):]
+    block = block[:block.index("\n    ]") + 6]
+    ns: dict = {"re": _re}
+    exec(textwrap.dedent(block), ns)
+    patterns = ns["PATTERN_HOWTO"]
+
+    def flagged(text: str) -> bool:
+        return any(pat.search(text) for pat, _ in patterns)
+
+    check("kalıp düzeltme talimatı YAKALANIYOR",
+          flagged("Slash and spread the pattern at the apex line."))
+    check("kalıbı yeniden çizme YAKALANIYOR",
+          flagged("Then redraw the cutting line and true up the seams."))
+    check("toile üzerinde FİZİKSEL TEST serbest (yanlış pozitif yok)",
+          not flagged("Slash the fitting garment and open it until the sign clears."))
+    check("iğneleme testi serbest",
+          not flagged("Pin the fold out horizontally and measure what the pins take up."))
+    check("aile ADLANDIRMA serbest",
+          not flagged("Leads to: bust volume (full / small bust adjustment)."))
+
+
 def main():
     print("▸ selftest.py — kapıların kendi testi\n")
     for fn in (
@@ -1253,6 +1287,7 @@ def main():
         test_internal_figures_never_reach_the_book,
         test_claim_registry_derives_its_evidence_level,
         test_conditional_phase4_does_not_claim_kill_gate,
+        test_manuscript_gate_holds_the_book2_boundary,
     ):
         fn()
 

@@ -353,7 +353,7 @@ uçtan uca yürüyerek. Sonuçlar § 15.1'de.
 | # | Bekleyen | Durum | Engelleyici mi |
 |---|---|---|---|
 | `D-01` | Fark testi — üç ev dikişçisi | `measured: false` · 0/3 katılımcı | **EVET** |
-| `D-02` | Fiziksel doğrulama — 19 `VAL` kaydı | `measured: false` · 0/19 | **EVET** |
+| `D-02` | Fiziksel doğrulama — **28** `VAL` kaydı | `measured: false` · 0/28 | **EVET** |
 | `D-03` | Marka temizliği | açık | yayın öncesi |
 | `D-06` | KDP Previewer + prova baskı | açık | P6 |
 | **`D-10`** | **WSU E.M. 2246 edinimi** *(yeni)* | açık | hayır |
@@ -414,8 +414,11 @@ kanıtıdır.
 `phase3-pilot`'ın arkasındadır ve kill-gate ölçülmedi.
 
 Faz 5 için hazır olan: tam manüskript · 307 iddialık sicil ·
-izlenebilirlik haritası · 11 denetimli manüskript kapısı · 144 öz-test ·
-`D-10` ve `D-11` yazılı.
+izlenebilirlik haritası · **12 denetimli** manüskript kapısı ·
+**146 öz-test** · `D-10` ve `D-11` yazılı · **28 kayıtlık fiziksel
+sınama kiti** (`D-02` yapıldığında dokuz `Y-6` kaydı, 43 belirtinin
+28'indeki kanıt çakışmasının yüksek şiddetli olanlarını **çözmek**
+üzere hazır).
 
 Faz 5'in ilk işi, Faz 4'ün **kapatamadıklarıdır**: 28 kanıt çakışması
 (`D-02`) · 18 kaynağın tam metin denetimi (`D-11`) · sayfa örnekleminin

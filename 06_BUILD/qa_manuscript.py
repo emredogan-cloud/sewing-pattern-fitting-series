@@ -24,6 +24,7 @@ Denetimler:
   ⑩  Sayfa bütçesi bandın içinde mi                         (B-08)
   ⑪  İddia sicilindeki her maddi iddia metinden İZLENEBİLİR mi (§ 15)
   ⑫  Giriş başlığı ile ilk cümlesi aynı şeyi mi söylüyor
+  ⑬  Kitap 2 sınırı: manüskript DÜZELTME anlatmaya başladı mı
 """
 from __future__ import annotations
 
@@ -195,6 +196,39 @@ def main() -> int:
                     findings.append(f"⑧ {key}: iç kimlik {idm.group(0)!r} okur "
                                     f"metninde — «{v[:70]}»")
 
+    # ⑬ KİTAP 2 SINIRI — manüskript katmanında
+    #
+    # `qa_boundary.py` sınırı SPESİFİKASYON belgelerinde denetliyordu.
+    # Ama sınırı gerçekten ihlal edecek olan yer manüskriptin kendisidir:
+    # bir giriş "şunu kes ve şu kadar aç" demeye başladığı anda Kitap 1
+    # Kitap 2'yi yemiş olur ve serinin mimarisi çöker (§ 34).
+    #
+    # ⚠ AYRIM İNCE: fiziksel TEST bir düzeltme DEĞİLDİR. "Kesip aç ve
+    # bak" bir teşhis adımıdır; "kesip aç, sonra kalıbı yeniden çiz" bir
+    # düzeltmedir. Kapı bu yüzden KALIBA kalıcı müdahaleyi arar.
+    PATTERN_HOWTO = [
+        (re.compile(r"\bredraw the (?:pattern|cutting line)\b", re.I),
+         "kalıbı yeniden çizme talimatı"),
+        (re.compile(r"\btrue (?:up|the) (?:seam|line)s?\b", re.I),
+         "kalıp hattı düzeltme talimatı"),
+        (re.compile(r"\bslash and (?:spread|overlap) the pattern\b", re.I),
+         "kalıp üzerinde slash-and-spread talimatı"),
+        (re.compile(r"\btape (?:the )?(?:paper|tissue) (?:in|under)\b", re.I),
+         "kalıba kâğıt ekleme talimatı"),
+        (re.compile(r"\bpivot the pattern\b", re.I), "kalıp pivot talimatı"),
+        (re.compile(r"\badd \d+(?:\.\d+)?\s*(?:cm|mm|inch|in)\b.{0,40}"
+                    r"\bto the pattern\b", re.I),
+         "kalıba SAYISAL ekleme talimatı"),
+    ]
+    for key, blocks in chapters.items():
+        for b in blocks:
+            for v in reader_strings(b):
+                for pat, why in PATTERN_HOWTO:
+                    m = pat.search(v)
+                    if m:
+                        findings.append(f"⑬ {key}: KİTAP 2 SINIRI — {why} "
+                                        f"({m.group(0)!r}) · «{v[:70]}»")
+
     # ⑩⑪ ölçüm dosyasından
     idx_path = bdir / "02_CONTENT" / "public" / "manuscript_index.public.json"
     stats: dict = {}
@@ -237,7 +271,7 @@ def main() -> int:
         if len(findings) > 40:
             print(f"    … ve {len(findings)-40} bulgu daha")
     else:
-        print("  ✓ 0 bulgu (on iki denetim)")
+        print("  ✓ 0 bulgu (on üç denetim)")
     if args.json:
         out = Path(args.json); out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps({"findings": findings, "stats": stats,
