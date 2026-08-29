@@ -414,7 +414,11 @@ def main() -> int:
                 pt = next(x for n, x, _ in PARTS if n == c["part"])
                 t.append((f"Part {c['part']} — {pt}", 0, c["page_start"]))
                 seen.add(c["part"])
-            t.append((CHAPTER_TITLES.get(c["key"], c["key"]), 1, c["page_start"]))
+            title = CHAPTER_TITLES.get(c["key"], c["key"])
+            # Parça adı ile tek bölümünün adı aynıysa satırı İKİ KEZ
+            # yazmak okura hiçbir şey söylemez.
+            if not (t and t[-1][0].endswith(f"— {title}")):
+                t.append((title, 1, c["page_start"]))
         return t
 
     # ── YAKINSAMA ─────────────────────────────────────────────────────
