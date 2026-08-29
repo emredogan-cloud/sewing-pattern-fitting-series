@@ -962,7 +962,11 @@
           "confirming_measurement": "M-031 veya M-005 vs. kalıp",
           "physical_test": "İlgili hizaya hacim ekle.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": "İki farklı hacim, iki farklı aile: göğüs AF-01, karın AF-20."
+          "likelihood_note": "İki farklı hacim, iki farklı aile: göğüs AF-01, karın AF-20.",
+          "cross_route": {
+            "condition_en": "the tightness is at abdomen level rather than at the bust",
+            "family_ref": "AF-20"
+          }
         },
         {
           "cause": "Arka beden genişliği fazla",
@@ -1997,7 +2001,11 @@
           "confirming_measurement": "M-005 / M-006 vs. kalıp",
           "physical_test": "İlgili hizaya hacim ekle.",
           "adjustment_family_ref": "AF-20",
-          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz."
+          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz.",
+          "cross_route": {
+            "condition_en": "the fullness starts at seat level rather than at the abdomen",
+            "family_ref": "AF-13"
+          }
         }
       ],
       "confounders_to_rule_out": [
@@ -2146,7 +2154,11 @@
           "confirming_measurement": "İlgili çevre ölçüsü vs. kalıp karşılığı",
           "physical_test": "Hacim ekle ve etek ucunu yeniden gözle.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": "İki farklı hacim, iki farklı aile: göğüs AF-01, karın AF-20."
+          "likelihood_note": "İki farklı hacim, iki farklı aile: göğüs AF-01, karın AF-20.",
+          "cross_route": {
+            "condition_en": "the volume pulling the fabric up is the abdomen or the seat rather than the bust",
+            "family_ref": "AF-20"
+          }
         },
         {
           "cause": "Ön/arka denge bozuk",
@@ -2266,7 +2278,11 @@
           "confirming_measurement": "İlgili çevre ölçüsü",
           "physical_test": "Hacim ekle.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "cross_route": {
+            "condition_en": "the deviation starts at seat level rather than at the bust",
+            "family_ref": "AF-13"
+          }
         },
         {
           "cause": "Parça eğri kesilmiş",

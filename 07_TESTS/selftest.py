@@ -1324,6 +1324,7 @@ def main():
         test_gate_layer_never_imports_the_render_layer,
         test_external_unavailable_is_not_a_pass,
         test_rule_out_list_is_one_list,
+        test_cause_text_matches_its_destination,
     ):
         fn()
 
@@ -1639,6 +1640,58 @@ def test_flowchart_and_entry_agree_on_cause_order():
           not bad, f"{len(bad)} belirti ayrışıyor: {bad[:5]}")
     check("'cheapest test first' diyen her girişin ŞEMASI da bedava dalla başlıyor",
           not free_bad, f"{len(free_bad)}/{announced} şema ihlal ediyor: {free_bad[:5]}")
+
+
+def test_cause_text_matches_its_destination():
+    """Neden metni birden çok duruma işaret edip TEK aileye çıkıyor mu.
+
+    ⚠ Faz 5'te ÖLÇÜLEN kusur: `SYM-018.C1` okura "Not enough volume in
+    the front (bust **or abdomen**)" diyor ve `AF-01` GÖĞÜS hacmine
+    çıkıyordu; `SYM-040.C1` "A volume (bust, **abdomen** or seat)" deyip
+    yine `AF-01`'e. Oysa `AF-20` (karın hacmi) tam bu boşluk için Faz
+    4'te eklenmişti. Karnı yüzünden bu belirtiyi gören okur GÖĞÜS
+    düzeltmesine yollanıyordu.
+
+    Kural: neden metni bir vücut BÖLGESİ adı taşıyorsa, ya o bölgenin
+    ailesine çıkacak ya da `cross_route` ile okuru oraya YOLLAYACAK."""
+    signs = json.loads((paths.TAXONOMY_PUBLIC / "fit_signs.json")
+                       .read_text(encoding="utf-8"))["signs"]
+    lab = json.loads((paths.TAXONOMY_PUBLIC / "labels_en.json")
+                     .read_text(encoding="utf-8"))
+    fams = {f["adjustment_family_id"]: f for f in json.loads(
+        (paths.TAXONOMY_PUBLIC / "adjustment_families.json")
+        .read_text(encoding="utf-8"))["families"]}
+    # bölge adı → o bölgenin ailesi
+    REGION = {"abdomen": "AF-20", "seat": "AF-13", "bust": "AF-01"}
+    bad = []
+    routed = sum(1 for s in signs for c in s["candidate_causes"]
+                 if c.get("cross_route"))
+    for s in signs:
+        sid = s["symptom_id"]
+        for i, c in enumerate(s["candidate_causes"]):
+            txt = (lab["signs"][sid]["causes"][i]["cause"] + " "
+                   + lab["signs"][sid]["causes"][i]["evidence"]).lower()
+            named = {r for r in REGION if r in txt}
+            if len(named) < 2:
+                continue
+            dest = c.get("adjustment_family_ref")
+            cr = c.get("cross_route")
+            covered = {r for r in named if REGION[r] == dest}
+            if cr:
+                covered |= {r for r in named if REGION[r] == cr.get("family_ref")}
+            if named - covered:
+                bad.append(f"{sid}.C{i+1}: metin {sorted(named)} diyor, "
+                           f"varış {dest}, cross_route={cr and cr.get('family_ref')}")
+    check("çok bölgeli neden metni, okuru YANLIŞ aileye bırakmıyor",
+          not bad, "; ".join(bad))
+    check("çapraz yönlendirme KULLANILIYOR", routed >= 2, f"{routed} neden")
+    # her cross_route TANIMLI bir aileye işaret etmeli
+    dangling = [f"{s['symptom_id']}.C{i+1}"
+                for s in signs for i, c in enumerate(s["candidate_causes"])
+                if c.get("cross_route")
+                and c["cross_route"]["family_ref"] not in fams]
+    check("her `cross_route` TANIMLI bir aileye işaret ediyor",
+          not dangling, str(dangling))
 
 
 def test_rule_out_list_is_one_list():

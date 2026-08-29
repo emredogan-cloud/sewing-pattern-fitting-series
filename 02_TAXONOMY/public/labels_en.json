@@ -46,7 +46,8 @@
     "no_source": "Follow your pattern company's definition.",
     "excess_label": "excess: ___ in",
     "shortfall_label": "shortfall: ___ in",
-    "dart_depth": "dart depth"
+    "dart_depth": "dart depth",
+    "cross_route": "If instead {cond}, that is {fam} — start from that region's entries."
   },
   "zones": {
     "neck": "Neckline and neck",
@@ -390,8 +391,8 @@
       "observation": "The side seams do not hang vertically; they swing toward the front.",
       "causes": [
         {
-          "cause": "Not enough volume in the front (bust or abdomen)",
-          "evidence": "The swing comes with tightness at bust or abdomen level."
+          "cause": "Not enough volume in the front at bust level",
+          "evidence": "The swing comes with tightness across the bust."
         },
         {
           "cause": "Too much width across the back",
@@ -764,7 +765,7 @@
       "observation": "The hem is not parallel to the floor; it rises or drops in one area.",
       "causes": [
         {
-          "cause": "A volume (bust, abdomen or seat) is pulling the fabric up",
+          "cause": "A volume is pulling the fabric up",
           "evidence": "The rise is on the side of that volume, and there are drag lines in the same area."
         },
         {

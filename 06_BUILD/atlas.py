@@ -257,6 +257,15 @@ class AtlasBuilder:
                     " — is reduced and no new sign appears anywhere else. If the sign "
                     "is unchanged the hypothesis was wrong; if a new sign appears, "
                     "fabric was moved rather than added.")
+            # ⚠ Faz 5: bir neden metni BİRDEN ÇOK duruma işaret edip TEK
+            # aileye çıkıyorsa, öteki durumu yaşayan okur YANLIŞ aileye
+            # gider. `cross_route` o okuru kendi ailesine yollar.
+            cr = cause.get("cross_route")
+            if cr:
+                cf = self.families.get(cr["family_ref"], {}).get("name",
+                                                                 cr["family_ref"])
+                items.append(self.labels["ui"]["cross_route"]
+                             .format(cond=cr["condition_en"], fam=cf.lower()))
             if fam == SIZE_FAMILY:
                 # B-02 — bir düzeltme değil, bir çıkış kapısı
                 items.append("This is not an adjustment. It is a size decision, and the "

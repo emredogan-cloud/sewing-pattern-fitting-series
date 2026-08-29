@@ -3078,7 +3078,7 @@
       "symptom_ref": "SYM-018",
       "zone": "bust_chest",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 312.5,
       "terminals": [
         [
           "eliminate",
