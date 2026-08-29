@@ -25,6 +25,7 @@ Denetimler:
   ⑪  İddia sicilindeki her maddi iddia metinden İZLENEBİLİR mi (§ 15)
   ⑫  Giriş başlığı ile ilk cümlesi aynı şeyi mi söylüyor
   ⑬  Kitap 2 sınırı: manüskript DÜZELTME anlatmaya başladı mı
+  ⑭  CHAPTER_SPECS'in adlandırdığı alıştırmalar metinde var mı
 """
 from __future__ import annotations
 
@@ -96,6 +97,7 @@ def main() -> int:
     args = ap.parse_args()
 
     findings: list = []
+    stats: dict = {}
     bdir = paths.BOOK_DIRS[args.book]
     mdir = bdir / bookplan.MANUSCRIPT_DIR
     if not mdir.exists():
@@ -196,6 +198,25 @@ def main() -> int:
                     findings.append(f"⑧ {key}: iç kimlik {idm.group(0)!r} okur "
                                     f"metninde — «{v[:70]}»")
 
+    # ⑭ SPEC'İN İSTEDİĞİ ALIŞTIRMALAR gerçekten var mı
+    #
+    # Faz 4 çıkış ölçütü 2: "bölüm spesifikasyonları KARŞILANDI".
+    # Bu, elle işaretlenebilecek bir kutu değil, ÖLÇÜLEBİLİR bir şeydir:
+    # CHAPTER_SPECS.md dokuz alıştırma adlandırıyor ve dokuzunun da
+    # dizilen metinde geçmesi gerekir. Spec bir alıştırma daha eklerse
+    # kapı onu da arar — belge ile ürün ayrışamaz.
+    spec_path = paths.book_spec(args.book) / "CHAPTER_SPECS.md"
+    if spec_path.exists():
+        wanted = sorted(set(re.findall(r"Alıştırma (\d+[A-Z])",
+                                       spec_path.read_text(encoding="utf-8"))))
+        body = " ".join(v for blocks in chapters.values()
+                        for b in blocks for v in reader_strings(b))
+        gone = [w for w in wanted if f"Exercise {w}" not in body]
+        if gone:
+            findings.append(f"⑭ CHAPTER_SPECS {len(gone)} alıştırma istiyor ve "
+                            f"manüskriptte YOK: {', '.join(gone)}")
+        stats["exercises"] = f"{len(wanted) - len(gone)}/{len(wanted)}"
+
     # ⑬ KİTAP 2 SINIRI — manüskript katmanında
     #
     # `qa_boundary.py` sınırı SPESİFİKASYON belgelerinde denetliyordu.
@@ -231,11 +252,11 @@ def main() -> int:
 
     # ⑩⑪ ölçüm dosyasından
     idx_path = bdir / "02_CONTENT" / "public" / "manuscript_index.public.json"
-    stats: dict = {}
     if idx_path.exists():
         idx = load(idx_path)
-        stats = {"pages": idx["pages_total"], "figures": idx["figures_distinct"],
-                 "chapters": idx["chapters_built"]}
+        stats.update({"pages": idx["pages_total"],
+                      "figures": idx["figures_distinct"],
+                      "chapters": idx["chapters_built"]})
         band = idx.get("page_target")
         if band and not (band[0] <= idx["pages_total"] <= band[1]):
             findings.append(f"⑩ SAYFA BÜTÇESİ: {idx['pages_total']}, hedef "
@@ -262,7 +283,8 @@ def main() -> int:
     print("▸ qa_manuscript.py — manüskript kapısı")
     if stats:
         print(f"  {stats.get('chapters')} bölüm · {stats.get('pages')} sayfa · "
-              f"{stats.get('figures')} figür · izlenen maddi iddia "
+              f"{stats.get('figures')} figür · alıştırma {stats.get('exercises')} · "
+              f"izlenen maddi iddia "
               f"{stats.get('claims_traced')}/{stats.get('claims_material')}")
     if findings:
         print(f"  ✗ {len(findings)} bulgu:")
@@ -271,7 +293,7 @@ def main() -> int:
         if len(findings) > 40:
             print(f"    … ve {len(findings)-40} bulgu daha")
     else:
-        print("  ✓ 0 bulgu (on üç denetim)")
+        print("  ✓ 0 bulgu (on dört denetim)")
     if args.json:
         out = Path(args.json); out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps({"findings": findings, "stats": stats,
