@@ -732,6 +732,19 @@ class Engine:
         for s in self.signs:
             self._draw_sign_figure(s)
 
+    BACK_WORDS = ("back", "nape", "seat", "shoulder blade", "shoulder-blade",
+                  "centre back", "behind")
+    FRONT_WORDS = ("front", "bust", "chest", "abdomen", "button band", "neckline")
+
+    def _sign_view(self, s: dict, zone: str) -> str:
+        """Belirti vücudun hangi yüzünde görülür — KAYITTAN okunur."""
+        if zone == "upper_back":
+            return "back"
+        txt = (self.labels["signs"][s["symptom_id"]]["observation"]).lower()
+        back = sum(txt.count(w) for w in self.BACK_WORDS)
+        front = sum(txt.count(w) for w in self.FRONT_WORDS)
+        return "back" if back > front else "front"
+
     def _draw_sign_figure(self, s: dict):
         W, H = 200.0, 268.0
         sid = s["symptom_id"]
@@ -740,9 +753,15 @@ class Engine:
         anchor_level, side_mult = ZONE_ANCHOR[zone]
         bottom = "knee" if zone == "crotch_leg" else "thigh"
         variant = self._body_variant(s)
+        # ⚠ İnceleme D-02/D-06: görünüm yalnızca `zone == "upper_back"`
+        # ile belirleniyordu; oysa altı belirti daha vücudun ARKASINI
+        # anlatıyor (oturak, arka ağ, arka bel). Bunlar ÖNDEN çiziliyor
+        # ve önden çizilen benzerleriyle AYNI figüre düşüyordu — s. 205
+        # (arka, yetersizlik) ile s. 208 (ön, fazlalık) aynı resimdi.
+        # Görünüm artık belirtinin KENDİ gözlem metninden okunur.
+        view = self._sign_view(s, zone)
         cro = croquis_fit(W, H, bottom, "top_of_head", arms=False, pad_y=16.0,
-                          view="back" if zone == "upper_back" else "front",
-                          variant=variant)
+                          view=view, variant=variant)
         # ⚠ İnceleme D-13: 1-bit baskıda %45 gri SİYAHA düşer. Gövde
         # 1,2 pt, teşhis işareti 0,6 pt çiziliyordu — yani figürün
         # ÇERÇEVESİ, ÖZNESİNİN iki katı kalınlıkta basılıyordu.
@@ -770,12 +789,23 @@ class Engine:
         elif token == "TK-07":
             fc.tk07_strain_zone(ax, ay, 20.0, 13.0)
         elif token == "TK-09":
-            # SAPMAYI çiz, sağlıklı durumu değil (D-04). Eğimin YÖNÜ
-            # belirtinin kendi çapa tarafından gelir; büyüklük okunur
-            # bir sapma için sabittir — figür bir MİKTAR iddia etmez.
-            fc.tk09_balance_line(cro.cx - cro.hw(hk) * 1.05, ay,
-                                 cro.cx + cro.hw(hk) * 1.05, ay,
-                                 tilt=11.0 * (side_mult or 1))
+            # SAPMAYI çiz, sağlıklı durumu değil (D-04). Ayrıca sınıfa
+            # göre AYIR (D-02): bir ETEK UCU yatay bir çizgidir ve
+            # düzlüğünü kaybeder — eteğin hizasında çizilir. Bir DİKİŞ
+            # KAYMASI dikey bir çizgidir ve düzlüğünü kaybeder — bel
+            # hizasında dikey çizilir. İkisi aynı token'ı paylaşıyordu
+            # ve aynı resmi üretiyordu.
+            if s["sign_class"] == "hem_hike":
+                hem_y = cro.y(bottom) + 6.0
+                fc.tk09_balance_line(cro.cx - cro.hw("full_hip") * 1.05, hem_y,
+                                     cro.cx + cro.hw("full_hip") * 1.05, hem_y,
+                                     label="H", tilt=11.0 * (side_mult or 1))
+            else:
+                top_y, bot_y = cro.y("across_back"), cro.y("high_hip")
+                fc.tk09_balance_line(cro.cx, top_y, cro.cx, bot_y,
+                                     label="S", tilt=0.0)
+                fc.tk05_drag_lines(cro.cx + 9.0, (top_y + bot_y) / 2, 90.0,
+                                   length=14.0, count=1, role="body_outline")
         elif token == "TK-10":
             fc.tk10_grainline(ax, ay - 20.0, ax, ay + 20.0)
         elif token == "TK-12":
@@ -784,7 +814,7 @@ class Engine:
         self._record(
             fig_type="fit_sign_on_figure",
             shows=f"{sid} — {short(s['observation'], 96)}",
-            view="back" if zone == "upper_back" else "front",
+            view=view,
             tokens=tokens, deterministic=False,
             manual_reason=("Şablon deterministik üretildi (bölge çapası + sınıf token'ı), "
                            "ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, "

@@ -225,6 +225,52 @@ def test_calibration_sheet_builds():
           "tk05_box" in idx and "tk06_box" in idx, "kutular yok")
 
 
+def test_sign_figures_are_not_all_the_same_picture():
+    """Kaç belirti figürü BİRBİRİNİN AYNISI.
+
+    ⚠ İnceleme D-02: belirti figürünün işareti
+    `zone × sign_class × view` fonksiyonudur; üçü de aynı olan iki
+    belirti AYNI RESMİ üretir. Faz 5 girişinde 43 figürün 4 çifti
+    piksel piksel AYNIYDI ve biri arka/YETERSİZLİK ile ön/FAZLALIK
+    belirtisiydi — birbirinin TERSİ iki teşhis, tek resim.
+
+    Ön/arka ve etek-ucu/dikiş ayrımları eklendi. Kalan çakışmalar TEK
+    çözümle kapanır: belirti başına ÇİZİM GEOMETRİSİ. O geometri
+    kayıtta YOKTUR ve uydurulamaz. Bu kapı sayıyı ÖLÇER ve
+    kötüleşmesini engeller."""
+    import itertools, subprocess, tempfile, os
+    try:
+        from PIL import Image
+    except ModuleNotFoundError:
+        check("figür ayırt edilebilirliği kapısı ATLANDI (Pillow yok)", True)
+        return
+    gen = paths.book_generated("book-01")
+    figs = sorted(gen.glob("sign_SYM-*.pdf")) if gen.exists() else []
+    if len(figs) < 10:
+        check("figür ayırt edilebilirliği kapısı ATLANDI (figür yok)", True)
+        return
+    with tempfile.TemporaryDirectory() as d:
+        ims = {}
+        for f in figs:
+            subprocess.run(["pdftoppm", "-png", "-r", "72", str(f),
+                            os.path.join(d, f.stem)], check=True,
+                           capture_output=True)
+            png = [x for x in os.listdir(d) if x.startswith(f.stem + "-")][0]
+            ims[f.stem] = Image.open(os.path.join(d, png)).convert("L") \
+                .point(lambda v: 0 if v < 160 else 255)
+        ident = []
+        for a, b in itertools.combinations(sorted(ims), 2):
+            ia, ib = ims[a], ims[b]
+            if ia.size == ib.size and list(ia.getdata()) == list(ib.getdata()):
+                ident.append((a[5:], b[5:]))
+    BASELINE = 4      # Faz 5 girişinde ÖLÇÜLEN taban — ARTAMAZ
+    check(f"piksel piksel AYNI belirti figürü çifti ≤ {BASELINE}",
+          len(ident) <= BASELINE, f"{len(ident)} çift: {ident[:4]}")
+    flat = {x for p in ident for x in p}
+    check("arka ve ön belirtisi artık AYNI resim DEĞİL",
+          not ({"SYM-035", "SYM-036"} <= flat), str(ident))
+
+
 def main():
     print("▸ selftest_visual.py — render katmanının kendi testi\n")
     for fn in (
@@ -234,6 +280,7 @@ def main():
         test_token_usage_is_measured_not_declared,
         test_engine_is_reproducible,
         test_calibration_sheet_builds,
+        test_sign_figures_are_not_all_the_same_picture,
     ):
         fn()
     print(f"\n{CHECKS} denetim çalıştı, {len(FAILURES)} başarısız.")

@@ -1602,7 +1602,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-003 — Arka yaka yukarı tırmanıyor ve boynu sıyırıyor; aynı anda arka etek ucu da yükseliyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-09"
       ],
@@ -1653,9 +1653,10 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-006 — Omuz dikişi omuz üstü orta çizgisinin ARKASINDA duruyor; öne doğru kaymaya çalışıyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
-        "TK-09"
+        "TK-09",
+        "TK-05"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1687,7 +1688,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-008 — Kol öne uzatıldığında sırt boyunca sert bir çekme oluyor; giysi hareketi kısıtlıyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-07"
       ],
@@ -1757,7 +1758,8 @@
       "shows": "SYM-012 — Arka orta dikiş/fermuar düz durmuyor, dışa doğru yay çiziyor.",
       "view": "back",
       "notation_tokens": [
-        "TK-09"
+        "TK-09",
+        "TK-05"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1806,7 +1808,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-015 — Kol oyuntusunun ARKA kenarı vücuda değmiyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-06"
       ],
@@ -1859,7 +1861,8 @@
       "shows": "SYM-018 — Yan dikişler düşey durmuyor, öne doğru kayıyor.",
       "view": "front",
       "notation_tokens": [
-        "TK-09"
+        "TK-09",
+        "TK-05"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1927,7 +1930,8 @@
       "shows": "SYM-022 — Bel dikişi/bel hattı doğal belin üstünde veya altında oturuyor.",
       "view": "front",
       "notation_tokens": [
-        "TK-09"
+        "TK-09",
+        "TK-05"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1942,7 +1946,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-023 — Bel hizasının hemen ÜSTÜNDE, arkada, kumaş yatay kıvrımlar hâlinde havuzlanıyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-06"
       ],
@@ -1959,7 +1963,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-024 — Bel bandı arkada vücuttan uzaklaşıyor, aralık kalıyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-06"
       ],
@@ -2010,7 +2014,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-027 — Oturak üzerinde yatay çekme çizgileri var; kumaş oturağın üzerinde geriliyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-06"
       ],
@@ -2027,7 +2031,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-028 — Oturağın hemen ALTINDA kumaş sarkıyor, boş bir torba oluşturuyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-06"
       ],
@@ -2061,9 +2065,10 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-030 — Yan dikiş kalça hizasında arkaya doğru kayıyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
-        "TK-09"
+        "TK-09",
+        "TK-05"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -2146,7 +2151,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-035 — Oturağın altında yatay çekme çizgileri; ağ yukarı çekiliyor ve rahatsız ediyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-06"
       ],
@@ -2248,9 +2253,10 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-041 — Giysi vücut üzerinde dönüyor; yan dikişler zamanla öne/arkaya kayıyor.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
-        "TK-09"
+        "TK-09",
+        "TK-05"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -2265,7 +2271,7 @@
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-042 — Ön orta veya arka orta çizgisi yere dik durmuyor; denge çizgileri yatay değil.",
-      "view": "front",
+      "view": "back",
       "notation_tokens": [
         "TK-10"
       ],

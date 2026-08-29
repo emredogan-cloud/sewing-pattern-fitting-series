@@ -302,6 +302,27 @@ class Croquis:
                      self.cx + self.hw("head"), self.y("top_of_head"),
                      stroke=1, fill=0)
 
+    def _back_markers(self, fc, gray, role="body_outline"):
+        """Arka görünümü ÖN görünümden ayıran işaretler.
+
+        ⚠ İnceleme D-06: `view="back"` yalnızca yaka oyuntusunu 1,9 pt
+        değiştiriyordu — 268 pt'lik bir figürde 0,7 mm. Sekiz "arka"
+        figürü önden ayırt edilemiyordu; okur belirtinin vücudun hangi
+        yüzünde olduğunu figürden ANLAYAMIYORDU.
+
+        Üç işaret: ense noktası, orta arka çizgisi ve köşe etiketi.
+        Hiçbiri antropometrik bir iddia taşımaz; yön belirtirler.
+        """
+        top = self.y("neck_base")
+        bot = self.y("high_hip")
+        fc.line(self.cx, top, self.cx, bot,
+                role="construction_line", gray=gray, dash="dash 2-2")
+        fc.c.circle(self.cx, top, 1.5, stroke=1, fill=1)
+        # Tek etiket: ayrı bir köşe etiketi ölçü başlıklarıyla
+        # çakışıyordu ve çakışma kapısı bunu doğru yakaladı.
+        fc.text(self.cx + 3.4, top + 1.0, "nape · BACK",
+                face="sans-semibold", size=6.0)
+
     def _neck_stub(self, fc, gray):
         hw_n = self.HALF_W["neck_base"] * self.H
         top = self.y("neck_base") + 0.016 * self.H
@@ -428,6 +449,8 @@ class Croquis:
         self._shoulders_and_neckline(fc, gray, role)
         if head:
             self._head_and_neck(fc, gray, role)
+        if self.view == "back":
+            self._back_markers(fc, gray, role)
         else:
             self._neck_stub(fc, gray)
 
