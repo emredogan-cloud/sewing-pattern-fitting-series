@@ -86,7 +86,15 @@ CHAPTER_TITLES = {
     "ch14": "14 · The sleeve and arm",
     "ch15": "15 · Trousers: the crotch and the leg",
     "ch16": "16 · The order of work",
-    "ch16_atlas": "16b · Signs that belong to the whole garment",
+    # ⚠ Faz 5'te ÖLÇÜLEN kusur: bu bölüm okura "16b" diye görünüyordu.
+    # Bir başvuru kitabında "16" ve "16b" diye iki bölüm, numaralandırma
+    # hatası olarak okunur. Bölüm gerçekten de bir BÖLGE değildir —
+    # bütün giysiye ait dört belirtiyi taşır — ve kitapta zaten
+    # numarasız bölümler vardır ("How to use this book", "Appendices").
+    # Numara KALDIRILDI; yeri (düzeltme sırasından sonra) değişmedi,
+    # çünkü bu belirtiler en son okunur.
+    # Regresyon: 07_TESTS/selftest.py § test_no_duplicate_chapter_number
+    "ch16_atlas": "Signs that belong to the whole garment",
     "ch17": "17 · Your fit profile",
     "ch18": "18 · Carrying the profile forward",
     "appendix": "Appendices",
@@ -145,10 +153,17 @@ def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
     çıktığını söylemiyordu. Bu dizinler sayfa numaralarıyla üretilir ve
     ancak İKİNCİ geçişte doğrudur."""
     if not sign_page:
-        return []
+        return {}
     zones = atlas.labels["zones"]
-    blocks: list = [{"type": "recto"},
-                    {"type": "h2", "text": "Appendix C — Where each sign is"},
+    # ⚠ Faz 5'te ÖLÇÜLEN kusur: üretilen üç ek (C, H, I) yazılmış eklerin
+    # SONUNA ekleniyordu, dolayısıyla kitapta basılan sıra
+    # A, B, D, E, F, G, C, H, I idi. Ek C kitabın ASIL GİRİŞİDİR — 43
+    # akış şemasının hepsi "go back to the sign index in Appendix C"
+    # diyor — ve dokuz ekin yedincisinde basılıyordu; sırayla çeviren
+    # okur C'yi B ile D arasında arar ve bulamaz. Üretilen bloklar artık
+    # appendix.json'daki `index_slot` işaretlerine YERLEŞTİRİLİR.
+    # Regresyon: 07_TESTS/selftest.py § test_appendices_print_in_letter_order
+    blocks: list = [{"type": "h2", "text": "Appendix C — Where each sign is"},
                     {"type": "para",
                      "text": "Every sign in the book, by region, with the page its "
                              "entry begins on. This is the way in: find what you see, "
@@ -166,7 +181,8 @@ def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
             blocks.append({"type": "h3", "text": zones.get(z, z)})
             blocks.append({"type": "table", "rows": rows, "widths": [0.86, 0.14]})
 
-    blocks.append({"type": "h2", "text": "Appendix H — Where each region leads"})
+    groups = {"C": blocks}
+    blocks = [{"type": "h2", "text": "Appendix H — Where each region leads"}]
     blocks.append({"type": "para",
                    "text": "The twenty adjustment families this book can reach, and "
                            "the signs that lead to each. What a family does to a "
@@ -222,7 +238,24 @@ def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
                            "in this book's own records but were not obtained. Where a "
                            "definition rests on them, the book says that the sources "
                            "differ rather than asserting one."})
-    return blocks
+    groups["HI"] = blocks
+    return groups
+
+
+def fill_index_slots(blocks: list, groups: dict) -> list:
+    """`index_slot` işaretlerini üretilmiş ek bloklarıyla değiştirir.
+
+    Birinci geçişte `groups` boştur (sayfa numaraları henüz ölçülmedi);
+    işaretler o geçişte DÜŞÜRÜLÜR ve yakınsama döngüsü ikinci geçişte
+    onları doldurur. `run_blocks` bilinmeyen blok türünde patladığı için
+    işaretlerin dizgiye ULAŞMAMASI şarttır."""
+    out: list = []
+    for b in blocks:
+        if b.get("type") == "index_slot":
+            out.extend(groups.get(b["slot"], []))
+        else:
+            out.append(b)
+    return out
 
 
 def check_pages_render(pdf: Path):
@@ -337,6 +370,7 @@ def main() -> int:
         claims_seen: dict = {}
         started_parts: set = set()
         sign_page: dict = {}
+        apx_page: list = []
 
         if toc:
             ts.h1("Contents")
@@ -348,8 +382,8 @@ def main() -> int:
             ts.start_recto()
 
         for pnum, ptitle, key, blocks, sids in collected:
-            if key == "appendix" and index_blocks:
-                blocks = blocks + index_blocks
+            if key == "appendix":
+                blocks = fill_index_slots(blocks, index_blocks)
             blocks = resolve_cross_references(blocks, page_of)
             errs.extend(check_reader_language(blocks, key))
             for b in blocks:
@@ -383,11 +417,21 @@ def main() -> int:
             # başlığın hangi sayfaya düştüğü ÖLÇÜLSÜN, tahmin edilmesin.
             seg: list = []
             for b in rest:
-                if b.get("type") == "h2" and b.get("claims") \
-                        and str(b["claims"][0]).startswith("SYM-"):
+                is_sign = (b.get("type") == "h2" and b.get("claims")
+                           and str(b["claims"][0]).startswith("SYM-"))
+                # ⚠ Faz 5: içindekiler "Part 6 — Appendices" satırında
+                # BİTİYORDU. Dokuz ekin hiçbiri listelenmiyordu, yani
+                # okurun ekleri adıyla bulmasının hiçbir yolu yoktu.
+                # Ek başlıklarının sayfası da ÖLÇÜLÜR, tahmin edilmez.
+                is_apx = (key == "appendix" and b.get("type") == "h2"
+                          and str(b.get("text", "")).startswith("Appendix "))
+                if is_sign or is_apx:
                     if seg:
                         errs.extend(run_blocks(ts, seg, meta_by_key)); seg = []
-                    sign_page[b["claims"][0]] = ts.page
+                    if is_sign:
+                        sign_page[b["claims"][0]] = ts.page
+                    else:
+                        apx_page.append((b["text"], ts.page))
                 seg.append(b)
             if seg:
                 errs.extend(run_blocks(ts, seg, meta_by_key))
@@ -404,9 +448,9 @@ def main() -> int:
             for b in blocks:
                 for cid in (b.get("claims") or []):
                     claims_seen.setdefault(cid, key)
-        return ts, errs, chapters, claims_seen, sign_page
+        return ts, errs, chapters, claims_seen, sign_page, apx_page
 
-    def make_toc(chs: list) -> list:
+    def make_toc(chs: list, apx: list) -> list:
         t: list = []
         seen: set = set()
         for c in chs:
@@ -419,6 +463,8 @@ def main() -> int:
             # yazmak okura hiçbir şey söylemez.
             if not (t and t[-1][0].endswith(f"— {title}")):
                 t.append((title, 1, c["page_start"]))
+        for name, pg in apx:
+            t.append((name, 1, pg))
         return t
 
     # ── YAKINSAMA ─────────────────────────────────────────────────────
@@ -429,13 +475,13 @@ def main() -> int:
     # kötüdür: okur ona güvenir.
     page_of: dict = {}
     toc: list = []
-    index_blocks: list = []
+    index_blocks: dict = {}
     ts = errors = chapters = claims_seen = None
     for attempt in range(1, 7):
-        ts, errors, chapters, claims_seen, sign_page = run_pass(page_of, toc,
-                                                                 index_blocks)
+        ts, errors, chapters, claims_seen, sign_page, apx_page = run_pass(
+            page_of, toc, index_blocks)
         new_page_of = {c["key"]: c["page_start"] for c in chapters}
-        new_toc = make_toc(chapters)
+        new_toc = make_toc(chapters, apx_page)
         if new_page_of == page_of and new_toc == toc:
             break
         page_of, toc = new_page_of, new_toc

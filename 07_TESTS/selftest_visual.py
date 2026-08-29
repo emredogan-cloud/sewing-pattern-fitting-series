@@ -35,6 +35,21 @@ except ModuleNotFoundError as e:
     print("  pip install -r 07_TESTS/requirements-render.txt")
     sys.exit(2)
 
+# ⚠ Faz 5'te ÖLÇÜLEN kusur: YAZI TİPİ de bir render bağımlılığıdır ama
+# yalnızca `ModuleNotFoundError` "bağımlılık yok" sayılıyordu. Temiz bir
+# klonda (yazı tipi ikilileri izlenmiyor — .gitignore § ⑧) her çizim
+# `FileNotFoundError` fırlatıyor, `_raises()` onu ForbiddenDrawing
+# saymadığı için ÇİZİM YASAĞI denetimlerinin 11'i `✗` basıyordu.
+# Operatöre "çizim yasakları başarısız" deniyordu; oysa hiçbiri
+# KOŞMAMIŞTI. Eksik yazı tipi artık kayıp modülle AYNI sözleşmeye
+# uyar: çıkış kodu 2 ve edinme komutu.
+try:
+    figure_tokens.register_fonts()
+except FileNotFoundError as e:
+    print("✗ selftest_visual.py yazı tipi dosyalarını bulamadı: " + str(e))
+    print("  python3 06_BUILD/fetch_fonts.py")
+    sys.exit(2)
+
 FAILURES: list[str] = []
 CHECKS = 0
 
@@ -51,12 +66,21 @@ def _fc(w=200.0, h=200.0, surface="diagram"):
     return figure_tokens.FigureCanvas(w, h, surface=surface)
 
 
+UNEXPECTED: list[str] = []
+
+
 def _raises(fn) -> bool:
+    """Yasağın ForbiddenDrawing fırlattığını doğrular.
+
+    ⚠ Beklenmeyen bir istisna sessizce "yasak çalışmadı"ya dönüşmemeli:
+    o zaman çıktı yanlış kusuru gösterir. Ayrı kaydedilir ve
+    kapanışta AÇIKÇA raporlanır."""
     try:
         fn()
     except figure_tokens.ForbiddenDrawing:
         return True
-    except Exception:
+    except Exception as e:                       # noqa: BLE001
+        UNEXPECTED.append(f"{type(e).__name__}: {e}")
         return False
     return False
 
@@ -213,6 +237,13 @@ def main():
     ):
         fn()
     print(f"\n{CHECKS} denetim çalıştı, {len(FAILURES)} başarısız.")
+    if UNEXPECTED:
+        # Yasağın çalışmaması ile ORTAMIN bozuk olması aynı şey değildir.
+        print(f"\n⚠ {len(UNEXPECTED)} denetim BEKLENMEYEN bir istisnayla "
+              f"düştü — bu, çizim yasağının başarısızlığı DEĞİL, koşum "
+              f"ortamının eksikliğidir:")
+        for u in dict.fromkeys(UNEXPECTED):
+            print(f"  - {u}")
     if FAILURES:
         print("\n✗ BAŞARISIZ DENETİMLER:")
         for f in FAILURES:

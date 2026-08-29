@@ -61,6 +61,7 @@ class Typesetter:
         self._head_right = None
         self.figures_used: list = []
         self._outline: list = []
+        self._head_page = None      # bu sayfada en son bir başlık çizildi mi
         self._side_used = None      # bu sayfada yan notun indiği en alt nokta
         self._side_pending: list = []
         self._new_page()
@@ -122,7 +123,22 @@ class Typesetter:
 
     def _need(self, h: float):
         if not self._room(h):
-            self._new_page()
+            self._flow_page()
+
+    def _flow_page(self):
+        """AKIŞ içinde sayfa açar — yeni sayfa KESİN mürekkep alacaktır.
+
+        ⚠ Faz 5'te ÖLÇÜLEN kusur: `_new_page()` `_dirty` bayrağını
+        sıfırlar, ama çizim yordamları `_touch()`'ı yalnızca BAŞTA bir
+        kez çağırır. Bir paragrafın/listenin/tablonun taşan kuyruğu yeni
+        sayfaya düştüğünde o sayfa "kirli" sayılmıyordu ve `_close_page`
+        sayfa mobilyasını HİÇ yazmıyordu: sayfa 46 ve 236 metin taşıyıp
+        SAYFA NUMARASI TAŞIMIYORDU. Akış içindeki her sayfa açılışı
+        buradan geçer ve sayfayı derhâl işaretler.
+        Regresyon: 07_TESTS/selftest.py § test_flowed_page_keeps_folio
+        """
+        self._new_page()
+        self._touch()
 
     def page_break(self):
         self._new_page()
@@ -158,7 +174,7 @@ class Typesetter:
         self.c.setFillGray(gray)
         for ln in lines:
             if not self._room(lead):
-                self._new_page(); self.c.setFillGray(gray)
+                self._flow_page(); self.c.setFillGray(gray)
             self.y -= lead
             self.c.setFont(font(face), size)
             self.c.drawString(self.x_text + indent, self.y, ln)
@@ -198,6 +214,7 @@ class Typesetter:
 
     def h2(self, s: str):
         self._touch()
+        self._head_page = None
         self._need(self.lead * 3.2)
         self.y -= self.lead * 1.1
         self.c.setFont(font("sans-semibold"), 13.0)
@@ -205,9 +222,11 @@ class Typesetter:
             self.c.drawString(self.x_text, self.y, ln)
             self.y -= self.lead * 0.75
         self.y -= self.lead * 0.05
+        self._head_page = self.page
 
     def h3(self, s: str):
         self._touch()
+        self._head_page = None
         self._need(self.lead * 2.6)
         self.y -= self.lead * 0.85
         self.c.setFont(font("sans-semibold"), 10.5)
@@ -215,16 +234,127 @@ class Typesetter:
             self.c.drawString(self.x_text, self.y, ln)
             self.y -= self.lead * 0.62
         self.y -= self.lead * 0.02
+        self._head_page = self.page
+
+    # ── BAŞLIK İÇERİĞİNDEN AYRILMAZ ───────────────────────────────────
+    # ⚠ Faz 5: tabloyu/listeyi bütün tutma kuralı bir kusuru başka bir
+    # kusurla değişti — başlık ve giriş paragrafı bir sayfada, tablo
+    # ötekinde kalıyordu (s. 238, s. 245). Bir başlık, ardındaki İLK
+    # BÖLÜNMEZ PARÇAYLA birlikte yer bulamıyorsa onunla birlikte kayar.
+    # Ölçüm `run_blocks` seviyesinde yapılır; yalnızca orada ileriye
+    # bakılabilir.
+    # Regresyon: 07_TESTS/selftest.py § test_heading_travels_with_its_content
+
+    def head_h(self, kind: str) -> float:
+        return {"h1": self.lead * 4.0, "h2": self.lead * 3.2,
+                "h3": self.lead * 2.6}.get(kind, 0.0)
+
+    def table_h(self, rows: list, widths: list, size=9.0, row_pt=None,
+                keep_after_pt: float = 0.0) -> float:
+        rowh = float(row_pt) if row_pt else size * 1.7
+        h = self.lead * 0.4 + self.lead * 0.6 + keep_after_pt
+        for i, r in enumerate(rows):
+            cells = [self._wrap(str(c), widths[j] * self.tw - 8.0,
+                                "sans-semibold" if i == 0 else "sans", size)[:8]
+                     for j, c in enumerate(r)]
+            h += rowh + (max(max(len(c), 1) for c in cells) - 1) * size * 1.12
+        return h
+
+    def chunk_h(self, b: dict, meta: dict) -> float:
+        """Bloğun BÖLÜNMEDEN yerleşmesi gereken en küçük yüksekliği."""
+        k = b.get("type")
+        page = self.top - self.bottom
+        if k in ("para", "lead"):
+            n = len(self._wrap(str(b.get("text", "")), self.tw, "serif", self.body))
+            return min(n, 2) * self.lead
+        if k in ("bullets", "numbered"):
+            pad = 14.0 if k == "bullets" else 18.0
+            n = sum(len(self._wrap(str(x), self.tw - pad, "serif", self.body))
+                    for x in (b.get("items") or []))
+            # min_tail + 1: kısa listeler TAMAMEN ayrılır, böylece
+            # `_no_widow_break` başlığı yalnız bırakacak bir kaçış
+            # yapmak zorunda kalmaz (iki kuralın çeliştiği yer).
+            return min(n, 3) * self.lead
+        if k in ("table", "figtable"):
+            if k == "figtable":
+                m = meta.get(b.get("key"))
+                if not m or "data" not in m:
+                    return 3 * self.lead
+                rows = m["data"]; widths = b.get("widths") or m["col_ratio"]
+                cap = b.get("caption") or ""
+                cap_h = (self.lead * (len(self._wrap(cap, self.tw, "sans-italic", 8.5))
+                                      + 1.05)) if cap else 0.0
+            else:
+                rows = b["rows"]; widths = b["widths"]; cap_h = 0.0
+            # BOŞ FORM (row_pt verilmiş) bölünmez: yarısı bir sayfada
+            # olan bir form doldurulamaz. Veri tablosu bölünebilir;
+            # onun için yalnızca üç satırlık bir baş yer ayrılır.
+            if b.get("row_pt"):
+                tot = self.table_h(rows, widths, row_pt=b["row_pt"],
+                                   keep_after_pt=cap_h)
+                if tot <= page:
+                    return tot
+            return (9.0 * 1.7) * 3 + self.lead * 0.6 + cap_h
+        if k == "figure":
+            m = meta.get(b.get("key"))
+            if not m:
+                return 3 * self.lead
+            avail = (self.tw + self.gap + self.side_w) if b.get("full") else self.tw
+            cl = self._wrap(str(b.get("caption", "")), avail, "sans-italic", 8.5)
+            return m["height_pt"] + 9.0 + len(cl) * 11.0 + self.lead * 0.8
+        if k == "callout":
+            n = sum(len(self._wrap(str(x), self.tw - 26.0, "serif", self.body - 0.5))
+                    for x in (b.get("items") or []))
+            return min(n + 1, 4) * self.lead
+        return 0.0
+
+    def reserve_group(self, blocks: list, i: int, meta: dict):
+        """Başlık + ona yapışık paragraflar + ilk bölünmez parça."""
+        h = self.head_h(blocks[i]["type"])
+        j = i + 1
+        while j < len(blocks) and blocks[j].get("type") in ("para", "lead") \
+                and j - i <= 3:
+            h += self.chunk_h(blocks[j], meta)
+            j += 1
+        if j < len(blocks):
+            h += self.chunk_h(blocks[j], meta)
+        self._need(min(h, self.top - self.bottom))
+
+    def _no_widow_break(self, line_counts: list, lead: float, min_tail: int = 2):
+        """Bir listenin kuyruğunda dul satır kalacaksa listeyi bütün taşır.
+
+        ⚠ Faz 5'te ÖLÇÜLEN kusur: s. 236'nın TEK içeriği üç maddelik bir
+        listenin son maddesiydi. Liste bir sayfaya sığıyorsa ve
+        bölünmesi kuyrukta `min_tail`'den az satır bırakacaksa, liste
+        BAŞLAMADAN önce sayfa çevrilir.
+        Regresyon: 07_TESTS/selftest.py § test_list_tail_is_not_widowed
+        """
+        total = sum(line_counts)
+        if total == 0:
+            return
+        if total * lead > (self.top - self.bottom):
+            return                       # tek sayfaya zaten sığmıyor
+        room = int((self.y - self.bottom) // lead)
+        if room >= total:
+            return                       # tamamı sığıyor
+        if total - room < min_tail:
+            # Başlık BU sayfadaysa listeyi tümden taşımak başlığı yalnız
+            # bırakır — dul bir satır, sahipsiz bir başlıktan iyidir.
+            if self._head_page == self.page:
+                return
+            self._flow_page()
 
     def bullets(self, items: list, marker="—"):
         self._touch()
-        for it in items:
-            lines = self._wrap(it, self.tw - 14.0, "serif", self.body)
+        wrapped = [self._wrap(it, self.tw - 14.0, "serif", self.body)
+                   for it in items]
+        self._no_widow_break([len(w) for w in wrapped], self.lead)
+        for lines in wrapped:
             self._need(min(len(lines), 2) * self.lead)
             first = True
             for ln in lines:
                 if not self._room(self.lead):
-                    self._new_page()
+                    self._flow_page()
                 self.y -= self.lead
                 self.c.setFont(font("serif"), self.body)
                 if first:
@@ -235,13 +365,15 @@ class Typesetter:
 
     def numbered(self, items: list, start: int = 1):
         self._touch()
-        for i, it in enumerate(items, start):
-            lines = self._wrap(it, self.tw - 18.0, "serif", self.body)
+        wrapped = [self._wrap(it, self.tw - 18.0, "serif", self.body)
+                   for it in items]
+        self._no_widow_break([len(w) for w in wrapped], self.lead)
+        for i, lines in enumerate(wrapped, start):
             self._need(min(len(lines), 2) * self.lead)
             first = True
             for ln in lines:
                 if not self._room(self.lead):
-                    self._new_page()
+                    self._flow_page()
                 self.y -= self.lead
                 self.c.setFont(font("serif"), self.body)
                 if first:
@@ -257,7 +389,16 @@ class Typesetter:
         self._touch()
         size = 8.0; lead = 10.4
         lines = self._wrap(body, self.side_w - 8.0, "sans", size)
-        need = lead * (len(lines) + 1.6)
+        # ⚠ Faz 5'te ÖLÇÜLEN kusur: GÖVDE sarılıyordu, BAŞLIK sarılmıyordu.
+        # 36 yan notun 3'ünün başlığı 108 pt'lik sütundan taşıyordu ve
+        # `drawString` hiçbir sınır tanımadığı için taşan kısım komşu
+        # alana BASILIYORDU: verso sayfada metin bloğunun üstüne
+        # (s. 50'de 4,3 pt, s. 72'de 33,2 pt — harfler üst üste),
+        # recto sayfada dış kenar boşluğuna (s. 61'de 17,4 pt).
+        # Başlık artık gövdeyle AYNI genişliğe sarılır.
+        # Regresyon: 07_TESTS/selftest.py § test_side_note_title_stays_in_column
+        title_lines = self._wrap(title, self.side_w - 8.0, "sans-bold", size)
+        need = lead * (len(lines) + len(title_lines) + 0.6)
         y = self.y + self.lead
         # ⚠ İlk sürüm yer kalmadığında koşulsuz `self.top`'a atlıyordu.
         # İki sorun: (a) aynı sayfadaki İKİNCİ bir yan not birincinin
@@ -274,8 +415,9 @@ class Typesetter:
         self.c.setStrokeGray(0.0); self.c.setLineWidth(0.7)
         self.c.line(self.x_side, y + 3.0, self.x_side + self.side_w, y + 3.0)
         self.c.setFont(font("sans-bold"), size)
-        y -= lead
-        self.c.drawString(self.x_side, y, title)
+        for ln in title_lines:
+            y -= lead
+            self.c.drawString(self.x_side, y, ln)
         self.c.setFont(font("sans"), size)
         for ln in lines:
             y -= lead
@@ -289,7 +431,7 @@ class Typesetter:
         indent = 0.0 if level == 0 else 14.0
         self._need(self.lead)
         if not self._room(self.lead):
-            self._new_page()
+            self._flow_page()
         self.y -= self.lead * (1.0 if level else 1.25)
         self.c.setFont(font(face), size)
         self.c.drawString(self.x_text + indent, self.y, title)
@@ -339,7 +481,7 @@ class Typesetter:
                 if not self._room(self.lead * 0.92):
                     self.c.setStrokeGray(rule_gray); self.c.setLineWidth(2.2)
                     self.c.line(self.x_text + 4.0, y0, self.x_text + 4.0, self.y - 3.0)
-                    self._new_page(); y0 = self.y
+                    self._flow_page(); y0 = self.y
                 self.y -= self.lead * 0.92
                 self.c.setFont(font("sans"), size)
                 self.c.drawString(self.x_text + 14.0 + (0 if first else 8.0), self.y, ln)
@@ -348,12 +490,33 @@ class Typesetter:
         self.c.line(self.x_text + 4.0, y0, self.x_text + 4.0, self.y - 3.0)
         self.y -= self.lead * 0.75
 
-    def table(self, rows: list, widths: list, size=9.0, row_pt=None):
+    def table(self, rows: list, widths: list, size=9.0, row_pt=None,
+              keep_after_pt: float = 0.0):
+        """keep_after_pt: SON satırın altında ayrılacak yer.
+
+        ⚠ Faz 5'te ÖLÇÜLEN kusur: `figtable` bloğu önce tabloyu, sonra
+        AYRI bir `para()` ile başlığı diziyordu. Tablo sayfanın dibinde
+        bittiğinde başlık tek başına sonraki sayfaya düşüyordu —
+        s. 46'nın TEK içeriği ölçü kartının başlığıydı. Son satır artık
+        altındaki başlığa yer kalmıyorsa birlikte kayar.
+        Regresyon: 07_TESTS/selftest.py § test_figtable_caption_is_not_orphaned
+        """
         self._touch()
         # Boş bir form ELLE DOLDURULUR. 9 pt metin satırı (15,3 pt ≈ 5,4 mm)
         # okunur ama YAZILAMAZ. Form satırları ayrıca belirtilir.
         rowh = float(row_pt) if row_pt else size * 1.7
-        self._need(rowh * min(len(rows), 3) + self.lead * 0.6)
+        # Tablo + başlığı bir sayfaya SIĞIYORSA bölünmez: bir formun
+        # yarısı bir sayfada, başlığı ötekinde işe yaramaz. Sığmıyorsa
+        # eski davranış sürer ve tablo satır satır bölünür.
+        if row_pt:
+            all_h = self.table_h(rows, widths, size=size, row_pt=row_pt,
+                                 keep_after_pt=keep_after_pt)
+            if all_h <= (self.top - self.bottom) and not self._room(all_h):
+                self._flow_page()
+            else:
+                self._need(rowh * min(len(rows), 3) + self.lead * 0.6)
+        else:
+            self._need(rowh * min(len(rows), 3) + self.lead * 0.6 + keep_after_pt)
         self.y -= self.lead * 0.4
         for i, r in enumerate(rows):
             # ⚠ Satır başına en fazla ÜÇ satır sarılıyordu ve fazlası
@@ -364,9 +527,19 @@ class Typesetter:
             cells = [self._wrap(str(cell), widths[j] * self.tw - 8.0,
                                 "sans-semibold" if i == 0 else "sans", size)[:8]
                      for j, cell in enumerate(r)]
-            h = rowh + (max(len(c) for c in cells) - 1) * size * 1.12
-            if not self._room(h):
-                self._new_page()
+            # ⚠ Faz 5'te ÖLÇÜLEN kusur: BOŞ bir hücre `_wrap("") == []`
+            # döndürüyor, yani 0 satır. `(0 - 1) * 9 * 1,12` NEGATİFTİR
+            # ve satır yüksekliğini 15,3 pt'den 5,22 pt'ye (1,84 mm)
+            # düşürüyordu. Bütün BOŞ FORMLAR bu yüzden yazılamaz
+            # hâldeydi — Faz 4 çelişmeli incelemesinin R5 bulgusu
+            # ("2 mm'lik saç teli satırlar") DÜZELMEMİŞTİ, çünkü
+            # düzeltme `row_pt`'ye yazılmıştı ve bu çarpan onu da
+            # aşağı çekiyordu (26 pt → 15,9 pt).
+            # Regresyon: 07_TESTS/selftest.py § test_blank_form_rows_are_writable
+            h = rowh + (max(max(len(c), 1) for c in cells) - 1) * size * 1.12
+            tail = keep_after_pt if i == len(rows) - 1 else 0.0
+            if not self._room(h + tail):
+                self._flow_page()
             self.y -= h
             x = self.x_text
             face = "sans-semibold" if i == 0 else "sans"
@@ -418,8 +591,10 @@ class Typesetter:
 def run_blocks(ts: Typesetter, blocks: list, meta_by_key: dict) -> list:
     """Blokları dizer. Bilinmeyen blok türü SESSİZCE ATLANMAZ — patlar."""
     errors: list = []
-    for b in blocks:
+    for _i, b in enumerate(blocks):
         k = b["type"]
+        if k in ("h2", "h3"):
+            ts.reserve_group(blocks, _i, meta_by_key)
         if k == "h1":
             ts.h1(b["text"], kicker=b.get("kicker"))
         elif k == "h2":
@@ -443,8 +618,15 @@ def run_blocks(ts: Typesetter, blocks: list, meta_by_key: dict) -> list:
             if m is None or "data" not in m:
                 errors.append(f"tablo figürü sicilde yok ya da verisi eksik: {b['key']}")
                 continue
+            # Başlık tablodan AYRI bir bloktur; son satırla birlikte
+            # kalması için yüksekliği tabloya bildirilir (s. 46 kusuru).
+            cap = b.get("caption") or ""
+            cap_h = 0.0
+            if cap:
+                cap_h = ts.lead * (len(ts._wrap(cap, ts.tw, "sans-italic", 8.5))
+                                   + 1.05)
             ts.table(m["data"], b.get("widths") or m["col_ratio"],
-                     row_pt=b.get("row_pt"))
+                     row_pt=b.get("row_pt"), keep_after_pt=cap_h)
             # Sicilden gelen bir tablo da BİR FİGÜRDÜR. Sayılmazsa figür
             # bütçesi (§ 25) gerçekten kullanılanı göstermez.
             ts.figures_used.append(b["key"])

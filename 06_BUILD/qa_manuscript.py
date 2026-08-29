@@ -101,8 +101,18 @@ def main() -> int:
     bdir = paths.BOOK_DIRS[args.book]
     mdir = bdir / bookplan.MANUSCRIPT_DIR
     if not mdir.exists():
-        print(f"▸ qa_manuscript.py — manüskript YOK ({mdir.relative_to(paths.ROOT)}); "
-              f"bu kapı Faz 4 öncesi kitaplar için ATLANIR.")
+        # ⚠ Faz 5'te DÜZELTİLEN yanlış beyan: bu satır eskiden "bu kapı
+        # Faz 4 ÖNCESİ kitaplar için ATLANIR" diyordu. Kitap 1'in kapısı
+        # `phase4-production-conditional`'dır — Faz 4 ÖNCESİ DEĞİLDİR.
+        # Kapı, kitabın FAZI yüzünden değil, prozanın bilerek
+        # izlenmemesi (K9) yüzünden atlanır. Yanlış gerekçe, CI çıktısını
+        # okuyan birine kitabın Faz 4'ü geçmediğini söylüyordu.
+        print(f"▸ qa_manuscript.py — manüskript prozası bu ağaçta YOK "
+              f"({mdir.relative_to(paths.ROOT)}). Proza bilerek izlenmiyor "
+              f"(.gitignore § ①, DECISIONS.md K9), bu yüzden kapı burada "
+              f"kendini ATLAR — kitabın fazından bağımsız olarak.")
+        print("  ⚠ BU KOŞUM EKSİKTİR: bölüm yapısı, yeniden gözlem "
+              "döngüsü ve kalibre dil denetimi YEREL koşumda yapılır.")
         return 0
 
     atlas = AtlasBuilder(args.book, mdir)

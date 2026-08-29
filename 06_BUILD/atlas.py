@@ -83,6 +83,21 @@ SIZE_FAMILY = "AF-18"   # B-02: bir teşhis değil, bir ÇIKIŞ kapısı
 TITLE_OBS_SIMILARITY = 0.55
 
 
+def _declares_no_physical_test(test: str) -> bool:
+    """Yazılmış test "fiziksel test YOK" diyor mu.
+
+    ⚠ Faz 5'te ÖLÇÜLEN kusur: 129 aday nedenin 8'i "There is no physical
+    test" diyordu, ama hemen ardına genel okuma ölçütü ekleniyordu:
+    "bu neden, belirti AZALIRSA doğrulanmıştır". Okur aynı maddede önce
+    yapacak bir test olmadığını, sonra testin sonucunu okumasını
+    söyleniyordu. Bu nedenler kalıp/beden BELGESİYLE kapanır ve zaten
+    bir "Confirm by:" satırı taşırlar.
+    Regresyon: 07_TESTS/selftest.py § test_no_test_cause_gets_no_reduction_criterion
+    """
+    import re
+    return bool(re.search(r"\bno physical test\b", test, re.I))
+
+
 def _has_read_criterion(test: str) -> bool:
     """Yazılmış test sonucun nasıl okunacağını zaten söylüyor mu."""
     import re
@@ -235,7 +250,8 @@ class AtlasBuilder:
             #
             # Yazılmış test zaten bir koşul cümlesi taşıyorsa
             # TEKRARLANMAZ.
-            if not _has_read_criterion(authored["test"]):
+            if not (_has_read_criterion(authored["test"])
+                    or _declares_no_physical_test(authored["test"])):
                 items.append(
                     "Read it: this cause is confirmed if — " + _sign_clause(obs_text) +
                     " — is reduced and no new sign appears anywhere else. If the sign "
@@ -427,14 +443,17 @@ class AtlasBuilder:
             blocks.append({"type": "figure", "key": key, "caption": cap})
         blocks.append({"type": "h2", "text": "Exercise 2A — your measurement card"})
         blocks.append({"type": "para",
-                       "text": "Fill in the card opposite. Take five of the "
+                       "text": "Fill in the measurement card below. Take five of the "
                                "decision-bearing measurements twice — high bust, full "
                                "bust, waist, full hip and centre back length — and record "
                                "both readings and the difference. Date it. You will "
                                "compare against this card every time you use this book, "
                                "and you will retake it when the numbers stop matching "
                                "your body."})
+        # Diğer üç boş form 26 pt satır yüksekliği beyan eder; bu form
+        # etmiyordu ve varsayılan 15,3 pt'ye (aslında 5,2 pt'ye) düşüyordu.
         blocks.append({"type": "figtable", "key": "tbl_form_measurement_card",
+                       "row_pt": 26.0,
                        "caption": "The measurement card. Two readings, and the difference "
                                   "between them."})
         return blocks

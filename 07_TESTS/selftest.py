@@ -37,6 +37,7 @@ import croquis          # noqa: E402
 import trfold           # noqa: E402
 
 FAILURES: list[str] = []
+SKIPPED: list[str] = []
 CHECKS = 0
 
 
@@ -46,6 +47,23 @@ def check(name: str, condition: bool, detail: str = ""):
     print(f"  {'✓' if condition else '✗'} {name}")
     if not condition:
         FAILURES.append(f"{name} — {detail}")
+
+
+def skip(name: str, why: str):
+    """ATLANAN denetim — GEÇEN denetim DEĞİLDİR.
+
+    ⚠ Faz 5'te ÖLÇÜLEN kusur: temiz bir klonda (manüskript prozası
+    bilerek izlenmiyor — K9) sekiz denetim `check(..., True)` ile
+    ATLANIYOR ama GEÇMİŞ sayılıyordu. Sayı 152'den 146'ya düşüyor,
+    çıktı yine de "✓ Bütün kapılar kusurlu fixture'ları doğru
+    yakaladı" diyordu. Atlanan denetimlerin arasında Faz 4'ün en
+    önemli düzeltmelerini koruyanlar vardı (B-01 yeniden gözlem,
+    B-03 belirtiye özgü eleme, ölçüm figürü kapsaması). CI yeşildi ve
+    o denetimler HİÇ KOŞMAMIŞTI.
+
+    Atlananlar artık AYRI sayılır ve kapanış satırı bunu söyler."""
+    SKIPPED.append(f"{name} — {why}")
+    print(f"  ⊘ {name} — ATLANDI: {why}")
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -650,7 +668,7 @@ def test_qa_visual_catches_defects():
     real = json.loads(paths.book_figures("book-01").read_text(encoding="utf-8")) \
         if paths.book_figures("book-01").exists() else None
     if real is None:
-        check("qa_visual fixture testi atlandı (figures.json yok)", True)
+        skip("qa_visual fixture testi", "figures.json yok")
         return
 
     tokens = json.loads(paths.VISUAL_TOKENS.read_text(encoding="utf-8"))
@@ -1037,7 +1055,8 @@ def test_manuscript_gate_catches_missing_reobservation():
     import atlas as _atlas
     mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
     if not mdir.exists():
-        check("manüskript kapısı: manüskript yok, atlandı", True)
+        skip("manüskript yeniden-gözlem kapısı (B-01/B-03)",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
         return
     a = _atlas.AtlasBuilder("book-01", mdir)
     sid = "SYM-001"
@@ -1130,7 +1149,8 @@ def test_every_measurement_has_a_figure_in_the_book():
     import atlas as _atlas
     mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
     if not mdir.exists():
-        check("ölçüm figürü kapısı: manüskript yok, atlandı", True)
+        skip("ölçüm figürü kapsama kapısı",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
         return
     a = _atlas.AtlasBuilder("book-01", mdir)
     blocks = a.measurement_chapter()
@@ -1288,17 +1308,302 @@ def main():
         test_claim_registry_derives_its_evidence_level,
         test_conditional_phase4_does_not_claim_kill_gate,
         test_manuscript_gate_holds_the_book2_boundary,
+        # ── Faz 5: dizgi katmanı regresyonları ────────────────────────
+        test_side_note_title_stays_in_column,
+        test_flowed_page_keeps_folio,
+        test_blank_form_rows_are_writable,
+        test_no_test_cause_gets_no_reduction_criterion,
+        test_appendices_print_in_letter_order,
+        test_no_duplicate_chapter_number,
+        test_heading_travels_with_its_content,
     ):
         fn()
 
-    print(f"\n{CHECKS} denetim çalıştı, {len(FAILURES)} başarısız.")
+    print(f"\n{CHECKS} denetim çalıştı, {len(SKIPPED)} atlandı, "
+          f"{len(FAILURES)} başarısız.")
     if FAILURES:
         print("\n✗ BAŞARISIZ DENETİMLER:")
         for f in FAILURES:
             print(f"  - {f}")
         return 1
+    if SKIPPED:
+        print("\n⊘ ATLANAN DENETİMLER — bu koşum EKSİKTİR:")
+        for x in SKIPPED:
+            print(f"  - {x}")
+        print(f"\n✓ Koşan {CHECKS} denetimin hepsi geçti — ama "
+              f"{len(SKIPPED)} denetim HİÇ KOŞMADI.")
+        print("  Tam kapsam için manüskript prozasının ve render "
+              "katmanının bulunduğu YEREL koşum gerekir.")
+        return 0
     print("✓ Bütün kapılar kusurlu fixture'ları doğru yakaladı.")
     return 0
+
+
+
+
+# ═════════════════════════════════════════════════════════════════════
+# FAZ 5 — DİZGİ KATMANI REGRESYONLARI
+#
+# Bu altı denetimin hepsi Faz 5'te GERÇEK kitapta ölçülmüş kusurlardır.
+# Hiçbiri veri kapılarından geçmiyordu: sekiz veri kapısı da yeşildi,
+# 152 denetim de geçiyordu, ürün yine de bozuktu. Dizgi kusurunu ancak
+# dizgi çıktısını ÖLÇEN bir denetim görür.
+# ═════════════════════════════════════════════════════════════════════
+
+def _render_layer_missing() -> str:
+    """Render katmanı koşulabilir mi — koşulamıyorsa NEDENİ.
+
+    ⚠ `selftest.py` üçüncü taraf paket GEREKTİRMEZ (CI'nin `selftest`
+    işi bağımlılıksız koşar). Dizgi regresyonları reportlab'a VE yazı
+    tipi ikililerine bağlıdır; ikisi de yoksa denetim ATLANIR — ama
+    ATLANDIĞINI söyleyerek. Yazı tipi eksikliği de bir bağımlılık
+    eksikliğidir: ilk sürüm yalnızca `ModuleNotFoundError`'ı sayıyordu
+    ve temiz bir klonda selftest ÇÖKÜYORDU."""
+    try:
+        import reportlab  # noqa: F401
+    except ModuleNotFoundError:
+        return "reportlab yok (render katmanı)"
+    try:
+        sys.path.insert(0, str(paths.BUILD))
+        import figure_tokens as _ft
+        _ft.register_fonts()
+    except ModuleNotFoundError as e:
+        return f"render modülü yok: {e}"
+    except FileNotFoundError:
+        return "yazı tipi dosyaları edinilmemiş (06_BUILD/fetch_fonts.py)"
+    return ""
+
+
+def _mini_typesetter(tmp):
+    """Gerçek geometriyle küçük bir dizgi motoru kurar."""
+    sys.path.insert(0, str(paths.BUILD))
+    import typeset as T
+    import figure_engine as FE
+    geom = json.loads(paths.PAGE_GEOMETRY.read_text(encoding="utf-8"))
+    return T, T.Typesetter(tmp, geom, FE.Engine("book-01"))
+
+
+def test_side_note_title_stays_in_column():
+    """Yan not BAŞLIĞI sütunun dışına taşıyor mu.
+
+    Faz 5'te ölçülen: 36 yan notun 3'ünün başlığı 108 pt'lik sütundan
+    taşıyor ve verso sayfada METİN BLOĞUNUN ÜSTÜNE basılıyordu
+    (s. 72'de 33,2 pt). Gövde sarılıyordu, başlık sarılmıyordu.
+
+    ⚠ Bu test GERÇEK `side_note()` yolunu koşar ve tuvale ÇİZİLEN her
+    dizgiyi ölçer. İlk sürümü `_wrap`'i doğrudan çağırıyordu ve
+    sarmayı geri alan bir mutasyonu YAKALAMIYORDU — kapı olmayan bir
+    kapıydı."""
+    why = _render_layer_missing()
+    if why:
+        skip("yan not başlığı kapısı", why)
+        return
+    from reportlab.pdfbase import pdfmetrics
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        T, ts = _mini_typesetter(Path(d) / "t.pdf")
+        drawn: list = []
+        real_draw = ts.c.drawString
+        state = {"font": "", "size": 0.0}
+        real_setfont = ts.c.setFont
+
+        def spy_setfont(name, size, *a, **k):
+            state["font"], state["size"] = name, size
+            return real_setfont(name, size, *a, **k)
+
+        def spy_draw(x, y, text, *a, **k):
+            drawn.append((x, text, state["font"], state["size"]))
+            return real_draw(x, y, text, *a, **k)
+
+        ts.c.setFont, ts.c.drawString = spy_setfont, spy_draw
+        ts.side_note("What would have happened without step 7",
+                     "Short body text for the note.")
+        ts.c.setFont, ts.c.drawString = real_setfont, real_draw
+
+        side = [(x, t, f, sz) for x, t, f, sz in drawn
+                if abs(x - ts.x_side) < 0.5]
+        check("yan not tuvale ÇİZİLDİ", len(side) >= 2, f"{len(side)} dizgi")
+        worst = 0.0
+        for x, t, f, sz in side:
+            w = pdfmetrics.stringWidth(t, f, sz)
+            worst = max(worst, x + w - (ts.x_side + ts.side_w))
+        check("çizilen HİÇBİR yan not dizgisi sütundan taşmıyor",
+              worst <= 0.5, f"en fazla {worst:.1f} pt taşma")
+        # başlık gerçekten birden çok satıra bölünmüş olmalı
+        heads = [t for x, t, f, sz in side if "Bold" in f or "bold" in f]
+        check("uzun başlık BİRDEN ÇOK satıra bölündü",
+              len(heads) > 1, f"{len(heads)} başlık satırı: {heads}")
+
+
+def test_flowed_page_keeps_folio():
+    """Akış içinde açılan sayfa SAYFA NUMARASI alıyor mu.
+
+    Faz 5'te ölçülen: s. 46 ve s. 236 metin taşıyor ama folyo
+    taşımıyordu. `_new_page()` `_dirty`'yi sıfırlıyor, çizim yordamları
+    ise `_touch()`'ı yalnızca başta çağırıyordu."""
+    why = _render_layer_missing()
+    if why:
+        skip("folyo kapısı", why)
+        return
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        T, ts = _mini_typesetter(Path(d) / "t.pdf")
+        ts.y = ts.bottom + ts.lead * 0.5      # sayfanın dibi
+        p0 = ts.page
+        ts._flow_page()
+        check("akış sayfası AÇILDI", ts.page == p0 + 1)
+        check("akış sayfası derhâl KİRLİ işaretlendi (folyo basılacak)",
+              ts._dirty is True)
+        # karşı örnek: kasıtlı boş verso kirli OLMAMALI
+        ts2 = _mini_typesetter(Path(d) / "u.pdf")[1]
+        ts2.page_break()
+        check("kasıtlı boş sayfa kirli DEĞİL (boş verso numaralanmaz)",
+              ts2._dirty is False)
+
+
+def test_blank_form_rows_are_writable():
+    """Boş form satırları elle DOLDURULABİLİR yükseklikte mi.
+
+    Faz 4 çelişmeli incelemesi (R5) "2 mm'lik saç teli satırlar"
+    bildirmişti; düzeltme `row_pt: 26` olarak yazıldı ama satır
+    yüksekliği formülü BOŞ hücreyi 0 satır sayıp yüksekliği NEGATİF
+    düzeltiyordu: 26 pt → 15,9 pt, varsayılan 15,3 pt → 5,2 pt.
+    Faz 5'te ÖLÇÜLDÜ ve kusurun DURDUĞU görüldü."""
+    why = _render_layer_missing()
+    if why:
+        skip("boş form satırı kapısı", why)
+        return
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        T, ts = _mini_typesetter(Path(d) / "t.pdf")
+        rows = [["A", "B", "C"]] + [["", "", ""] for _ in range(6)]
+        widths = [0.34, 0.33, 0.33]
+        h_declared = ts.table_h(rows, widths, row_pt=26.0)
+        per_row = (h_declared - ts.lead) / len(rows)
+        mm = per_row / 72.0 * 25.4
+        check("beyan edilen 26 pt'lik form satırı GERÇEKTEN ~26 pt",
+              per_row > 24.0, f"{per_row:.1f} pt ({mm:.1f} mm)")
+        check("boş form satırı elle yazılabilir (≥ 6 mm)",
+              mm >= 6.0, f"{mm:.1f} mm")
+        # kusurlu formül geri gelirse yakalansın
+        bad = 26.0 + (0 - 1) * 9.0 * 1.12
+        check("eski (kusurlu) formül BUGÜN kullanılsaydı yazılamazdı",
+              bad / 72.0 * 25.4 < 6.0, f"{bad/72.0*25.4:.1f} mm")
+
+
+def test_no_test_cause_gets_no_reduction_criterion():
+    """'Fiziksel test yok' diyen neden, testin sonucunu okumasını İSTEMESİN.
+
+    Faz 5'te ölçülen: 129 aday nedenin 8'i aynı maddede önce
+    "There is no physical test" diyor, sonra "bu neden, belirti
+    AZALIRSA doğrulanmıştır" diyordu. Okura çelişkili yordam."""
+    sys.path.insert(0, str(paths.BUILD))
+    import atlas as _atlas
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    check("çelişkili okuma ölçütü kapısı: yardımcı TANIMLI",
+          hasattr(_atlas, "_declares_no_physical_test"))
+    check("'no physical test' cümlesi TANINIYOR",
+          _atlas._declares_no_physical_test(
+              "There is no physical test. This is settled at the size chart."))
+    check("normal test cümlesi yanlışlıkla TANINMIYOR",
+          not _atlas._declares_no_physical_test(
+              "Pin the back neckline edge downward by 5 mm and rehang."))
+    if not mdir.exists():
+        skip("çelişkili okuma ölçütü kapısı",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    a = _atlas.AtlasBuilder("book-01", mdir)
+    bad = []
+    for sid in a.signs:
+        txt = []
+        for b in a.sign_entry(sid, with_chart=False):
+            txt.append(str(b.get("text", "")))
+            txt += [str(x) for x in (b.get("items") or [])]
+        for i, t in enumerate(txt):
+            if "There is no physical test" in t:
+                nxt = " ".join(txt[i + 1:i + 4])
+                if "this cause is confirmed if" in nxt and "is reduced" in nxt:
+                    bad.append(sid)
+    check("hiçbir 'fiziksel test yok' nedeni AZALMA ölçütü taşımıyor",
+          not bad, f"{len(bad)} neden: {bad[:5]}")
+
+
+def test_appendices_print_in_letter_order():
+    """Ekler kitapta HARF SIRASIYLA basılıyor mu.
+
+    Faz 5'te ölçülen: basılan sıra A, B, D, E, F, G, C, H, I idi.
+    Üretilen üç dizin (C, H, I) yazılmış eklerin SONUNA ekleniyordu.
+    Ek C kitabın asıl girişidir — 43 akış şemasının hepsi ona işaret
+    eder — ve dokuz ekin yedincisinde basılıyordu."""
+    sys.path.insert(0, str(paths.BUILD))
+    import build_book as _bb
+    check("build_book `index_slot` doldurucusu TANIMLI",
+          hasattr(_bb, "fill_index_slots"))
+    blocks = [{"type": "h2", "text": "Appendix B — x"},
+              {"type": "index_slot", "slot": "C"},
+              {"type": "h2", "text": "Appendix D — y"},
+              {"type": "index_slot", "slot": "HI"}]
+    out = _bb.fill_index_slots(blocks, {"C": [{"type": "h2", "text": "Appendix C — z"}],
+                                        "HI": [{"type": "h2", "text": "Appendix H — w"}]})
+    letters = [b["text"].split(" — ")[0].replace("Appendix ", "")
+               for b in out if b.get("type") == "h2"]
+    check("işaretler yerine ÜRETİLEN bloklar geçiyor", letters == sorted(letters),
+          str(letters))
+    check("hiçbir `index_slot` dizgiye ULAŞMIYOR",
+          not any(b.get("type") == "index_slot" for b in out))
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    if not (mdir / "appendix.json").exists():
+        skip("ek harf sırası kapısı",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    src = json.loads((mdir / "appendix.json").read_text(encoding="utf-8"))
+    slots = [b["slot"] for b in src["blocks"] if b.get("type") == "index_slot"]
+    check("appendix.json iki dizin işareti TAŞIYOR", slots == ["C", "HI"], str(slots))
+
+
+def test_no_duplicate_chapter_number():
+    """İki bölüm AYNI numarayı taşıyor mu.
+
+    Faz 5'te ölçülen: içindekiler "16 · The order of work" ve
+    "16b · Signs that belong to the whole garment" satırlarını yan yana
+    basıyordu. Bir başvuru kitabında bu, numaralandırma hatası okunur."""
+    import re
+    sys.path.insert(0, str(paths.BUILD))
+    import build_book as _bb
+    nums = []
+    for key, title in _bb.CHAPTER_TITLES.items():
+        head = title.split(" · ")[0]
+        if head.isdigit():
+            nums.append(int(head))
+    check("hiçbir bölüm numarası TEKRARLANMIYOR",
+          len(nums) == len(set(nums)), str(sorted(nums)))
+    check("okur metninde 'b' ekli bölüm numarası YOK",
+          not any(re.match(r"^\d+[a-z]\b", t) for t in _bb.CHAPTER_TITLES.values()),
+          str([t for t in _bb.CHAPTER_TITLES.values()
+               if re.match(r"^\d+[a-z]\b", t)]))
+
+
+def test_heading_travels_with_its_content():
+    """Başlık, ardındaki ilk bölünmez parçayla birlikte mi kalıyor."""
+    why = _render_layer_missing()
+    if why:
+        skip("başlık-içerik kapısı", why)
+        return
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        T, ts = _mini_typesetter(Path(d) / "t.pdf")
+        check("başlık yükseklik ölçüsü TANIMLI", ts.head_h("h2") > 0)
+        blocks = [{"type": "h2", "text": "Where this leads"},
+                  {"type": "para", "text": "One short intro line."},
+                  {"type": "bullets", "items": ["a", "b", "c"]}]
+        ts.y = ts.bottom + ts.lead * 2      # yalnızca iki satırlık yer var
+        p0 = ts.page
+        ts.reserve_group(blocks, 0, {})
+        check("başlık grubu sığmıyorsa SAYFA ÇEVRİLİYOR", ts.page == p0 + 1)
+        ts.y = ts.top                       # bol yer
+        p1 = ts.page
+        ts.reserve_group(blocks, 0, {})
+        check("yer varken gereksiz sayfa AÇILMIYOR", ts.page == p1)
 
 
 if __name__ == "__main__":
