@@ -2911,8 +2911,8 @@
   "figure_meta": {
     "FIG-B1-001": {
       "zone": "ALL",
-      "width_pt": 356.0,
-      "height_pt": 299.0,
+      "width_pt": 420.0,
+      "height_pt": 316.0,
       "source_file": "flow_ZONE_ROUTER.pdf"
     },
     "FIG-B1-002": {

@@ -310,6 +310,12 @@ class Engine:
                 f"bulamadı — 02_TAXONOMY/public/labels_en.json")
         self.ui = self.labels["ui"]
         self.zone_names = self.labels["zones"]
+        # bölge → bölüm numarası: yönlendirici okura NEREYE
+        # gideceğini söylemek zorunda (İnceleme C).
+        self.zone_chapter = {
+            "neck": 9, "shoulder": 9, "upper_back": 10, "armhole": 10,
+            "bust_chest": 11, "waist_torso": 12, "hip_seat": 13,
+            "sleeve_arm": 14, "crotch_leg": 15, "whole_garment": None}
         self.af_names = {f["adjustment_family_id"]: f["name"] for f in self.families}
         self.out_dir = paths.book_generated(book_id)
         self.figures: list[dict] = []
@@ -423,26 +429,60 @@ class Engine:
         return rec
 
     def _draw_zone_router(self, zones: dict):
+        """Kitabın ANA yönlendiricisi — bir soru, on bölge.
+
+        ⚠ İnceleme C ve D'nin ORTAK bir numaralı bulgusu: bu figür
+        yanlış bir TOPOLOJİ çiziyordu. Bütün bağlayıcılar aynı noktadan
+        başladığı için dikey parçaları ÜST ÜSTE binip tek bir sürekli
+        çizgiye dönüşüyor, o çizgi de kutuların İÇİNDEN ve etiket
+        metinlerinin ÜSTÜNDEN geçiyordu. Sonuç bir dallanma değil bir
+        ZİNCİR gibi okunuyordu: "kol oyuntusundaysa → ağ ve bacağa git".
+        Üstelik başlığı "hangi BÖLÜME gideceğini bu belirler" diyen
+        figürde HİÇBİR bölüm numarası yoktu.
+
+        Yeni yerleşim: kökten aşağı tek dikey, oradan yatay bir OMURGA,
+        her sütunun DIŞ yanından inen bir dikey ve her düğüme kısa bir
+        yatay dal. Hiçbir çizgi hiçbir kutunun içinden geçmez.
+        """
         names = self.zone_names
-        order = sorted(zones)
+        order = sorted(zones, key=lambda z: (self.zone_chapter.get(z) or 99, z))
         cols, rows = 2, (len(order) + 1) // 2
-        w = NODE["obs_w"] * cols + NODE["hgap"] * (cols + 1)
-        h = NODE["obs_h"] * (rows + 1) + NODE["vgap"] * (rows + 2)
+        gut = NODE["hgap"] * 1.6          # omurga için dış pay
+        w = NODE["obs_w"] * cols + NODE["hgap"] * 3 + gut * 2
+        h = NODE["obs_h"] * (rows + 1) + NODE["vgap"] * (rows + 3)
         fc = self._fc(w, h, "diagram", "flow_ZONE_ROUTER.pdf")
-        fc.tk17_observation_node((w - NODE["obs_w"]) / 2, h - NODE["vgap"] - NODE["obs_h"],
+
+        root_y = h - NODE["vgap"] - NODE["obs_h"]
+        fc.tk17_observation_node((w - NODE["obs_w"]) / 2, root_y,
                                  NODE["obs_w"], NODE["obs_h"],
                                  self.ui["router_question"], size=7.4)
-        top = h - NODE["vgap"] * 2 - NODE["obs_h"]
+        bus_y = root_y - NODE["vgap"] * 0.8
+        # kökten omurgaya tek dikey
+        fc.line(w / 2, root_y, w / 2, bus_y, role="callout_leader")
+        col_x = [gut + NODE["hgap"] / 2,
+                 w - gut - NODE["hgap"] / 2]          # sütun omurgaları
+        fc.line(col_x[0], bus_y, col_x[1], bus_y, role="callout_leader")
+
+        top = bus_y - NODE["vgap"] * 0.6
+        node_x = [gut + NODE["hgap"], w / 2 + NODE["hgap"] / 2]
+        last_y = [bus_y, bus_y]
         for i, z in enumerate(order):
-            r, c = divmod(i, cols)
-            x = NODE["hgap"] + c * (NODE["obs_w"] + NODE["hgap"])
-            y = top - (r + 1) * (NODE["obs_h"] + NODE["vgap"])
-            fc.tk17_observation_node(
-                x, y, NODE["obs_w"], NODE["obs_h"],
-                f"{names[z]} · " + self.ui["sign_count"].format(n=len(zones[z])),
-                size=7.0)
-            fc.connector(w / 2, h - NODE["vgap"] - NODE["obs_h"],
-                         x + NODE["obs_w"] / 2, y + NODE["obs_h"])
+            c, r = i % cols, i // cols
+            x = node_x[c]
+            y = top - (r + 1) * (NODE["obs_h"] + NODE["vgap"]) + NODE["vgap"] * 0.4
+            ch = self.zone_chapter.get(z)
+            label = f"{names[z]} · " + self.ui["sign_count"].format(n=len(zones[z]))
+            if ch:
+                label += f" · ch. {ch}"
+            fc.tk17_observation_node(x, y, NODE["obs_w"], NODE["obs_h"],
+                                     label, size=7.0)
+            ymid = y + NODE["obs_h"] / 2
+            # sütun omurgası: son bağlantıdan bu düğümün hizasına
+            fc.line(col_x[c], last_y[c], col_x[c], ymid, role="callout_leader")
+            last_y[c] = ymid
+            # omurgadan düğüme kısa yatay dal
+            ex = x if c == 0 else x + NODE["obs_w"]
+            fc.connector(col_x[c], ymid, ex, ymid, elbow=False)
         tokens = fc.finish()
         self._record(fig_type="flowchart",
                      shows="Ana yönlendirici — belirtinin bölgesine göre bölüm seçimi",
