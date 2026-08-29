@@ -95,7 +95,7 @@
       "measurement_id": "M-004",
       "name": "Natural waist",
       "category": "girth",
-      "landmark_start": "narrowest point of the torso",
+      "landmark_start": "the waist line you marked",
       "landmark_end": "around the body back to start",
       "path_rule": "Yatay, yere paralel. ⚠ TANIM KAYNAKLARA GÖRE DEĞİŞİR: ISO 8559-1:2017 bel seviyesini en alt kaburga ile kalça kemiğinin en üst noktası ARASINDA ORTA NOKTA olarak tanımlar; başka kaynaklar gövdenin en dar yerini, göbek hizasını ya da 'kemerin oturduğu yeri' kullanır. Aynı vücutta aralarında santimetrelerce fark olabilir. Bu kitap tartışmayı ÇÖZMEZ: okur birini seçer, İŞARETLER ve her seferinde aynı işareti kullanır.",
       "tool": "tape measure",
@@ -117,7 +117,7 @@
         "S-0003"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: ISO 8559-1:2017 § 3.1.22 tanımı kayda eklendi. Atıf yapılan iki kaynağın (S-0002, S-0003) hiçbiri bel tanımı İÇERMİYOR — bu bir aşırı atıftı. Çelişki SOURCE_MAP § 7'de zaten kayıtlıydı; şimdi ölçünün kendi kaydında da duruyor. Faz 4 bağımsız teknik incelemesi.",
+      "notes": "Faz 4: ISO 8559-1:2017 § 3.1.22 tanımı kayda eklendi. Atıf yapılan iki kaynağın (S-0002, S-0003) hiçbiri bel tanımı İÇERMİYOR — bu bir aşırı atıftı. Çelişki SOURCE_MAP § 7'de zaten kayıtlıydı; şimdi ölçünün kendi kaydında da duruyor. Faz 4 bağımsız teknik incelemesi. Faz 5: `landmark_start` \"narrowest point of the torso\" idi ve okur tablolarına çelişkili tanımlardan BİRİNİ tek doğruymuş gibi basıyordu; kitap s. 11/15/159'da bunun tersini söylüyor. Kitabın kendi kuralına (\"işaretle ve koru\") ve diğer üç ölçünün diline hizalandı.",
       "source_conflict": true
     },
     {

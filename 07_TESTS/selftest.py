@@ -1323,6 +1323,7 @@ def main():
         test_flowchart_and_entry_agree_on_cause_order,
         test_gate_layer_never_imports_the_render_layer,
         test_external_unavailable_is_not_a_pass,
+        test_rule_out_list_is_one_list,
     ):
         fn()
 
@@ -1638,6 +1639,45 @@ def test_flowchart_and_entry_agree_on_cause_order():
           not bad, f"{len(bad)} belirti ayrışıyor: {bad[:5]}")
     check("'cheapest test first' diyen her girişin ŞEMASI da bedava dalla başlıyor",
           not free_bad, f"{len(free_bad)}/{announced} şema ihlal ediyor: {free_bad[:5]}")
+
+
+def test_rule_out_list_is_one_list():
+    """Bölüm 8'in on dördü ile Ek D'nin on dördü AYNI on dört mü.
+
+    ⚠ Faz 5'te ÖLÇÜLEN kusur: ikisi de 14 taneydi ve bu yüzden fark
+    görünmüyordu — ama AYNI on dört DEĞİLDİ. Proza "Fabric"i ikiye
+    bölüyor (kumaş sınıfı + ön yıkama) ve kanonik listedeki
+    "Measuring"i hiç taşımıyordu. Kitap ise "The fourteen, with one
+    question each" ve "Also in Appendix D" diyerek aynı olduklarını
+    İDDİA EDİYOR. Kanonik kaynak `labels_en.json.confounders`tır.
+    """
+    import re as _re
+    mdir = paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript"
+    canon = list(json.loads((paths.TAXONOMY_PUBLIC / "labels_en.json")
+                            .read_text(encoding="utf-8"))["confounders"].values())
+    check("kanonik karıştırıcı listesi 14 öge", len(canon) == 14, str(len(canon)))
+    if not (mdir / "ch08.json").exists():
+        skip("eleme listesi kapısı",
+             "manüskript prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    d = json.loads((mdir / "ch08.json").read_text(encoding="utf-8"))
+    prose = None
+    for b in d["blocks"]:
+        it = b.get("items") or []
+        if len(it) == 14 and all("—" in str(x) for x in it):
+            prose = [_re.match(r'^([A-Za-z ,]+?)\s*—', str(x)).group(1).strip()
+                     for x in it]
+            break
+    check("Bölüm 8 prozası 14 ögelik eleme listesi taşıyor", prose is not None)
+    if prose is None:
+        return
+
+    def norm(x):
+        return (x.lower().replace("fitting ", "").replace("pattern ", "")
+                .replace("design ", "").strip())
+    a, b2 = sorted(map(norm, prose)), sorted(map(norm, canon))
+    check("Bölüm 8 ile Ek D AYNI on dört ögeyi listeliyor", a == b2,
+          f"yalnız prozada {sorted(set(a)-set(b2))} · yalnız kanonikte {sorted(set(b2)-set(a))}")
 
 
 def test_external_unavailable_is_not_a_pass():
