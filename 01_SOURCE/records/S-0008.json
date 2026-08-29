@@ -18,5 +18,6 @@
   "superseded_by": null,
   "license_constraint": null,
   "acquisition_status": "acquired",
-  "notes": "S-0007 ile aynı sınır: taranmış görüntü, metin katmanı yok. Yükseltme kanıtı olarak KULLANILAMAZ."
+  "notes": "S-0007 ile aynı sınır: taranmış görüntü, metin katmanı yok. Yükseltme kanıtı olarak KULLANILAMAZ.",
+  "reader_purpose": "Refitting and altering practice — used as a cross-check on the order of work."
 }

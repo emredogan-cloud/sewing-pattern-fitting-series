@@ -1,0 +1,421 @@
+{
+  "pages_inspected": [1, 2, 3, 4, 5, 10, 11, 13, 17, 33, 41, 43, 44, 47, 48, 56, 70, 80, 81, 89, 110, 127, 128, 130, 131, 132, 133, 200, 205, 207, 213, 218, 228, 230],
+  "findings": [
+    {
+      "id": "A-01",
+      "severity": "CRITICAL",
+      "area": "typography",
+      "observed": "Pages 128 and 200 render as pure white — not one non-white pixel anywhere on the sheet, not even the folio number — yet both pages carry real, extractable text in the PDF content stream. Verified independently with three renderers (poppler/splash pdftoppm, cairo pdftocairo, Ghostscript): min pixel value = 255 on both pages at 50 and 100 dpi. Page 128 carries Chapter 10's closing 'Where this leads' section ('Upper back and armhole adjustments are among the most interconnected in the series. Book 2 treats them together for that reason.' plus the two family names). Page 200 carries 804 characters: SYM-039's 'Look again' test ('Take a full stride. A crotch that is comfortable standing and restricts the stride has been shortened too far.'), the second-cause paragraph, and Chapter 15's closing 'Where this leads' hand-off.",
+      "where": "pages 128 and 200 (rendered blank); content present in the PDF text layer",
+      "why_it_matters": "The 'Where this leads' section is where a region chapter finally names the adjustment families the reader carries to Book 2. It is the deliverable. For two of the ten region chapters — Upper back and armhole, and Trousers — that hand-off does not print at all. The trouser page additionally loses the only movement test for the crotch-hangs-low sign. A reader reaching the end of Chapter 10 or Chapter 15 turns to a blank page and the chapter simply stops.",
+      "recommended_change": "Find the graphics-state or fill-colour fault in typeset.py that renders these two page bodies invisible (white fill or unclosed clip), fix it, and add a build gate that rasterises every page and fails if a page with text in its content stream renders with zero ink."
+    },
+    {
+      "id": "A-02",
+      "severity": "CRITICAL",
+      "area": "reader_journey",
+      "observed": "Every one of the 43 diagnostic flowcharts ends its failure branch with the terminal box 'Not this sign — go back to the zone chart'. The string 'zone chart' occurs exactly 43 times in the book — once per flowchart — and nowhere else. The word 'zone' appears nowhere else in the book at all. There is no zone chart in this book, no page reference, and no thing anywhere in it called by that name.",
+      "where": "all 43 flowcharts, e.g. page 133 (SYM-016), page 166 (SYM-027), page 190 (SYM-035), page 210 (SYM-040), page 213 (SYM-041), page 218 (SYM-043); source string in BOOK-01-MEASURE-AND-DIAGNOSE/03_VISUAL/figures.json",
+      "why_it_matters": "This is the designed exit for the reader who answers 'No' to all three questions — the case the book explicitly says will happen ('the same fold can have three causes'). It is the only route out of a wrong entry, and it leads to a thing that does not exist. The reader is left holding a sign they cannot place, with nothing to turn to.",
+      "recommended_change": "Either build the zone chart (a body-map or sign-class table that routes a sign to its region and page) and reference it by page number, or change the terminal box to name something the book actually contains, with a page number: 'Not this sign — go back to the region index on page 228.' If you keep the name, Appendix C must be retitled and given page numbers."
+    },
+    {
+      "id": "A-03",
+      "severity": "CRITICAL",
+      "area": "boundary",
+      "observed": "Page 230, the last page of the book, prints: 'Appendix H — Where each region leads. Every diagnosis in this book ends by naming an adjustment family. This index collects them, so that a finished priority list can be checked against it before you go on to make the changes.' It then collects nothing. A second paragraph explains that the families are 'named rather than explained here', and the book ends. Two-thirds of page 230 is blank. There is no list, no table, no family names.",
+      "where": "page 230, Appendix H",
+      "why_it_matters": "This appendix is the entire Book 1 to Book 2 handoff. The book's promise on page 1 is 'a written record of the adjustments your body actually needs... that you can carry to the next pattern', and Appendix H is where the reader was told they could check that record. The one reference that turns 230 pages of diagnosis into an actionable list is an empty promise on the final page. It is also the last thing the reader sees.",
+      "recommended_change": "Print the actual index: all 20 adjustment families, each with the regions and the entry page numbers that lead to it. It is a mechanical generation from adjustment_families.json crossed with fit_signs.json and costs two pages."
+    },
+    {
+      "id": "A-04",
+      "severity": "CRITICAL",
+      "area": "contradiction",
+      "observed": "Four candidate causes that are explicitly about crotch LENGTH are routed to the crotch DEPTH family: SYM-027.C2 'Not enough crotch length (in trousers)' -> AF-15 'Crotch depth (rise)' (page 165); SYM-028.C2 'Crotch length is too long' -> AF-15 (page 167); SYM-035.C2 'Not enough back crotch length' -> AF-15 (page 189); SYM-036.C1 'Front crotch length is too long' -> AF-15 (page 191). Four of the seven uses of AF-15 in the whole book are wrong. On page 165 the reader sees within one bullet block: 'Test: Lengthen the back crotch curve. — Leads to: crotch depth (rise).' Confirmed in the source data at 02_TAXONOMY/public/fit_signs.json.",
+      "where": "pages 165, 167, 189, 191 (SYM-027.C2, SYM-028.C2, SYM-035.C2, SYM-036.C1)",
+      "why_it_matters": "Chapter 16, page 203, rule 4: 'Crotch depth before crotch length. The source for this is explicit: the depth is altered first because it affects the length. Reversing them is the most common trouser mistake there is.' The book's own data then hands every crotch-length reader the crotch-depth family. A reader who correctly diagnoses short back crotch length carries 'Crotch depth (rise)' into Book 2 and alters the rise — committing precisely the error the book names as the most common one in trouser fitting. Worse, on page 190 the 'THESE TWO CAN LOOK THE SAME' box asks the reader to test depth and length apart, but both branches of the flowchart on that page already point at the same box, so the test cannot change the answer.",
+      "recommended_change": "Repoint all four causes to AF-16 'Crotch length and curve shape (front / back hook)'. Add a build gate that fails when a cause whose label contains a family-discriminating word ('length', 'depth', 'width', 'slope', 'position') is routed to a family whose name contains the opposing word."
+    },
+    {
+      "id": "A-05",
+      "severity": "CRITICAL",
+      "area": "missing",
+      "observed": "The book has no table of contents, no index, no title page, no copyright page, no ISBN, no bibliography and no glossary. Page 1 is 'BEFORE YOU START / How to use this book'; there is nothing before it. The PDF carries zero outline entries, zero named destinations, zero link annotations, no /Lang and no /StructTreeRoot (checked directly in the file). Not one of the roughly 45 internal cross-references in the book carries a page number — they say 'see Chapter 8', 'the answer is in Chapter 3', 'see the note in Chapter 2', 'Also in Appendix D'. Appendix C (page 228) is titled 'Region index — which region holds how many signs, and where to find it' and its table has two columns, Region and Signs; there is no page column.",
+      "where": "whole book; front matter absent; page 228 (Appendix C); PDF catalogue",
+      "why_it_matters": "Page 2 tells the reader 'Part Four is a reference. You will not read it end to end; you will go to the region where you see something and read only that entry.' Part Four is 135 pages and 43 entries. The book supplies no mechanism for going to a region: no contents, no index, no page numbers on any cross-reference, no bookmarks in the PDF. The reader's only route to the entry they need is to flip through 230 pages. The product's stated mode of use is not supported by the artefact.",
+      "recommended_change": "Add a table of contents with page numbers, add page numbers to every 'Chapter N' and 'Appendix X' cross-reference, add a page column to Appendix C, add a sign-to-page index keyed on the observation wording, and emit a PDF outline and internal links from the existing block structure. All of it is derivable from the same data the typesetter already walks."
+    },
+    {
+      "id": "A-06",
+      "severity": "HIGH",
+      "area": "certainty",
+      "observed": "Of the 129 'Test:' instructions in the atlas, 112 (87%) give an action with no criterion for reading the result. Examples in full: 'Test: Lower the shoulder tip.' 'Test: Shorten the shoulder seam.' 'Test: Take the armhole edge in.' 'Test: Reduce the dart depth.' 'Test: Move the dart downward.' 'Test: Narrow the sleeve.' 'Test: Reduce the cap ease.' 'Test: Reshape the crotch curve.' 'Test: Balance the crotch curve.' 'Test: Add volume.' 'Test: Widen the extension.' 'Test: Add a button at apex height.' The 17 well-formed ones show what the field should look like: 'Open the shoulder seam and pin it 5-10 mm HIGHER at the shoulder tip. If the lines disappear, the cause is slope.'",
+      "where": "throughout Part Four, pages 86-219; counted by parsing every '— Test:' block in the extracted text",
+      "why_it_matters": "Appendix G, page 229, rests the book's entire epistemic position on this field: 'That is why every entry gives you a physical test rather than an answer.' Page 230: 'treat the physical test in each entry as the thing that settles it.' In 87% of entries the test settles nothing, because it does not say what result means yes, what means no, or by how much to change. A reader who lowers the shoulder tip is not told what to look at afterwards. The book's central claim about itself is not delivered by its central field.",
+      "recommended_change": "Every Test must be action + observable + verdict, in that order. Where the underlying source does not support a verdict, say so in the Test field itself rather than truncating to a bare imperative. Gate the build on the presence of an 'If ...' clause (or an explicit 'There is no physical test') in every Test string."
+    },
+    {
+      "id": "A-07",
+      "severity": "HIGH",
+      "area": "boundary",
+      "observed": "The fit profile — the book's deliverable — has no direction field. Page 221 lists 'What each entry needs': the adjustment family by name, the amount as a number, where it was measured, which pattern and company, and the date. Direction is not on the list. The blank form on pages 222 and 229 has four columns: Adjustment family | Amount | Where measured | Patterns it applied to. No direction column, and no date column either, despite page 221 requiring the date. Meanwhile 8 of the 43 entries route two opposite causes to a single family: SYM-004 sends both 'Shoulder slope is squarer than the pattern assumes' and 'Shoulder slope is more sloping than the pattern assumes' to AF-03 'Shoulder slope'; SYM-030 sends 'Not enough volume at the back' and 'Too much volume at the front' both to AF-13. The family names themselves are direction menus: 'Bust volume (full / small bust adjustment)', 'Shoulder slope (square / sloping shoulder)', 'Upper back (round back / broad back / narrow back)'.",
+      "where": "pages 221-222 and 229 (the profile and the form); SYM-004 p94, SYM-022 p148, SYM-025 p156, SYM-030 p171, SYM-033 p181, SYM-035 p188, SYM-036 p191, SYM-041 p210",
+      "why_it_matters": "A profile row reading 'Shoulder slope | 8 mm | at the shoulder tip' is unusable: Book 2 cannot know whether to raise or lower. The book's own worked example on page 221 gets this right in prose ('Across back: ADDED 1.5 cm') but the required-field list and the printed form both omit the word that makes it work. Eight entries are structurally incapable of supplying direction from the family name alone. This defeats the promise on page 1.",
+      "recommended_change": "Add a Direction column (add/remove, lengthen/shorten, raise/lower) and a Date column to the profile form and to the required-field list on page 221. For the 8 double-routed entries, either split the family or carry the cause's direction into the 'Leads to:' line: 'Leads to: shoulder slope — SQUARER.'"
+    },
+    {
+      "id": "A-08",
+      "severity": "HIGH",
+      "area": "typography",
+      "observed": "The six 'shown wrong and right side by side' figures on pages 41-43 show identical drawings on both sides. I cropped and inspected the 'Tape slipped down at the back' pair (p41) and the 'Leaning forward' pair (p43) at 200 dpi: the WRONG and RIGHT croquis have the same head, neck, shoulders, torso outline and the dashed tape at the same height with the same dip. The only differences are that the WRONG figure is stroked in light grey, has a diagonal line drawn across it, and carries a boxed-X badge. Nothing in the WRONG drawing depicts the named error — no dropped back tape, no lean, and no arms at all in the pair labelled 'Arms raised'.",
+      "where": "pages 41, 42, 43 (six wrong/right pairs, roughly three pages of the book)",
+      "why_it_matters": "Page 40 promises 'Six mistakes account for most unrepeatable measurements. Each is shown wrong and right side by side.' The whole point is that a reader who cannot picture the error will see it. They see the same picture twice, one greyed out. Three pages teach nothing, and the reader who trusts the figure will conclude their technique is fine.",
+      "recommended_change": "Draw the error. A dropped back tape needs a side or back view with the tape visibly lower at the back; arms raised needs arms; leaning forward needs a profile. If the croquis engine cannot express these, replace the six figures with a table of error/consequence and drop the pretence."
+    },
+    {
+      "id": "A-09",
+      "severity": "HIGH",
+      "area": "contradiction",
+      "observed": "Two different chapters are both numbered 16. Page 203 opens 'CHAPTER 16 / The order of work'. Page 207 opens 'CHAPTER 16 / Signs that belong to the whole garment'. Chapter 17 (page 221) and Chapter 18 (page 223) follow. The book therefore has 19 chapters and 18 numbers. The duplication is baked into the sources: manuscript/ch16.json is the order-of-work chapter while zones_en.json keys the whole-garment atlas chapter as 'B1-CH16-ATLAS'. 'Chapter 16' is cross-referenced three times in the running text.",
+      "where": "page 203 and page 207",
+      "why_it_matters": "With no table of contents and no page numbers on cross-references, the chapter number is the only address a reader has. Three 'Chapter 16' references now point at two different chapters 4 pages apart, one about sequencing corrections and one about hem, rotation and balance. The reader cannot resolve them, and the numbering error is visible on the page opener, which is where a reader checks where they are.",
+      "recommended_change": "Renumber: the whole-garment atlas chapter becomes 17, the fit profile 18, carrying the profile forward 19; or fold the whole-garment signs into Part Four as Chapter 16 and move the order-of-work chapter to open Part Five. Then re-resolve the three cross-references."
+    },
+    {
+      "id": "A-10",
+      "severity": "HIGH",
+      "area": "typography",
+      "observed": "All three blank forms have collapsed rows. On page 43 the measurement card prints a header row (Measurement / First reading / Second reading / Difference / Date) followed by eight ruled rows roughly 2 mm tall — hairlines with no writing space. The same table repeats at the same size on page 228 (Appendix E). The fitting record and the fit profile on page 229, and the fit profile on page 222, are the same. Page 43 instructs 'Fill in the card opposite'; page 228 says the checklist is in Appendix D 'at a size you can photocopy' while the Appendix D table on page 228 is pixel-for-pixel the same size as the one on page 82.",
+      "where": "pages 43, 82, 222, 228, 229",
+      "why_it_matters": "Exercises 2A, 5A and 17A all require the reader to fill these in, and Appendix E's whole purpose is 'Three forms... meant to be written on'. None of them can be written on. The book's three deliverable artefacts — the measurement card, the fitting record, the fit profile — are unusable as printed, and the claim that Appendix D is at a photocopiable size is false.",
+      "recommended_change": "Set blank-form rows at a minimum 8 mm and give each form a full page, or drop the forms and print them as a separate download. Add a build check on minimum row height for tables flagged as blank forms."
+    },
+    {
+      "id": "A-11",
+      "severity": "HIGH",
+      "area": "typography",
+      "observed": "Side-note titles overflow the margin column and print on top of the body text. Page 70: the title 'What would have happened without step 7' overprints the body line 'what a turn of the cycle costs and what it buys' — the extracted text shows the characters interleaved as 'What would have happened without stepa7turn of the cycle costs and what it buys.' and both are unreadable at the overlap. Page 48: 'Why this one rule matters so much' overruns its rule line and its final letters touch 'before committing.' in the body column; confirmed by cropping the page at 300 dpi. These are the two longest of the eight authored side-note titles (39 and 33 characters); the third longest, 'Reading order, not correcting order' (35 chars, page 59), does not collide only because it happens to land in whitespace.",
+      "where": "page 70 and page 48",
+      "why_it_matters": "Two pages of running text are physically damaged, and page 70 is the payoff of Chapter 6's forty-minute worked example — the note that says what would have gone wrong without step 7, sitting on top of the sentence that closes the example. No reader will read either. There is no width measurement on side-note titles, so any future title over about 30 characters will do the same.",
+      "recommended_change": "Measure the side-note title against the column width and wrap or shrink it; add a build assertion that no text box overlaps another. Meanwhile shorten the two offending titles."
+    },
+    {
+      "id": "A-12",
+      "severity": "HIGH",
+      "area": "certainty",
+      "observed": "The 'THESE TWO CAN LOOK THE SAME' box directly contradicts the 'Tells it apart' fields printed immediately above it, in all 28 instances. On page 131 the entry gives cause 1 'Tells it apart: The lines RADIATE from the bust point; the front hem also rides up and the front neckline gapes' and cause 3 'Tells it apart: There is tension BUT total front width is adequate; the dart point ends noticeably short of the apex'; on page 132 the box then says those two causes 'can produce the same appearance, and the evidence above does not reliably separate them.' On page 217 the box is worse: it names THREE causes under a heading that says two, in an ungrammatical run-on ('the pattern's length does not match your height and the design is deliberately short or long and the hem allowance was turned differently than the pattern assumes'), and declares that the evidence does not separate them — when cause 1's evidence is 'The pattern line drawing and finished-measurement table show this length' and cause 2's is 'The difference equals the pattern's hem allowance', both of which are documentary facts anyone can check in five minutes.",
+      "where": "28 boxes across Part Four; inspected on pages 132, 190, 199, 217",
+      "why_it_matters": "The disclosure is honest in intent and destructive in execution. The reader is asked to do discrimination work, then told the work was pointless, and is given no revised instruction beyond 'Test both, cheapest first' — with the tests that follow being the ones described in A-06, which have no verdict. Where the disclosure is wrong (p217) it corrodes confidence in evidence that is actually solid. Where it is right, it should have replaced the 'Tells it apart' text, not been stacked underneath it.",
+      "recommended_change": "Where the evidence genuinely does not separate two causes, delete the false 'Tells it apart' lines and merge the causes into one entry with a two-step test sequence. Where it does separate them (the page 217 case), delete the collision box. Fix the box heading and the list grammar when three causes collide."
+    },
+    {
+      "id": "A-13",
+      "severity": "HIGH",
+      "area": "contradiction",
+      "observed": "For size-choice causes the prose and the flowchart give opposite answers. In the prose, five causes carry the exit line 'This is not an adjustment. It is a size decision, and the answer is in Chapter 3, not in a pattern change.' In the flowchart on the same entry, the corresponding branch terminates in a box reading 'Blending between sizes' — styled identically to the real adjustment-family outcome boxes. Seen on page 131/133 (SYM-016: prose 'not an adjustment' / flowchart 'Blending between sizes') and page 166 (SYM-027, same pairing). The family AF-18 is named 'Blending between sizes' in the taxonomy but is treated in atlas.py as an exit gate (SIZE_FAMILY).",
+      "where": "pages 131+133, 165+166, and the other three AF-18 causes; taxonomy AF-18",
+      "why_it_matters": "The flowchart is the fast path — it is what a reader in a hurry reads. It tells them their answer is an adjustment family called 'Blending between sizes'. The prose two pages earlier told them it is not an adjustment at all and sent them back to Chapter 3. Chapter 3 page 50 goes further: 'Grading between two sizes is something this pattern's size increments happen to require. Only the first belongs in your fit profile.' The flowchart therefore puts a thing in the reader's profile that Chapter 3 explicitly excludes from it. Separately, the cause wording is 'the same tightness is EVERYWHERE' — which is a wrong-size problem, not a blend problem; blending is for being in different sizes at different points.",
+      "recommended_change": "Give AF-18 branches a visually distinct terminal box reading 'NOT a pattern adjustment — size decision, see Chapter 3 p.45', matching the treatment already used for the 'NOT a pattern problem' boxes. Reword the cause so it does not describe uniform tightness as a blending case."
+    },
+    {
+      "id": "A-14",
+      "severity": "HIGH",
+      "area": "contradiction",
+      "observed": "On page 166 the book instructs and then forbids the same action within six lines. Cause 3 of SYM-027 ends '— Test: Let both side seams out.' Immediately beneath it a DO NOT CHANGE YET box reads 'Do not let the side seams out. Seat volume is needed in the BACK piece; width added at the side does not go there.' The chapter opener two pages earlier (page 164) already said 'Do not let out the side seams to gain seat room.' Neither prohibition is qualified to distinguish it from the instruction above it.",
+      "where": "page 166 (SYM-027 cause 3 and its DO NOT CHANGE YET box); page 164 chapter opener",
+      "why_it_matters": "The reader following the entry does the thing the box on the same page forbids, or reads the box and concludes the entry is wrong. Either way the entry's authority is gone. A reader who has also read Chapter 11's box on page 130 ('Do not let out the side seams. This is the single most important warning in the book') will be badly confused: the book's self-declared most important warning is contradicted in print without comment.",
+      "recommended_change": "Scope the prohibitions to what they mean — 'Do not let the side seams out to add SEAT volume' — and scope the test: 'Let both side seams out. If the tightness clears evenly front and back, the whole hip circumference is short and this is a size decision.' Add a build check that no Test string is the negation of a do_not_change_yet string in the same entry or in that entry's zone."
+    },
+    {
+      "id": "A-15",
+      "severity": "HIGH",
+      "area": "certainty",
+      "observed": "Appendix G, the appendix whose job is to state where the evidence stands, makes two false claims about the book. (1) 'The four disagreements it records are real, and two of them — where the waist is, and where the high bust tape runs — change decisions.' The book records exactly four source disagreements and they are: natural waist, wrist, neck base, and inseam (measurements_en.json 'conflicts'). There is no high-bust disagreement anywhere in the book. (2) 'the language throughout is may-indicate rather than means.' The phrase 'may indicate' occurs exactly ONCE in the 230 pages. Against it the book uses 'always' 18 times, 'never' 26 times, 'almost always' 6 times, and the flat causal assertion 'is the cause' 23 times ('If the gap closes and the neck is not squeezed, this is the cause').",
+      "where": "page 229, Appendix G; counted across the extracted text and against 02_CONTENT/protected/manuscript/measurements_en.json",
+      "why_it_matters": "The atlas actually speaks in confident, deterministic language, and then the last appendix tells the reader everything they read was hedged. That is the wrong way round: the hedge is invisible where the reader acts on it and asserted where nobody checks. A reader who does check finds the appendix naming a disagreement the book never records. This is the one page in the book that has to be exactly right about itself.",
+      "recommended_change": "Replace 'where the high bust tape runs' with one of the four disagreements the book actually carries. Either make the atlas language match the claim (hedge the 23 'this is the cause' lines) or make the claim match the atlas ('the entries state a cause plainly and give you a test; the test, not the sentence, is the evidence')."
+    },
+    {
+      "id": "A-16",
+      "severity": "HIGH",
+      "area": "typography",
+      "observed": "Throughout Chapter 2 (pages 10-39) every measurement's figure lands on the page AFTER its text, at the top of the page, directly above the NEXT measurement's heading. Page 10 carries the High bust text with no figure; page 11 opens with the High bust croquis and caption and then immediately runs the heading 'Full bust'; page 12 opens with the Full bust croquis and then 'Underbust'; and so on for 29 measurements. Each of these pages also runs 35-45% empty at the foot.",
+      "where": "pages 10-39; verified on pages 10, 11, 13, 17, 33",
+      "why_it_matters": "The figure sits under the previous measurement's caption and above the next measurement's name. A reader scanning for the Full bust diagram finds it above the word 'Underbust'. In a chapter whose only job is 'show where the tape goes', every single diagram is one page turn away from the words it illustrates and adjacent to the wrong heading. It also wastes roughly ten pages of whitespace.",
+      "recommended_change": "Keep the figure with its own text block: place the figure immediately after the measurement's description and before its bullet list, and let the block break as a unit. Two measurements per page then fits comfortably and the chapter loses about ten pages."
+    },
+    {
+      "id": "A-17",
+      "severity": "HIGH",
+      "area": "boundary",
+      "observed": "Twelve 'Test' instructions are pattern-alteration operations, not diagnostic tests on a toile: 'Shorten or lengthen the bodice at the lengthen/shorten line' (p149), 'Shorten the back at the lengthen/shorten line' (p152), 'Grade between sizes from waist to hip' (p155), 'Add seat volume to the back piece by slashing and opening' (p165), 'Remove volume from the back piece by slashing and overlapping' (p167), 'Shorten at the lengthen/shorten line' (p168), 'Lower the cap and widen it' (p177), 'Widen the armhole, then measure the cap again' (p177), 'Rotate the sleeve cap forward' (p182), 'Increase the crotch depth at the lengthen/shorten line' (p189), 'Deepen the crotch curve by extending the hook' (p189), 'Reduce the crotch depth at the lengthen/shorten line' (p191). Page 217 goes further and prescribes method: 'Do not cut at the hem. Work at the pattern's lengthen/shorten line, where the proportions are preserved.' Unlike the bust entries, none of the slash-and-open instructions on pages 165 and 167 carries the safeguard sentence 'The toile is what gets cut here, never the pattern' that the bust entries do carry.",
+      "where": "pages 149, 152, 155, 165, 167, 168, 177, 182, 189, 191, 217",
+      "why_it_matters": "Page 1 promises 'It does not teach you how to make the adjustments... the book names the family of adjustment you need and stops there.' The lengthen/shorten line is printed on the pattern, not on a toile; slash-and-spread is the canonical Book 2 technique; 'extending the hook' is drafting vocabulary. Worse, 'the back piece' is the term this book uses for pattern pieces (Chapter 3: 'Add the front and back pieces together'), so pages 165 and 167 read as instructions to cut the pattern — with no pin-first safeguard, in direct conflict with Appendix F's 'Everything on it is tested with pins first, without exception.' Page 177 also conflicts with Chapter 16 rule 3 (p203), 'the strictest constraint in the series': it tells the reader to widen the armhole while diagnosing a sleeve sign.",
+      "recommended_change": "Rewrite these twelve as toile-only tests with an explicit safeguard and an explicit verdict, e.g. 'Unpick the waist seam and pin the bodice shorter by 1 cm. If the waist seam settles on your marked waist, the cause is bodice length.' Where no toile test exists, say 'There is no physical test' and lean on the confirming measurement. Add the toile safeguard sentence to every slash instruction."
+    },
+    {
+      "id": "A-18",
+      "severity": "HIGH",
+      "area": "contradiction",
+      "observed": "Chapter 8's list of the fourteen rule-out items does not match the checklist it is a commentary on. The flowchart (pages 80-81) and Appendix D (page 228) both list, in this order: Construction, Fabric, Cutting, Underwear, Size choice, Fitting posture, Pattern printing, Footwear, Pressing, Measurement age, Seam allowance, Fitting support, Ease, Measuring. The prose section on pages 81-82, headed 'The fourteen, with one question each', lists: Fabric, Fabric preshrinking, Cutting, Construction, Seam allowance, Pressing, Underwear, Footwear, Support, Posture, Printing, Size choice, Design ease, Measurement age. 'Fabric' is split into two items; 'Measuring' has no entry at all; and four items are renamed (Support/Fitting support, Posture/Fitting posture, Printing/Pattern printing, Design ease/Ease).",
+      "where": "pages 80-82 versus page 228",
+      "why_it_matters": "Chapter 8 is the gate the whole book depends on — page 82 says 'Do not accept any diagnosis from Part Four until this list has been walked once for this garment.' The reader ticks 'Measuring' on the checklist with no question to ask, because the chapter that promises 'one question each' never wrote one for it. Meanwhile 'Fabric' gets two questions and four items appear under names the checklist does not use, so matching prose to checkbox requires guesswork.",
+      "recommended_change": "Generate the prose list from the same 14-item source as the checklist and the flowchart, in the same order and with the same names. Write the missing question for Measuring, and either promote preshrinking to a fifteenth item or fold it into Fabric's single question."
+    },
+    {
+      "id": "A-19",
+      "severity": "HIGH",
+      "area": "typography",
+      "observed": "The 'Where it comes from' side note routinely lands at the top of a page beside the PREVIOUS entry's flowchart, hundreds of points above the entry it belongs to. Page 89: the note reads 'If the pressure is at the back only, the cause is not in the neckline. It is in the length of the back' — that is SYM-002's note, but it sits at the very top of the page next to SYM-001's flowchart, while SYM-002's heading is at the foot of the page. Page 133: 'The hem is a mirror. It shows a shortage of volume above it' sits at the top beside SYM-016's flowchart; it belongs to SYM-017 whose heading is at the foot. Page 213: 'Balance is the ground on which every other diagnosis stands' sits beside SYM-041's flowchart; it belongs to SYM-042 at the foot of the page. The same class of error appears in Chapter 2: on page 13 the body says twice 'read the note below' and 'see the note below' while the note is at the top-right, well above.",
+      "where": "pages 89, 133, 213 (inspected); page 13; the pattern recurs wherever an entry's heading falls at the foot of a page",
+      "why_it_matters": "The side note is the one place the book explains the reasoning behind a sign. Read where it sits, it appears to gloss the flowchart next to it, and it makes no sense there — on page 89 a note about back pressure sits beside a decision tree about a gaping front neckline. The reader either misreads it against the wrong entry or does not connect it to the right one. On page 13 the text sends the reader down when the note is up.",
+      "recommended_change": "Anchor the side note to its own entry's first text line and push it to the next page if the anchor falls below the note's height, rather than floating it to the top of whatever page it lands on. Change 'the note below' to 'the note in the margin' so direction is never wrong."
+    },
+    {
+      "id": "A-20",
+      "severity": "HIGH",
+      "area": "typography",
+      "observed": "Page 44 contains one line of text — the italic caption 'The measurement card. Two readings, and the difference between them.' — and nothing else. The table it captions is at the foot of page 43. The caption has been pushed across the page break, leaving 95% of page 44 blank and the table on page 43 uncaptioned. The same failure produces the orphan on page 219, where the third bullet of a three-item list ('— Overall length (lengthen / shorten lines)') stands alone above an otherwise empty page, its first two items on page 218.",
+      "where": "pages 43-44 and pages 218-219",
+      "why_it_matters": "These are not subtle. A reader turns the page and finds a single italic line floating in white space, describing something they cannot see. It is the clearest single signal in the book that the pages were not looked at before shipping.",
+      "recommended_change": "Bind caption to figure as an unbreakable unit; bind list items so a list never leaves fewer than two items on a page. Add a build check that fails on any page whose only content is a caption or a single list item."
+    },
+    {
+      "id": "A-21",
+      "severity": "HIGH",
+      "area": "missing",
+      "observed": "The book has no source list. Appendix G rests the book's credibility on 'published institutional sources' and says 'where those sources disagree with each other the book says so rather than choosing silently'. The running text appeals to unnamed authorities repeatedly: 'The threshold commonly cited...' (p48), 'most sources say' (p48), 'Established practice is...' (p203, p221), 'The source for this is explicit' (p203), 'At least one well-established method orders instead by dependency' (p203), 'every six months is the figure commonly given' (p222), 'this book found no authority that states otherwise' (p77), 'it is a geometric derivation rather than something this book found stated in an institutional source' (p77). Not one source is named anywhere in the 230 pages. There is no bibliography, no notes, no further reading. The strings 'ISBN', 'Copyright', 'References', 'Bibliography' and 'Further reading' return zero hits.",
+      "where": "whole book; Appendix G page 229; examples on pages 48, 77, 203, 221, 222",
+      "why_it_matters": "A book that distinguishes itself on evidential honesty, that tells the reader four times that sources disagree, and that says on page 77 'this book found no authority that states otherwise', cannot then withhold the authorities. The reader has no way to check any of it, and the one appendix devoted to the evidence base names nothing. It also makes the four 'Sources differ' notes unverifiable and therefore unusable — the reader cannot see which convention their pattern company follows.",
+      "recommended_change": "Add a sources appendix naming the works behind the measurement definitions, the four disagreements, the size-choice threshold, and the ordering rules, keyed to the pages that cite them. Add a title page and copyright page while you are there."
+    },
+    {
+      "id": "A-22",
+      "severity": "MEDIUM",
+      "area": "repetition",
+      "observed": "27.1% of the atlas is verbatim boilerplate. Measuring pages 85-219 (30,402 words) against 23 exact repeated strings: 8,246 words, or roughly 192 of the average 707 words per entry, are word-for-word identical to other entries. The single worst offender is the 57-word paragraph 'If the sign is reduced but has not gone, there are two possibilities and they call for different answers. The commoner one is that the cause was right and the amount was too small — increase it and test again before you look for anything else. The other is that a second cause is present as well:' — printed 38 times, consuming 2,166 words, roughly seven pages of the book. The collision disclaimer 'Do not choose between them by eye. Test both, cheapest first, and let the result decide. This is a known limit of the published evidence rather than something you have missed.' appears 28 times (868 words). The chapter-opener paragraph 'Each entry below opens with three things most often mistaken for that particular sign...' repeats once per region. Every measurement figure carries the identical caption tail 'the path the tape takes. Both landmarks are visible so the path can be repeated' — 29 times. Reading four consecutive shoulder entries (pages 94-107) the reader meets: the same three-item rule-out list, the same four bullet labels 32 times, the same collision box, the same 57-word paragraph, four times each.",
+      "where": "pages 85-219; counted over the extracted text",
+      "why_it_matters": "Scaffolding earns its place when it is short and predictable — 'Tells it apart / Confirm by / Test / Leads to' is good scaffolding. A 57-word paragraph identical in 38 entries is not scaffolding; it is a page the reader learns to skip, and once they learn to skip it they skip the one sentence at its end that IS entry-specific ('Lines that fade but do not clear usually mean the volume was right'). The book buries its only per-entry insight at the tail of its most-skipped paragraph.",
+      "recommended_change": "Print the 57-word paragraph once, in Chapter 6 where it belongs, and in each entry print only the entry-specific tail under a short standing head such as 'Reduced but not gone (see p.68):'. Do the same for the collision disclaimer. That recovers roughly nine pages and makes the entry-specific text visible."
+    },
+    {
+      "id": "A-23",
+      "severity": "MEDIUM",
+      "area": "contradiction",
+      "observed": "Three figures carry a 'Sources differ' flag for measurements the book records no disagreement about. The annotation 'Sources differ — see the note in Chapter 2.' is printed under the figures for Natural waist (p14), Wrist (p18), Neck base (p22), Center front length (p24), Shoulder to apex (p26), Inseam (p30) and Sleeve length (p32). The manuscript records exactly four conflicts: natural waist, wrist, neck base and inseam. There is no source note anywhere in the book for Center front length, Shoulder to apex or Sleeve length. Separately, all seven of these annotations tell the reader to 'see the note in Chapter 2' while the reader is standing inside Chapter 2 (pages 9-44), and give no page number.",
+      "where": "pages 14, 18, 22, 24, 26, 30, 32",
+      "why_it_matters": "Three readers go looking for a note that does not exist, in a chapter they are already in, with no page to turn to. And the flag itself is a claim about the evidence: it tells the reader that authorities disagree about how to measure their centre front length, which the book does not believe and cannot support.",
+      "recommended_change": "Drive the figure annotation from the same 'conflicts' map that drives the side note, so only the four flagged measurements carry it. Change the wording to 'Sources differ — see the margin note on this page.'"
+    },
+    {
+      "id": "A-24",
+      "severity": "MEDIUM",
+      "area": "typography",
+      "observed": "The measurement croquis has no arms, so the arm measurements cannot be drawn, and the caption on each claims the opposite. On page 17 the Bicep figure is an armless torso with a two-centimetre arc floating just outside the silhouette at chest level, its label 'Bicep' overprinting the arrowheads; the caption reads 'Bicep: the path the tape takes. Both landmarks are visible so the path can be repeated.' On page 33 'Shoulder to elbow' is drawn as a dotted line running from the shoulder tip straight DOWN THE SIDE OF THE TORSO to a point on the body's outline, with the label colliding with the contour. The same identical caption sentence is printed on all 29 measurement figures. On pages 11, 13 and 17 the measurement label ('High bust', 'Underbust', 'Bicep') is struck through by the dashed tape line it labels.",
+      "where": "pages 11, 13, 17, 33 inspected; all 29 measurement figures share the construction and the caption",
+      "why_it_matters": "A beginner following page 33 measures down the side of their body instead of down their arm. On page 17 there is nothing to follow at all, and the caption asserts that both landmarks are visible when neither is drawn. The caption is a generated claim that happens to be false on every arm measurement — exactly the kind of unearned confidence the book elsewhere works hard to avoid.",
+      "recommended_change": "Give the croquis arms, or draw the arm measurements on a separate arm-only figure. Make the caption specific per measurement, and stop asserting landmark visibility where no landmark is drawn. Offset the label from the tape path so it is never struck through."
+    },
+    {
+      "id": "A-25",
+      "severity": "MEDIUM",
+      "area": "typography",
+      "observed": "Headings that wrap to two lines are set with near-zero leading and leave one-word runt lines. Page 110: 'A horizontal fold of excess fabric crosses the back at shoulder-blade / level' — the descenders of 'shoulder-blade' and the ascender of 'level' almost touch, and 'level' stands alone. Page 213: 'The centre front or centre back does not hang perpendicular to the / floor' — same tight leading, 'floor' alone on line two. This affects every entry heading long enough to wrap, and the atlas entry headings are full sentences by design.",
+      "where": "pages 110 and 213 inspected; recurs across Part Four entry headings",
+      "why_it_matters": "The entry heading is the reader's landing point — it is the sentence they match against what they can see on their garment. Set with collapsed leading and a one-word second line, it reads as a rendering fault and is measurably harder to scan, which matters most in the one part of the book the reader arrives at cold.",
+      "recommended_change": "Set multi-line headings at about 1.15 line height and add a minimum-two-word rule for the last line. Consider shortening the entry headings themselves — 'The centre front does not hang plumb' carries the same information."
+    },
+    {
+      "id": "A-26",
+      "severity": "MEDIUM",
+      "area": "typography",
+      "observed": "Whitespace discipline is poor across the whole book. Measured over all 230 pages with the folio band excluded, 48 pages (21%) have their last mark of ink before 62% of the text block, and 13 pages are entirely blank while still carrying a folio number. Beyond the legitimate part-opener versos (4, 52, 64, 84, 202, 226) there are seven blank pages carrying a number at chapter ends (8, 58, 62, 146, 162, 174, 220). Pages 132, 70, 205 and 110 each end at 45-55% and then run half a page of white. The median page fill is 91.5%, so these are not a design rhythm; they are unmanaged breaks.",
+      "where": "48 pages listed by the measurement; inspected on pages 2, 4, 11, 44, 70, 110, 132, 205, 219",
+      "why_it_matters": "The reader repeatedly reaches what looks like the end of an entry — page 132 closes with a DO NOT CHANGE YET box, an 'Order:' line and half a page of white — and does not turn to page 133, where that entry's decision flowchart and 'Look again' section actually are. Whitespace here is not breathing room; it is a false stop signal in the middle of an entry.",
+      "recommended_change": "Give blank pages no folio. Set a fill floor (say 70%) and let the paginator pull the following block up or push the preceding block down to meet it. Most importantly, never break an atlas entry between its causes and its flowchart."
+    },
+    {
+      "id": "A-27",
+      "severity": "MEDIUM",
+      "area": "reader_journey",
+      "observed": "Flowchart outcome text is truncated. On page 218 the third terminal box reads 'NOT a pattern problem — The hem allowance was turned differently than the pattern a…' — cut off mid-word with an ellipsis. Separately, the flowcharts use two different box weights (heavy border for adjustment-family outcomes, light rounded border for 'NOT a pattern problem' outcomes) and this visual code is never explained anywhere in the book; there is no key or legend for any flowchart.",
+      "where": "page 218; box weights seen on pages 89, 133, 166, 190, 210, 213, 218",
+      "why_it_matters": "A terminal outcome is the answer the reader acts on; it cannot be elided. And the reader who notices that some boxes are heavier than others has no way to learn what that means, so a deliberate and useful distinction is wasted.",
+      "recommended_change": "Wrap outcome text to as many lines as it needs rather than truncating. Print a one-time key for the flowchart shapes and weights in the Part Four opener."
+    },
+    {
+      "id": "A-28",
+      "severity": "MEDIUM",
+      "area": "typography",
+      "observed": "Several pattern-schematic figures show none of what their captions describe. Page 205: 'The skirt back. Waist shaping and seat volume are read on this piece, and a change to either moves the side seam the other is measured from.' The figure is a plain trapezoid with one double-headed vertical arrow — no waist, no dart, no seat, no side seam marked. Page 47: 'Dart anatomy: point, base and depth' labels only 'dart depth'; point and base are not labelled, and the dart is drawn inside a plain rectangle that reads as a pattern piece but is only a bounding box. Page 47 upper: 'The bodice back. The back width is read between the armhole curves, not at the shoulders' — the drawn horizontal line runs edge to edge across the whole piece rather than between the armhole curves. A single unexplained letter 'B' appears as a figure marker on at least eight figures (pages 47, 56, 75, 119, 134, 149, 208, 211) with no key anywhere in the book.",
+      "where": "pages 47, 49, 50, 56, 205, 206",
+      "why_it_matters": "These are the figures that carry Chapter 3's 'measure the pattern flat' method and Chapter 16's dependency argument. A trapezoid with an arrow does not teach where waist shaping is read. The dart figure contradicts its own caption by labelling one of three named parts. And an unexplained 'B' on eight figures reads as debris.",
+      "recommended_change": "Draw what the caption promises — put the waist line, the dart and the side seam on the skirt back; label point, base and depth on the dart; run the back-width line between the armhole curves. Either explain 'B' in a figure key or remove it."
+    },
+    {
+      "id": "A-29",
+      "severity": "MEDIUM",
+      "area": "contradiction",
+      "observed": "Appendix A and Appendix C do not deliver what their headings promise. Appendix A is headed 'Measurement reference' and says 'This appendix gives the index only'; the table it then prints is the three-numbers table from Chapter 1 (Body / Pattern / Finished garment), which is not a measurement index and not from Chapter 2. Appendix C is headed 'Region index — which region holds how many signs, and where to find it'; the table gives region and count, and no location of any kind. Appendix F lists 'Shorten the hem — Level the waistline first' as its precondition, while Chapter 16 page 204 states the stronger rule that the hem is corrected 'at the very end, when nothing above it will move again'.",
+      "where": "pages 227-229, Appendices A, C and F",
+      "why_it_matters": "Page 227 opens 'Everything here appears somewhere in the book already. It is collected so that you can use it without rereading the chapter it came from.' Two of the eight appendices do not do that: A collects the wrong table, C collects half of what its heading offers. Given that there is no contents page and no index, Appendix C is the only navigational aid in the book, and it navigates to nothing.",
+      "recommended_change": "Make Appendix A the promised index — 32 measurements, read-from, read-to, page. Add a page column to Appendix C. Align Appendix F's hem precondition with Chapter 16's."
+    },
+    {
+      "id": "A-30",
+      "severity": "MEDIUM",
+      "area": "contradiction",
+      "observed": "Two near-identical entries live in different chapters with no cross-reference between them. SYM-027 'Horizontal drag lines cross the seat' is in Chapter 13, page 164. SYM-035 'Horizontal drag lines sit under the seat and the crotch is pulled up' is in Chapter 15, page 188. They share the sign class, the region of the body, the fabric behaviour and overlapping causes (both offer a crotch-length cause; both offer a seat-volume or depth cause), and they resolve to different families. Neither entry mentions the other. The book's 28 'THESE TWO CAN LOOK THE SAME' disclosures are all within-entry; there is no mechanism anywhere for disclosing that two ENTRIES can look the same.",
+      "where": "page 164 (SYM-027, Chapter 13) and page 188 (SYM-035, Chapter 15)",
+      "why_it_matters": "A reader with drag lines across the seat of a pair of trousers has no way to know both entries exist, and with no contents page and no index will find whichever they reach first. The two entries send them to different families. The book's honesty machinery covers ambiguity between causes and is blind to ambiguity between entries, which for a reference atlas is the more likely error.",
+      "recommended_change": "Cross-reference the pair explicitly in both entries with page numbers and a one-line discriminator ('If the crotch is also pulled up, read the entry on page 188 instead'). Run a similarity check across all 43 observations and disclose every pair above threshold."
+    },
+    {
+      "id": "A-31",
+      "severity": "MEDIUM",
+      "area": "repetition",
+      "observed": "The same 14-item rule-out checklist is printed three times in full: as a two-page flowchart on pages 80-81 in which all fourteen 'No' branches point at the identical box 'Fix this FIRST — do not touch the pattern' and there is no branching whatsoever; as a full table in Exercise 8A on page 82; and again as a full table in Appendix D on page 228. Page 82 claims Appendix D is 'at a size you can photocopy' but the two tables are the same size. Page 80's chart ends 'Go to elimination list 2' while page 81's caption calls it 'The rule-out sequence, second part' — the term 'elimination list' appears nowhere else in the book.",
+      "where": "pages 80, 81, 82, 228",
+      "why_it_matters": "Three full renderings of a fourteen-line list consume about three and a half pages to convey fourteen lines. The flowchart in particular is a checklist drawn as a decision tree with no decisions in it — two pages of identical diamonds and identical boxes, which is the most visually monotonous stretch of the book and communicates less than the plain list on page 82. And the reader who follows 'Go to elimination list 2' looks for a thing with that name and does not find one.",
+      "recommended_change": "Cut the two-page flowchart; a numbered list with the standing instruction at the top says the same thing in a third of a page. Keep the table once in Appendix D, at a size that can actually be written on, and reference it from Chapter 8. Fix 'elimination list 2' to match the caption."
+    },
+    {
+      "id": "A-32",
+      "severity": "MEDIUM",
+      "area": "contradiction",
+      "observed": "The default working order on page 204 has five rows — Shoulder and neck, Bust, Waist, Hip and crotch, Sleeve — and omits the armhole entirely, along with upper back and the hem. Yet the armhole is one of the ten atlas regions with three entries of its own; Chapter 16 rule 3 on page 203 calls the armhole-before-cap constraint 'the strictest in the series'; and per-entry Order lines refer to it directly ('Order: Shoulder, then bust, then armhole', page 132; 'Order: Shoulder slope, then shoulder width, then armhole, then sleeve cap', page 103). Only 15 of the 43 entries carry an Order line at all, so 28 entries give no sequencing guidance in a book whose page 203 opens 'The order you work through them in is not a matter of preference.'",
+      "where": "page 204 (the table); page 132 and page 103 (entry Order lines); 28 entries with no Order line",
+      "why_it_matters": "Exercise 16A on page 206 tells the reader to 'reorder the list using the four settled rules'. If their list contains an armhole entry, the table they were given to order against has no row for it, and the four rules only reach it via the sleeve. Two-thirds of entries give them nothing to work with. The deliverable of the book is an ordered list, and the ordering apparatus is incomplete.",
+      "recommended_change": "Add Armhole (between Bust and Waist), Upper back, and Hem (last) to the page 204 table. Give every entry an Order line, even if it says 'No rule constrains this entry relative to the others' — which page 205 already says is a legitimate and useful answer."
+    },
+    {
+      "id": "A-33",
+      "severity": "MEDIUM",
+      "area": "contradiction",
+      "observed": "Page 221 lists five things every profile entry needs, ending with 'The date' and 'Which pattern it was confirmed on, and which company made it'. The blank fit-profile form printed on page 222 and again on page 229 has four columns: Adjustment family | Amount | Where measured | Patterns it applied to. There is no date column and no company column, and 'Patterns it applied to' asks a different question from 'which pattern it was confirmed on'. Chapter 18 (page 224) then builds its central argument on company evidence: 'An adjustment that recurs across patterns from MORE THAN ONE company is evidence...' — a distinction the form gives the reader nowhere to record.",
+      "where": "page 221 (required fields), pages 222 and 229 (the form), page 224 (Chapter 18)",
+      "why_it_matters": "Chapter 18's whole test — is this a property of my body or of that company's block — depends on knowing which company each confirmed adjustment came from. The form has no such column, so a reader who fills it in as printed cannot run the test the next chapter asks them to run.",
+      "recommended_change": "Make the form match the required-field list: Adjustment family | Direction | Amount | Where measured | Pattern and company confirmed on | Date. Six columns still fit the measure."
+    },
+    {
+      "id": "A-34",
+      "severity": "MEDIUM",
+      "area": "contradiction",
+      "observed": "Spelling of the same term is inconsistent, split along a chapter boundary. 'centre back' appears 47 times and 'centre front' 18 times, but Chapter 2's measurement headings, figure labels and captions use the American spelling: 'Center back length' and 'Center front length', 8 and 7 occurrences. Page 24 mixes both within a single page: the heading reads 'Center back length' and a bullet three lines below reads 'Tape drifting off centre.' The American spelling also leaks into Chapter 16's measurement table on page 207: 'Center front length minus Center back length'. Everywhere else the book is consistently British (no instances of color, meter or fiber).",
+      "where": "pages 23, 24, 25, 40, 207 (Center) against pages 55, 118, 120, 160, 214 and throughout (centre)",
+      "why_it_matters": "Centre back length is the book's single most decision-bearing measurement — page 40 makes the front/back difference 'what a balance correction is measured in'. It is the term the reader looks up most, and it is spelled two ways in two chapters, once on a single page. In a book that is otherwise carefully consistent, this is the first thing a professional reader notices.",
+      "recommended_change": "Normalise to 'centre' everywhere including figure labels and generated table cells, and add a terminology gate for the pair."
+    },
+    {
+      "id": "A-35",
+      "severity": "LOW",
+      "area": "contradiction",
+      "observed": "Page 203 heads a section 'Four rules that are settled' and lists four, then heads the next 'One rule that is contested' and describes the top-down heuristic. Page 205 then says the dependencies are 'where all five ordering rules come from'. Page 206's Exercise 16A tells the reader to 'reorder the list using the four settled rules'. The contested rule is the fifth only if you count it, and page 203 explicitly says it is not derived from the dependencies but is a heuristic that the dependencies explain.",
+      "where": "pages 203, 205, 206",
+      "why_it_matters": "A reader who is asked to reorder a list by rule and to write 'which rule put it where it is' will go looking for a fifth settled rule, because page 205 told them there are five. There is not one. The cost is a few minutes of hunting, not a wrong diagnosis.",
+      "recommended_change": "Change page 205 to 'all four settled rules', or state explicitly 'four settled and one contested, five in all'."
+    },
+    {
+      "id": "A-36",
+      "severity": "LOW",
+      "area": "missing",
+      "observed": "PDF production hygiene. Document metadata reads Title 'untitled', Subject 'unspecified', Author 'anonymous', Creator 'anonymous'; Producer is 'ReportLab PDF Library'. The file is PDF 1.3, untagged, with no /Lang and no /StructTreeRoot, so it is inaccessible to screen readers. Helvetica is listed in the font table as a non-embedded base-14 Type 1 alongside the six embedded Source Sans 3 / Source Serif 4 subsets.",
+      "where": "PDF catalogue and font table of BOOK-01-MEASURE-AND-DIAGNOSE/09_OUTPUT/BOOK_01.pdf",
+      "why_it_matters": "The metadata is what a reader's PDF library, e-reader and file manager display; a 230-page commercial book listed as 'untitled by anonymous' looks abandoned before it is opened. The untagged structure closes the book to any reader using assistive technology, and a non-embedded font is a substitution risk at a print house.",
+      "recommended_change": "Set Title, Author, Subject and Keywords from book_config.json at build time; set /Lang to en; emit a tagged PDF (ReportLab supports it) or state accessibility limits; drop or embed Helvetica."
+    }
+  ],
+  "reader_journeys": [
+    {
+      "scenario": "(a) A reader whose blouse has diagonal lines from the bust toward the side seam.",
+      "path": [
+        "No table of contents, no index, no PDF bookmarks. The reader flips until they find Chapter 11 'The bust and chest' (page 129).",
+        "Page 130: chapter measurement table, a DO NOT CHANGE YET box, then the entry heading 'Drag lines run from the bust point out toward the side seam' at the foot of the page with one sentence of description. Rest of page blank.",
+        "Page 131: the figure and caption, 'Rule these out first' (underwear, fabric, size), then candidate causes 1 (more bust volume than the pattern assumes) and 2 (the whole front is too small — size choice). Cause 1's evidence: 'The lines RADIATE from the bust point; the front hem also rides up and the front neckline gapes.' Cause 1's test does have a verdict: slash the toile through the apex line and pin in a strip; if the lines go and the hem drops level, the cause is bust volume.",
+        "Page 132: cause 3 (dart point stops short of the apex). Then a box: 'more bust volume than the pattern assumes and the dart point stops far from the apex... the evidence above does not reliably separate them.' Then a DO NOT CHANGE YET box, then 'Order: Shoulder, then bust, then armhole.' Then half a blank page. This reads exactly like the end of the entry.",
+        "Page 133 (only if the reader turns past what looks like a finished entry): the decision flowchart, then 'Look again', then the 'reduced but not gone' paragraph. Branch 1 yields 'Bust volume (full / small bust adjustment)'.",
+        "Nothing tells them whether they need MORE or LESS bust volume when they write it in the profile; the family name offers both."
+      ],
+      "outcome": "reached_family",
+      "notes": "This is the book's best journey and it still has three problems. The entry is split across four pages with the decision flowchart TWO page turns after the heading and placed after everything that signals closure (the do-not box, the Order line, half a page of white) — many readers will stop on page 132. The collision box on page 132 tells them the discrimination they just did between causes 1 and 3 does not work, after giving them 'Tells it apart' criteria for both. And if their cause is 2 (page 131) the prose sends them to Chapter 3 saying it is 'not an adjustment', while the flowchart on page 133 gives them the outcome box 'Blending between sizes' — a different answer, and the wrong one, since uniform tightness is a size problem, not a blending problem."
+    },
+    {
+      "scenario": "(b) A reader whose trousers pull under the seat.",
+      "path": [
+        "Two entries match and the reader has no way to know both exist: SYM-027 'Horizontal drag lines cross the seat' in Chapter 13 (page 164) and SYM-035 'Horizontal drag lines sit under the seat and the crotch is pulled up' in Chapter 15 (page 188). Neither cross-references the other.",
+        "Path via page 164 (Chapter 13): page 165 candidate cause 2 is 'Not enough crotch length (in trousers)', with test 'Lengthen the back crotch curve' and outcome 'Leads to: crotch depth (rise).' Page 166 cause 3 is 'Not enough hip circumference overall' with test 'Let both side seams out' — directly above a box reading 'Do not let the side seams out.' Its flowchart branch resolves to 'Blending between sizes' while the prose says it is not an adjustment.",
+        "Path via page 188 (Chapter 15): page 189 cause 1 'Not enough crotch depth' -> crotch depth (rise); cause 2 'Not enough back crotch length' -> crotch depth (rise) as well.",
+        "Page 190: the box says depth and length 'can produce the same appearance, and the evidence above does not reliably separate them. Test both, cheapest first, and let the result decide.' Then the flowchart: branch 1 -> 'Crotch depth (rise)'; branch 2 -> 'Crotch depth (rise)'. Two questions, one answer.",
+        "The reader with a genuine back-crotch-length shortage leaves with the family 'Crotch depth (rise)'.",
+        "Chapter 15's closing 'Where this leads' — which would have named crotch depth and crotch curve as separate families — is on page 200, which prints completely blank."
+      ],
+      "outcome": "dead_end",
+      "notes": "This journey is broken in four independent ways. (1) Two entries in different chapters match the same complaint and neither points at the other. (2) On both paths a crotch-LENGTH cause is routed to the crotch-DEPTH family, so the reader carries the wrong family to Book 2 and commits exactly the error page 203 calls 'the most common trouser mistake there is'. (3) The page 190 collision box asks them to test depth against length when both branches already lead to the same box, so no test result can change the answer. (4) The chapter's hand-off page is blank. On the Chapter 13 path they are additionally told to let out both side seams and then, six lines lower on the same page, told not to."
+    },
+    {
+      "scenario": "(c) A reader who sees an uneven hem and nothing else.",
+      "path": [
+        "The reader needs Chapter 16 'Signs that belong to the whole garment' on page 207. Nothing printed will take them there. There is no table of contents. Appendix C (page 228), titled 'which region holds how many signs, and where to find it', lists 'Whole garment 4' and no page. Appendix B lists the sign class 'Hem hike' with no page. Chapter 7 (page 78) names 'Hem hike — a hem out of level' with no page. The chapter is misnumbered 16, duplicating the chapter on page 203. They flip until they find it.",
+        "Page 208: entry 'The hem is not parallel to the floor', figure, rule-outs (posture, cutting, fabric).",
+        "Page 209: cause 1 'A volume (bust, abdomen or seat) is pulling the fabric up' — 'Tells it apart: The rise is on the side of that volume, AND THERE ARE DRAG LINES IN THE SAME AREA.' This reader has no drag lines, so cause 1 is excluded by its own evidence. Cause 2 'Front-to-back balance is off' — 'One side rises while the other drops; it is symmetrical'. Cause 3 'Body asymmetry' — 'The rise is on one side and persists when your weight is evened out'.",
+        "If the hem rises evenly at the front and drops at the back, cause 2 fits and they reach 'Torso length and front/back balance'. If the rise is one-sided, cause 3 fits and they reach 'Hip and seat volume'.",
+        "If the hem is out of level in some other pattern — a common case — all three 'Tells it apart' criteria fail. The flowchart on page 210 exits 'No' to 'Not this sign — go back to the zone chart', which does not exist.",
+        "Cause 1's outcome is 'Bust volume (full / small bust adjustment)' even though the cause text names bust, abdomen OR seat; an abdomen-driven hem rise is handed the bust family."
+      ],
+      "outcome": "stuck",
+      "notes": "The reader can reach a family only if their hem happens to match one of three specific patterns; the literal case in the scenario — uneven hem, no other sign — excludes cause 1 by construction and may exclude all three. The designed exit for that case leads to a phantom chart. Finding page 208 at all requires flipping 230 pages, because the book supplies no route from a sign class to a page. Cause 1 also mis-routes: three different volumes, one bust-only family. Ironically this entry then handles the reader correctly in one respect — page 209's DO NOT CHANGE YET is emphatic and right ('DO NOT CUT THE HEM... the hem is a consequence') and page 209's Order line ('A hem correction is ALWAYS last') matches Chapter 16."
+    }
+  ],
+  "survived_attack": [
+    {
+      "attack": "Suspected that the chapter-opener kicker ('CHAPTER 1') collides with the chapter title, as it appears to at 100 dpi on pages 1, 5 and 207.",
+      "result": "Not a defect. Measured on page 5 at 300 dpi: the kicker occupies rows 284-308 and the title rows 343-418, a clean gap of 35 px = 8.4 pt. It is tight but deliberate and consistent. Retracted."
+    },
+    {
+      "attack": "Read the boxed-X badge on the WRONG croquis (pages 41-43) as a missing-glyph tofu box from the non-embedded Helvetica.",
+      "result": "Not a defect. At 200 dpi it is a drawn vector mark — a square containing an X — used as the 'wrong' badge. The only non-ASCII characters in the text layer are em dash, en dash, ballot box, middle dot, minus, ellipsis, fraction slash and approximately-equal, all of which render correctly (checked the ballot boxes on page 228)."
+    },
+    {
+      "attack": "Checked whether Appendix G's claim of 'four disagreements' is inflated or invented.",
+      "result": "The count is exactly right. measurements_en.json carries precisely four conflict entries — natural waist (M-004), wrist (M-008), neck base (M-013) and inseam (M-025). The number survives; only the naming of which two matter is wrong (see A-15)."
+    },
+    {
+      "attack": "Checked whether Appendix D's 'fourteen items' and Appendix C's region counts are accurate.",
+      "result": "Both correct. Appendix D lists exactly 14 items and the flowchart on pages 80-81 has exactly 14 diamonds. Appendix C's ten region counts (3+6+5+4+3+5+4+4+5+4) sum to exactly 43, matching the 43 entries in fit_signs.json."
+    },
+    {
+      "attack": "Chased 'This is not an adjustment. It is a size decision, and the answer is in Chapter 3' expecting Chapter 3 to be a dead end.",
+      "result": "Chapter 3 delivers. Pages 45-50 cover pattern sizing as its own system, what the size chart does and does not tell you, ease and design ease, measuring the pattern flat in six steps, 'Which measurement chooses the size' with the high-bust rule and its two-inch/five-centimetre decision point, and falling between sizes. It is a real answer, not a deflection."
+    },
+    {
+      "attack": "Tested whether the '2-3 cm' dart-point rule contradicts itself, appearing once as a target and once as a limit.",
+      "result": "Consistent. Page 132 says 'Move the dart point to within 2-3 cm of the apex' for a dart that stops too far away; the bust-dart-pucker entry says 'Shorten the dart so that it ends 2-3 cm short of the apex' for a dart that reaches too far. Both express the same target distance from opposite directions."
+    },
+    {
+      "attack": "Tested whether Chapter 11's 'single most important warning in the book' (do not let out the side seams, pages 130 and 132) is violated inside the bust region.",
+      "result": "Not violated where it is scoped. All three side-seam-letting-out tests are in Chapter 12 (pages 157, 159) and Chapter 13 (page 166); no bust-region entry tells the reader to let out a side seam. The warning is properly qualified in its own box ('width added at the side seam travels to the underarm, not to the bust'). The Chapter 13 instance is a separate contradiction against Chapter 13's own box (A-14), not against Chapter 11's."
+    },
+    {
+      "attack": "Chased every Exercise cross-reference expecting a broken one.",
+      "result": "All resolve. Exercises 2A, 3A, 4A, 5A, 6A, 7A, 8A, 16A and 17A all exist in the book, and Exercise 16A's reference back to 'the list of named signs from Exercise 7A' is correct."
+    },
+    {
+      "attack": "Tested whether the per-entry 'Order:' lines contradict Chapter 16's four settled rules.",
+      "result": "The 15 Order lines that exist are all consistent with Chapter 16. 'Order: Length corrections ALWAYS come before width corrections. That is the first rule of the ordering system' (page 217) matches rule 1; 'Order: The armhole must be settled before the sleeve cap' (page 185) matches rule 3; 'Order: Depth and length first, curve shape second' (page 190) is compatible with rule 4. The problem is coverage (28 entries have none) and the incomplete table on page 204, not contradiction."
+    },
+    {
+      "attack": "Checked whether authored manuscript content is silently dropped by the build, by probing every text string over 40 characters in the manuscript JSON against the rendered text.",
+      "result": "Nothing is dropped from the text layer — all 307 probes resolve once wrapping is accounted for. The content loss is at the render stage instead (A-01, pages 128 and 200) and at the collision stage (A-11, pages 48 and 70), where the text is present in the file but not readable on the page."
+    },
+    {
+      "attack": "Looked for a hedging failure in the opposite direction — places so hedged the reader cannot act.",
+      "result": "Largely absent, and this is a genuine strength. Where the book cannot decide, it says so and still gives an instruction: 'Do not choose between them by eye. Test both, cheapest first, and let the result decide.' Page 77 states its own limit explicitly ('a geometric derivation rather than something this book found stated in an institutional source. Treat it as reliable for classification and confirm it with the measurement'). Page 82's 'What this list cannot do' is unusually honest for the genre. The certainty problem in this book is the reverse (A-06, A-15): unhedged causal assertions in the entries and an appendix that misdescribes them."
+    },
+    {
+      "attack": "Checked whether the 'DO NOT CHANGE YET' hem warning is violated by a physical test elsewhere in the book.",
+      "result": "It holds. Page 204 and page 209 both forbid cutting or levelling the hem, and no Test anywhere instructs the reader to cut or level a hem. The nearest, 'Test: Open the hem and measure again' (page 217), unpicks rather than cuts and is consistent."
+    }
+  ],
+  "verdict_one_paragraph": "This manuscript has a genuinely good book inside it and does not currently ship as one. The method is sound and unusually honest — the fold-or-pull distinction, the fourteen-item rule-out gate, the cheapest-test-first reordering, the refusal to invent discrimination where the evidence does not support it, and the 'What this list cannot do' section are all better than the genre norm, and several attacks I expected to land bounced off clean data. But the artefact fails at the three places that decide whether a diagnostic reference is usable. First, it does not print: two pages render pure white in three independent renderers, taking with them the Book 2 hand-off for the upper-back and trouser chapters, and two more pages have side-note titles printed on top of the body text. Second, it cannot be navigated: 230 pages with no contents, no index, no page number on any of roughly forty-five cross-references, no PDF bookmarks, an appendix titled 'where to find it' that contains no locations, a final appendix that announces an index and prints nothing, a duplicated chapter number, and forty-three flowcharts whose failure branch sends the reader to a 'zone chart' that appears nowhere in the book — for a reference the reader is explicitly told to dip into rather than read, this is disqualifying. Third, it is wrong where correctness is the whole product: four crotch-length causes are routed to the crotch-depth family, manufacturing the exact error the book names as the most common mistake in trouser fitting; eight entries collapse opposite causes into one family while the fit-profile form has no column for direction; 87% of the 129 physical tests give an action with no criterion for reading it, in a book whose stated epistemology is that the physical test is what settles things; and the appendix that exists to state where the evidence stands is factually wrong about the book's own evidence and describes a hedged register the atlas does not use. Around that sit the tells of generated output looked at as data rather than as pages — twenty-nine identical figure captions asserting visible landmarks on armless figures, six wrong/right comparison figures that are the same drawing twice, blank forms with two-millimetre rows the reader is told to write on, 27% verbatim boilerplate with one 57-word paragraph printed thirty-eight times, and forty-eight pages that stop before two-thirds down. None of the correctness faults is deep; the mis-routings are four lines of JSON, the zone chart is one string, Appendix H is a mechanical generation. The typography faults are a paginator that has never been made to look at a rendered page. But as it stands a reader who buys this to diagnose their trousers gets sent to the wrong adjustment family, and a reader who wants to look something up cannot find it, and that is not a professional publication yet."
+}

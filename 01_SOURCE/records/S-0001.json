@@ -21,5 +21,6 @@
   "superseded_by": null,
   "license_constraint": "'Contents of publications may be freely reproduced for educational purposes. All other rights reserved.' — yalnızca DOĞRULAMA referansı olarak kullanılır; hiçbir cümlesi, tablosu veya çizimi çoğaltılmaz (IP_AND_BRAND_POLICY § 2).",
   "acquisition_status": "public_access",
-  "notes": "Ease bandı sütunu -layout çıkarımıyla satır satır doğrulandı. Ölçü tanımlarında bu depodan FARKLI olanlar: 'Wrist = around widest part of hand' (bizde M-008 bilek kemiği çevresi) ve 'Neckline = 1 inch above base of neck' (bizde M-013 boyun tabanı). Bu farklar SOURCE_MAP § 7'de çelişki olarak kayıtlıdır; sessizce ezilmedi."
+  "notes": "Ease bandı sütunu -layout çıkarımıyla satır satır doğrulandı. Ölçü tanımlarında bu depodan FARKLI olanlar: 'Wrist = around widest part of hand' (bizde M-008 bilek kemiği çevresi) ve 'Neckline = 1 inch above base of neck' (bizde M-013 boyun tabanı). Bu farklar SOURCE_MAP § 7'de çelişki olarak kayıtlıdır; sessizce ezilmedi.",
+  "reader_purpose": "Measurement definitions, the ease bands, and the scope of the bodice, skirt and trouser adjustment families."
 }

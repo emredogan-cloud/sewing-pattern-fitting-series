@@ -9,7 +9,7 @@
 
 ## 1 · Faz 4 özeti
 
-Kitap 1'in **tam manüskripti üretildi**: 231 sayfa, 21 bölüm, 35 472
+Kitap 1'in **tam manüskripti üretildi**: 252 sayfa, 21 bölüm, 42 224
 kelime, 160 figür. Aynı turda dört hatlı bir **bağımsız teknik inceleme**
 yürütüldü ve **149 bulgu** üretti; bulguların **132'si revizyon gerektirdi**
 ve revizyonlar uygulandı.
@@ -45,13 +45,13 @@ Regresyon: `selftest.py § test_conditional_phase4_does_not_claim_kill_gate`
 
 | Ölçüt | Değer |
 |---|---:|
-| Sayfa | **231** (hedef bandı 220–260) |
+| Sayfa | **252** (hedef bandı 220–260) |
 | Bölüm (Parça 0 + 18 bölüm + ekler + atlas ayrımı) | **21** |
-| Kelime | **35 472** |
-| Bölge atlası | **174 sayfa** (kitabın %76'sı) |
+| Kelime | **42 224** |
+| Bölge atlası | **176 sayfa** (kitabın %76'sı) |
 | Belirti girişi | **43 / 43** |
-| Kullanılan ayrı figür | **160 / 160** yerleştirilebilir figürün tamamı |
-| Figür yerleşimi | **176** |
+| Kullanılan ayrı figür | **159 / 159** yerleştirilebilir figürün tamamı |
+| Figür yerleşimi | **175** |
 | Bölüm açılışı boş versosu | 13 — hiçbiri numara taşımıyor |
 
 **Mimari karar (`K50`):** Bölüm 2 (32 ölçü) ve bölge atlası (43 giriş)
@@ -202,7 +202,7 @@ kitap onu kurumsal bir kaynakta bulmadı."*
 | Deterministik | 105 (%68,2) | **114 (%69,9)** |
 | Akış şeması | 46 | **47** |
 | Tablo grafiği | 9 | **15** |
-| Kitapta kullanılan | — | **160 / 160** |
+| Kitapta kullanılan | — | **159 / 159** |
 
 **Dokuz figür Faz 4'te eklendi** ve hepsi `CHAPTER_SPECS`'te yazılıydı
 ama hiçbiri taksonomi kaydından türetilemezdi — karşılıkları bir kayıt
@@ -282,11 +282,11 @@ sayfa örneklemi yine **gözle** incelenmelidir.
 
 ## 12 · Sayfa sayısı
 
-**231 sayfa** · hedef bandı **220–260** · `build_book.py` her koşumda
+**252 sayfa** · hedef bandı **220–260** · `build_book.py` her koşumda
 denetliyor ve bant dışında **çıkış kodu 1** veriyor.
 
 Çelişmeli inceleme `B-08` bölge atlası için **100 sayfa** kısıtı
-yazmıştı. Atlas **174 sayfa** çıktı ve kısıt **aşıldı**.
+yazmıştı. Atlas **176 sayfa** çıktı ve kısıt **aşıldı**.
 
 Önce kapsam daraltıldı: 43 girişte tekrar eden dört blok ölçülerek
 kesildi ve atlas **127 → 115 sayfa**ya indi. Bu, `B-09`'un (işlevsel
@@ -300,11 +300,11 @@ figürü** (+25 sayfa).
 
 `B-08`'in 100 sayfalık rakamı, bu eklerin zorunlu olacağı bilinmeden
 yapılmış doğrusal bir tahmindi. **Kısıtın koruduğu gerçek şey** 300
-sayfada değişen cilt payıdır; 231 o bandın rahatça içindedir.
+sayfada değişen cilt payıdır; 252 o bandın rahatça içindedir.
 
 ## 13 · Figür sayısı
 
-**163 figür** · kitapta **160**'i kullanıldı · **3'ü iç araçtır ve
+**163 figür** · kitapta **159**'i kullanıldı · **3'ü iç araçtır ve
 kitaba giremez** (`build_book` ve `qa_manuscript` bunu denetler).
 
 Faz 2'nin 154'ü **final değildi** ve talimat § 25 bunu doğru öngörmüştü.
@@ -330,7 +330,7 @@ figür kitap dışında kalmadı.
 | **`qa_manuscript.py`** *(yeni)* | ✓ **0 bulgu — on bir denetim** |
 | `selftest.py` | ✓ **152/152** *(önceki tur 116)* |
 | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 |
-| **`build_book.py`** *(yeni)* | ✓ **231 sayfa**, bütçe içinde |
+| **`build_book.py`** *(yeni)* | ✓ **252 sayfa**, bütçe içinde |
 | `selftest_visual.py` | ✓ 27/27 |
 | `kill_gate.py` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
@@ -338,13 +338,99 @@ figür kitap dışında kalmadı.
 `CLAIM_SOURCE_MAP.md` bayattı ve `qa_all.sh` bunu denetlemiyordu.
 Denetim eklendi.
 
-## 15 · Çelişmeli inceleme
+## 15 · İkinci çelişmeli inceleme
 
-Faz 4'ün ikinci, bağımsız çelişmeli incelemesi **bitmiş manüskript
-üzerinde** yürütüldü — dizilmiş sayfalara **bakarak**, okur yolculuğunu
-uçtan uca yürüyerek. Sonuçlar § 15.1'de.
+Bitmiş manüskript üzerinde, **34 sayfa görüntü olarak incelenerek** ve
+üç okur yolculuğu uçtan uca yürünerek yapıldı. Birinci turdan ve içerik
+üretiminden AYRI bir incelemedir.
 
-*(Bu bölüm inceleme tamamlandığında doldurulur.)*
+| | |
+|---|---:|
+| Bulgu | **36** |
+| `CRITICAL` | 5 |
+| `HIGH` | 16 |
+| `MEDIUM` | 13 |
+| `LOW` | 2 |
+| Kırılamayan saldırı | 12 |
+| Okur yolculuğu | 3 — **1 başarılı · 1 çıkmaz · 1 takıldı** |
+
+**İncelemenin hükmü, kendi cümlesiyle:** *"Bu, şu hâliyle profesyonel
+bir yayın gibi okunmuyor — altındaki yöntem tür normundan iyi, ama
+ürünün görünmez sayfaları var, içeri girecek kapısı yok ve pantolon
+okurunu yanlış düzeltme ailesine yolluyor."*
+
+### Doğrulanan ve düzeltilenler
+
+| Bulgu | Ne yapıldı |
+|---|---|
+| **`A-04` ağ UZUNLUĞU nedenleri ağ DERİNLİĞİ ailesine gidiyor** | **DOĞRULANDI — ve bu turun kendi regresyonuydu.** `AF-15`/`AF-16` sınırı ayrıldığında aileler yeniden adlandırılmış, nedenler yeniden yönlendirilmemişti. Kitabın 4. sıra kuralı bu karışıklığı "en sık yapılan pantolon hatası" diye adlandırıyor ve veri onu ÜRETİYORDU. Dördü de düzeltildi + `validate_spec` kapısı eklendi (kapı ilk yazımda SESSİZCE ÇALIŞMIYORDU; kusurlu fixture yakaladı) |
+| **`A-02` 43 şema kitapta olmayan bir "zone chart"a çıkıyor** | **DOĞRULANDI.** "zone" kelimesi kitabın başka hiçbir yerinde geçmiyordu. Çıkış artık Ek C'deki belirti dizinini adlandırıyor |
+| **`A-03` Ek H hiçbir şey basmıyor** | **DOĞRULANDI.** 20 aile, her birine hangi sayfalardan ulaşıldığıyla birlikte ÜRETİLİYOR |
+| **`A-05` içindekiler, dizin, sayfa numarası, PDF ana hattı yok** | **DOĞRULANDI.** İki geçişli dizgi kuruldu: içindekiler + PDF ana hattı + ~45 çapraz atıfa sayfa numarası + Ek C belirti dizini. Sayfa numaraları YAKINSAYANA kadar tekrarlanıyor |
+| **129 testin 105'i sonucu okuma ölçütü taşımıyor** | **DOĞRULANDI ve ölçüldü.** Ölçüt uydurulmadı — belirtinin KENDİ gözlem cümlesinden türetiliyor ve her nedene bağlanıyor |
+| **`A-07`/`A-33` profil formu kendi zorunlu alan listesiyle uyuşmuyor** | **DOĞRULANDI.** Yön ve tarih sütunları eklendi; iki karşıt nedeni tek aileye yollayan **8 belirtiye** açık uyarı eklendi |
+| **`A-15` Ek G kendi kitabı hakkında yanlış** | **DOĞRULANDI.** İki yanlış iddia düzeltildi |
+| **`A-21` kaynak listesi yok** | **DOĞRULANDI.** Ek I eklendi, kaynak KAYITLARINDAN üretiliyor |
+| Boş form satırları yazılamayacak kadar dar | **DOĞRULANDI.** 15,3 → 26 pt |
+| Yan not taşması | **LATENT KUSUR DOĞRULANDI.** Aynı sayfadaki ikinci not birincinin üzerine yazabiliyordu; notlar artık yığılıyor |
+| Okur yolculuğu (b) çıkmaz — yan dikiş çelişkisi | **DOĞRULANDI.** Aynı sayfada "yan dikişi açma" ve "yan dikişleri aç" vardı; ayrım metne yazıldı |
+| Okur yolculuğu (c) — üç hacim, tek aile | **DOĞRULANDI.** Önce hacmi ADLANDIR adımı eklendi |
+
+### Doğrulanmayan bulgu
+
+**`A-01` — "iki sayfa metin taşıyor ama hiç mürekkep basmıyor" (CRITICAL).**
+
+Denetlendi ve **o hâliyle doğru değil**. 252 sayfanın tamamı 40 dpi'de
+rasterleştirildi ve metin katmanıyla karşılaştırıldı: **metni olup
+mürekkebi olmayan sayfa YOK.** Mürekkepsiz 15 sayfanın hepsi bölüm
+açılışı versosudur, metinleri de yoktur ve numara taşımazlar — yayıncılık
+konvansiyonu. İncelemeci muhtemelen bu turda birkaç kez yeniden derlenen
+kitabın FARKLI sürümlerine baktı.
+
+**Ama denetim kaldı.** `build_book.py` artık her sayfayı rasterleştiriyor
+ve metni olup basılmayan bir sayfa bulursa çıkış kodu 1 veriyor. *İddia
+yanlış çıktı; sorduğu soru doğruydu.*
+
+### Bulgu tablosu
+
+| # | Şiddet | Alan | Gözlem |
+|---|---|---|---|
+| `A-01` | CRITICAL | typography | Pages 128 and 200 render as pure white — not one non-white pixel anywhere on the sheet, not even the folio number — yet both pages carry real, extract |
+| `A-02` | CRITICAL | reader_journey | Every one of the 43 diagnostic flowcharts ends its failure branch with the terminal box 'Not this sign — go back to the zone chart'. The string 'zone  |
+| `A-03` | CRITICAL | boundary | Page 230, the last page of the book, prints: 'Appendix H — Where each region leads. Every diagnosis in this book ends by naming an adjustment family.  |
+| `A-04` | CRITICAL | contradiction | Four candidate causes that are explicitly about crotch LENGTH are routed to the crotch DEPTH family: SYM-027.C2 'Not enough crotch length (in trousers |
+| `A-05` | CRITICAL | missing | The book has no table of contents, no index, no title page, no copyright page, no ISBN, no bibliography and no glossary. Page 1 is 'BEFORE YOU START / |
+| `A-06` | HIGH | certainty | Of the 129 'Test:' instructions in the atlas, 112 (87%) give an action with no criterion for reading the result. Examples in full: 'Test: Lower the sh |
+| `A-07` | HIGH | boundary | The fit profile — the book's deliverable — has no direction field. Page 221 lists 'What each entry needs': the adjustment family by name, the amount a |
+| `A-08` | HIGH | typography | The six 'shown wrong and right side by side' figures on pages 41-43 show identical drawings on both sides. I cropped and inspected the 'Tape slipped d |
+| `A-09` | HIGH | contradiction | Two different chapters are both numbered 16. Page 203 opens 'CHAPTER 16 / The order of work'. Page 207 opens 'CHAPTER 16 / Signs that belong to the wh |
+| `A-10` | HIGH | typography | All three blank forms have collapsed rows. On page 43 the measurement card prints a header row (Measurement / First reading / Second reading / Differe |
+| `A-11` | HIGH | typography | Side-note titles overflow the margin column and print on top of the body text. Page 70: the title 'What would have happened without step 7' overprints |
+| `A-12` | HIGH | certainty | The 'THESE TWO CAN LOOK THE SAME' box directly contradicts the 'Tells it apart' fields printed immediately above it, in all 28 instances. On page 131  |
+| `A-13` | HIGH | contradiction | For size-choice causes the prose and the flowchart give opposite answers. In the prose, five causes carry the exit line 'This is not an adjustment. It |
+| `A-14` | HIGH | contradiction | On page 166 the book instructs and then forbids the same action within six lines. Cause 3 of SYM-027 ends '— Test: Let both side seams out.' Immediate |
+| `A-15` | HIGH | certainty | Appendix G, the appendix whose job is to state where the evidence stands, makes two false claims about the book. (1) 'The four disagreements it record |
+| `A-16` | HIGH | typography | Throughout Chapter 2 (pages 10-39) every measurement's figure lands on the page AFTER its text, at the top of the page, directly above the NEXT measur |
+| `A-17` | HIGH | boundary | Twelve 'Test' instructions are pattern-alteration operations, not diagnostic tests on a toile: 'Shorten or lengthen the bodice at the lengthen/shorten |
+| `A-18` | HIGH | contradiction | Chapter 8's list of the fourteen rule-out items does not match the checklist it is a commentary on. The flowchart (pages 80-81) and Appendix D (page 2 |
+| `A-19` | HIGH | typography | The 'Where it comes from' side note routinely lands at the top of a page beside the PREVIOUS entry's flowchart, hundreds of points above the entry it  |
+| `A-20` | HIGH | typography | Page 44 contains one line of text — the italic caption 'The measurement card. Two readings, and the difference between them.' — and nothing else. The  |
+| `A-21` | HIGH | missing | The book has no source list. Appendix G rests the book's credibility on 'published institutional sources' and says 'where those sources disagree with  |
+| `A-22` | MEDIUM | repetition | 27.1% of the atlas is verbatim boilerplate. Measuring pages 85-219 (30,402 words) against 23 exact repeated strings: 8,246 words, or roughly 192 of th |
+| `A-23` | MEDIUM | contradiction | Three figures carry a 'Sources differ' flag for measurements the book records no disagreement about. The annotation 'Sources differ — see the note in  |
+| `A-24` | MEDIUM | typography | The measurement croquis has no arms, so the arm measurements cannot be drawn, and the caption on each claims the opposite. On page 17 the Bicep figure |
+| `A-25` | MEDIUM | typography | Headings that wrap to two lines are set with near-zero leading and leave one-word runt lines. Page 110: 'A horizontal fold of excess fabric crosses th |
+| `A-26` | MEDIUM | typography | Whitespace discipline is poor across the whole book. Measured over all 230 pages with the folio band excluded, 48 pages (21%) have their last mark of  |
+| `A-27` | MEDIUM | reader_journey | Flowchart outcome text is truncated. On page 218 the third terminal box reads 'NOT a pattern problem — The hem allowance was turned differently than t |
+| `A-28` | MEDIUM | typography | Several pattern-schematic figures show none of what their captions describe. Page 205: 'The skirt back. Waist shaping and seat volume are read on this |
+| `A-29` | MEDIUM | contradiction | Appendix A and Appendix C do not deliver what their headings promise. Appendix A is headed 'Measurement reference' and says 'This appendix gives the i |
+| `A-30` | MEDIUM | contradiction | Two near-identical entries live in different chapters with no cross-reference between them. SYM-027 'Horizontal drag lines cross the seat' is in Chapt |
+| `A-31` | MEDIUM | repetition | The same 14-item rule-out checklist is printed three times in full: as a two-page flowchart on pages 80-81 in which all fourteen 'No' branches point a |
+| `A-32` | MEDIUM | contradiction | The default working order on page 204 has five rows — Shoulder and neck, Bust, Waist, Hip and crotch, Sleeve — and omits the armhole entirely, along w |
+| `A-33` | MEDIUM | contradiction | Page 221 lists five things every profile entry needs, ending with 'The date' and 'Which pattern it was confirmed on, and which company made it'. The b |
+| `A-34` | MEDIUM | contradiction | Spelling of the same term is inconsistent, split along a chapter boundary. 'centre back' appears 47 times and 'centre front' 18 times, but Chapter 2's |
+| `A-35` | LOW | contradiction | Page 203 heads a section 'Four rules that are settled' and lists four, then heads the next 'One rule that is contested' and describes the top-down heu |
+| `A-36` | LOW | missing | PDF production hygiene. Document metadata reads Title 'untitled', Subject 'unspecified', Author 'anonymous', Creator 'anonymous'; Producer is 'ReportL |
 
 ## 16 · Kalan dış doğrulama
 

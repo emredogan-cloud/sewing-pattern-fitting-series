@@ -14,7 +14,7 @@
 ## 0 · Tek cümlelik durum
 
 > **Kitap 1 Faz 4 üretimi TAMAMLANDI — kurucu geçersiz kılmasıyla (`K49`),
-> kill-gate GEÇİLMEDEN.** 231 sayfa · 21 bölüm · 160 figür · 307 iddia.
+> kill-gate GEÇİLMEDEN.** 252 sayfa · 21 bölüm · 160 figür · 307 iddia.
 > `kill_gate.py` hâlâ **2 engel** raporluyor ve raporlamaya DEVAM EDİYOR:
 > kitap kapısı `phase4-production-conditional`'dır ve kümülatif sırada
 > `phase3-pilot`'ın **ÖNÜNDEDİR**. Üretim ilerledi; doğrulama ilerlemedi.
@@ -60,7 +60,7 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-29
 | **Görsel sistem** | `qa_visual.py` | ✓ 0 bulgu — **on dört denetim** *(vücut varyantı eklendi)* |
 | **İddia sicili tazeliği** *(yeni)* | `build_claims.py --check` | ✓ güncel (**307 iddia**) |
 | **Manüskript** *(yeni)* | `qa_manuscript.py` | ✓ **0 bulgu** — **on dört denetim** |
-| **Tam kitap dizgisi** *(yeni)* | `build_book.py` | ✓ **231 sayfa**, bütçe 220–260 içinde |
+| **Tam kitap dizgisi** *(yeni)* | `build_book.py` | ✓ **252 sayfa**, bütçe 220–260 içinde |
 | **Yazı tipi bütünlüğü** *(yeni)* | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
 | **Kapıların kendi testi** | `selftest.py` | ✓ **152/152** — veri katmanı *(önceki tur: 116)* |
 | Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
@@ -102,11 +102,11 @@ Komut: `python3 06_BUILD/build_book.py` · ölçüm dosyası
 
 | Ölçüt | Spec hedefi | **ÖLÇÜLEN** |
 |---|---:|---:|
-| Toplam sayfa | 220–260 | **231** ✓ |
+| Toplam sayfa | 220–260 | **252** ✓ |
 | Bölüm (parça + bölüm + ek) | 21 | **21** ✓ |
-| Kelime | — | **35 472** |
-| Ayrı figür kullanımı | — | **160 / 160** yerleştirilebilir figürün tamamı |
-| Figür yerleşimi | — | **176** (17 figür birden çok yerde) |
+| Kelime | — | **42 224** |
+| Ayrı figür kullanımı | — | **159 / 159** yerleştirilebilir figürün tamamı |
+| Figür yerleşimi | — | **175** (17 figür birden çok yerde) |
 | Bölge atlası | ≤100 *(B-08)* | **177** — kısıt AŞILDI, aşağıya bakınız |
 | Boş sayfa (bölüm açılışı verso) | — | **13**, hiçbiri numara taşımıyor |
 | Kalibre edilmemiş kesinlik | 0 | **0** |
@@ -135,7 +135,7 @@ Komut: `python3 06_BUILD/build_book.py` · ölçüm dosyası
 ### `B-08` sayfa bütçesi kısıtı — AŞILDI, gerekçe yazıldı
 
 Çelişmeli inceleme `B-08` şunu yazmıştı: *"Bölge atlası 100 sayfayı
-aşarsa kapsam daraltılır."* Atlas **174 sayfa** çıktı.
+aşarsa kapsam daraltılır."* Atlas **176 sayfa** çıktı.
 
 **Ne yapıldı:** önce kapsam daraltıldı. Tekrarlanan metin ölçülerek
 kesildi — 43 girişte tekrar eden dört blok (eleme gerekçesi, figür
@@ -154,7 +154,7 @@ olmadığı** ölçüldü ve eklendi (+25 sayfa).
 **Karar:** `B-08`'in 100 sayfalık rakamı, bu eklerin ZORUNLU olduğu
 bilinmeden yapılmış **doğrusal bir tahmindi**. Gerçek kısıt, onun
 koruduğu şeydir: **300 sayfada cilt payı değişir ve sayfa geometrisi
-yeniden hesaplanır.** 231 sayfa o bandın rahatça içindedir ve
+yeniden hesaplanır.** 252 sayfa o bandın rahatça içindedir ve
 `qa_visual § ⑨` ile `build_book` bunu her koşumda denetler.
 
 ## Faz 4 — BAĞIMSIZ TEKNİK İNCELEME
@@ -207,7 +207,7 @@ Tam rapor:
 | Terim (`T-xx`) | 20 | taslak · `T-05` ve `T-10` Faz 4'te DÜZELTİLDİ |
 | **İddia (`CLM-xxxx`)** | **307** | 56 `VERIFIED` · 8 `CONTESTED` · 214 `INFERRED` · 29 `UNVERIFIED` |
 | **Kanıt çakışması** | **28** | okura BEYAN ediliyor; çözümü `D-02`'dedir |
-| **Manüskript** | **231 sayfa · 21 bölüm · 35 472 kelime** | proza izlenmiyor (`K9`); ÖLÇÜM izleniyor |
+| **Manüskript** | **252 sayfa · 21 bölüm · 42 224 kelime** | proza izlenmiyor (`K9`); ÖLÇÜM izleniyor |
 | Görsel token (`TK-xx`) | 18 | **`CALIBRATED_DIGITAL_RENDER`** |
 | **Figür (`FIG-B1-xxx`)** | **161** *(+7 manüskript figürü)* | **112 `drafted` · 49 `specified` · 0 `physically_validated`** |
 | **Okur etiketi (İngilizce)** | **43 belirti · 129 neden** | sunum katmanı — doğrulama durumunu **değiştirmez** |

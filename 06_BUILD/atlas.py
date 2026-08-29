@@ -83,6 +83,21 @@ SIZE_FAMILY = "AF-18"   # B-02: bir teşhis değil, bir ÇIKIŞ kapısı
 TITLE_OBS_SIMILARITY = 0.55
 
 
+def _has_read_criterion(test: str) -> bool:
+    """Yazılmış test sonucun nasıl okunacağını zaten söylüyor mu."""
+    import re
+    return bool(re.search(
+        r"\b(if|when|unless)\b.{0,90}?\b(is|are|goes|clears?|disappears?|remains?|"
+        r"stays?|settles?|closes?|drops?|persists?|returns?|improves?)\b",
+        test, re.I))
+
+
+def _sign_clause(observation: str) -> str:
+    """Gözlem cümlesini bir yan cümleye çevirir."""
+    t = observation.strip().rstrip(".")
+    return t[0].lower() + t[1:] if t else t
+
+
 def _too_similar(a: str, b: str) -> bool:
     import difflib
     return difflib.SequenceMatcher(
@@ -148,7 +163,8 @@ class AtlasBuilder:
         # Paragraf, başlığın SÖYLEMEDİĞİ parçalardan kurulur. Hiçbir
         # parça yeni bilgi taşımıyorsa paragraf HİÇ BASILMAZ — başlık
         # zaten her şeyi söylemiştir ve bir kez söylemek yeter.
-        parts = [x for x in (lab["observation"].rstrip(), c["where"])
+        obs_text = lab["observation"].rstrip()
+        parts = [x for x in (obs_text, c["where"])
                  if not _too_similar(c["title"], x)]
         if parts:
             out.append({"type": "para", "text": " ".join(parts)})
@@ -179,6 +195,17 @@ class AtlasBuilder:
         # Taksonominin olasılık sırası KORUNUR — yalnızca okura önce
         # bedava ve geri alınabilir olanlar gösterilir.
         pairs = list(zip(s["candidate_causes"], c["causes"], lab["causes"]))
+        # ── İKİNCİ ÇELİŞMELİ İNCELEME (A-07) ─────────────────────────
+        # Bu belirtide iki KARŞIT neden aynı aileye gidiyorsa, aile adı
+        # tek başına ne yapılacağını söylemez: omuz eğimi ailesine
+        # "daha kare" için de "daha eğik" için de gidilir. Profil YÖNÜ
+        # taşımazsa bir sonraki kalıpta ters uygulanır.
+        fam_count: dict = {}
+        for cz, _, _ in pairs:
+            f = cz.get("adjustment_family_ref")
+            if f:
+                fam_count[f] = fam_count.get(f, 0) + 1
+        shared = {f for f, n in fam_count.items() if n > 1}
         gates = [p for p in pairs if not p[0].get("adjustment_family_ref")]
         rest = [p for p in pairs if p[0].get("adjustment_family_ref")]
         ordered = gates + rest
@@ -197,12 +224,34 @@ class AtlasBuilder:
             items = [f"Tells it apart: {el['evidence']}",
                      f"Confirm by: {authored['measure']}",
                      f"Test: {authored['test']}"]
+            # ── İKİNCİ ÇELİŞMELİ İNCELEME · KABUL EDİLDİ ──────────────
+            # 129 fiziksel testin 105'i bir EYLEM veriyordu ve sonucun
+            # NASIL OKUNACAĞINI söylemiyordu — kitabın bütün bilgi
+            # kuramı "testi kumaş çözer" üzerine kuruluyken.
+            #
+            # Ölçüt UYDURULMADI; zaten belirtinin kendisidir ve Adım
+            # 6'da yazılıdır. Burada o ölçüt her nedene BAĞLANIR ve
+            # belirtinin KENDİ gözlem cümlesinden türetilir.
+            #
+            # Yazılmış test zaten bir koşul cümlesi taşıyorsa
+            # TEKRARLANMAZ.
+            if not _has_read_criterion(authored["test"]):
+                items.append(
+                    "Read it: this cause is confirmed if — " + _sign_clause(obs_text) +
+                    " — is reduced and no new sign appears anywhere else. If the sign "
+                    "is unchanged the hypothesis was wrong; if a new sign appears, "
+                    "fabric was moved rather than added.")
             if fam == SIZE_FAMILY:
                 # B-02 — bir düzeltme değil, bir çıkış kapısı
                 items.append("This is not an adjustment. It is a size decision, and the "
                              "answer is in Chapter 3, not in a pattern change.")
             elif fam:
-                items.append(f"Leads to: {self.families[fam]['name'].lower()}.")
+                line = f"Leads to: {self.families[fam]['name'].lower()}."
+                if fam in shared:
+                    line += (" Another cause on this sign leads to the same family in "
+                             "the OPPOSITE direction — record which one you confirmed, "
+                             "and in which direction, not just the family name.")
+                items.append(line)
             else:
                 items.append("Leads to: nothing on the pattern. This is not a pattern fault.")
             if authored.get("note"):

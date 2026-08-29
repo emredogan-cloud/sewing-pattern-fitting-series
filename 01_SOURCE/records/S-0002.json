@@ -21,5 +21,6 @@
   "superseded_by": null,
   "license_constraint": "NMSU eğitim amaçlı çoğaltma izni; bu projede yalnızca doğrulama referansı.",
   "acquisition_status": "public_access",
-  "notes": "High hip = bel altı 3 inç; full hip = bel altı 7–9 inç. Bu depodaki M-005 (7–10 cm ≈ 2,8–3,9 inç) ile UYUMLU. Beden seçimi kuralı: kalçadan seç, çünkü kalça düzeltmesi zordur."
+  "notes": "High hip = bel altı 3 inç; full hip = bel altı 7–9 inç. Bu depodaki M-005 (7–10 cm ≈ 2,8–3,9 inç) ile UYUMLU. Beden seçimi kuralı: kalçadan seç, çünkü kalça düzeltmesi zordur.",
+  "reader_purpose": "Trouser measurements including crotch depth and crotch length, size selection for skirts and trousers, and the depth-before-length rule."
 }

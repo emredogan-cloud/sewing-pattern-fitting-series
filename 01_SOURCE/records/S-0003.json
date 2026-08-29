@@ -22,5 +22,6 @@
   "superseded_by": null,
   "license_constraint": null,
   "acquisition_status": "public_access",
-  "notes": "KANONİK YAYINCI Texas AgriLife Extension'dır; erişilen kopya bir Ohio State University Extension ilçe sunucusunda barındırılıyordu. Kanonik depo (oaktrust.library.tamu.edu) otomatik indirmeye kapalıdır (HTTP 403). Aynı seride E-373 'Personal Measurement Chart' (17 ölçü) TESPİT EDİLDİ ama İNDİRİLEMEDİ — bkz. 01_SOURCE/PUBLIC_SOURCE_SURVEY.md § 4."
+  "notes": "KANONİK YAYINCI Texas AgriLife Extension'dır; erişilen kopya bir Ohio State University Extension ilçe sunucusunda barındırılıyordu. Kanonik depo (oaktrust.library.tamu.edu) otomatik indirmeye kapalıdır (HTTP 403). Aynı seride E-373 'Personal Measurement Chart' (17 ölçü) TESPİT EDİLDİ ama İNDİRİLEMEDİ — bkz. 01_SOURCE/PUBLIC_SOURCE_SURVEY.md § 4.",
+  "reader_purpose": "Measurement method and conditions, marking the waist, the one-alteration-at-a-time rule, the length-before-width order, and the high-bust size rule."
 }

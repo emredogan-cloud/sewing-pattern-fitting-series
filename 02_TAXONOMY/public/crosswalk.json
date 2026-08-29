@@ -728,8 +728,8 @@
       "crosswalk_id": "XW-080",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-027",
-      "to_ref": "AF-15",
-      "handoff_sentence": "Belirti SYM-027 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ uzunluğu yetersiz (pantolonda) → AF-15 (Crotch depth (rise)).",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-027 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ uzunluğu yetersiz (pantolonda) → AF-16 (Crotch length and curve shape (front / back hook)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -755,8 +755,8 @@
       "crosswalk_id": "XW-083",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-028",
-      "to_ref": "AF-15",
-      "handoff_sentence": "Belirti SYM-028 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ uzunluğu fazla → AF-15 (Crotch depth (rise)).",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-028 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ağ uzunluğu fazla → AF-16 (Crotch length and curve shape (front / back hook)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -944,8 +944,8 @@
       "crosswalk_id": "XW-104",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-035",
-      "to_ref": "AF-15",
-      "handoff_sentence": "Belirti SYM-035 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka ağ uzunluğu yetersiz → AF-15 (Crotch depth (rise)).",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-035 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka ağ uzunluğu yetersiz → AF-16 (Crotch length and curve shape (front / back hook)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -962,8 +962,8 @@
       "crosswalk_id": "XW-106",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-036",
-      "to_ref": "AF-15",
-      "handoff_sentence": "Belirti SYM-036 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön ağ uzunluğu fazla → AF-15 (Crotch depth (rise)).",
+      "to_ref": "AF-16",
+      "handoff_sentence": "Belirti SYM-036 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön ağ uzunluğu fazla → AF-16 (Crotch length and curve shape (front / back hook)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },

@@ -16,7 +16,9 @@
     "",
     "qa_visual.py § ⑩ her belirti ve her aday neden için karşılık arar;",
     "eksik bir etiket figürü Türkçe bırakır ve kapı KIRMIZI yanar.",
-    "Faz 4 EKİ: sign_classes ve forms — manüskript katmanının okur etiketleri. Bu ek de doğrulama durumunu DEĞİŞTİRMEZ."
+    "Faz 4 EKİ: sign_classes ve forms — manüskript katmanının okur etiketleri. Bu ek de doğrulama durumunu DEĞİŞTİRMEZ.",
+    "FAZ 4 İKİNCİ ÇELİŞMELİ İNCELEME (A-02): 43 akış şemasının hepsi 'zone chart'a çıkıyordu ve kitapta o adda hiçbir şey YOKTU — 'zone' kelimesi kitabın başka hiçbir yerinde geçmiyordu. Çıkış artık Ek C'deki belirti dizinini adlandırıyor ve o dizin sayfa numaralarıyla ÜRETİLİYOR.",
+    "FAZ 4 İKİNCİ ÇELİŞMELİ İNCELEME (A-07/A-33): uyum profili formu kendi zorunlu alan listesiyle UYUŞMUYORDU — yön ve tarih sütunları yoktu. 43 girişin 8'i iki KARŞIT nedeni tek aileye yönlendiriyor; yön sütunu olmadan profil hangi yönde düzeltme gerektiğini taşıyamıyordu."
   ],
   "language": "en",
   "status": "agent_drafted_reader_facing_labels",
@@ -29,9 +31,9 @@
   "ui": {
     "yes": "Yes",
     "no": "No",
-    "router_question": "WHERE does the wrinkle sit?",
+    "router_question": "WHERE does the fold or pull sit?",
     "sign_count": "{n} signs",
-    "not_this_sign": "Not this sign — go back to the zone chart",
+    "not_this_sign": "Not this sign — go back to the sign index in Appendix C",
     "not_a_pattern_problem": "NOT a pattern problem — ",
     "eliminated": "Has {c} been ruled out?",
     "fix_first": "Fix this FIRST — do not touch the pattern",
@@ -894,9 +896,11 @@
       "Fit profile",
       [
         "Adjustment family",
+        "Direction",
         "Amount",
         "Where measured",
-        "Patterns it applied to"
+        "Pattern and company",
+        "Date"
       ]
     ]
   }

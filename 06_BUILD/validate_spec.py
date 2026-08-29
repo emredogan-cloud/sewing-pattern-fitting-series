@@ -122,6 +122,58 @@ def check_symptom_af_refs(sign: dict, af_ids: set, errors: list):
             errors.append(f"{sid}: adjustment_family_ref={af} tanımlı bir düzeltme ailesi DEĞİL.")
 
 
+# Aileleri BİRBİRİNDEN ayıran kelimeler. Bir nedenin okur metni bunlardan
+# birini taşıyıp, gittiği ailenin adı KARŞITINI taşıyorsa yanlış yere
+# gidiyordur.
+# ⚠ "rise" BU LİSTEYE GİREMEZ. İlk sürüm onu "length" eşanlamlısı
+# saydı ve kapı sessizce çalışmaz hâle geldi: AF-15'in adı
+# "Crotch depth (rise)" olduğu için muafiyet koşulu her seferinde
+# tutuyordu. Kapı kusurlu veriyle sınandı ve YAKALAMADI — o sınama
+# olmasaydı kapı "0 hata" diyerek yanlış bir güven verecekti.
+#
+# Ders: kaynaklar arasında ANLAMI DEĞİŞEN bir kelime (rise kimi yerde
+# derinlik, kimi yerde uzunluk demek) bir ayırt edici OLAMAZ.
+DISCRIMINATORS = [
+    ({"length"}, {"depth"}),
+    ({"depth"}, {"length"}),
+    ({"width"}, {"slope", "position"}),
+    ({"slope"}, {"width", "position"}),
+    ({"position"}, {"slope", "width"}),
+]
+
+
+def check_cause_family_discriminator(signs: list, labels: dict, families: dict,
+                                     errors: list):
+    """Bir nedenin ADI ile gittiği AİLENİN adı çelişmemelidir.
+
+    İkinci çelişmeli inceleme (A-04) dört ağ UZUNLUĞU nedeninin ağ
+    DERİNLİĞİ ailesine gittiğini buldu. Kitabın kendi sıra kuralı bu
+    karışıklığı 'en sık yapılan pantolon hatası' diye adlandırıyordu ve
+    veri onu ÜRETİYORDU.
+
+    Bu bir REGRESYONDU: AF-15/AF-16 sınırı ayrıldığında aileler yeniden
+    adlandırıldı ama nedenler yeniden yönlendirilmedi. Bir sınır
+    değişikliği, o sınırın iki yakasındaki her kaydı ilgilendirir ve
+    hiçbir kapı bunu sormuyordu."""
+    for s in signs:
+        sid = s["symptom_id"]
+        lab = labels.get("signs", {}).get(sid, {}).get("causes", [])
+        for i, c in enumerate(s["candidate_causes"]):
+            fam = c.get("adjustment_family_ref")
+            if not fam or fam not in families or i >= len(lab):
+                continue
+            cause = lab[i]["cause"].lower()
+            fname = families[fam].lower()
+            for has, must_not in DISCRIMINATORS:
+                if any(w in cause for w in has) and any(w in fname for w in must_not) \
+                        and not any(w in fname for w in has):
+                    errors.append(
+                        f"{sid}.C{i+1}: neden {sorted(has)} diyor ama gittiği aile "
+                        f"{fam} {sorted(must_not)} diyor — "
+                        f"«{lab[i]['cause']}» → «{families[fam]}»")
+                    break
+
+
 def check_adjustment_interaction_symmetry(families: list, errors: list):
     """`interacts_with` SİMETRİK olmalıdır.
 
@@ -399,7 +451,12 @@ def main():
 
     fam_file = paths.ADJUSTMENT_FAMILIES
     if fam_file.exists():
-        check_adjustment_interaction_symmetry(load(fam_file)["families"], errors)
+        fams = load(fam_file)["families"]
+        check_adjustment_interaction_symmetry(fams, errors)
+        if paths.FIT_SIGNS.exists() and paths.LABELS_EN.exists():
+            check_cause_family_discriminator(
+                load(paths.FIT_SIGNS)["signs"], load(paths.LABELS_EN),
+                {f["adjustment_family_id"]: f["name"] for f in fams}, errors)
 
     # ── kapı gereksinimleri ──
     if paths.gate_at_least(gate, "series-architecture", paths.SERIES_GATE_ORDER):

@@ -19,5 +19,6 @@
   "superseded_by": null,
   "license_constraint": "ABD hükümeti eseri — kamu malı.",
   "acquisition_status": "public_access",
-  "notes": "SINIR: NHANES bel çevresini iliak kanat üstünde tanımlar — bu bir SAĞLIK ölçüsüdür, giysi ölçüsü DEĞİLDİR. Hiçbir M-xxx kaydı bu kaynakla doğrudan doğrulanmaz; kaynak yalnızca ölçüm KOŞULU ve TEKRARLANABİLİRLİK yöntemini destekler."
+  "notes": "SINIR: NHANES bel çevresini iliak kanat üstünde tanımlar — bu bir SAĞLIK ölçüsüdür, giysi ölçüsü DEĞİLDİR. Hiçbir M-xxx kaydı bu kaynakla doğrudan doğrulanmaz; kaynak yalnızca ölçüm KOŞULU ve TEKRARLANABİLİRLİK yöntemini destekler.",
+  "reader_purpose": "National survey anthropometry procedures — tape handling, repeat measurement, and the conditions under which a measurement is comparable."
 }

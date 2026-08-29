@@ -60,6 +60,9 @@ class Typesetter:
         self._head_left = None
         self._head_right = None
         self.figures_used: list = []
+        self._outline: list = []
+        self._side_used = None      # bu sayfada yan notun indiği en alt nokta
+        self._side_pending: list = []
         self._new_page()
 
     # ── sayfa ─────────────────────────────────────────────────────────
@@ -73,14 +76,20 @@ class Typesetter:
             self.c.showPage()
         self.page += 1
         self._dirty = False
+        self._side_used = None
+        pending, self._side_pending = self._side_pending, []
         recto = self.page % 2 == 1
         gut = self.g["margins"]["gutter_pt"]; out = self.g["margins"]["outside_pt"]
+        self._deferred = pending
         self.x_text = gut if recto else out
         self.x_side = self.x_text + self.tw + self.gap
         if not recto:
             self.x_text = out + self.side_w + self.gap
             self.x_side = out
         self.y = self.top
+        for t, b in getattr(self, "_deferred", []):
+            self.side_note(t, b)
+        self._deferred = []
 
     def _close_page(self):
         """Sayfa kapanırken sayfa mobilyasını yaz — BOŞSA YAZMA."""
@@ -155,6 +164,17 @@ class Typesetter:
             self.c.drawString(self.x_text + indent, self.y, ln)
         self.y -= (self.lead * 0.45 if space_after is None else space_after)
         self.c.setFillGray(0.0)
+
+    def outline(self, title: str, level: int = 0):
+        """PDF ana hattına bir giriş ekler.
+
+        İkinci çelişmeli inceleme (A-05): PDF sıfır outline girişi
+        taşıyordu. 231 sayfalık bir BAŞVURU kitabında bu, dijital
+        okurun içeri girecek hiçbir kapısı olmaması demektir."""
+        key = f"sec{len(self._outline)}"
+        self.c.bookmarkPage(key)
+        self.c.addOutlineEntry(title, key, level=level, closed=(level == 0))
+        self._outline.append((title, level, self.page))
 
     def h1(self, s: str, kicker: str | None = None):
         self._touch()
@@ -237,9 +257,20 @@ class Typesetter:
         self._touch()
         size = 8.0; lead = 10.4
         lines = self._wrap(body, self.side_w - 8.0, "sans", size)
+        need = lead * (len(lines) + 1.6)
         y = self.y + self.lead
-        if y - lead * (len(lines) + 1.6) < self.bottom:
-            y = self.top
+        # ⚠ İlk sürüm yer kalmadığında koşulsuz `self.top`'a atlıyordu.
+        # İki sorun: (a) aynı sayfadaki İKİNCİ bir yan not birincinin
+        # ÜZERİNE yazıyordu, (b) üst bilgiyle çakışabiliyordu. Notlar
+        # artık sayfa başına YIĞILIR ve sığmıyorsa bir sonraki sayfaya
+        # bırakılır — üst üste basılmaz.
+        floor = self._side_used if self._side_used is not None else self.top
+        if y - need < self.bottom or y > floor:
+            y = floor
+        if y - need < self.bottom:
+            self._side_pending.append((title, body))
+            return
+        self._side_used = y - need - lead * 0.6
         self.c.setStrokeGray(0.0); self.c.setLineWidth(0.7)
         self.c.line(self.x_side, y + 3.0, self.x_side + self.side_w, y + 3.0)
         self.c.setFont(font("sans-bold"), size)
@@ -249,6 +280,32 @@ class Typesetter:
         for ln in lines:
             y -= lead
             self.c.drawString(self.x_side, y, ln)
+
+    def toc_line(self, title: str, page: int, level: int = 0):
+        """İçindekiler satırı — nokta lideriyle."""
+        self._touch()
+        size = self.body - (0.5 if level else 0.0)
+        face = "sans-semibold" if level == 0 else "sans"
+        indent = 0.0 if level == 0 else 14.0
+        self._need(self.lead)
+        if not self._room(self.lead):
+            self._new_page()
+        self.y -= self.lead * (1.0 if level else 1.25)
+        self.c.setFont(font(face), size)
+        self.c.drawString(self.x_text + indent, self.y, title)
+        num = str(page)
+        self.c.drawRightString(self.x_text + self.tw, self.y, num)
+        w1 = pdfmetrics.stringWidth(title, font(face), size) + indent
+        w2 = pdfmetrics.stringWidth(num, font(face), size)
+        gap_l = self.x_text + w1 + 5.0
+        gap_r = self.x_text + self.tw - w2 - 5.0
+        if gap_r > gap_l:
+            self.c.setFillGray(0.55)
+            self.c.setFont(font("sans"), size)
+            dot_w = pdfmetrics.stringWidth(" .", font("sans"), size)
+            n = max(0, int((gap_r - gap_l) / dot_w))
+            self.c.drawString(gap_l, self.y, " ." * n)
+            self.c.setFillGray(0.0)
 
     def rule(self, gray=0.45):
         self._touch()
@@ -291,14 +348,21 @@ class Typesetter:
         self.c.line(self.x_text + 4.0, y0, self.x_text + 4.0, self.y - 3.0)
         self.y -= self.lead * 0.75
 
-    def table(self, rows: list, widths: list, size=9.0):
+    def table(self, rows: list, widths: list, size=9.0, row_pt=None):
         self._touch()
-        rowh = size * 1.7
+        # Boş bir form ELLE DOLDURULUR. 9 pt metin satırı (15,3 pt ≈ 5,4 mm)
+        # okunur ama YAZILAMAZ. Form satırları ayrıca belirtilir.
+        rowh = float(row_pt) if row_pt else size * 1.7
         self._need(rowh * min(len(rows), 3) + self.lead * 0.6)
         self.y -= self.lead * 0.4
         for i, r in enumerate(rows):
+            # ⚠ Satır başına en fazla ÜÇ satır sarılıyordu ve fazlası
+            # SESSİZCE ATILIYORDU. Kaynak ekinde bu, bir yayının ne için
+            # kullanıldığının yarısının kaybolması demekti. Sınır bir
+            # emniyet payıdır, bir biçim tercihi değil: sekize çıkarıldı
+            # ve aşılırsa metin kesilmez, satır uzar.
             cells = [self._wrap(str(cell), widths[j] * self.tw - 8.0,
-                                "sans-semibold" if i == 0 else "sans", size)[:3]
+                                "sans-semibold" if i == 0 else "sans", size)[:8]
                      for j, cell in enumerate(r)]
             h = rowh + (max(len(c) for c in cells) - 1) * size * 1.12
             if not self._room(h):
@@ -379,7 +443,8 @@ def run_blocks(ts: Typesetter, blocks: list, meta_by_key: dict) -> list:
             if m is None or "data" not in m:
                 errors.append(f"tablo figürü sicilde yok ya da verisi eksik: {b['key']}")
                 continue
-            ts.table(m["data"], b.get("widths") or m["col_ratio"])
+            ts.table(m["data"], b.get("widths") or m["col_ratio"],
+                     row_pt=b.get("row_pt"))
             # Sicilden gelen bir tablo da BİR FİGÜRDÜR. Sayılmazsa figür
             # bütçesi (§ 25) gerçekten kullanılanı göstermez.
             ts.figures_used.append(b["key"])

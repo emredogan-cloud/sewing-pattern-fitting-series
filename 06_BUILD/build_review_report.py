@@ -54,8 +54,15 @@ def main() -> int:
         print(f"✗ ham inceleme çıktısı yok: {SRC.relative_to(paths.ROOT)}")
         return 2
 
+    # ⚠ R5 BURAYA GİRMEZ. O, bitmiş ürüne yapılan ÇELİŞMELİ incelemedir
+    # ve şeması farklıdır (severity, conclusion değil). Yeri
+    # PHASE_4_EXECUTION_REPORT § 15'tir. İki inceleme türünü tek tabloda
+    # toplamak, "otoriter kaynak ne diyor" ile "sayfa nasıl görünüyor"
+    # sorularını aynı şeymiş gibi gösterirdi.
     lines_data = {}
     for f in sorted(SRC.glob("R*.json")):
+        if f.stem.startswith("R5"):
+            continue
         lines_data[f.stem] = load(f)
 
     all_findings = []

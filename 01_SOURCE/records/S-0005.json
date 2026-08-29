@@ -21,5 +21,6 @@
   "superseded_by": null,
   "license_constraint": "ABD hükümeti eseri — kamu malı. Metin ve tablolar serbestçe kullanılabilir; yine de bu projede yalnızca doğrulama referansı olarak kullanılır.",
   "acquisition_status": "public_access",
-  "notes": "KRİTİK SINIR: ANSUR II bel çevresini YALNIZCA omphalion (göbek) hizasında tanımlar; ev dikişinin ve ticari kalıbın kullandığı DOĞAL bel (en dar nokta) tanımı ANSUR II'de YOKTUR. Bu yüzden M-004 bu kaynakla DOĞRULANMAZ ve fark Bölüm 2'de okura AÇIKÇA öğretilir. Erişilebilen kopya archive.org DTIC aynasından alındı (apps.dtic.mil doğrudan indirmeye kapalıydı)."
+  "notes": "KRİTİK SINIR: ANSUR II bel çevresini YALNIZCA omphalion (göbek) hizasında tanımlar; ev dikişinin ve ticari kalıbın kullandığı DOĞAL bel (en dar nokta) tanımı ANSUR II'de YOKTUR. Bu yüzden M-004 bu kaynakla DOĞRULANMAZ ve fark Bölüm 2'de okura AÇIKÇA öğretilir. Erişilebilen kopya archive.org DTIC aynasından alındı (apps.dtic.mil doğrudan indirmeye kapalıydı).",
+  "reader_purpose": "Anthropometric survey method — used to check that landmark definitions are reproducible, not to set any measurement in this book."
 }

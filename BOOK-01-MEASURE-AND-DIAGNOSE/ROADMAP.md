@@ -235,7 +235,7 @@ verebilmelidir.
 
 | # | Çıktı | Ölçüm |
 |---|---|---|
-| 1 | Tam manüskript | **231 sayfa · 21 bölüm · 35 472 kelime** |
+| 1 | Tam manüskript | **252 sayfa · 21 bölüm · 42 224 kelime** |
 | 2 | 43 belirti girişi | tamamı bölge atlasında · her biri yeniden gözlem adımı + belirtiye özgü eleme + "henüz değiştirme" taşıyor |
 | 3 | Figür entegrasyonu | **160/160** yerleştirilebilir figür kullanıldı · 175 yerleşim |
 | 4 | İddia sicili | **307 iddia**, kanıt seviyesi TÜREVdir |

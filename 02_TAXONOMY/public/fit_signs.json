@@ -20,7 +20,8 @@
     "doğrulaması FİZİKSELDİR ve Faz 3'e aittir (VALIDATION_PROTOCOL.md).",
     "Bkz. DECISIONS.md K19, K20.",
     "FAZ 4 BAĞIMSIZ İNCELEME: dört karıştırıcı sınıfı EKLENDİ (prova desteği, ayakkabı/topuk, kumaş dinlenmesi, ölçüm yaşı) ve ikisinin kapsamı GENİŞLETİLDİ (kalıp basımı: tek eksen + sayfa birleştirme; prova duruşu: kendine bakma etkisi). Gerekçe: 08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md § missing_confounders.",
-    "FAZ 4: karın nedenleri AF-20'ye yönlendirildi. Önceden üçü AF-13'e (giysinin ARKASI), ikisi AF-01'e (GÖĞÜS PENSİ ailesi) gidiyordu — okur için yanlış varış noktası."
+    "FAZ 4: karın nedenleri AF-20'ye yönlendirildi. Önceden üçü AF-13'e (giysinin ARKASI), ikisi AF-01'e (GÖĞÜS PENSİ ailesi) gidiyordu — okur için yanlış varış noktası.",
+    "FAZ 4 İKİNCİ ÇELİŞMELİ İNCELEME (A-04): dört ağ UZUNLUĞU nedeni ağ DERİNLİĞİ ailesine gidiyordu. Bu bir REGRESYONDU — AF-15/AF-16 sınırı bu turda ayrıldığında nedenler yeniden yönlendirilmemişti. Kitabın kendi 4. sıra kuralı bu karışıklığı 'en sık yapılan pantolon hatası' diye adlandırıyor ve veri onu ÜRETİYORDU."
   ],
   "count": 43,
   "verification_summary": {
@@ -1446,8 +1447,8 @@
           "distinguishing_evidence": "Çizgilerle birlikte ağ yukarı çekiliyor ve oturmak zor.",
           "confirming_measurement": "M-027 (ağ uzunluğu) vs. kalıp arka ağ uzunluğu",
           "physical_test": "Arka ağ eğrisini uzat.",
-          "adjustment_family_ref": "AF-15",
-          "likelihood_note": null
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
         },
         {
           "cause": "Genel kalça çevresi yetersiz",
@@ -1502,8 +1503,8 @@
           "distinguishing_evidence": "Sarkma ağ bölgesine kadar iniyor; ağ vücuda değmiyor.",
           "confirming_measurement": "M-027 vs. kalıp arka ağ uzunluğu",
           "physical_test": "Arka ağ uzunluğunu kısalt.",
-          "adjustment_family_ref": "AF-15",
-          "likelihood_note": null
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
         },
         {
           "cause": "Arka beden/etek boyu fazla",
@@ -1879,8 +1880,8 @@
           "distinguishing_evidence": "Ayakta da var; oturak üzerinde de gerginlik var.",
           "confirming_measurement": "M-027 (ağ uzunluğu) vs. kalıp arka ağ uzunluğu",
           "physical_test": "Arka ağ eğrisini uzat.",
-          "adjustment_family_ref": "AF-15",
-          "likelihood_note": null
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
         },
         {
           "cause": "Arka ağ eğrisi vücut için fazla düz",
@@ -1926,8 +1927,8 @@
           "distinguishing_evidence": "Toplanma ön ağda; arka temiz.",
           "confirming_measurement": "M-027'nin ön kısmı vs. kalıp ön ağ uzunluğu",
           "physical_test": "Ön ağ eğrisini kısalt.",
-          "adjustment_family_ref": "AF-15",
-          "likelihood_note": null
+          "adjustment_family_ref": "AF-16",
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
         },
         {
           "cause": "Ağ derinliği fazla",

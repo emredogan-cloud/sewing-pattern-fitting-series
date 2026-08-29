@@ -65,6 +65,195 @@ def check_reader_language(blocks: list, where: str) -> list:
     return bad
 
 
+# Okur-görünür bölüm adları. TOC, PDF ana hattı ve çapraz atıflar
+# AYNI tablodan okur; ikinci bir kopya tutulsaydı içindekiler ile
+# sayfa başlıkları sessizce ayrışabilirdi.
+CHAPTER_TITLES = {
+    "part0": "How to use this book",
+    "ch01": "1 · Why the pattern did not fit",
+    "ch02": "2 · Measuring your body",
+    "ch03": "3 · Reading the pattern",
+    "ch04": "4 · The diagnostic fitting garment",
+    "ch05": "5 · The fitting session",
+    "ch06": "6 · The seven-step cycle",
+    "ch07": "7 · Naming what you see",
+    "ch08": "8 · Ruling out the false causes",
+    "ch09": "9 · The neck and shoulder",
+    "ch10": "10 · The upper back and armhole",
+    "ch11": "11 · The bust and chest",
+    "ch12": "12 · The waist and torso length",
+    "ch13": "13 · The hip and seat",
+    "ch14": "14 · The sleeve and arm",
+    "ch15": "15 · Trousers: the crotch and the leg",
+    "ch16": "16 · The order of work",
+    "ch16_atlas": "16b · Signs that belong to the whole garment",
+    "ch17": "17 · Your fit profile",
+    "ch18": "18 · Carrying the profile forward",
+    "appendix": "Appendices",
+}
+# Çapraz atıf çözümü: "Chapter 8" → hangi bölüm anahtarı
+CHAPTER_BY_NUMBER = {int(t.split(" · ")[0]): k
+                     for k, t in CHAPTER_TITLES.items()
+                     if t.split(" · ")[0].isdigit() and k != "ch16_atlas"}
+
+
+def resolve_cross_references(blocks: list, page_of: dict) -> list:
+    """'Chapter 8' → 'Chapter 8 (page 71)'.
+
+    İkinci çelişmeli inceleme (A-05): kitaptaki ~45 iç atıfın HİÇBİRİ
+    sayfa numarası taşımıyordu. Bir başvuru kitabında 'bkz. Bölüm 8'
+    okuru 231 sayfanın içinde yalnız bırakır.
+
+    Çözüm İKİ GEÇİŞLİDİR: birinci geçiş bölüm başlangıç sayfalarını
+    ÖLÇER, ikinci geçiş onları metne yazar. Sayfa numarası tahmin
+    edilmez."""
+    if not page_of:
+        return blocks
+    pat = re.compile(r"\bChapter (\d{1,2})\b(?! \(page)")
+
+    def fix(v: str) -> str:
+        def rep(m):
+            n = int(m.group(1))
+            key = CHAPTER_BY_NUMBER.get(n)
+            pg = page_of.get(key)
+            return f"Chapter {n} (page {pg})" if pg else m.group(0)
+        return pat.sub(rep, v)
+
+    out = []
+    for b in blocks:
+        nb = dict(b)
+        for f in READER_FIELDS:
+            if isinstance(nb.get(f), str):
+                nb[f] = fix(nb[f])
+        if nb.get("items"):
+            nb["items"] = [fix(str(x)) for x in nb["items"]]
+        out.append(nb)
+    return out
+
+
+def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
+    """Ek C ve Ek H'nin GERÇEK dizinleri.
+
+    İkinci çelişmeli inceleme:
+      · Ek C "nerede bulacağınız" diye başlık atıp KONUM VERMİYORDU.
+      · Ek H aile dizinini duyurup HİÇBİR ŞEY basmıyordu — kitabın son
+        sayfasının üçte ikisi boştu.
+      · 43 akış şemasının hepsi kitapta OLMAYAN bir 'zone chart'a
+        çıkıyordu.
+
+    Üçü de aynı eksiklikti: kitap çıkışlarını adlandırıyor ama nereye
+    çıktığını söylemiyordu. Bu dizinler sayfa numaralarıyla üretilir ve
+    ancak İKİNCİ geçişte doğrudur."""
+    if not sign_page:
+        return []
+    zones = atlas.labels["zones"]
+    blocks: list = [{"type": "recto"},
+                    {"type": "h2", "text": "Appendix C — Where each sign is"},
+                    {"type": "para",
+                     "text": "Every sign in the book, by region, with the page its "
+                             "entry begins on. This is the way in: find what you see, "
+                             "then go to the page."}]
+    by_zone: dict = {}
+    for sid, sg in atlas.signs.items():
+        by_zone.setdefault(sg["zone"], []).append(sid)
+    for z in sorted(by_zone, key=lambda x: zones.get(x, x)):
+        rows = [["What you see", "Page"]]
+        for sid in by_zone[z]:
+            pg = sign_page.get(sid)
+            if pg:
+                rows.append([atlas.content[sid]["title"], str(pg)])
+        if len(rows) > 1:
+            blocks.append({"type": "h3", "text": zones.get(z, z)})
+            blocks.append({"type": "table", "rows": rows, "widths": [0.86, 0.14]})
+
+    blocks.append({"type": "h2", "text": "Appendix H — Where each region leads"})
+    blocks.append({"type": "para",
+                   "text": "The twenty adjustment families this book can reach, and "
+                           "the signs that lead to each. What a family does to a "
+                           "pattern belongs to the second book."})
+    fam_signs: dict = {}
+    for sid, sg in atlas.signs.items():
+        for c in sg["candidate_causes"]:
+            fam = c.get("adjustment_family_ref")
+            if fam:
+                fam_signs.setdefault(fam, set()).add(sid)
+    rows = [["Adjustment family", "Reached from pages"]]
+    for fid, fam in sorted(atlas.families.items()):
+        pgs = sorted({sign_page[s] for s in fam_signs.get(fid, ()) if s in sign_page})
+        rows.append([fam["name"],
+                     ", ".join(str(x) for x in pgs) if pgs else "—"])
+    blocks.append({"type": "table", "rows": rows, "widths": [0.56, 0.44]})
+
+    # ── Ek I: KAYNAKLAR ───────────────────────────────────────────────
+    # İkinci çelişmeli inceleme (A-21): kitabın hiçbir kaynak listesi
+    # YOKTU, ama metin defalarca adsız otoritelere başvuruyordu —
+    # "yaygın olarak anılan eşik", "çoğu kaynak", "yerleşik uygulama".
+    # Bir okur bunların hiçbirini kontrol edemezdi.
+    #
+    # Liste kaynak KAYITLARINDAN üretilir; elle yazılsaydı sicille ilk
+    # değişiklikte ayrışırdı. Yalnızca TEKNİK OTORİTELER girer: platform
+    # ve yazı tipi kayıtları kitabın teknik iddialarını desteklemez.
+    blocks.append({"type": "h2", "text": "Appendix I — Where the technical claims "
+                                         "come from"})
+    blocks.append({"type": "para",
+                   "text": "The measurement definitions, the ease and size-selection "
+                           "rules, the order-of-work rules and the fold-and-pull "
+                           "distinction are drawn from the publications below. Where "
+                           "they disagree with each other, the book says so at the "
+                           "point of disagreement rather than choosing silently."})
+    srows = [["Publication", "Publisher", "Used for"]]
+    for rec in sources:
+        if not rec.get("technical_authority"):
+            continue
+        # ⚠ `used_for` PROJE dilindedir ve iç kimlik taşır; okura dönük
+        # bir tabloya basılamaz (K46). Kaynak kaydının `reader_purpose`
+        # alanı bunun için vardır ve yoksa kaynak listeye GİRMEZ —
+        # eksik bir alan, sızdırılmış bir kimlikten iyidir.
+        purpose = rec.get("reader_purpose")
+        if not purpose:
+            continue
+        srows.append([rec.get("title", "?"),
+                      str(rec.get("publisher") or "—"), purpose])
+    blocks.append({"type": "table", "rows": srows, "widths": [0.34, 0.30, 0.36]})
+    blocks.append({"type": "para",
+                   "text": "Two standards that govern body-measurement definitions — "
+                           "the international clothing size-designation standard and "
+                           "the standard terminology for body dimensions — are cited "
+                           "in this book's own records but were not obtained. Where a "
+                           "definition rests on them, the book says that the sources "
+                           "differ rather than asserting one."})
+    return blocks
+
+
+def check_pages_render(pdf: Path):
+    """Her sayfayı rasterleştirir; METNİ olup MÜREKKEBİ olmayan sayfayı arar.
+
+    Dönüş: bozuk sayfa listesi, ya da araç yoksa None."""
+    import shutil
+    import subprocess
+    import tempfile
+    if not shutil.which("pdftoppm") or not shutil.which("pdftotext"):
+        return None
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+    pages = subprocess.run(["pdftotext", "-layout", str(pdf), "-"],
+                           capture_output=True, text=True).stdout.split("\f")[:-1]
+    bad = []
+    with tempfile.TemporaryDirectory() as td:
+        subprocess.run(["pdftoppm", "-png", "-r", "40", str(pdf), f"{td}/p"],
+                       capture_output=True)
+        for f in sorted(Path(td).glob("p-*.png")):
+            n = int(re.search(r"p-(\d+)", f.name).group(1))
+            if n > len(pages):
+                continue
+            has_text = bool(re.sub(r"\s+", "", pages[n - 1]))
+            if has_text and Image.open(f).convert("L").getextrema()[0] == 255:
+                bad.append(n)
+    return bad
+
+
 def build_front_matter(cfg: dict, book: dict) -> list:
     return [
         {"type": "h1", "text": book["title"], "kicker": book.get("series")},
@@ -82,6 +271,8 @@ def main() -> int:
                     help="belirti akış şemalarını ATLA — sayfa bütçesi ölçümü için")
     ap.add_argument("--only", default=None, help="virgülle ayrılmış bölüm anahtarları")
     ap.add_argument("--index", default=None, help="ölçüm dosyası yolu")
+    ap.add_argument("--no-ink-check", action="store_true",
+                    help="görünmez sayfa denetimini atla (hızlı koşum)")
     args = ap.parse_args()
 
     bdir = paths.BOOK_DIRS[args.book]
@@ -108,20 +299,15 @@ def main() -> int:
     out = Path(args.out) if args.out else bdir / "09_OUTPUT" / "BOOK_01.pdf"
     out.parent.mkdir(parents=True, exist_ok=True)
 
+    sources = [load(f) for f in sorted(paths.SOURCE_RECORDS.glob("S-*.json"))]
     eng = Engine(args.book)
     atlas = AtlasBuilder(args.book, mdir)
-
     only = set(args.only.split(",")) if args.only else None
-    ts = Typesetter(out, geom, eng)
-    ts.set_running_head(bookcfg.get("titleWorking", ""), None)
 
-    chapters: list = []
+    # ── Bölüm bloklarını BİR KEZ topla ────────────────────────────────
+    collected: list = []          # (part, key, blocks)
     missing: list = []
-    errors: list = []
-    claims_seen: dict = {}
-
     for pnum, ptitle, keys in PARTS:
-        part_started = False
         for key in keys:
             if only and key not in only:
                 continue
@@ -136,29 +322,81 @@ def main() -> int:
                     missing.append(key)
                     continue
                 doc = load(f)
-                blocks = doc["blocks"]
-                sids = doc.get("signs_covered", [])
-            errors.extend(check_reader_language(blocks, key))
+                blocks, sids = doc["blocks"], doc.get("signs_covered", [])
+            collected.append((pnum, ptitle, key, blocks, sids))
+
+    # ── İKİ GEÇİŞ ─────────────────────────────────────────────────────
+    # Birinci geçiş sayfa numaralarını ÖLÇER; ikincisi onları yazar.
+    # Bir içindekiler tablosu tahminle yazılamaz ve kitap bir sayfa
+    # kaydığında sessizce yalan söyleyemez.
+    def run_pass(page_of: dict, toc: list, index_blocks: list | None = None):
+        ts = Typesetter(out, geom, eng)
+        ts.set_running_head(bookcfg.get("titleWorking", ""), None)
+        errs: list = []
+        chapters: list = []
+        claims_seen: dict = {}
+        started_parts: set = set()
+        sign_page: dict = {}
+
+        if toc:
+            ts.h1("Contents")
+            ts.para("Part Four is a reference. You will not read it end to end; "
+                    "you go to the region where you see something.",
+                    face="serif-italic", size=10.5)
+            for title, level, pg in toc:
+                ts.toc_line(title, pg, level=level)
+            ts.start_recto()
+
+        for pnum, ptitle, key, blocks, sids in collected:
+            if key == "appendix" and index_blocks:
+                blocks = blocks + index_blocks
+            blocks = resolve_cross_references(blocks, page_of)
+            errs.extend(check_reader_language(blocks, key))
             for b in blocks:
                 if b.get("type") == "figure" and b.get("key") in internal_keys:
-                    errors.append(f"{key}: İÇ ARAÇ figürü kitaba konulamaz — "
-                                  f"{b['key']} (figures.json internal=true)")
-            if not part_started and pnum > 0:
+                    errs.append(f"{key}: İÇ ARAÇ figürü kitaba konulamaz — "
+                                f"{b['key']} (figures.json internal=true)")
+            if pnum > 0 and pnum not in started_parts:
                 ts.start_recto()
+                ts.outline(f"Part {pnum} — {ptitle}", level=0)
                 ts.h1(f"Part {pnum}", kicker=None)
                 ts.para(ptitle, face="serif-italic", size=13.0)
                 ts.page_break()
-                part_started = True
+                started_parts.add(pnum)
+            # ⚠ Baştaki `recto` bloğu SAYFA AÇAR. p0 ondan ÖNCE alınırsa
+            # bölümün başlangıcı olarak BİR ÖNCEKİ bölümün son sayfası
+            # kaydedilir — içindekiler ve PDF ana hattı yanlış sayfayı
+            # gösterir. İçindekiler yakınsadı ama YANLIŞ bir değere
+            # yakınsadı; yakınsama doğruluk demek değildir.
+            lead_in = []
+            rest = list(blocks)
+            while rest and rest[0].get("type") in ("recto", "pagebreak"):
+                lead_in.append(rest.pop(0))
+            if lead_in:
+                errs.extend(run_blocks(ts, lead_in, meta_by_key))
             p0 = ts.page
             f0 = len(ts.figures_used)
             ts.set_running_head(bookcfg.get("titleWorking", ""), None)
-            errors.extend(run_blocks(ts, blocks, meta_by_key))
+            ts.outline(CHAPTER_TITLES.get(key, key), level=1 if pnum > 0 else 0)
+            # Belirti başlıklarının SAYFASI kaydedilir: Ek C ve Ek H
+            # bunlara işaret eder. Bloklar parça parça dizilir ki her
+            # başlığın hangi sayfaya düştüğü ÖLÇÜLSÜN, tahmin edilmesin.
+            seg: list = []
+            for b in rest:
+                if b.get("type") == "h2" and b.get("claims") \
+                        and str(b["claims"][0]).startswith("SYM-"):
+                    if seg:
+                        errs.extend(run_blocks(ts, seg, meta_by_key)); seg = []
+                    sign_page[b["claims"][0]] = ts.page
+                seg.append(b)
+            if seg:
+                errs.extend(run_blocks(ts, seg, meta_by_key))
+            # Ana hat girişi bölümün İLK sayfasına bağlanır
             chapters.append({
                 "key": key, "part": pnum, "generated": key in GENERATED,
                 "page_start": p0, "page_end": ts.page, "pages": ts.page - p0 + 1,
                 "figures": len(ts.figures_used) - f0,
-                "signs_covered": sids,
-                "blocks": len(blocks),
+                "signs_covered": sids, "blocks": len(blocks),
                 "words": sum(len(str(b.get("text", "")).split()) for b in blocks)
                          + sum(len(str(x).split()) for b in blocks
                                for x in (b.get("items") or [])),
@@ -166,6 +404,43 @@ def main() -> int:
             for b in blocks:
                 for cid in (b.get("claims") or []):
                     claims_seen.setdefault(cid, key)
+        return ts, errs, chapters, claims_seen, sign_page
+
+    def make_toc(chs: list) -> list:
+        t: list = []
+        seen: set = set()
+        for c in chs:
+            if c["part"] > 0 and c["part"] not in seen:
+                pt = next(x for n, x, _ in PARTS if n == c["part"])
+                t.append((f"Part {c['part']} — {pt}", 0, c["page_start"]))
+                seen.add(c["part"])
+            t.append((CHAPTER_TITLES.get(c["key"], c["key"]), 1, c["page_start"]))
+        return t
+
+    # ── YAKINSAMA ─────────────────────────────────────────────────────
+    # İçindekiler kitabı UZATIR ve uzattığı için içindeki sayfa
+    # numaralarını KAYDIRIR. İki geçiş yetmez; sayfa numaraları
+    # DEĞİŞMEYENE kadar tekrarlanır. Yakınsamazsa hata verilir —
+    # yanlış numara taşıyan bir içindekiler, içindekisi olmamaktan
+    # kötüdür: okur ona güvenir.
+    page_of: dict = {}
+    toc: list = []
+    index_blocks: list = []
+    ts = errors = chapters = claims_seen = None
+    for attempt in range(1, 7):
+        ts, errors, chapters, claims_seen, sign_page = run_pass(page_of, toc,
+                                                                 index_blocks)
+        new_page_of = {c["key"]: c["page_start"] for c in chapters}
+        new_toc = make_toc(chapters)
+        if new_page_of == page_of and new_toc == toc:
+            break
+        page_of, toc = new_page_of, new_toc
+        index_blocks = build_indexes(atlas, sign_page, page_of, sources)
+        ts.c = None   # bu geçişin tuvali atılır
+    else:
+        print("✗ İÇİNDEKİLER YAKINSAMADI — sayfa numaraları her geçişte "
+              "değişiyor. Yanlış numaralı bir içindekiler basılmaz.")
+        return 1
 
     if errors:
         print(f"✗ {len(errors)} DİZGİ/OKUR DİLİ HATASI:")
@@ -203,6 +478,25 @@ def main() -> int:
     idx_path.parent.mkdir(parents=True, exist_ok=True)
     idx_path.write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n",
                         encoding="utf-8")
+
+    # ── GÖRÜNMEZ SAYFA DENETİMİ ───────────────────────────────────────
+    # İkinci çelişmeli inceleme, iki sayfanın metin taşıyıp hiç mürekkep
+    # basmadığını bildirdi. Denetlendi ve o hâliyle DOĞRU DEĞİLDİ — boş
+    # sayfaların hepsi bölüm açılışı versosu ve metinleri de yok.
+    #
+    # Ama denetimin KENDİSİ değerlidir: metni olup basılmayan bir sayfa,
+    # okurun asla göremeyeceği bir kusurdur ve hiçbir veri kapısı onu
+    # göremez. İddia yanlış çıktı, kapı kaldı.
+    if not args.no_ink_check:
+        bad = check_pages_render(out)
+        if bad is None:
+            print("  ⚠ mürekkep denetimi ATLANDI (pdftoppm veya Pillow yok)")
+        elif bad:
+            print(f"  ✗ GÖRÜNMEZ SAYFA: {bad} — metin taşıyor ama hiç mürekkep "
+                  f"basmıyor.")
+            return 1
+        else:
+            print("  ✓ metni olup basılmayan sayfa yok")
 
     print(f"▸ build_book.py — {out.relative_to(paths.ROOT)}")
     print(f"  {total} sayfa · {len(ts.figures_used)} figür yerleşimi "
