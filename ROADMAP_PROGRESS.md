@@ -13,11 +13,20 @@
 
 ## 0 · Tek cümlelik durum
 
-> **Kitap 1 Faz 4 üretimi TAMAMLANDI — kurucu geçersiz kılmasıyla (`K49`),
-> kill-gate GEÇİLMEDEN.** 252 sayfa · 21 bölüm · 160 figür · 307 iddia.
-> `kill_gate.py` hâlâ **2 engel** raporluyor ve raporlamaya DEVAM EDİYOR:
-> kitap kapısı `phase4-production-conditional`'dır ve kümülatif sırada
-> `phase3-pilot`'ın **ÖNÜNDEDİR**. Üretim ilerledi; doğrulama ilerlemedi.
+> **Kitap 1 Faz 5 QA'sı İÇSEL OLARAK TAMAMLANDI.**
+> 255 sayfa · 21 bölüm · 159 ayrı figür · 307 iddia · **187 kapı denetimi**.
+>
+> Faz 5 girerken sekiz veri kapısı yeşildi, 152 kapı testi geçiyordu ve
+> **ürün bozuktu**: dizilmiş sayfada harfler üst üste biniyordu, kitabın
+> ilan ettiği tek giriş yolu (Ek C) 43 belirtinin 18'inde kapalı döngüye
+> gönderiyordu, boş formlar 1,84 mm satırlarla yazılamazdı, ve CI kendi
+> kapsamını sessizce %4 küçültüp yine "bütün kapılar geçti" diyordu.
+> **24 kusur doğrulandı ve düzeltildi; 4 inceleme bulgusu çürütüldü.**
+>
+> `kill_gate.py` hâlâ **2 engel** raporluyor ve raporlamaya DEVAM EDİYOR.
+> Kitap kapısı `phase4-production-conditional` olarak **KALDI** —
+> kümülatif sırada `phase3-pilot`'ın ÖNÜNDEDİR ve `phase5-qa` bu yoldan
+> **açılamaz**. Doğru durum: **QA COMPLETE / EXTERNAL VALIDATION PENDING.**
 
 ## Seri fazları
 
@@ -25,7 +34,7 @@
 |---:|---|---|---|
 | **S0** | Seri Bootstrap | `████████████████` tamamlandı | `bootstrap` ✓ |
 | **S1** | Seri Mimarisi | `████████████████` **TAMAMLANDI** — kurucu onayı alındı, ortak mimari donduruldu | `series-architecture` ✓ **İLERLEDİ** |
-| **S2** | Kitap 1 yaşam döngüsü | `██████████░░░░░░` P0 ✓ · P1 ✓ · P2 ✓ · **P4 ✓ KOŞULLU** · P3 **KILL-GATE'TE DURUYOR** | — |
+| **S2** | Kitap 1 yaşam döngüsü | `████████████░░░░` P0 ✓ · P1 ✓ · P2 ✓ · **P4 ✓ KOŞULLU** · **P5 ✓ İÇSEL** · P3 **KILL-GATE'TE DURUYOR** | — |
 | **S3** | Kitap 2 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı — seri kapısı `production` değil | `init` |
 | **S4** | Kitap 3 yaşam döngüsü | `░░░░░░░░░░░░░░░░` başlamadı · yalnızca `A10` araştırma mimarisi | `init` |
 | **S5** | Seri KA / Katalog | `░░░░░░░░░░░░░░░░` başlamadı — gerçek çok-kitap verisi yok | — |
@@ -34,15 +43,14 @@
 
 | Kitap | Kapı | P0 | P1 | P2 | P3 | P4 | P5 | P6 | P7 |
 |---|---|---|---|---|---|---|---|---|---|
-| **1 — Measure & Diagnose** | **`phase4-production-conditional`** | ✓ | ✓ | ✓ | **DIŞ BEKLEMEDE** | **✓ KOŞULLU** | — | — | — |
+| **1 — Measure & Diagnose** | **`phase4-production-conditional`** | ✓ | ✓ | ✓ | **DIŞ BEKLEMEDE** | **✓ KOŞULLU** | **✓ İÇSEL** | — | — |
 | **2 — The Adjustment Atlas** | `init` | roadmap var | — | — | — | — | — | — | — |
 | **3 — Draft Your Own Sloper** | `init` | roadmap + `A10` araştırma mimarisi | — | — | — | — | — | — | — |
 
-> **Bu turda bir kapı ilerledi:** Kitap 1 `phase2-visual` →
-> `phase4-production-conditional` (`DECISIONS.md K49`).
-> **`phase3-pilot` İLERLEMEDİ ve ilerleyemez** — iki dış ölçüm hâlâ
-> yapılmadı. Koşullu kapı bunu mekanik olarak korur: `phase5-qa` bu
-> yoldan **açılamaz**.
+> **Bu turda HİÇBİR kapı ilerlemedi ve bu doğrudur.** Faz 5'in içsel
+> işi bitti; `phase5-qa`'yı açacak olan kod değil, **ölçümdür**.
+> `phase3-pilot` ilerlemedi ve ilerleyemez — iki dış ölçüm (`D-01`,
+> `D-02`) hâlâ yapılmadı. Koşullu kapı bunu mekanik olarak korur.
 
 ## Kalite kapıları — son ölçüm
 
@@ -51,18 +59,18 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-29
 | Kapı | Komut | Sonuç |
 |---|---|---|
 | Şema · bütünlük · kaynak otoritesi | `validate_spec.py` | ✓ 0 hata (18 kaynak · 43 belirti · **20 aile** · 32 ölçü · 148 crosswalk · 12 blok · **163 figür**) |
-| Depo · koruma · marka · izolasyon | `validate_structure.py` | ✓ 0 hata (**193 izlenen dosya** · altı denetim hattı) |
+| Depo · koruma · marka · izolasyon | `validate_structure.py` | ✓ 0 hata (**194 izlenen dosya** · altı denetim hattı) |
 | Crosswalk tazeliği | `build_crosswalk.py --check` | ✓ güncel (148 kayıt) |
 | Crosswalk bütünlüğü | `qa_crosswalk.py` | ✓ 0 bulgu — **20/20** aileye ulaşılıyor |
 | Kitap sınırı | `qa_boundary.py` | ✓ 0 bulgu (35 topik) |
-| İddia disiplini | `qa_claims.py` | ✓ 0 bulgu (40 belge) |
-| Terminoloji | `qa_terminology.py` | ✓ 0 bulgu (30 belge · 20 terim) |
+| İddia disiplini | `qa_claims.py` | ✓ 0 bulgu (43 belge) |
+| Terminoloji | `qa_terminology.py` | ✓ 0 bulgu (31 belge · 20 terim) |
 | **Görsel sistem** | `qa_visual.py` | ✓ 0 bulgu — **on dört denetim** *(vücut varyantı eklendi)* |
 | **İddia sicili tazeliği** *(yeni)* | `build_claims.py --check` | ✓ güncel (**307 iddia**) |
-| **Manüskript** *(yeni)* | `qa_manuscript.py` | ✓ **0 bulgu** — **on dört denetim** |
-| **Tam kitap dizgisi** *(yeni)* | `build_book.py` | ✓ **252 sayfa**, bütçe 220–260 içinde |
+| **Manüskript** | `qa_manuscript.py` | ✓ **0 bulgu** — on dört denetim · 255 sayfa |
+| **Tam kitap dizgisi** | `build_book.py` | ✓ **255 sayfa**, bütçe 220–260 içinde |
 | **Yazı tipi bütünlüğü** *(yeni)* | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
-| **Kapıların kendi testi** | `selftest.py` | ✓ **152/152** — veri katmanı *(önceki tur: 116)* |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **187/187** *(Faz 4: 152 · Faz 5'te +35 dizgi/navigasyon regresyonu)* |
 | Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
 
 ## Görsel sistem — Faz 2 ÖLÇÜMLERİ
@@ -94,6 +102,77 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-29
 | `comparison_before_after` | 6 |
 | `toile_state` | 6 |
 | **Toplam** | **154** |
+
+## Faz 5 — QA ÖLÇÜMLERİ
+
+Tam rapor: [`08_REPORTS/PHASE_5_QA_REPORT.md`](08_REPORTS/PHASE_5_QA_REPORT.md)
+· açık iddialar:
+[`BOOK-01/08_REPORTS/PHASE_5_OPEN_CLAIMS.md`](BOOK-01-MEASURE-AND-DIAGNOSE/08_REPORTS/PHASE_5_OPEN_CLAIMS.md)
+
+| Ölçüt | Faz 4 | **Faz 5** | Δ |
+|---|---:|---:|---:|
+| Sayfa | 252 | **255** | +3 |
+| Bölüm | 21 | **21** | 0 |
+| Kelime | 42 224 | **41 995** | −229 |
+| Ayrı figür | 159 | **159** | 0 |
+| Figür yerleşimi | 175 | **175** | 0 |
+| İzlenen maddi iddia | 204/204 | **204/204** | 0 |
+| İddia (toplam) | 307 | **307** | 0 |
+| Crosswalk | 148 | **148** | 0 |
+| **Kapı denetimi** | 152 | **187** | **+35** |
+
+### Dizgi katmanı — ÖLÇÜLDÜ (yeni)
+
+Yöntem: `pdftotext -bbox-layout` ile 255 sayfanın her kelimesinin kutusu;
+dikdörtgen kesişimi + kenar boşluğu + folyo taraması. 300 dpi 1-bit
+rasterleştirme.
+
+| Ölçüt | Faz 5 girişi | **Faz 5 çıkışı** |
+|---|---:|---:|
+| Harf çakışması (üst üste basılan kelime) | **5** (s. 50, s. 72) | **0** |
+| Metin bloğu dışına taşan kelime | **1** (s. 61, 17,4 pt) | **0** |
+| Metni olup sayfa numarası olmayan sayfa | **2** (s. 46, s. 236) | **0** |
+| Yanlış/yinelenen folyo | 0 | **0** |
+| Ek C belirti işaretçisi doğruluğu | **25/43** | **43/43** |
+| İçindekiler parça satırı doğruluğu | **0/6** | **6/6** |
+| Yinelenen bölüm numarası | **1** (iki "CHAPTER 16") | **0** |
+| Ek harf sırası | **A,B,D,E,F,G,C,H,I** | **A→I** |
+| İçindekilerde listelenen ek | **0/9** | **9/9** |
+| Boş form satır yüksekliği | **1,84 mm** | **9,1–9,2 mm** |
+| Ölçü figürü metniyle aynı sayfada | **0/32** | **28/32** |
+| Var olmayan nota gönderen figür | **3** | **0** |
+| Şema ↔ metin neden sırası uyumu | **0/43** | **43/43** |
+| Ortalama sayfa doluluğu | %79,6 | %78,1 |
+
+### Bağımsız inceleme + okur yolculukları
+
+Birincil üretimden AYRI iki hat koşuldu.
+
+| | |
+|---|---:|
+| Bağımsız inceleme bulgusu | **33** |
+| …kabul edilip düzeltilen | **8** |
+| …**ölçümle çürütülen** | **4** |
+| …kabul edilip AÇIK bırakılan (içerik turu ister) | **6** |
+| Okur yolculuğu | **3** — üçü de Ek C kusurunu buldu |
+
+**Çürütülenler ölçümle çürütüldü**, tartışmayla değil: "ters teşhis"
+iddiası iki AYRI belirtinin birleştirilmesiydi; "dört mü beş mi sıra
+kuralı" iddiası kitabın *"Four settled + One contested"* yapısını
+gözden kaçırmıştı.
+
+### Faz 5'te AÇIK BIRAKILAN — Faz 6 öncesi içerik turu
+
+| # | Risk | Bulgu |
+|---|---|---|
+| `A-01` | `R-25` | Karın nedeni göğüs ailesine yönleniyor (`SYM-018.C1`, `SYM-040.C1`) |
+| `A-02` | `R-26` | 129 `Confirm by` satırının 46'sı kitabın öğretmediği bir ölçüye başvuruyor |
+| `A-03` | — | İşlenmiş örnekte "3 cm" kenar başına mı toplam mı belirsiz |
+| `A-04` | — | İki figür alanı inç, kitap metrik |
+| `A-05` | `R-27` | Belirti figüründe teşhis işareti (0,6 pt) gövdeden (1,2 pt) HAFİF |
+| `A-06` | — | Bölüm 8 ile Ek D'nin "on dört ögesi" aynı on dört değil |
+
+---
 
 ## Faz 4 — MANÜSKRİPT ÖLÇÜMLERİ
 

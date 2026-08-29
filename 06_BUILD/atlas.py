@@ -309,8 +309,17 @@ class AtlasBuilder:
                             "Do not choose between them by eye. Test "
                             + ("both" if n == 2 else f"all {n}") +
                             ", cheapest first, and let the result decide.",
-                            "This is a known limit of the published evidence rather "
-                            "than something you have missed."]})
+                            # ⚠ Faz 5: bu cümle 28 çakışmanın HEPSİNDE
+                            # suçu "yayınlanmış kanıta" atıyordu. Kayıt
+                            # farklı söylüyor: 25'i gerçekten kaynak
+                            # boşluğu, 3'ü bu kitabın KENDİ ayırt edici
+                            # kanıt taslağının kusuru (kayıtta
+                            # "INVERTED", "presupposes the conclusion",
+                            # "is the sign, not a discriminator").
+                            # Okuru rahatlatan işlev korunur, atıf
+                            # DÜZELTİLİR: 28'i için de doğru olan cümle.
+                            "This is a known limit of the method as this book "
+                            "states it — not something you have missed."]})
 
         # ── henüz değiştirme ──────────────────────────────────────────
         out.append({"type": "callout", "title": "Do not change yet", "items": c["hold"]})

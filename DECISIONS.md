@@ -1360,3 +1360,106 @@ değildi; 13'ü sonuncuydu.** Kitap kendi kuralının tersini yaptırıyordu.
 `atlas.py` sunum sırasını **kapı-önce** yaptı. Taksonominin olasılık
 sırası korunur; değişen yalnızca okura gösterilme sırasıdır ve gerekçe
 `h3` başlığında yazılıdır: *"Check these before the pattern."*
+
+---
+
+## K54 — Kapı, kapsamını SESSİZCE küçültemez
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 5 · **Durum:** UYGULANDI
+
+Faz 5 temiz klon denetiminde ölçüldü: `selftest.py` yerel ağaçta 152,
+temiz klonda **146** denetim koşuyordu. Fark, prozanın bilerek
+izlenmemesinden (`K9`) doğuyor ve bu **meşru**. Meşru olmayan, kapının
+bunu nasıl raporladığıydı:
+
+* atlanan denetimler `check(..., True)` ile **GEÇMİŞ** sayılıyordu;
+* kapanış satırı yine de *"✓ Bütün kapılar kusurlu fixture'ları doğru
+  yakaladı"* diyordu.
+
+Atlananlar arasında **Faz 4'ün en pahalı düzeltmelerini koruyanlar**
+vardı: `B-01` yeniden gözlem, `B-03` belirtiye özgü eleme, ölçüm figürü
+kapsaması. CI yeşildi ve o denetimler **hiç koşmamıştı.**
+
+**Karar:** atlanan bir denetim GEÇEN bir denetim DEĞİLDİR. `skip()`
+ayrı sayar, adıyla listeler, kapanış satırı *"Koşan N denetimin hepsi
+geçti — ama M denetim HİÇ KOŞMADI"* der.
+
+Aynı ilke iki yerde daha uygulandı: `qa_manuscript.py` artık atlama
+gerekçesini DOĞRU yazıyor (eskiden *"Faz 4 öncesi kitaplar için"*
+diyordu; Kitap 1 Faz 4 öncesi değildir), ve `selftest_visual.py` eksik
+YAZI TİPİNİ de kayıp bağımlılık sayıyor (eskiden 11 çizim yasağını
+yanlışlıkla `✗` basıyordu).
+
+**Bir kapının en tehlikeli hâli, sormadığı soruyu sormuş gibi
+görünmesidir.**
+
+---
+
+## K55 — Dizgi çıktısı ÖLÇÜLÜR, varsayılmaz
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 5 · **Durum:** UYGULANDI
+
+Faz 4 sonunda sekiz veri kapısı yeşildi ve **ürün bozuktu.** Faz 5'te
+bulunan kusurların hiçbiri veri katmanında değildi:
+
+* yan not başlığı metin bloğunun ÜSTÜNE basıyordu (s. 72'de 33,2 pt);
+* akışta açılan sayfa folyo ALMIYORDU (s. 46, s. 236);
+* boş form satırları **1,84 mm** idi — `_wrap("") == []` yüzünden satır
+  yüksekliği formülü NEGATİF düzeltme uyguluyordu;
+* Ek C — kitabın ilan ettiği tek giriş yolu — 43 belirtinin 18'inde
+  okuru bir sayfa erkene, çoğu kez BAŞKA bir belirtinin karar tablosuna
+  gönderiyordu (kapalı döngü);
+* ölçü figürü 32/32 kendi metninden bir sayfa sonra basılıyordu.
+
+**Karar:** dizgi katmanı da ölçülür. Yöntem: `pdftotext -bbox-layout`
+ile her kelimenin kutusu çıkarılır; dikdörtgen kesişimi (harf çakışması),
+kenar boşluğu ihlali ve folyo bütünlüğü **255 sayfanın tamamında**
+taranır. 300 dpi 1-bit rasterleştirme baskı hayatta kalmasını ölçer.
+
+Bu ölçümlerin **on üçü kalıcı kapıya** dönüştürüldü (152 → 187 denetim).
+Dördü **mutasyonla** sınandı: düzeltme geri alındığında kapının gerçekten
+düştüğü gösterildi. Biri ilk yazılışında mutasyonu YAKALAYAMADI (gerçek
+çizim yolunu değil yardımcı işlevi sınıyordu) ve yeniden yazıldı —
+**kapının kendisi de bir kapıdan geçti.**
+
+---
+
+## K56 — Sunum sırası TEK yerden gelir
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 5 · **Durum:** UYGULANDI
+
+`K53` aday nedenleri kapı-önce sıraya dizdi — ama yalnızca `atlas.py`
+içinde. `figure_engine.py` akış şemasını **ham taksonomi sırasından**
+çiziyordu.
+
+İki sonuç ölçüldü: *"cheapest test first"* diyen **17 girişin 17'sinde**
+bedava dal şemada ikinci ya da üçüncü sıradaydı; ve metindeki **"1.
+neden"** ile şemanın **ilk dalı FARKLI nedenlerdi** — aynı yayılımda
+"birinci neden" iki ayrı şeye işaret ediyordu.
+
+**Karar:** sıralama tek bir kuraldan gelir ve iki sunum da onu kullanır.
+Kapı: `test_flowchart_and_entry_agree_on_cause_order` 43/43 denetler.
+
+Desen `K16` (`trfold.py`) ile aynıdır: **bir davranış, bir kopya.**
+
+---
+
+## K57 — Kapsam okura BEYAN EDİLİR
+
+**Tarih:** 29 Ağustos 2026 · **Faz:** 5 · **Durum:** UYGULANDI
+
+`SCOPE.md` örme/esnek kumaş dikişçisini *"farklı fizik — seri dışı"*
+diye kapsam DIŞINDA tutuyor. Fark testi katılımcıları *"dokuma kumaşla"*
+dikenlerden seçiliyor. Doğrulama protokolü dokuma prova kumaşı istiyor.
+
+**Kitapta "woven" kelimesi 252 sayfada SIFIR kez geçiyordu.**
+
+*"Who this is not for"* listesi üç okuru dışlıyordu ve hiçbiri bu
+değildi. Üstelik Bölüm 1 *"The third is **always** larger than the
+first"* diyordu — negatif payda YANLIŞ olan koşulsuz bir genelleme.
+
+**Karar:** bir kitabın dışladığı okur, o kitabı satın almadan ÖNCE
+bunu bilmelidir. Dışlama listeye eklendi, prova kumaşı satırı "woven"
+dedi, ve mutlak cümle kapsamla sınırlandırıldı.
+
+**Beyan edilmemiş bir kapsam, kapsam değildir.**

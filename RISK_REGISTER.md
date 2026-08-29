@@ -355,6 +355,71 @@ numaralandırma `R-18`'den devam eder.)*
 
 ---
 
+## Faz 5 — `R-19` ÜÇÜNCÜ KEZ GERÇEKLEŞTİ
+
+**`R-19` (kapılar yeşilken ürün bozuk) · YÜKSEK · KAPANMADI, GÜÇLENDİ**
+
+Faz 2'de bir kez (`.gitignore` iki kaynak dosyayı yutuyordu), Faz 4'te
+bir kez (29 ölçüm figürünün hiçbiri kitapta yoktu) gerçekleşmişti.
+Faz 5'te **üç ayrı biçimde** gerçekleşti — sekiz veri kapısı yeşil ve
+152 kapı testi geçerken:
+
+1. **Dizgi çakışması.** Yan not başlığı sarılmıyor, metin bloğunun
+   üstüne basılıyordu (s. 72'de 33,2 pt). Hiçbir kapı dizilmiş sayfaya
+   bakmıyordu.
+2. **Navigasyon sapması.** Ek C — kitabın ilan ettiği tek giriş yolu —
+   43 belirtinin 18'inde okuru bir sayfa erkene, çoğu kez BAŞKA bir
+   belirtinin karar tablosuna gönderiyordu; o tablo da *"go back to the
+   sign index in Appendix C"* ile bitiyordu. **Kapalı döngü.**
+3. **Kapının kendi kapsamını sessizce küçültmesi.** `selftest.py` temiz
+   klonda 152 → 146 denetime düşüyor, atlananları GEÇMİŞ sayıyor ve
+   *"bütün kapılar geçti"* diyordu. Atlananlar arasında Faz 4'ün en
+   pahalı düzeltmelerini koruyanlar vardı.
+
+**Alınan önlem:** 35 yeni regresyon denetimi (152 → 187) ve dizgi
+çıktısının ölçülmesi (`K55`). Dördü mutasyonla sınandı.
+
+**Risk KAPANMADI.** Üç fazda üç kez gerçekleşen bir sınıf, kapatılmış
+sayılamaz. Her fazda yeni bir biçimde ortaya çıkıyor ve her seferinde
+o biçimi gören bir kapı yoktu. Faz 6'ya **YÜKSEK** olarak devredilir.
+
+---
+
+## Faz 5'te açılan riskler
+
+**`R-25` · Teşhis yönlendirmesi ailesiyle uyuşmayabilir · ORTA**
+
+`SYM-018.C1` okura *"Not enough volume in the front (bust **or
+abdomen**)"* diyor ve `AF-01` **göğüs hacmi** ailesine yönlendiriyor.
+`SYM-040.C1` *"A volume (bust, **abdomen** or seat)"* diyor, yine
+`AF-01`. Oysa `AF-20` (karın hacmi) Faz 4'te tam bu boşluk için eklendi
+ve `SYM-017.C3` doğru yönlendiriyor.
+
+Karnı dolayısıyla yan dikişi öne kayan bir okur **göğüs** düzeltmesine
+gönderilir. Faz 5'te DÜZELTİLMEDİ: doğru düzeltme nedeni bölmek ya da
+yeni neden eklemektir ve bu crosswalk + şema + iddia sicili zincirini
+etkiler; kaynak doğrulaması ister. **Faz 6 ÖNCESİ içerik turu.**
+
+**`R-26` · Doğrulama adımı öğretilmeyen bir ölçüye başvurabilir · ORTA**
+
+129 `Confirm by` satırının **46'sı** kitabın 32 ölçüsünden hiçbirini
+adlandırmıyor. Bir kısmı meşru (kalıp ölçüsü — Bölüm 3 öğretiyor), bir
+kısmı takma ad (*"front-to-back length difference"* = `M-032`), ama bir
+kısmı gerçekten öğretilmiyor (*"the height of the shoulder tip"*,
+*"your own profile"*). Kitap 12 yerde dürüstçe *"There is no measurement
+for this"* diyor — yani doğru kalıp mevcut, her yerde kullanılmamış.
+**Faz 6 ÖNCESİ içerik turu.**
+
+**`R-27` · Figür hiyerarşisi tersine dönmüş · DÜŞÜK**
+
+43 `fit_sign_on_figure` figüründe gövde dış hattı **1,2 pt**, teşhis
+işareti (çekme çizgisi) **0,6 pt**. Figürün ÖZNESİ, çerçevesinin yarısı
+kalınlıkta. 1-bit baskıda hayatta kalıyor (okunabilirlik kusuru YOK),
+ama vurgu yanlış yerde. Token ağırlığı değişikliği baskı
+kalibrasyonunun yeniden koşulmasını ister → **Faz 6 girdisi.**
+
+---
+
 ## Terk etme koşulları — ölçülebilir
 
 Araştırma raporu § 32'den devralındı; Faz 1'de sayılar doğrulandı.

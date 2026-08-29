@@ -194,3 +194,47 @@ alanları ve `06_BUILD/kill_gate.py`.
 | **Engelleyici mi** | Hayır — ama `CLAIM_SOURCE_MAP.md`'deki `VERIFIED` sayısının (56) gerçek olduğu ancak bundan sonra söylenebilir. |
 | **Kim** | Ajan |
 | **Durum** | **AÇIK** — Faz 5 |
+
+---
+
+## Faz 5 sonrası durum — 29 Ağustos 2026
+
+Faz 5 **hiçbir dış bağımlılığı kapatmadı ve kapatamazdı.** Faz 5 içsel
+bir kalite güvence fazıdır; `D-01` ve `D-02` gerçek insanların gerçek
+kumaşla yapacağı ölçümlerdir.
+
+| # | Bekleyen | Faz 5 girişi | **Faz 5 çıkışı** | Engelleyici |
+|---|---|---|---|---|
+| `D-01` | Fark testi — 3 ev dikişçisi | 0/3 · `measured: false` | **0/3 · `measured: false`** | **EVET — HARD STOP** |
+| `D-02` | Fiziksel doğrulama — 19 `VAL` | 0/19 · `measured: false` | **0/19 · `measured: false`** | **EVET — HARD STOP** |
+| `D-03` | Marka temizliği | yapılmadı | yapılmadı | EVET (yayın öncesi) |
+| `D-06` | KDP Previewer + prova baskı | yapılmadı | yapılmadı | EVET (Faz 6) |
+| `D-07` | Ücretsiz kaynak edinimi | yapılmadı | yapılmadı | hayır |
+
+### Faz 5'in `D-06` için ürettiği girdi
+
+Faz 5 **dijital** bir baskı simülasyonu koştu (300 dpi, 1-bit, 23
+temsilci sayfa) ve şunu ölçtü: yapısal çizgiler ≥ 2 px ile hayatta,
+etiketler okunur, akış şeması hiyerarşisi korunuyor.
+
+> **Bu bir FİZİKSEL PROVA DEĞİLDİR.** Kâğıt, mürekkep yayılması, cilt
+> kıvrımı ve gerçek okuma mesafesi ölçülmedi. `D-06` açıktır.
+
+Faz 5 ayrıca `D-06`'ya iki karar taşıdı:
+* **`R-27`** — belirti figüründe teşhis işareti gövdeden hafif çiziliyor
+  (0,6 pt / 1,2 pt). Düzeltmesi token ağırlığı değişikliğidir ve baskı
+  kalibrasyonunun yeniden koşulmasını ister.
+* **`A-04`** — iki figür alanı inç etiketli, kitabın geri kalanı metrik.
+  Birim politikası kararı gerekiyor.
+
+### Faz 5'in `D-07` için ürettiği girdi
+
+Dört `CONTESTED` ölçü (`M-004` bel · `M-008` bilek · `M-013` boyun
+tabanı · `M-025` iç dikiş) **yalnızca daha iyi kaynakla** kapanır.
+`S-0014` (ISO 8559-1:2017) ve `S-0015` (ASTM D5219) tam olarak bu
+tanımları yönetir ve **ikisi de edinilmedi**. Bunlar edinilirse sekiz
+`CONTESTED` iddia çözülebilir.
+
+---
+
+*Vâliçe Press · BEFORE YOU CUT · External Dependencies · 29 Ağustos 2026 (Faz 5 yürütmesi)*
