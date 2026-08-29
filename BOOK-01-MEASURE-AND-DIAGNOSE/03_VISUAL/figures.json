@@ -12,9 +12,9 @@
   ],
   "generated_by": "06_BUILD/figure_engine.py",
   "book": "book-01",
-  "count": 161,
-  "deterministic_count": 112,
-  "deterministic_ratio": 0.6957,
+  "count": 163,
+  "deterministic_count": 114,
+  "deterministic_ratio": 0.6994,
   "by_type": {
     "body_landmark": 7,
     "comparison_before_after": 6,
@@ -22,7 +22,7 @@
     "flowchart": 47,
     "measurement_path": 29,
     "pattern_piece": 8,
-    "table_graphic": 15,
+    "table_graphic": 17,
     "toile_state": 6
   },
   "figures": [
@@ -2644,6 +2644,40 @@
     {
       "figure_id": "FIG-B1-149",
       "book": "book-01",
+      "figure_type": "table_graphic",
+      "shows": "Ölçü dizini — okura dönük başvuru (Ek A)",
+      "view": null,
+      "notation_tokens": [
+        "TK-09"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-150",
+      "book": "book-01",
+      "figure_type": "table_graphic",
+      "shows": "Düzeltme ailesi dizini — okura dönük (Ek H)",
+      "view": null,
+      "notation_tokens": [
+        "TK-09"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-151",
+      "book": "book-01",
       "figure_type": "flowchart",
       "shows": "Yedi adımlı teşhis döngüsü — ana şema; yeniden gözlem bağı döngüyü kapatır (çelişmeli inceleme B-01)",
       "view": null,
@@ -2660,7 +2694,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-150",
+      "figure_id": "FIG-B1-152",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Şerit metre sırtta düştü — yanlış ve doğru yan yana",
@@ -2678,7 +2712,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-151",
+      "figure_id": "FIG-B1-153",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Kollar kaldırıldı — yanlış ve doğru yan yana",
@@ -2696,7 +2730,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-152",
+      "figure_id": "FIG-B1-154",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Şerit metre fazla sıkıldı — yanlış ve doğru yan yana",
@@ -2714,7 +2748,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-153",
+      "figure_id": "FIG-B1-155",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Bel işaretlenmeden ölçüldü — yanlış ve doğru yan yana",
@@ -2732,7 +2766,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-154",
+      "figure_id": "FIG-B1-156",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Kalça en dolgun noktadan ölçülmedi — yanlış ve doğru yan yana",
@@ -2750,7 +2784,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-155",
+      "figure_id": "FIG-B1-157",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Okur öne eğildi — yanlış ve doğru yan yana",
@@ -2768,7 +2802,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-156",
+      "figure_id": "FIG-B1-158",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Toile üzerine ön ve arka orta hattın işaretlenmesi",
@@ -2785,7 +2819,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-157",
+      "figure_id": "FIG-B1-159",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Denge çizgilerinin işaretlenmesi — göğüs ve kalça hizası",
@@ -2802,7 +2836,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-158",
+      "figure_id": "FIG-B1-160",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Bel hattının lastikle bulunması ve işaretlenmesi",
@@ -2820,7 +2854,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-159",
+      "figure_id": "FIG-B1-161",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "İğne testi — fazlalığın toplanıp ölçülmesi",
@@ -2838,7 +2872,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-160",
+      "figure_id": "FIG-B1-162",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Kesme testi — yetersizliğin açılıp ölçülmesi",
@@ -2856,7 +2890,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-161",
+      "figure_id": "FIG-B1-163",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Kontrol toile — düzeltme öncesi referans",
@@ -5575,78 +5609,356 @@
       "source_file": "tbl_form_fit_profile.pdf"
     },
     "FIG-B1-149": {
+      "table": "measurement_index",
+      "rows": 33,
+      "internal": false,
+      "data": [
+        [
+          "Measurement",
+          "Where it runs",
+          "Helper?"
+        ],
+        [
+          "High bust",
+          "under the arms, above the bust → around the body back to start",
+          "yes"
+        ],
+        [
+          "Full bust",
+          "bust apex → around the body back to start",
+          "yes"
+        ],
+        [
+          "Underbust",
+          "directly beneath the bust → around the body back to start",
+          "no"
+        ],
+        [
+          "Natural waist",
+          "narrowest point of the torso → around the body back to start",
+          "yes"
+        ],
+        [
+          "High hip",
+          "≈ 7–10 cm below the marked waist → around the body back to start",
+          "no"
+        ],
+        [
+          "Full hip",
+          "fullest point of the seat/hip → around the body back to start",
+          "no"
+        ],
+        [
+          "Bicep",
+          "fullest point of the upper arm → around the arm back to start",
+          "no"
+        ],
+        [
+          "Wrist",
+          "wrist bone → around the wrist back to start",
+          "no"
+        ],
+        [
+          "Thigh",
+          "fullest point of the upper thigh → around the leg back to start",
+          "no"
+        ],
+        [
+          "Knee",
+          "center of the kneecap → around the leg back to start",
+          "no"
+        ],
+        [
+          "Calf",
+          "fullest point of the calf → around the leg back to start",
+          "no"
+        ],
+        [
+          "Neck base",
+          "base of the neck → around the neck base back to start",
+          "yes"
+        ],
+        [
+          "Shoulder length",
+          "side neck point → shoulder point (bone tip)",
+          "yes"
+        ],
+        [
+          "Center front length",
+          "hollow at base of throat → marked natural waist",
+          "yes"
+        ],
+        [
+          "Center back length",
+          "nape (prominent neck bone) → marked natural waist",
+          "yes"
+        ],
+        [
+          "Shoulder to apex",
+          "side neck point → bust apex",
+          "yes"
+        ],
+        [
+          "Apex to apex",
+          "left bust apex → right bust apex",
+          "yes"
+        ],
+        [
+          "Apex to waist",
+          "bust apex → marked natural waist",
+          "no"
+        ],
+        [
+          "Across back",
+          "left back armhole crease → right back armhole crease",
+          "yes"
+        ],
+        [
+          "Across chest",
+          "left front armhole crease → right front armhole crease",
+          "yes"
+        ],
+        [
+          "Armhole depth",
+          "nape → underarm level (horizontal from nape line)",
+          "yes"
+        ],
+        [
+          "Waist to hip",
+          "marked natural waist → full hip level",
+          "no"
+        ],
+        [
+          "Waist to floor (outseam)",
+          "marked natural waist → floor",
+          "yes"
+        ],
+        [
+          "Inseam",
+          "crotch level → floor",
+          "yes"
+        ],
+        [
+          "Crotch depth (seated)",
+          "marked natural waist → seat surface, seated upright",
+          "yes"
+        ],
+        [
+          "Crotch length (rise)",
+          "front marked waist → back marked waist, through the legs",
+          "yes"
+        ],
+        [
+          "Sleeve length",
+          "shoulder point → wrist bone, over the bent elbow",
+          "yes"
+        ],
+        [
+          "Shoulder to elbow",
+          "shoulder point → elbow point, arm bent",
+          "yes"
+        ],
+        [
+          "Total height",
+          "top of head → floor",
+          "yes"
+        ],
+        [
+          "Bust–high bust difference",
+          "a calculated difference",
+          "no"
+        ],
+        [
+          "Front/back length difference",
+          "a calculated difference",
+          "no"
+        ],
+        [
+          "Waist-to-hip drop",
+          "a calculated difference",
+          "no"
+        ]
+      ],
+      "col_ratio": [
+        0.3596,
+        0.5279,
+        0.1125
+      ],
+      "width_pt": 397.8,
+      "height_pt": 521.8,
+      "source_file": "tbl_measurement_index.pdf"
+    },
+    "FIG-B1-150": {
+      "table": "family_index",
+      "rows": 21,
+      "internal": false,
+      "data": [
+        [
+          "Adjustment family",
+          "Region"
+        ],
+        [
+          "Bust volume (full / small bust adjustment)",
+          "Bust and chest"
+        ],
+        [
+          "Bust position (apex height / width, dart angle)",
+          "Bust and chest"
+        ],
+        [
+          "Shoulder slope (square / sloping shoulder)",
+          "Shoulder"
+        ],
+        [
+          "Shoulder width (narrow / broad shoulder)",
+          "Shoulder"
+        ],
+        [
+          "Shoulder position (forward shoulder)",
+          "Shoulder"
+        ],
+        [
+          "Neckline size and shape",
+          "Neckline and neck"
+        ],
+        [
+          "Upper back (round back / broad back / narrow back)",
+          "Upper back"
+        ],
+        [
+          "Armhole depth and shape",
+          "Armhole"
+        ],
+        [
+          "Sleeve cap (height, shape, ease)",
+          "Sleeve and arm"
+        ],
+        [
+          "Sleeve girth and length (bicep, forearm, length)",
+          "Sleeve and arm"
+        ],
+        [
+          "Torso length and front/back balance",
+          "Waist and torso"
+        ],
+        [
+          "Waist girth",
+          "Waist and torso"
+        ],
+        [
+          "Hip and seat volume (full / flat seat, high hip)",
+          "Hip and seat"
+        ],
+        [
+          "Sway back / lumbar hollow",
+          "Waist and torso"
+        ],
+        [
+          "Crotch depth (rise)",
+          "Crotch and leg"
+        ],
+        [
+          "Crotch length and curve shape (front / back hook)",
+          "Crotch and leg"
+        ],
+        [
+          "Leg girth and shape (thigh, knee, calf)",
+          "Crotch and leg"
+        ],
+        [
+          "Blending between sizes",
+          "Whole garment"
+        ],
+        [
+          "Overall length (lengthen / shorten lines)",
+          "Whole garment"
+        ],
+        [
+          "Abdomen volume (protruding / flat abdomen)",
+          "Waist and torso"
+        ]
+      ],
+      "col_ratio": [
+        0.6964,
+        0.3036
+      ],
+      "width_pt": 301.6,
+      "height_pt": 332.8,
+      "source_file": "tbl_family_index.pdf"
+    },
+    "FIG-B1-151": {
       "zone": "CYCLE",
       "width_pt": 280.0,
       "height_pt": 346.0,
       "source_file": "flow_CYCLE.pdf"
     },
-    "FIG-B1-150": {
+    "FIG-B1-152": {
       "error": "tape_slipped_back",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_tape_slipped_back.pdf"
     },
-    "FIG-B1-151": {
+    "FIG-B1-153": {
       "error": "arms_raised",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_arms_raised.pdf"
     },
-    "FIG-B1-152": {
+    "FIG-B1-154": {
       "error": "tape_too_tight",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_tape_too_tight.pdf"
     },
-    "FIG-B1-153": {
+    "FIG-B1-155": {
       "error": "waist_guessed",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_waist_guessed.pdf"
     },
-    "FIG-B1-154": {
+    "FIG-B1-156": {
       "error": "hip_too_high",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_hip_too_high.pdf"
     },
-    "FIG-B1-155": {
+    "FIG-B1-157": {
       "error": "posture_leaning",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_posture_leaning.pdf"
     },
-    "FIG-B1-156": {
+    "FIG-B1-158": {
       "state": "marking_cf_cb",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_marking_cf_cb.pdf"
     },
-    "FIG-B1-157": {
+    "FIG-B1-159": {
       "state": "marking_balance",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_marking_balance.pdf"
     },
-    "FIG-B1-158": {
+    "FIG-B1-160": {
       "state": "marking_waist",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_marking_waist.pdf"
     },
-    "FIG-B1-159": {
+    "FIG-B1-161": {
       "state": "pin_test",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_pin_test.pdf"
     },
-    "FIG-B1-160": {
+    "FIG-B1-162": {
       "state": "slash_test",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_slash_test.pdf"
     },
-    "FIG-B1-161": {
+    "FIG-B1-163": {
       "state": "control_toile",
       "width_pt": 200.0,
       "height_pt": 262.0,

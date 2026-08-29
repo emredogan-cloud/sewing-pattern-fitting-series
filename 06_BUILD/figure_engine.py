@@ -847,6 +847,29 @@ class Engine:
             rows = [cols] + [[""] * len(cols) for _ in range(10)]
             self._draw_table(f"form_{key}", f"Boş form — {title} (okura dönük)",
                              rows, internal=False)
+        # ── Ek A ve Ek H: OKURA DÖNÜK dizinler ────────────────────────
+        # Ek A önce Bölüm 2'ye işaret eden bir sayfaydı ve pratikte BOŞTU.
+        # Bir başvuru eki, öğretim bölümünün kopyası olmamalıdır ama
+        # ARAMA yapılabilir olmalıdır: ad, nereden, nereye, en sık hata.
+        self._draw_table("measurement_index",
+                         "Ölçü dizini — okura dönük başvuru (Ek A)",
+                         [["Measurement", "Where it runs", "Helper?"]] +
+                         # Kırpma burada YAPILMAZ: dizgi sarar, çizim
+                         # katmanı kendi sınırını kendisi uygular.
+                         [[m["name"],
+                           ("a calculated difference" if m["category"] == "derived"
+                            else f"{m['landmark_start']} → {m['landmark_end']}"),
+                           "yes" if m.get("helper_required") else "no"]
+                          for m in self.measures],
+                         internal=False)
+        # Ek H: Kitap 1'in vardığı 20 aile. İÇ KİMLİK TAŞIMAZ — okura
+        # dönük bir dizinde AF-xx basmak K46'nın ihlalidir.
+        self._draw_table("family_index",
+                         "Düzeltme ailesi dizini — okura dönük (Ek H)",
+                         [["Adjustment family", "Region"]] +
+                         [[f["name"], self.zone_names.get(f["zone"], f["zone"])]
+                          for f in self.families],
+                         internal=False)
         self._draw_cycle_chart()
 
     def _draw_cycle_chart(self):
@@ -912,6 +935,49 @@ class Engine:
                 if c < len(r):
                     w = max(w, len(r[c]) * size * 0.52)
             colw.append(min(max(w + pad * 2, 42.0), 210.0))
+        # ⚠ Sütun genişlikleri içerikten HESAPLANIR ve toplamı sayfanın
+        # figür alanını AŞABİLİR. Ek A'nın dört sütunlu ölçü dizini tam
+        # bunu yaptı (723 pt > 504 pt) ve qa_visual yakaladı.
+        #
+        # Kapı doğru davrandı; hatayı KAYNAĞINDA kapatmak gerekiyordu:
+        # bir tablo figürü sayfadan geniş ÜRETİLEMEMELİ. Taşarsa sütunlar
+        # ORANTILI daraltılır — kolon atılmaz, çünkü hangi kolonun
+        # atılacağı bir İÇERİK kararıdır ve motor onu veremez.
+        # İlk denemede sütunlar ORANTILI daraltıldı. Yanlıştı: daraltma
+        # etiketleri üst üste bindirdi ve çakışma kapısı onu yakaladı.
+        # Bir kapıyı başka bir kapıyı bozarak geçmek bir çözüm değildir.
+        #
+        # Motor artık REDDEDİYOR. Sayfadan geniş bir tablo bir çizim
+        # sorunu değil bir İÇERİK sorunudur ve motorun veremeyeceği bir
+        # karar ister: hangi sütun kısalacak.
+        # ⚠ Sütun genişliği 210 pt'de KIRPILIYOR ama hücre metni tam
+        # uzunlukta çiziliyordu; uzun bir hücre komşusunun üzerine
+        # taşıyor ve çakışma kapısı haklı olarak reddediyordu.
+        # Metin artık SÜTUNUNA sığdırılır — genişlik bir sınırdır, bir
+        # temenni değil.
+        # ⚠ KIRPMA YALNIZCA ÇİZİM İÇİNDİR. Sayfaya dizilen tablo
+        # `extra["data"]`'dan gelir ve orada TAM metin durmalıdır:
+        # dizgi motoru sütuna sığdırmayı SARARAK yapar, kırparak değil.
+        # İlk sürüm kırpılmış satırları kaydetti ve Ek B'deki sınıf
+        # tanımları kitapta "…" ile kesildi — çizim sınırı, İÇERİĞİ
+        # budamıştı. İki katmanın kısıtı aynı değildir.
+        full_rows = [list(r) for r in rows]
+        fitted = []
+        for r in rows:
+            row = []
+            for c in range(ncol):
+                txt = str(r[c]) if c < len(r) else ""
+                budget = max(1, int((colw[c] - pad * 2) / (size * 0.52)))
+                row.append(txt if len(txt) <= budget else short(txt, budget))
+            fitted.append(row)
+        rows = fitted
+
+        max_w = float(self.geom["text_block"]["total_measure_pt"])
+        if sum(colw) > max_w:
+            raise ValueError(
+                f"tbl_{key}: tablo sayfadan GENİŞ ({sum(colw):.0f} > {max_w:.0f} pt). "
+                f"Sütun sayısını ya da hücre metnini kısaltın; motor hangisinin "
+                f"kısalacağına karar veremez.")
         W = sum(colw); H = rowh * len(rows) + 2
         fc = self._fc(W, H, "table", f"tbl_{key}.pdf")
         y = H - rowh
@@ -936,7 +1002,7 @@ class Engine:
                             # ızgarasında yeniden dizilir — ama veri TEK
                             # kaynaktan gelir: bu kayıt. İki kopya olsaydı
                             # PDF ile sayfa birbirinden ayrılabilirdi.
-                            "data": rows,
+                            "data": full_rows,
                             "col_ratio": [round(c / W, 4) for c in colw],
                             "width_pt": round(W, 1), "height_pt": round(H, 1),
                             "source_file": f"tbl_{key}.pdf"})

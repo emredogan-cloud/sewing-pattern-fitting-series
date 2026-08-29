@@ -390,10 +390,33 @@ yerine geçmez.**
 
 | | |
 |---|---|
-| Dal | `faz/4-production` (CI `faz/**` dallarını kapsıyor) |
-| İzlenen dosya | **173** (önceki tur 139) |
-| Yeni CI işi | **`manuscript`** — iddia sicili + iddia haritası tazeliği + manüskript kapısı |
+| Dal | `faz/4-production` — **itildi** (CI `faz/**` dallarını kapsıyor) |
+| Commit | 4 |
+| İzlenen dosya | **192** (önceki tur 139) |
+| CI | **11 iş · 10 başarılı · 1 tasarım gereği başarısız** |
 | Temiz klon | ✓ doğrulandı — veri kapıları bağımlılıksız çalışıyor |
+
+**CI iş listesi (koşum `33230267042`):**
+
+| Sonuç | İş |
+|---|---|
+| ✓ | kapı seviyelerini oku |
+| ✓ | şema · bütünlük · kaynak otoritesi |
+| ✓ | depo · koruma · marka · izolasyon |
+| ✓ | crosswalk tazeliği + bütünlüğü |
+| ✓ | kitap sınırı |
+| ✓ | iddia disiplini · terminoloji |
+| ✓ | görsel sistem |
+| ✓ | **iddia sicili · izlenebilirlik · manüskript kapısı** *(yeni)* |
+| ✓ | KAPILARIN KENDİ TESTİ |
+| ✓ | RENDER KATMANI |
+| ✗ | **kill-gate ön koşulu — TASARIM GEREĞİ BAŞARISIZ** (`continue-on-error`) |
+
+Kill-gate işinin başarısız olması bir kusur değil, **kayıttır**: Faz 3
+ölçülene kadar bu iş her koşumda kırmızı yanacaktır ve yanmalıdır.
+
+⚠ **Master'a birleştirilmedi.** Faz 4 kurucu geçersiz kılmasıyla
+yürütüldü; birleştirme kararı kurucunundur. PR bağlantısı depoda hazır.
 
 **Bilerek yayımlanMAYAN:** manüskript prozası (`02_CONTENT/protected/`)
 · dizilmiş kitap PDF'i · pilot prozası · fiziksel sınama fotoğrafları ·

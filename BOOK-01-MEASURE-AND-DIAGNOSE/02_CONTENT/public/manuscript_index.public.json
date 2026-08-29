@@ -6,13 +6,13 @@
   "generated_by": "06_BUILD/build_book.py",
   "book": "book-01",
   "charts_included": true,
-  "pages_total": 230,
+  "pages_total": 231,
   "page_target": [
     220,
     260
   ],
-  "figures_used": 175,
-  "figures_distinct": 158,
+  "figures_used": 176,
+  "figures_distinct": 160,
   "chapters_expected": 21,
   "chapters_built": 21,
   "chapters_missing": [],
@@ -564,12 +564,12 @@
       "part": 6,
       "generated": false,
       "page_start": 226,
-      "page_end": 230,
-      "pages": 5,
-      "figures": 8,
+      "page_end": 231,
+      "pages": 6,
+      "figures": 9,
       "signs_covered": [],
-      "blocks": 34,
-      "words": 465
+      "blocks": 35,
+      "words": 463
     }
   ]
 }
