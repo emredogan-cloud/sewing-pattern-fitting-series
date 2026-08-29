@@ -238,3 +238,91 @@ tanımları yönetir ve **ikisi de edinilmedi**. Bunlar edinilirse sekiz
 ---
 
 *Vâliçe Press · BEFORE YOU CUT · External Dependencies · 29 Ağustos 2026 (Faz 5 yürütmesi)*
+
+---
+
+## KURUCU KARARI — 29 Ağustos 2026 · `EXTERNAL_VALIDATION_UNAVAILABLE`
+
+Kurucu, aşağıdakiler için **pratik erişimin OLMADIĞINI** açıkça
+bildirdi ve projenin beklememesini istedi:
+
+* gerçek insan katılımcı testi
+* ev dikişçisiyle fark testi
+* fiziksel toile / muslin denemesi
+* fiziksel giysi prova deneyi
+* dış uzman doğrulaması
+* bu aşamada fiziksel prova baskı
+
+**Bu bir PASS değildir.** Tarih yeniden yazılmadı: `measured` alanları
+`false` KALDI, `aiProxyCountsAsHuman` `false` KALDI, hiçbir kill-gate
+PASS yazılmadı.
+
+### `D-01` — Fark testi
+
+| | |
+|---|---|
+| **Durum** | **`EXTERNAL_VALIDATION_UNAVAILABLE`** |
+| Ölçüm | **YAPILMADI** — `measured: false`, 0/3 katılımcı |
+| Kaydeden | kurucu · 2026-08-29 |
+| Gerekçe | Üç gerçek ev dikişçisine pratik erişim yok |
+| **İçsel ikame** | ① sentetik okur simülasyonu (3 persona × tam yolculuk) · ② beş ayrı bağımsız çelişmeli inceleme · ③ navigasyon işaretçilerinin tam ölçümü |
+| İkame eşdeğer mi | **HAYIR** — `substituteIsNotEquivalent: true` |
+| Gelecekte yapılabilir mi | Evet, isteğe bağlı. Kayıt açık kalır |
+
+### `D-02` — Fiziksel doğrulama
+
+| | |
+|---|---|
+| **Durum** | **`EXTERNAL_VALIDATION_UNAVAILABLE`** |
+| Ölçüm | **YAPILMADI** — `measured: false`, 0/19 `VAL` kaydı |
+| Kaydeden | kurucu · 2026-08-29 |
+| Gerekçe | Fiziksel toile denemesine pratik erişim yok |
+| **İçsel ikame** | ① 16 sentetik vücut profili (kenar durum mantık sınaması) · ② diferansiyel teşhis simülasyonu (129 neden çifti) · ③ nedensel çizge denetimi · ④ dört birincil kaynakla üçgenleme |
+| İkame eşdeğer mi | **HAYIR** — `substituteIsNotEquivalent: true` |
+| Gelecekte yapılabilir mi | Evet. `VALIDATION_KIT.md` 19 kayıtla hazır bekliyor |
+
+### Mekanik koruma
+
+`kill_gate.py` erişilemezliği **bedava bir çıkış yolu yapmaz**. Bir
+kayıt "erişilemez" ilan edip
+* kim kaydettiğini yazmazsa, ya da
+* içsel ikame koymazsa, ya da
+* ikameyi eşdeğer sayarsa
+
+**ENGEL** olarak raporlanır. Çıktı her koşumda şunu basar:
+
+> *"BU BİR PASS DEĞİLDİR. Kill-gate ÖLÇÜLMEDİ ve ölçülemez.
+> 'physically validated' / 'human validated' İDDİA EDİLEMEZ."*
+
+`selftest.py § test_external_unavailable_is_not_a_pass` on sekiz
+denetimle bu dönüşümü imkânsız kılar.
+
+---
+
+## Diğer dış bağımlılıklar — Faz 5 sonrası
+
+| # | Bekleyen | Durum | Engelleyici |
+|---|---|---|---|
+| `D-03` | Marka temizliği | yapılmadı | EVET (yayın öncesi) |
+| `D-06` | KDP Previewer + prova baskı | yapılmadı | EVET (Faz 6) |
+| `D-07` | `S-0014` (ISO 8559-1) · `S-0015` (ASTM D5219) edinimi | edinilmedi | hayır — ama **sekiz `CONTESTED` iddiayı KAPATAN tek yol budur** |
+| `D-04` · `D-05` · `D-08` · `D-09` | değişmedi | — | — |
+
+### Faz 5'in `D-06` için ürettiği girdi
+
+Dijital baskı simülasyonu koşuldu (300 dpi, 1-bit): yapısal çizgiler
+≥ 2 px ile hayatta, etiketler okunur, akış şeması hiyerarşisi korunuyor.
+Belirti figüründe hiyerarşi **düzeltildi** — gövde 0,5 pt, teşhis
+işareti 1,2 pt (eskiden tersiydi ve 1-bit'te çerçeve öznenin iki katı
+kalınlıkta basılıyordu).
+
+> **Bu bir FİZİKSEL PROVA DEĞİLDİR.** Kâğıt, mürekkep yayılması, cilt
+> kıvrımı ve gerçek okuma mesafesi ölçülmedi.
+
+Faz 6'ya taşınan iki karar: **birim politikası** (iki figür alanı inç,
+kitap metrik) ve **`comparison_before_after` figürleri** (kroki motoru
+poz veremez; dış illüstrasyon gerekebilir).
+
+---
+
+*Vâliçe Press · BEFORE YOU CUT · External Dependencies · 29 Ağustos 2026 (Faz 5 · içsel doğrulama turu)*

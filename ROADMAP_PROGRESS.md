@@ -13,8 +13,15 @@
 
 ## 0 · Tek cümlelik durum
 
-> **Kitap 1 Faz 5 QA'sı İÇSEL OLARAK TAMAMLANDI.**
-> 255 sayfa · 21 bölüm · 159 ayrı figür · 307 iddia · **189 kapı denetimi**.
+> **Kitap 1 — INTERNAL RELEASE CANDIDATE.**
+> 255 sayfa · 21 bölüm · 159 ayrı figür · 307 iddia · **249 kapı denetimi**.
+>
+> Kurucu dış doğrulamayı ERİŞİLEMEZ ilan etti (`K58`). Proje durmadı:
+> fiziksel testin yerine içsel ikameler kuruldu ve **beş bağımsız
+> çelişmeli inceleme** koşuldu (teknik · teşhis mantığı · okur yolu ·
+> görsel anlam · tutarlılık). ≈103 bulgudan **30'u düzeltildi**,
+> **4'ü ölçümle çürütüldü**, 73'ü kayda geçirildi.
+> Bu turda **kendi iki çürütmemi geri aldım** — ikisinde de yanılmışım.
 >
 > Faz 5 girerken sekiz veri kapısı yeşildi, 152 kapı testi geçiyordu ve
 > **ürün bozuktu**: dizilmiş sayfada harfler üst üste biniyordu, kitabın
@@ -43,7 +50,7 @@
 
 | Kitap | Kapı | P0 | P1 | P2 | P3 | P4 | P5 | P6 | P7 |
 |---|---|---|---|---|---|---|---|---|---|
-| **1 — Measure & Diagnose** | **`phase4-production-conditional`** | ✓ | ✓ | ✓ | **DIŞ BEKLEMEDE** | **✓ KOŞULLU** | **✓ İÇSEL** | — | — |
+| **1 — Measure & Diagnose** | **`phase5-qa-internal`** | ✓ | ✓ | ✓ | **ERİŞİLEMEZ** | **✓ KOŞULLU** | **✓ İÇSEL** | — | — |
 | **2 — The Adjustment Atlas** | `init` | roadmap var | — | — | — | — | — | — | — |
 | **3 — Draft Your Own Sloper** | `init` | roadmap + `A10` araştırma mimarisi | — | — | — | — | — | — | — |
 
@@ -70,8 +77,9 @@ Komut: `bash 06_BUILD/qa_all.sh` · 2026-08-29
 | **Manüskript** | `qa_manuscript.py` | ✓ **0 bulgu** — on dört denetim · 255 sayfa |
 | **Tam kitap dizgisi** | `build_book.py` | ✓ **255 sayfa**, bütçe 220–260 içinde |
 | **Yazı tipi bütünlüğü** *(yeni)* | `fetch_fonts.py --verify` | ✓ 10 dosya SHA-256 ile doğrulandı |
-| **Kapıların kendi testi** | `selftest.py` | ✓ **189/189** *(Faz 4: 152 · Faz 5'te +37 dizgi/navigasyon/katman regresyonu)* |
-| Kill-gate ön koşulu | `kill_gate.py --book book-01` | ✗ **2 engel — BEKLENEN VE DOĞRU** |
+| **Kapıların kendi testi** | `selftest.py` | ✓ **220/220** *(Faz 4: 152)* + **29** çizim yasağı = **249** |
+| Sentetik simülasyon *(yeni)* | `run_synthetic.py` | ✓ 16/16 profil · 129 neden çifti |
+| Kill-gate durumu | `kill_gate.py --book book-01` | ⊗ **DIŞ DOĞRULAMA ERİŞİLEMEZ — PASS DEĞİL** |
 
 ## Görsel sistem — Faz 2 ÖLÇÜMLERİ
 
@@ -113,13 +121,13 @@ Tam rapor: [`08_REPORTS/PHASE_5_QA_REPORT.md`](08_REPORTS/PHASE_5_QA_REPORT.md)
 |---|---:|---:|---:|
 | Sayfa | 252 | **255** | +3 |
 | Bölüm | 21 | **21** | 0 |
-| Kelime | 42 224 | **41 995** | −229 |
+| Kelime | 42 224 | **42 392** | +168 |
 | Ayrı figür | 159 | **159** | 0 |
 | Figür yerleşimi | 175 | **175** | 0 |
 | İzlenen maddi iddia | 204/204 | **204/204** | 0 |
 | İddia (toplam) | 307 | **307** | 0 |
 | Crosswalk | 148 | **148** | 0 |
-| **Kapı denetimi** | 152 | **189** | **+37** |
+| **Kapı denetimi** | 152 | **249** | **+97** |
 
 ### Dizgi katmanı — ÖLÇÜLDÜ (yeni)
 
