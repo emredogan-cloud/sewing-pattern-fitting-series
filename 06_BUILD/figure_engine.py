@@ -703,7 +703,13 @@ class Engine:
         cro = croquis_fit(W, H, bottom, "top_of_head", arms=False, pad_y=16.0,
                           view="back" if zone == "upper_back" else "front",
                           variant=variant)
-        cro.draw_torso_only(fc, bottom=bottom, gray=0.45)
+        # ⚠ İnceleme D-13: 1-bit baskıda %45 gri SİYAHA düşer. Gövde
+        # 1,2 pt, teşhis işareti 0,6 pt çiziliyordu — yani figürün
+        # ÇERÇEVESİ, ÖZNESİNİN iki katı kalınlıkta basılıyordu.
+        # Anlamı GRİYE emanet etmek siyah-mürekkep bir kitapta
+        # çalışmaz; hiyerarşi KALINLIKLA kurulur.
+        cro.draw_torso_only(fc, bottom=bottom, gray=0.45,
+                            role="construction_line")
         hk = {"neck_base": "neck_base", "shoulder_point": "shoulder_point",
               "across_back": "across_back", "bust_apex": "bust_apex",
               "underarm": "underarm", "bicep": "underarm", "waist": "waist",
@@ -718,14 +724,18 @@ class Engine:
         ay = min(max(ay, edge), min(H - edge, cro.y("shoulder_point")))
         token, ang = SIGN_CLASS_PLAN[s["sign_class"]]
         if token == "TK-05":
-            fc.tk05_drag_lines(ax, ay, ang)
+            fc.tk05_drag_lines(ax, ay, ang, role="body_outline")
         elif token == "TK-06":
-            fc.tk06_excess_fold(ax, ay, ang)
+            fc.tk06_excess_fold(ax, ay, ang, role="body_outline")
         elif token == "TK-07":
             fc.tk07_strain_zone(ax, ay, 20.0, 13.0)
         elif token == "TK-09":
+            # SAPMAYI çiz, sağlıklı durumu değil (D-04). Eğimin YÖNÜ
+            # belirtinin kendi çapa tarafından gelir; büyüklük okunur
+            # bir sapma için sabittir — figür bir MİKTAR iddia etmez.
             fc.tk09_balance_line(cro.cx - cro.hw(hk) * 1.05, ay,
-                                 cro.cx + cro.hw(hk) * 1.05, ay)
+                                 cro.cx + cro.hw(hk) * 1.05, ay,
+                                 tilt=11.0 * (side_mult or 1))
         elif token == "TK-10":
             fc.tk10_grainline(ax, ay - 20.0, ax, ay + 20.0)
         elif token == "TK-12":
@@ -1054,16 +1064,23 @@ class Engine:
                             "source_file": f"tbl_{key}.pdf"})
 
     # ── ⑥ öncesi/sonrası — ölçüm hatası çiftleri ──────────────────────
+    # ⚠ İnceleme D-19: `render()`'ın docstring'i "İkinci bir çizim yolu
+    # YOKTUR… ikisi ayrışamaz" diyordu. AYRIŞMIŞLARDI: bağımsız figür
+    # PDF'leri TÜRKÇE etiket basıyordu ("Kollar kaldırıldı"), kitap
+    # İNGİLİZCE ("Arms raised"). İki ayrı spesifikasyon tablosu vardı.
+    # Tablo artık TEKTİR ve okur dilindedir; iki yol da buradan okur.
+    # Regresyon: 07_TESTS/selftest.py § test_figure_specs_have_one_copy
+    COMPARISON_SPEC = [
+        ("tape_slipped_back", "Tape slipped down at the back", "high_bust"),
+        ("arms_raised", "Arms raised", "high_bust"),
+        ("tape_too_tight", "Tape pulled too tight", "waist"),
+        ("waist_guessed", "Waist measured without marking it", "waist"),
+        ("hip_too_high", "Hip not measured at the fullest point", "full_hip"),
+        ("posture_leaning", "Leaning forward", "waist"),
+    ]
+
     def gen_comparisons(self):
-        errors = [
-            ("tape_slipped_back", "Şerit metre sırtta düştü", "high_bust"),
-            ("arms_raised", "Kollar kaldırıldı", "high_bust"),
-            ("tape_too_tight", "Şerit metre fazla sıkıldı", "waist"),
-            ("waist_guessed", "Bel işaretlenmeden ölçüldü", "waist"),
-            ("hip_too_high", "Kalça en dolgun noktadan ölçülmedi", "full_hip"),
-            ("posture_leaning", "Okur öne eğildi", "waist"),
-        ]
-        for key, label, level in errors:
+        for key, label, level in self.COMPARISON_SPEC:
             self._draw_comparison(key, label, level)
 
     def _draw_comparison(self, key: str, label: str, level: str):
@@ -1129,13 +1146,18 @@ class Engine:
                  "high_bust": ("high_bust", 1), "bust_apex": ("apex_offset", 1),
                  "underbust": ("underbust", 1), "waist": ("waist", 1),
                  "high_hip": ("high_hip", 1), "full_hip": ("full_hip", 1),
-                 "elbow": ("waist", 1), "wrist": ("high_hip", 1),
+                 "elbow": ("elbow", 1), "wrist": ("wrist", 1), "bicep": ("bicep", 1),
                  "crotch": (None, 0), "knee": ("knee", 1), "ankle": ("ankle", 1),
                  "top_of_head": (None, 0), "floor": (None, 0)}
         anchors = []
+        ARM_MARKS = {"bicep", "elbow", "wrist"}
         for mk in marks:
             hk, side = hkmap[mk]
-            x, y = cro.p(mk, hk, side)
+            # kol nirengileri KOLUN üstünde durur, gövdenin değil (D-16)
+            if mk in ARM_MARKS:
+                x, y = cro.arm_center(mk, 1)
+            else:
+                x, y = cro.p(mk, hk, side)
             fc.landmark_dot(x, y)
             anchors.append((mk, x, y))
 
@@ -1272,13 +1294,7 @@ class Engine:
                 self._draw_toile_state(st, "")
             elif key.startswith("cmp_"):
                 k = key[len("cmp_"):]
-                spec = {e[0]: e for e in [
-                    ("tape_slipped_back", "Tape slipped down at the back", "high_bust"),
-                    ("arms_raised", "Arms raised", "high_bust"),
-                    ("tape_too_tight", "Tape pulled too tight", "waist"),
-                    ("waist_guessed", "Waist measured without marking it", "waist"),
-                    ("hip_too_high", "Hip not measured at the fullest point", "full_hip"),
-                    ("posture_leaning", "Leaning forward", "waist")]}[k]
+                spec = {e[0]: e for e in self.COMPARISON_SPEC}[k]
                 self._draw_comparison(*spec)
             elif key.startswith("patt_"):
                 k = key[len("patt_"):]
@@ -1357,6 +1373,22 @@ def main() -> int:
     paths.book_figures(args.book).parent.mkdir(parents=True, exist_ok=True)
     paths.book_figures(args.book).write_text(
         json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    # ── ÖKSÜZ VARLIK TEMİZLİĞİ ────────────────────────────────────────
+    # ⚠ İnceleme D-19: üretilen dizinde SİCİLDE OLMAYAN bir dosya
+    # duruyordu — `flow_ELIMINATION.pdf`, şema ikiye bölünmeden önceki
+    # koşumdan kalma, üstelik PROJE dilinde. Bir incelemeci ya da
+    # matbaacı o klasöre baktığında kitapta olmayan bir figür görüyordu.
+    # Üretilmiş varlık, sicilin TÜREVİDİR; sicilde yoksa durmaz.
+    live = {m["source_file"] for m in Engine._meta.values() if m.get("source_file")}
+    gen_dir = paths.book_generated(args.book)
+    orphans = sorted(f.name for f in gen_dir.glob("*.pdf") if f.name not in live) \
+        if gen_dir.exists() else []
+    for name in orphans:
+        (gen_dir / name).unlink()
+    if orphans:
+        eng.notes.append(f"öksüz üretilmiş varlık SİLİNDİ: {len(orphans)} "
+                         f"({', '.join(orphans[:4])}{'…' if len(orphans) > 4 else ''})")
 
     print(f"▸ figure_engine.py — {args.book}")
     print(f"  {len(figs)} figür üretildi · deterministik {det} ({out['deterministic_ratio']:.1%})")

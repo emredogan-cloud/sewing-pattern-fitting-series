@@ -316,7 +316,8 @@ class FigureCanvas:
         self.c.circle(x, y, 0.55, stroke=1, fill=1)
 
     # ── TK-05 · drag line indicator ───────────────────────────────────
-    def tk05_drag_lines(self, x, y, ang_deg: float, length=22.0, count=3, spacing=3.4):
+    def tk05_drag_lines(self, x, y, ang_deg: float, length=22.0, count=3,
+                        spacing=3.4, role="seam_line"):
         """Yönlü çekme. Ok KAYNAĞA bakar: (x, y) kaynaktır."""
         self.use("TK-05")
         ang = math.radians(ang_deg)
@@ -325,13 +326,13 @@ class FigureCanvas:
             o = (i - (count - 1) / 2.0) * spacing
             sx, sy = x + nx * o, y + ny * o
             ex, ey = sx + length * math.cos(ang + math.pi), sy + length * math.sin(ang + math.pi)
-            self.line(ex, ey, sx, sy, role="seam_line")
-            self._gray(0.0); self._stroke("seam_line")
+            self.line(ex, ey, sx, sy, role=role)
+            self._gray(0.0); self._stroke(role)
             self._arrow_head(sx, sy, ang, size=3.0, filled=False)
 
     # ── TK-06 · excess fabric fold ────────────────────────────────────
     def tk06_excess_fold(self, x, y, ang_deg: float, length=26.0, count=3, spacing=4.6,
-                         bow=4.6):
+                         bow=4.6, role="seam_line"):
         """Fazlalık kıvrımı — PARALEL YAY kümesi. TK-05'ten görsel olarak AYRI."""
         self.use("TK-06")
         ang = math.radians(ang_deg)
@@ -345,7 +346,7 @@ class FigureCanvas:
                 py = cy + length * t * math.sin(ang)
                 b = bow * (1 - (2 * t) ** 2)
                 pts.append((px + nx * b, py + ny * b))
-            self.curve(pts, role="seam_line")
+            self.curve(pts, role=role)
 
     # ── TK-07 · strain / pull zone ────────────────────────────────────
     def tk07_strain_zone(self, x, y, rx, ry, step=3.6):
@@ -377,10 +378,26 @@ class FigureCanvas:
         self.line(x, y - r * 0.72, x, y + r * 0.72, role="construction_line")
 
     # ── TK-09 · balance line ──────────────────────────────────────────
-    def tk09_balance_line(self, x1, y1, x2, y2, label="B"):
+    def tk09_balance_line(self, x1, y1, x2, y2, label="B", tilt=0.0):
+        """Denge çizgisi. `tilt` verilirse SAPMA çizilir.
+
+        ⚠ İnceleme D-04: hem_hike ve seam_displacement sınıfındaki 11
+        belirtinin figürü DÜZ bir denge çizgisi basıyordu — yani
+        belirtinin TANIMI "düz olmama" iken figür SAĞLIKLI durumu
+        gösteriyordu. Sapma artık iki çizgiyle anlatılır: kesikli DÜZ
+        referans + kalın EĞİK gerçek çizgi.
+        """
         self.use("TK-09")
-        self.line(x1, y1, x2, y2, role="balance_line")
-        self.text(x2 + 2.4, y2 - 2.0, label, face="sans-semibold", size=6.5)
+        if abs(tilt) < 1e-9:
+            self.line(x1, y1, x2, y2, role="balance_line")
+            self.text(x2 + 2.4, y2 - 2.0, label, face="sans-semibold", size=6.5)
+            return
+        # düz referans — kesikli, ince
+        self.line(x1, y1, x2, y2, role="construction_line", dash="dash 2-2")
+        # gerçek çizgi — eğik, kalın
+        self.line(x1, y1 - tilt / 2.0, x2, y2 + tilt / 2.0, role="body_outline")
+        self.text(x2 + 2.4, y2 + tilt / 2.0 - 2.0, label,
+                  face="sans-semibold", size=6.5)
 
     # ── TK-10 · grainline ─────────────────────────────────────────────
     def tk10_grainline(self, x1, y1, x2, y2):

@@ -1326,6 +1326,7 @@ def main():
         test_rule_out_list_is_one_list,
         test_cause_text_matches_its_destination,
         test_sign_prose_has_exactly_one_copy,
+        test_figure_specs_have_one_copy,
     ):
         fn()
 
@@ -1641,6 +1642,51 @@ def test_flowchart_and_entry_agree_on_cause_order():
           not bad, f"{len(bad)} belirti ayrışıyor: {bad[:5]}")
     check("'cheapest test first' diyen her girişin ŞEMASI da bedava dalla başlıyor",
           not free_bad, f"{len(free_bad)}/{announced} şema ihlal ediyor: {free_bad[:5]}")
+
+
+def test_figure_specs_have_one_copy():
+    """Figür spesifikasyonunun İKİNCİ bir kopyası var mı.
+
+    ⚠ İnceleme D-19: `figure_engine.render()`'ın docstring'i şunu
+    iddia ediyordu — *"İkinci bir çizim yolu YOKTUR… ikisi ayrışamaz."*
+    AYRIŞMIŞLARDI. Karşılaştırma figürlerinin spesifikasyonu İKİ KEZ
+    yazılmıştı: toplu üretimde PROJE dilinde, `render()` içinde OKUR
+    dilinde. Bağımsız figür PDF'i "Kollar kaldırıldı" basarken kitap
+    "Arms raised" basıyordu — bir incelemecinin ya da matbaacının
+    denetlediği 163 varlık, kitaptaki figürler DEĞİLDİ.
+
+    Ayrıca: üretilmiş varlık sicilin TÜREVİDİR. Sicilde olmayan bir
+    dosya o klasörde duramaz (öksüz `flow_ELIMINATION.pdf`)."""
+    sys.path.insert(0, str(paths.BUILD))
+    src = (paths.BUILD / "figure_engine.py").read_text(encoding="utf-8")
+    check("karşılaştırma spesifikasyonu TEK yerde tanımlı",
+          src.count('"tape_slipped_back"') == 1,
+          f"{src.count('\"tape_slipped_back\"')} kez geçiyor")
+    # spesifikasyonun KENDİSİ okunur — yorumlar değil (ilk sürümüm
+    # kendi açıklama yorumumdaki Türkçe dizgiye takıldı)
+    import ast as _ast
+    spec_vals = []
+    for node in _ast.walk(_ast.parse(src)):
+        if isinstance(node, _ast.Assign) and any(
+                getattr(t, "id", "") == "COMPARISON_SPEC" for t in node.targets):
+            for el in getattr(node.value, "elts", []):
+                spec_vals += [c.value for c in getattr(el, "elts", [])
+                              if isinstance(c, _ast.Constant)
+                              and isinstance(c.value, str)]
+    check("karşılaştırma spesifikasyonu BULUNDU", bool(spec_vals))
+    tr = [v for v in spec_vals if any(ch in v for ch in "şğİçöüı")]
+    check("spesifikasyon OKUR dilinde (proje dili sızmamış)",
+          not tr, f"proje dilinde değer: {tr[:3]}")
+    gen = paths.book_generated("book-01")
+    figs = paths.book_figures("book-01")
+    if not (gen.exists() and figs.exists()):
+        skip("öksüz varlık kapısı", "üretilmiş figürler yok (render katmanı)")
+        return
+    meta = json.loads(figs.read_text(encoding="utf-8"))["figure_meta"]
+    live = {m["source_file"] for m in meta.values() if m.get("source_file")}
+    orphans = sorted(f.name for f in gen.glob("*.pdf") if f.name not in live)
+    check("üretilmiş dizinde SİCİLDE OLMAYAN dosya yok",
+          not orphans, f"öksüz: {orphans[:5]}")
 
 
 def test_sign_prose_has_exactly_one_copy():

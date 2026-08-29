@@ -372,8 +372,12 @@ def main() -> int:
                 errs.extend(run_blocks(ts, lead_in, meta_by_key))
             p0 = ts.page
             f0 = len(ts.figures_used)
-            ts.set_running_head(bookcfg.get("titleWorking", ""), None)
-            ts.outline(CHAPTER_TITLES.get(key, key), level=1 if pnum > 0 else 0)
+            _ct = CHAPTER_TITLES.get(key, key)
+            # recto üst bilgisi bölümün adını taşır: bir başvuru
+            # kitabında okurun nerede olduğunu bilmesi gerekir.
+            ts.set_running_head(bookcfg.get("titleWorking", ""),
+                                _ct.split(" · ")[-1] if pnum > 0 else None)
+            ts.outline(_ct, level=1 if pnum > 0 else 0)
             # Belirti başlıklarının SAYFASI kaydedilir: Ek C ve Ek H
             # bunlara işaret eder. Bloklar parça parça dizilir ki her
             # başlığın hangi sayfaya düştüğü ÖLÇÜLSÜN, tahmin edilmesin.

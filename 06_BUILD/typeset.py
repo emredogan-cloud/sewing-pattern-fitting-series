@@ -250,11 +250,12 @@ class Typesetter:
                 "h3": self.lead * 2.6}.get(kind, 0.0)
 
     def table_h(self, rows: list, widths: list, size=9.0, row_pt=None,
-                keep_after_pt: float = 0.0) -> float:
+                keep_after_pt: float = 0.0, full: bool = False) -> float:
         rowh = float(row_pt) if row_pt else size * 1.7
+        tw = (self.tw + self.gap + self.side_w) if full else self.tw
         h = self.lead * 0.4 + self.lead * 0.6 + keep_after_pt
         for i, r in enumerate(rows):
-            cells = [self._wrap(str(c), widths[j] * self.tw - 8.0,
+            cells = [self._wrap(str(c), widths[j] * tw - 8.0,
                                 "sans-semibold" if i == 0 else "sans", size)[:8]
                      for j, c in enumerate(r)]
             h += rowh + (max(max(len(c), 1) for c in cells) - 1) * size * 1.12
@@ -532,7 +533,7 @@ class Typesetter:
         self.y -= self.lead * 0.75
 
     def table(self, rows: list, widths: list, size=9.0, row_pt=None,
-              keep_after_pt: float = 0.0):
+              keep_after_pt: float = 0.0, full: bool = False):
         """keep_after_pt: SON satırın altında ayrılacak yer.
 
         ⚠ Faz 5'te ÖLÇÜLEN kusur: `figtable` bloğu önce tabloyu, sonra
@@ -543,6 +544,8 @@ class Typesetter:
         Regresyon: 07_TESTS/selftest.py § test_figtable_caption_is_not_orphaned
         """
         self._touch()
+        tw = (self.tw + self.gap + self.side_w) if full else self.tw
+        x0 = min(self.x_text, self.x_side) if full else self.x_text
         # Boş bir form ELLE DOLDURULUR. 9 pt metin satırı (15,3 pt ≈ 5,4 mm)
         # okunur ama YAZILAMAZ. Form satırları ayrıca belirtilir.
         rowh = float(row_pt) if row_pt else size * 1.7
@@ -565,7 +568,7 @@ class Typesetter:
             # kullanıldığının yarısının kaybolması demekti. Sınır bir
             # emniyet payıdır, bir biçim tercihi değil: sekize çıkarıldı
             # ve aşılırsa metin kesilmez, satır uzar.
-            cells = [self._wrap(str(cell), widths[j] * self.tw - 8.0,
+            cells = [self._wrap(str(cell), widths[j] * tw - 8.0,
                                 "sans-semibold" if i == 0 else "sans", size)[:8]
                      for j, cell in enumerate(r)]
             # ⚠ Faz 5'te ÖLÇÜLEN kusur: BOŞ bir hücre `_wrap("") == []`
@@ -582,16 +585,16 @@ class Typesetter:
             if not self._room(h + tail):
                 self._flow_page()
             self.y -= h
-            x = self.x_text
+            x = x0
             face = "sans-semibold" if i == 0 else "sans"
             for j, lines in enumerate(cells):
                 self.c.setFont(font(face), size)
                 for k, ln in enumerate(lines):
                     self.c.drawString(x, self.y + h - rowh + 3.0 - k * (size * 1.12), ln)
-                x += widths[j] * self.tw
+                x += widths[j] * tw
             self.c.setStrokeGray(0.0 if i == 0 else 0.45)
             self.c.setLineWidth(0.7 if i == 0 else 0.4)
-            self.c.line(self.x_text, self.y - 2.5, self.x_text + self.tw, self.y - 2.5)
+            self.c.line(x0, self.y - 2.5, x0 + tw, self.y - 2.5)
         self.y -= self.lead * 0.6
 
     def figure(self, key: str, caption: str, meta: dict, full=False):
@@ -667,7 +670,8 @@ def run_blocks(ts: Typesetter, blocks: list, meta_by_key: dict) -> list:
                 cap_h = ts.lead * (len(ts._wrap(cap, ts.tw, "sans-italic", 8.5))
                                    + 1.05)
             ts.table(m["data"], b.get("widths") or m["col_ratio"],
-                     row_pt=b.get("row_pt"), keep_after_pt=cap_h)
+                     row_pt=b.get("row_pt"), keep_after_pt=cap_h,
+                     full=bool(b.get("row_pt")))
             # Sicilden gelen bir tablo da BİR FİGÜRDÜR. Sayılmazsa figür
             # bütçesi (§ 25) gerçekten kullanılanı göstermez.
             ts.figures_used.append(b["key"])

@@ -217,6 +217,24 @@ class Croquis:
     def apex(self, side: int = 1) -> tuple:
         return (self.cx + side * self.HALF_W["apex_offset"] * self.H, self.y("bust_apex"))
 
+    def arm_center(self, level: str, side: int = 1) -> tuple:
+        """Kol nirengisinin GERÇEK konumu — gövde yarı genişliği DEĞİL.
+
+        ⚠ İnceleme D-16: `lmk_arm` figüründe 'elbow' ve 'wrist' noktaları
+        gövdenin bel ve yüksek kalça konturuna düşüyordu, çünkü landmark
+        haritası kol yerine GÖVDE yarı genişliklerini kullanıyordu.
+        Okura kendi belini gösterip 'dirseğin burası' deniyordu."""
+        g = self.ARM["gap"] * self.H
+        base = {"bicep": ("underarm", self.ARM["bicep_half"], 1.0),
+                "elbow": ("waist", self.ARM["elbow_half"], 2.6),
+                "wrist": ("high_hip", self.ARM["wrist_half"], 1.6)}
+        if level not in base:
+            return self.p(level)
+        lv, half, k = base[level]
+        outer = self.OUTLINE[lv] * self.H + g + k * half * self.H
+        centre = outer - (half * self.H) / 2.0
+        return (self.cx + side * centre, self.y(level))
+
     def leg_center(self, side: int) -> float:
         """Bir bacağın orta hattı — bacak çevresi ölçüsü buna göre çizilir."""
         mid = (self.LEG_OUT["thigh"] + self.LEG_IN["thigh"]) / 2.0
@@ -267,14 +285,19 @@ class Croquis:
         ]
 
     # ── çizim ─────────────────────────────────────────────────────────
-    def _head_and_neck(self, fc, gray):
+    def _head_and_neck(self, fc, gray, role="body_outline"):
         hw_n = self.HALF_W["neck_base"] * self.H
         for s in (-1, 1):
             fc.curve([(self.cx + s * hw_n, self.y("neck_base")),
                       (self.cx + s * hw_n * 0.92, self.y("chin"))],
-                     role="body_outline", gray=gray)
+                     role=role, gray=gray)
         fc._gray(gray)
         fc.c.setLineWidth(fc._lw["body_outline"])
+        # ⚠ Ham tuval çağrısı token sistemini ATLIYOR: kalınlık, o an
+        # ayarlı kalan neyse oydu. Belirti figüründe gövde inceltilince
+        # baş TEK BAŞINA kalın kalıyor ve teşhis işaretiyle yarışıyordu.
+        # Kalınlık artık AÇIKÇA rolden okunuyor.
+        fc._gray(gray); fc._stroke(role)
         fc.c.ellipse(self.cx - self.hw("head"), self.y("chin"),
                      self.cx + self.hw("head"), self.y("top_of_head"),
                      stroke=1, fill=0)
@@ -288,16 +311,16 @@ class Croquis:
         fc.line(self.cx - hw_n * 0.94, top, self.cx + hw_n * 0.94, top,
                 role="body_outline", gray=gray)
 
-    def _shoulders_and_neckline(self, fc, gray):
+    def _shoulders_and_neckline(self, fc, gray, role="body_outline"):
         for s in (-1, 1):
             fc.line(self.cx + s * self.HALF_W["neck_base"] * self.H, self.y("side_neck_point"),
                     self.cx + s * self.OUTLINE["shoulder_point"] * self.H, self.y("shoulder_point"),
-                    role="body_outline", gray=gray)
+                    role=role, gray=gray)
         drop = 0.012 * self.H if self.view != "back" else 0.005 * self.H
         fc.curve([(self.cx - self.HALF_W["neck_base"] * self.H, self.y("side_neck_point")),
                   (self.cx, self.y("neck_base") - drop),
                   (self.cx + self.HALF_W["neck_base"] * self.H, self.y("side_neck_point"))],
-                 role="body_outline", gray=gray)
+                 role=role, gray=gray)
 
     # ── yandan görünüş ────────────────────────────────────────────────
     def _profile_chain(self, front: bool) -> list:
@@ -373,7 +396,8 @@ class Croquis:
                     self.cx + self.OUTLINE["crotch"] * self.H, self.y("crotch"),
                     role="body_outline", gray=gray)
 
-    def draw_torso_only(self, fc, *, bottom="high_hip", gray=0.0, head=True):
+    def draw_torso_only(self, fc, *, bottom="high_hip", gray=0.0, head=True,
+                        role="body_outline"):
         """Gövde figürü — `bottom` seviyesinde kesilir.
 
         Baş VARSAYILAN OLARAK çizilir: başsız bir gövde silueti vazoya
@@ -382,28 +406,28 @@ class Croquis:
         if self.LEVEL[bottom] < self.LEVEL["crotch"] - 1e-9:
             # kesim ağın altındaysa bacaklar da çizilir
             for s in (-1, 1):
-                fc.curve(self._side_chain(s, "crotch"), role="body_outline", gray=gray)
+                fc.curve(self._side_chain(s, "crotch"), role=role, gray=gray)
                 out = [q for q in self._leg_chain(s, False)
                        if (q[1] - self.base_y) / self.H >= self.LEVEL[bottom] - 1e-9]
                 inn = [q for q in self._leg_chain(s, True)
                        if (q[1] - self.base_y) / self.H >= self.LEVEL[bottom] - 1e-9]
-                fc.curve(out, role="body_outline", gray=gray)
-                fc.curve(inn, role="body_outline", gray=gray)
+                fc.curve(out, role=role, gray=gray)
+                fc.curve(inn, role=role, gray=gray)
                 fc.line(out[-1][0], out[-1][1], inn[-1][0], inn[-1][1],
-                        role="body_outline", gray=gray)
+                        role=role, gray=gray)
             fc.curve([(self.cx - self.LEG_IN["crotch"] * self.H, self.y("crotch")),
                       (self.cx, self.y("crotch") + 0.008 * self.H),
                       (self.cx + self.LEG_IN["crotch"] * self.H, self.y("crotch"))],
-                     role="body_outline", gray=gray)
+                     role=role, gray=gray)
         else:
             for s in (-1, 1):
-                fc.curve(self._side_chain(s, bottom), role="body_outline", gray=gray)
+                fc.curve(self._side_chain(s, bottom), role=role, gray=gray)
             pts = self._side_chain(1, bottom)
             fc.line(self.cx - abs(pts[-1][0] - self.cx), pts[-1][1],
-                    pts[-1][0], pts[-1][1], role="body_outline", gray=gray)
-        self._shoulders_and_neckline(fc, gray)
+                    pts[-1][0], pts[-1][1], role=role, gray=gray)
+        self._shoulders_and_neckline(fc, gray, role)
         if head:
-            self._head_and_neck(fc, gray)
+            self._head_and_neck(fc, gray, role)
         else:
             self._neck_stub(fc, gray)
 

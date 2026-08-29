@@ -2697,7 +2697,7 @@
       "figure_id": "FIG-B1-152",
       "book": "book-01",
       "figure_type": "comparison_before_after",
-      "shows": "Ölçüm hatası: Şerit metre sırtta düştü — yanlış ve doğru yan yana",
+      "shows": "Ölçüm hatası: Tape slipped down at the back — yanlış ve doğru yan yana",
       "view": "front",
       "notation_tokens": [
         "TK-11",
@@ -2715,7 +2715,7 @@
       "figure_id": "FIG-B1-153",
       "book": "book-01",
       "figure_type": "comparison_before_after",
-      "shows": "Ölçüm hatası: Kollar kaldırıldı — yanlış ve doğru yan yana",
+      "shows": "Ölçüm hatası: Arms raised — yanlış ve doğru yan yana",
       "view": "front",
       "notation_tokens": [
         "TK-11",
@@ -2733,7 +2733,7 @@
       "figure_id": "FIG-B1-154",
       "book": "book-01",
       "figure_type": "comparison_before_after",
-      "shows": "Ölçüm hatası: Şerit metre fazla sıkıldı — yanlış ve doğru yan yana",
+      "shows": "Ölçüm hatası: Tape pulled too tight — yanlış ve doğru yan yana",
       "view": "front",
       "notation_tokens": [
         "TK-11",
@@ -2751,7 +2751,7 @@
       "figure_id": "FIG-B1-155",
       "book": "book-01",
       "figure_type": "comparison_before_after",
-      "shows": "Ölçüm hatası: Bel işaretlenmeden ölçüldü — yanlış ve doğru yan yana",
+      "shows": "Ölçüm hatası: Waist measured without marking it — yanlış ve doğru yan yana",
       "view": "front",
       "notation_tokens": [
         "TK-11",
@@ -2769,7 +2769,7 @@
       "figure_id": "FIG-B1-156",
       "book": "book-01",
       "figure_type": "comparison_before_after",
-      "shows": "Ölçüm hatası: Kalça en dolgun noktadan ölçülmedi — yanlış ve doğru yan yana",
+      "shows": "Ölçüm hatası: Hip not measured at the fullest point — yanlış ve doğru yan yana",
       "view": "front",
       "notation_tokens": [
         "TK-11",
@@ -2787,7 +2787,7 @@
       "figure_id": "FIG-B1-157",
       "book": "book-01",
       "figure_type": "comparison_before_after",
-      "shows": "Ölçüm hatası: Okur öne eğildi — yanlış ve doğru yan yana",
+      "shows": "Ölçüm hatası: Leaning forward — yanlış ve doğru yan yana",
       "view": "front",
       "notation_tokens": [
         "TK-11",
