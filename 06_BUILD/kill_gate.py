@@ -37,7 +37,7 @@ def main():
 
     cfg = json.loads(paths.SERIES_CONFIG.read_text(encoding="utf-8"))
     kg = cfg["killGates"]
-    blockers, notes = [], []
+    blockers, notes, unavailable = [], [], []
 
     for name, spec in kg.items():
         if name.startswith("$"):
@@ -45,6 +45,36 @@ def main():
         if spec.get("book") != args.book:
             continue
         if spec.get("measured") is not True:
+            # ⚠ DIŞ DOĞRULAMA ERİŞİLEMEZ (K58). Kurucu pratik erişimin
+            # olmadığını açıkça bildirdi. Bu bir PASS DEĞİLDİR ve öyle
+            # raporlanMAZ: ölçüm hâlâ YAPILMAMIŞTIR. Ama artık projeyi
+            # süresiz DURDURAN bir engel de değildir — beyan edilen bir
+            # SINIRDIR. `measured` false kalır ve öyle kalmalıdır.
+            if spec.get("externalAvailability") == "UNAVAILABLE":
+                if not spec.get("unavailabilityRecordedBy"):
+                    blockers.append(
+                        f"{name}: externalAvailability=UNAVAILABLE ama "
+                        f"KİM tarafından kaydedildiği yazılmamış — "
+                        f"erişilemezlik de bir KAYITTIR.")
+                    continue
+                if not spec.get("internalSubstitute"):
+                    blockers.append(
+                        f"{name}: erişilemez ilan edildi ama İÇSEL İKAME "
+                        f"kaydedilmemiş. Bir ölçümü bırakmak, yerine bir "
+                        f"şey koymadan yapılamaz.")
+                    continue
+                if spec.get("substituteIsNotEquivalent") is not True:
+                    blockers.append(
+                        f"{name}: içsel ikame EŞDEĞER SAYILAMAZ ve kayıt "
+                        f"bunu beyan etmelidir (substituteIsNotEquivalent).")
+                    continue
+                unavailable.append(
+                    f"{name}: DIŞ DOĞRULAMA ERİŞİLEMEZ — "
+                    f"{spec['unavailabilityRecordedBy']} "
+                    f"({spec.get('unavailabilityDate','?')}). "
+                    f"ÖLÇÜM YAPILMADI. İçsel ikame: "
+                    f"{len(spec['internalSubstitute'])} yöntem.")
+                continue
             blockers.append(f"{name}: HENÜZ ÖLÇÜLMEDİ (measured=false). "
                             f"Ölçüm modeli: {spec.get('model')}")
             continue
@@ -100,21 +130,34 @@ def main():
                             f"protokol yazılmadan ölçüm YAPILAMAZ.")
 
     passed = not blockers
+    vs = cfg.get("validationStatus", {})
     print(f"▸ kill_gate.py — {args.book}")
     print("  ⚠ Bu script kill-gate'i ÖLÇMEZ; ölçümün ön koşullarını ve kaydını denetler.")
     for n in notes:
         print(f"  ⚑ {n}")
+    for u in unavailable:
+        print(f"  ⊗ {u}")
     if blockers:
         print(f"  ✗ {len(blockers)} engel:")
         for b in blockers:
             print(f"    - {b}")
         print("  → SONUÇ: Faz 4 AÇILAMAZ.")
+    elif unavailable:
+        print(f"  → SONUÇ: ürün doğrulama durumu = "
+              f"{vs.get('productValidation', 'CONDITIONAL_INTERNAL_VALIDATION')}")
+        print(f"           dış doğrulama durumu  = "
+              f"{vs.get('externalValidation', 'UNAVAILABLE')}")
+        print("  ⚠ BU BİR PASS DEĞİLDİR. Kill-gate ÖLÇÜLMEDİ ve ölçülemez.")
+        print("    'physically validated' / 'human validated' İDDİA EDİLEMEZ.")
     else:
         print("  ✓ Mekanik ön koşullar tamam ve ölçüm PASS olarak kaydedilmiş.")
     if args.json:
         out = Path(args.json); out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps({"book": args.book, "blockers": blockers,
-                                   "notes": notes, "mechanically_clear": passed},
+                                   "notes": notes, "unavailable": unavailable,
+                                   "validationStatus": vs,
+                                   "killGateMeasured": False,
+                                   "mechanically_clear": passed},
                                   indent=2, ensure_ascii=False), encoding="utf-8")
     return 0 if passed else 1
 

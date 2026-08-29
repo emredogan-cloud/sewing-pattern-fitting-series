@@ -205,7 +205,17 @@
       "source": "araştırma raporu § 35 madde 1 — KİLİT KAPI",
       "measured": false,
       "founderOverride": null,
-      "aiProxyCountsAsHuman": false
+      "aiProxyCountsAsHuman": false,
+      "externalAvailability": "UNAVAILABLE",
+      "unavailabilityRecordedBy": "founder",
+      "unavailabilityDate": "2026-08-29",
+      "unavailabilityNote": "Kurucu 2026-08-29'da pratik erişimin OLMADIĞINI açıkça bildirdi: insan katılımcı testi, fiziksel toile/muslin denemesi ve dış uzman doğrulaması bu proje için yapılamaz. Ölçüm YAPILMADI ve YAPILMAYACAK. Bu bir PASS DEĞİLDİR; erişilemezliğin KAYDIDIR.",
+      "internalSubstitute": [
+        "sentetik okur simülasyonu (3 persona × tam yolculuk)",
+        "bağımsız çelişmeli AI incelemesi (beş ayrı geçiş: A teknik, B teşhis mantığı, C okur yolu, D görsel anlam, E tutarlılık)",
+        "navigasyon işaretçilerinin tam ölçümü (Ek C 43/43, bölüm atfı 11/11)"
+      ],
+      "substituteIsNotEquivalent": true
     },
     "physicalValidation": {
       "book": "book-01",
@@ -213,7 +223,18 @@
       "model": "KUSUR-ORANI VETO — pilotun her diyagramı gerçekten kalıba uygulanır, muslin dikilir; hata oranı > %0 ise pilot durur, > %5 ise ÜRETİM YÖNTEMİ reddedilir",
       "source": "araştırma raporu § 32 (doğruluk riski) + § 35 madde 2",
       "measured": false,
-      "founderOverride": null
+      "founderOverride": null,
+      "externalAvailability": "UNAVAILABLE",
+      "unavailabilityRecordedBy": "founder",
+      "unavailabilityDate": "2026-08-29",
+      "unavailabilityNote": "Kurucu 2026-08-29'da pratik erişimin OLMADIĞINI açıkça bildirdi: insan katılımcı testi, fiziksel toile/muslin denemesi ve dış uzman doğrulaması bu proje için yapılamaz. Ölçüm YAPILMADI ve YAPILMAYACAK. Bu bir PASS DEĞİLDİR; erişilemezliğin KAYDIDIR.",
+      "internalSubstitute": [
+        "sentetik vücut profili testi (kenar durum mantık sınaması)",
+        "diferansiyel teşhis simülasyonu (28 kanıt çakışması)",
+        "nedensel çizge denetimi (yetim düğüm, döngü, ulaşılamaz aile)",
+        "kaynak üçgenlemesi (çoklu bağımsız kaynak)"
+      ],
+      "substituteIsNotEquivalent": true
     }
   },
   "protectedContent": {
@@ -313,5 +334,13 @@
       "KDP Previewer",
       "T3 üç insan okuyucu"
     ]
+  },
+  "validationStatus": {
+    "$comment": "Faz 5 sonrası ikili durum modeli (DECISIONS.md K58). İki alan AYRIDIR ve biri diğerinin yerine geçmez.",
+    "productValidation": "CONDITIONAL_INTERNAL_VALIDATION",
+    "externalValidation": "UNAVAILABLE",
+    "physicallyValidated": false,
+    "humanValidated": false,
+    "printProofValidated": false
   }
 }

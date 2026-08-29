@@ -47,7 +47,7 @@ jobs:
             B="init"
             if [ -f "$d/.gate" ]; then B="$(tr -d '[:space:]' < "$d/.gate")"; fi
             case "$B" in
-              init|foundation|phase1-spec|phase2-visual|phase4-production-conditional|phase3-pilot|phase4-production|phase5-qa|phase6-format|release) ;;
+              init|foundation|phase1-spec|phase2-visual|phase4-production-conditional|phase5-qa-internal|phase3-pilot|phase4-production|phase5-qa|phase6-format|release) ;;
               *) echo "::error::$d/.gate geçersiz: '$B'"; exit 1 ;;
             esac
             echo "::notice::$d kapısı = $B"
@@ -205,15 +205,22 @@ jobs:
           echo "::notice::Manüskript prozası izlenmiyor; bu kapının tam kapsamı YEREL koşumdadır."
 
   killgate:
-    name: kill-gate ön koşulu (bilgi amaçlı)
+    name: kill-gate durumu (bilgi amaçlı)
     needs: gates
     runs-on: ubuntu-latest
-    continue-on-error: true   # Faz 3 öncesi BAŞARISIZ olması BEKLENİR
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with: { python-version: '3.12' }
       - name: kill_gate (Kitap 1)
+        # ⚠ DURUM DEĞİŞTİ (DECISIONS.md K58): kurucu, D-01 ve D-02 için
+        # pratik erişimin OLMADIĞINI bildirdi. Bu iş artık "ölçüm
+        # bekleniyor" diye DÜŞMEZ; erişilemezliği ve içsel ikameyi
+        # RAPORLAR. Çıkış kodu 0 olması kill-gate'in GEÇTİĞİ anlamına
+        # GELMEZ — `measured` hâlâ false'tur ve selftest bunu dayatır
+        # (test_external_unavailable_is_not_a_pass).
         run: |
-          echo "::notice::Bu iş Faz 3 öncesi BAŞARISIZ olur — kill-gate henüz ÖLÇÜLMEDİ."
+          echo "::notice::Kill-gate ÖLÇÜLMEDİ ve ölçülemez — dış doğrulama ERİŞİLEMEZ."
+          echo "::notice::Çıkış kodu 0, PASS DEĞİL: ürün durumu CONDITIONAL_INTERNAL_VALIDATION."
           python3 06_BUILD/kill_gate.py --book book-01

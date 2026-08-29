@@ -1322,6 +1322,7 @@ def main():
         test_counted_claims_match_the_data,
         test_flowchart_and_entry_agree_on_cause_order,
         test_gate_layer_never_imports_the_render_layer,
+        test_external_unavailable_is_not_a_pass,
     ):
         fn()
 
@@ -1637,6 +1638,54 @@ def test_flowchart_and_entry_agree_on_cause_order():
           not bad, f"{len(bad)} belirti ayrışıyor: {bad[:5]}")
     check("'cheapest test first' diyen her girişin ŞEMASI da bedava dalla başlıyor",
           not free_bad, f"{len(free_bad)}/{announced} şema ihlal ediyor: {free_bad[:5]}")
+
+
+def test_external_unavailable_is_not_a_pass():
+    """`EXTERNAL_VALIDATION_UNAVAILABLE` bir PASS'e DÖNÜŞEMEZ.
+
+    Kurucu dış doğrulamanın erişilemez olduğunu bildirdi (K58) ve proje
+    ilerlemeye devam ediyor. Bu, kill-gate'in geçtiği ANLAMINA GELMEZ ve
+    bu denetim o dönüşümü mekanik olarak imkânsız kılar:
+
+      · `measured` HÂLÂ false olmalı — erişilemezlik ölçüm üretmez;
+      · `aiProxyCountsAsHuman` HÂLÂ false olmalı (K6);
+      · erişilemezlik KİM tarafından kaydedildi, İÇSEL İKAME nedir ve
+        ikamenin eşdeğer OLMADIĞI beyan edildi mi — üçü de zorunlu;
+      · `validationStatus` hiçbir yerde "validated" DEMEZ.
+    """
+    cfg = json.loads(paths.SERIES_CONFIG.read_text(encoding="utf-8"))
+    kg = cfg["killGates"]
+    for name in ("differentiationTest", "physicalValidation"):
+        spec = kg[name]
+        check(f"{name}: erişilemezlik ÖLÇÜM ÜRETMEDİ (measured hâlâ false)",
+              spec.get("measured") is False)
+        check(f"{name}: erişilemezliği KİM kaydetti yazılı",
+              bool(spec.get("unavailabilityRecordedBy")))
+        check(f"{name}: İÇSEL İKAME kaydedilmiş",
+              bool(spec.get("internalSubstitute")))
+        check(f"{name}: ikamenin EŞDEĞER OLMADIĞI beyan edilmiş",
+              spec.get("substituteIsNotEquivalent") is True)
+    check("AI vekil bayrağı HÂLÂ kapalı (K6 — erişilemezlik onu açmaz)",
+          kg["differentiationTest"]["aiProxyCountsAsHuman"] is False)
+    vs = cfg["validationStatus"]
+    check("ürün doğrulama durumu KOŞULLU-İÇSEL",
+          vs["productValidation"] == "CONDITIONAL_INTERNAL_VALIDATION")
+    check("dış doğrulama durumu ERİŞİLEMEZ", vs["externalValidation"] == "UNAVAILABLE")
+    for k in ("physicallyValidated", "humanValidated", "printProofValidated"):
+        check(f"`{k}` FALSE — iddia edilemez", vs[k] is False)
+    # kapı sırası: içsel KA phase3-pilot'u GEÇMİŞ SAYMAZ
+    g = paths.read_book_gate("book-01")
+    check("kitap kapısı içsel KA seviyesinde",
+          paths.gate_at_least(g, "phase5-qa-internal", paths.BOOK_GATE_ORDER))
+    check("kapı 'phase3-pilot geçildi' DEMİYOR",
+          not paths.gate_at_least(g, "phase3-pilot", paths.BOOK_GATE_ORDER))
+    check("kapı 'gerçek phase5-qa açık' DEMİYOR",
+          not paths.gate_at_least(g, "phase5-qa", paths.BOOK_GATE_ORDER))
+    # kill_gate hâlâ measured=true'yu kayıtsız KABUL ETMİYOR
+    sys.path.insert(0, str(paths.BUILD))
+    check("kill-gate sırasında içsel KA seviyesi phase3-pilot'tan ÖNCE",
+          paths.BOOK_GATE_ORDER.index("phase5-qa-internal")
+          < paths.BOOK_GATE_ORDER.index("phase3-pilot"))
 
 
 def test_gate_layer_never_imports_the_render_layer():

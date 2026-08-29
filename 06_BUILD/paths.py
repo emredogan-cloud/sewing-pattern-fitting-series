@@ -105,6 +105,19 @@ BOOK_GATE_ORDER = [
     # Sonuç: P5 (phase5-qa) ve sonrası bu yoldan AÇILAMAZ. Kill-gate
     # ölçüldüğünde kapı phase3-pilot'a ilerler ve zincir devam eder.
     "phase4-production-conditional",
+    # ── DIŞ DOĞRULAMA ERİŞİLEMEZ (K58) ──────────────────────────────
+    # Kurucu, D-01 (üç ev dikişçisi) ve D-02 (fiziksel toile) için
+    # pratik erişimin OLMADIĞINI açıkça bildirdi. İki ölçüm de
+    # YAPILMADI ve YAPILAMAYACAK. Proje bunu bir PASS'e çevirmez;
+    # yerine İÇSEL doğrulama ikamesi koyar ve sınırı beyan eder.
+    #
+    # Bu seviye de kümülatif sırada phase3-pilot'tan ÖNCEDİR:
+    #   gate_at_least(g, "phase5-qa-internal") → True   (içsel KA bitti)
+    #   gate_at_least(g, "phase3-pilot")       → FALSE  (P3 OLMADI)
+    #   gate_at_least(g, "phase5-qa")          → FALSE  (gerçek P5 P3 ister)
+    # Yani "içsel KA tamamlandı" DOĞRU olur, "kill-gate geçildi" ise
+    # HÂLÂ YANLIŞ kalır. Tarih yeniden yazılmaz.
+    "phase5-qa-internal",
     "phase3-pilot",      # P3 — pilot + KILL-GATE (fark testi + fiziksel doğrulama)
     "phase4-production", # P4 — tam içerik üretimi (kill-gate GEÇİLMİŞ hâli)
     "phase5-qa",         # P5 — teknik/editoryal/görsel/fiziksel KA
