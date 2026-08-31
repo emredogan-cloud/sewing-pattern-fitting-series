@@ -26,6 +26,18 @@ Bu kapı o soruyu MAKİNEYE sorar:
   ⑬ ölçülebilir bir adım, farkın NE ANLAMA GELDİĞİNİ söylüyor mu
      (metinde yön sözcüğü ya da kayıtta `expected`)
 
+  ⑭ bir adımın SAYISAL ease bandı alıntılaması doğru mu: alıntılanan
+     bant, o adımın başvurduğu vücut ölçülerinden BİRİNE ait olmalıdır
+     ve bandın yönü söylenmelidir.
+
+     ⚠ BAĞIMSIZ İNCELEME · H-5 bunu buldu: bir neden merkez arka
+     bandını (2,5–5,1 cm) BEL–KALÇA ölçüsüne de uyguluyordu ve Ek J
+     bel–kalça için ease'i SIFIR yazar. Okur doğru çizilmiş bir kalıbı
+     5 cm fazla uzun sanıp o sayıyı KALICI fit profiline yazardı.
+     Aynı inceleme (H-4) altı girişte bandın YÖNSÜZ kullanıldığını da
+     ölçtü: "banttan farklı olsun" ölçütü "çok uzun" ile "çok kısa"
+     nedenlerinin İKİSİNİ birden destekliyordu.
+
   ⑫ kind='compare' diyen bir adım GERÇEKTEN iki taraflı mı: hem bir
      vücut ölçüsü hem bir kalıp/prova okuması taşıyor mu, ve okur metni
      KALIP tarafını da anıyor mu. Sentetik okur incelemesi altı adımda
@@ -112,6 +124,15 @@ DIRECTION = re.compile(
 # ⑩ Döngüsel ease: okurdan, ancak KARŞILAŞTIRMAYI YAPARAK
 # öğrenebileceği bir sayıyı karşılaştırmaya GİRDİ olarak vermesi
 # istenirse adım uygulanamaz. Faz 5 bunu göremiyordu.
+# ⑭ "2.5–5.1 cm" biçimindeki SAYISAL bant alıntıları. Yalnızca en-dash
+# ya da tire ile ayrılmış cm aralıkları; tek değerli bantlar ("0",
+# "1.3 cm") ve sözel bantlar ("depends on the style") kapsam dışıdır
+# çünkü onlar bir ARALIK iddiası taşımaz.
+BAND_QUOTE = re.compile(r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*cm")
+BAND_DIRECTION = re.compile(r"\b(LESS|MORE|BELOW|ABOVE|UNDER|OVER)\b")
+# Ek J bazı ölçüler için "0" yazar; metin bunu SÖZLE söyler.
+ZERO_BAND = re.compile(r"NO ease|no ease at all", re.I)
+
 CIRCULAR_EASE = re.compile(
     r"plus (?:the )?(?:necessary |wearing |required )?ease"
     r"|plus the ease the pattern"
@@ -133,6 +154,12 @@ def main() -> int:
 
     signs = load(paths.FIT_SIGNS)["signs"]
     meas = {m["measurement_id"] for m in load(paths.MEASUREMENTS)["measurements"]}
+    # Ek J bantları TEK KAYNAKTAN okunur; bu kapı ile figür aynı veriyi
+    # görür, yoksa ikisi ayrışır ve ayrışma H-5'i doğurmuştu.
+    bands_by_meas: dict = {}
+    for b in load(paths.EASE_BANDS)["bands"]:
+        if b.get("measurement_ref") and b.get("numeric"):
+            bands_by_meas.setdefault(b["measurement_ref"], []).append(b)
     pr_doc = load(PATTERN_READINGS)
     pr = {r["reading_id"]: r for r in pr_doc["readings"]}
     tr = {r["reading_id"]: r for r in pr_doc["toile_readings"]}
@@ -233,6 +260,38 @@ def main() -> int:
                 if not DIRECTION.search(text):
                     errs.append(f"{k}: karşılaştırma YÖNSÜZ — hangi sonuç hipotezi "
                                 f"destekler, söylenmiyor ve `expected` alanı yok")
+
+            # ⑭ alıntılanan SAYISAL bant, başvurulan ölçüye ait mi —
+            # ve BİRDEN ÇOK bandı olan bir adım hepsini söylüyor mu.
+            exp = c.get("expected") or ""
+            quoted = {(float(a), float(b)) for a, b in BAND_QUOTE.findall(exp)}
+            owned = {(b["cm_low"], b["cm_high"]) for m in body
+                     for b in bands_by_meas.get(m, [])}
+            if quoted:
+                if not owned:
+                    errs.append(f"{k}: SAYISAL bant alıntılıyor {sorted(quoted)} ama "
+                                f"hiçbir vücut ölçüsüne başvurmuyor")
+                for q in quoted - owned:
+                    errs.append(f"{k}: alıntılanan bant {q[0]}–{q[1]} cm, başvurduğu "
+                                f"ölçülere ({', '.join(body)}) ait DEĞİL — Ek J o "
+                                f"ölçüler için {sorted(owned)} yazıyor")
+                if not BAND_DIRECTION.search(exp):
+                    errs.append(f"{k}: bant YÖNSÜZ kullanılıyor — 'banttan farklı' "
+                                f"ölçütü zıt iki nedeni birden destekler; ALTINDA mı "
+                                f"ÜSTÜNDE mi söylenmeli")
+                # ⚠ H-5'İN ASIL BİÇİMİ: adım İKİ ölçü sunuyordu, ikisinin
+                # bandı FARKLIYDI ve metin yalnızca birini yazıyordu.
+                # Alıntılanan bant "başvurulan bir ölçüye ait" olduğu için
+                # yukarıdaki denetim tek başına bunu GEÇİRİRDİ. Birden çok
+                # bandı olan bir adım, her birini söylemek zorundadır.
+                if len(owned) > 1:
+                    said = len(quoted) + (1 if ZERO_BAND.search(exp) else 0)
+                    if said < len(owned):
+                        errs.append(
+                            f"{k}: {len(owned)} FARKLI bandı olan ölçülere başvuruyor "
+                            f"({', '.join(body)} → {sorted(owned)}) ama metin "
+                            f"{said} tanesini söylüyor — okur hangisinin geçerli "
+                            f"olduğunu bilemez")
 
             if CIRCULAR_EASE.search(text):                           # ⑩
                 errs.append(f"{k}: DÖNGÜSEL ease ifadesi — okurdan, ancak "

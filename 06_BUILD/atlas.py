@@ -289,11 +289,17 @@ class AtlasBuilder:
             # "en ucuzu önce" talimatını uygulayamaz. Basamak adıyla
             # yazılır ve Bölüm 6'nın merdiveniyle aynı sözcükleri
             # kullanır.
+            # ⚠ BAĞIMSIZ İNCELEME · M-6/M-7: yedi test "iğne yeter"
+            # diye etiketlenmişti ama metinleri kolu SÖKÜP YENİDEN
+            # DİKMEYİ istiyordu. Merdivende o basamağın karşılığı
+            # yoktu ve etiket TEST SIRASINI belirlediği için okuru en
+            # pahalı işi en öne alıyordu. Basamak eklendi.
             _COST = {0: "costs nothing — a reading",
                      1: "costs nothing — change the fitting condition",
                      2: "reversible — pins only",
                      3: "costs a scrap of calico",
-                     4: "consumes the fitting garment"}
+                     4: "reversible — unpick and set again",
+                     5: "consumes the fitting garment"}
             _c = cause.get("test_cost")
             _tag = f" ({_COST[_c]})" if _c in _COST else ""
             # ⚠ M-15: iki sayıyı karşılaştırmak bir doğrulama DEĞİLDİR.
@@ -361,8 +367,9 @@ class AtlasBuilder:
             # ⚠ Faz 5: bir neden metni BİRDEN ÇOK duruma işaret edip TEK
             # aileye çıkıyorsa, öteki durumu yaşayan okur YANLIŞ aileye
             # gider. `cross_route` o okuru kendi ailesine yollar.
-            cr = cause.get("cross_route")
-            if cr:
+            # ⚠ M-13: alan LİSTE oldu — bir nedenin üç varışı varsa
+            # üçü de yazılır; ikisi birinin içine katlanmaz.
+            for cr in (cause.get("cross_routes") or []):
                 cf = self.families.get(cr["family_ref"], {}).get("name",
                                                                  cr["family_ref"])
                 items.append(self.labels["ui"]["cross_route"]
@@ -389,7 +396,24 @@ class AtlasBuilder:
                              "they act at different places within it.")
                 items.append(line)
             else:
-                items.append("Leads to: nothing on the pattern. This is not a pattern fault.")
+                # ⚠ BAĞIMSIZ İNCELEME · M-3/M-4: tek bir cümle İKİ AYRI
+                # durumu birleştiriyordu. Kesim, dikiş ve tasarım
+                # nedenleri gerçekten kalıp hatası değildir. Ama ön
+                # bindirme genişliği ve kap çentikleri KALIP
+                # PARAMETRESİDİR: metin "kalıpta hiçbir şey yok" derken
+                # testin kendisi kalıp parçasını değiştiriyordu ve okur
+                # hiçbir şey kaydetmeyip aynı dar bandı bir dahaki sefer
+                # yine kesiyordu. Sınıf artık KAYITTA durur.
+                if cause.get("no_family_reason") == "pattern_parameter_no_family":
+                    items.append(
+                        "Leads to: no adjustment family — this is a pattern "
+                        "parameter, not a shape correction. Write the number you "
+                        "measured on your profile: the change is made on the pattern "
+                        "before the next cut, and Book 2 has no separate entry for it "
+                        "because there is no shape to move.")
+                else:
+                    items.append("Leads to: nothing on the pattern. "
+                                 "This is not a pattern fault.")
             if authored.get("note"):
                 items.append(authored["note"])
             out.append({"type": "bullets", "items": items})
@@ -434,6 +458,29 @@ class AtlasBuilder:
                                 "If it is there, take the second. If it is genuinely "
                                 "absent, take the first and test it."]})
                 continue
+            # ⚠ BAĞIMSIZ İNCELEME (LOW): kutu "sonuç karar versin" diyor
+            # ama ayrılamayan nedenler FARKLI Kitap 2 ailelerine
+            # çıktığında okurun HANGİSİNİ yazacağını söylemiyordu.
+            # Ayrım yapamayan bir kutu, hiç değilse ne kaydedileceğini
+            # söylemek zorundadır. Aile adları KAYITTAN gelir.
+            dests = []
+            for ref in col["causes"]:
+                try:
+                    k = int(ref.rsplit(".C", 1)[1]) - 1
+                    f_ = s["candidate_causes"][k].get("adjustment_family_ref")
+                except (ValueError, IndexError):
+                    continue
+                if f_ and f_ not in dests:
+                    dests.append(f_)
+            tail = ["This is a known limit of the method as this book states "
+                    "it, not something you have missed."]
+            if len(dests) > 1:
+                fam_names = " and ".join(
+                    self.families[f_]["name"].lower() for f_ in dests)
+                tail.insert(0,
+                            "They do not lead to the same correction: " + fam_names +
+                            " are separate entries in Book 2. Record the one whose "
+                            "test worked — not both, and not the pair.")
             out.append({"type": "callout",
                         "title": ("THESE TWO CAN LOOK THE SAME" if n == 2
                                   else f"THESE {n} CAN LOOK THE SAME"),
@@ -444,9 +491,7 @@ class AtlasBuilder:
                             "Test " + ("both" if n == 2 else f"all {n}") +
                             " in the order they are printed above — that order is set "
                             "by what each test costs you — and let the result decide, "
-                            "not the eye.",
-                            "This is a known limit of the method as this book states "
-                            "it, not something you have missed."]})
+                            "not the eye."] + tail})
 
         # ⚠ Her girişin KARAR ŞEMASI — F-10 düzenlemesinde yanlışlıkla
         # silinmişti ve 43 figür kitaptan düştü. Sayfa sayısındaki 38
@@ -744,7 +789,8 @@ class AtlasBuilder:
                                "turn. Anything that needs no pattern change at all comes "
                                "first — it is free and it is often the answer. Then the "
                                "rest, ordered by what the test costs you: a reading, "
-                               "then pins, then a scrap of calico, then cutting the "
+                               "then pins, then a scrap of calico, then unpicking and "
+                               "setting a seam again, then cutting the "
                                "fitting garment. Last come the causes whose correction "
                                "cannot be undone — the armhole, the sleeve cap and the "
                                "neckline — however cheap their test looks, because "

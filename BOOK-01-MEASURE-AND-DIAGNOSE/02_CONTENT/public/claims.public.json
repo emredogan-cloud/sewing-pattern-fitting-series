@@ -8,10 +8,10 @@
   "book": "book-01",
   "count": 310,
   "by_evidence_level": {
-    "CONTESTED": 4,
+    "CONTESTED": 2,
     "INFERRED": 203,
     "UNVERIFIED": 36,
-    "VERIFIED": 49,
+    "VERIFIED": 51,
     "VERIFIED_NARROWER": 18
   },
   "by_kind": {
@@ -1151,7 +1151,7 @@
         "S-0002"
       ],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "CONTESTED",
+      "evidence_level": "VERIFIED",
       "source_support_note": "S-0003 ölçümün 'wear shoes similar to those usually worn' hâlinde yapılmasını ister; yere kadar inen bir ölçü çıplak ayak gerektirir ve S-0002 bunu ima eder. Çelişki KOŞULDADIR, nirengide değil.",
       "reviewer_status": "not_signed_off_at_record_level",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
@@ -1166,7 +1166,7 @@
         "S-0002"
       ],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "CONTESTED",
+      "evidence_level": "VERIFIED",
       "source_support_note": "S-0003 ölçümün 'wear shoes similar to those usually worn' hâlinde yapılmasını ister; yere kadar inen bir ölçü çıplak ayak gerektirir ve S-0002 bunu ima eder. Çelişki KOŞULDADIR, nirengide değil.",
       "reviewer_status": "not_signed_off_at_record_level",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
@@ -2561,7 +2561,7 @@
       "claim_id": "CLM-0170",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
-      "claim": "SYM-008 may be caused by: Kol başı ease'i yetersiz veya kol dar — distinguished by: Çekme kolun kendisinde de hissediliyor.",
+      "claim": "SYM-008 may be caused by: Kol bicep hizasında dar — distinguished by: Çekme kolun kendisinde de hissediliyor.",
       "taxonomy_ref": "SYM-008.C3",
       "source_refs": [
         "S-0001",
@@ -2657,7 +2657,7 @@
       "claim_id": "CLM-0176",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
-      "claim": "SYM-010 may be caused by: Sırt genişliği fazla — distinguished by: Kıvrımlar dikey ve simetrik; öne uzanmak onları TAMAMEN alıyor — dururken fazla olan genişlik, uzanmanın tam olarak ihtiyaç duyduğu genişliktir.",
+      "claim": "SYM-010 may be caused by: Sırt genişliği fazla — distinguished by: Kıvrımlar dikey ve simetrik; ÖNE UZANDIĞINDA DA duruyorlar — genişlik, sırt tam gerildiğinde bile fazla.",
       "taxonomy_ref": "SYM-010.C1",
       "source_refs": [
         "S-0001",

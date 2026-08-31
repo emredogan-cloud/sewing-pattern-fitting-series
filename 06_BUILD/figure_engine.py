@@ -1360,48 +1360,19 @@ class Engine:
         # ⚠ (M-09): bant, kaynağın KENDİ nirengisine aittir; kitabın
         # ölçüsü farklı bir noktadan alınıyorsa bant o ölçüyü TARİF
         # ETMEZ. Dördüncü sütun kaynağın nirengisini YAZAR.
+        # ⚠ BANT ARTIK VERİDEN GELİR (02_TAXONOMY/public/ease_bands.json).
+        # Bu tablo bir Python listesiydi ve aynı sayılar aday nedenlerin
+        # `expected` metnine ELLE yazılıyordu. İki kopya AYRIŞTI:
+        # bağımsız inceleme (H-5), merkez arka bandının (2,5–5,1 cm)
+        # BEL–KALÇA ölçüsüne uygulandığını buldu — bu tablo bel–kalça
+        # için ease'i SIFIR yazar. Tek kaynak, kapıyla birlikte gelir:
+        # qa_verification.py § bant tutarlılığı.
+        bands = load(paths.EASE_BANDS)["bands"]
         self._draw_table("ease_bands",
                          "Yayımlanmış ease bantları — kaynağın KENDİ nirengisiyle (Ek J)",
-                         [["Where", "Band", "Source's own landmark", "From"],
-                          ["Full bust", "7.6–10.2 cm (3–4 in)", "fullest point", "Bodice"],
-                          ["High bust", "7.6–10.2 cm (3–4 in)",
-                           "above breasts, under arms", "Bodice"],
-                          ["Underbust", "7.6–10.2 cm (3–4 in)", "just under breasts",
-                           "Bodice"],
-                          ["Neck base", "1.3–2.5 cm (0.5–1 in)",
-                           "1 in ABOVE the neck base", "Bodice"],
-                          ["Shoulder length", "1.3 cm (0.5 in)",
-                           "neck base to shoulder bone", "Bodice"],
-                          ["Across back", "2.5–3.8 cm (1–1.5 in)",
-                           "SHOULDER to shoulder", "Bodice"],
-                          ["Bicep", "1.3–5.1 cm (0.5–2 in)", "at the ARMPIT", "Bodice"],
-                          ["Wrist", "1.3–2.5 cm (0.5–1 in)", "widest part of the HAND",
-                           "Bodice"],
-                          ["Centre back length", "2.5–5.1 cm (1–2 in)",
-                           "nape to waist", "Bodice"],
-                          ["Inseam", "1.3–2.5 cm (0.5–1 in)", "crotch to ANKLE BONE",
-                           "Bodice"],
-                          ["Full hip", "5.1–10.2 cm (2–4 in)", "widest part", "Bodice"],
-                          ["Thigh", "2.5–7.6 cm (1–3 in)", "9 in below the waist",
-                           "Bodice"],
-                          ["Natural waist", "1.3–2.5 cm (0.5–1 in)", "—", "Trouser"],
-                          ["High hip", "0.6–2.5 cm (0.25–1 in)", "3 in below the waist",
-                           "Trouser"],
-                          ["Full hip", "5.1 cm (2 in)", "fullest, 7–9 in below waist",
-                           "Trouser"],
-                          ["Thigh", "2.5 cm (1 in)", "fullest part", "Trouser"],
-                          ["Knee", "depends on the style", "1 in above centre",
-                           "Trouser"],
-                          ["Waist to hip", "0", "at the side", "Trouser"],
-                          ["Waist to knee", "0", "at the side", "Trouser"],
-                          ["Crotch depth", "1.3–1.9 cm (0.5–0.75 in)", "seated, at side",
-                           "Trouser"],
-                          ["Crotch length, front", "1.3–1.9 cm (0.5–0.75 in)",
-                           "front waist to centre", "Trouser"],
-                          ["Crotch length, back", "1.3–1.9 cm (0.5–0.75 in)",
-                           "back waist to centre", "Trouser"],
-                          ["Leg length", "hem allowance only", "waist to floor, at side",
-                           "Trouser"]],
+                         [["Where", "Band", "Source's own landmark", "From"]]
+                         + [[b["where"], b["band"], b["source_landmark"], b["from"]]
+                            for b in bands],
                          internal=False)
         self._draw_cycle_chart()
 
@@ -1769,19 +1740,33 @@ class Engine:
             self._draw_toile_state(key, shows)
 
     def _draw_toile_state(self, key: str, shows: str):
-        W, H = 200.0, 262.0
-        fc = self._fc(W, H, "garment", f"toile_{key}.pdf")
         # ⚠ GÖZLE DENETLENDİ VE TASARIM DEĞİŞTİ: omuz dikişi sapması
         # bir ÖN/ARKA yönüdür ve ÖNDEN GÖRÜNMEZ. İlk sürüm onu önden
         # çizmeye çalıştı; çıkan resim "dikiş omuzdan AŞAĞI kaymış"
         # diyordu — okuma bu değildir. Bu tek durum PROFİLDEN çizilir.
+        #
+        # ⚠⚠ BASKI SİMÜLASYONUNUN BULDUĞU KUSUR (Faz 6 · § 42).
+        # Genişlik SEÇİMİ tuvalden ÖNCE yapılır. İlk sürüm 200 pt'lik
+        # tuvali koşulsuz açıyor, sonra bu tek figür için 268 pt'lik
+        # İKİNCİsini açıyordu. İki sonuç doğuruyordu ve ikisi de
+        # sessizdi:
+        #   ① Terk edilen tuval `saveState()`+`translate()` yayınlamıştı
+        #      ve `finish()` hiç çağrılmadığı için `restoreState()`
+        #      gelmiyordu. ReportLab yığını sayfa değişiminde
+        #      TEMİZLEMEZ: bayat durum, SONRAKİ bir figürün
+        #      `restoreState()`'i tarafından çekiliyor ve o sayfanın
+        #      TAMAMINI kaydırıyordu — s. 63'te gövde, yan not ve
+        #      folyo 122,5 pt sağa, 468,7 pt yukarı kaydı; yan notun
+        #      metni sayfa kenarından TAŞIP KESİLDİ.
+        #   ② `_fc()` bağlı yerleştirmeyi (`_place`) İLK çağrıda
+        #      tüketir. İkinci tuval bu yüzden sayfaya değil kendi
+        #      DOSYASINA çiziyordu: figür kitapta HİÇ GÖRÜNMÜYORDU.
+        # Bir figürü kitaptan sessizce düşüren kusuru hiçbir veri
+        # kapısı göremezdi; ölçüm buldu.
+        # Regresyon: 07_TESTS/selftest.py § test_render_leaves_canvas_balanced
+        W, H = (268.0 if key == "shoulder_offset" else 200.0), 262.0
+        fc = self._fc(W, H, "garment", f"toile_{key}.pdf")
         if key == "shoulder_offset":
-            # ⚠ GÖZLE: 200 pt genişlikte profil krokisinin iki yanında
-            # etiket için boş alan KALMIYOR ve etiketler gövde
-            # konturunu kesiyordu. Bu tek figür daha GENİŞ kutuya
-            # çizilir; kroki sağa yaslanır, etiketler sol marja gider.
-            W = 268.0
-            fc = self._fc(W, H, "garment", f"toile_{key}.pdf")
             cro = croquis_fit(W, H, "full_hip", "top_of_head", arms=False,
                               pad_y=16.0, view="side")
             cro.draw_side(fc, head=True, gray=0.45, bottom="full_hip")
@@ -1872,6 +1857,16 @@ class Engine:
         BİREBİR aynıdır; ikisi ayrışamaz."""
         self._silent = True
         self.place(canvas, x, y)
+        # ⚠ Bir çizici `_fc()` ile tuval açıp `finish()` çağırmazsa
+        # `saveState()` karşılıksız kalır. ReportLab durum yığınını
+        # sayfa değişiminde TEMİZLEMEZ: bayat durum, SONRAKİ bir
+        # figürün `restoreState()`'i tarafından çekilir ve o sayfanın
+        # TAMAMINI kaydırır. Ölçülen sonuç — s. 63'te gövde metni,
+        # yan not ve folyo 122,5 pt sağa kaydı ve yan notun metni
+        # sayfadan taşıp KESİLDİ; figürün kendisi ise kitaba hiç
+        # basılmadı. Hiçbir veri kapısı bunu göremezdi.
+        # Denge artık BURADA, kusurun doğduğu yerde ölçülür.
+        depth0 = len(getattr(canvas, "state_stack", []))
         try:
             if key.startswith("flow_SYM-"):
                 sid = key[len("flow_"):]
@@ -1952,6 +1947,13 @@ class Engine:
         finally:
             self._silent = False
             self._place = None
+            depth1 = len(getattr(canvas, "state_stack", []))
+            if depth1 != depth0:
+                raise RuntimeError(
+                    f"{key}: çizim tuval durumunu DENGESİZ bıraktı "
+                    f"({depth0} → {depth1}). Bir `_fc()` çağrısının "
+                    f"`finish()`'i yok — açılan her tuval kapatılmalıdır, "
+                    f"yoksa bayat dönüşüm sonraki sayfayı kaydırır.")
 
     # ── koşum ─────────────────────────────────────────────────────────
     def run(self):

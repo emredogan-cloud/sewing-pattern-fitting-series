@@ -20,6 +20,10 @@ zinciri bir yönlü çizgedir ve bir teşhis kitabının doğruluğu, o
   ⑪ ERİŞİLMEZ OKUMA  hiçbir adımda kullanılmayan kalıp/prova okuması
   ⑫ SAĞIR AİLE       bir aileye çıkan hiçbir neden bir ÖLÇÜ taşımıyor
                      (okur oraya varır ve miktarı ölçemez)
+  ⑬ SESSİZ ÇIKIŞ     ailesi olmayan bir neden, NEDEN olmadığını
+                     söylemiyor — okur "kalıpta hiçbir şey yok"
+                     cümlesini kesim hatası ile kalıp parametresi
+                     için AYNI biçimde okur (bağımsız inceleme M-3/M-4)
 
 Çıkış: 0 temiz · 1 en az bir kusur.
 """
@@ -59,9 +63,9 @@ def main() -> int:
             f = c.get("adjustment_family_ref")
             if f:
                 edges.append((f"{sid}.C{i}", f))
-            cr = c.get("cross_route")
-            if cr and cr.get("family_ref"):
-                edges.append((f"{sid}.C{i}", cr["family_ref"]))
+            for cr in (c.get("cross_routes") or []):
+                if cr.get("family_ref"):
+                    edges.append((f"{sid}.C{i}", cr["family_ref"]))
 
     reached = {f for _, f in edges}
 
@@ -170,9 +174,9 @@ def main() -> int:
     cross_edges = set()
     for s in signs:
         for c in s["candidate_causes"]:
-            cr = c.get("cross_route")
-            if cr and cr.get("family_ref"):
-                cross_edges.add((s["symptom_id"], cr["family_ref"]))
+            for cr in (c.get("cross_routes") or []):
+                if cr.get("family_ref"):
+                    cross_edges.add((s["symptom_id"], cr["family_ref"]))
     only_tax -= cross_edges
     for p in sorted(only_tax):
         errs.append(f"⑨ taksonomide VAR, crosswalk'ta YOK: {p[0]} → {p[1]}")
@@ -210,6 +214,13 @@ def main() -> int:
         if not has:
             errs.append(f"⑫ {fid} ({fams[fid]['name']}): bu aileye çıkan HİÇBİR neden "
                         f"bir ölçü taşımıyor — okur oraya varır ve miktarı ölçemez")
+
+    # ⑬ sessiz çıkış — ailesi yoksa GEREKÇESİ yazılmalı
+    for s in signs:
+        for i, c in enumerate(s["candidate_causes"], 1):
+            if not c.get("adjustment_family_ref") and not c.get("no_family_reason"):
+                errs.append(f"⑬ {s['symptom_id']}.C{i}: ailesi YOK ve NEDEN olmadığı "
+                            f"BEYAN EDİLMEMİŞ — kesim hatası mı, kalıp parametresi mi?")
 
     print("▸ graph_audit.py — nedensel çizge denetimi")
     print(f"  {len(signs)} belirti · {sum(len(s['candidate_causes']) for s in signs)} neden "

@@ -220,6 +220,37 @@ def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
                            "definition rests on them, the book says that the sources "
                            "differ rather than asserting one."})
     groups["HI"] = blocks
+
+    # ⚠ BAĞIMSIZ İNCELEME · M-8/M-9/M-10: Ek G iki sayı İLAN EDİYORDU
+    # ("İKİ gerçek anlaşmazlık", "ALTI ayrılma") ve ikisi de metinle
+    # uyuşmuyordu. Sayılar prozaya ELLE yazılmıştı; veri değişince
+    # cümle değişmedi. Üç ayrı kusur doğurdu: bir AYRILMA kaynak
+    # anlaşmazlığı diye sayıldı, bir "anlaşmazlık" tek kaynak ile bu
+    # kitabı karşı karşıya koyuyordu, ve prozada duran YEDİNCİ ayrılma
+    # hiç sayılmamıştı.
+    # Kitabın kanıt duruşunu ilan eden cümle artık KAYITTAN üretilir:
+    # sayılamayan bir şey ilan edilemez.
+    mc = atlas.mcontent
+    names = {mid: m["name"].lower() for mid, m in atlas.measures.items()}
+    conf = sorted(mc.get("conflicts", {}))
+    divg = sorted(mc.get("divergences", {}))
+
+    def _join(ids):
+        got = [names.get(i, i) for i in ids]
+        return got[0] if len(got) == 1 else ", ".join(got[:-1]) + " and " + got[-1]
+
+    _n = {1: "ONE", 2: "TWO", 3: "THREE", 4: "FOUR", 5: "FIVE", 6: "SIX",
+          7: "SEVEN", 8: "EIGHT", 9: "NINE", 10: "TEN"}
+    txt = (f"It records {_n.get(len(conf), len(conf))} real "
+           f"{'disagreement' if len(conf) == 1 else 'disagreements'} between "
+           f"published sources — over the {_join(conf)} — and there it tells you to choose "
+           f"one and record which. Separately, it records "
+           f"{_n.get(len(divg), len(divg))} "
+           f"{'place' if len(divg) == 1 else 'places'} where this book departs from "
+           f"the one source it has: {_join(divg)}. Those are not disagreements "
+           f"between authorities. They are decisions this book made, and the page "
+           f"where each measurement is taught says so.")
+    groups["G_counts"] = [{"type": "para", "text": txt}]
     return groups
 
 

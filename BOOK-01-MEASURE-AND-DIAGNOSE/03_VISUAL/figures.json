@@ -3849,7 +3849,7 @@
       "symptom_ref": "SYM-010",
       "zone": "upper_back",
       "width_pt": 458.0,
-      "height_pt": 327.6,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
@@ -4402,7 +4402,7 @@
     "FIG-B1-076": {
       "measurement_ref": "M-024",
       "verification_status_of_record": "technical_reference_verified",
-      "caption_class": "source_conflict",
+      "caption_class": "verified",
       "width_pt": 214.0,
       "height_pt": 300.0,
       "source_file": "meas_M-024.pdf"
@@ -6473,7 +6473,7 @@
     "upper_back": {
       "signs": 4,
       "width_pt": 1832.0,
-      "height_pt": 307.6,
+      "height_pt": 292.5,
       "fits_page": false
     },
     "armhole": {

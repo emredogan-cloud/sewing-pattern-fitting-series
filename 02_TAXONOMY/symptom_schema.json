@@ -123,24 +123,6 @@
               "null"
             ]
           },
-          "cross_route": {
-            "$comment": "Bu neden metni BİRDEN ÇOK duruma işaret ediyorsa ve bunların AYRI düzeltme aileleri varsa, okurun ötekine nasıl gideceği BURADA yazılır. Faz 5'te ölçülen kusur: iki neden 'bust or abdomen' / 'bust, abdomen or seat' diyor ama TEK aileye (AF-01 göğüs) çıkıyordu; karnı yüzünden bu belirtiyi gören okur GÖĞÜS düzeltmesine yollanıyordu.",
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "condition_en",
-              "family_ref"
-            ],
-            "properties": {
-              "condition_en": {
-                "type": "string"
-              },
-              "family_ref": {
-                "type": "string",
-                "pattern": "^AF-[0-9]{2}$"
-              }
-            }
-          },
           "confirming_refs": {
             "$comment": "İÇERİK TURU · L-2: 'confirming_measurement' SERBEST METİNDİR ve hiçbir kapı onun ADLANDIRDIĞI şeyin kitapta ÖĞRETİLİP öğretilmediğini göremiyordu. 129 adımın 26'sı öğretilmeyen bir niceliğe başvuruyordu ve sekiz kapı da yeşildi. Bu alan aynı adımı MAKİNE OKUNUR hâle getirir: her nicelik ya bir ölçü kimliği, ya bir kalıp okuması, ya bir prova okumasıdır — ya da adım 'ölçüm yok' der.",
             "type": "object",
@@ -192,10 +174,10 @@
             "pattern": "^SYM-[0-9]{3}\\.C[0-9]$"
           },
           "test_cost": {
-            "$comment": "Fiziksel testin Bölüm 6 merdivenindeki BASAMAĞI. 0 = belge okuması (giysiye dokunulmaz) · 1 = prova koşulunu değiştir (bedava) · 2 = iğne/kıvrım/pens/sök-ve-yeniden-iğnele (geri alınabilir, ölçülebilir) · 3 = şerit kumaş ekle (bir parça kumaşa mal olur) · 4 = provayı KES (provayı tüketir). 5 (kalıbı değiştir) bir TEST DEĞİLDİR ve burada görünemez. ⚠ Bağımsız inceleme (F-09/F-13): 129 testin 63'ü bir KALIP TALİMATIYDI ('Lower the shoulder tip'), bir prova testi değil — ne aracı ne geri alınabilirliği ne okunacak sonucu vardı. Hepsi yeniden yazıldı ve basamak artık VERİDE durur, prozadan tahmin EDİLMEZ.",
+            "$comment": "Fiziksel testin Bölüm 6 merdivenindeki BASAMAĞI. 0 = belge okuması (giysiye dokunulmaz) · 1 = prova koşulunu değiştir (bedava) · 2 = iğne/kıvrım/pens (geri alınabilir, iplik sökülmez) · 3 = şerit kumaş ekle (bir parça kumaşa mal olur) · 4 = SÖK VE YENİDEN DİK (geri alınabilir ama en pahalı işçilik) · 5 = provayı KES (provayı tüketir). ⚠ BAĞIMSIZ İNCELEME (M-6/M-7): yedi test 'iğne yeter' diye etiketlenmişti ama metinleri kolu SÖKÜP YENİDEN DİKMEYİ ya da hacim EKLEMEYİ istiyordu. Merdivende o basamağın KARŞILIĞI YOKTU ve etiket, basılan TEST SIRASINI belirlediği için okuru en pahalı işi en öne alıyordu. Basamak eklendi; sıralama işçilik ve geri alınabilirlikle tutarlı.",
             "type": "integer",
             "minimum": 0,
-            "maximum": 4
+            "maximum": 5
           },
           "expected": {
             "$comment": "HANGİ SONUÇ bu hipotezi destekler (görev talimatı § 9/§ 13). Bir karşılaştırma, hangi yöne çıkarsa hipotezi desteklediğini SÖYLEMEDİKÇE bir doğrulama değildir. ⚠ Bağımsız inceleme (M-15): 85 adım iki sayıyı karşılaştırmayı söylüyor ve farkın NE ANLAMA GELDİĞİNİ söylemiyordu. Alan, yönün adımın metninden okunamadığı her adımda ZORUNLUDUR.",
@@ -204,6 +186,40 @@
               "null"
             ],
             "minLength": 20
+          },
+          "cross_routes": {
+            "$comment": "Bu neden metni BİRDEN ÇOK duruma işaret ediyorsa ve bunların AYRI düzeltme aileleri varsa, okurun ötekine nasıl gideceği BURADA yazılır. Faz 5'te ölçülen kusur: iki neden 'bust or abdomen' / 'bust, abdomen or seat' diyor ama TEK aileye (AF-01 göğüs) çıkıyordu; karnı yüzünden bu belirtiyi gören okur GÖĞÜS düzeltmesine yollanıyordu. ⚠ BAĞIMSIZ İNCELEME (M-13): alan TEKİLDİ ve bir neden ÜÇ varışa işaret ediyordu; koşul metni 'karın ya da OTURAK' deyip ikisini birden KARIN ailesine yolluyordu — oturak AF-13'tür ve kitabın öteki iki paralel yönlendirmesi bunu doğru yapıyor. Alan artık LİSTEDİR: bir nedenin kaç ayrı çıkışı varsa o kadar rota yazılır.",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "condition_en",
+                "family_ref"
+              ],
+              "properties": {
+                "condition_en": {
+                  "type": "string"
+                },
+                "family_ref": {
+                  "type": "string",
+                  "pattern": "^AF-[0-9]{2}$"
+                }
+              }
+            }
+          },
+          "no_family_reason": {
+            "$comment": "Bir nedenin düzeltme ailesi YOKSA, NEDEN olmadığını söyler. ⚠ BAĞIMSIZ İNCELEME (M-3/M-4): tek bir cümle — 'kalıpta hiçbir şey yok, bu bir kalıp hatası değil' — İKİ AYRI durumu birleştiriyordu. Kesim, dikiş ve tasarım nedenleri için doğrudur. Ama ön bindirme genişliği ve kap çentikleri KALIP PARAMETRESİDİR: metin 'kalıpta hiçbir şey yok' derken testin kendisi kalıp parçasını değiştiriyordu, okur hiçbir şey kaydetmiyor ve aynı dar bandı bir dahaki sefer yine kesiyordu. 'not_a_pattern_fault' = kesim/dikiş/tasarım. 'pattern_parameter_no_family' = kalıpta değişir ama bir ŞEKİL düzeltmesi değildir, o yüzden yirmi ailenin hiçbirine girmez.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "not_a_pattern_fault",
+              "pattern_parameter_no_family",
+              null
+            ]
           }
         }
       }

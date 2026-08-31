@@ -205,6 +205,19 @@ jobs:
         run: |
           python3 06_BUILD/calibrate_tokens.py
           git diff --stat -- 03_VISUAL/calibration_report.json
+      # ⚠ DÜRÜST SINIR: baskı simülasyonu ÜRETİLEN PDF'i ölçer ve o
+      # PDF manüskript prozasından kurulur — proza bilerek izlenmiyor
+      # (K9), yani CI onu KURAMAZ. Bu kapının tam kapsamı YEREL
+      # koşumdadır ve qa_all.sh içinde durur. Burada yalnızca ARACIN
+      # kendisi çalışabiliyor mu, o denetlenir: çıkış kodu 1 (kusur)
+      # ile 2 (varlık yok) ayrı şeylerdir ve karıştırılmaz.
+      - name: baskı simülasyonu — araç çalışabiliyor mu
+        run: |
+          python3 06_BUILD/print_sim.py --verbose; RC=$?
+          if [ "$RC" -eq 1 ]; then
+            echo "::notice::Yayın varlığı YOK (CI proza olmadan kitabı kuramaz) — BEKLENEN."
+          fi
+          echo "::notice::Baskı simülasyonunun TAM kapsamı YEREL koşumdadır."
 
   manuscript:
     name: iddia sicili · izlenebilirlik · manüskript kapısı

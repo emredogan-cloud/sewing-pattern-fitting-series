@@ -19,9 +19,9 @@
 
 | Kanıt seviyesi | Sayı | Oran | Anlamı |
 |---|---:|---:|---|
-| `VERIFIED` | 49 | %15.8 | Kayıt doğrulanmış VE en az bir tam metin teknik otoritesine bağlı. |
+| `VERIFIED` | 51 | %16.5 | Kayıt doğrulanmış VE en az bir tam metin teknik otoritesine bağlı. |
 | `VERIFIED_NARROWER` | 18 | %5.8 | Kaynak okundu ve İLKEYİ destekliyor, ama iddianın yazıldığı hâlinden DAHA DAR bir ifadeyi destekliyor. Kaydın `source_support_note` alanı kaynağın gerçekte ne dediğini yazar (görev talimatı § 9). |
-| `CONTESTED` | 4 | %1.3 | Kaynaklar arasında KAYITLI tanım farkı var. Bir hata değildir — Bölüm 2'nin öğretim malzemesidir. |
+| `CONTESTED` | 2 | %0.6 | Kaynaklar arasında KAYITLI tanım farkı var. Bir hata değildir — Bölüm 2'nin öğretim malzemesidir. |
 | `INFERRED` | 203 | %65.5 | Kaynak bağlamı destekliyor; iddianın KENDİSİ ajan türevi. |
 | `UNVERIFIED` | 36 | %11.6 | Hiçbir otoriter kaynağa bağlı değil. |
 
@@ -47,7 +47,7 @@
 | Bölüm | İddia | `VERIFIED` | `V_NARROWER` | `CONTESTED` | `INFERRED` | `UNVERIFIED` |
 |---|---:|---:|---:|---:|---:|---:|
 | 1 · Why the pattern did not fit | 2 | 0 | 0 | 0 | 2 | 0 |
-| 2 · Measuring your body | 71 | 27 | 7 | 4 | 13 | 20 |
+| 2 · Measuring your body | 71 | 29 | 7 | 2 | 13 | 20 |
 | 3 · Reading the pattern | 5 | 1 | 0 | 0 | 4 | 0 |
 | 4 · The fitting garment | 3 | 0 | 0 | 0 | 1 | 2 |
 | 5 · The fitting session | 3 | 0 | 1 | 0 | 2 | 0 |

@@ -622,7 +622,7 @@
       ],
       "verification_status": "technical_reference_verified",
       "notes": "Kaynaklar ÖLÇÜM KOŞULUNDA çelişir: S-0003 'wear shoes similar to those usually worn' der, kitap ve S-0002'nin yere kadar ölçüsü çıplak ayağı gerektirir. Kitap çıplak ayağı seçer ve topuk yüksekliğini AYRI kaydettirir; çelişki Bölüm 2'de okura BEYAN EDİLİR. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
-      "source_conflict": true,
+      "source_conflict": false,
       "landmark_kind": "marked",
       "source_support_note": "S-0003 ölçümün 'wear shoes similar to those usually worn' hâlinde yapılmasını ister; yere kadar inen bir ölçü çıplak ayak gerektirir ve S-0002 bunu ima eder. Çelişki KOŞULDADIR, nirengide değil."
     },

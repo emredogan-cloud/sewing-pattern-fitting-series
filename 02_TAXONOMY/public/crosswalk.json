@@ -225,7 +225,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-008",
       "to_ref": "AF-10",
-      "handoff_sentence": "Belirti SYM-008 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i yetersiz veya kol dar → AF-10 (Sleeve girth and length (bicep, forearm, length)).",
+      "handoff_sentence": "Belirti SYM-008 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol bicep hizasında dar → AF-10 (Sleeve girth and length (bicep, forearm, length)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },

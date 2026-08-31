@@ -460,8 +460,18 @@ class Typesetter:
         # artık sayfa başına YIĞILIR ve sığmıyorsa bir sonraki sayfaya
         # bırakılır — üst üste basılmaz.
         floor = self._side_used if self._side_used is not None else self.top
-        if y - need < self.bottom or y > floor:
+        # Bir not, ondan önceki notun ÜSTÜNE binemez: aşağı iner.
+        if y > floor:
             y = floor
+        # ⚠ BAĞIMSIZ İNCELEME · M-14: burada ikinci bir koşul daha
+        # vardı — not sayfanın altına SIĞMIYORSA da `floor`a atlıyordu,
+        # yani YUKARI. Sonuç ölçüldü: s. 114'te "Bu belirti hareket
+        # testi olmadan görülemez" notu, kendi belirtisinin başlığından
+        # 700 pt YUKARIDA, BİR ÖNCEKİ belirtinin girişinin yanında
+        # basılıyordu — ve o belirti ayakta okunan bir belirtidir, not
+        # onun için YANLIŞTIR. Bir yan not asla çapasının üstüne
+        # çıkmaz; sığmıyorsa SONRAKİ sayfaya bırakılır ve orada
+        # devam eden metnin yanında doğru yerde durur.
         if y - need < self.bottom:
             self._side_pending.append((title, body))
             return
@@ -612,10 +622,35 @@ class Typesetter:
     def figure(self, key: str, caption: str, meta: dict, full=False):
         self._touch()
         w = meta["width_pt"]; h = meta["height_pt"]
+        # ⚠ BASKI SİMÜLASYONUNUN BULDUĞU KUSUR (Faz 6 · § 42).
+        # `x = x0 + max(0.0, (avail - w) / 2)` figürden GENİŞ olmayan
+        # bir sütuna denk gelince farkı SIFIRA kırpıyor ve figürü
+        # sağa TAŞIRIYORDU. Sessizdi: ne kırpma ne ölçekleme ne hata.
+        # Ölçülen sonuç — 46 akış şeması metin sütunundan 71 pt geniş
+        # olduğu için ÇİFT sayfalarda 20 sayfada cilt payına giriyor,
+        # kesime 1,3 pt kalana kadar uzanıyordu. Ciltte kaybolurdu.
+        #
+        # Genişlik SINIFI artık ölçülen genişlikten TÜRETİLİR: metin
+        # sütununa sığmayan figür TAM ÖLÇÜYE (metin + yan sütun)
+        # yerleşir. Sığmıyorsa bu bir DİZGİ HATASIDIR ve sessizce
+        # taşmak yerine build'i durdurur.
+        # Regresyon: 07_TESTS/selftest.py § test_figure_never_exceeds_its_column
+        full = bool(full) or w > self.tw + 0.01
         avail = (self.tw + self.gap + self.side_w) if full else self.tw
+        if w > avail + 0.01:
+            raise ValueError(
+                f"{key}: figür {w:.1f} pt, en geniş yerleşim alanı {avail:.1f} pt. "
+                f"Figür motoru bunu DAR üretmeli; dizgi kırpamaz, ölçekleyemez "
+                f"ve taşıramaz.")
         cap_lines = self._wrap(caption, avail, "sans-italic", 8.5)
         need = h + 9.0 + len(cap_lines) * 11.0 + self.lead * 0.8
         self._need(need)
+        # ⚠ TAM ÖLÇÜ figür YAN SÜTUNU DA kaplar. O sütunda bu yükseklikte
+        # bir yan not duruyorsa figür notun ÜSTÜNE biner. Figür notun
+        # altına indirilir; yer kalmazsa `_need` sayfayı çevirir.
+        if full and self._side_used is not None and self.y > self._side_used:
+            self.y = self._side_used
+            self._need(need)
         self.y -= self.lead * 0.5
         x0 = (self.x_text if not full else min(self.x_text, self.x_side))
         x = x0 + max(0.0, (avail - w) / 2)

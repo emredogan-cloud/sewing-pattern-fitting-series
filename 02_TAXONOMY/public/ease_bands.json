@@ -1,0 +1,257 @@
+{
+  "$comment": [
+    "YAYIMLANMIŞ EASE BANTLARI — TEK KAYNAK.",
+    "",
+    "⚠ NEDEN VERİ OLDU: bu tablo figure_engine.py içinde bir Python",
+    "listesiydi ve aynı sayılar aday nedenlerin `expected` metnine",
+    "ELLE yazılıyordu. İki kopya ayrıştı: BAĞIMSIZ İNCELEME (H-5) bir",
+    "nedenin merkez arka bandını (2,5–5,1 cm) BEL–KALÇA ölçüsüne",
+    "uyguladığını buldu; bu tablo bel–kalça için ease'i SIFIR yazar.",
+    "Okur, doğru çizilmiş bir kalıbı 5 cm fazla uzun sanabilir ve o",
+    "sayıyı kalıcı fit profiline yazabilirdi.",
+    "Bant artık TEK yerde durur; Ek J tablosu da, `expected` metnini",
+    "denetleyen kapı da BURAYI okur.",
+    "",
+    "`cm_low`/`cm_high` yalnızca DENETİM içindir; okura basılan dize",
+    "`band` alanıdır ve kaynağın kendi birimini korur.",
+    "`landmark` kaynağın KENDİ nirengisidir — bu kitabınki değil."
+  ],
+  "source_refs": [
+    "S-0001",
+    "S-0002"
+  ],
+  "source_note": "Bodice satırları S-0001 (C-228) Table 1'den, Trouser satırları S-0002 (C-227) Pants Measurement Chart'tan birebir alınmıştır. Bantlar bu kitabın önerisi DEĞİL, kaynakların yayımladığı değerlerdir.",
+  "count": 23,
+  "bands": [
+    {
+      "where": "Full bust",
+      "band": "7.6–10.2 cm (3–4 in)",
+      "source_landmark": "fullest point",
+      "from": "Bodice",
+      "measurement_ref": "M-002",
+      "cm_low": 7.6,
+      "cm_high": 10.2,
+      "numeric": true
+    },
+    {
+      "where": "High bust",
+      "band": "7.6–10.2 cm (3–4 in)",
+      "source_landmark": "above breasts, under arms",
+      "from": "Bodice",
+      "measurement_ref": "M-001",
+      "cm_low": 7.6,
+      "cm_high": 10.2,
+      "numeric": true
+    },
+    {
+      "where": "Underbust",
+      "band": "7.6–10.2 cm (3–4 in)",
+      "source_landmark": "just under breasts",
+      "from": "Bodice",
+      "measurement_ref": "M-003",
+      "cm_low": 7.6,
+      "cm_high": 10.2,
+      "numeric": true
+    },
+    {
+      "where": "Neck base",
+      "band": "1.3–2.5 cm (0.5–1 in)",
+      "source_landmark": "1 in ABOVE the neck base",
+      "from": "Bodice",
+      "measurement_ref": "M-013",
+      "cm_low": 1.3,
+      "cm_high": 2.5,
+      "numeric": true
+    },
+    {
+      "where": "Shoulder length",
+      "band": "1.3 cm (0.5 in)",
+      "source_landmark": "neck base to shoulder bone",
+      "from": "Bodice",
+      "measurement_ref": "M-014",
+      "cm_low": 1.3,
+      "cm_high": 1.3,
+      "numeric": true
+    },
+    {
+      "where": "Across back",
+      "band": "2.5–3.8 cm (1–1.5 in)",
+      "source_landmark": "SHOULDER to shoulder",
+      "from": "Bodice",
+      "measurement_ref": "M-020",
+      "cm_low": 2.5,
+      "cm_high": 3.8,
+      "numeric": true
+    },
+    {
+      "where": "Bicep",
+      "band": "1.3–5.1 cm (0.5–2 in)",
+      "source_landmark": "at the ARMPIT",
+      "from": "Bodice",
+      "measurement_ref": "M-007",
+      "cm_low": 1.3,
+      "cm_high": 5.1,
+      "numeric": true
+    },
+    {
+      "where": "Wrist",
+      "band": "1.3–2.5 cm (0.5–1 in)",
+      "source_landmark": "widest part of the HAND",
+      "from": "Bodice",
+      "measurement_ref": "M-008",
+      "cm_low": 1.3,
+      "cm_high": 2.5,
+      "numeric": true
+    },
+    {
+      "where": "Centre back length",
+      "band": "2.5–5.1 cm (1–2 in)",
+      "source_landmark": "nape to waist",
+      "from": "Bodice",
+      "measurement_ref": "M-016",
+      "cm_low": 2.5,
+      "cm_high": 5.1,
+      "numeric": true
+    },
+    {
+      "where": "Inseam",
+      "band": "1.3–2.5 cm (0.5–1 in)",
+      "source_landmark": "crotch to ANKLE BONE",
+      "from": "Bodice",
+      "measurement_ref": "M-025",
+      "cm_low": 1.3,
+      "cm_high": 2.5,
+      "numeric": true
+    },
+    {
+      "where": "Full hip",
+      "band": "5.1–10.2 cm (2–4 in)",
+      "source_landmark": "widest part",
+      "from": "Bodice",
+      "measurement_ref": "M-006",
+      "cm_low": 5.1,
+      "cm_high": 10.2,
+      "numeric": true
+    },
+    {
+      "where": "Thigh",
+      "band": "2.5–7.6 cm (1–3 in)",
+      "source_landmark": "9 in below the waist",
+      "from": "Bodice",
+      "measurement_ref": "M-009",
+      "cm_low": 2.5,
+      "cm_high": 7.6,
+      "numeric": true
+    },
+    {
+      "where": "Natural waist",
+      "band": "1.3–2.5 cm (0.5–1 in)",
+      "source_landmark": "—",
+      "from": "Trouser",
+      "measurement_ref": "M-004",
+      "cm_low": 1.3,
+      "cm_high": 2.5,
+      "numeric": true
+    },
+    {
+      "where": "High hip",
+      "band": "0.6–2.5 cm (0.25–1 in)",
+      "source_landmark": "3 in below the waist",
+      "from": "Trouser",
+      "measurement_ref": "M-005",
+      "cm_low": 0.6,
+      "cm_high": 2.5,
+      "numeric": true
+    },
+    {
+      "where": "Full hip",
+      "band": "5.1 cm (2 in)",
+      "source_landmark": "fullest, 7–9 in below waist",
+      "from": "Trouser",
+      "measurement_ref": "M-006",
+      "cm_low": 5.1,
+      "cm_high": 5.1,
+      "numeric": true
+    },
+    {
+      "where": "Thigh",
+      "band": "2.5 cm (1 in)",
+      "source_landmark": "fullest part",
+      "from": "Trouser",
+      "measurement_ref": "M-009",
+      "cm_low": 2.5,
+      "cm_high": 2.5,
+      "numeric": true
+    },
+    {
+      "where": "Knee",
+      "band": "depends on the style",
+      "source_landmark": "1 in above centre",
+      "from": "Trouser",
+      "measurement_ref": "M-010",
+      "cm_low": null,
+      "cm_high": null,
+      "numeric": false
+    },
+    {
+      "where": "Waist to hip",
+      "band": "0",
+      "source_landmark": "at the side",
+      "from": "Trouser",
+      "measurement_ref": "M-023",
+      "cm_low": 0.0,
+      "cm_high": 0.0,
+      "numeric": true
+    },
+    {
+      "where": "Waist to knee",
+      "band": "0",
+      "source_landmark": "at the side",
+      "from": "Trouser",
+      "measurement_ref": null,
+      "cm_low": 0.0,
+      "cm_high": 0.0,
+      "numeric": true
+    },
+    {
+      "where": "Crotch depth",
+      "band": "1.3–1.9 cm (0.5–0.75 in)",
+      "source_landmark": "seated, at side",
+      "from": "Trouser",
+      "measurement_ref": "M-026",
+      "cm_low": 1.3,
+      "cm_high": 1.9,
+      "numeric": true
+    },
+    {
+      "where": "Crotch length, front",
+      "band": "1.3–1.9 cm (0.5–0.75 in)",
+      "source_landmark": "front waist to centre",
+      "from": "Trouser",
+      "measurement_ref": "M-027",
+      "cm_low": 1.3,
+      "cm_high": 1.9,
+      "numeric": true
+    },
+    {
+      "where": "Crotch length, back",
+      "band": "1.3–1.9 cm (0.5–0.75 in)",
+      "source_landmark": "back waist to centre",
+      "from": "Trouser",
+      "measurement_ref": "M-027",
+      "cm_low": 1.3,
+      "cm_high": 1.9,
+      "numeric": true
+    },
+    {
+      "where": "Leg length",
+      "band": "hem allowance only",
+      "source_landmark": "waist to floor, at side",
+      "from": "Trouser",
+      "measurement_ref": "M-024",
+      "cm_low": null,
+      "cm_high": null,
+      "numeric": false
+    }
+  ]
+}

@@ -1324,6 +1324,7 @@ def main():
         test_gate_layer_never_imports_the_render_layer,
         test_external_unavailable_is_not_a_pass,
         test_rule_out_list_is_one_list,
+        test_disagreement_is_not_claimed_for_a_departure,
         test_cause_text_matches_its_destination,
         test_sign_prose_has_exactly_one_copy,
         test_figure_specs_have_one_copy,
@@ -1572,7 +1573,10 @@ def test_appendices_print_in_letter_order():
         return
     src = json.loads((mdir / "appendix.json").read_text(encoding="utf-8"))
     slots = [b["slot"] for b in src["blocks"] if b.get("type") == "index_slot"]
-    check("appendix.json iki dizin işareti TAŞIYOR", slots == ["C", "HI"], str(slots))
+    # ⚠ M-8/M-9/M-10: Ek G'nin kanıt sayıları PROZAYA elle yazılmıştı
+    # ve veriyle uyuşmuyordu. Üçüncü işaret o cümleyi KAYITTAN üretir.
+    check("appendix.json üç dizin işareti TAŞIYOR",
+          slots == ["C", "G_counts", "HI"], str(slots))
 
 
 def test_no_duplicate_chapter_number():
@@ -1759,7 +1763,7 @@ def test_cause_text_matches_its_destination():
                   "AF-19"}   # genel boy — bölgesi yok
     bad = []
     routed = sum(1 for s in signs for c in s["candidate_causes"]
-                 if c.get("cross_route"))
+                 if c.get("cross_routes"))
     for s in signs:
         sid = s["symptom_id"]
         for i, c in enumerate(s["candidate_causes"]):
@@ -1769,25 +1773,62 @@ def test_cause_text_matches_its_destination():
             if len(named) < 2:
                 continue
             dest = c.get("adjustment_family_ref")
-            cr = c.get("cross_route")
-            if dest in REGIONLESS and (not cr or cr.get("family_ref") in REGIONLESS):
+            crs = c.get("cross_routes") or []
+            routes = {cr.get("family_ref") for cr in crs}
+            if dest in REGIONLESS and routes <= REGIONLESS:
                 continue
             covered = {r for r in named if REGION[r] == dest}
-            if cr:
-                covered |= {r for r in named if REGION[r] == cr.get("family_ref")}
+            covered |= {r for r in named if REGION[r] in routes}
             if named - covered:
                 bad.append(f"{sid}.C{i+1}: metin {sorted(named)} diyor, "
-                           f"varış {dest}, cross_route={cr and cr.get('family_ref')}")
+                           f"varış {dest}, cross_routes={sorted(routes)}")
     check("çok bölgeli neden metni, okuru YANLIŞ aileye bırakmıyor",
           not bad, "; ".join(bad))
     check("çapraz yönlendirme KULLANILIYOR", routed >= 2, f"{routed} neden")
     # her cross_route TANIMLI bir aileye işaret etmeli
     dangling = [f"{s['symptom_id']}.C{i+1}"
                 for s in signs for i, c in enumerate(s["candidate_causes"])
-                if c.get("cross_route")
-                and c["cross_route"]["family_ref"] not in fams]
+                for cr in (c.get("cross_routes") or [])
+                if cr["family_ref"] not in fams]
     check("her `cross_route` TANIMLI bir aileye işaret ediyor",
           not dangling, str(dangling))
+
+
+def test_disagreement_is_not_claimed_for_a_departure():
+    """Bir AYRILMA, kaynak anlaşmazlığı diye SUNULAMAZ.
+
+    ⚠ BAĞIMSIZ İNCELEME · M-8/M-9: iki ölçünün okur metni "Sources
+    disagree…" diyordu; ikisi de `divergences` kaydındaydı, yani bu
+    KİTABIN kararıydı. Bileğin kendi notu bunu açıkça yalanlıyordu:
+    "Bu, otoriteler arasında bir anlaşmazlık DEĞİLDİR." Üçüncüsü tek
+    bir kaynağı BU KİTAPLA karşı karşıya koyup "kaynaklar çelişiyor"
+    diye sayılıyordu. Kitabın bütün satış vaadi kanıtının nereden
+    geldiğini söylemesi olduğu için bu ayrım denetlenir."""
+    mdir = (paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript")
+    f = mdir / "measurements_en.json"
+    if not f.exists():
+        skip("AYRILMA / ÇELİŞKİ ayrımı",
+             "ölçü prozası izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    mc = json.loads(f.read_text(encoding="utf-8"))
+    conflicts, divergences = mc.get("conflicts", {}), mc.get("divergences", {})
+    overlap = sorted(set(conflicts) & set(divergences))
+    check("bir ölçü hem ÇELİŞKİ hem AYRILMA olamaz", not overlap, str(overlap))
+
+    bad = [mid for mid in divergences
+           if "sources disagree" in (mc["m"].get(mid, {}).get("why", "")).lower()]
+    check("AYRILMA taşıyan ölçü, okura 'kaynaklar çelişiyor' DEMİYOR",
+          not bad, str(bad))
+
+    # Bir ÇELİŞKİ, EN AZ İKİ yayımlanmış kaynak arasında olmalıdır;
+    # "biri … bu kitap ise …" bir çelişki değil bir KARARDIR. Denetim
+    # DİLE değil KAYDA bakar: hangi kaynaklar çelişiyor, kimlikle.
+    csrc = mc.get("conflict_sources", {})
+    missing = sorted(set(conflicts) - set(csrc))
+    check("her ÇELİŞKİ hangi kaynaklar arasında olduğunu BEYAN ediyor",
+          not missing, str(missing))
+    weak = sorted(mid for mid in conflicts if len(set(csrc.get(mid, []))) < 2)
+    check("her ÇELİŞKİ EN AZ İKİ AYRI kaynağa dayanıyor", not weak, str(weak))
 
 
 def test_rule_out_list_is_one_list():

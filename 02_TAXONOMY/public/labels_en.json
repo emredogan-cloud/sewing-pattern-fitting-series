@@ -58,7 +58,7 @@
     "seam_offset": "offset",
     "front_share": "front",
     "back_share": "back",
-    "offset_read_front": "Seen from the side; the front is to the right.",
+    "offset_read_front": "Side view; front at right.",
     "rotates": "rotates",
     "swings_here": "swings",
     "leaning": "leaning",
@@ -244,7 +244,7 @@
           "evidence": "The pull concentrates at the armhole edge, not at the centre of the back."
         },
         {
-          "cause": "Not enough sleeve-cap ease, or the sleeve is narrow",
+          "cause": "The sleeve is too narrow at the bicep",
           "evidence": "The pull is felt in the sleeve itself as well."
         }
       ]
@@ -271,7 +271,7 @@
       "causes": [
         {
           "cause": "Too much width across the back",
-          "evidence": "The folds are vertical and symmetrical, and reaching forward takes them up completely — the width that is surplus at rest is exactly what the reach needs."
+          "evidence": "The folds are vertical and symmetrical, and they are STILL there when you reach forward — the width is surplus even with the back at full stretch."
         },
         {
           "cause": "One size too large was chosen",

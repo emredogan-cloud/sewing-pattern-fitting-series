@@ -582,6 +582,23 @@ class FigureCanvas:
 
     def finish(self, *, allow_label_overlap: bool = False,
                internal_marks: bool = False) -> list[str]:
+        # ⚠ `restoreState()` bir `try/finally` içindedir. Aşağıdaki üç
+        # ÇİZİM YASAĞI kontrolü `ForbiddenDrawing` fırlatır ve ilk
+        # sürümde bu, restore'dan ÖNCE oluyordu: yasak yakalandığında
+        # tuval KAYDIRILMIŞ halde kalıyordu. Yasağı bildiren kapının
+        # kendisi sayfayı bozamamalıdır.
+        try:
+            return self._finish(allow_label_overlap=allow_label_overlap,
+                                internal_marks=internal_marks)
+        finally:
+            if self.bound and not self._restored:
+                self._restored = True
+                self.c.restoreState()
+
+    _restored = False
+
+    def _finish(self, *, allow_label_overlap: bool = False,
+                internal_marks: bool = False) -> list[str]:
         if not internal_marks:
             leaked = self.check_internal_id_leak()
             if leaked:
@@ -599,6 +616,7 @@ class FigureCanvas:
                     "ÇAKIŞAN ETİKET: " + " · ".join(f"{a!r}↔{b!r}" for a, b in bad[:3])
                     + " — çakışan bir ölçü etiketi yanlış okunur.")
         if self.bound:
+            self._restored = True
             self.c.restoreState()
         elif self.out_path:
             self.out_path.parent.mkdir(parents=True, exist_ok=True)

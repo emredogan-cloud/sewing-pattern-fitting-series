@@ -50,6 +50,17 @@ RC=$?
 if [ "$RC" -eq 1 ]; then FAIL=1; fi
 if [ "$RC" -eq 2 ]; then echo "⚠ BASKI KAPISI ATLANDI — poppler-utils yok."; fi
 echo "──────────────────────────────────────────────────────────────"
+# ── FAZ 6 · § 42 · FİZİKSEL PROVANIN İÇSEL İKAMESİ ────────────────────
+# HER sayfayı 300 dpi'de basar, 1-bit eşikler ve kenar boşluğuna giren
+# mürekkebi DERİNLİĞİYLE ölçer. Fiziksel prova değildir ve öyle
+# olduğunu iddia etmez; provanın yakalayacağı kusurların hesapla
+# yakalanabilen kısmını ölçer. 20 sayfada cilt payına giren figür
+# taşmasını ve bütün bir sayfayı kaydıran bayat dönüşümü BU buldu.
+"$PY" 06_BUILD/print_sim.py --verbose
+RC=$?
+if [ "$RC" -eq 1 ]; then FAIL=1; fi
+if [ "$RC" -eq 2 ]; then echo "⚠ BASKI SİMÜLASYONU ATLANDI — pdftoppm/Pillow yok."; fi
+echo "──────────────────────────────────────────────────────────────"
 "$PY" 07_TESTS/selftest_visual.py
 RC=$?
 if [ "$RC" -eq 2 ]; then

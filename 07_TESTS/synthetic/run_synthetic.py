@@ -48,9 +48,9 @@ def reachable_families(sid):
     for c in SIGNS[sid]["candidate_causes"]:
         if c.get("adjustment_family_ref"):
             fams.add(c["adjustment_family_ref"])
-        cr = c.get("cross_route")
-        if cr and cr.get("family_ref"):
-            fams.add(cr["family_ref"])
+        for cr in (c.get("cross_routes") or []):
+            if cr.get("family_ref"):
+                fams.add(cr["family_ref"])
     return fams
 
 
