@@ -409,4 +409,29 @@ Sayfa 255 → **273** (`K60`). Figür 163 → **170**. İddia 307 → **309**.
 
 ---
 
-*Vâliçe Press · BEFORE YOU CUT · Roadmap Progress · 31 Ağustos 2026 (içerik turu)*
+## İçerik turu **II** ve Faz 6 — 31 Ağustos 2026
+
+| | |
+|---|---|
+| **24 açık kusur** (F-06, F-09, F-10, F-21, F-23, M-12…, L-1, L-4, L-6) | **KAPANDI** |
+| **Doğrulama turu** (ikinci bağımsız inceleme) | 0 KRİTİK · **7 HIGH · 16 MEDIUM · 10 LOW → hepsi kapatıldı** ya da gerekçesiyle açık |
+| **Okur simülasyonu** (beş yolculuk, § 34) | **3 KRİTİK · 8 HIGH** buldu — ötekilerin ikisi de görememişti |
+| **KRİTİK-1** 37 ölçüt ease'i yok sayıyordu | **KAPANDI** · `qa_verification` ⑭ dayatıyor |
+| **KRİTİK-2** çukur bel iki zıt yön | **KAPANDI** |
+| **KRİTİK-3** dört "Order:" satırı sırasının tersini söylüyordu | **KAPANDI** · `order_before` + `cause_order.py` + `graph_audit` ⑭ |
+| **Faz 6** biçim ve KDP | **AÇILDI ve TAMAMLANDI** (içsel) |
+| **§ 42** fiziksel prova ikamesi | `print_sim.py` · 259/259 sayfa · 300 dpi · **2 sessiz kusur buldu** |
+| **§ 43** biçim kalitesi | **TEMİZ** · `qa_format` ⑫ |
+| **§ 45** yayın adayı paketi | **HAZIR** — `09_OUTPUT/RELEASE_CANDIDATE/` |
+
+Sayfa 273 → **259** (bölüm açılışları recto zorunluluğundan çıkarıldı;
+boş sayfa 19 → 3, **içerik silinmedi**). Aile 20 → **21** (`K64`).
+İddia 309 → **312**. Kapı 224 → **225** + 29 görsel. `qa_all.sh` **0**.
+CI **YEŞİL**.
+
+**Kapanmayan:** fiziksel doğrulama ve insan okur doğrulaması
+ERİŞİLEMEZ (`K58`); `measured = false` KORUNUYOR.
+
+---
+
+*Vâliçe Press · BEFORE YOU CUT · Roadmap Progress · 31 Ağustos 2026 (içerik turu II + Faz 6)*

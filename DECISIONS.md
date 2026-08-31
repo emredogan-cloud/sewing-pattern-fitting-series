@@ -1535,3 +1535,71 @@ GERÇEKTE ne dediğini yazmak ZORUNDADIR. Seviye yine TÜRETİLİR.
 **Gerekçe:** bir güven skoru değildir. `VERIFIED`in anlamı *"kaynak
 iddiayı YAZILDIĞI GİBİ destekliyor"*tur; desteklemediğinde iddiayı
 `VERIFIED` bırakmak, sicilin tek işini yapmamaktır.
+
+---
+
+## K62 — DOĞRULAMA ÖLÇÜTÜ HAM FARKA DEĞİL EASE'E BAKAR
+
+**Tarih:** 31 Ağustos 2026 · **Faz:** İçerik turu II · **Durum:** UYGULANDI
+
+Otuz yedi doğrulama ölçütü vücut ölçüsünü kalıp okumasıyla DOĞRUDAN
+karşılaştırıyordu: *"senin sayın kalıptan büyük"*. Ama kitabın kendi 3.
+bölümü bu çıkarmayı **ease** olarak tanımlar ve Ek J bantları basar.
+Doğru çizilmiş bir kalıpta kalıp her zaman bedenden bant kadar
+büyüktür.
+
+**Ölçülen sonuç tek yönlüydü:** dolgun oturak, çıkık karın ve sığ ağ
+derinliği YAPISAL OLARAK doğrulanamıyor; *"ağ çok derin"*, *"arka ağ
+çok uzun"* ve *"bel çok geniş"* ise HER kalıpta doğrulanıyordu.
+
+**Karar:** bir bandı olan her ölçüde ölçüt EASE karşılaştırmasıdır ve
+bandı ADIYLA söyler. `qa_verification` ⑭ bunu dayatır ve ham
+karşılaştırmayı REDDEDER. Ease'in sadeleştiği ölçütler
+(`comparison_kind`: ratio / position / size_chart) bundan MUAFTIR ve
+muafiyet VERİDEDİR, kapının tahmini değildir.
+
+**İkinci yarısı:** kitap sekiz ölçüyü kaynaktan FARKLI nirengiden alır;
+o bantlar başka bir ölçüyü tarif eder ve EŞİK OLAMAZ. Bu, izlenen
+veride durur (`applies_to_this_books_measurement`) — izlenmeyen prozada
+değil, ki kapı temiz klonda da görsün.
+
+---
+
+## K63 — BASILAN NEDEN SIRASI: KLİNİK ÖNCELİK MALİYETTEN ÖNCE GELİR
+
+**Tarih:** 31 Ağustos 2026 · **Faz:** İçerik turu II · **Durum:** UYGULANDI
+
+Sıra yalnızca `test_cost`tan geliyordu. Ama bazı girişler bir KLİNİK
+öncelik de ilan ediyor (*"önce sırtı ele, sonra omuz konumunu"*) ve
+ikisi çeliştiğinde basılan sıra maliyeti izliyordu. Dört girişte sıra
+TERSTİ — ikisinde tam da girişin *"yanlış olanı düzeltmek ötekini
+kötüleştirir"* diye uyardığı çiftte.
+
+**Karar:** öncelik VERİDEDİR (`order_before`) ve sıra dört katmandır:
+① kalıp değişikliği gerektirmeyen nedenler ② klinik öncelik ③ test
+maliyeti ④ geri alınamaz aileler. Hesap TEK yerdedir
+(`06_BUILD/cause_order.py`); atlas girişi ve akış şeması aynı
+fonksiyonu çağırır. `graph_audit` ⑭ önceliğin GERÇEKTEN sağlandığını
+ölçer — geri alınamaz bir aile onu bastırıyorsa bu SESSİZ kalmaz.
+
+**Sınır:** "koltuk altı kol kapağından önce" bir DÜZELTME sırası
+kuralıdır, test sırası değil. İkisi aynı cümlede karışıyordu; ayrıldı.
+
+---
+
+## K64 — YİRMİ BİRİNCİ DÜZELTME AİLESİ: ÖN GÖĞÜS GENİŞLİĞİ
+
+**Tarih:** 31 Ağustos 2026 · **Faz:** İçerik turu II · **Durum:** UYGULANDI
+
+Kitap göğüs üstü genişliğini *"bir GENİŞLİK sorununu bir HACİM
+sorunundan ayıran ölçü"* diye satıyor ve yardımcı gerektiren bir ölçü
+olarak öğretiyor. O ölçüyü kullanan İKİ nedenin ikisi de **koltuk altı
+DERİNLİĞİ** ailesine çıkıyordu. Sırtın genişlik ailesi vardı (`AF-07`),
+önün YOKTU: okur farkı ölçüp koltuk altını değiştirmeye yollanıyordu.
+
+**Karar:** `AF-21 — Chest width (narrow / broad chest)` eklendi ve iki
+neden oraya taşındı. Aile sayısı artık her yerde KAYITTAN türetilir;
+"twenty" yazılı iki cümle bu yüzden sessizce yanlış olacaktı.
+
+**Bedeli kaydediliyor:** yalnızca "fazla genişlik" yönünde nedeni var.
+DAR göğüs bu kitapta bir GİRİŞ değildir ve bu, bilinen bir boşluktur.

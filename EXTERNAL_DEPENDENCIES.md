@@ -357,3 +357,19 @@ poz veremez; dış illüstrasyon gerekebilir).
 döndürdü; belge archive.org kopyasından (`DTIC_ADA611869`) okundu ve
 kayıt güncellendi. Kanonik adresin kapanması bir dış bağımlılık
 değişikliğidir ve kaydedilmiştir.
+
+
+## Faz 6 · dış doğrulama durumu — 31 Ağustos 2026
+
+| Bağımlılık | Durum | Not |
+|---|---|---|
+| **KDP Previewer** | `KDP_EXTERNAL_VALIDATION_UNAVAILABLE` | Hesap erişimi YOK. Çalıştırılmadı, sonucu UYDURULMADI. Yüklenecek paket hazırlandı. |
+| **Fiziksel prova baskı** | `UNAVAILABLE` | Sipariş EDİLMEDİ. `print_sim.py` bir İKAME'dir ve yerine geçmez: kâğıdın beyazlığı, mürekkep yayılması, cildin düz durması ve arkadan görünme ÖLÇÜLEMEDİ. |
+| **İnsan okur doğrulaması** | `EXTERNAL_VALIDATION_UNAVAILABLE` | Kill-gate ÖLÇÜLMEDİ (`K58`). `measured = false`. |
+| **Fiziksel toile testi** | `UNAVAILABLE` | Hiçbir teşhis gerçek kumaşta sınanmadı. |
+| **Dış uzman incelemesi** | `UNAVAILABLE` | Bu turda koşan üç inceleme de İÇSELDİR ve öyle etiketlenmiştir. |
+| **Hukuki temizlik** | ALINMADI | İstenmedi, yapılmadı, yapılmış gibi gösterilmedi. |
+
+**KDP kaynakları** (`S-0009`…`S-0013`, `S-0016`) Faz 1'de okundu ve bu
+fazda YENİDEN doğrulanmadı; `qa_format.py` bunların KAYITTAKİ
+değerlerini ölçer, canlı sayfayı değil.

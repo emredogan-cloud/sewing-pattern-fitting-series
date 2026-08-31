@@ -489,3 +489,49 @@ yazılmaz.
 
 **Kalan risk: YÜKSEK** — ve bu riski taşıyan tek mekanizma, faz
 kapısını AÇMAMAKTIR (`K59`).
+
+---
+
+## R-27 — DÜZELTMENİN KENDİSİ ARİTMETİĞİ BOZABİLİR
+
+**Açıldı:** 31 Ağustos 2026 · **Durum:** AÇIK · **Şiddet:** YÜKSEK
+
+İçerik turunun H-2 düzeltmesi bir ölçütü *"your full hip LARGER than
+the pattern's hip line"* diye yeniden yazdı. Cümle YÖN olarak doğruydu
+ve iki bağımsız inceleme onu onayladı. Ama ARİTMETİK olarak imkânsızdı:
+kalıp, ease kadar bedenden büyüktür.
+
+Yani bir kusuru düzeltirken, düzelttiğim kusurun sınıfına AİT yeni bir
+örnek yazdım — ve iki inceleme de bunu göremedi çünkü ikisi de YÖNE
+bakıyordu, ölçütün SAĞLANABİLİR olup olmadığına değil.
+
+**Kusuru bulan şey:** kitabın talimatlarını gerçekten UYGULAYAN bir okur
+simülasyonu. Ölçüte bakmak yetmiyordu; onu ÇALIŞTIRMAK gerekti.
+
+**Azaltma:** `qa_verification` ⑭ artık ham karşılaştırmayı reddediyor.
+Ama asıl azaltma yöntemseldir: bir ölçüt, tipik bir kalıp ve tipik bir
+beden üzerinde SAĞLANABİLİR mi diye sınanmalıdır — "yönü doğru mu"
+sorusu yeterli değildir.
+
+**Kalan risk: ORTA.** Kapı bu sınıfı yakalıyor; ama bir ölçütün
+sağlanabilirliğini genel olarak sınayan bir mekanizma YOK.
+
+---
+
+## R-28 — İNCELEMECİ SAYISI DEĞİL, İNCELEME BİÇİMİ BELİRLEYİCİ
+
+**Açıldı:** 31 Ağustos 2026 · **Durum:** AÇIK · **Şiddet:** ORTA
+
+Bu turda üç bağımsız inceleme koşuldu. İlk ikisi metni OKUDU ve 7 HIGH
++ 16 MEDIUM buldu. Üçüncüsü metni UYGULADI (beş okur yolculuğu) ve
+ötekilerin ikisinin de göremediği ÜÇ KRİTİK buldu — biri kitabın
+otuz yedi ölçütünü birden etkiliyordu.
+
+Fark incelemecinin dikkatinde değil, GÖREVİN BİÇİMİNDEDİR: "bu doğru
+mu?" ile "bunu yapabiliyor muyum?" farklı sorulardır ve ikincisi
+birincinin göremediğini görür.
+
+**Azaltma:** bir sonraki inceleme turu, en az bir SİMÜLASYON geçişi
+içermelidir. Okumak yetmez.
+
+**Kalan risk: ORTA** — ve gerçek azaltma, bir dış doğrulamadır (K58).

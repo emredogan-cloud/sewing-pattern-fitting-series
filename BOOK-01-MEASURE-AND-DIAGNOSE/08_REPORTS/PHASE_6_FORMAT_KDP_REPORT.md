@@ -1,6 +1,6 @@
 # FAZ 6 — BİÇİM VE KDP DOĞRULAMA RAPORU (Kitap 1)
 
-**Tarih:** 31 Ağustos 2026 · **git:** `f18e89d` · **dal:** `faz/4-production`
+**Tarih:** 31 Ağustos 2026 · **git:** `a67298c` · **dal:** `faz/4-production`
 
 Faz 6, içerik turu KAPANDIKTAN sonra açıldı (kurucunun sırası:
 "Phase 6 must remain CLOSED until CONTENT PASS = COMPLETE").
@@ -14,7 +14,7 @@ Faz 6, içerik turu KAPANDIKTAN sonra açıldı (kurucunun sırası:
 | Ölçüt | Değer | KDP kaydı | Durum |
 |---|---|---|---|
 | Kesim | 8,5 × 11,0 in | 8,5 × 11,0 | ✅ |
-| Sayfa | **257** | 24–828 | ✅ |
+| Sayfa | **259** | 24–828 | ✅ |
 | Cilt payı | 0,875 in | 0,5 in asgari (151–300 bandı) | ✅ |
 | Dış kenar | 0,625 in | 0,25 in asgari (taşmasız) | ✅ |
 | Üst / alt | 0,75 in | 0,25 in asgari | ✅ |
@@ -48,12 +48,12 @@ KAYITTAKİ GERÇEK kimlikleri arar. Sızıntı fixture'ıyla sınandı:
 
 ## 3 · § 42 · Fiziksel provanın içsel ikamesi
 
-`06_BUILD/print_sim.py` — **257 sayfanın 257'si** 300 dpi'de
+`06_BUILD/print_sim.py` — **259 sayfanın 259'u** 300 dpi'de
 rasterleştirildi.
 
 | Denetim | Sonuç |
 |---|---|
-| ① 300 dpi rasterleştirme | 257/257 başarılı |
+| ① 300 dpi rasterleştirme | 259/259 başarılı |
 | ② 1-bit eşikleme (POD yarım ton kullanmaz) | çizgi kaybı yok |
 | ③ ince çizgi hayatta kalma | asgari çizgi 0,4 pt = 1,7 piksel |
 | ④ kenar boşluğuna mürekkep | **temiz** (eşik 2,0 pt) |
@@ -120,8 +120,8 @@ yayın notları ve paketin kendi sağlamaları.
 | Künyede yer tutucu yok | ✅ |
 | Ana hat (bookmark) var | ✅ |
 | Basılı sayfada iç kimlik / hata ayıklama artığı yok | ✅ § 43 |
-| Kenar boşluğuna içerik taşmıyor | ✅ 257/257 sayfa ölçüldü |
-| Sayfa sayısı cilt payı bandını değiştirmiyor | ✅ 257 ∈ 151–300 |
+| Kenar boşluğuna içerik taşmıyor | ✅ 259/259 sayfa ölçüldü |
+| Sayfa sayısı cilt payı bandını değiştirmiyor | ✅ 259 ∈ 151–300 |
 | KDP Previewer | ❌ **ERİŞİLEMEZ** |
 | Fiziksel prova | ❌ **ERİŞİLEMEZ** |
 
