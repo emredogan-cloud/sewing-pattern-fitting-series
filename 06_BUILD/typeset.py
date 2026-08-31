@@ -153,7 +153,10 @@ class Typesetter:
         self._touch()
 
     def page_break(self):
-        self._new_page()
+        # ⚠ Sayfaya HİÇBİR ŞEY yazılmadıysa kırma: aksi hâlde tam
+        # sayfa sonunda biten bir bölüm, ardından BOŞ bir sayfa doğurur.
+        if self.y < self.top - 1e-6:
+            self._new_page()
 
     def start_recto(self):
         """Bölüm açılışı TEK sayfada başlar — kitap konvansiyonu."""

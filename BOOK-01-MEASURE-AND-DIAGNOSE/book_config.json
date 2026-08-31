@@ -21,7 +21,7 @@
   },
   "product": {
     "pageTargetProvisional": [
-      220,
+      240,
       260
     ],
     "priceModelProvisional": 26.99,
@@ -37,7 +37,9 @@
     "secondSkuCandidate": "ciltli 8.25x11 — ERTELENDİ (P6); ayrı iç dosya gerektirir",
     "kindle": "ERTELENDİ — karar Faz 2'nin ölçtüğü figür sayısına ve dosya boyutuna bağlı",
     "units": "inç birincil; figürlerde yalnızca inç, karar eşiklerinde inç+cm (K34)",
-    "typography": "Source Serif 4 + Source Sans 3 (SIL OFL 1.1) — K24"
+    "typography": "Source Serif 4 + Source Sans 3 (SIL OFL 1.1) — K24",
+    "pageTargetMeasured": 257,
+    "pageTargetNote": "ÖLÇÜLDÜ: 257 sayfa. Kurucunun hedef bandı 240–260 idi ve İÇERİK SİLİNMEDEN tutuldu. 273'ten 257'ye düşüş TEK bir yerleşim kararından geldi: bölüm açılışları TEK sayfa (recto) zorunluluğundan çıkarıldı. Ölçüm: 19 tamamen BOŞ sayfa vardı ve hepsi bir recto açılışının önündeki verso idi; şimdi 3. PARÇA ayraçları ve EKLER recto'da KALDI — yapısal sinyal korundu. 257 sayfa hâlâ KDP'nin 151–300 cilt payı bandındadır, yani cilt payı gereksinimi DEĞİŞMEDİ (0,5 in asgari; kullanılan 0,875 in)."
   },
   "architecture": {
     "primaryTopics": [

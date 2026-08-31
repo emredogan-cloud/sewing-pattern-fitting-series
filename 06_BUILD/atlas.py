@@ -534,7 +534,7 @@ class AtlasBuilder:
     def measurement_chapter(self) -> list:
         mc = self.mcontent
         blocks: list = [
-            {"type": "recto"},
+            {"type": "pagebreak"},
             {"type": "h1", "text": "Measuring your body", "kicker": "Chapter 2"},
             {"type": "lead", "text": "A measurement that cannot be repeated is not a "
                                      "measurement. This chapter is about repeatability "
@@ -751,7 +751,7 @@ class AtlasBuilder:
         # Bu bölüm bir BÖLGE değildir; numarasız basılır — tıpkı
         # "How to use this book" ve "Appendices" gibi.
         kicker = None if key == "B1-CH16-ATLAS" else f"Chapter {z['number']}"
-        blocks: list = [{"type": "recto"},
+        blocks: list = [{"type": "pagebreak"},
                         {"type": "h1", "text": z["title"], "kicker": kicker},
                         {"type": "lead", "text": z["lead"]}]
         blocks.append({"type": "h2", "text": "What this region is"})
