@@ -61,6 +61,27 @@ RC=$?
 if [ "$RC" -eq 1 ]; then FAIL=1; fi
 if [ "$RC" -eq 2 ]; then echo "⚠ BASKI SİMÜLASYONU ATLANDI — pdftoppm/Pillow yok."; fi
 echo "──────────────────────────────────────────────────────────────"
+# ── SİCİL TAZELİĞİ ────────────────────────────────────────────────────
+# ⚠ CI'da VARDI, BURADA YOKTU ve bu boşluk ÖLÇÜLDÜ: bir ölçünün
+# "yardımcı gerekir" bayrağı değişti, figures.json güncellenmedi,
+# qa_all.sh YEŞİL verdi ve CI kırmızı yandı. Yerel takım ile CI aynı
+# soruyu sormuyorsa yerel yeşil bir şey KANITLAMAZ.
+#
+# Soru git'e DEĞİL dosyaya sorulur: diskteki sicil, motorun ÜRETTİĞİ
+# şeyle aynı mı. (git'e sorulsaydı, commit edilmemiş DOĞRU bir
+# değişiklik de "bayat" görünürdü.)
+REG=BOOK-01-MEASURE-AND-DIAGNOSE/03_VISUAL/figures.json
+BEFORE=$(sha256sum "$REG" | cut -d' ' -f1)
+"$PY" 06_BUILD/figure_engine.py --book book-01 >/dev/null
+AFTER=$(sha256sum "$REG" | cut -d' ' -f1)
+if [ "$BEFORE" != "$AFTER" ]; then
+  echo "✗ figür sicili BAYATTI — motor onu DEĞİŞTİRDİ. Yeniden üretildi;"
+  echo "  commit edin ve qa_all.sh'i tekrar koşun."
+  FAIL=1
+else
+  echo "▸ figür sicili GÜNCEL (motor yeniden koştu, dosya DEĞİŞMEDİ)"
+fi
+echo "──────────────────────────────────────────────────────────────"
 "$PY" 07_TESTS/selftest_visual.py
 RC=$?
 if [ "$RC" -eq 2 ]; then

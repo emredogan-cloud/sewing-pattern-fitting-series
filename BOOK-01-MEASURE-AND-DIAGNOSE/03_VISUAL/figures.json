@@ -5957,7 +5957,7 @@
         [
           "Shoulder slope",
           "side neck point → shoulder point (bone tip), read as a vertical drop",
-          "yes"
+          "no"
         ]
       ],
       "col_ratio": [
