@@ -11,7 +11,7 @@
     "DIAGNOSIS_TO_ADJUSTMENT": 129,
     "ADJUSTMENT_TO_BLOCK": 19
   },
-  "exception_count": 21,
+  "exception_count": 23,
   "crosswalks": [
     {
       "crosswalk_id": "XW-001",
@@ -54,7 +54,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-002",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-002 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt boyunu öne itiyor → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-002 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt boyunu öne itiyor → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -72,7 +72,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-003",
       "to_ref": "AF-11",
-      "handoff_sentence": "Belirti SYM-003 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu yetersiz (yuvarlak sırt / dik duruş) → AF-11 (Torso length and front/back balance).",
+      "handoff_sentence": "Belirti SYM-003 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu BÜTÜNÜYLE kısa → AF-11 (Torso length and front/back balance).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -81,7 +81,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-003",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-003 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-003 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -162,7 +162,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-006",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-006 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt kumaşı arkaya çekiyor → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-006 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt kumaşı arkaya çekiyor → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -207,7 +207,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-008",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-008 ve ayırt edici kanıt doğrulandığında teşhis şudur: Sırt genişliği yetersiz → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-008 ve ayırt edici kanıt doğrulandığında teşhis şudur: Sırt genişliği yetersiz → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -243,7 +243,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-009",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-009 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt) → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-009 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt) → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -261,7 +261,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-010",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-010 ve ayırt edici kanıt doğrulandığında teşhis şudur: Sırt genişliği fazla → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-010 ve ayırt edici kanıt doğrulandığında teşhis şudur: Sırt genişliği fazla → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -288,7 +288,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-011",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-011 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu yetersiz (yuvarlak sırt) → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-011 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden boyu KÜREK HİZASINDA kısa (yuvarlak sırt) → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -324,7 +324,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-012",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-012 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt — arka orta üst kısımda boy yetersiz → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-012 ve ayırt edici kanıt doğrulandığında teşhis şudur: Yuvarlak sırt — arka orta üst kısımda boy yetersiz → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -396,7 +396,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-015",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-015 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden genişliği fazla → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-015 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden genişliği fazla → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -486,7 +486,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-018",
       "to_ref": "AF-07",
-      "handoff_sentence": "Belirti SYM-018 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden genişliği fazla → AF-07 (Upper back (round back / broad back / narrow back)).",
+      "handoff_sentence": "Belirti SYM-018 ve ayırt edici kanıt doğrulandığında teşhis şudur: Arka beden genişliği fazla → AF-07 (Upper back (round / flat back, broad / narrow back)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -881,9 +881,9 @@
       "crosswalk_id": "XW-097",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-033",
-      "to_ref": "AF-09",
-      "handoff_sentence": "Belirti SYM-033 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış) → AF-09 (Sleeve cap (height, shape, ease)).",
-      "exception": null,
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-033 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış).",
+      "exception": "Bir MONTAJ hatasıdır; kalıba dokunulmaz. Kayıt Faz 4'te AF-09'a bağlıydı ve bağımsız inceleme (F-16) bunun kalıp alanı OLMADIĞINI ölçtü — S-0001 kol başı işleminde çentiklerden hiç söz etmez.",
       "verification_status": "agent_drafted_unverified"
     },
     {
@@ -926,9 +926,9 @@
       "crosswalk_id": "XW-102",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-034",
-      "to_ref": "AF-08",
-      "handoff_sentence": "Belirti SYM-034 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol oyuntusu çevresi kalıptan farklı dikilmiş → AF-08 (Armhole depth and shape).",
-      "exception": null,
+      "to_ref": null,
+      "handoff_sentence": "Belirti SYM-034 bu nedene bağlandığında SONUÇ BİR KALIP DÜZELTMESİ DEĞİLDİR: Kol oyuntusu çevresi kalıptan farklı dikilmiş.",
+      "exception": "Bir YAPIM hatasıdır: giysi kalıba göre dikilmemiş. Kalıptan hiçbir neden okunamaz.",
       "verification_status": "agent_drafted_unverified"
     },
     {

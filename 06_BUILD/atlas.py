@@ -107,6 +107,17 @@ def _has_read_criterion(test: str) -> bool:
         test, re.I))
 
 
+def _evidence_clause(evidence: str) -> str:
+    """Ayırt edici kanıtı bir yan cümleye çevirir.
+
+    ⚠ F-01'in düzeltmesi bu işlevde durur: doğrulama ölçütü artık
+    NEDENİN kendi kanıtına bağlıdır. Kanıt kaydın alanıdır; burada
+    yalnızca cümle biçimine sokulur.
+    """
+    t = evidence.strip()
+    return t if t.endswith((".", "!", "?")) else t + "."
+
+
 def _sign_clause(observation: str) -> str:
     """Gözlem cümlesini bir yan cümleye çevirir."""
     t = observation.strip().rstrip(".")
@@ -221,24 +232,79 @@ class AtlasBuilder:
             if f:
                 fam_count[f] = fam_count.get(f, 0) + 1
         shared = {f for f, n in fam_count.items() if n > 1}
+        # ⚠ BAĞIMSIZ İNCELEME (F-02/F-05): okur ilk "evet"te DURUR. Üç
+        # ailenin kendi kaydı "en son" dediği hâlde bazı girişlerde ilk
+        # sıradaydı — ve o üçü kitabın GERİ ALINAMAZ dediği işlemler.
+        # Sıra artık üç katmandır ve üçü de VERİDEN gelir.
         gates = [p for p in pairs if not p[0].get("adjustment_family_ref")]
         rest = [p for p in pairs if p[0].get("adjustment_family_ref")]
-        ordered = gates + rest
+        defer = [p for p in rest
+                 if self.families.get(p[0]["adjustment_family_ref"], {})
+                 .get("defer_in_diagnosis")]
+        rest = [p for p in rest if p not in defer]
+        # ⚠ BAĞIMSIZ İNCELEME (F-09): 16 çakışma kutusu "en ucuzu önce"
+        # diyordu ve nedenler maliyete göre SIRALANMAMIŞTI — çünkü
+        # maliyet hiçbir yerde KAYITLI DEĞİLDİ. Artık kayıtlı
+        # (`test_cost`, Bölüm 6 merdiveni) ve sıra ONDAN gelir. Böylece
+        # cümle bir iddia olmaktan çıkıp bir OLGU olur.
+        rest.sort(key=lambda p: p[0].get("test_cost", 9))
+        ordered = gates + rest + defer
         if gates:
             out.append({"type": "h3", "text": "Check these before the pattern"})
             out.append({"type": "para",
                         "text": "These need no pattern change and are the cheapest "
                                 "things here to test. If one of them is the cause, "
                                 "nothing is cut."})
-        out.append({"type": "h3", "text": "Candidate causes"} if not gates
-                   else {"type": "h3", "text": "Candidate causes, cheapest test first"})
+        # ⚠ Başlık, sıranın GERÇEKTE ne olduğunu söylemek zorundadır.
+        # Sıra ÜÇ kuraldan gelir ve ikisi birbirini keser: maliyet
+        # ucuzu öne alır, güvenlik geri alınamaz aileyi sona atar. Bir
+        # entry'de ikisi çeliştiğinde "en ucuzu önce" YANLIŞ bir vaat
+        # olur. Başlık nötr kalır; kural bölüm açılışında BİR KEZ
+        # yazılır.
+        # ⚠⚠ İKİNCİ İÇERİK TURU · KRİTİK: `c["hold"]` — her belirtinin
+        # KENDİ "henüz değiştirme" listesi — HİÇBİR ZAMAN BASILMIYORDU.
+        # 43 girişin 43'ünde veri vardı, kitapta sıfır tanesi vardı.
+        # `fit_signs.json`'un kendi başlığı bu alan için "bu ürünün
+        # rakiplerden en somut ayrıldığı yer" diyor.
+        #
+        # Kapı ⑤ bunu göremiyordu çünkü "girişte HERHANGİ bir callout
+        # var mı" diye soruyordu ve ÇAKIŞMA kutusu bir callout'tu. 28
+        # girişte çakışma kutusu vardı, 15'inde yoktu — ve kapı yine de
+        # yeşildi, çünkü o 15'i de başka bir callout taşıyordu. Kusur
+        # ancak çakışma kutuları KALDIRILINCA ortaya çıktı.
+        #
+        # Uyarı, NEDENLERDEN ÖNCE basılır: okur neyi yapmayacağını
+        # test etmeye BAŞLAMADAN önce bilmelidir.
+        if c.get("hold"):
+            out.append({"type": "callout", "title": "Do not change yet",
+                        "items": c["hold"]})
+        if c.get("order"):
+            out.append({"type": "para", "text": "Order: " + c["order"]})
+        out.append({"type": "h3", "text": "Candidate causes, in testing order"})
         for i, (cause, authored, el) in enumerate(ordered, 1):
             fam = cause.get("adjustment_family_ref")
             out.append({"type": "h3", "text": f"{i}. {el['cause']}",
                         "claims": [f"{sid}.C{i}"]})
+            # ⚠ F-09/F-13: okur bir testin NEYE MAL OLDUĞUNU görmeden
+            # "en ucuzu önce" talimatını uygulayamaz. Basamak adıyla
+            # yazılır ve Bölüm 6'nın merdiveniyle aynı sözcükleri
+            # kullanır.
+            _COST = {0: "costs nothing — a reading",
+                     1: "costs nothing — change the fitting condition",
+                     2: "reversible — pins only",
+                     3: "costs a scrap of calico",
+                     4: "consumes the fitting garment"}
+            _c = cause.get("test_cost")
+            _tag = f" ({_COST[_c]})" if _c in _COST else ""
+            # ⚠ M-15: iki sayıyı karşılaştırmak bir doğrulama DEĞİLDİR.
+            # Farkın hangi yöne çıkarsa hipotezi desteklediği yazılmak
+            # zorundadır ve o cümle KAYITTA durur.
+            _mline = authored["measure"]
+            if cause.get("expected"):
+                _mline = _mline.rstrip() + " " + cause["expected"]
             items = [f"Tells it apart: {el['evidence']}",
-                     f"Confirm by: {authored['measure']}",
-                     f"Test: {authored['test']}"]
+                     f"Confirm by: {_mline}",
+                     f"Test{_tag}: {authored['test']}"]
             # ── İKİNCİ ÇELİŞMELİ İNCELEME · KABUL EDİLDİ ──────────────
             # 129 fiziksel testin 105'i bir EYLEM veriyordu ve sonucun
             # NASIL OKUNACAĞINI söylemiyordu — kitabın bütün bilgi
@@ -250,13 +316,48 @@ class AtlasBuilder:
             #
             # Yazılmış test zaten bir koşul cümlesi taşıyorsa
             # TEKRARLANMAZ.
-            if not (_has_read_criterion(authored["test"])
-                    or _declares_no_physical_test(authored["test"])):
+            # ⚠ İÇERİK TURU · A-22 SINIFI, İKİNCİ ÖRNEK. Faz 5'in
+            # düzeltmesi doğruydu ve UYGULAMASI 34 kelimelik bir kuyruğu
+            # 104 kez bastırıyordu — kitabın en çok tekrarlanan metni,
+            # yaklaşık 3.500 kelime. Kuyruk üstelik Bölüm 6 Adım 6'nın
+            # KELİMESİ KELİMESİNE kopyasıdır: "üç olası sonuç" orada
+            # zaten yazılıdır.
+            #
+            # Girişte kalan şey GİRİŞE ÖZGÜ olandır: bu nedenin hangi
+            # gözlemin azalmasıyla doğrulandığı. Genel kural bir kez,
+            # ait olduğu yerde durur ve bölüm açılışından bir kez
+            # işaret edilir.
+            # ⚠ BAĞIMSIZ İNCELEME · F-01 (KRİTİK) — kitabın en ağır
+            # mantık kusuru buradaydı. Ölçüt BELİRTİYİ tekrarlıyordu:
+            # "şu belirti azaldıysa bu neden doğrulanmıştır". Ama bir
+            # girişin üç nedeni AYNI koridora yer açar; üçünün de testi
+            # belirtiyi azaltır. Yani ölçüt HANGİ nedeni test ettiyseniz
+            # onu onaylıyordu — yanlışlanamayan bir ölçüt, Bölüm 6'nın
+            # "onu ÇÜRÜTEBİLECEK en ucuz test" kuralının tam tersi.
+            #
+            # Ölçüt artık NEDENE ÖZGÜDÜR: belirti azalmalı VE O NEDENİN
+            # kendi ayırt edici kanıtı onunla birlikte gitmelidir.
+            # Kanıt UYDURULMADI — kaydın kendi alanıdır.
+            #
+            # Ayrıca ARTIK HER NEDENDE basılır: 129 nedenin 24'ünde
+            # yoktu ve eksik olanlar sistematik biçimde BİRİNCİ neden,
+            # yani okurun ilk test ettiğiydi.
+            if not _declares_no_physical_test(authored["test"]):
+                # İki koşul AYRI CÜMLE olarak kurulur: ayırt edici kanıt
+                # kayıtta TAM CÜMLEDİR ve bir yan cümleye zorlanırsa
+                # dilbilgisi bozulur.
+                # Belirtiyi BURADA tekrarlamaz: başlık ve gözlem cümlesi
+                # zaten aynı sayfada, birkaç santim yukarıda. Tekrar
+                # eden şey ayırt etmiyordu; ayırt eden şey NEDENİN
+                # kendi kanıtıdır ve ölçüt onu ister.
+                # ⚠ İLK YAZIMDA bu satırın kuyruğu 24 kelimeydi ve 118
+                # kez basılıyordu (≈12 sayfa) — düzelttiğim kusurun
+                # kendisiyle aynı sınıf. Kuyruk GENEL bir ilkedir ve
+                # bölüm açılışında BİR KEZ durur; girişte yalnızca O
+                # NEDENE ÖZGÜ ölçüt kalır.
                 items.append(
-                    "Read it: this cause is confirmed if — " + _sign_clause(obs_text) +
-                    " — is reduced and no new sign appears anywhere else. If the sign "
-                    "is unchanged the hypothesis was wrong; if a new sign appears, "
-                    "fabric was moved rather than added.")
+                    "Read it: the sign must reduce, and this must go with it — "
+                    + _evidence_clause(el["evidence"]))
             # ⚠ Faz 5: bir neden metni BİRDEN ÇOK duruma işaret edip TEK
             # aileye çıkıyorsa, öteki durumu yaşayan okur YANLIŞ aileye
             # gider. `cross_route` o okuru kendi ailesine yollar.
@@ -272,10 +373,20 @@ class AtlasBuilder:
                              "answer is in Chapter 3, not in a pattern change.")
             elif fam:
                 line = f"Leads to: {self.families[fam]['name'].lower()}."
-                if fam in shared:
+                # ⚠ BAĞIMSIZ İNCELEME (F-15): bu not AYNI aileye çıkan
+                # HER çifte basılıyordu ve sekiz çiftin YEDİSİNDE
+                # yanlıştı — iki neden aynı aileye çıkıp aynı yöne
+                # gidebilir (ikisi de bel alır, ikisi de ağ uzatır).
+                # Yön iddiası artık KAYITTAN gelir: yalnızca
+                # `opposite_of` beyan edilmiş nedenlerde basılır.
+                if cause.get("opposite_of"):
                     line += (" Another cause on this sign leads to the same family in "
                              "the OPPOSITE direction — record which one you confirmed, "
                              "and in which direction, not just the family name.")
+                elif fam in shared:
+                    line += (" Another cause on this sign leads to the same family. "
+                             "Record which one you confirmed, not just the family name: "
+                             "they act at different places within it.")
                 items.append(line)
             else:
                 items.append("Leads to: nothing on the pattern. This is not a pattern fault.")
@@ -291,6 +402,12 @@ class AtlasBuilder:
         # bunun yerine okura durumu SÖYLER — bir teşhis kitabının en az
         # yapabileceği şey, nerede teşhis koyamadığını bilmektir.
         for col in self.collisions.get(sid, []):
+            status = col.get("collision_status", "requires_physical_test")
+            # ⚠ İKİNCİ İÇERİK TURU · F-10: 13 çakışma ARTIK muayeneyle
+            # ayrılıyor. Okura "bu ikisi ayırt edilemez" demek, ayırt
+            # eden gözlemi yapmaktan VAZGEÇİRİR — kutu basılmaz.
+            if status == "separable_by_inspection":
+                continue
             names = []
             for ref in col["causes"]:
                 try:
@@ -300,45 +417,42 @@ class AtlasBuilder:
                     continue
             if len(names) < 2:
                 continue
-            # ⚠ Faz 5'te ÖLÇÜLEN kusur: başlık her zaman "THESE TWO"
-            # diyordu, ama 28 çakışmanın 8'i ÜÇ neden taşıyor ve gövde
-            # de üçünü sayıyordu. Okur "iki" başlığı altında üç ad
-            # görüp hangi ikisini test edeceğini bilemiyordu.
-            # Başlık ve yönerge artık SAYIYA göre yazılır.
             n = len(names)
-            joined = (" and ".join(names) if n == 2
-                      else ", ".join(names[:-1]) + " and " + names[-1])
+            joined = ", ".join(names[:-1]) + " and " + names[-1]
+            if status == "superset":
+                # Bir KAPSAMA ilişkisidir: ikincisi birincinin gördüğü
+                # her şeyi görür ve ÜSTÜNE bir işaret ekler. Okura ne
+                # ARAYACAĞI söylenir.
+                out.append({"type": "callout",
+                            "title": "ONE OF THESE IS THE OTHER PLUS ONE MORE THING",
+                            "items": [
+                                "On this sign, " + joined + " look alike because the "
+                                "second shows everything the first shows.",
+                                "What separates them is " +
+                                col.get("superset_en", "the extra sign named above") +
+                                ". Look for that before you choose.",
+                                "If it is there, take the second. If it is genuinely "
+                                "absent, take the first and test it."]})
+                continue
             out.append({"type": "callout",
-                        "title": ("These two can look the same" if n == 2
-                                  else f"These {n} can look the same"),
+                        "title": ("THESE TWO CAN LOOK THE SAME" if n == 2
+                                  else f"THESE {n} CAN LOOK THE SAME"),
                         "items": [
                             "On this sign, " + joined +
                             " can produce the same appearance, and the evidence above "
                             "does not reliably separate them.",
-                            "Do not choose between them by eye. Test "
-                            + ("both" if n == 2 else f"all {n}") +
-                            ", cheapest first, and let the result decide.",
-                            # ⚠ Faz 5: bu cümle 28 çakışmanın HEPSİNDE
-                            # suçu "yayınlanmış kanıta" atıyordu. Kayıt
-                            # farklı söylüyor: 25'i gerçekten kaynak
-                            # boşluğu, 3'ü bu kitabın KENDİ ayırt edici
-                            # kanıt taslağının kusuru (kayıtta
-                            # "INVERTED", "presupposes the conclusion",
-                            # "is the sign, not a discriminator").
-                            # Okuru rahatlatan işlev korunur, atıf
-                            # DÜZELTİLİR: 28'i için de doğru olan cümle.
-                            "This is a known limit of the method as this book "
-                            "states it — not something you have missed."]})
+                            "Test " + ("both" if n == 2 else f"all {n}") +
+                            " in the order they are printed above — that order is set "
+                            "by what each test costs you — and let the result decide, "
+                            "not the eye.",
+                            "This is a known limit of the method as this book states "
+                            "it, not something you have missed."]})
 
-        # ── henüz değiştirme ──────────────────────────────────────────
-        out.append({"type": "callout", "title": "Do not change yet", "items": c["hold"]})
-        if c.get("order"):
-            out.append({"type": "para", "text": "Order: " + c["order"]})
-
-        # ── akış şeması ───────────────────────────────────────────────
-        if with_chart:
-            out.append({"type": "figure", "key": f"flow_{sid}",
-                        "caption": "The decision path for this sign."})
+        # ⚠ Her girişin KARAR ŞEMASI — F-10 düzenlemesinde yanlışlıkla
+        # silinmişti ve 43 figür kitaptan düştü. Sayfa sayısındaki 38
+        # sayfalık düşüş yakaladı; kapı değil, ÖLÇÜM yakaladı.
+        out.append({"type": "figure", "key": f"flow_{sid}",
+                    "caption": "The decision path for this sign."})
 
         # ── B-01: YENİDEN GÖZLEM — her girişin ZORUNLU son adımı ──────
         out.append({"type": "h3", "text": "Look again"})
@@ -354,13 +468,19 @@ class AtlasBuilder:
         # Düzeltme YAPISALDIR, 43 metnin tek tek elden geçirilmesi
         # değil: iki dal her girişte AYNI sırayla çıkar ve yazılmış
         # metin yalnızca İKİNCİ dalın içeriğini verir.
+        # ── İÇERİK TURU · A-22 (Faz 4 incelemesi, o turda KAPATILMADI)
+        # Bu paragraf 43 girişte KELİMESİ KELİMESİNE aynıydı: 2.000
+        # kelime, yaklaşık yedi sayfa. Okur onu üçüncü girişte atlamayı
+        # öğreniyor ve atladığı anda SONUNDAKİ tek girişe özgü cümleyi
+        # de atlıyordu — kitabın o girişteki tek özgün cevabını.
+        #
+        # Kural bir kez, ait olduğu yerde (Bölüm 6, döngünün 7. adımı)
+        # yazılır. Girişte yalnızca AYAKTA DURAN bir başlık ve GİRİŞE
+        # ÖZGÜ olan kısım basılır. Bilgi kaybı YOKTUR; tekrar kaybolur.
         out.append({"type": "para",
-                    "text": "If the sign is reduced but has not gone, there are two "
-                            "possibilities and they call for different answers. The "
-                            "commoner one is that the cause was right and the amount "
-                            "was too small — increase it and test again before you "
-                            "look for anything else. The other is that a second cause "
-                            "is present as well: " + c["partial"]})
+                    "text": "Reduced but not gone? The two branches are in Chapter 6. "
+                            "On this sign, the second cause to suspect is this: "
+                            + c["partial"]})
         return out
 
     # ── Bölüm 2 — ölçü bölümü de ÜRETİLİR ─────────────────────────────
@@ -387,7 +507,7 @@ class AtlasBuilder:
                                      "hem is judged there, not here. Stand as you "
                                      "normally stand, not at "
                                      "attention. Have someone else hold the tape wherever "
-                                     "you can — nineteen of the measurements in this "
+                                     "you can — twenty of the measurements in this "
                                      "chapter cannot be taken reliably on yourself."},
             {"type": "para", "text": "The tape lies flat, level with the floor for "
                                      "anything horizontal, and it does not press in. A "
@@ -404,14 +524,22 @@ class AtlasBuilder:
             {"type": "figure", "key": "toile_marking_waist",
              "caption": "Finding the waist with an elastic and marking it. Every vertical "
                         "measurement in this book is read from this line."},
+            # ⚠ İÇERİK TURU · L-3: bu cümle bir tanımı "the clothing size
+            # standard"a atfediyordu. O standart (ISO 8559-1) DEPOYA
+            # EDİNİLMEMİŞTİR ve ilgili maddesine ULAŞILAMAMIŞTIR —
+            # kitabın kendi kaydı bunu yazıyor. Bir kitap, okuyamadığı
+            # bir belgenin ne dediğini okura SÖYLEYEMEZ. Atıf, tam
+            # metni bu turda okunan kaynağa taşındı.
             {"type": "para", "text": "This matters more than it looks. Sources do not "
-                                     "agree on where a natural waist is: the clothing "
-                                     "size standard defines it as midway between the "
-                                     "lowest rib and the top of the hip bone, other "
-                                     "authorities use the narrowest point of the torso, "
-                                     "the level of the navel, or simply where a belt "
-                                     "sits. On one body those can be several centimetres "
-                                     "apart."},
+                                     "agree on where a natural waist is. The public "
+                                     "health survey manual behind many published body "
+                                     "measurements defines it by bone — a horizontal "
+                                     "line just above the top edge of the hip bone, "
+                                     "found by feeling for it at the side. The sewing "
+                                     "guides define it by shape or by habit instead: the "
+                                     "narrowest point of the torso, the level of the "
+                                     "navel, or simply where a belt sits. On one body "
+                                     "those can be several centimetres apart."},
             {"type": "para", "text": "This book does not settle that argument, because it "
                                      "does not need to. What it needs is that your waist "
                                      "is in the same place every time you measure. A "
@@ -420,6 +548,54 @@ class AtlasBuilder:
             {"type": "side", "title": "The rule underneath",
              "text": "Where a measurement starts and ends IS the measurement. Its name "
                      "is not enough."},
+            {"type": "h2", "text": "Mark the bust apex"},
+            {"type": "para", "text": "Four measurements in this chapter run to or from "
+                                     "the bust apex — the fullest point of the bust, "
+                                     "wearing the bra you will wear with the garment. It "
+                                     "moves with the bra, which is why the bra is part of "
+                                     "the measuring conditions rather than an afterthought. "
+                                     "Find it in a mirror, mark it, and take all four "
+                                     "from the same mark."},
+            {"type": "h2", "text": "Mark the four points you will measure from"},
+            {"type": "para", "text": "Four points on the upper body anchor nine of the "
+                                     "measurements in this chapter and every shoulder "
+                                     "diagnosis in Part Four. Two of them you can feel. "
+                                     "Two of them you have to agree with yourself and "
+                                     "then mark — and marking them is not a lesser kind "
+                                     "of accuracy, it is the only kind available."},
+            {"type": "numbered", "items": [
+                "The NAPE. Bend your head forward and run a finger down the back of your "
+                "neck. The bone that stands out furthest is it. Mark it. This one is "
+                "found, not agreed.",
+                "The SHOULDER POINT. Run your fingers out along the top of your shoulder "
+                "until you feel the bone end and the arm begin. That corner is it. Raise "
+                "your arm halfway and you will feel it move; drop the arm before you "
+                "mark. This one is found too.",
+                "The SIDE NECK POINT, where the neck meets the shoulder. There is no bone "
+                "here and no source settles it. Put a narrow cord around the base of your "
+                "neck and let it fall where it wants to sit — the published guide this "
+                "book follows ties a string at the neck base for exactly this — and mark "
+                "where the cord crosses the top of your shoulder.",
+                "The THROAT HOLLOW, the dip at the centre front between the collarbones. "
+                "Feel for the notch in the bone and mark the bottom of it."]},
+            {"type": "para", "text": "Two of these four are agreed rather than found, and "
+                                     "that has a consequence worth saying plainly: your "
+                                     "numbers are repeatable for YOU, and not "
+                                     "necessarily comparable with anyone else's. That is "
+                                     "enough for everything this book asks of them, "
+                                     "because every comparison it asks for is between "
+                                     "your body and your pattern. It is not enough for "
+                                     "quoting a shoulder length to another sewer as "
+                                     "though it were a standard figure."},
+            {"type": "callout", "title": "Do not change yet", "items": [
+                "Do not measure from a point you have not marked. Half of the "
+                "measurements in this chapter start at one of these four, and a point "
+                "chosen fresh each time is not a landmark.",
+                "Do not wash the marks off between the measuring session and the fitting "
+                "session. Chapter 5 reads the shoulder seam against the same marks."]},
+            {"type": "figure", "key": "lmk_neck_shoulder",
+             "caption": "The four points. Two are bone and can be found; two are agreed "
+                        "and must be marked."},
             {"type": "h2", "text": "Measure everything twice"},
             {"type": "para", "text": "Take each measurement, write it down, take the tape "
                                      "off, and take it again. If the two readings differ "
@@ -445,20 +621,45 @@ class AtlasBuilder:
                                  "side or the back.")
                 if mid in mc["conflicts"]:
                     items.append("Sources differ here — see the note below.")
+                if mid in mc.get("divergences", {}):
+                    items.append("This book departs from its source here — see the note "
+                                 "below.")
                 blocks.append({"type": "bullets", "items": items})
                 if mid in mc["conflicts"]:
                     blocks.append({"type": "side", "title": "Sources differ",
                                    "text": mc["conflicts"][mid]})
+                # ⚠ İÇERİK TURU: "kaynaklar çelişiyor" ile "bu kitap
+                # kaynağından ayrılıyor" AYNI ŞEY DEĞİLDİR. Birincisi
+                # alanın çözmediği bir sorudur ve okur onu bilmelidir;
+                # ikincisi bu kitabın verdiği bir karardır ve okur ONU
+                # da bilmelidir — ama ikisini tek kutuda göstermek,
+                # kitabın kendi kararını alanın anlaşmazlığı gibi
+                # sunmaktır.
+                if mid in mc.get("divergences", {}):
+                    blocks.append({"type": "side",
+                                   "title": "Where this book differs from its source",
+                                   "text": mc["divergences"][mid]})
                 # ⚠ FAZ 4 ÖLÇÜMÜ: ilk tam dizgide 29 ölçüm figürünün
                 # HİÇBİRİ kitapta yer almıyordu. Bir ölçü bölümünün işi
                 # "şerit nereden nereye gider"i göstermektir; metin tek
                 # başına onu yapamaz. Kapılar yeşildi ve ürün eksikti —
                 # B-10 sınıfı bir kusur. qa_manuscript.py artık her
                 # ölçünün figürünü ARIYOR.
-                cap = (f"{m['name']}: how the number is arrived at."
-                       if m["category"] == "derived" else
-                       f"{m['name']}: the path the tape takes. Both landmarks are "
-                       f"visible so the path can be repeated.")
+                # ⚠ M-13: başlık NİRENGİ TÜRÜNDEN türer. 30 figürün
+                # hepsine "her iki nirengi de görünür" basmak, bir
+                # düzininde YANLIŞTI ve kitabın kendi tekrarlanabilirlik
+                # ölçütüyle çelişiyordu.
+                # Başlıklar KISA tutulur: uzun başlık figürü sayfadan
+                # taşırır ve nirenginin türü zaten tek cümlede söylenir.
+                _K = {
+                  "bone": f"{m['name']} — both ends are bone, findable by feel.",
+                  "marked": f"{m['name']} — runs between marks you made.",
+                  "fullest": f"{m['name']} — one end is a fullest point, not a bone.",
+                  "level": f"{m['name']} — the level is measured down from your waist mark.",
+                  "derived": f"{m['name']} — how the number is arrived at.",
+                }
+                cap = _K.get(m.get("landmark_kind"),
+                             f"{m['name']}: the path the tape takes.")
                 blocks.append({"type": "figure", "key": f"meas_{mid}", "caption": cap})
         blocks.append({"type": "h2", "text": "The six errors worth seeing"})
         blocks.append({"type": "para",
@@ -533,6 +734,42 @@ class AtlasBuilder:
                                "at the start of a fitting rather than once per sign. The "
                                "drawings are schematic: they show where a sign sits, not "
                                "how much fabric is involved."})
+        # ⚠ İÇERİK TURU: sonucun NASIL OKUNACAĞI kuralı Bölüm 6 Adım
+        # 6'da yazılıdır ve girişlerde 104 kez TEKRARLANIYORDU. Bölüm
+        # başına BİR KEZ işaret edilir; girişler yalnızca o girişe özgü
+        # ölçütü taşır.
+        blocks.append({"type": "para",
+                       "text": "The causes under each sign are printed in the order to "
+                               "test them, and that order is set by three things in "
+                               "turn. Anything that needs no pattern change at all comes "
+                               "first — it is free and it is often the answer. Then the "
+                               "rest, ordered by what the test costs you: a reading, "
+                               "then pins, then a scrap of calico, then cutting the "
+                               "fitting garment. Last come the causes whose correction "
+                               "cannot be undone — the armhole, the sleeve cap and the "
+                               "neckline — however cheap their test looks, because "
+                               "everything above them changes them."})
+        blocks.append({"type": "para",
+                       "text": "Where a test names an amount — five millimetres at a "
+                               "shoulder tip, a centimetre at a slash — that number is a "
+                               "starting step, not a threshold. It comes from ordinary "
+                               "practice rather than from any published figure, and this "
+                               "book has none to give you. Start there, look, and go "
+                               "again if the sign moved in the right direction but not "
+                               "far enough."})
+        blocks.append({"type": "para",
+                       "text": "Every cause ends with a line beginning \u201cRead "
+                               "it\u201d, and it names TWO things that have to happen "
+                               "together: the sign itself must reduce, and the "
+                               "observation that told this cause apart must go with it. "
+                               "Both matter. The three causes under one sign usually "
+                               "make room in the same place, so any of the three tests "
+                               "will ease the sign — if only the sign eases and the "
+                               "second observation does not change, you have eased the "
+                               "symptom without finding the cause. What the other two "
+                               "outcomes mean — the sign unchanged, or a new sign "
+                               "appearing somewhere else — is set out once in Chapter 6, "
+                               "step six."})
         sids = [sid for sid, s in self.signs.items() if s["zone"] in z["zones"]]
         for sid in sids:
             blocks.extend(self.sign_entry(sid, with_chart=with_charts))

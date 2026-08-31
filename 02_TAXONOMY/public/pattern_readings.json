@@ -1,0 +1,592 @@
+{
+  "$comment": [
+    "PATTERN AND TOILE READINGS — L-2'nin kök nedenine karşılık gelen kayıt.",
+    "",
+    "KÖK NEDEN: kitap her karşılaştırmanın VÜCUT tarafını öğretiyordu",
+    "(Bölüm 2, 32 ölçü) ve KALIP tarafını öğretmiyordu. 129 doğrulama",
+    "adımının çoğu 'kendi X'ini kalıbın Y'siyle karşılaştır' diyor; okur",
+    "X'i biliyor, Y'yi kalıpta nasıl bulacağını bilmiyordu.",
+    "",
+    "measurements.json'daki `pattern_counterpart` alanı bu eşleşmeyi",
+    "PROJE DİLİNDE zaten taşıyordu ama okura HİÇ ULAŞMIYORDU: alan",
+    "hiçbir bölümde dizilmiyordu. Bu dosya o eşleşmeyi okur diline",
+    "çevirir, OKUMA YÖNTEMİNİ ekler ve her birine bir ÖĞRETİM ÇAPASI",
+    "(bölüm + figür) bağlar.",
+    "",
+    "KURAL: hiçbir doğrulama adımı bu sicilde bulunmayan bir kalıp/toile",
+    "okumasına başvuramaz. Kapı: 06_BUILD/qa_verification.py.",
+    "",
+    "SINIR (Kitap 1 = TEŞHİS): buradaki her giriş bir OKUMA'dır — bir",
+    "kalıbın ne dediğini ÖLÇMEK. Hiçbiri kalıbı DEĞİŞTİRMEYİ öğretmez;",
+    "o Kitap 2'dir (BOUNDARY_MATRIX).",
+    "PR-33 (düğme konumları) ve kaynak atıfları İÇERİK TURUNDA eklendi. Eğri ölçme yöntemi İKİ kaynakta BİREBİR vardır — S-0002: 'Stand the tape on edge for all measurements that are on a curve'; S-0003: 'For a sharp curve such as the crotch, turn the tape measure on its side'. Bu bölüm UYDURULMADI."
+  ],
+  "count": 33,
+  "readings": [
+    {
+      "reading_id": "PR-01",
+      "surface_kind": "pattern",
+      "name": "Bust line width",
+      "kind": "straight",
+      "how": "Find the bust line on the front and back pieces — most patterns mark it. If it is not marked, on a FITTED bodice it is the widest point of the front piece below the armhole; on anything flared, A-line or cut as a dress that test fails, and you locate it instead by measuring down from the shoulder the same distance your own shoulder-to-apex measurement gives. Measure along it from seam line to seam line, take out any dart width that crosses it, add front and back together and double if you have half pieces.",
+      "pairs_with": [
+        "M-002"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_bodice",
+      "notes": null,
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-02",
+      "surface_kind": "pattern",
+      "name": "Chest line width (the pattern's high bust)",
+      "kind": "straight",
+      "how": "The horizontal line at the level where the armhole curve is deepest — the pattern's equivalent of your high bust. Measure it exactly as the bust line, seam line to seam line, front and back added.",
+      "pairs_with": [
+        "M-001"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_bodice",
+      "notes": "Bir kalıpta 'üst göğüs' diye ETİKETLİ bir çizgi çoğunlukla YOKTUR. Okur seviyeyi kol oyuntusunun en derin noktasından kurar; bu, ölçünün kendisinin (kolların ALTINDAN) tanımıyla aynı seviyedir.",
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-03",
+      "surface_kind": "pattern",
+      "name": "Waist line width",
+      "kind": "straight",
+      "how": "Measure along the marked waist line, seam line to seam line, darts taken out, front and back added.",
+      "pairs_with": [
+        "M-004"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_bodice",
+      "notes": null,
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-04",
+      "surface_kind": "pattern",
+      "name": "High hip line width",
+      "kind": "straight",
+      "how": "Measure across the piece at the level the pattern marks as the high hip. If it is not marked, measure down from the waist seam line by the same distance you used on your own body — this book takes the high hip 8–10 cm (3–4 in) below the marked waist — and pencil the line in yourself.",
+      "pairs_with": [
+        "M-005"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_skirt",
+      "notes": "Mesafe S-0002'nin hizasıdır ve M-005 ile AYNI olmak zorundadır.",
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-05",
+      "surface_kind": "pattern",
+      "name": "Hip line width",
+      "kind": "straight",
+      "how": "Measure across the piece at the marked hip line, seam line to seam line, front and back added and doubled for half pieces.",
+      "pairs_with": [
+        "M-006"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_skirt",
+      "notes": null,
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-06",
+      "surface_kind": "pattern",
+      "name": "Front and back share of a girth line",
+      "kind": "split",
+      "how": "Before you add the front and back together, write the two numbers down separately. Their ratio is how the pattern divides that circumference between your front and your back. A pattern drafted for a fuller seat gives the back piece the larger share.",
+      "pairs_with": [
+        "M-005",
+        "M-006"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Front and back are read separately before they are added",
+      "figure_ref": "patt_front_skirt",
+      "notes": "L-2 çözümü: okurun KENDİ ön/arka dağılımını ölçmesi güvenilir değildir (vücutta yan çizgi işaretlenmelidir ve o işaret tekrarlanamaz). Karşılaştırma bu yüzden KALIP tarafında yapılır ve toile'deki YAN DİKİŞ KONUMU ikinci kanıttır. Belirtinin kendisi zaten o gözlemi taşır.",
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-07",
+      "surface_kind": "pattern",
+      "name": "Back width",
+      "kind": "straight",
+      "how": "On the back piece, measure straight across between the two armhole curves at their deepest point — not at the shoulders. Double it if you have a half piece.",
+      "pairs_with": [
+        "M-020"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_back_bodice",
+      "notes": null,
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-08",
+      "surface_kind": "pattern",
+      "name": "Front width",
+      "kind": "straight",
+      "how": "On the front piece, measure straight across between the two armhole curves at their deepest point, above the bust. Double it if you have a half piece.",
+      "pairs_with": [
+        "M-021"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_bodice",
+      "notes": null,
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-09",
+      "surface_kind": "pattern",
+      "name": "Shoulder seam length",
+      "kind": "straight",
+      "how": "From the neck point to the shoulder point on the pattern, measured on the seam line. If a dart crosses the shoulder, add the dart width back in — the sewn seam is shorter than the paper edge by exactly that amount.",
+      "pairs_with": [
+        "M-014"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_vertical_reads",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-10",
+      "surface_kind": "pattern",
+      "name": "Shoulder slope",
+      "kind": "vertical",
+      "how": "Lay a ruler along the shoulder seam line, level with the floor at the neck point. Read how far the seam drops below that level — the vertical drop, not the length of the seam. Read the drop at the distance from the neck point that equals YOUR shoulder length, not at the end of the pattern's seam: two drops are only comparable over the same horizontal run, and the pattern's shoulder seam is often not the same length as your shoulder.",
+      "pairs_with": [
+        "M-034"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_vertical_reads",
+      "notes": "AF-03'ün kalıp tarafı. Bu okuma OLMADAN omuz eğimi ailesi doğrulanamıyordu: beş doğrulama adımı 'omuz ucunun yüksekliğini kalıbınkiyle karşılaştır' diyordu ve kitap ikisini de öğretmiyordu. ⚠ BAĞIMSIZ İNCELEME (M-23): koşul BİR KEZ söylenip üç adımda düşüyordu; artık okumanın KENDİ tanımında."
+    },
+    {
+      "reading_id": "PR-11",
+      "surface_kind": "pattern",
+      "name": "Centre front length",
+      "kind": "vertical",
+      "how": "On the front piece, straight down the centre front line to the waist seam line — but NOT from the neckline seam. Your own centre front length starts at the hollow of the throat, and the pattern's neckline seam sits below that by however deep the neckline is cut. Measure your own throat-hollow-to-neckline drop on the toile once, add it to the pattern reading, and compare the two totals. Skip this and every pattern reports a short front, in an amount set by the neckline style rather than by you.",
+      "pairs_with": [
+        "M-015"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_vertical_reads",
+      "notes": "⚠ BAĞIMSIZ İNCELEME (M-07): iki taraf FARKLI NOKTADAN başlıyordu ve fark doğrudan denge hesabına giriyordu — kitabın 'ilk düzeltilecek' dediği şeye."
+    },
+    {
+      "reading_id": "PR-12",
+      "surface_kind": "pattern",
+      "name": "Centre back length",
+      "kind": "vertical",
+      "how": "On the back piece, from the neckline seam line at centre back, straight down the centre back line to the waist seam line.",
+      "pairs_with": [
+        "M-016"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_vertical_reads",
+      "notes": "Arka yaka dikişi nape'e çok yakın oturur, bu yüzden arka karşılaştırma ön karşılaştırmanın taşıdığı kaymayı TAŞIMAZ. Asimetri bilinçlidir ve PR-11'de açıklanır."
+    },
+    {
+      "reading_id": "PR-13",
+      "surface_kind": "pattern",
+      "name": "Armhole depth",
+      "kind": "vertical",
+      "how": "On the back piece, from the neck point at centre back, straight down to the level of the underarm point where the side seam begins. It is a vertical drop, not a distance along the curve.",
+      "pairs_with": [
+        "M-022"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_vertical_reads",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-14",
+      "surface_kind": "pattern",
+      "name": "Neckline curve length",
+      "kind": "curve",
+      "how": "Walk the tape along the neckline seam line — front piece and back piece separately, then added — using the method for curved edges. Doubled for half pieces, that total is the neckline the finished garment will have.",
+      "pairs_with": [
+        "M-013"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring a curved edge",
+      "figure_ref": "patt_curve_walk",
+      "notes": null,
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-15",
+      "surface_kind": "pattern",
+      "name": "Armhole curve length",
+      "kind": "curve",
+      "how": "Walk the tape along the armhole seam line on the front piece and on the back piece, and add the two. That total is the armhole the sleeve has to fit into.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring a curved edge",
+      "figure_ref": "patt_curve_walk",
+      "notes": "⚠ İÇERİK TURU · BAĞIMSIZ İNCELEME (M-03/M-04): bu okuma önce M-007 ve M-022 ile EŞLENİYORDU. İkisi de kategori hatasıdır — kol oyuntusu ÇEVRESİ bir çevredir, M-022 bir DÜŞEY DÜŞÜŞTÜR, M-007 KOLUN çevresidir. Kol oyuntusu çevresinin vücutta doğrudan bir karşılığı YOKTUR: kol oyuntusu kolu değil, kolun GİRDİĞİ boşluğu ölçer ve kalıbın kendi kol başıyla (PR-16) karşılaştırılır. Vücut tarafı BOŞ bırakıldı çünkü boş OLMASI gerekiyor.",
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-16",
+      "surface_kind": "pattern",
+      "name": "Sleeve cap curve length",
+      "kind": "curve",
+      "how": "Walk the tape along the cap seam line of the sleeve, from one underarm point over the top to the other.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring a curved edge",
+      "figure_ref": "patt_sleeve_cap",
+      "notes": null,
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-17",
+      "surface_kind": "pattern",
+      "name": "Cap ease",
+      "kind": "derived",
+      "how": "The cap curve length minus the armhole curve length. It is the amount the sleeve has to be eased into the armhole, and it is a property of the pattern, not of you.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring a curved edge",
+      "figure_ref": "patt_sleeve_cap",
+      "notes": "İki EĞRİ okumasının farkıdır; ikisi de aynı yöntemle alınır, bu yüzden fark anlamlıdır."
+    },
+    {
+      "reading_id": "PR-18",
+      "surface_kind": "pattern",
+      "name": "Sleeve cap height",
+      "kind": "vertical",
+      "how": "On the sleeve, the vertical distance from the bicep line up to the top of the cap. A tall narrow cap and a low wide cap can have the same curve length and behave completely differently.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_sleeve_cap",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-19",
+      "surface_kind": "pattern",
+      "name": "Bicep line width",
+      "kind": "straight",
+      "how": "On the sleeve, the widest horizontal line, straight across at the base of the cap, seam line to seam line.",
+      "pairs_with": [
+        "M-007"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_sleeve",
+      "notes": "Kol genişliğinin vücut karşılığı BUDUR — kol oyuntusu çevresi değil. Ek J'nin bicep bandı (1,3–5 cm) bu farka aittir.",
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-20",
+      "surface_kind": "pattern",
+      "name": "Sleeve length",
+      "kind": "vertical",
+      "how": "From the top of the cap down the centre line of the sleeve to the hem seam line.",
+      "pairs_with": [
+        "M-028"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_sleeve",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-21",
+      "surface_kind": "pattern",
+      "name": "Elbow shaping position",
+      "kind": "vertical",
+      "how": "From the top of the cap down the centre line of the sleeve to whatever the pattern uses to shape the elbow — a dart, a pair of notches, or a marked ease section.",
+      "pairs_with": [
+        "M-029"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_sleeve",
+      "notes": "Vücut tarafı M-029 omuz UCUNDAN ölçülür, kalıp tarafı kol başının TEPESİNDEN. İkisi arasındaki fark kol başı yüksekliğidir ve adım metni bunu söyler."
+    },
+    {
+      "reading_id": "PR-22",
+      "surface_kind": "pattern",
+      "name": "Notch positions along a seam",
+      "kind": "curve",
+      "how": "Walk the tape from the underarm point to each notch, on the cap and on the armhole, and compare the two sets of numbers. Notches that were drawn to meet are the same distance from the underarm on both pieces.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring a curved edge",
+      "figure_ref": "patt_sleeve_cap",
+      "notes": null,
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-23",
+      "surface_kind": "pattern",
+      "name": "Bust dart point position",
+      "kind": "straight",
+      "how": "From the side neck point on the pattern, along the same route your own shoulder-to-apex measurement takes, to the point of the bust dart.",
+      "pairs_with": [
+        "M-017"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_dart_anatomy",
+      "notes": "Kalıbın pens UCU okurun apeksinin tam üstünde bitmez ve bitmemelidir: S-0004 ve S-0007 bağımsız olarak 'pens eğrinin en dolgun noktasına DOĞRU gösterir ve ona VARMADAN biter' der. HİÇBİRİ bir mesafe vermez ve bu kitap da vermez — okur ucun apeksin ÜSTÜNDE mi ALTINDA mı kaldığını okur, bir sayıya uymaz."
+    },
+    {
+      "reading_id": "PR-24",
+      "surface_kind": "pattern",
+      "name": "Dart point spacing",
+      "kind": "straight",
+      "how": "Across the front piece, between the two bust dart points — or, on a half piece, twice the distance from centre front to the dart point.",
+      "pairs_with": [
+        "M-018"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_dart_anatomy",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-25",
+      "surface_kind": "pattern",
+      "name": "Crotch depth",
+      "kind": "vertical",
+      "how": "On the trouser front, the vertical distance from the waist seam line down to the level of the crotch point. It is a vertical drop and it is not the crotch length.",
+      "pairs_with": [
+        "M-026"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_front_trouser",
+      "notes": null,
+      "source_refs": [
+        "S-0002"
+      ]
+    },
+    {
+      "reading_id": "PR-26",
+      "surface_kind": "pattern",
+      "name": "Crotch curve length, front and back",
+      "kind": "curve",
+      "how": "Walk the tape along the crotch seam line of the front piece, from the waist seam line down and round to the crotch point, and do the same on the back piece. The two added together are what your own crotch length is compared against; each on its own is what a front or a back cause is confirmed by.",
+      "pairs_with": [
+        "M-027"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring a curved edge",
+      "figure_ref": "patt_front_trouser",
+      "notes": null,
+      "source_refs": [
+        "S-0002",
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-27",
+      "surface_kind": "pattern",
+      "name": "Thigh line width",
+      "kind": "straight",
+      "how": "Straight across the trouser leg at the level of the crotch point, front and back pieces added.",
+      "pairs_with": [
+        "M-009"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_trouser",
+      "notes": null,
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-28",
+      "surface_kind": "pattern",
+      "name": "Knee line width, front and back",
+      "kind": "split",
+      "how": "Straight across the trouser leg at the marked knee line — the front piece and the back piece written down separately. Most trouser patterns give the back the larger share; how much larger is what a twisting leg is read against.",
+      "pairs_with": [
+        "M-010"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Front and back are read separately before they are added",
+      "figure_ref": "patt_front_trouser",
+      "notes": null,
+      "source_refs": [
+        "S-0003"
+      ]
+    },
+    {
+      "reading_id": "PR-29",
+      "surface_kind": "pattern",
+      "name": "Waist to hip depth",
+      "kind": "vertical",
+      "how": "The vertical distance from the waist seam line down to the marked hip line.",
+      "pairs_with": [
+        "M-023"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_front_skirt",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-30",
+      "surface_kind": "pattern",
+      "name": "Front extension width",
+      "kind": "straight",
+      "how": "On a piece that buttons, the distance from the centre front line out to the front edge seam line. It is the amount of the closure that overlaps, and it is counted once, not twice, when you add the pieces up.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_bodice",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-31",
+      "surface_kind": "pattern",
+      "name": "Hem allowance",
+      "kind": "printed",
+      "how": "The depth of the turn-up the pattern has drawn in, printed on the piece or given in the instructions. Read it; do not assume it.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Measuring the pattern flat",
+      "figure_ref": "patt_front_skirt",
+      "notes": null
+    },
+    {
+      "reading_id": "PR-32",
+      "surface_kind": "pattern",
+      "name": "Finished garment measurements and size chart",
+      "kind": "printed",
+      "how": "The two tables the pattern publishes: the size chart, which lists bodies, and the finished garment measurements, which list the garment. Where the finished measurements are not printed anywhere, you produce them yourself by measuring the pattern.",
+      "pairs_with": [],
+      "taught_in": "B1-CH03",
+      "taught_section": "Finding the finished garment measurements",
+      "figure_ref": null,
+      "notes": "Bir belirtinin TASARIM olup olmadığını kapatan tek belge budur; kitabın 'kapı önce' sırasında bu yüzden en ucuz testtir."
+    },
+    {
+      "reading_id": "PR-33",
+      "surface_kind": "pattern",
+      "name": "Button positions",
+      "kind": "vertical",
+      "how": "Down the centre front line of the pattern, from the neckline seam line to each marked button position. Compared against your own shoulder-to-apex measurement, this says whether a button falls at the level where the closure is under the most load.",
+      "pairs_with": [
+        "M-017"
+      ],
+      "taught_in": "B1-CH03",
+      "taught_section": "Lengths and depths on a pattern",
+      "figure_ref": "patt_front_bodice",
+      "notes": "S-0003 düğme yerleşimini bir uyum meselesi sayar: 'Respace the buttonholes if needed so that buttons are placed at STRESS POINTS such as the bust or waistline.'",
+      "source_refs": [
+        "S-0003"
+      ]
+    }
+  ],
+  "toile_readings": [
+    {
+      "reading_id": "TR-01",
+      "surface_kind": "toile",
+      "name": "Shoulder seam offset",
+      "how": "With the toile on and the marked top-of-shoulder line visible on your body, measure how far the sewn shoulder seam lies in front of or behind that line, at the mid point of the shoulder. Record it as a number with a direction — forward or back — on both shoulders.",
+      "pairs_with": [
+        "M-014"
+      ],
+      "taught_in": "B1-CH05",
+      "taught_section": "The four readings you take on the toile itself",
+      "figure_ref": "toile_shoulder_offset",
+      "notes": "M-014'ün iki uç noktası Bölüm 2'de zaten İŞARETLENİYOR; bu okuma o işaretleri KULLANIR ve yeni bir nirengi getirmez.",
+      "source_refs": [
+        "S-0004",
+        "S-0007"
+      ]
+    },
+    {
+      "reading_id": "TR-02",
+      "surface_kind": "toile",
+      "name": "Sewn armhole curve length",
+      "how": "Walk the tape along the sewn armhole seam of the toile, the same way you walked it on the pattern. If the two do not agree, the garment was not sewn to the pattern and no pattern cause can be read off it yet.",
+      "pairs_with": [],
+      "taught_in": "B1-CH05",
+      "taught_section": "The four readings you take on the toile itself",
+      "figure_ref": "toile_shoulder_offset",
+      "notes": null
+    },
+    {
+      "reading_id": "TR-03",
+      "surface_kind": "toile",
+      "name": "Waistband drop from the marked waist",
+      "how": "With the toile supported at the waist, measure straight down from the elastic marking your natural waist to the top edge of the waistband. It is a vertical distance and it is taken at the side, not at the front.",
+      "pairs_with": [
+        "M-004"
+      ],
+      "taught_in": "B1-CH05",
+      "taught_section": "The four readings you take on the toile itself",
+      "figure_ref": "toile_shoulder_offset",
+      "notes": null,
+      "source_refs": [
+        "S-0002"
+      ]
+    },
+    {
+      "reading_id": "TR-04",
+      "surface_kind": "toile",
+      "name": "Side seam position at a girth line",
+      "how": "Look at where the sewn side seam falls against the side of your body at bust, waist or hip level, and measure how far forward or back of it the seam sits. A seam that hangs plumb at rest and swings under load is reporting a volume, not a length.",
+      "pairs_with": [],
+      "taught_in": "B1-CH05",
+      "taught_section": "The four readings you take on the toile itself",
+      "figure_ref": "toile_shoulder_offset",
+      "notes": "PR-06 ile ÇİFT halinde kullanılır: kalıp dağılımı NE olduğunu, yan dikiş konumu o dağılımın bu vücutta NE YAPTIĞINI söyler."
+    }
+  ],
+  "verification_status": "agent_drafted_unverified",
+  "$status_note": "Bu sicildeki OKUMA YÖNTEMLERİ kalıp okumanın yerleşik uygulamasıdır ve S-0003'ün kalıp parçasını vücut ölçüsüne karşılık gelen noktadan ölçme yöntemiyle uyumludur; ancak S-0003 EĞRİ ölçümünü ve kol başı okumalarını TANIMLAMAZ. Sicil bu yüzden bütün olarak `agent_drafted_unverified` işaretlidir ve hiçbir girişi VERIFIED sayılmaz."
+}

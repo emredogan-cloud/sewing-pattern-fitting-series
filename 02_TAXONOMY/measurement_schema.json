@@ -119,6 +119,33 @@
     "source_conflict": {
       "$comment": "Kaynaklar bu ölçünün TANIMI konusunda birbiriyle çelişiyor mu. Faz 5: figür başlığı bunu `verification_status`'tan TÜRETİYORDU ve yedi ölçüye 'Sources differ — see the note in Chapter 2' basıyordu; oysa kayıtlı çelişki DÖRT tanedir ve yalnızca dördünün notu var. Üç okur, var olmayan bir nota gönderiliyordu. Çelişki artık TÜRETİLMEZ, BEYAN EDİLİR.",
       "type": "boolean"
+    },
+    "source_support": {
+      "$comment": "Kaynağın iddiayı NE KADAR desteklediği. 'as_written' varsayılandır ve alan yazılmaz. 'narrower' kaynağın DAHA DAR bir ifadeyi desteklediğini söyler ve iddia sicilinde VERIFIED yerine VERIFIED_NARROWER üretir (görev talimatı § 9). Bu alan varsa `source_support_note` ZORUNLUDUR.",
+      "type": "string",
+      "enum": [
+        "as_written",
+        "narrower"
+      ]
+    },
+    "source_support_note": {
+      "$comment": "Kaynağın gerçekte ne dediği ve kitabın nerede ondan ayrıldığı.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 20
+    },
+    "landmark_kind": {
+      "$comment": "Nirenginin TÜRÜ — figür başlığı bundan türetilir. bone: elle bulunur, iki okur aynı yeri bulur. marked: kararlaştırılır ve işaretlenir; TEK okur için tekrarlanır, okurlar arasında DEĞİL. fullest: 'en dolgun nokta' — görünür bir nirengi değildir. level: başka bir işaretten ölçülen mesafeyle kurulur. derived: hesaplanır.",
+      "type": "string",
+      "enum": [
+        "bone",
+        "marked",
+        "fullest",
+        "level",
+        "derived"
+      ]
     }
   }
 }

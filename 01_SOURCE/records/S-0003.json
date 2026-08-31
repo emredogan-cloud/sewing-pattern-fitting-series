@@ -11,17 +11,18 @@
   "url": "https://tuscarawas.osu.edu/sites/tuscarawas/files/imce/Program_Pages/4H/Guidelines/Principles%20of%20Pattern%20Alteration.pdf",
   "verification_level": "fulltext",
   "locator": "E-372, s. 2–5: 'Know your measurements'; 'To measure the pattern pieces'; 'To alter the pattern'; 'Check the altered fit' (13 maddelik uyum kontrol listesi)",
-  "accessed_on": "2026-08-28",
+  "accessed_on": "2026-08-31",
   "used_for": [
     "C-F SIRA KISITI — 'Make only one alteration at a time. Begin with lengthwise alterations at the shoulder or neck and work down. Finish with the alterations for width, again beginning at the neck and working down.' (Bölüm 16 sıra kuralları ① ve ②)",
     "C-A M-031 karar eşiği — üst göğüs ile göğüs farkı ≥ 2 inç ise küçük beden seçilir",
     "C-B denge/çözgü okuması (Bölüm 16.3)",
     "C-C kaynağında düzeltme ilkesi — 'Make alterations at the source of the problem' (Adım ④)",
-    "Bölüm 3, Bölüm 5, Bölüm 16"
+    "Bölüm 3, Bölüm 5, Bölüm 16",
+    "C-D KALIP OKUMA (BİREBİR): 'Measure each pattern piece at points that correspond with body measurements.' · 'Measure from seamline to seamline.' · 'For a sharp curve such as the crotch, TURN THE TAPE MEASURE ON ITS SIDE for ease in following the curve.' · 'For each pattern piece cut double or on the fold, multiply by 2.' — Bölüm 3'ün eğri ölçme bölümü"
   ],
   "superseded_by": null,
   "license_constraint": null,
   "acquisition_status": "public_access",
-  "notes": "KANONİK YAYINCI Texas AgriLife Extension'dır; erişilen kopya bir Ohio State University Extension ilçe sunucusunda barındırılıyordu. Kanonik depo (oaktrust.library.tamu.edu) otomatik indirmeye kapalıdır (HTTP 403). Aynı seride E-373 'Personal Measurement Chart' (17 ölçü) TESPİT EDİLDİ ama İNDİRİLEMEDİ — bkz. 01_SOURCE/PUBLIC_SOURCE_SURVEY.md § 4. Faz 5 (İnceleme A): okura basılan `reader_purpose` kaydın kendi sınırıyla ÇELİŞİYORDU; düzeltildi.",
+  "notes": "KANONİK YAYINCI Texas AgriLife Extension'dır; erişilen kopya bir Ohio State University Extension ilçe sunucusunda barındırılıyordu. Kanonik depo (oaktrust.library.tamu.edu) otomatik indirmeye kapalıdır (HTTP 403). Aynı seride E-373 'Personal Measurement Chart' (17 ölçü) TESPİT EDİLDİ ama İNDİRİLEMEDİ — bkz. 01_SOURCE/PUBLIC_SOURCE_SURVEY.md § 4. Faz 5 (İnceleme A): okura basılan `reader_purpose` kaydın kendi sınırıyla ÇELİŞİYORDU; düzeltildi. ⚠ İÇERİK TURU (31 Ağu 2026): tam metin YENİDEN okundu. Üç yeni birebir alıntı çıkarıldı (kalıp okuma). AYRICA KAYDEDİLDİ: E-372 ölçüm koşulu olarak 'wear shoes similar to those usually worn' der; kitabın Bölüm 2'si çıplak ayağı ister. Bu bir ÇELİŞKİDİR ve artık M-024'te ve Bölüm 2'de BEYAN EDİLİR. Ayrıca E-372 'shoulder slope'u düzeltme istisnaları arasında ADLANDIRIR — M-034'ün varlık gerekçesi.",
   "reader_purpose": "Measurement method and conditions, marking the waist, the one-alteration-at-a-time rule, the length-before-width order, and the high-bust size rule. It does not itself define individual measurements."
 }

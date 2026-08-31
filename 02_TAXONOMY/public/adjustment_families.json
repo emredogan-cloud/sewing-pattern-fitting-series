@@ -5,7 +5,9 @@
     "(BOUNDARY_MATRIX TOP-13/TOP-14). Bu dosya yalnızca AİLE ADI + KAPSAM + SIRA KISITI taşır.",
     "verification_status hepsinde 'agent_drafted_unverified' — dış otoriteye karşı",
     "doğrulanmadı (SOURCE_MAP C-serisi iddiaları, OPEN_QUESTIONS A3).",
-    "FAZ 4: AF-20 (karın hacmi) EKLENDİ; AF-13/AF-15/AF-16/AF-18/AF-19 düzeltildi. Gerekçeler her kaydın notes alanında."
+    "FAZ 4: AF-20 (karın hacmi) EKLENDİ; AF-13/AF-15/AF-16/AF-18/AF-19 düzeltildi. Gerekçeler her kaydın notes alanında.",
+    "İÇERİK TURU (31 Ağu 2026): `order_source_refs` EKLENDİ. Sıra iddiası artık ailenin KENDİ kaydından değil, SIRA KANITINDAN seviye alır — 12 sıra iddiası VERIFIED sayılıyordu ama kaynaklardan altısında hiçbir sıra kanıtı YOKTU. AF-01/AF-09/AF-10 kalıp alanları kaynak tam metniyle DARALTILDI.",
+    "İÇERİK TURU · BAĞIMSIZ İNCELEME (F-02/F-05): üç ailenin kendi kaydı 'en sonda' dediği hâlde teşhis akışında İLK dal olabiliyordu ve okur ilk 'evet'te duruyordu — geri alınamayan değişiklik yanlış teşhisle yapılabiliyordu. `defer_in_diagnosis` bu beyanı MAKİNEYE taşır: hem metin hem şema bu nedenleri SONA alır. Bayrak ailenin KENDİ order_constraint'inden türetilmiştir, uydurulmamıştır."
   ],
   "count": 20,
   "families": [
@@ -13,7 +15,7 @@
       "adjustment_family_id": "AF-01",
       "name": "Bust volume (full / small bust adjustment)",
       "zone": "bust_chest",
-      "pattern_area": "Front bodice: apex region, side seam, bust dart, armhole edge",
+      "pattern_area": "Front bodice: apex region, bust dart, waist dart, armhole edge",
       "method_families": [
         "slash_and_spread",
         "slash_and_overlap",
@@ -33,7 +35,11 @@
         "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": "İÇERİK TURU: alan listesinde 'side seam' vardı. S-0003 bunun TERSİNİ söylüyor: 'when the bust measurement is larger than the pattern, increase the pattern at the fullest part of the bust RATHER THAN AT THE SIDE SEAMS'. S-0001'in göğüs işlemi de yan dikişe dokunmaz. Yan dikiş listeden ÇIKARILDI; toplam çevre eksikliği zaten AF-18'in işidir.",
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "narrower"
     },
     {
       "adjustment_family_id": "AF-02",
@@ -55,7 +61,8 @@
         "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": []
     },
     {
       "adjustment_family_id": "AF-03",
@@ -82,7 +89,11 @@
         "S-0003"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-04",
@@ -106,7 +117,11 @@
         "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "narrower"
     },
     {
       "adjustment_family_id": "AF-05",
@@ -127,7 +142,8 @@
       "book3_relevance": "Blokta duruş analizi (TOP-06) girdi olur.",
       "source_refs": [],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": []
     },
     {
       "adjustment_family_id": "AF-06",
@@ -150,11 +166,17 @@
         "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "narrower",
+      "defer_in_diagnosis": true,
+      "defer_reason": "Yaka kesildikten sonra geri EKLENEMEZ; kitabın en çok tekrarlanan uyarısı budur."
     },
     {
       "adjustment_family_id": "AF-07",
-      "name": "Upper back (round back / broad back / narrow back)",
+      "name": "Upper back (round / flat back, broad / narrow back)",
       "zone": "upper_back",
       "pattern_area": "Back bodice: across-back region, centre back, back neckline",
       "method_families": [
@@ -177,7 +199,11 @@
         "S-0003"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": " ⚠ BAĞIMSIZ İNCELEME (F-07): aile adı 'round / broad / narrow' diyordu ama iki neden DÜZ sırtı onaylıyor ve okur kendisini adında olmayan bir aileye gönderilmiş buluyordu. Kalça ailesi aynı sorunu 'full / flat seat' diyerek zaten çözmüştü.",
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-08",
@@ -203,13 +229,16 @@
         "S-0001"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": [],
+      "defer_in_diagnosis": true,
+      "defer_reason": "Kendi kaydı 'SON bodice düzeltmesi' diyor ve kol oyuntusunu derinleştirmek GERİ ALINAMAZ (Ek F)."
     },
     {
       "adjustment_family_id": "AF-09",
       "name": "Sleeve cap (height, shape, ease)",
       "zone": "sleeve_arm",
-      "pattern_area": "Sleeve pattern: cap curve, cap height, notches",
+      "pattern_area": "Sleeve pattern: cap curve, cap height",
       "method_families": [
         "curve_reshape",
         "slash_and_spread",
@@ -230,13 +259,16 @@
         "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": "İÇERİK TURU: alan listesinde 'notches' vardı ve S-0001 çentiklerden HİÇ söz etmez. Çentik HİZASIZLIĞI ayrı bir şeydir — bir YAPIM/kesim hatasıdır, kalıp alanı değil — ve SYM-033'te artık öyle ele alınır.",
+      "order_source_refs": [],
+      "defer_in_diagnosis": true,
+      "defer_reason": "Kendi kaydı 'kol oyuntusu KESİNLEŞMEDEN kol başı düzeltilmez' diyor — kitabın en sıkı sıra kısıtı."
     },
     {
       "adjustment_family_id": "AF-10",
       "name": "Sleeve girth and length (bicep, forearm, length)",
       "zone": "sleeve_arm",
-      "pattern_area": "Sleeve pattern: bicep line, underarm seam, hem",
+      "pattern_area": "Sleeve pattern: bicep line, underarm seam",
       "method_families": [
         "slash_and_spread",
         "slash_and_overlap",
@@ -254,7 +286,11 @@
         "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": "İÇERİK TURU: alan listesinde 'hem' vardı; S-0001 kol BOYU düzeltmesini kapsamaz. Boy AF-19'un (genel boy) işidir ve iki aile ayrı tutulur.",
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-11",
@@ -281,7 +317,11 @@
         "S-0003"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-12",
@@ -304,7 +344,11 @@
       "book3_relevance": "Blokta bel ölçüsü M-004'ten doğrudan gelir.",
       "source_refs": [],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-13",
@@ -334,7 +378,8 @@
         "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "Faz 4: pattern_area 'arka' diyordu; iki kaynak da yan kalça hacmini ÖN VE ARKA parçada düzeltiyor. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
+      "notes": "Faz 4: pattern_area 'arka' diyordu; iki kaynak da yan kalça hacmini ÖN VE ARKA parçada düzeltiyor. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md).",
+      "order_source_refs": []
     },
     {
       "adjustment_family_id": "AF-14",
@@ -352,14 +397,15 @@
         "AF-11",
         "AF-13"
       ],
-      "order_constraint": "AF-11 boy düzeltmesiyle KARIŞTIRILMAMALI — biri genel boy, diğeri yerel oyuk.",
+      "order_constraint": "Bu bir SIRA kısıtı DEĞİL, bir AYIRT ETME kuralıdır: AF-11 genel gövde boyudur, AF-14 yerel bir oyuktur. İkisi karıştırılırsa genel boy kısaltılıp oyuk yerinde bırakılır. Kayıtlı bir sıra kanıtı YOKTUR.",
       "book3_relevance": "Blokta bel oyuğu şekillendirmesi doğrudan çizilir.",
       "source_refs": [
         "S-0001",
         "S-0003"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": []
     },
     {
       "adjustment_family_id": "AF-15",
@@ -386,7 +432,11 @@
         "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "Faz 4: ağ UZUNLUĞU bu aileden çıkarılıp AF-16'ya taşındı. Kaynak derinliği basılı ayar çizgisinden, uzunluğu ise EĞRİYİ yeniden çizerek değiştiriyor — iki farklı mekanik, T-17'ye göre iki farklı aile. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
+      "notes": "Faz 4: ağ UZUNLUĞU bu aileden çıkarılıp AF-16'ya taşındı. Kaynak derinliği basılı ayar çizgisinden, uzunluğu ise EĞRİYİ yeniden çizerek değiştiriyor — iki farklı mekanik, T-17'ye göre iki farklı aile. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md).",
+      "order_source_refs": [
+        "S-0002"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-16",
@@ -410,7 +460,11 @@
         "S-0002"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: ağ uzunluğu AF-15'ten buraya taşındı. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
+      "notes": "Faz 4: ağ uzunluğu AF-15'ten buraya taşındı. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md).",
+      "order_source_refs": [
+        "S-0002"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-17",
@@ -436,7 +490,8 @@
         "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": null
+      "notes": null,
+      "order_source_refs": []
     },
     {
       "adjustment_family_id": "AF-18",
@@ -459,7 +514,11 @@
         "S-0003"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: kayıt hem 'bu bir düzeltme değil' diyor hem de düzeltme dosyasında duruyordu ve order_constraint'i BOŞTU. Endüstriyel derecelendirmeyle karıştırılmamalıdır: o, bir taban kalıptan tüm beden serisini üretir ve bir uyum işlemi değildir. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
+      "notes": "Faz 4: kayıt hem 'bu bir düzeltme değil' diyor hem de düzeltme dosyasında duruyordu ve order_constraint'i BOŞTU. Endüstriyel derecelendirmeyle karıştırılmamalıdır: o, bir taban kalıptan tüm beden serisini üretir ve bir uyum işlemi değildir. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md).",
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "narrower"
     },
     {
       "adjustment_family_id": "AF-19",
@@ -482,7 +541,11 @@
         "S-0002"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: verification_status 'technical_reference_verified' idi ve S-0001'e dayanıyordu; incelemeci S-0001'in tam metninde 'lengthen', 'shorten' veya 'adjustment line' geçmediğini ölçtü. Not düşüldü, not DÜŞÜRÜLDÜ. Ayrıca bu bir YÖNTEMDİR ve AF-10/AF-11/AF-15/AF-17 zaten onu method_families'inde taşır — aile mi yöntem mi olduğu Kitap 2'nin açık kararıdır. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
+      "notes": "Faz 4: verification_status 'technical_reference_verified' idi ve S-0001'e dayanıyordu; incelemeci S-0001'in tam metninde 'lengthen', 'shorten' veya 'adjustment line' geçmediğini ölçtü. Not düşüldü, not DÜŞÜRÜLDÜ. Ayrıca bu bir YÖNTEMDİR ve AF-10/AF-11/AF-15/AF-17 zaten onu method_families'inde taşır — aile mi yöntem mi olduğu Kitap 2'nin açık kararıdır. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md).",
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "as_written"
     },
     {
       "adjustment_family_id": "AF-20",
@@ -509,7 +572,11 @@
         "S-0002"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4'te EKLENDİ. 19 ailede karın hacmi yoktu; crosswalk beş kaydı karın nedenlerini ya AF-13'e (giysinin ARKASI) ya da AF-01'e (GÖĞÜS PENSİ ailesi) yönlendiriyordu. Okur için bu yanlış bir varış noktasıdır. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md)."
+      "notes": "Faz 4'te EKLENDİ. 19 ailede karın hacmi yoktu; crosswalk beş kaydı karın nedenlerini ya AF-13'e (giysinin ARKASI) ya da AF-01'e (GÖĞÜS PENSİ ailesi) yönlendiriyordu. Okur için bu yanlış bir varış noktasıdır. Faz 4 bağımsız teknik incelemesi (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md).",
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "narrower"
     }
   ]
 }

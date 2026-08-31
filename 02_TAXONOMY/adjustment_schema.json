@@ -19,13 +19,33 @@
     "verification_status"
   ],
   "properties": {
-    "adjustment_family_id": { "type": "string", "pattern": "^AF-[0-9]{2}$" },
-    "name": { "type": "string", "minLength": 3 },
+    "adjustment_family_id": {
+      "type": "string",
+      "pattern": "^AF-[0-9]{2}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
     "zone": {
       "type": "string",
-      "enum": ["neck", "shoulder", "upper_back", "armhole", "bust_chest", "waist_torso", "hip_seat", "sleeve_arm", "crotch_leg", "whole_garment"]
+      "enum": [
+        "neck",
+        "shoulder",
+        "upper_back",
+        "armhole",
+        "bust_chest",
+        "waist_torso",
+        "hip_seat",
+        "sleeve_arm",
+        "crotch_leg",
+        "whole_garment"
+      ]
     },
-    "pattern_area": { "type": "string", "minLength": 5 },
+    "pattern_area": {
+      "type": "string",
+      "minLength": 5
+    },
     "method_families": {
       "type": "array",
       "minItems": 1,
@@ -48,18 +68,85 @@
       "type": "boolean",
       "$comment": "Kitap 1'in teşhis akışı bu aileye ULAŞABİLİYOR mu. false ise Kitap 2'ye yalnızca Kitap 2 içinden girilir ve CROSSWALK bunu açıkça istisna olarak kaydeder."
     },
-    "difficulty": { "type": ["string", "null"], "enum": ["basic", "intermediate", "advanced", null] },
-    "interacts_with": { "type": "array", "items": { "type": "string", "pattern": "^AF-[0-9]{2}$" } },
-    "order_constraint": { "type": ["string", "null"], "$comment": "Bu düzeltme hangi düzeltmelerden ÖNCE/SONRA yapılmalı." },
+    "difficulty": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "basic",
+        "intermediate",
+        "advanced",
+        null
+      ]
+    },
+    "interacts_with": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^AF-[0-9]{2}$"
+      }
+    },
+    "order_constraint": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "$comment": "Bu düzeltme hangi düzeltmelerden ÖNCE/SONRA yapılmalı."
+    },
     "book3_relevance": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "$comment": "Kitap 3 devir noktası: bu düzeltme tekrar ediyorsa blok çiziminde hangi ölçü/şekillendirme kararına karşılık gelir."
     },
-    "source_refs": { "type": "array", "items": { "type": "string", "pattern": "^S-[0-9]{4}$" } },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^S-[0-9]{4}$"
+      }
+    },
     "verification_status": {
       "type": "string",
-      "enum": ["agent_drafted_unverified", "agent_reviewed", "technical_reference_verified", "physically_validated"]
+      "enum": [
+        "agent_drafted_unverified",
+        "agent_reviewed",
+        "technical_reference_verified",
+        "physically_validated"
+      ]
     },
-    "notes": { "type": ["string", "null"] }
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "order_source_refs": {
+      "$comment": "Bu ailenin SIRA kısıtını kuran kaynaklar. Ailenin kendi source_refs'inden AYRIDIR: bir aileyi tanımlayan kaynak, o ailenin ne zaman yapılacağını söylemek zorunda değildir. Boş liste sıra iddiasını UNVERIFIED yapar.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^S-[0-9]{4}$"
+      }
+    },
+    "order_support": {
+      "type": "string",
+      "enum": [
+        "as_written",
+        "narrower"
+      ]
+    },
+    "defer_in_diagnosis": {
+      "$comment": "Bu aileye çıkan neden, TEŞHİS sırasında en sona alınır: kaydın kendi order_constraint'i onu 'son' ya da 'önce şu kesinleşsin' diye tanımlıyor ve işlem GERİ ALINAMAZ. Hem atlas metni hem akış şeması bu bayrağı okur.",
+      "type": "boolean"
+    },
+    "defer_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
   }
 }

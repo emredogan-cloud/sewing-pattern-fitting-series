@@ -22,9 +22,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import paths  # noqa: E402
 
-LEVEL_ORDER = ["VERIFIED", "PARTIALLY_VERIFIED", "CONTESTED", "INFERRED", "UNVERIFIED"]
+LEVEL_ORDER = ["VERIFIED", "VERIFIED_NARROWER", "PARTIALLY_VERIFIED",
+               "CONTESTED", "INFERRED", "UNVERIFIED"]
 LEVEL_MEANING = {
     "VERIFIED": "Kayıt doğrulanmış VE en az bir tam metin teknik otoritesine bağlı.",
+    "VERIFIED_NARROWER": "Kaynak okundu ve İLKEYİ destekliyor, ama iddianın "
+                         "yazıldığı hâlinden DAHA DAR bir ifadeyi destekliyor. "
+                         "Kaydın `source_support_note` alanı kaynağın gerçekte "
+                         "ne dediğini yazar (görev talimatı § 9).",
     "PARTIALLY_VERIFIED": "Kayıt doğrulanmış ama kaynak tam metin değil.",
     "CONTESTED": "Kaynaklar arasında KAYITLI tanım farkı var. Bir hata değildir — "
                  "Bölüm 2'nin öğretim malzemesidir.",
@@ -124,11 +129,13 @@ def main() -> int:
     A("")
     A("## 3 · Bölüme göre")
     A("")
-    A("| Bölüm | İddia | `VERIFIED` | `CONTESTED` | `INFERRED` | `UNVERIFIED` |")
-    A("|---|---:|---:|---:|---:|---:|")
+    A("| Bölüm | İddia | `VERIFIED` | `V_NARROWER` | `CONTESTED` | `INFERRED` "
+      "| `UNVERIFIED` |")
+    A("|---|---:|---:|---:|---:|---:|---:|")
     for ch in sorted(by_ch):
         c = by_ch[ch]
         A(f"| {CH_TITLE.get(ch, ch)} | {sum(c.values())} | {c.get('VERIFIED',0)} | "
+          f"{c.get('VERIFIED_NARROWER',0)} | "
           f"{c.get('CONTESTED',0)} | {c.get('INFERRED',0)} | {c.get('UNVERIFIED',0)} |")
     A("")
     A("## 4 · Kaynağa göre")

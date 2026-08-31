@@ -65,20 +65,20 @@
     {
       "id": "CC-05",
       "chapter": "B1-CH02",
-      "claim": "A measurement that is not repeatable is not a measurement; taking each critical measure twice and recording the difference is part of the method.",
+      "claim": "A measurement that is not repeatable is not a measurement. The survey manual behind many published body measurements builds repeat measurement into its quality control, though it does so by having a second, expert examiner repeat the reading rather than by having one person measure twice. Taking each critical measure twice yourself and recording the difference is this book's adaptation of that idea to a reader working alone or with one helper.",
       "source_refs": [
         "S-0006"
       ],
-      "risk_note": "Without repeat discipline the reader cannot tell a body change from a method error."
+      "risk_note": "Kaynağın yordamı İKİ FARKLI ÖLÇÜMCÜ arasındaki farkı ölçer; kitabınki AYNI kişinin kendi tekrarlanabilirliğini ölçer. İkisi aynı şey DEĞİLDİR ve iddia artık bunu söylüyor."
     },
     {
       "id": "CC-06",
       "chapter": "B1-CH02",
-      "claim": "The difference between full bust and high bust is what pattern companies use to decide whether a reader should step down a size and treat the bust separately. It is a size-selection input; it is not a published measure of how much shaping to add, and cup size in the clothing-size standard is defined on bust minus underbust rather than on this difference.",
+      "claim": "The difference between full bust and high bust is what pattern companies use to decide whether a reader should step down a size and treat the bust separately. It is a size-selection input; it is not a published measure of how much shaping to add. Bra cup sizing uses a different difference again — bust minus underbust — and the two must not be substituted for each other.",
       "source_refs": [
         "S-0003"
       ],
-      "risk_note": "If the difference does not carry that information, the size-selection rule in Chapter 3 and most of Chapter 11 lose their basis.",
+      "risk_note": "ÖNCEKİ HÂLİ kap ölçüsünün tanımını 'the clothing-size standard'a atfediyordu. O standart (ISO 8559-1) EDİNİLMEDİ ve maddesi OKUNMADI; okunmamış bir belgenin ne dediği okura söylenemez. İddia, atıf olmadan da doğru olan ayrımla sınırlandı.",
       "phase4_review": {
         "reviewer": "measurements",
         "resolution": "ACCEPTED",
@@ -97,12 +97,11 @@
     {
       "id": "CC-08",
       "chapter": "B1-CH03",
-      "claim": "Pattern sizing and ready-to-wear sizing are separate systems; the reader's ready-to-wear size does not predict the pattern size.",
+      "claim": "Pattern sizing and ready-to-wear sizing are separate systems and the reader's shop size does not predict the pattern size. The guides this book works from assume the distinction rather than state it; they instruct the reader to select from the company's own size chart every time, which is the operative rule either way.",
       "source_refs": [
-        "S-0003",
-        "S-0007"
+        "S-0003"
       ],
-      "risk_note": "Wrong size choice produces signs in every zone at once and is misread as many separate faults."
+      "risk_note": "Atıfta S-0007 (E-419) vardı; o belge bu turda İLK KEZ okundu ve kalıp/hazır giyim beden ayrımından HİÇ söz etmiyor — uyum bileşenlerini (grain, ease, dart, seam placement) anlatıyor. Atıf KALDIRILDI."
     },
     {
       "id": "CC-09",
@@ -358,13 +357,13 @@
     {
       "id": "CC-28",
       "chapter": "B1-CH16",
-      "claim": "Four ordering rules are established — length before width, bodice before sleeve, armhole settled before the sleeve cap, and crotch depth before crotch length — and the fifth, working from the upper body downward, is contested: a competing published method orders by dependency instead, doing first whatever affects other areas of fit.",
+      "claim": "Two ordering rules are established by the sources this book works from — length before width, working downward from the shoulder or neck; and crotch depth before crotch length. Two more follow from the geometry rather than from any source: a sleeve cannot be fitted into an armhole that is still changing, and a sleeve cap is derived from the finished armhole. A fifth rule — working from the upper body downward — is contested: a competing published method orders by dependency instead, doing first whatever affects other areas of fit.",
       "source_refs": [
         "S-0001",
         "S-0002",
         "S-0003"
       ],
-      "risk_note": "Out-of-order work invalidates completed adjustments and forces the reader to start again.",
+      "risk_note": "ÖNCEKİ HÂLİ dördünü de 'established' sayıyordu. Depodaki kaynaklarda İKİSİNİN karşılığı vardır; diğer ikisi bu kitabın GEOMETRİK türetmesidir ve bir kaynak (S-0001) bazı kol düzeltmelerinde bağımlılığı TERS yönde işletir (kol değişince beden yan dikişi düzeltilir). Türetme yine de doğrudur ama 'yerleşik uygulama' DEĞİLDİR ve artık öyle sunulmuyor.",
       "phase4_review": {
         "reviewer": "protocol",
         "resolution": "ACCEPTED",

@@ -33,7 +33,7 @@
     "no": "No",
     "router_question": "WHERE does the fold or pull sit?",
     "sign_count": "{n} signs",
-    "not_this_sign": "Not this sign — go back to the sign index in Appendix C (page {apx_c})",
+    "not_this_sign": "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page {apx_c})",
     "not_a_pattern_problem": "NOT a pattern problem — ",
     "eliminated": "Has {c} been ruled out?",
     "fix_first": "Fix this FIRST — do not touch the pattern",
@@ -42,12 +42,27 @@
     "scale_note": "Not to scale — proportions are schematic",
     "wrong": "WRONG",
     "right": "RIGHT",
-    "source_conflict": "Sources differ — see the note in Chapter 2.",
-    "no_source": "Follow your pattern company's definition.",
-    "excess_label": "excess: ___ in",
-    "shortfall_label": "shortfall: ___ in",
+    "source_conflict": "Sources differ — see the note beside this measurement.",
+    "no_source": "No published definition — this book's own, stated in Chapter 2.",
+    "excess_label": "excess: ______ (cm / in)",
+    "shortfall_label": "shortfall: ______ (cm / in)",
     "dart_depth": "dart depth",
-    "cross_route": "If instead {cond}, that is {fam} — start from that region's entries."
+    "cross_route": "If instead {cond}, that is {fam} — start from that region's entries.",
+    "slope_both_sides": "Taken on both shoulders.",
+    "curve_on_edge": "Tape standing on edge, walked along the seam line",
+    "curve_flat": "Tape lying flat — only for straight runs",
+    "cap_height": "cap height",
+    "cap_curve": "cap curve",
+    "notch": "notch",
+    "top_of_shoulder": "top of shoulder",
+    "seam_offset": "offset",
+    "front_share": "front",
+    "back_share": "back",
+    "offset_read_front": "Seen from the side; the front is to the right.",
+    "rotates": "rotates",
+    "swings_here": "swings",
+    "leaning": "leaning",
+    "upright": "upright"
   },
   "zones": {
     "neck": "Neckline and neck",
@@ -99,15 +114,15 @@
   },
   "signs": {
     "SYM-001": {
-      "observation": "The front neckline stands away from the chest; the gap grows when you lean forward.",
+      "observation": "The front neckline stands away from the chest, above the breastbone.",
       "causes": [
         {
           "cause": "Neckline cut too wide or too deep for the body",
-          "evidence": "The gap is there when you stand upright, and it is symmetrical."
+          "evidence": "The gap is the same when you stand upright and when you lean forward, it is even all the way round, and the BACK neckline stands away as well."
         },
         {
           "cause": "Bust volume is pulling the neckline forward",
-          "evidence": "The gap leans toward the bust and is not symmetrical; the bust dart is also off position, and the gap grows clearly when you lean forward."
+          "evidence": "The gap GROWS clearly when you lean forward, it is at the FRONT only — the back neckline lies flat — and the front hem sits higher than the back. It is usually the same on both sides, not one-sided."
         },
         {
           "cause": "The neckline edge was stretched while sewing",
@@ -128,7 +143,7 @@
         },
         {
           "cause": "The shoulder seam has shifted forward and is loading the neckline",
-          "evidence": "The shoulder seam sits IN FRONT of the top-of-shoulder line."
+          "evidence": "The shoulder seam sits BEHIND the top-of-shoulder line — the shoulder is carried forward and the seam has been left behind it — and it creeps forward as you wear it."
         }
       ]
     },
@@ -136,7 +151,7 @@
       "observation": "The back neckline rides up and rubs the neck, and the back hem rises at the same time.",
       "causes": [
         {
-          "cause": "Back bodice length is too short (rounded back or erect posture)",
+          "cause": "Back bodice length is too short overall",
           "evidence": "The front hem hangs level; ONLY the back rises."
         },
         {
@@ -145,7 +160,7 @@
         },
         {
           "cause": "The back neckline is too narrow and is hanging the garment up",
-          "evidence": "The rise is ONLY around the neckline; there is NO tension at shoulder-blade level."
+          "evidence": "The neckline rises the most and the hem follows it only slightly; the back is clean between them."
         }
       ]
     },
@@ -256,7 +271,7 @@
       "causes": [
         {
           "cause": "Too much width across the back",
-          "evidence": "The folds are vertical and symmetrical; reaching forward REDUCES them rather than removing them."
+          "evidence": "The folds are vertical and symmetrical, and reaching forward takes them up completely — the width that is surplus at rest is exactly what the reach needs."
         },
         {
           "cause": "One size too large was chosen",
@@ -272,8 +287,8 @@
       "observation": "The back hem rises noticeably; the garment climbs up at the back.",
       "causes": [
         {
-          "cause": "Back bodice length is too short (rounded back)",
-          "evidence": "There is ALSO horizontal tension at blade level, and the back neckline is pulled up."
+          "cause": "Back bodice length is too short over the shoulder blades (rounded back)",
+          "evidence": "The back neckline is pulled up with the hem and the pull runs UP the back rather than across it; blade level is not horizontally taut."
         },
         {
           "cause": "Hip or seat volume is pulling the fabric up",
@@ -294,7 +309,7 @@
         },
         {
           "cause": "Rounded back — not enough length at upper centre back",
-          "evidence": "The bow is at blade level; the waist is clean."
+          "evidence": "The bow is at blade level and the fabric there is TAUT rather than loose — the seam is being pulled out, not falling out. The waist is clean."
         },
         {
           "cause": "The zipper was stretched while sewing",
@@ -400,7 +415,7 @@
         },
         {
           "cause": "The fabric was cut off grain",
-          "evidence": "The swing is on one side only; it is not symmetrical."
+          "evidence": "One side swings and the other does not, and the grainline on that piece is not parallel to the selvedge."
         }
       ]
     },
@@ -502,7 +517,7 @@
         },
         {
           "cause": "The waistband was cut too long",
-          "evidence": "The gap is even all the way around."
+          "evidence": "The gap is as large at the sides as at the back, and the band is loose all the way round rather than standing away only behind you."
         }
       ]
     },
@@ -515,7 +530,7 @@
         },
         {
           "cause": "Not enough waist shaping (darts)",
-          "evidence": "There is excess, but taking it out at the side seam makes the hip tight."
+          "evidence": "The folds sit close to the side seams and the waist measures adequate against the pattern, but the pattern has no waist dart — or only a shallow one — where your own hip-minus-waist difference says shaping is needed."
         },
         {
           "cause": "One size too large was chosen",
@@ -553,7 +568,7 @@
         },
         {
           "cause": "Not enough hip circumference overall",
-          "evidence": "The same tightness is present at the FRONT too."
+          "evidence": "The same tightness is present at the FRONT too, and your bust and waist fall in the same size as your hip does — so it is the whole size, not the seat."
         }
       ]
     },
@@ -672,7 +687,7 @@
         },
         {
           "cause": "The armhole was sewn to a different measurement than the pattern",
-          "evidence": "The armhole measurement does not match the pattern."
+          "evidence": "The puckering is even all the way round rather than concentrated at the top of the cap, and the seam allowance actually used is not the one the pattern specifies."
         }
       ]
     },
@@ -689,7 +704,7 @@
         },
         {
           "cause": "The back crotch curve is too straight for this body",
-          "evidence": "The pull is only at the bend of the curve; depth and length measure adequate."
+          "evidence": "Crotch depth and back crotch length have both been measured against the pattern and both are adequate, and the pull is confined to the bend of the curve rather than spread across the seat."
         }
       ]
     },
@@ -706,7 +721,7 @@
         },
         {
           "cause": "The front crotch curve is scooped too deeply",
-          "evidence": "The measurements are right but the curve is too deep."
+          "evidence": "Front crotch length and crotch depth have both been measured against the pattern and both are adequate, and the pooling is confined to the curve of the seam rather than spread across the front."
         }
       ]
     },

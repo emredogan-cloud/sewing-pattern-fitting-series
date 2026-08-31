@@ -11,7 +11,7 @@
   "url": "https://apps.dtic.mil/sti/pdfs/ADA611869.pdf",
   "verification_level": "fulltext",
   "locator": "Ölçü tanımları: (22) CERVICALE HEIGHT; (24) CHEST CIRCUMFERENCE; (54) INTERSCYE I; (55) INTERSCYE II; (70) SHOULDER LENGTH; (85) WAIST BACK LENGTH (OMPHALION); (87) WAIST CIRCUMFERENCE (OMPHALION). Ayrıca § 'landmark' değişiklikleri: chest point anterior, deltoid, cervicale.",
-  "accessed_on": "2026-08-28",
+  "accessed_on": "2026-08-31",
   "used_for": [
     "C-A işaret noktası disiplini — bir ölçü İKİ ADLANDIRILMIŞ İŞARET NOKTASI arasında tanımlanır (M-xxx şemasının landmark_start/landmark_end alanlarının otoritesi)",
     "C-A M-014 omuz uzunluğu (trapezius → acromion)",
@@ -21,6 +21,6 @@
   "superseded_by": null,
   "license_constraint": "ABD hükümeti eseri — kamu malı. Metin ve tablolar serbestçe kullanılabilir; yine de bu projede yalnızca doğrulama referansı olarak kullanılır.",
   "acquisition_status": "public_access",
-  "notes": "KRİTİK SINIR: ANSUR II bel çevresini YALNIZCA omphalion (göbek) hizasında tanımlar; ev dikişinin ve ticari kalıbın kullandığı DOĞAL bel (en dar nokta) tanımı ANSUR II'de YOKTUR. Bu yüzden M-004 bu kaynakla DOĞRULANMAZ ve fark Bölüm 2'de okura AÇIKÇA öğretilir. Erişilebilen kopya archive.org DTIC aynasından alındı (apps.dtic.mil doğrudan indirmeye kapalıydı).",
+  "notes": "KRİTİK SINIR: ANSUR II bel çevresini YALNIZCA omphalion (göbek) hizasında tanımlar; ev dikişinin ve ticari kalıbın kullandığı DOĞAL bel (en dar nokta) tanımı ANSUR II'de YOKTUR. Bu yüzden M-004 bu kaynakla DOĞRULANMAZ ve fark Bölüm 2'de okura AÇIKÇA öğretilir. Erişilebilen kopya archive.org DTIC aynasından alındı (apps.dtic.mil doğrudan indirmeye kapalıydı). ⚠ İÇERİK TURU (31 Ağu 2026): DTIC kanonik adresi artık 403 döndürüyor; belge archive.org kopyasından (DTIC_ADA611869) yeniden okundu. (54) INTERSCYE I tanımı BİREBİR doğrulandı: 'the distance across the back between the right and left POSTERIOR AXILLARY FOLD landmarks' — M-020'nin karşılığı budur. (55) INTERSCYE II midscye nirengileri arasıdır ve M-020 DEĞİLDİR; kayıt artık hangisi olduğunu söyler. (70) SHOULDER LENGTH: 'trapezius landmark → acromion landmark'.",
   "reader_purpose": "Anthropometric survey method — used to check that landmark definitions are reproducible, not to set any measurement in this book."
 }

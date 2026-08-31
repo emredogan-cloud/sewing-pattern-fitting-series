@@ -36,8 +36,22 @@ FAIL, WARN = [], []
 
 
 def reachable_families(sid):
-    return {c.get("adjustment_family_ref") for c in SIGNS[sid]["candidate_causes"]
-            if c.get("adjustment_family_ref")}
+    """Bu belirtiden okurun ULAŞABİLECEĞİ aileler.
+
+    ⚠ İKİNCİ İÇERİK TURU: model yalnızca `adjustment_family_ref`e
+    bakıyordu ve `cross_route`u GÖRMÜYORDU. Ama çapraz yönlendirme,
+    kitabın okuru AÇIKÇA gönderdiği bir yoldur ve sayfada basılır —
+    modelin görmemesi, modelin eksiğidir. SB-17 (tek taraflı yüksek
+    omuz) bu yüzden 'ulaşılamaz' görünüyordu.
+    """
+    fams = set()
+    for c in SIGNS[sid]["candidate_causes"]:
+        if c.get("adjustment_family_ref"):
+            fams.add(c["adjustment_family_ref"])
+        cr = c.get("cross_route")
+        if cr and cr.get("family_ref"):
+            fams.add(cr["family_ref"])
+    return fams
 
 
 def run_bodies():

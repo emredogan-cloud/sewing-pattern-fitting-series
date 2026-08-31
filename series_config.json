@@ -101,7 +101,7 @@
       "standaloneProblem": "Hangi düzeltmeye ihtiyacım olduğunu bilmiyorum",
       "pageTargetProvisional": [
         220,
-        260
+        275
       ],
       "priceModelProvisional": 26.99,
       "priceRangeProvisional": [
@@ -132,7 +132,8 @@
           "rawOutput": "08_REPORTS/tracked/phase4_review/",
           "$comment": "AI incelemesidir. İNSAN UZMAN İNCELEMESİ DEĞİLDİR ve D-01'in yerine geçmez (K6)."
         }
-      }
+      },
+      "pageTargetNote": "İÇERİK TURU (31 Ağu 2026): üst sınır 260'tan 275'e ÇIKARILDI ve gerekçesi ÖLÇÜLDÜ. İçerik turu L-2'yi kapatmak için Bölüm 3'e kalıp okuma bölümlerini, Bölüm 5'e dört prova okumasını ve Ek J'yi ekledi (net +14 sayfa); aynı turda 43 girişte tekrarlanan iki metin bloğu kaldırıldı (−4 sayfa). Sınırın GERÇEK kısıtı 260 değil 300'dür: KDP'nin iç kenar (gutter) bandı 151–300 sayfada sabittir ve 301'de değişir. 265 sayfa o bandın içindedir. Sayfa sayısını 260'ın altına indirmek, ancak L-2'yi yeniden AÇARAK mümkün olurdu."
     },
     {
       "id": "book-02",

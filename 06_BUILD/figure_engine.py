@@ -37,6 +37,12 @@ from croquis import Croquis, LEVEL, fit as croquis_fit  # noqa: E402
 # Bu tablo `measurements.json`'daki landmark_start/landmark_end
 # METİNLERİNİN krokideki karşılığıdır — metin serbesttir, kroki değildir.
 GIRTH = "girth"; VERT = "vertical"; HORZ = "horizontal"; DERIVED = "derived"
+# ⚠ İÇERİK TURU: omuz eğimi ne bir ÇEVRE ne bir DÜŞEY ne bir YATAY
+# ölçüdür — yan boyun noktasından geçen YATAY bir çizgiye göre omuz
+# ucunun DÜŞEY DÜŞÜŞÜDÜR. Var olan dört tür onu çizemez: yatay çizgi
+# ölçünün kendisi değil, REFERANSIDIR ve figürde görünmek zorundadır,
+# yoksa okur "yüksekliği neye göre" sorusuna cevap bulamaz.
+SLOPE = "slope"
 LIMB_LEVELS = {"bicep", "elbow", "wrist", "thigh", "knee", "calf", "ankle"}
 
 MEASURE_PLAN = {
@@ -72,6 +78,7 @@ MEASURE_PLAN = {
     "M-031": ("front", DERIVED, None, None),
     "M-032": ("front", DERIVED, None, None),
     "M-033": ("front", DERIVED, None, None),
+    "M-034": ("front", SLOPE, "side_neck_point", "shoulder_point"),
 }
 
 # ── belirti figürü tarifleri: sınıf → token davranışı ─────────────────
@@ -139,6 +146,17 @@ def short(s: str, n: int = 92) -> str:
 
 
 # ══ AKIŞ ŞEMASI ═══════════════════════════════════════════════════════
+def _primary_marker(evidence: str) -> str:
+    """Ayırt edici kanıtın BİRİNCİ cümleciği — akış şeması düğümü için.
+
+    Kanıt cümleleri proza için yazılmıştır ve çoğu iki bilgi taşır:
+    birincil işaret, sonra bir ek. Karar düğümü SORU sorar ve soru kısa
+    olmalıdır. Tam cümle girişte aynen basılır; hiçbir bilgi kaybolmaz.
+    """
+    import re as _re
+    return _re.split(r"\s*;\s*|\s+—\s+|,\s+and\s+", evidence, 1)[0].strip().rstrip(".")
+
+
 class SignChart:
     """Tek bir belirtinin teşhis akışı.
 
@@ -151,6 +169,9 @@ class SignChart:
     genişlik vardır, uçlarda sıfır. Bu yüzden karar düğümünün metin
     alanı genişliğin %54'ü ve yüksekliği metin bloğunun 1,9 katıdır.
     """
+
+    # teşhiste SONA bırakılan aileler — figure_engine kurulumda doldurur
+    DEFERRED: set = set()
 
     TXT = 6.4          # düğüm içi punto
     LH = 1.24          # satır aralığı çarpanı
@@ -176,7 +197,15 @@ class SignChart:
         pairs = list(zip(sign["candidate_causes"], label["causes"]))
         gates = [q for q in pairs if not q[0].get("adjustment_family_ref")]
         rest = [q for q in pairs if q[0].get("adjustment_family_ref")]
-        ordered = gates + rest
+        # ⚠ BAĞIMSIZ İNCELEME (F-02/F-05): GERİ ALINAMAZ ailelere çıkan
+        # dallar SONA alınır — atlas metniyle AYNI kuraldan. İki katman
+        # ayrışırsa okur karşı sayfada başka bir "birinci neden" görür.
+        defer = [q for q in rest
+                 if (SignChart.DEFERRED or set())
+                 and q[0]["adjustment_family_ref"] in SignChart.DEFERRED]
+        rest = [q for q in rest if q not in defer]
+        rest.sort(key=lambda q: q[0].get("test_cost", 9))   # F-09: metinle AYNI sıra
+        ordered = gates + rest + defer
         self.causes = [q[0] for q in ordered]
         self._labels = [q[1] for q in ordered]
         self._layout()
@@ -192,7 +221,13 @@ class SignChart:
         self.obs_h, _ = self._box_h(self.obs_text, NODE["dec_w"], minimum=NODE["obs_h"])
         self.rows = []
         for i, c in enumerate(self.causes):
-            dtxt = short(self._labels[i]["evidence"], 160)
+            # ⚠ İKİNCİ İÇERİK TURU: karar düğümü 160 karaktere kadar
+            # metin taşıyordu. Bir eşkenar dörtgenin içine 160 karakter
+            # sığdırmak düğümü sayfanın üçte birine çıkarıyor ve okur
+            # bir SORU değil bir PARAGRAF görüyordu. Düğüm artık kanıtın
+            # BİRİNCİ cümleciğini taşır — ayırt edici işaretin kendisi
+            # zaten odur; tamamı karşı sayfada, "Tells it apart"ta durur.
+            dtxt = short(_primary_marker(self._labels[i]["evidence"]), 110)
             dh, _ = self._box_h(dtxt, NODE["dec_w"], self.DEC_TEXT_FRAC,
                                 self.DEC_HEIGHT_FACTOR, NODE["dec_h"])
             af = c.get("adjustment_family_ref")
@@ -296,6 +331,12 @@ class Engine:
         self.signs = load(paths.FIT_SIGNS)["signs"]
         self.measures = load(paths.MEASUREMENTS)["measurements"]
         self.families = load(paths.ADJUSTMENT_FAMILIES)["families"]
+        # ⚠ İÇERİK TURU · L-2: kalıp/prova okuması sicili. Figür motoru
+        # onu OKUR çünkü eşleşme tablosu bir figürdür ve tablo elle
+        # yazılırsa sicille sessizce kayar.
+        self.readings = load(paths.TAXONOMY_PUBLIC / "pattern_readings.json")
+        SignChart.DEFERRED = {f["adjustment_family_id"] for f in self.families
+                              if f.get("defer_in_diagnosis")}
         # ── okura dönük DİL katmanı ───────────────────────────────────
         # Kitabın dili series_config → series.language'dır. Taksonomi
         # PROJE BELGE dilindedir (documentLanguage). Figürler okurun
@@ -572,6 +613,9 @@ class Engine:
             if kind == DERIVED:
                 self._draw_derived_measure(m)
                 continue
+            if kind == SLOPE:
+                self._draw_slope_measure(m)
+                continue
             self._draw_measure(m, view, kind, l1, l2)
 
     def _measure_caption(self, m: dict) -> str:
@@ -595,13 +639,30 @@ class Engine:
         return self.ui["no_source"]
 
     def _draw_measure(self, m: dict, view: str, kind: str, l1: str, l2: str | None):
-        W, H = 214.0, 300.0
-        fc = self._fc(W, H, "body", f"meas_{m['measurement_id']}.pdf")
+        # ⚠ İKİNCİ İÇERİK TURU · sayfa mimarisi: her ölçüm figürü 300 pt
+        # yüksekliğinde çiziliyordu — 684 pt'lik metin bloğunun %44'ü —
+        # ve bu, GÖVDEYİ GÖSTERMEYEN figürlerde boş alana gidiyordu.
+        # Bir gövde ölçüsü bacakları çizmez; kutu o kadar yüksek
+        # OLMAK ZORUNDA DEĞİLDİR. Kroki kutuya ORANLI ölçeklenir, yani
+        # çizim küçülmez, boşluk küçülür. Etiketler mutlak puntodadır ve
+        # göreli olarak BÜYÜR.
         lows = [LEVEL[x] for x in (l1, l2) if x in LEVEL]
         lowest = min(lows) if lows else LEVEL["waist"]
         needs_arm = (l1 in ("bicep", "elbow", "wrist", "shoulder_point")
                      or l2 in ("bicep", "elbow", "wrist"))
         full = lowest < LEVEL["thigh"] - 1e-9 or l1 == "top_of_head"
+        if full:
+            W, H = 214.0, 300.0        # bacaklar var — yükseklik gerekli
+        elif needs_arm:
+            W, H = 186.0, 208.0
+        else:
+            # Gövde girişi (başlık + proza + madde + figür + altyazı)
+            # 684 pt'lik sütunda İKİ TANE sığmalıdır; aksi hâlde 33
+            # ölçünün her biri kendi sayfasını alır ve bölüm 37 sayfa
+            # olur. Kroki kutuya ORANLI ölçeklenir — çizim bozulmaz,
+            # yalnızca küçülür.
+            W, H = 186.0, 178.0
+        fc = self._fc(W, H, "body", f"meas_{m['measurement_id']}.pdf")
         if view == "side":
             cro = croquis_fit(W, H, "floor" if full else "crotch", "top_of_head",
                               arms=True, view="side", pad_y=20.0)
@@ -684,6 +745,61 @@ class Engine:
                    "width_pt": W, "height_pt": H,
                    "source_file": f"meas_{m['measurement_id']}.pdf"})
 
+    def _draw_slope_measure(self, m: dict):
+        """Omuz eğimi — YATAY REFERANSA göre DÜŞEY DÜŞÜŞ.
+
+        Bu figür bir sayı DEĞİL bir YÖNTEM gösterir: cetvel yan boyun
+        noktasında yatay durur, ölçülen şey omuz ucunun o çizginin ne
+        kadar altına düştüğüdür. Kroki gerçek bir bedeni temsil ETMEZ ve
+        figürde hiçbir sayı yazmaz — bir antropometrik iddia taşımaz.
+        """
+        W, H = 214.0, 300.0
+        fc = self._fc(W, H, "body", f"meas_{m['measurement_id']}.pdf")
+        cro = croquis_fit(W, H, "high_hip", "top_of_head", arms=False,
+                          view="front", pad_y=18.0)
+        cro.draw_torso_only(fc, bottom="high_hip")
+        snp = cro.p("side_neck_point", "neck_base", 1)
+        shp = cro.p("shoulder_point", "shoulder_point", 1)
+        # yatay referans — omuz ucunun ÖTESİNE uzatılır ki "neye göre"
+        # sorusu figürde cevaplansın
+        fc.line(snp[0] - 6.0, snp[1], shp[0] + 16.0, snp[1],
+                role="construction_line", dash="dash 2-2")
+        # ⚠ GÖZLE DENETLENDİ: etiket `m["name"]` ("Shoulder slope")
+        # ölçü yolunun SAĞINA basılıyordu ve figür kutusunun kenarında
+        # KESİLİYORDU — okur "Shoulder slop" görüyordu. Etiket artık
+        # ölçünün SOLUNDA, gövdenin üstündeki boş alanda durur.
+        fc.tk11_measure_path([(shp[0], snp[1]), (shp[0], shp[1])], label=None)
+        fc.text(6.0, snp[1] + 16.0, m["name"], face="sans-italic",
+                size=7.0, gray=0.45)
+        fc.landmark_dot(*snp)
+        fc.landmark_dot(*shp)
+        # ikinci omuz: AYRI ölçülür kuralı figürde de görünür
+        snp2 = cro.p("side_neck_point", "neck_base", -1)
+        shp2 = cro.p("shoulder_point", "shoulder_point", -1)
+        fc.line(snp2[0] + 6.0, snp2[1], shp2[0] - 16.0, snp2[1],
+                role="construction_line", dash="dash 2-2")
+        fc.landmark_dot(*snp2)
+        fc.landmark_dot(*shp2)
+        # not, krokinin ÜSTÜNDEKİ boş alana taşındı: eteğin üstünde
+        # basıldığında gövde çizgisiyle kesişiyordu
+        fc.text(6.0, snp[1] + 6.0, self.ui["slope_both_sides"],
+                face="sans-italic", size=6.2, gray=0.45)
+        cap = self._measure_caption(m)
+        if cap:
+            fc.text(6.0, 6.0, cap, face="sans-italic", size=6.2, gray=0.45)
+        tokens = fc.finish()
+        self._record(
+            fig_type="measurement_path",
+            shows=f"{m['measurement_id']} {m['name']} — {short(m['path_rule'], 90)}",
+            view="front", tokens=tokens, deterministic=True,
+            extra={"measurement_ref": m["measurement_id"],
+                   "verification_status_of_record": m["verification_status"],
+                   "caption_class": ("verified" if not cap else
+                                     ("source_conflict" if m.get("source_refs")
+                                      else "no_source")),
+                   "width_pt": W, "height_pt": H,
+                   "source_file": f"meas_{m['measurement_id']}.pdf"})
+
     def _draw_derived_measure(self, m: dict):
         W, H = 300.0, 96.0
         fc = self._fc(W, H, "diagram", f"meas_{m['measurement_id']}.pdf")
@@ -745,13 +861,31 @@ class Engine:
         front = sum(txt.count(w) for w in self.FRONT_WORDS)
         return "back" if back > front else "front"
 
+    # ⚠ İKİNCİ İÇERİK TURU · GÖZLE bulundu: her belirti figürü gövdeyi
+    # uyluğa kadar çiziyordu — kürek hizasındaki bir kıvrım için figürün
+    # ALT ÜÇTE İKİSİ hiçbir bilgi taşımıyor ve işaretin kendisi küçük
+    # kalıyordu. Çerçeve, belirtinin BÖLGESİNE göre kırpılır: işaret
+    # büyür, figür küçülür, sayfa kazanılır. Bağlam için bölgenin bir
+    # kademe altına kadar inilir — belirti havada asılı kalmamalıdır.
+    ZONE_BOTTOM = {
+        "neck": "underbust", "shoulder": "underbust", "upper_back": "waist",
+        "armhole": "waist", "bust_chest": "high_hip", "waist_torso": "full_hip",
+        "hip_seat": "thigh", "sleeve_arm": "waist",
+        "crotch_leg": "knee", "whole_garment": "thigh",
+    }
+
     def _draw_sign_figure(self, s: dict):
-        W, H = 200.0, 268.0
         sid = s["symptom_id"]
-        fc = self._fc(W, H, "garment", f"sign_{sid}.pdf")
         zone = s["zone"]
         anchor_level, side_mult = ZONE_ANCHOR[zone]
-        bottom = "knee" if zone == "crotch_leg" else "thigh"
+        bottom = self.ZONE_BOTTOM.get(zone, "thigh")
+        # kutu yüksekliği çizilen vücut parçasıyla ORANTILI
+        # Yükseklik çizilen parçayla orantılıdır; taban 130 pt işaret
+        # tokenlerinin (TK-05/06 ≈ 26 pt + ok başı) kenar payını taşır.
+        _span = LEVEL["top_of_head"] - LEVEL[bottom]
+        H = round(130.0 + 250.0 * _span, 1)
+        W = 200.0
+        fc = self._fc(W, H, "garment", f"sign_{sid}.pdf")
         variant = self._body_variant(s)
         # ⚠ İnceleme D-02/D-06: görünüm yalnızca `zone == "upper_back"`
         # ile belirleniyordu; oysa altı belirti daha vücudun ARKASINI
@@ -796,16 +930,42 @@ class Engine:
             # hizasında dikey çizilir. İkisi aynı token'ı paylaşıyordu
             # ve aynı resmi üretiyordu.
             if s["sign_class"] == "hem_hike":
-                hem_y = cro.y(bottom) + 6.0
+                hem_y = max(cro.y(bottom) + 6.0, 20.0)
                 fc.tk09_balance_line(cro.cx - cro.hw("full_hip") * 1.05, hem_y,
                                      cro.cx + cro.hw("full_hip") * 1.05, hem_y,
                                      label="H", tilt=11.0 * (side_mult or 1))
             else:
-                top_y, bot_y = cro.y("across_back"), cro.y("high_hip")
-                fc.tk09_balance_line(cro.cx, top_y, cro.cx, bot_y,
-                                     label="S", tilt=0.0)
-                fc.tk05_drag_lines(cro.cx + 9.0, (top_y + bot_y) / 2, 90.0,
-                                   length=14.0, count=1, role="body_outline")
+                # ⚠ İKİNCİ İÇERİK TURU · L-1: bu dal iki belirtiye AYNI
+                # resmi veriyordu (SYM-030 ve SYM-041, ikisi de
+                # seam_displacement). İkisi AYNI ŞEY DEĞİLDİR ve fark
+                # GEOMETRİKTİR, süs değil:
+                #   · bölgesel kayma — dikiş yukarıda düz, O HİZADA kırılır
+                #   · dönme         — dikiş BOYUNCA kayar, kırılma yok
+                # Ayrıca çizgi ÇİZİLEN gövdeyle sınırlanır (kırpılmış
+                # kutuda taşıyordu).
+                top_y = cro.y("across_back")
+                bot_y = max(cro.y("high_hip"), cro.y(bottom) + 8.0)
+                sx = cro.cx + cro.hw("waist") * 0.98
+                if zone == "whole_garment":
+                    # DÖNME: dikiş bütün boyunca kaymış — kırılma YOK
+                    fc.line(sx, top_y, sx, bot_y, role="construction_line",
+                            dash="dash 2-2")
+                    off = 11.0
+                    fc.polyline([(sx + off, top_y), (sx + off, bot_y)],
+                                role="pattern_edge_modified")
+                    fc.tk03_overlap_arrow(sx, (top_y + bot_y) / 2,
+                                          sx + off, (top_y + bot_y) / 2,
+                                          self.ui["rotates"])
+                else:
+                    # BÖLGESEL KAYMA: yukarıda düz, işaret hizasında kırılır
+                    ky = ay
+                    fc.line(sx, top_y, sx, bot_y, role="construction_line",
+                            dash="dash 2-2")
+                    fc.polyline([(sx, top_y), (sx, ky),
+                                 (sx - 13.0, bot_y)],
+                                role="pattern_edge_modified")
+                    fc.tk03_overlap_arrow(sx - 13.0, bot_y, sx, bot_y,
+                                          self.ui["swings_here"])
         elif token == "TK-10":
             fc.tk10_grainline(ax, ay - 20.0, ax, ay + 20.0)
         elif token == "TK-12":
@@ -839,6 +999,15 @@ class Engine:
         ]
         for key, shows, kind in pieces:
             self._draw_pattern_piece(key, shows, kind)
+        # ⚠ İÇERİK TURU · L-2: Bölüm 3 yalnızca DÜZ ölçümü öğretiyordu.
+        # 129 doğrulama adımının 20'si bir EĞRİ okuması (yaka, kol
+        # oyuntusu, kol başı, ağ) istiyordu ve kitap onu hiçbir yerde
+        # göstermiyordu. İki kaynak yöntemi BİREBİR verir (S-0002:
+        # "stand the tape on edge for all measurements that are on a
+        # curve"; S-0003: "turn the tape measure on its side").
+        self._draw_curve_walk()
+        self._draw_vertical_reads()
+        self._draw_sleeve_cap()
 
     def _draw_pattern_piece(self, key: str, shows: str, kind: str):
         W, H = 210.0, 250.0
@@ -882,6 +1051,157 @@ class Engine:
                      tokens=tokens, deterministic=True,
                      extra={"piece": key, "width_pt": W, "height_pt": H,
                             "source_file": f"patt_{key}.pdf"})
+
+    def _draw_curve_walk(self):
+        """Eğri bir dikiş çizgisinin ölçülmesi — şeridin YANA DİKİLMESİ.
+
+        ⚠ İLK SÜRÜM GÖZLE DENETLENDİ VE REDDEDİLDİ: eğri, düz parçalı
+        bir kırık çizgi olarak çiziliyordu. Eğri ölçmeyi anlatan bir
+        figürde eğrinin kendisi eğri OLMAK zorundadır; kırık çizgi
+        okura yanlış şeyi öğretir. `curve()` (Catmull-Rom) kullanılır.
+        """
+        W, H = 300.0, 176.0
+        fc = self._fc(W, H, "pattern", "patt_curve_walk.pdf")
+        for dx, ok in ((10.0, False), (158.0, True)):
+            arm = [(dx + 12, 128), (dx + 26, 112), (dx + 44, 88),
+                   (dx + 58, 56), (dx + 62, 28)]
+            fc.polyline([(dx + 12, 146), (dx + 12, 128)],
+                        role="pattern_edge_original")
+            fc.curve(arm, role="seam_line")
+            fc.polyline([(dx + 62, 28), (dx + 116, 28), (dx + 116, 146),
+                         (dx + 12, 146)], role="pattern_edge_original")
+            if ok:
+                for i in range(len(arm) - 1):
+                    x0, y0 = arm[i]; x1, y1 = arm[i + 1]
+                    mx, my = (x0 + x1) / 2, (y0 + y1) / 2
+                    nx, ny = (y1 - y0), -(x1 - x0)
+                    ln = max((nx * nx + ny * ny) ** 0.5, 1e-6)
+                    fc.line(mx, my, mx - nx / ln * 7.5, my - ny / ln * 7.5,
+                            role="construction_line")
+                fc.tk11_measure_path(arm, label=None)
+                fc.text(dx + 4, 160, self.ui["right"], face="sans-bold", size=8.0)
+                fc.text(dx + 4, 10, self.ui["curve_on_edge"],
+                        face="sans-italic", size=6.6, gray=0.45)
+            else:
+                fc.line(arm[0][0], arm[0][1], arm[-1][0], arm[-1][1],
+                        role="construction_line", dash="dash 1-1")
+                fc.text(dx + 4, 160, self.ui["wrong"], face="sans-bold", size=8.0)
+                fc.text(dx + 4, 10, self.ui["curve_flat"],
+                        face="sans-italic", size=6.6, gray=0.45)
+        fc.declare_scale(self.ui["scale_note"])
+        tokens = fc.finish()
+        self._record(fig_type="pattern_piece",
+                     shows="Eğri dikiş çizgisinin ölçülmesi — şerit yana dikilir "
+                           "(S-0002/S-0003 birebir)",
+                     view="flat", tokens=tokens, deterministic=True,
+                     extra={"piece": "curve_walk", "width_pt": W, "height_pt": H,
+                            "source_file": "patt_curve_walk.pdf"})
+
+    def _draw_vertical_reads(self):
+        """Kalıpta DÜŞEY okumalar — ADLARIYLA.
+
+        ⚠ İLK SÜRÜM GÖZLE DENETLENDİ VE REDDEDİLDİ: üç ölçü yolu
+        çiziliyor ve HİÇBİRİ adlandırılmıyordu. Okur üç birbirine
+        benzer ince dikey çizgi görüyor ve hangisinin ne olduğunu
+        yalnızca alt yazıdan tahmin edebiliyordu. Bir ölçüm figürünün
+        işi tam olarak budur ve figür onu yapmıyordu. Parça ayrıca
+        arka beden olarak OKUNMUYORDU; siluet yeniden çizildi.
+        """
+        W, H = 288.0, 250.0
+        fc = self._fc(W, H, "pattern", "patt_vertical_reads.pdf")
+        cb_x, hem_y, top_y = 34.0, 26.0, 224.0
+        neck_x = cb_x + 30.0
+        shp = (cb_x + 96.0, top_y - 26.0)   # eğim GÖRÜNÜR olmalı
+        ua = (cb_x + 116.0, top_y - 84.0)          # koltuk altı
+        side_x = cb_x + 122.0
+        fc.polyline([(cb_x, hem_y), (cb_x, top_y)], role="pattern_edge_original")
+        fc.curve([(cb_x, top_y), (neck_x - 8, top_y - 2), (neck_x, top_y - 9)],
+                 role="pattern_edge_original")
+        fc.polyline([(neck_x, top_y - 9), shp], role="pattern_edge_original")
+        fc.curve([shp, (shp[0] + 14, shp[1] - 30), ua], role="pattern_edge_original")
+        fc.polyline([ua, (side_x, hem_y), (cb_x, hem_y)],
+                    role="pattern_edge_original")
+        fc.tk10_grainline(cb_x + 14, hem_y + 16, cb_x + 14, top_y - 22)
+        # ① arka orta boy — etiket EL İLE yerleştirilir: tk11 iki
+        # noktalı bir yolda etiketi SON noktaya basar ve etek ucu
+        # çizgisinin üstüne düşerdi (gözle bulundu)
+        fc.tk11_measure_path([(cb_x + 30, top_y - 9), (cb_x + 30, hem_y)],
+                             label=None)
+        fc.text(cb_x + 36, (top_y + hem_y) / 2, "centre back length",
+                face="sans-italic", size=6.4, gray=0.45)
+        # ② kol oyuntusu derinliği — yaka noktasından koltuk altı HİZASINA
+        fc.line(cb_x, ua[1], side_x, ua[1], role="construction_line", dash="dash 2-2")
+        fc.tk11_measure_path([(cb_x + 6, top_y - 9), (cb_x + 6, ua[1])],
+                             label=None)
+        fc.text(cb_x - 30, (top_y - 9 + ua[1]) / 2, "armhole", face="sans-italic",
+                size=6.4, gray=0.45)
+        fc.text(cb_x - 30, (top_y - 9 + ua[1]) / 2 - 8, "depth", face="sans-italic",
+                size=6.4, gray=0.45)
+        # ③ omuz eğimi — yatay referans + DÜŞEY DÜŞÜŞ
+        fc.line(neck_x, top_y - 9, shp[0] + 26, top_y - 9,
+                role="construction_line", dash="dash 2-2")
+        fc.tk11_measure_path([(shp[0], top_y - 9), shp], label=None)
+        fc.text(shp[0] + 30, top_y - 22, "shoulder slope", face="sans-italic",
+                size=6.4, gray=0.45)
+        fc.landmark_dot(neck_x, top_y - 9)
+        fc.landmark_dot(*shp)
+        fc.declare_scale(self.ui["scale_note"])
+        tokens = fc.finish()
+        self._record(fig_type="pattern_piece",
+                     shows="Kalıpta düşey okumalar — arka orta boy, kol oyuntusu "
+                           "derinliği, omuz dikişinin düşey düşüşü",
+                     view="flat", tokens=tokens, deterministic=True,
+                     extra={"piece": "vertical_reads", "width_pt": W, "height_pt": H,
+                            "source_file": "patt_vertical_reads.pdf"})
+
+    def _draw_sleeve_cap(self):
+        """Kol başı: YÜKSEKLİK (düşey) ile EĞRİ UZUNLUĞU (ease) AYRI
+        okumalardır.
+
+        ⚠ İLK SÜRÜM GÖZLE DENETLENDİ VE REDDEDİLDİ: 'cap height'
+        etiketi kol başı dikiş çizgisinin ÜSTÜNE düşüyor ve çizgiyle
+        kesişiyordu; 'cap curve' etiketi adlandırdığı eğriden uzakta,
+        boş alanda duruyordu; kol başı kırık çizgiyle çizilmişti ve
+        üstüne ayrı bir eğri bindirilmişti — okur iki ayrı hat
+        görüyordu. Çakışma kapısı bunu göremez: kapı ETİKET-ETİKET
+        çakışmasına bakar, ETİKET-ÇİZGİ çakışmasına değil. Gözle
+        bulundu.
+        """
+        W, H = 250.0, 210.0
+        fc = self._fc(W, H, "pattern", "patt_sleeve_cap.pdf")
+        m = 22.0
+        bic_y = m + 38
+        topy = H - m - 8
+        left, right = m + 26, W - m - 26
+        cap = [(left, bic_y), (left + 20, bic_y + 44), (W / 2, topy),
+               (right - 20, bic_y + 44), (right, bic_y)]
+        fc.curve(cap, role="seam_line")
+        fc.polyline([(right, bic_y), (right - 8, m), (left + 8, m), (left, bic_y)],
+                    role="pattern_edge_original")
+        fc.line(left, bic_y, right, bic_y, role="construction_line", dash="dash 2-2")
+        fc.tk10_grainline(W / 2, m + 6, W / 2, bic_y - 6)
+        # cap height — SOL boş alanda, çizgiden UZAK
+        hx = left - 14
+        fc.tk11_measure_path([(hx, bic_y), (hx, topy)], label=None)
+        fc.text(6.0, (bic_y + topy) / 2, self.ui["cap_height"],
+                face="sans-italic", size=6.6, gray=0.45)
+        # cap curve — eğrinin SAĞ dışında
+        fc.text(right + 8, topy - 26, self.ui["cap_curve"],
+                face="sans-italic", size=6.6, gray=0.45)
+        fc.tk11_measure_path([(right + 4, topy - 34), (right - 14, bic_y + 40)],
+                             label=None)
+        for x, y in ((left + 20, bic_y + 44), (right - 20, bic_y + 44)):
+            fc.landmark_dot(x, y, r=2.0)
+        fc.text(6.0, bic_y + 44, self.ui["notch"], face="sans-italic",
+                size=6.4, gray=0.45)
+        fc.declare_scale(self.ui["scale_note"])
+        tokens = fc.finish()
+        self._record(fig_type="pattern_piece",
+                     shows="Kol başı — yükseklik (düşey) ile eğri uzunluğu (ease) AYRI "
+                           "okumalardır",
+                     view="flat", tokens=tokens, deterministic=True,
+                     extra={"piece": "sleeve_cap", "width_pt": W, "height_pt": H,
+                            "source_file": "patt_sleeve_cap.pdf"})
 
     # ── ⑤ tablo grafikleri ────────────────────────────────────────────
     #
@@ -995,6 +1315,85 @@ class Engine:
                          [["Adjustment family", "Region"]] +
                          [[f["name"], self.zone_names.get(f["zone"], f["zone"])]
                           for f in self.families],
+                         internal=False)
+        # ── İÇERİK TURU · L-2'nin OKUR KARŞILIĞI ──────────────────────
+        # Kitap her karşılaştırmanın VÜCUT tarafını öğretiyordu ve KALIP
+        # tarafını öğretmiyordu. Bu tablo iki tarafı YAN YANA koyar: bu
+        # kitabın L-2'ye verdiği cevabın okur yüzü budur.
+        names = {m["measurement_id"]: m["name"] for m in self.measures}
+        rows = [["Your measurement", "Read this on the pattern", "How"]]
+        seen = set()
+        for r in self.readings["readings"]:
+            for mid in r.get("pairs_with", []):
+                if (mid, r["reading_id"]) in seen:
+                    continue
+                seen.add((mid, r["reading_id"]))
+                rows.append([names.get(mid, mid), r["name"],
+                             {"curve": "tape on edge, along the seam",
+                              "straight": "tape flat, seam to seam",
+                              "vertical": "a vertical drop",
+                              "split": "front and back separately",
+                              "derived": "two readings subtracted",
+                              "printed": "printed — read it"}[r["kind"]]])
+        self._draw_table("pattern_body_pairs",
+                         "Vücut ölçüsü → kalıp okuması eşleşmesi (okura dönük, Bölüm 3)",
+                         rows, internal=False)
+        # ── Ek J: EASE bantları ───────────────────────────────────────
+        # ⚠ Yedi doğrulama adımı okurdan "kendi ölçünüz ARTI ease"i
+        # istiyordu ve kitap hiçbir yerde bir ease sayısı vermiyordu:
+        # okur, ancak karşılaştırmayı yaparak öğrenebileceği bir sayıyı
+        # karşılaştırmaya GİRDİ olarak veremez. Bantlar UYDURULMADI —
+        # ikisi de kaynakların KENDİ tablolarıdır ve kaynaklar birbiriyle
+        # her yerde aynı fikirde DEĞİLDİR; tablo bunu da gösterir.
+        # ⚠ BAĞIMSIZ İNCELEME (M-18): 0,5 inç 1,27 cm'dir, 1,5 cm DEĞİL.
+        # İlk tablo yedi satırda %18 fazla yazıyordu — üstelik kitabın
+        # "beş milimetrelik hata bele kadar iz üretir" dediği omuz
+        # satırında. Dönüşümler 0,1 cm'e YUVARLANIR.
+        # ⚠ (M-09): bant, kaynağın KENDİ nirengisine aittir; kitabın
+        # ölçüsü farklı bir noktadan alınıyorsa bant o ölçüyü TARİF
+        # ETMEZ. Dördüncü sütun kaynağın nirengisini YAZAR.
+        self._draw_table("ease_bands",
+                         "Yayımlanmış ease bantları — kaynağın KENDİ nirengisiyle (Ek J)",
+                         [["Where", "Band", "Source's own landmark", "From"],
+                          ["Full bust", "7.6–10.2 cm (3–4 in)", "fullest point", "Bodice"],
+                          ["High bust", "7.6–10.2 cm (3–4 in)",
+                           "above breasts, under arms", "Bodice"],
+                          ["Underbust", "7.6–10.2 cm (3–4 in)", "just under breasts",
+                           "Bodice"],
+                          ["Neck base", "1.3–2.5 cm (0.5–1 in)",
+                           "1 in ABOVE the neck base", "Bodice"],
+                          ["Shoulder length", "1.3 cm (0.5 in)",
+                           "neck base to shoulder bone", "Bodice"],
+                          ["Across back", "2.5–3.8 cm (1–1.5 in)",
+                           "SHOULDER to shoulder", "Bodice"],
+                          ["Bicep", "1.3–5.1 cm (0.5–2 in)", "at the ARMPIT", "Bodice"],
+                          ["Wrist", "1.3–2.5 cm (0.5–1 in)", "widest part of the HAND",
+                           "Bodice"],
+                          ["Centre back length", "2.5–5.1 cm (1–2 in)",
+                           "nape to waist", "Bodice"],
+                          ["Inseam", "1.3–2.5 cm (0.5–1 in)", "crotch to ANKLE BONE",
+                           "Bodice"],
+                          ["Full hip", "5.1–10.2 cm (2–4 in)", "widest part", "Bodice"],
+                          ["Thigh", "2.5–7.6 cm (1–3 in)", "9 in below the waist",
+                           "Bodice"],
+                          ["Natural waist", "1.3–2.5 cm (0.5–1 in)", "—", "Trouser"],
+                          ["High hip", "0.6–2.5 cm (0.25–1 in)", "3 in below the waist",
+                           "Trouser"],
+                          ["Full hip", "5.1 cm (2 in)", "fullest, 7–9 in below waist",
+                           "Trouser"],
+                          ["Thigh", "2.5 cm (1 in)", "fullest part", "Trouser"],
+                          ["Knee", "depends on the style", "1 in above centre",
+                           "Trouser"],
+                          ["Waist to hip", "0", "at the side", "Trouser"],
+                          ["Waist to knee", "0", "at the side", "Trouser"],
+                          ["Crotch depth", "1.3–1.9 cm (0.5–0.75 in)", "seated, at side",
+                           "Trouser"],
+                          ["Crotch length, front", "1.3–1.9 cm (0.5–0.75 in)",
+                           "front waist to centre", "Trouser"],
+                          ["Crotch length, back", "1.3–1.9 cm (0.5–0.75 in)",
+                           "back waist to centre", "Trouser"],
+                          ["Leg length", "hem allowance only", "waist to floor, at side",
+                           "Trouser"]],
                          internal=False)
         self._draw_cycle_chart()
 
@@ -1154,31 +1553,119 @@ class Engine:
             self._draw_comparison(key, label, level)
 
     def _draw_comparison(self, key: str, label: str, level: str):
+        """Ölçüm hatası — YANLIŞ ve DOĞRU yan yana.
+
+        ⚠ İKİNCİ İÇERİK TURU · L-6: altı figürün ikisi de AYNI POZU
+        çiziyordu ve yalnızca şerit yolu 6 pt kayıyordu. Ama bu
+        figürlerin dördünde HATA POZUN KENDİSİDİR — kol kaldırmak, öne
+        eğilmek, şeridi sıkmak, beli tahmin etmek. Aynı pozu iki kez
+        çizip "yanlış/doğru" yazmak, okura hatanın NE OLDUĞUNU
+        göstermez; etiketi okumasını ister.
+
+        Her hata artık KENDİ geometrisini çizer. Hiçbiri kalıp
+        geometrisi ya da antropometrik bir iddia DEĞİLDİR — hepsi
+        vücut duruşu ya da şerit konumudur ve ikisi de çizilebilir.
+        """
         W, H = 300.0, 210.0
         fc = self._fc(W, H, "body", f"cmp_{key}.pdf")
         hk = {"high_bust": "high_bust", "waist": "waist", "full_hip": "full_hip"}[level]
-        for i, (dx, wrong) in enumerate(((0.0, True), (W / 2, False))):
-            # Kesim seviyesi ÖLÇÜLEN seviyenin altında olmalıdır; yoksa
-            # ölçü yolu krokinin dışına düşer.
+        side_view = (key == "posture_leaning")
+        for dx, wrong in ((0.0, True), (W / 2, False)):
             bottom = "thigh" if LEVEL[level] <= LEVEL["high_hip"] else "high_hip"
             cro = croquis_fit(W / 2, H, bottom, "top_of_head", arms=False, pad_y=22.0,
-                              cx=dx + W / 4, view="front")
-            cro.draw_torso_only(fc, bottom=bottom, gray=0.45 if wrong else 0.0)
-            pts = cro.girth_path(level, hk)
-            if wrong:
-                pts = [(x, y + (6.0 if 0 < i2 < len(pts) - 1 else 0.0))
-                       for i2, (x, y) in enumerate(pts)]
-            fc.tk11_measure_path(pts)
-            fc.landmark_dot(*pts[0]); fc.landmark_dot(*pts[-1])
+                              cx=dx + W / 4, view="side" if side_view else "front")
+            gray = 0.45 if wrong else 0.0
+            if side_view:
+                # DURUŞ hatası: öne eğilmiş profil ile dik profil
+                cro.draw_side(fc, head=True, gray=gray, bottom=bottom)
+                # Eksen çizgisi ADLANDIRILIR: eğik bir kesikli çizgi
+                # tek başına "öne eğilmiş" demez.
+                if wrong:
+                    fc.line(cro.cx, cro.y(bottom), cro.cx + 13.0, cro.y("top_of_head"),
+                            role="construction_line", dash="dash 2-2")
+                    fc.text(cro.cx + 16.0, cro.y("underbust"), self.ui["leaning"],
+                            face="sans-italic", size=6.4, gray=0.45)
+                else:
+                    fc.line(cro.cx, cro.y(bottom), cro.cx, cro.y("top_of_head"),
+                            role="construction_line", dash="dash 2-2")
+                    fc.text(cro.cx + 16.0, cro.y("underbust"), self.ui["upright"],
+                            face="sans-italic", size=6.4, gray=0.45)
+            else:
+                cro.draw_torso_only(fc, bottom=bottom, gray=gray)
+
+            if key == "arms_raised":
+                # KOL POZU hatanın kendisidir: aşağıda vs yukarıda
+                for sgn in (-1, 1):
+                    sh = (cro.cx + sgn * cro.hw("shoulder_point"),
+                          cro.y("shoulder_point"))
+                    if wrong:
+                        fc.polyline([sh,
+                                     (sh[0] + sgn * 14.0, cro.y("shoulder_point") + 16.0),
+                                     (sh[0] + sgn * 8.0, cro.y("top_of_head") - 6.0)],
+                                    role="body_outline", gray=gray)
+                    else:
+                        fc.polyline([sh,
+                                     (sh[0] + sgn * 6.0, cro.y("underbust")),
+                                     (sh[0] + sgn * 4.0, cro.y(bottom) + 10.0)],
+                                    role="body_outline", gray=gray)
+
+            if key == "waist_guessed":
+                # İKİ SEVİYE: tahmin edilen ve İŞARETLENEN
+                wy = cro.y("waist")
+                if wrong:
+                    for off in (-9.0, 0.0, 9.0):
+                        fc.line(cro.cx - cro.hw(hk) * 1.15, wy + off,
+                                cro.cx + cro.hw(hk) * 1.15, wy + off,
+                                role="construction_line", dash="dash 2-2")
+                else:
+                    fc.tk09_balance_line(cro.cx - cro.hw(hk) * 1.15, wy,
+                                         cro.cx + cro.hw(hk) * 1.15, wy, label="W")
+
+            if key == "hip_too_high":
+                # ŞERİT YANLIŞ SEVİYEDE: yüksek kalça vs en dolgun nokta
+                lv = "high_hip" if wrong else "full_hip"
+                pts = cro.girth_path(lv, "high_hip" if wrong else "full_hip")
+                fc.tk11_measure_path(pts)
+                fc.landmark_dot(*pts[0]); fc.landmark_dot(*pts[-1])
+                fc.line(cro.cx - cro.hw("full_hip") * 1.2, cro.y("full_hip"),
+                        cro.cx + cro.hw("full_hip") * 1.2, cro.y("full_hip"),
+                        role="construction_line", dash="dash 2-2")
+            elif key == "tape_too_tight":
+                # ŞERİT BASTIRIYOR: kontur o hizada İÇERİ çöker
+                pts = cro.girth_path(level, hk)
+                if wrong:
+                    pinch = 5.0
+                    pts = [(x + (pinch if x < cro.cx else -pinch), y)
+                           for (x, y) in pts]
+                    for sgn in (-1, 1):
+                        ex = cro.cx + sgn * cro.hw(hk)
+                        fc.polyline([(ex, cro.y(level) + 13.0),
+                                     (ex - sgn * pinch, cro.y(level)),
+                                     (ex, cro.y(level) - 13.0)],
+                                    role="body_outline", gray=gray)
+                fc.tk11_measure_path(pts)
+                fc.landmark_dot(*pts[0]); fc.landmark_dot(*pts[-1])
+            elif key != "waist_guessed" and key != "hip_too_high":
+                pts = cro.girth_path(level, hk)
+                # Anahtar dizgi SPESİFİKASYONDAN okunur: ikinci bir
+                # kopya yazmak, selftest'in D-19'da yakaladığı ayrışmayı
+                # geri getirirdi.
+                if wrong and key == self.COMPARISON_SPEC[0][0]:
+                    # SIRTTA DÜŞEN ŞERİT: sarkma belirgin olmalı
+                    pts = [(x, y + (11.0 if 0 < i2 < len(pts) - 1 else 0.0))
+                           for i2, (x, y) in enumerate(pts)]
+                fc.tk11_measure_path(pts)
+                fc.landmark_dot(*pts[0]); fc.landmark_dot(*pts[-1])
+
             fc.text(dx + W / 4, 6.0, self.ui["wrong"] if wrong else self.ui["right"],
                     face="sans-bold", size=7.0, anchor="middle")
-            del i
         fc.tk15_do_not_do(8.0, 24.0, W / 2 - 26.0, H - 58.0)
         fc.text(6.0, H - 9.0, label, face="sans-italic", size=6.6, gray=0.45)
         tokens = fc.finish()
         self._record(fig_type="comparison_before_after",
                      shows=f"Ölçüm hatası: {label} — yanlış ve doğru yan yana",
-                     view="front", tokens=tokens, deterministic=True,
+                     view="side" if side_view else "front",
+                     tokens=tokens, deterministic=True,
                      extra={"error": key, "width_pt": W, "height_pt": H,
                             "source_file": f"cmp_{key}.pdf"})
 
@@ -1262,6 +1749,13 @@ class Engine:
             ("pin_test", "İğne testi — fazlalığın toplanıp ölçülmesi"),
             ("slash_test", "Kesme testi — yetersizliğin açılıp ölçülmesi"),
             ("control_toile", "Kontrol toile — düzeltme öncesi referans"),
+            # ⚠ İÇERİK TURU · L-2: iki doğrulama adımı omuz dikişinin
+            # "omuz üstü çizgisine göre" konumunu istiyordu ve kitap o
+            # okumayı hiçbir yerde göstermiyordu. S-0004 ve S-0007
+            # referansı verir: "the shoulder seams should be on top of
+            # the shoulders."
+            ("shoulder_offset", "Prova okuması — omuz dikişinin omuz üstü "
+                                "çizgisinden sapması"),
         ]
         for key, shows in states:
             self._draw_toile_state(key, shows)
@@ -1269,6 +1763,29 @@ class Engine:
     def _draw_toile_state(self, key: str, shows: str):
         W, H = 200.0, 262.0
         fc = self._fc(W, H, "garment", f"toile_{key}.pdf")
+        # ⚠ GÖZLE DENETLENDİ VE TASARIM DEĞİŞTİ: omuz dikişi sapması
+        # bir ÖN/ARKA yönüdür ve ÖNDEN GÖRÜNMEZ. İlk sürüm onu önden
+        # çizmeye çalıştı; çıkan resim "dikiş omuzdan AŞAĞI kaymış"
+        # diyordu — okuma bu değildir. Bu tek durum PROFİLDEN çizilir.
+        if key == "shoulder_offset":
+            # ⚠ GÖZLE: 200 pt genişlikte profil krokisinin iki yanında
+            # etiket için boş alan KALMIYOR ve etiketler gövde
+            # konturunu kesiyordu. Bu tek figür daha GENİŞ kutuya
+            # çizilir; kroki sağa yaslanır, etiketler sol marja gider.
+            W = 268.0
+            fc = self._fc(W, H, "garment", f"toile_{key}.pdf")
+            cro = croquis_fit(W, H, "full_hip", "top_of_head", arms=False,
+                              pad_y=16.0, view="side")
+            cro.draw_side(fc, head=True, gray=0.45, bottom="full_hip")
+            self._draw_shoulder_offset(fc, cro)
+            tokens = fc.finish()
+            self._record(fig_type="toile_state", shows=shows, view="side",
+                         tokens=tokens, deterministic=False,
+                         manual_reason=("Prova kumaşının gerçek dökümü kayıttan "
+                                        "türetilemez; şablon deterministiktir."),
+                         extra={"state": key, "width_pt": W, "height_pt": H,
+                                "source_file": f"toile_{key}.pdf"})
+            return
         cro = croquis_fit(W, H, "thigh", "top_of_head", arms=False, pad_y=16.0,
                           view="front")
         cro.draw_torso_only(fc, bottom="thigh", gray=0.45)
@@ -1302,6 +1819,41 @@ class Engine:
                                     "ama nihai çizim VAL-xxxx fiziksel sınamasından gelir."),
                      extra={"state": key, "width_pt": W, "height_pt": H,
                             "source_file": f"toile_{key}.pdf"})
+
+    LABEL_X = 8.0
+
+    def _draw_shoulder_offset(self, fc, cro):
+        """Omuz dikişi sapması — PROFİLDEN.
+
+        Okur işaretli omuz üstü noktasını görür; dikilmiş omuz dikişi
+        onun ÖNÜNDE durur ve aradaki mesafe ölçülen sayıdır. Bu ölçüm
+        yalnızca profilde görünür.
+        """
+        top = cro.profile_point("shoulder_point", True)
+        back = cro.profile_point("shoulder_point", False)
+        y = top[1]
+        mark_x = (top[0] + back[0]) / 2.0        # işaretli omuz üstü
+        seam_x = mark_x + (top[0] - mark_x) * 0.62   # dikiş ÖNDE
+        # kısa referans: omuz üstü SEVİYESİNİ işaretler, gövdeyi
+        # boydan boya kesmez (gözle bulundu)
+        fc.line(mark_x, y + 22.0, mark_x, y - 21.0,
+                role="construction_line", dash="dash 2-2")
+        fc.landmark_dot(mark_x, y)
+        # etiketler SOL MARJDA, kılavuz çizgisiyle bağlanır
+        ly = y + 22.0
+        fc.text(self.LABEL_X, ly - 2.0, self.ui["top_of_shoulder"],
+                face="sans-italic", size=6.2, gray=0.45)
+        fc.line(self.LABEL_X + 62.0, ly, mark_x - 2.0, ly,
+                role="callout_leader", gray=0.45)
+        fc.polyline([(seam_x, y + 14.0), (seam_x, y - 18.0)],
+                    role="pattern_edge_modified")
+        # ok, iki işaretin ALTINDA ve dikişlerden UZAKTA durur; etiketi
+        # TEK KELİMEDİR çünkü iki işaret arası dardır. Boşluğa ne
+        # yazılacağı FİGÜR ALTI YAZISINDA söylenir, figürün içinde değil.
+        oy = y - 30.0
+        fc.tk03_overlap_arrow(mark_x, oy, seam_x, oy, self.ui["seam_offset"])
+        fc.text(self.LABEL_X, y + 58.0, self.ui["offset_read_front"],
+                face="sans-italic", size=6.2, gray=0.45)
 
     # ── tek figürü bir SAYFAYA çizmek ─────────────────────────────────
     def render(self, key: str, canvas, x: float, y: float):
@@ -1368,12 +1920,20 @@ class Engine:
                 self._draw_comparison(*spec)
             elif key.startswith("patt_"):
                 k = key[len("patt_"):]
-                spec = {q[0]: q for q in [
-                    ("front_bodice", "", "bodice"), ("back_bodice", "", "bodice"),
-                    ("sleeve", "", "sleeve"), ("front_skirt", "", "skirt"),
-                    ("back_skirt", "", "skirt"), ("front_trouser", "", "trouser"),
-                    ("back_trouser", "", "trouser"), ("dart_anatomy", "", "dart")]}[k]
-                self._draw_pattern_piece(*spec)
+                # ⚠ İÇERİK TURU: üç yeni kalıp figürü KENDİ üreticisini
+                # taşır ve genel parça çizicisine düşemez.
+                one_off = {"curve_walk": self._draw_curve_walk,
+                           "vertical_reads": self._draw_vertical_reads,
+                           "sleeve_cap": self._draw_sleeve_cap}
+                if k in one_off:
+                    one_off[k]()
+                else:
+                    spec = {q[0]: q for q in [
+                        ("front_bodice", "", "bodice"), ("back_bodice", "", "bodice"),
+                        ("sleeve", "", "sleeve"), ("front_skirt", "", "skirt"),
+                        ("back_skirt", "", "skirt"), ("front_trouser", "", "trouser"),
+                        ("back_trouser", "", "trouser"), ("dart_anatomy", "", "dart")]}[k]
+                    self._draw_pattern_piece(*spec)
             elif key == "flow_CYCLE":
                 self._draw_cycle_chart()
             elif key.startswith("tbl_"):

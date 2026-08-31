@@ -10,14 +10,16 @@
   "isbn": null,
   "url": "https://sanweb.lib.msu.edu/DMC/extension_publications/e421/e421.pdf",
   "verification_level": "official_web",
-  "locator": null,
-  "accessed_on": "2026-08-28",
+  "locator": "E-421, s. 1–3: ALTERATION QUIZ; GUIDELINES FOR SUCCESSFUL REFITTING AND ALTERING; SOME COMMON PROBLEMS ('Wrinkles from strain around armscye area')",
+  "accessed_on": "2026-08-31",
   "used_for": [
-    "Faz 2'de yeniden değerlendirilecek aday kaynak — düzeltme yöntemleri"
+    "C-C belirti→neden (BİREBİR): 'Wrinkles from strain around armscye area — Caused by high shoulders or very straight shoulders.' — SYM-004/SYM-005 omuz eğimi nedenleri",
+    "C-F etkileşim ilkesi (BİREBİR): 'Often one alteration may lead to another or cause another.'",
+    "C-C çözgü kapısı (BİREBİR): 'Is the garment cut on the straight GRAIN of the fabric? If not, the strain or pull it causes can rarely be corrected in refitting or altering.' — kitabın 'off-grain bir KALIP nedeni değildir' yönlendirmesi"
   ],
   "superseded_by": null,
   "license_constraint": null,
   "acquisition_status": "acquired",
-  "notes": "S-0007 ile aynı sınır: taranmış görüntü, metin katmanı yok. Yükseltme kanıtı olarak KULLANILAMAZ. Faz 5 (İnceleme A): okura basılan `reader_purpose` kaydın kendi sınırıyla ÇELİŞİYORDU; düzeltildi.",
-  "reader_purpose": "Refitting and altering practice. IDENTIFIED BUT NOT CONSULTED: the archived copy is a scanned image with no text layer, so no rule in this book rests on it — including the order of work."
+  "notes": "⚠ İÇERİK TURU (31 Ağu 2026) — BELGE İLK KEZ OKUNDU (taranmış görüntü, 150 dpi'de görsel okuma; metin katmanı YOK, bu yüzden verification_level YÜKSELTİLMEDİ). ⚠⚠ KAPSAM UYARISI — BU BELGE DİKİLMİŞ GİYSİ TADİLATIDIR: başlığı 'Refitting and Altering' ve içeriği bitmiş giysiyi söküp yeniden dikmektir. Bu, terminoloji kaydındaki T-02'dir ve serinin KAPSAMI DIŞINDADIR (T-01 kalıp düzeltmesidir). Belge bu yüzden HİÇBİR KALIP DÜZELTME kuralı için kullanılamaz; yalnızca yukarıdaki üç GÖZLEM/İLKE için kullanılır. 1967 tarihli arşiv kopyasıdır ve kapağında 'do not use for current recommendations' yazar.",
+  "reader_purpose": "Three observations that survive the change of scope: strain wrinkles at the armhole come from high or very straight shoulders; one alteration commonly causes another; and a piece cut off grain cannot be corrected by fitting. The rest of this bulletin is about altering finished garments, which this series does not teach."
 }

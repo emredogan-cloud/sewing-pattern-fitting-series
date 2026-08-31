@@ -435,3 +435,57 @@ Araştırma raporu § 32'den devralındı; Faz 1'de sayılar doğrulandı.
 ---
 
 *Vâliçe Press · BEFORE YOU CUT · Risk Register · 29 Ağustos 2026 (Faz 4 yürütmesi)*
+
+---
+
+## R-25 · BİR DÜZELTMENİN KENDİ KUSURUNU ÜRETMESİ *(yeni · YÜKSEK)*
+
+**Ölçüm:** 31 Ağustos 2026 · içerik turu · bağımsız inceleme F-01
+
+Faz 5, 129 fiziksel testin 105'inin sonucun NASIL OKUNACAĞINI
+söylemediğini ölçtü ve bir "Read it" satırı ekledi. Düzeltme doğruydu.
+**Uygulaması yanlışlanamaz bir ölçüt üretti:** satır nedenin değil
+BELİRTİNİN azalmasını istiyordu, ve bir girişin üç nedeni aynı koridora
+yer açtığı için üçünün de testi belirtiyi azaltır.
+
+Sonuç: ölçüt, okurun **hangi nedeni önce denediyse onu** onaylıyordu.
+Kitabın bütün bilgi kuramı *"testi kumaş çözer"* üzerine kuruluyken,
+test hiçbir şeyi çözemiyordu.
+
+Kusur beş kapıdan, iki çelişmeli incelemeden ve bir sentetik koşumdan
+geçti. **Hiçbiri onu göremezdi:** hepsi satırın VAR OLUP OLMADIĞINI
+denetliyordu, NE DEDİĞİNİ değil.
+
+**Bu turda üç regresyonu ben ürettim** ve üçünü de bağımsız inceleme
+yakaladı: ağ uzunluğuna yanlış duruş talimatı, Ek J'de %18 yanlış birim
+dönüşümü, ve kol oyuntusu çevresini kol çevresi bandına karşı okutma
+(her okur her kalıpta yanlış cevap alırdı).
+
+**Azaltma:** bir düzeltme, düzelttiği şeyin kapısını da getirmek
+zorundadır. `qa_verification.py` bu turda o kuralla yazıldı: yalnızca
+alanın DOLU olduğunu değil, NEYE başvurduğunu denetler.
+
+**Kalan risk: YÜKSEK.** Bu sınıf yalnızca **bağımsız okuma** ile
+yakalanır ve dış doğrulama hâlâ erişilemez (`K58`).
+
+---
+
+## R-26 · ÇIKIŞ ÖLÇÜTÜNÜN YEŞİL KAPIYLA KARIŞTIRILMASI *(yeni · YÜKSEK)*
+
+**Ölçüm:** 31 Ağustos 2026
+
+İçerik turunun sonunda dokuz veri kapısı, 220 öz-denetim ve 29 görsel
+denetim **tamamen yeşildi** ve kitap sayfa bütçesi içinde kuruluyordu.
+Aynı anda **24 içerik kusuru açıktı** ve üç okur yolculuğunun ikisi
+kullanılabilir bir sonuç ÜRETMEDİ.
+
+Bu, `R-19`'un dördüncü gerçekleşmesidir ve artık ayrı bir risk olarak
+kaydedilir: yeşil kapı bir ürün iddiası değil, **kapının sorduğu
+soruların cevabıdır.**
+
+**Azaltma:** çıkış ölçütleri madde madde ve AÇIKÇA işaretlenir
+(`CONTENT_PASS_REPORT.md` § 5). Karşılanmayan madde "kısmen" diye
+yazılmaz.
+
+**Kalan risk: YÜKSEK** — ve bu riski taşıyan tek mekanizma, faz
+kapısını AÇMAMAKTIR (`K59`).

@@ -13,7 +13,8 @@
     "götürüp götürmediğini ölçer.",
     "",
     "Fiziksel doğrulamanın YERİNE GEÇMEZ. Kumaş davranışı, drape,",
-    "gerçek vücut dokusu ve dikiş kalitesi burada YOKTUR."
+    "gerçek vücut dokusu ve dikiş kalitesi burada YOKTUR.",
+    "İKİNCİ İÇERİK TURU (31 Ağu 2026): görev talimatı § 22'nin listesi karşılandı — sekiz profil EKLENDİ (yüksek/alçak omuz, yüksek/alçak göğüs noktası, uzun ağ, ileri omuz, düz üst sırt, dolgun kol). ⚠ Bunlar hâlâ KENAR DURUM SINAMA VERİSİDİR; bir popülasyonu TEMSİL ETMEZLER ve istatistiksel geçerlilikleri YOKTUR."
   ],
   "not_a_population": true,
   "not_equivalent_to_physical_testing": true,
@@ -248,6 +249,131 @@
       ],
       "expected_families": [
         "AF-15"
+      ]
+    },
+    {
+      "id": "SB-17",
+      "name": "high shoulder on one side",
+      "deviations": [
+        "one shoulder point sits higher than the other",
+        "shoulder slope differs left to right"
+      ],
+      "expected_signs": [
+        "SYM-029",
+        "SYM-041"
+      ],
+      "expected_families": [
+        "AF-13",
+        "AF-03"
+      ]
+    },
+    {
+      "id": "SB-18",
+      "name": "low shoulder on one side",
+      "deviations": [
+        "one shoulder point sits lower than the other",
+        "the garment drops on that side and the hem is not level"
+      ],
+      "expected_signs": [
+        "SYM-029",
+        "SYM-040"
+      ],
+      "expected_families": [
+        "AF-13",
+        "AF-01"
+      ]
+    },
+    {
+      "id": "SB-19",
+      "name": "high bust point",
+      "deviations": [
+        "shoulder-to-apex shorter than the pattern's dart position",
+        "the dart point sits below the apex"
+      ],
+      "expected_signs": [
+        "SYM-019",
+        "SYM-016"
+      ],
+      "expected_families": [
+        "AF-02",
+        "AF-01"
+      ]
+    },
+    {
+      "id": "SB-20",
+      "name": "low bust point",
+      "deviations": [
+        "shoulder-to-apex longer than the pattern's dart position",
+        "the dart point sits above the apex, leaving a hollow"
+      ],
+      "expected_signs": [
+        "SYM-020",
+        "SYM-014"
+      ],
+      "expected_families": [
+        "AF-02",
+        "AF-08"
+      ]
+    },
+    {
+      "id": "SB-21",
+      "name": "long rise",
+      "deviations": [
+        "seated crotch depth greater than the pattern's",
+        "crotch length greater than the pattern's"
+      ],
+      "expected_signs": [
+        "SYM-035"
+      ],
+      "expected_families": [
+        "AF-15",
+        "AF-16"
+      ]
+    },
+    {
+      "id": "SB-22",
+      "name": "forward shoulder",
+      "deviations": [
+        "the shoulder is carried forward of the pattern's assumption",
+        "the sewn shoulder seam sits behind the top-of-shoulder line"
+      ],
+      "expected_signs": [
+        "SYM-006",
+        "SYM-002"
+      ],
+      "expected_families": [
+        "AF-05",
+        "AF-07"
+      ]
+    },
+    {
+      "id": "SB-23",
+      "name": "flat upper back",
+      "deviations": [
+        "the pattern's shoulder shaping is not filled",
+        "surplus gathers at blade level"
+      ],
+      "expected_signs": [
+        "SYM-009"
+      ],
+      "expected_families": [
+        "AF-07",
+        "AF-11"
+      ]
+    },
+    {
+      "id": "SB-24",
+      "name": "full upper arm",
+      "deviations": [
+        "bicep larger than the pattern's bicep line allows"
+      ],
+      "expected_signs": [
+        "SYM-031",
+        "SYM-013"
+      ],
+      "expected_families": [
+        "AF-10",
+        "AF-08"
       ]
     }
   ]

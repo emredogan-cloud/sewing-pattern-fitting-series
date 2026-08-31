@@ -12,6 +12,11 @@ Kanıt seviyesi vokabüleri (Faz 4 talimatı § 5):
 
   VERIFIED             kayıt technical_reference_verified VE en az bir
                        technical_authority kaynağı tam metin/resmî PDF
+                       VE kayıt `source_support: narrower` TAŞIMIYOR
+  VERIFIED_NARROWER    yukarıdakinin hepsi sağlanıyor AMA kaydın kendisi
+                       kaynağın DAHA DAR bir ifadeyi desteklediğini beyan
+                       ediyor (`source_support: narrower`). Görev talimatı
+                       § 9: ilke destekleniyor, ifade fazla geniş.
   PARTIALLY_VERIFIED   kayıt doğrulanmış ama kaynak tam metin değil,
                        ya da yalnızca kısmi kapsama var
   INFERRED             kaynak bağlamı destekliyor, iddianın KENDİSİ
@@ -37,7 +42,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import paths  # noqa: E402
 
 # SOURCE_MAP § 7 — kaynaklar arası kayıtlı tanım farkları.
-CONTESTED_MEASUREMENTS = {"M-004", "M-008", "M-013", "M-025"}
+#
+# ⚠ İÇERİK TURU: bu küme burada ELLE YAZILIYORDU ve ölçü kaydının kendi
+# `source_conflict` alanıyla İKİ AYRI doğruluk kaynağı oluşturuyordu.
+# Faz 5 tam da bu sınıftan bir kusur ölçmüştü (figür başlığı çelişkiyi
+# TÜRETİYOR, kayıt BEYAN EDİYORDU). Küme artık KAYITTAN okunur.
 
 ZONE_TO_CHAPTER = {
     "neck": "B1-CH09", "shoulder": "B1-CH09",
@@ -63,8 +72,15 @@ def source_index() -> dict:
     return idx
 
 
-def evidence_level(status: str, refs: list, srcs: dict, contested: bool) -> str:
-    """Kanıt seviyesi TÜRETİLİR — beyan edilmez."""
+def evidence_level(status: str, refs: list, srcs: dict, contested: bool,
+                   narrower: bool = False) -> str:
+    """Kanıt seviyesi TÜRETİLİR — beyan edilmez.
+
+    ⚠ İÇERİK TURU: `narrower` bir GÜVEN SKORU değildir. Kaydın kendisi,
+    okunmuş kaynağın iddiadan DAHA DAR bir ifadeyi desteklediğini
+    BEYAN ettiğinde doğrudur ve o beyan `source_support_note` alanında
+    kaynağın ne dediğini yazmak zorundadır. Beyan yoksa alan da yoktur.
+    """
     if contested:
         return "CONTESTED"
     if not refs:
@@ -77,7 +93,9 @@ def evidence_level(status: str, refs: list, srcs: dict, contested: bool) -> str:
     acquired = [s for s in authoritative
                 if s.get("acquisition_status") in ("public_access", "acquired")]
     if status == "technical_reference_verified":
-        return "VERIFIED" if fulltext else "PARTIALLY_VERIFIED"
+        if not fulltext:
+            return "PARTIALLY_VERIFIED"
+        return "VERIFIED_NARROWER" if narrower else "VERIFIED"
     if not acquired:
         return "UNVERIFIED"
     return "INFERRED"
@@ -88,7 +106,8 @@ def build(book_id: str) -> dict:
     claims: list = []
     n = 0
 
-    def add(kind, chapter, text, refs, status, taxonomy_ref, contested=False, risk=None):
+    def add(kind, chapter, text, refs, status, taxonomy_ref, contested=False, risk=None,
+            narrower=False, support_note=None):
         nonlocal n
         n += 1
         claims.append({
@@ -99,7 +118,8 @@ def build(book_id: str) -> dict:
             "taxonomy_ref": taxonomy_ref,
             "source_refs": refs,
             "record_verification_status": status,
-            "evidence_level": evidence_level(status, refs, srcs, contested),
+            "evidence_level": evidence_level(status, refs, srcs, contested, narrower),
+            "source_support_note": support_note,
             "reviewer_status": "pending",
             "risk_note": risk,
         })
@@ -113,19 +133,36 @@ def build(book_id: str) -> dict:
     # ② ölçü tanımları — her ölçü İKİ iddia taşır: TANIM ve YOL
     for m in load(paths.MEASUREMENTS)["measurements"]:
         mid = m["measurement_id"]
-        contested = mid in CONTESTED_MEASUREMENTS
+        contested = bool(m.get("source_conflict"))
+        narrow = m.get("source_support") == "narrower"
+        note = m.get("source_support_note")
+        derived = m["category"] == "derived"
         add("measurement_definition", "B1-CH02",
-            f"{m['name']} is measured from {m['landmark_start']} to {m['landmark_end']}.",
+            (f"{m['name']} is calculated from {m['landmark_start']} and "
+             f"{m['landmark_end']}." if derived else
+             f"{m['name']} is measured from {m['landmark_start']} to {m['landmark_end']}."),
             m.get("source_refs") or [], m["verification_status"], mid, contested,
             risk="A measurement taken from the wrong landmark is not a smaller error than "
-                 "no measurement; it is a confident wrong number.")
+                 "no measurement; it is a confident wrong number.",
+            narrower=narrow, support_note=note)
         if m.get("path_rule"):
+            # ⚠ İÇERİK TURU · L-3: TÜRETİLMİŞ ölçünün ŞERİT YOLU YOKTUR.
+            # Sicil üç türetilmiş ölçü için "the tape path is constrained"
+            # iddiası üretiyordu ve biri (M-031) VERIFIED sayılıyordu.
+            # Bir iddia, tanımı gereği var olmayan bir şey hakkında
+            # doğrulanmış olamaz. Türetilmiş ölçüler artık TÜRETME
+            # iddiası taşır.
             add("measurement_path", "B1-CH02",
-                f"{m['name']}: the tape path is constrained, not free "
-                f"(see the record's path_rule).",
+                (f"{m['name']}: the two inputs are fixed and the subtraction order "
+                 f"is fixed (see the record's path_rule)." if derived else
+                 f"{m['name']}: the tape path is constrained, not free "
+                 f"(see the record's path_rule)."),
                 m.get("source_refs") or [], m["verification_status"], mid, contested,
-                risk="Two readers following the same name but different paths get "
-                     "different numbers and blame the pattern.")
+                risk=("A difference computed the other way round changes sign and "
+                      "sends the reader to the opposite adjustment." if derived else
+                      "Two readers following the same name but different paths get "
+                      "different numbers and blame the pattern."),
+                narrower=narrow, support_note=note)
 
     # ③ düzeltme ailesi kapsamı + sıra kısıtı
     for a in load(paths.ADJUSTMENT_FAMILIES)["families"]:
@@ -134,12 +171,21 @@ def build(book_id: str) -> dict:
             f"{a['name']} acts on: {a['pattern_area']}.",
             a.get("source_refs") or [], a["verification_status"], aid,
             risk="Naming the wrong pattern area sends the reader to Book 2 with the "
-                 "wrong family and the adjustment fails there, not here.")
+                 "wrong family and the adjustment fails there, not here.",
+            narrower=a.get("source_support") == "narrower",
+            support_note=a.get("source_support_note"))
         if a.get("order_constraint"):
+            # ⚠ İÇERİK TURU · L-3: sıra iddiası AİLENİN kaydından seviye
+            # alıyordu. Bir aileyi TANIMLAYAN kaynak, o ailenin NE ZAMAN
+            # yapılacağını söylemek zorunda değildir — ve altısında
+            # söylemiyordu. Sıra iddiası artık `order_source_refs`ten
+            # türer; o boşsa iddia UNVERIFIED'dır.
+            oref = a.get("order_source_refs", a.get("source_refs") or [])
             add("adjustment_order", "B1-CH16",
                 f"{aid} carries an ordering constraint relative to other families.",
-                a.get("source_refs") or [], a["verification_status"], aid,
-                risk="Out-of-order adjustment invalidates work already done.")
+                oref, a["verification_status"], aid,
+                risk="Out-of-order adjustment invalidates work already done.",
+                narrower=a.get("order_support") == "narrower")
 
     # ④ belirti gözlemi + her aday nedenin AYIRT EDİCİ KANITI
     #    Bu, kitabın EN RİSKLİ iddia sınıfıdır: 129 nedensel ilişki,

@@ -19,12 +19,14 @@ run 06_BUILD/qa_terminology.py --verbose
 run 06_BUILD/qa_visual.py --verbose
 run 06_BUILD/build_claims.py --check
 run 06_BUILD/build_claim_map.py --check
+run 06_BUILD/qa_verification.py --verbose
 run 06_BUILD/qa_manuscript.py --verbose
 run 07_TESTS/selftest.py
 # ── İÇSEL SİMÜLASYON (K58) ────────────────────────────────────────────
 # Dış doğrulama ERİŞİLEMEZ olduğu için fiziksel testin yerine geçen
 # İKAME buradadır. Fiziksel testin EŞDEĞERİ DEĞİLDİR ve çıktısı bunu
 # her koşumda söyler. Bağımlılıksızdır.
+run 07_TESTS/synthetic/graph_audit.py --verbose
 run 07_TESTS/synthetic/run_synthetic.py
 
 # ── RENDER KATMANI ────────────────────────────────────────────────────

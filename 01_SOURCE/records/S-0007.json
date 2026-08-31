@@ -10,14 +10,17 @@
   "isbn": null,
   "url": "https://sanweb.lib.msu.edu/DMC/extension_publications/e419/e419.pdf",
   "verification_level": "official_web",
-  "locator": null,
-  "accessed_on": "2026-08-28",
+  "locator": "E-419, s. 1–2: COMPONENTS OF FIT şeması (grain / ease / dart / dart direction / seam placement); GRAIN; EASE; DARTS; SEAM PLACEMENT",
+  "accessed_on": "2026-08-31",
   "used_for": [
-    "Faz 2'de yeniden değerlendirilecek aday kaynak — uyum temelleri"
+    "C-B pens KURALI (BİREBİR): 'A dart, unless purely decorative, should point toward the fullest part of the curve it is intended to fit… Darts usually should end before they reach the fullest part (crown) of the curve.' — S-0004 ile İKİNCİ, BAĞIMSIZ kaynak",
+    "C-B denge TANIMI (BİREBİR): 'If a garment is balanced, (1) it sets on the figure without sagging or drawing to one side or to the front or back; and (2) the seam lines and design lines will look straight, not distorted or out of shape.'",
+    "C-B ease tanımı: 'that extra amount of fabric within a given size… in addition to what is needed for actual body measurements to allow for movement and comfort'",
+    "Bölüm 7 (pens yönü), Bölüm 16 (denge)"
   ],
   "superseded_by": null,
   "license_constraint": null,
   "acquisition_status": "acquired",
-  "notes": "KÜNYE OKUNDU, İÇERİK OKUNMADI: PDF taranmış GÖRÜNTÜDÜR, metin katmanı YOKTUR. Yalnızca arşiv kapak sayfası makine-okunur. Bu yüzden verification_level 'official_web'te tutuldu ve HİÇBİR kaydı yükseltmek için kullanılamaz (fulltext/official_pdf değil). Ayrıca arşiv kopyası kendi kapağında 'do not use for current recommendations' uyarısı taşır. Faz 5 (İnceleme A): okura basılan `reader_purpose` kaydın kendi sınırıyla ÇELİŞİYORDU; düzeltildi.",
-  "reader_purpose": "Fitting fundamentals in extension teaching. IDENTIFIED BUT NOT CONSULTED: the archived copy is a scanned image with no text layer, so no rule in this book rests on it."
+  "notes": "⚠ İÇERİK TURU (31 Ağu 2026) — BELGE İLK KEZ OKUNDU. PDF hâlâ taranmış GÖRÜNTÜDÜR ve metin katmanı YOKTUR; sayfalar 150 dpi'de görüntüye çevrilip GÖRSEL olarak okundu. Bu yüzden `verification_level` 'fulltext'e YÜKSELTİLMEDİ: makine doğrulanabilir bir metin katmanı yok ve bir sonraki tur alıntıyı otomatik denetleyemez. İki alıntı bu turda birebir çıkarıldı ve S-0004 ile ÖRTÜŞÜYOR — yani kitabın pens ve denge kuralları artık İKİ bağımsız kurumsal kaynağa dayanıyor. ⚠ KAPSAM: arşiv kopyası kendi kapağında 'Archive copy of publication, do not use for current recommendations' uyarısı taşır ve 1963 tarihlidir; kitap onu YÖNTEM teyidi olarak kullanır, güncel tavsiye olarak DEĞİL.",
+  "reader_purpose": "The dart rule — a dart points toward the fullest part of the curve and stops short of it — and a working definition of balance. This is a 1963 archived extension bulletin; its own cover asks that it not be used for current recommendations, so it is used here only where a second, current source says the same thing."
 }

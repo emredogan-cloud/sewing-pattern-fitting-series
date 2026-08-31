@@ -6,19 +6,20 @@
   ],
   "generated_by": "06_BUILD/build_claims.py",
   "book": "book-01",
-  "count": 307,
+  "count": 309,
   "by_evidence_level": {
-    "CONTESTED": 8,
-    "INFERRED": 214,
-    "UNVERIFIED": 29,
-    "VERIFIED": 56
+    "CONTESTED": 10,
+    "INFERRED": 216,
+    "UNVERIFIED": 32,
+    "VERIFIED": 44,
+    "VERIFIED_NARROWER": 7
   },
   "by_kind": {
     "adjustment_family": 20,
     "adjustment_order": 20,
     "conceptual": 31,
-    "measurement_definition": 32,
-    "measurement_path": 32,
+    "measurement_definition": 33,
+    "measurement_path": 33,
     "sign_cause": 129,
     "sign_observation": 43
   },
@@ -35,6 +36,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If false, the whole diagnostic frame collapses into 'sew better'."
     },
@@ -49,6 +51,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If false, readers may correctly cut where they see the sign and the book's core method is unnecessary."
     },
@@ -63,6 +66,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Unmarked waist makes vertical measures non-repeatable; every length diagnosis downstream is noise."
     },
@@ -78,6 +82,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Systematically undersized measurements produce garments that are too tight everywhere and look like a size problem."
     },
@@ -85,29 +90,31 @@
       "claim_id": "CLM-0005",
       "kind": "conceptual",
       "chapter": "B1-CH02",
-      "claim": "A measurement that is not repeatable is not a measurement; taking each critical measure twice and recording the difference is part of the method.",
+      "claim": "A measurement that is not repeatable is not a measurement. The survey manual behind many published body measurements builds repeat measurement into its quality control, though it does so by having a second, expert examiner repeat the reading rather than by having one person measure twice. Taking each critical measure twice yourself and recording the difference is this book's adaptation of that idea to a reader working alone or with one helper.",
       "taxonomy_ref": "CC-05",
       "source_refs": [
         "S-0006"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
-      "risk_note": "Without repeat discipline the reader cannot tell a body change from a method error."
+      "risk_note": "Kaynağın yordamı İKİ FARKLI ÖLÇÜMCÜ arasındaki farkı ölçer; kitabınki AYNI kişinin kendi tekrarlanabilirliğini ölçer. İkisi aynı şey DEĞİLDİR ve iddia artık bunu söylüyor."
     },
     {
       "claim_id": "CLM-0006",
       "kind": "conceptual",
       "chapter": "B1-CH02",
-      "claim": "The difference between full bust and high bust is what pattern companies use to decide whether a reader should step down a size and treat the bust separately. It is a size-selection input; it is not a published measure of how much shaping to add, and cup size in the clothing-size standard is defined on bust minus underbust rather than on this difference.",
+      "claim": "The difference between full bust and high bust is what pattern companies use to decide whether a reader should step down a size and treat the bust separately. It is a size-selection input; it is not a published measure of how much shaping to add. Bra cup sizing uses a different difference again — bust minus underbust — and the two must not be substituted for each other.",
       "taxonomy_ref": "CC-06",
       "source_refs": [
         "S-0003"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
-      "risk_note": "If the difference does not carry that information, the size-selection rule in Chapter 3 and most of Chapter 11 lose their basis."
+      "risk_note": "ÖNCEKİ HÂLİ kap ölçüsünün tanımını 'the clothing-size standard'a atfediyordu. O standart (ISO 8559-1) EDİNİLMEDİ ve maddesi OKUNMADI; okunmamış bir belgenin ne dediği okura söylenemez. İddia, atıf olmadan da doğru olan ayrımla sınırlandı."
     },
     {
       "claim_id": "CLM-0007",
@@ -120,6 +127,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Stale measurements are diagnosed as pattern faults."
     },
@@ -127,16 +135,16 @@
       "claim_id": "CLM-0008",
       "kind": "conceptual",
       "chapter": "B1-CH03",
-      "claim": "Pattern sizing and ready-to-wear sizing are separate systems; the reader's ready-to-wear size does not predict the pattern size.",
+      "claim": "Pattern sizing and ready-to-wear sizing are separate systems and the reader's shop size does not predict the pattern size. The guides this book works from assume the distinction rather than state it; they instruct the reader to select from the company's own size chart every time, which is the operative rule either way.",
       "taxonomy_ref": "CC-08",
       "source_refs": [
-        "S-0003",
-        "S-0007"
+        "S-0003"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
-      "risk_note": "Wrong size choice produces signs in every zone at once and is misread as many separate faults."
+      "risk_note": "Atıfta S-0007 (E-419) vardı; o belge bu turda İLK KEZ okundu ve kalıp/hazır giyim beden ayrımından HİÇ söz etmiyor — uyum bileşenlerini (grain, ease, dart, seam placement) anlatıyor. Atıf KALDIRILDI."
     },
     {
       "claim_id": "CLM-0009",
@@ -149,6 +157,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Without the split, readers remove design ease and produce garments that no longer match the design they chose."
     },
@@ -163,6 +172,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Choosing by full bust oversizes the shoulder, neckline and armhole to fix a bust-only shortfall."
     },
@@ -177,6 +187,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Choosing by waist forces the hardest adjustment on the reader unnecessarily."
     },
@@ -191,6 +202,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Uncorrected flat measurement makes every pattern look too small and triggers unnecessary adjustments."
     },
@@ -203,6 +215,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A stiff calico toile of a drapey design produces folds that will never appear in the real garment."
     },
@@ -215,6 +228,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Without reference lines, seam displacement cannot be distinguished from a garment simply sitting askew."
     },
@@ -229,6 +243,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A half-inch discrepancy at four seams is two inches of girth attributed to the pattern."
     },
@@ -244,6 +259,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Bust position and waist level shift with underwear; the reader diagnoses the underwear and cuts the pattern."
     },
@@ -259,6 +275,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Reading local signs first produces a list of symptoms of one upstream fault."
     },
@@ -273,6 +290,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Garment passes the fitting and fails in wear; reader loses trust in the method."
     },
@@ -287,6 +305,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Reader cannot learn which change worked and cannot record a reusable amount."
     },
@@ -302,6 +321,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Irreversible damage to a pattern on an unconfirmed hypothesis."
     },
@@ -316,6 +336,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Reader stops at partial improvement with no next step — the failure mode named in adversarial finding B-01."
     },
@@ -328,6 +349,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "The most-used rule in the book. If the axis is wrong, readers shorten what should be narrowed."
     },
@@ -342,6 +364,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Confusing the two reverses the direction of every adjustment."
     },
@@ -354,6 +377,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If drag lines do not point at their source, step 4 of the cycle (locate) has no mechanism."
     },
@@ -369,6 +393,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Every downstream diagnosis is contaminated; the reader alters a correct pattern."
     },
@@ -384,6 +409,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Off-grain cutting mimics almost every asymmetric fit sign in the book."
     },
@@ -396,6 +422,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A pattern printed at 97 percent is diagnosed as a body that is 3 percent larger."
     },
@@ -403,7 +430,7 @@
       "claim_id": "CLM-0028",
       "kind": "conceptual",
       "chapter": "B1-CH16",
-      "claim": "Four ordering rules are established — length before width, bodice before sleeve, armhole settled before the sleeve cap, and crotch depth before crotch length — and the fifth, working from the upper body downward, is contested: a competing published method orders by dependency instead, doing first whatever affects other areas of fit.",
+      "claim": "Two ordering rules are established by the sources this book works from — length before width, working downward from the shoulder or neck; and crotch depth before crotch length. Two more follow from the geometry rather than from any source: a sleeve cannot be fitted into an armhole that is still changing, and a sleeve cap is derived from the finished armhole. A fifth rule — working from the upper body downward — is contested: a competing published method orders by dependency instead, doing first whatever affects other areas of fit.",
       "taxonomy_ref": "CC-28",
       "source_refs": [
         "S-0001",
@@ -412,8 +439,9 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
-      "risk_note": "Out-of-order work invalidates completed adjustments and forces the reader to start again."
+      "risk_note": "ÖNCEKİ HÂLİ dördünü de 'established' sayıyordu. Depodaki kaynaklarda İKİSİNİN karşılığı vardır; diğer ikisi bu kitabın GEOMETRİK türetmesidir ve bir kaynak (S-0001) bazı kol düzeltmelerinde bağımlılığı TERS yönde işletir (kol değişince beden yan dikişi düzeltilir). Türetme yine de doğrudur ama 'yerleşik uygulama' DEĞİLDİR ve artık öyle sunulmuyor."
     },
     {
       "claim_id": "CLM-0029",
@@ -424,6 +452,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Levelling the hem hides the upstream fault and makes it undiagnosable."
     },
@@ -439,6 +468,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "The fit profile — the book's main deliverable — becomes unusable."
     },
@@ -451,6 +481,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Book 3's premise. If false, the series bridge is a sales argument rather than a technical one."
     },
@@ -466,6 +497,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -481,6 +513,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -496,6 +529,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -511,6 +545,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -525,6 +560,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -539,6 +575,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -550,10 +587,12 @@
       "taxonomy_ref": "M-004",
       "source_refs": [
         "S-0002",
-        "S-0003"
+        "S-0003",
+        "S-0006"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -565,10 +604,12 @@
       "taxonomy_ref": "M-004",
       "source_refs": [
         "S-0002",
-        "S-0003"
+        "S-0003",
+        "S-0006"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -576,14 +617,14 @@
       "claim_id": "CLM-0040",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "High hip is measured from ≈ 7–10 cm below the marked waist to around the body back to start.",
+      "claim": "High hip is measured from 8 cm (3 in) below the marked waist to around the body back to start.",
       "taxonomy_ref": "M-005",
       "source_refs": [
-        "S-0002",
-        "S-0003"
+        "S-0002"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -594,11 +635,11 @@
       "claim": "High hip: the tape path is constrained, not free (see the record's path_rule).",
       "taxonomy_ref": "M-005",
       "source_refs": [
-        "S-0002",
-        "S-0003"
+        "S-0002"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -614,6 +655,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -629,6 +671,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -642,7 +685,8 @@
         "S-0001"
       ],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": "S-0001 bu ölçüyü 'around upper arm AT ARMPIT' diye tanımlar. Kitap onu kolun EN DOLGUN NOKTASINDAN alır: giysi için belirleyici olan en büyük çevredir ve koltuk altı hizası her kolda o nokta değildir. Kaynak DAHA DAR bir ifadeyi destekler; fark okura Bölüm 2'de beyan edilir.",
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -656,7 +700,8 @@
         "S-0001"
       ],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": "S-0001 bu ölçüyü 'around upper arm AT ARMPIT' diye tanımlar. Kitap onu kolun EN DOLGUN NOKTASINDAN alır: giysi için belirleyici olan en büyük çevredir ve koltuk altı hizası her kolda o nokta değildir. Kaynak DAHA DAR bir ifadeyi destekler; fark okura Bölüm 2'de beyan edilir.",
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -671,6 +716,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -685,6 +731,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -696,10 +743,12 @@
       "taxonomy_ref": "M-009",
       "source_refs": [
         "S-0001",
+        "S-0002",
         "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -711,10 +760,12 @@
       "taxonomy_ref": "M-009",
       "source_refs": [
         "S-0001",
+        "S-0002",
         "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -722,11 +773,14 @@
       "claim_id": "CLM-0050",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "Knee is measured from centre of the kneecap to around the leg back to start.",
+      "claim": "Knee is measured from 1 in. (2.5 cm) above the centre of the kneecap to around the leg back to start.",
       "taxonomy_ref": "M-010",
-      "source_refs": [],
-      "record_verification_status": "agent_drafted_unverified",
-      "evidence_level": "UNVERIFIED",
+      "source_refs": [
+        "S-0002"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": "S-0002 dizi 'l in. above center of knee' hizasında ölçer ve kalıp tarafını da o hizada okur. Kitabın nirengisi diz kapağının ORTASIYDI; ölçü kaynağın hizasına ÇEKİLDİ ve fark kayda yazıldı — çünkü kalıbın diz çizgisi kaynağın hizasında okunur ve iki taraf aynı hizada olmazsa karşılaştırma anlamsızdır.",
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -736,9 +790,12 @@
       "chapter": "B1-CH02",
       "claim": "Knee: the tape path is constrained, not free (see the record's path_rule).",
       "taxonomy_ref": "M-010",
-      "source_refs": [],
-      "record_verification_status": "agent_drafted_unverified",
-      "evidence_level": "UNVERIFIED",
+      "source_refs": [
+        "S-0002"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": "S-0002 dizi 'l in. above center of knee' hizasında ölçer ve kalıp tarafını da o hizada okur. Kitabın nirengisi diz kapağının ORTASIYDI; ölçü kaynağın hizasına ÇEKİLDİ ve fark kayda yazıldı — çünkü kalıbın diz çizgisi kaynağın hizasında okunur ve iki taraf aynı hizada olmazsa karşılaştırma anlamsızdır.",
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -751,6 +808,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -763,6 +821,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -777,6 +836,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -791,6 +851,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -807,6 +868,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -823,6 +885,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -837,6 +900,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -851,6 +915,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -866,6 +931,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -881,6 +947,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -895,6 +962,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -909,6 +977,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -921,6 +990,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -933,6 +1003,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -945,6 +1016,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -957,6 +1029,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -972,6 +1045,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -987,6 +1061,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -999,6 +1074,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1011,6 +1087,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1023,6 +1100,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1035,6 +1113,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1049,6 +1128,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1063,6 +1143,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1077,7 +1158,8 @@
         "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1092,7 +1174,8 @@
         "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1107,6 +1190,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1121,6 +1205,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "CONTESTED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1136,6 +1221,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1151,6 +1237,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1166,6 +1253,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1181,6 +1269,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1196,6 +1285,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1211,6 +1301,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1226,6 +1317,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1241,6 +1333,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1253,6 +1346,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1265,6 +1359,7 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
@@ -1272,13 +1367,14 @@
       "claim_id": "CLM-0090",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "Bust–high bust difference is measured from M-002 to M-001.",
+      "claim": "Bust–high bust difference is calculated from M-002 and M-001.",
       "taxonomy_ref": "M-031",
       "source_refs": [
         "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1286,25 +1382,27 @@
       "claim_id": "CLM-0091",
       "kind": "measurement_path",
       "chapter": "B1-CH02",
-      "claim": "Bust–high bust difference: the tape path is constrained, not free (see the record's path_rule).",
+      "claim": "Bust–high bust difference: the two inputs are fixed and the subtraction order is fixed (see the record's path_rule).",
       "taxonomy_ref": "M-031",
       "source_refs": [
         "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
-      "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
+      "risk_note": "A difference computed the other way round changes sign and sends the reader to the opposite adjustment."
     },
     {
       "claim_id": "CLM-0092",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "Front/back length difference is measured from M-015 to M-016.",
+      "claim": "Front/back length difference is calculated from M-015 and M-016.",
       "taxonomy_ref": "M-032",
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1312,23 +1410,25 @@
       "claim_id": "CLM-0093",
       "kind": "measurement_path",
       "chapter": "B1-CH02",
-      "claim": "Front/back length difference: the tape path is constrained, not free (see the record's path_rule).",
+      "claim": "Front/back length difference: the two inputs are fixed and the subtraction order is fixed (see the record's path_rule).",
       "taxonomy_ref": "M-032",
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
-      "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
+      "risk_note": "A difference computed the other way round changes sign and sends the reader to the opposite adjustment."
     },
     {
       "claim_id": "CLM-0094",
       "kind": "measurement_definition",
       "chapter": "B1-CH02",
-      "claim": "Waist-to-hip drop is measured from M-006 to M-004.",
+      "claim": "Waist-to-hip drop is calculated from M-006 and M-004.",
       "taxonomy_ref": "M-033",
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
     },
@@ -1336,44 +1436,79 @@
       "claim_id": "CLM-0095",
       "kind": "measurement_path",
       "chapter": "B1-CH02",
-      "claim": "Waist-to-hip drop: the tape path is constrained, not free (see the record's path_rule).",
+      "claim": "Waist-to-hip drop: the two inputs are fixed and the subtraction order is fixed (see the record's path_rule).",
       "taxonomy_ref": "M-033",
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
+      "reviewer_status": "pending",
+      "risk_note": "A difference computed the other way round changes sign and sends the reader to the opposite adjustment."
+    },
+    {
+      "claim_id": "CLM-0096",
+      "kind": "measurement_definition",
+      "chapter": "B1-CH02",
+      "claim": "Shoulder slope is measured from side neck point to shoulder point (bone tip), read as a vertical drop.",
+      "taxonomy_ref": "M-034",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "record_verification_status": "agent_drafted_unverified",
+      "evidence_level": "INFERRED",
+      "source_support_note": "Kaynaklar omuz eğiminin GERÇEK ve AYRI bir düzeltme olduğunu destekler — S-0003 'shoulder slope'u düzeltme istisnaları arasında ADLANDIRIR, S-0001 'Sloping Shoulders' ve 'Square Shoulders' için AYRI ve TERS yönlü işlemler verir. Hiçbiri onu NASIL ÖLÇECEĞİNİ söylemez. Ölçüm yöntemi bu kitabındır ve öyle işaretlenmiştir.",
+      "reviewer_status": "pending",
+      "risk_note": "A measurement taken from the wrong landmark is not a smaller error than no measurement; it is a confident wrong number."
+    },
+    {
+      "claim_id": "CLM-0097",
+      "kind": "measurement_path",
+      "chapter": "B1-CH02",
+      "claim": "Shoulder slope: the tape path is constrained, not free (see the record's path_rule).",
+      "taxonomy_ref": "M-034",
+      "source_refs": [
+        "S-0001",
+        "S-0003"
+      ],
+      "record_verification_status": "agent_drafted_unverified",
+      "evidence_level": "INFERRED",
+      "source_support_note": "Kaynaklar omuz eğiminin GERÇEK ve AYRI bir düzeltme olduğunu destekler — S-0003 'shoulder slope'u düzeltme istisnaları arasında ADLANDIRIR, S-0001 'Sloping Shoulders' ve 'Square Shoulders' için AYRI ve TERS yönlü işlemler verir. Hiçbiri onu NASIL ÖLÇECEĞİNİ söylemez. Ölçüm yöntemi bu kitabındır ve öyle işaretlenmiştir.",
       "reviewer_status": "pending",
       "risk_note": "Two readers following the same name but different paths get different numbers and blame the pattern."
     },
     {
-      "claim_id": "CLM-0096",
+      "claim_id": "CLM-0098",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
-      "claim": "Bust volume (full / small bust adjustment) acts on: Front bodice: apex region, side seam, bust dart, armhole edge.",
+      "claim": "Bust volume (full / small bust adjustment) acts on: Front bodice: apex region, bust dart, waist dart, armhole edge.",
       "taxonomy_ref": "AF-01",
       "source_refs": [
         "S-0001"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0097",
+      "claim_id": "CLM-0099",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-01 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-01",
       "source_refs": [
-        "S-0001"
+        "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0098",
+      "claim_id": "CLM-0100",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Bust position (apex height / width, dart angle) acts on: Front bodice: dart legs, dart point, apex marker.",
@@ -1383,25 +1518,25 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0099",
+      "claim_id": "CLM-0101",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-02 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-02",
-      "source_refs": [
-        "S-0001"
-      ],
+      "source_refs": [],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0100",
+      "claim_id": "CLM-0102",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Shoulder slope (square / sloping shoulder) acts on: Front and back bodice: shoulder seam, armhole top.",
@@ -1412,26 +1547,27 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0101",
+      "claim_id": "CLM-0103",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-03 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-03",
       "source_refs": [
-        "S-0001",
         "S-0003"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0102",
+      "claim_id": "CLM-0104",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Shoulder width (narrow / broad shoulder) acts on: Front and back bodice: shoulder seam length, armhole position.",
@@ -1441,32 +1577,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
-      "reviewer_status": "pending",
-      "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
-    },
-    {
-      "claim_id": "CLM-0103",
-      "kind": "adjustment_order",
-      "chapter": "B1-CH16",
-      "claim": "AF-04 carries an ordering constraint relative to other families.",
-      "taxonomy_ref": "AF-04",
-      "source_refs": [
-        "S-0001"
-      ],
-      "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
-      "reviewer_status": "pending",
-      "risk_note": "Out-of-order adjustment invalidates work already done."
-    },
-    {
-      "claim_id": "CLM-0104",
-      "kind": "adjustment_family",
-      "chapter": "B1-CH16",
-      "claim": "Shoulder position (forward shoulder) acts on: Front and back bodice: shoulder seam line, armhole.",
-      "taxonomy_ref": "AF-05",
-      "source_refs": [],
-      "record_verification_status": "agent_drafted_unverified",
-      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
@@ -1474,16 +1585,45 @@
       "claim_id": "CLM-0105",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
-      "claim": "AF-05 carries an ordering constraint relative to other families.",
-      "taxonomy_ref": "AF-05",
-      "source_refs": [],
-      "record_verification_status": "agent_drafted_unverified",
-      "evidence_level": "UNVERIFIED",
+      "claim": "AF-04 carries an ordering constraint relative to other families.",
+      "taxonomy_ref": "AF-04",
+      "source_refs": [
+        "S-0003"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
       "claim_id": "CLM-0106",
+      "kind": "adjustment_family",
+      "chapter": "B1-CH16",
+      "claim": "Shoulder position (forward shoulder) acts on: Front and back bodice: shoulder seam line, armhole.",
+      "taxonomy_ref": "AF-05",
+      "source_refs": [],
+      "record_verification_status": "agent_drafted_unverified",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
+      "reviewer_status": "pending",
+      "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
+    },
+    {
+      "claim_id": "CLM-0107",
+      "kind": "adjustment_order",
+      "chapter": "B1-CH16",
+      "claim": "AF-05 carries an ordering constraint relative to other families.",
+      "taxonomy_ref": "AF-05",
+      "source_refs": [],
+      "record_verification_status": "agent_drafted_unverified",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
+      "reviewer_status": "pending",
+      "risk_note": "Out-of-order adjustment invalidates work already done."
+    },
+    {
+      "claim_id": "CLM-0108",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Neckline size and shape acts on: Front and back neckline curve, shoulder/neck point.",
@@ -1493,35 +1633,7 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
-      "reviewer_status": "pending",
-      "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
-    },
-    {
-      "claim_id": "CLM-0107",
-      "kind": "adjustment_order",
-      "chapter": "B1-CH16",
-      "claim": "AF-06 carries an ordering constraint relative to other families.",
-      "taxonomy_ref": "AF-06",
-      "source_refs": [
-        "S-0001"
-      ],
-      "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
-      "reviewer_status": "pending",
-      "risk_note": "Out-of-order adjustment invalidates work already done."
-    },
-    {
-      "claim_id": "CLM-0108",
-      "kind": "adjustment_family",
-      "chapter": "B1-CH16",
-      "claim": "Upper back (round back / broad back / narrow back) acts on: Back bodice: across-back region, centre back, back neckline.",
-      "taxonomy_ref": "AF-07",
-      "source_refs": [
-        "S-0001",
-        "S-0003"
-      ],
-      "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
@@ -1529,7 +1641,22 @@
       "claim_id": "CLM-0109",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
-      "claim": "AF-07 carries an ordering constraint relative to other families.",
+      "claim": "AF-06 carries an ordering constraint relative to other families.",
+      "taxonomy_ref": "AF-06",
+      "source_refs": [
+        "S-0003"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": null,
+      "reviewer_status": "pending",
+      "risk_note": "Out-of-order adjustment invalidates work already done."
+    },
+    {
+      "claim_id": "CLM-0110",
+      "kind": "adjustment_family",
+      "chapter": "B1-CH16",
+      "claim": "Upper back (round / flat back, broad / narrow back) acts on: Back bodice: across-back region, centre back, back neckline.",
       "taxonomy_ref": "AF-07",
       "source_refs": [
         "S-0001",
@@ -1537,11 +1664,27 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
+      "reviewer_status": "pending",
+      "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
+    },
+    {
+      "claim_id": "CLM-0111",
+      "kind": "adjustment_order",
+      "chapter": "B1-CH16",
+      "claim": "AF-07 carries an ordering constraint relative to other families.",
+      "taxonomy_ref": "AF-07",
+      "source_refs": [
+        "S-0003"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0110",
+      "claim_id": "CLM-0112",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Armhole depth and shape acts on: Front and back bodice: armhole curve, underarm point.",
@@ -1551,34 +1694,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
-      "reviewer_status": "pending",
-      "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
-    },
-    {
-      "claim_id": "CLM-0111",
-      "kind": "adjustment_order",
-      "chapter": "B1-CH16",
-      "claim": "AF-08 carries an ordering constraint relative to other families.",
-      "taxonomy_ref": "AF-08",
-      "source_refs": [
-        "S-0001"
-      ],
-      "record_verification_status": "agent_drafted_unverified",
-      "evidence_level": "INFERRED",
-      "reviewer_status": "pending",
-      "risk_note": "Out-of-order adjustment invalidates work already done."
-    },
-    {
-      "claim_id": "CLM-0112",
-      "kind": "adjustment_family",
-      "chapter": "B1-CH16",
-      "claim": "Sleeve cap (height, shape, ease) acts on: Sleeve pattern: cap curve, cap height, notches.",
-      "taxonomy_ref": "AF-09",
-      "source_refs": [
-        "S-0001"
-      ],
-      "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
@@ -1586,13 +1702,12 @@
       "claim_id": "CLM-0113",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
-      "claim": "AF-09 carries an ordering constraint relative to other families.",
-      "taxonomy_ref": "AF-09",
-      "source_refs": [
-        "S-0001"
-      ],
-      "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "claim": "AF-08 carries an ordering constraint relative to other families.",
+      "taxonomy_ref": "AF-08",
+      "source_refs": [],
+      "record_verification_status": "agent_drafted_unverified",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
@@ -1600,13 +1715,14 @@
       "claim_id": "CLM-0114",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
-      "claim": "Sleeve girth and length (bicep, forearm, length) acts on: Sleeve pattern: bicep line, underarm seam, hem.",
-      "taxonomy_ref": "AF-10",
+      "claim": "Sleeve cap (height, shape, ease) acts on: Sleeve pattern: cap curve, cap height.",
+      "taxonomy_ref": "AF-09",
       "source_refs": [
         "S-0001"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
@@ -1614,18 +1730,47 @@
       "claim_id": "CLM-0115",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
-      "claim": "AF-10 carries an ordering constraint relative to other families.",
+      "claim": "AF-09 carries an ordering constraint relative to other families.",
+      "taxonomy_ref": "AF-09",
+      "source_refs": [],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
+      "reviewer_status": "pending",
+      "risk_note": "Out-of-order adjustment invalidates work already done."
+    },
+    {
+      "claim_id": "CLM-0116",
+      "kind": "adjustment_family",
+      "chapter": "B1-CH16",
+      "claim": "Sleeve girth and length (bicep, forearm, length) acts on: Sleeve pattern: bicep line, underarm seam.",
       "taxonomy_ref": "AF-10",
       "source_refs": [
         "S-0001"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
+      "reviewer_status": "pending",
+      "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
+    },
+    {
+      "claim_id": "CLM-0117",
+      "kind": "adjustment_order",
+      "chapter": "B1-CH16",
+      "claim": "AF-10 carries an ordering constraint relative to other families.",
+      "taxonomy_ref": "AF-10",
+      "source_refs": [
+        "S-0003"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0116",
+      "claim_id": "CLM-0118",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Torso length and front/back balance acts on: Front and back bodice: lengthen/shorten lines, waist seam.",
@@ -1635,11 +1780,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0117",
+      "claim_id": "CLM-0119",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-11 carries an ordering constraint relative to other families.",
@@ -1649,11 +1795,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0118",
+      "claim_id": "CLM-0120",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Waist girth acts on: Side seams, waist darts, waist seam.",
@@ -1661,23 +1808,27 @@
       "source_refs": [],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0119",
+      "claim_id": "CLM-0121",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-12 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-12",
-      "source_refs": [],
+      "source_refs": [
+        "S-0003"
+      ],
       "record_verification_status": "agent_drafted_unverified",
-      "evidence_level": "UNVERIFIED",
+      "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0120",
+      "claim_id": "CLM-0122",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Hip and seat volume (full / flat seat, high hip) acts on: Trouser/skirt FRONT and BACK: seat curve, side seams, front and back darts, centre front and centre back.",
@@ -1688,26 +1839,25 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0121",
+      "claim_id": "CLM-0123",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-13 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-13",
-      "source_refs": [
-        "S-0001",
-        "S-0002"
-      ],
+      "source_refs": [],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0122",
+      "claim_id": "CLM-0124",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Sway back / lumbar hollow acts on: Back bodice/skirt: centre back, waist seam, back length.",
@@ -1718,26 +1868,25 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0123",
+      "claim_id": "CLM-0125",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-14 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-14",
-      "source_refs": [
-        "S-0001",
-        "S-0003"
-      ],
+      "source_refs": [],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0124",
+      "claim_id": "CLM-0126",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Crotch depth (rise) acts on: Trouser front and back: crotch depth adjustment line, rise.",
@@ -1748,26 +1897,27 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0125",
+      "claim_id": "CLM-0127",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-15 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-15",
       "source_refs": [
-        "S-0001",
         "S-0002"
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0126",
+      "claim_id": "CLM-0128",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Crotch length and curve shape (front / back hook) acts on: Trouser front and back: crotch curve, crotch point, inseam start.",
@@ -1778,26 +1928,27 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0127",
+      "claim_id": "CLM-0129",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-16 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-16",
       "source_refs": [
-        "S-0001",
         "S-0002"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0128",
+      "claim_id": "CLM-0130",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Leg girth and shape (thigh, knee, calf) acts on: Trouser: inseam, outseam, leg width lines.",
@@ -1808,26 +1959,25 @@
       ],
       "record_verification_status": "technical_reference_verified",
       "evidence_level": "VERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0129",
+      "claim_id": "CLM-0131",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-17 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-17",
-      "source_refs": [
-        "S-0001",
-        "S-0002"
-      ],
+      "source_refs": [],
       "record_verification_status": "technical_reference_verified",
-      "evidence_level": "VERIFIED",
+      "evidence_level": "UNVERIFIED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0130",
+      "claim_id": "CLM-0132",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Blending between sizes acts on: All pattern pieces: side seams, cutting lines across size range.",
@@ -1837,11 +1987,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0131",
+      "claim_id": "CLM-0133",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-18 carries an ordering constraint relative to other families.",
@@ -1851,11 +2002,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0132",
+      "claim_id": "CLM-0134",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Overall length (lengthen / shorten lines) acts on: All pieces carrying printed lengthen/shorten lines.",
@@ -1865,25 +2017,27 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0133",
+      "claim_id": "CLM-0135",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-19 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-19",
       "source_refs": [
-        "S-0002"
+        "S-0003"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0134",
+      "claim_id": "CLM-0136",
       "kind": "adjustment_family",
       "chapter": "B1-CH16",
       "claim": "Abdomen volume (protruding / flat abdomen) acts on: Trouser/skirt/bodice front: centre front, front dart, waist seam, front side seam.",
@@ -1894,26 +2048,27 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
     },
     {
-      "claim_id": "CLM-0135",
+      "claim_id": "CLM-0137",
       "kind": "adjustment_order",
       "chapter": "B1-CH16",
       "claim": "AF-20 carries an ordering constraint relative to other families.",
       "taxonomy_ref": "AF-20",
       "source_refs": [
-        "S-0001",
-        "S-0002"
+        "S-0003"
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "Out-of-order adjustment invalidates work already done."
     },
     {
-      "claim_id": "CLM-0136",
+      "claim_id": "CLM-0138",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-001 (gape) is observable as described and appears at: Ön yaka eğrisi, omuz/boyun noktası ile ön orta arasında.",
@@ -1924,14 +2079,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0137",
+      "claim_id": "CLM-0139",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
-      "claim": "SYM-001 may be caused by: Yaka eğrisi vücut için fazla geniş/derin — distinguished by: Açıklık okur DİK dururken de var ve simetrik.",
+      "claim": "SYM-001 may be caused by: Yaka eğrisi vücut için fazla geniş/derin — distinguished by: Açıklık dik dururken de öne eğilirken de AYNI, yakanın tamamında eşit ve ARKA yaka da vücuttan ayrılıyor.",
       "taxonomy_ref": "SYM-001.C1",
       "source_refs": [
         "S-0001",
@@ -1939,14 +2095,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0138",
+      "claim_id": "CLM-0140",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
-      "claim": "SYM-001 may be caused by: Göğüs hacmi yakayı öne çekiyor — distinguished by: Açıklık ASİMETRİK biçimde göğse doğru yönleniyor ve göğüs pensi de yerinde değil; okur öne eğilince BELİRGİN artıyor.",
+      "claim": "SYM-001 may be caused by: Göğüs hacmi yakayı öne çekiyor — distinguished by: Öne eğilince açıklık BELİRGİN artıyor, yalnızca ÖNDE — arka yaka yatıyor — ve ön etek ucu arkadan yukarıda. Genellikle iki taraflı.",
       "taxonomy_ref": "SYM-001.C2",
       "source_refs": [
         "S-0001",
@@ -1954,11 +2111,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0139",
+      "claim_id": "CLM-0141",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-001 may be caused by: Yaka kenarı dikiş sırasında gerilmiş — distinguished by: Açıklık dalgalı/gevşek görünüyor, düz bir açıklık değil.",
@@ -1969,11 +2127,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0140",
+      "claim_id": "CLM-0142",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-002 (strain_pull) is observable as described and appears at: Boyun tabanı çevresi, özellikle ön orta ve omuz/boyun noktası.",
@@ -1984,11 +2143,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0141",
+      "claim_id": "CLM-0143",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-002 may be caused by: Yaka eğrisi vücut için fazla dar — distinguished by: Baskı çevre boyunca eşit dağılmış.",
@@ -1999,11 +2159,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0142",
+      "claim_id": "CLM-0144",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-002 may be caused by: Yuvarlak sırt boyunu öne itiyor — distinguished by: Baskı ARKA yakada belirgin, ön yakada yok; arka yaka ayrıca yukarı tırmanıyor.",
@@ -2014,14 +2175,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0143",
+      "claim_id": "CLM-0145",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
-      "claim": "SYM-002 may be caused by: Omuz dikişi öne kaymış, yakayı boyna bindiriyor — distinguished by: Omuz dikişi omuz üstü orta çizgisinin ÖNÜNDE duruyor.",
+      "claim": "SYM-002 may be caused by: Omuz dikişi öne kaymış, yakayı boyna bindiriyor — distinguished by: Omuz dikişi omuz üstü çizgisinin ARKASINDA duruyor — omuz öne taşınmış ve dikiş geride kalmış — ve giydikçe öne kayıyor.",
       "taxonomy_ref": "SYM-002.C3",
       "source_refs": [
         "S-0001",
@@ -2029,11 +2191,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0144",
+      "claim_id": "CLM-0146",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-003 (hem_hike) is observable as described and appears at: Arka yaka + arka etek ucu (aynı anda).",
@@ -2045,14 +2208,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0145",
+      "claim_id": "CLM-0147",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
-      "claim": "SYM-003 may be caused by: Arka beden boyu yetersiz (yuvarlak sırt / dik duruş) — distinguished by: Ön etek ucu yerde düzgün, YALNIZCA arka yükseliyor.",
+      "claim": "SYM-003 may be caused by: Arka beden boyu BÜTÜNÜYLE kısa — distinguished by: Ön etek ucu yerde düzgün, YALNIZCA arka yükseliyor.",
       "taxonomy_ref": "SYM-003.C1",
       "source_refs": [
         "S-0001",
@@ -2061,11 +2225,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0146",
+      "claim_id": "CLM-0148",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-003 may be caused by: Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor — distinguished by: Yükselme ile birlikte kürek hizasında yatay gerginlik var.",
@@ -2077,14 +2242,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0147",
+      "claim_id": "CLM-0149",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
-      "claim": "SYM-003 may be caused by: Yaka arkada fazla dar, giysiyi yukarı asıyor — distinguished by: Yükselme SADECE yaka çevresinde, kürek hizasında gerginlik YOK.",
+      "claim": "SYM-003 may be caused by: Yaka arkada fazla dar, giysiyi yukarı asıyor — distinguished by: En çok yaka yükseliyor, etek ucu onu ancak hafifçe izliyor; ikisinin arası temiz.",
       "taxonomy_ref": "SYM-003.C3",
       "source_refs": [
         "S-0001",
@@ -2093,11 +2259,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0148",
+      "claim_id": "CLM-0150",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-004 (diagonal_drag_line) is observable as described and appears at: Omuz üstü ile koltuk altı arası, ön ve/veya arka.",
@@ -2108,11 +2275,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0149",
+      "claim_id": "CLM-0151",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-004 may be caused by: Omuz eğimi kalıbın varsaydığından DİK (square shoulder) — distinguished by: Çizgiler boyun noktasından DIŞA-AŞAĞI iniyor; omuz ucunda kumaş gergin, omuz dikişi omza yapışık.",
@@ -2123,11 +2291,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0150",
+      "claim_id": "CLM-0152",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-004 may be caused by: Omuz eğimi kalıbın varsaydığından EĞİK (sloping shoulder) — distinguished by: Çizgiler ters yönde — omuz ucundan boyuna doğru; omuz ucunda kumaş TOPLANIYOR.",
@@ -2138,11 +2307,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0151",
+      "claim_id": "CLM-0153",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-004 may be caused by: Omuz genişliği yetersiz — distinguished by: Çizgiler var ama omuz eğimi doğru; kol oyuntusu dikişi omuz ucunun İÇİNDE kalıyor.",
@@ -2153,11 +2323,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0152",
+      "claim_id": "CLM-0154",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-005 (horizontal_fold) is observable as described and appears at: Omuz dikişi altı, kol oyuntusu üst kısmı.",
@@ -2168,11 +2339,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0153",
+      "claim_id": "CLM-0155",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-005 may be caused by: Omuz eğimi fazla eğik çizilmiş (dik omuzlu okur için) — distinguished by: Kıvrım omuz UCUNA yakın; boyun tarafında yok.",
@@ -2183,11 +2355,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0154",
+      "claim_id": "CLM-0156",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-005 may be caused by: Kol oyuntusu fazla derin, kol başı fazla yüksek — distinguished by: Kıvrım kol oyuntusu çevresini takip ediyor ve kol kaldırıldığında kayboluyor.",
@@ -2198,11 +2371,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0155",
+      "claim_id": "CLM-0157",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-005 may be caused by: Omuz genişliği fazla — distinguished by: Kıvrımla birlikte kol başı omuz ucunun DIŞINA sarkıyor.",
@@ -2213,11 +2387,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0156",
+      "claim_id": "CLM-0158",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-006 (seam_displacement) is observable as described and appears at: Omuz üstü, boyun noktası ile omuz ucu arası.",
@@ -2229,11 +2404,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0157",
+      "claim_id": "CLM-0159",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-006 may be caused by: Öne düşük omuz duruşu (forward shoulder) — distinguished by: Dikiş HER İKİ omuzda da arkada; okur rahat dururken de böyle.",
@@ -2245,11 +2421,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0158",
+      "claim_id": "CLM-0160",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-006 may be caused by: Yuvarlak sırt kumaşı arkaya çekiyor — distinguished by: Dikiş kayması var AMA kürek hizasında yatay gerginlik de var.",
@@ -2261,11 +2438,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0159",
+      "claim_id": "CLM-0161",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-006 may be caused by: Ön beden arka bedene göre kısa — distinguished by: Ön etek ucu da yükseliyor.",
@@ -2277,11 +2455,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0160",
+      "claim_id": "CLM-0162",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-007 (silhouette_deviation) is observable as described and appears at: Omuz ucu ve kol başı.",
@@ -2293,11 +2472,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0161",
+      "claim_id": "CLM-0163",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-007 may be caused by: Omuz genişliği fazla (kalıp daha geniş omuz için) — distinguished by: Sarkma her iki omuzda simetrik; kol oyuntusu dikişi kol kemiği ucunun DIŞINDA.",
@@ -2309,11 +2489,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0162",
+      "claim_id": "CLM-0164",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-007 may be caused by: Tasarım bilerek düşük omuzlu (drop shoulder) — distinguished by: Kalıp zarfı/teknik çizim düşük omuz gösteriyor; kol oyuntusu da derin.",
@@ -2325,11 +2506,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0163",
+      "claim_id": "CLM-0165",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-007 may be caused by: Omuz eğimi fazla dik çizilmiş — distinguished by: Sarkmayla birlikte omuz ucunda kumaş toplanması var.",
@@ -2341,11 +2523,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0164",
+      "claim_id": "CLM-0166",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-008 (strain_pull) is observable as described and appears at: Kürek hizası, kol oyuntusu arka kenarı.",
@@ -2356,11 +2539,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0165",
+      "claim_id": "CLM-0167",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-008 may be caused by: Sırt genişliği yetersiz — distinguished by: Kol yanda dururken belirti YOK; yalnızca kol öne gelince çıkıyor.",
@@ -2371,11 +2555,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0166",
+      "claim_id": "CLM-0168",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-008 may be caused by: Kol oyuntusu fazla dar/öne kaymış — distinguished by: Çekme kol oyuntusu kenarında yoğunlaşıyor, kürek ortasında yok.",
@@ -2386,11 +2571,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0167",
+      "claim_id": "CLM-0169",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-008 may be caused by: Kol başı ease'i yetersiz veya kol dar — distinguished by: Çekme kolun kendisinde de hissediliyor.",
@@ -2401,11 +2587,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0168",
+      "claim_id": "CLM-0170",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-009 (horizontal_fold) is observable as described and appears at: Kürek hizası, iki kol oyuntusu arası.",
@@ -2416,11 +2603,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0169",
+      "claim_id": "CLM-0171",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-009 may be caused by: Arka beden boyu fazla — distinguished by: Kıvrım kol kaldırılınca da kalıyor; yaka ve omuz yerinde.",
@@ -2431,11 +2619,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0170",
+      "claim_id": "CLM-0172",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-009 may be caused by: Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt) — distinguished by: Kıvrım kürek hizasında YOĞUN, aşağı doğru kayboluyor; kalıpta omuz pensi/ease var ama vücut onu doldurmuyor.",
@@ -2446,11 +2635,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0171",
+      "claim_id": "CLM-0173",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-009 may be caused by: Arka yaka fazla yüksek, kumaşı aşağı itiyor — distinguished by: Kıvrım yakanın hemen altında ve yaka boyunu sıkıyor.",
@@ -2461,11 +2651,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0172",
+      "claim_id": "CLM-0174",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-010 (vertical_fold) is observable as described and appears at: Arka beden, kürek hizası ile kol oyuntuları arası.",
@@ -2476,14 +2667,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0173",
+      "claim_id": "CLM-0175",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
-      "claim": "SYM-010 may be caused by: Sırt genişliği fazla — distinguished by: Kıvrımlar dikey ve simetrik; kol öne uzatıldığında da kayboluyor değil, AZALIYOR.",
+      "claim": "SYM-010 may be caused by: Sırt genişliği fazla — distinguished by: Kıvrımlar dikey ve simetrik; öne uzanmak onları TAMAMEN alıyor — dururken fazla olan genişlik, uzanmanın tam olarak ihtiyaç duyduğu genişliktir.",
       "taxonomy_ref": "SYM-010.C1",
       "source_refs": [
         "S-0001",
@@ -2491,11 +2683,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0174",
+      "claim_id": "CLM-0176",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-010 may be caused by: Bir beden büyük seçilmiş — distinguished by: Aynı fazlalık ön bedende, kolda ve belde de var.",
@@ -2506,11 +2699,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0175",
+      "claim_id": "CLM-0177",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-010 may be caused by: Kol oyuntusu fazla geniş — distinguished by: Fazlalık yalnızca kol oyuntusuna yakın; sırt ortasında yok.",
@@ -2521,11 +2715,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0176",
+      "claim_id": "CLM-0178",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-011 (hem_hike) is observable as described and appears at: Arka etek ucu + arka yaka.",
@@ -2537,14 +2732,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0177",
+      "claim_id": "CLM-0179",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
-      "claim": "SYM-011 may be caused by: Arka beden boyu yetersiz (yuvarlak sırt) — distinguished by: Kürek hizasında AYRICA yatay gerginlik var; arka yaka da yukarı çekiliyor.",
+      "claim": "SYM-011 may be caused by: Arka beden boyu KÜREK HİZASINDA kısa (yuvarlak sırt) — distinguished by: Arka yaka etek ucuyla birlikte yukarı çekiliyor ve çekme sırtı ENİNE değil BOYUNA katediyor; kürek hizası yatay olarak gergin DEĞİL.",
       "taxonomy_ref": "SYM-011.C1",
       "source_refs": [
         "S-0001",
@@ -2553,11 +2749,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0178",
+      "claim_id": "CLM-0180",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-011 may be caused by: Kalça/oturak hacmi kumaşı yukarı çekiyor — distinguished by: Yükselme bel hizasının ALTINDA başlıyor; kürek hizası temiz.",
@@ -2569,11 +2766,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0179",
+      "claim_id": "CLM-0181",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-011 may be caused by: Ön/arka denge bozuk (öne eğik duruş) — distinguished by: Ön etek ucu ise AŞAĞI sarkıyor — ikisi birlikte.",
@@ -2585,11 +2783,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0180",
+      "claim_id": "CLM-0182",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-012 (seam_displacement) is observable as described and appears at: Arka orta, bel ile kürek arası.",
@@ -2601,11 +2800,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0181",
+      "claim_id": "CLM-0183",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-012 may be caused by: Bel oyuğu (sway back) — arka orta bel hizasında fazlalık — distinguished by: Yay bel hizasında en belirgin; hemen üstünde yatay kıvrımlar da var.",
@@ -2617,14 +2817,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0182",
+      "claim_id": "CLM-0184",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
-      "claim": "SYM-012 may be caused by: Yuvarlak sırt — arka orta üst kısımda boy yetersiz — distinguished by: Yay kürek hizasında; bel temiz.",
+      "claim": "SYM-012 may be caused by: Yuvarlak sırt — arka orta üst kısımda boy yetersiz — distinguished by: Kavis kürek hizasında ve oradaki kumaş GEVŞEK değil GERGİN — dikiş dışarı ÇEKİLİYOR, dışarı düşmüyor. Bel temiz.",
       "taxonomy_ref": "SYM-012.C2",
       "source_refs": [
         "S-0001",
@@ -2633,11 +2834,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0183",
+      "claim_id": "CLM-0185",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-012 may be caused by: Fermuar dikilirken gerdirilmiş — distinguished by: Yay düzensiz, dalgalı; kumaş fermuar boyunca büzülmüş.",
@@ -2649,11 +2851,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0184",
+      "claim_id": "CLM-0186",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-013 (strain_pull) is observable as described and appears at: Koltuk altı, kol oyuntusu en derin noktası.",
@@ -2664,11 +2867,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0185",
+      "claim_id": "CLM-0187",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-013 may be caused by: Kol oyuntusu fazla sığ (koltuk altı çok yüksek) — distinguished by: Kol yukarıdayken rahat, aşağıdayken sıkıyor; koltuk altında kırmızı iz var.",
@@ -2679,11 +2883,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0186",
+      "claim_id": "CLM-0188",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-013 may be caused by: Kol bicep hattı dar — distinguished by: Sıkışma kol içinde de hissediliyor; kol oyuntusu kendisi rahat.",
@@ -2694,11 +2899,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0187",
+      "claim_id": "CLM-0189",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-013 may be caused by: Göğüs hacmi ön kol oyuntusunu yukarı çekiyor — distinguished by: Sıkışma ÖN koltuk altında; göğüsten kol oyuntusuna doğru çekme çizgileri de var.",
@@ -2709,11 +2915,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0188",
+      "claim_id": "CLM-0190",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-014 (gape) is observable as described and appears at: Ön kol oyuntusu kenarı, koltuk kıvrımı ile omuz ucu arası.",
@@ -2724,11 +2931,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0189",
+      "claim_id": "CLM-0191",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-014 may be caused by: Ön beden genişliği fazla — distinguished by: Açıklık kol yanda dururken de var; ön göğüs üstünde gevşeklik hissediliyor.",
@@ -2739,11 +2947,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0190",
+      "claim_id": "CLM-0192",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-014 may be caused by: Göğüs pensi apeksi doğru yerde değil, üstte fazlalık bırakıyor — distinguished by: Açıklıkla birlikte göğsün ÜSTÜNDE boş bir alan var.",
@@ -2754,11 +2963,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0191",
+      "claim_id": "CLM-0193",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-014 may be caused by: Omuz genişliği fazla — distinguished by: Kol başı da omuz ucundan sarkıyor.",
@@ -2769,11 +2979,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0192",
+      "claim_id": "CLM-0194",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-015 (gape) is observable as described and appears at: Arka kol oyuntusu kenarı.",
@@ -2784,11 +2995,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0193",
+      "claim_id": "CLM-0195",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-015 may be caused by: Arka beden genişliği fazla — distinguished by: Sırtta dikey gevşek kıvrımlar da var.",
@@ -2799,11 +3011,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0194",
+      "claim_id": "CLM-0196",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-015 may be caused by: Omuz eğimi fazla dik çizilmiş — distinguished by: Omuz ucunda kumaş toplanması da var.",
@@ -2814,11 +3027,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0195",
+      "claim_id": "CLM-0197",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-015 may be caused by: Kol oyuntusu fazla geniş çizilmiş — distinguished by: Açıklık kol oyuntusu çevresi boyunca eşit.",
@@ -2829,11 +3043,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0196",
+      "claim_id": "CLM-0198",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-016 (diagonal_drag_line) is observable as described and appears at: Göğüs apeksinden dışa doğru, ön beden.",
@@ -2844,11 +3059,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0197",
+      "claim_id": "CLM-0199",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-016 may be caused by: Göğüs hacmi kalıbın varsaydığından fazla — distinguished by: Çizgiler apeksten IŞINSAL olarak yayılıyor; ön etek ucu da yukarı tırmanıyor; ön yaka açılıyor.",
@@ -2859,11 +3075,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0198",
+      "claim_id": "CLM-0200",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-016 may be caused by: Ön beden genel olarak dar (beden seçimi) — distinguished by: Aynı gerginlik göğüs dışında — bel, kalça, kol — her yerde var.",
@@ -2874,11 +3091,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0199",
+      "claim_id": "CLM-0201",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-016 may be caused by: Pens ucu apeksin uzağında, hacmi yanlış yere dağıtıyor — distinguished by: Gerginlik VAR ama toplam ön genişlik yeterli; pens ucu apeksten belirgin uzakta bitiyor.",
@@ -2889,11 +3107,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0200",
+      "claim_id": "CLM-0202",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-017 (hem_hike) is observable as described and appears at: Ön etek ucu.",
@@ -2905,11 +3124,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0201",
+      "claim_id": "CLM-0203",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-017 may be caused by: Göğüs hacmi ön kumaşı yukarı çekiyor — distinguished by: Göğüsten yayılan çekme çizgileri de var; yan dikiş öne kayıyor.",
@@ -2921,11 +3141,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0202",
+      "claim_id": "CLM-0204",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-017 may be caused by: Ön beden boyu yetersiz — distinguished by: Çekme çizgisi YOK, yalnızca boy kısa; göğüs bölgesi rahat.",
@@ -2937,11 +3158,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0203",
+      "claim_id": "CLM-0205",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-017 may be caused by: Karın hacmi kumaşı yukarı çekiyor — distinguished by: Yükselme bel hizasının altında başlıyor; göğüs temiz.",
@@ -2953,11 +3175,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0204",
+      "claim_id": "CLM-0206",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-018 (seam_displacement) is observable as described and appears at: Yan dikiş, koltuk altı ile etek ucu arası.",
@@ -2969,11 +3192,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0205",
+      "claim_id": "CLM-0207",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-018 may be caused by: Ön beden hacmi yetersiz (göğüs veya karın) — distinguished by: Kayma ile birlikte göğüs veya karın hizasında gerginlik var. Hangi hacim olduğunu ayır: gerginlik GÖĞÜS hizasındaysa göğüs, BEL ALTI hizasındaysa karın ailesine gidilir.",
@@ -2985,11 +3209,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0206",
+      "claim_id": "CLM-0208",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-018 may be caused by: Arka beden genişliği fazla — distinguished by: Kayma var ama ön tarafta gerginlik YOK; arkada dikey gevşek kıvrımlar var.",
@@ -3001,14 +3226,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0207",
+      "claim_id": "CLM-0209",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
-      "claim": "SYM-018 may be caused by: Kumaş çözgüye eğri kesilmiş — distinguished by: Kayma tek tarafta; simetrik değil.",
+      "claim": "SYM-018 may be caused by: Kumaş çözgüye eğri kesilmiş — distinguished by: Bir taraf kayıyor, öteki kaymıyor; o parçanın çözgüsü kenara paralel değil.",
       "taxonomy_ref": "SYM-018.C3",
       "source_refs": [
         "S-0001",
@@ -3017,11 +3243,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0208",
+      "claim_id": "CLM-0210",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-019 (strain_pull) is observable as described and appears at: Göğüs pensi ucu.",
@@ -3032,11 +3259,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0209",
+      "claim_id": "CLM-0211",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-019 may be caused by: Pens ucu apeksin üzerinde bitiyor (çok uzun) — distinguished by: Kabarcık tam pens ucunda; apeksin kendisi düz.",
@@ -3047,11 +3275,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0210",
+      "claim_id": "CLM-0212",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-019 may be caused by: Pens hacmi vücuda göre fazla — distinguished by: Pens çevresinde genel gevşeklik de var.",
@@ -3062,11 +3291,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0211",
+      "claim_id": "CLM-0213",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-019 may be caused by: Pens dikilirken ucu düz bitirilmemiş — distinguished by: Büzüşme düzensiz; dikiş ucunda düğüm/geri dikiş var.",
@@ -3077,11 +3307,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0212",
+      "claim_id": "CLM-0214",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-020 (horizontal_fold) is observable as described and appears at: Ön beden üst kısmı.",
@@ -3092,11 +3323,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0213",
+      "claim_id": "CLM-0215",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-020 may be caused by: Göğüs pensi apeksten yukarıda konumlanmış — distinguished by: Boşluk pensin hemen üstünde; pens ucu apeksin üzerinde.",
@@ -3107,11 +3339,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0214",
+      "claim_id": "CLM-0216",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-020 may be caused by: Ön üst genişlik fazla — distinguished by: Boşluk geniş bir alana yayılmış; kol oyuntusu ön kenarı da açılıyor.",
@@ -3122,11 +3355,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0215",
+      "claim_id": "CLM-0217",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-020 may be caused by: Kalıp daha dolgun bir üst göğüs için çizilmiş — distinguished by: Boşluk üst göğüs çevresinde; M-001 kalıbın varsaydığından küçük.",
@@ -3137,11 +3371,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0216",
+      "claim_id": "CLM-0218",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-021 (gape) is observable as described and appears at: Ön kapama, göğüs hizası.",
@@ -3152,11 +3387,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0217",
+      "claim_id": "CLM-0219",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-021 may be caused by: Göğüs hacmi yetersiz — distinguished by: Açılma göğüs hizasında YOĞUN; üstte ve altta kapama düzgün.",
@@ -3167,11 +3403,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0218",
+      "claim_id": "CLM-0220",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-021 may be caused by: Ön kapama payı (extension) dar — distinguished by: Açılma kapama boyunca EŞİT dağılmış.",
@@ -3182,11 +3419,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0219",
+      "claim_id": "CLM-0221",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-021 may be caused by: Düğme aralığı göğüs hizasına düğme koymuyor — distinguished by: Açıklık iki düğme arasında ve apeks hizasında düğme YOK.",
@@ -3197,11 +3435,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0220",
+      "claim_id": "CLM-0222",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-022 (seam_displacement) is observable as described and appears at: Bel dikişi çevresi.",
@@ -3213,11 +3452,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0221",
+      "claim_id": "CLM-0223",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-022 may be caused by: Beden boyu kalıbın varsaydığından farklı — distinguished by: Kayma çevre boyunca EŞİT; ön ve arkada aynı miktarda.",
@@ -3229,11 +3469,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0222",
+      "claim_id": "CLM-0224",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-022 may be caused by: Ön/arka denge bozuk — distinguished by: Kayma ön ve arkada FARKLI miktarda.",
@@ -3245,11 +3486,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0223",
+      "claim_id": "CLM-0225",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-022 may be caused by: Tasarım bilerek yüksek/düşük belli — distinguished by: Kalıp teknik çizimi ve bitmiş giysi ölçüsü bunu gösteriyor.",
@@ -3261,11 +3503,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0224",
+      "claim_id": "CLM-0226",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-023 (pooling) is observable as described and appears at: Arka bel, bel dikişinin üstü.",
@@ -3276,11 +3519,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0225",
+      "claim_id": "CLM-0227",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-023 may be caused by: Bel oyuğu (sway back) — arka orta bel hizasında kumaş fazlası — distinguished by: Fazlalık YALNIZCA arka ortada yoğun, yan dikişlere doğru azalıyor; ön taraf temiz.",
@@ -3291,11 +3535,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0226",
+      "claim_id": "CLM-0228",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-023 may be caused by: Arka beden boyu genel olarak fazla — distinguished by: Fazlalık arka genişliğe EŞİT dağılmış, yan dikişlerde de var.",
@@ -3306,11 +3551,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0227",
+      "claim_id": "CLM-0229",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-023 may be caused by: Oturak hacmi kumaşı yukarı itiyor — distinguished by: Havuzlanma ile birlikte oturak üzerinde yatay çekme çizgileri de var.",
@@ -3321,11 +3567,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0228",
+      "claim_id": "CLM-0230",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-024 (gape) is observable as described and appears at: Arka bel bandı.",
@@ -3336,11 +3583,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0229",
+      "claim_id": "CLM-0231",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-024 may be caused by: Bel oyuğu (sway back) — distinguished by: Aralık arka ortada en geniş; yanlarda kapanıyor. Belin hemen üstünde havuzlanma da var.",
@@ -3351,11 +3599,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0230",
+      "claim_id": "CLM-0232",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-024 may be caused by: Bel/kalça oranı kalıbın varsaydığından farklı — distinguished by: Bel bandı bel çevresine oturuyor ama kalça bölgesi dar/geniş.",
@@ -3366,14 +3615,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0231",
+      "claim_id": "CLM-0233",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
-      "claim": "SYM-024 may be caused by: Bel bandı fazla uzun kesilmiş — distinguished by: Aralık çevre boyunca eşit.",
+      "claim": "SYM-024 may be caused by: Bel bandı fazla uzun kesilmiş — distinguished by: Açıklık yanlarda da arkadaki kadar büyük; bant yalnızca arkada değil, çepeçevre bol.",
       "taxonomy_ref": "SYM-024.C3",
       "source_refs": [
         "S-0001",
@@ -3381,11 +3631,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0232",
+      "claim_id": "CLM-0234",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-025 (vertical_fold) is observable as described and appears at: Bel, yan dikiş çevresi.",
@@ -3396,11 +3647,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0233",
+      "claim_id": "CLM-0235",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-025 may be caused by: Bel çevresi fazla — distinguished by: Kıvrımlar dikey ve simetrik; göğüs ve kalça oturuyor.",
@@ -3411,14 +3663,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0234",
+      "claim_id": "CLM-0236",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
-      "claim": "SYM-025 may be caused by: Bel şekillendirmesi (pens) yetersiz — distinguished by: Fazlalık var ama yan dikişten alınca kalça sıkışıyor.",
+      "claim": "SYM-025 may be caused by: Bel şekillendirmesi (pens) yetersiz — distinguished by: Kıvrımlar yan dikişlere yakın ve bel kalıba karşı YETERLİ ölçülüyor, ama kalıpta bel pensi YOK ya da çok sığ — oysa okurun kalça−bel farkı şekillendirme gerektiğini söylüyor.",
       "taxonomy_ref": "SYM-025.C2",
       "source_refs": [
         "S-0001",
@@ -3426,11 +3679,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0235",
+      "claim_id": "CLM-0237",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-025 may be caused by: Bir beden büyük seçilmiş — distinguished by: Aynı fazlalık göğüs ve kalçada da var.",
@@ -3441,11 +3695,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0236",
+      "claim_id": "CLM-0238",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-026 (strain_pull) is observable as described and appears at: Bel çevresi.",
@@ -3456,11 +3711,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0237",
+      "claim_id": "CLM-0239",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-026 may be caused by: Bel çevresi yetersiz — distinguished by: Sıkışma çevre boyunca eşit; oturunca artıyor.",
@@ -3471,11 +3727,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0238",
+      "claim_id": "CLM-0240",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-026 may be caused by: Bel hattı yanlış hizada oturuyor (doğal belin altında) — distinguished by: Sıkışma bel altında, karın hizasında.",
@@ -3486,11 +3743,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0239",
+      "claim_id": "CLM-0241",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-026 may be caused by: Karın hacmi — distinguished by: Sıkışma yalnızca ÖNDE; arkada rahat.",
@@ -3501,11 +3759,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0240",
+      "claim_id": "CLM-0242",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-027 (horizontal_fold) is observable as described and appears at: Arka, kalça en dolgun hizası.",
@@ -3517,11 +3776,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0241",
+      "claim_id": "CLM-0243",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-027 may be caused by: Oturak hacmi kalıbın varsaydığından fazla — distinguished by: Çizgiler oturak üzerinde YOĞUN; yan dikiş arkaya kayıyor; arka etek ucu yükseliyor.",
@@ -3533,11 +3793,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0242",
+      "claim_id": "CLM-0244",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-027 may be caused by: Ağ uzunluğu yetersiz (pantolonda) — distinguished by: Çizgilerle birlikte ağ yukarı çekiliyor ve oturmak zor.",
@@ -3549,14 +3810,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0243",
+      "claim_id": "CLM-0245",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
-      "claim": "SYM-027 may be caused by: Genel kalça çevresi yetersiz — distinguished by: Aynı gerginlik ÖNDE de var.",
+      "claim": "SYM-027 may be caused by: Genel kalça çevresi yetersiz — distinguished by: Aynı gerginlik ÖNDE de var ve göğüs ile bel de kalçayla AYNI bedene düşüyor — yani sorun oturak değil, bedenin tamamı.",
       "taxonomy_ref": "SYM-027.C3",
       "source_refs": [
         "S-0001",
@@ -3565,11 +3827,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0244",
+      "claim_id": "CLM-0246",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-028 (pooling) is observable as described and appears at: Arka, oturak altı.",
@@ -3581,11 +3844,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0245",
+      "claim_id": "CLM-0247",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-028 may be caused by: Oturak hacmi kalıbın varsaydığından az (flat seat) — distinguished by: Sarkma oturak altında; oturak üzerinde gerginlik YOK.",
@@ -3597,11 +3861,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0246",
+      "claim_id": "CLM-0248",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-028 may be caused by: Ağ uzunluğu fazla — distinguished by: Sarkma ağ bölgesine kadar iniyor; ağ vücuda değmiyor.",
@@ -3613,11 +3878,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0247",
+      "claim_id": "CLM-0249",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-028 may be caused by: Arka beden/etek boyu fazla — distinguished by: Sarkma yatay kıvrım hâlinde ve bel hizasına kadar çıkıyor.",
@@ -3629,11 +3895,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0248",
+      "claim_id": "CLM-0250",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-029 (hem_hike) is observable as described and appears at: Tek taraf, kalça hizası ve etek ucu.",
@@ -3646,11 +3913,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0249",
+      "claim_id": "CLM-0251",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-029 may be caused by: Vücut asimetrisi (bir kalça daha yüksek/dolgun) — distinguished by: Yükselme TEK TARAFTA ve okur ağırlığını eşit dağıttığında da sürüyor.",
@@ -3663,11 +3931,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0250",
+      "claim_id": "CLM-0252",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-029 may be caused by: Duruş: ağırlık tek ayakta — distinguished by: Yükselme okur ağırlığını eşitleyince KAYBOLUYOR.",
@@ -3680,11 +3949,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0251",
+      "claim_id": "CLM-0253",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-029 may be caused by: Kumaş eğri kesilmiş — distinguished by: Yükselme ile birlikte yan dikiş de spiralleniyor.",
@@ -3697,11 +3967,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0252",
+      "claim_id": "CLM-0254",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-030 (seam_displacement) is observable as described and appears at: Yan dikiş, kalça hizası.",
@@ -3714,11 +3985,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0253",
+      "claim_id": "CLM-0255",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-030 may be caused by: Arka hacim yetersiz — distinguished by: Kayma ile birlikte oturak üzerinde yatay çekme var.",
@@ -3731,11 +4003,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0254",
+      "claim_id": "CLM-0256",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-030 may be caused by: Ön hacim fazla — distinguished by: Kayma var ama arkada gerginlik YOK; önde gevşeklik var.",
@@ -3748,11 +4021,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0255",
+      "claim_id": "CLM-0257",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-030 may be caused by: Kumaş eğri kesilmiş — distinguished by: Kayma tek tarafta.",
@@ -3765,11 +4039,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0256",
+      "claim_id": "CLM-0258",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-031 (diagonal_drag_line) is observable as described and appears at: Kol başı ile bicep hattı arası.",
@@ -3780,11 +4055,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0257",
+      "claim_id": "CLM-0259",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-031 may be caused by: Kol bicep genişliği yetersiz — distinguished by: Çizgiler bicep hattında yoğun; kol kaldırılınca belirgin artıyor.",
@@ -3795,11 +4071,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0258",
+      "claim_id": "CLM-0260",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-031 may be caused by: Kol başı yüksekliği fazla — distinguished by: Çizgiler kol başı çevresinde; bicep rahat.",
@@ -3810,11 +4087,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0259",
+      "claim_id": "CLM-0261",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-031 may be caused by: Kol oyuntusu dar, kolu sıkıştırıyor — distinguished by: Çizgiler kol oyuntusu dikişinde başlıyor; kol tek başına rahat.",
@@ -3825,11 +4103,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0260",
+      "claim_id": "CLM-0262",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-032 (vertical_fold) is observable as described and appears at: Kol, bicep ile dirsek arası.",
@@ -3840,11 +4119,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0261",
+      "claim_id": "CLM-0263",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-032 may be caused by: Kol genişliği fazla — distinguished by: Kıvrımlar dikey; kol hareketi tamamen serbest.",
@@ -3855,11 +4135,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0262",
+      "claim_id": "CLM-0264",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-032 may be caused by: Tasarım bilerek bol kollu — distinguished by: Kalıp teknik çizimi ve bitmiş ölçü tablosu bol kol gösteriyor.",
@@ -3870,11 +4151,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0263",
+      "claim_id": "CLM-0265",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-032 may be caused by: Kol başı ease'i fazla, kol başında toplanma yaratıyor — distinguished by: Fazlalık kol başında yoğun, aşağı doğru azalıyor.",
@@ -3885,11 +4167,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0264",
+      "claim_id": "CLM-0266",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-033 (grain_distortion) is observable as described and appears at: Kol boyu, alt kol dikişi.",
@@ -3901,11 +4184,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0265",
+      "claim_id": "CLM-0267",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-033 may be caused by: Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış) — distinguished by: Dönme her iki kolda AYNI yönde; kol başı çentikleri omuz dikişiyle örtüşmüyor.",
@@ -3917,11 +4201,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0266",
+      "claim_id": "CLM-0268",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-033 may be caused by: Kol dirsek eğrisi vücuda uymuyor (öne dönük kol duruşu) — distinguished by: Dönme kol rahat sarkarken belirgin; dirsek hizasında çekme var.",
@@ -3933,11 +4218,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0267",
+      "claim_id": "CLM-0269",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-033 may be caused by: Kol eğri kesilmiş — distinguished by: Dönme TEK kolda.",
@@ -3949,11 +4235,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0268",
+      "claim_id": "CLM-0270",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-034 (strain_pull) is observable as described and appears at: Kol başı dikişi.",
@@ -3964,11 +4251,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0269",
+      "claim_id": "CLM-0271",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-034 may be caused by: Kol başı ease'i kumaş için fazla — distinguished by: Büzüşme kol başı üst yayında; kumaş sert/dokusuz.",
@@ -3979,11 +4267,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0270",
+      "claim_id": "CLM-0272",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-034 may be caused by: Kol başı ease'i doğru ama dağıtım/pot alma yapılmamış — distinguished by: Büzüşme düzensiz ve toplu; belirli noktalarda kat oluşmuş.",
@@ -3994,14 +4283,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0271",
+      "claim_id": "CLM-0273",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
-      "claim": "SYM-034 may be caused by: Kol oyuntusu çevresi kalıptan farklı dikilmiş — distinguished by: Kol oyuntusu ölçüsü kalıpla uyuşmuyor.",
+      "claim": "SYM-034 may be caused by: Kol oyuntusu çevresi kalıptan farklı dikilmiş — distinguished by: The puckering is even all the way round rather than concentrated at the top of the cap, and the seam allowance actually used is not the one the pattern specifies.",
       "taxonomy_ref": "SYM-034.C3",
       "source_refs": [
         "S-0001",
@@ -4009,11 +4299,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0272",
+      "claim_id": "CLM-0274",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-035 (horizontal_fold) is observable as described and appears at: Arka ağ bölgesi, oturak altı.",
@@ -4024,11 +4315,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0273",
+      "claim_id": "CLM-0275",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-035 may be caused by: Ağ derinliği yetersiz — distinguished by: Oturunca belirgin artıyor; ayakta azalıyor.",
@@ -4039,11 +4331,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0274",
+      "claim_id": "CLM-0276",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-035 may be caused by: Arka ağ uzunluğu yetersiz — distinguished by: Ayakta da var; oturak üzerinde de gerginlik var.",
@@ -4054,14 +4347,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0275",
+      "claim_id": "CLM-0277",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
-      "claim": "SYM-035 may be caused by: Arka ağ eğrisi vücut için fazla düz — distinguished by: Çekme yalnızca ağ eğrisinin kıvrımında; derinlik ve uzunluk sayısal olarak yeterli.",
+      "claim": "SYM-035 may be caused by: Arka ağ eğrisi vücut için fazla düz — distinguished by: Ağ derinliği ve arka ağ uzunluğu kalıba karşı ÖLÇÜLDÜ ve ikisi de yeterli çıktı; çekme oturağa yayılmıyor, eğrinin dönüşünde toplanıyor.",
       "taxonomy_ref": "SYM-035.C3",
       "source_refs": [
         "S-0002",
@@ -4069,11 +4363,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0276",
+      "claim_id": "CLM-0278",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-036 (pooling) is observable as described and appears at: Ön ağ, bacak arası önü.",
@@ -4084,11 +4379,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0277",
+      "claim_id": "CLM-0279",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-036 may be caused by: Ön ağ uzunluğu fazla — distinguished by: Toplanma ön ağda; arka temiz.",
@@ -4099,11 +4395,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0278",
+      "claim_id": "CLM-0280",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-036 may be caused by: Ağ derinliği fazla — distinguished by: Toplanma hem ön hem arkada; ağ vücuda değmiyor.",
@@ -4114,14 +4411,15 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0279",
+      "claim_id": "CLM-0281",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
-      "claim": "SYM-036 may be caused by: Ön ağ eğrisi vücut için fazla kavisli — distinguished by: Sayılar doğru ama eğri fazla derin.",
+      "claim": "SYM-036 may be caused by: Ön ağ eğrisi vücut için fazla kavisli — distinguished by: Ön ağ uzunluğu ve ağ derinliği kalıba karşı ÖLÇÜLDÜ ve ikisi de yeterli çıktı; toplanma öne yayılmıyor, dikişin eğrisinde duruyor.",
       "taxonomy_ref": "SYM-036.C3",
       "source_refs": [
         "S-0002",
@@ -4129,11 +4427,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0280",
+      "claim_id": "CLM-0282",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-037 (diagonal_drag_line) is observable as described and appears at: Ön ve/veya arka, ağ noktasından dışa.",
@@ -4144,11 +4443,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0281",
+      "claim_id": "CLM-0283",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-037 may be caused by: Uyluk çevresi yetersiz — distinguished by: Çizgiler uyluk hizasında yoğun; oturunca artıyor.",
@@ -4159,11 +4459,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0282",
+      "claim_id": "CLM-0284",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-037 may be caused by: Ağ eğrisi vücuda uymuyor — distinguished by: Çizgiler doğrudan ağ noktasından çıkıyor; uyluk çevresi yeterli.",
@@ -4174,11 +4475,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0283",
+      "claim_id": "CLM-0285",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-037 may be caused by: Karın/oturak hacmi kumaşı ağa doğru çekiyor — distinguished by: Çizgiler yukarıdan aşağı, karın veya oturak hizasında başlıyor.",
@@ -4189,11 +4491,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0284",
+      "claim_id": "CLM-0286",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-038 (grain_distortion) is observable as described and appears at: Bacak boyu, iç bacak dikişi.",
@@ -4205,11 +4508,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0285",
+      "claim_id": "CLM-0287",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-038 may be caused by: Bacak duruşu (içe/dışa dönük diz) kumaşı çeviriyor — distinguished by: Dönme her iki bacakta simetrik ve ayakta belirgin.",
@@ -4221,11 +4525,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0286",
+      "claim_id": "CLM-0288",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-038 may be caused by: Ağ eğrisi dengesiz (ön/arka) — distinguished by: Dönme ağ hizasından başlıyor.",
@@ -4237,11 +4542,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0287",
+      "claim_id": "CLM-0289",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-038 may be caused by: Bacak eğri kesilmiş — distinguished by: Dönme TEK bacakta.",
@@ -4253,11 +4559,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0288",
+      "claim_id": "CLM-0290",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-039 (silhouette_deviation) is observable as described and appears at: Ağ bölgesi.",
@@ -4269,11 +4576,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0289",
+      "claim_id": "CLM-0291",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-039 may be caused by: Ağ derinliği fazla — distinguished by: Ağ ile vücut arası boşluk ayakta da var; oturunca rahat.",
@@ -4285,11 +4593,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0290",
+      "claim_id": "CLM-0292",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-039 may be caused by: Tasarım bilerek düşük ağlı — distinguished by: Kalıp teknik çizimi düşük ağ gösteriyor.",
@@ -4301,11 +4610,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0291",
+      "claim_id": "CLM-0293",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-039 may be caused by: Bel hattı doğal belin altında oturuyor — distinguished by: Bel bandı aşağıda; ağ da onunla birlikte inmiş.",
@@ -4317,11 +4627,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0292",
+      "claim_id": "CLM-0294",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-040 (hem_hike) is observable as described and appears at: Etek ucu, çevre boyunca.",
@@ -4332,11 +4643,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0293",
+      "claim_id": "CLM-0295",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-040 may be caused by: Bir hacim (göğüs, karın, oturak) kumaşı yukarı çekiyor — distinguished by: Yükselme o hacmin bulunduğu tarafta; aynı bölgede çekme çizgileri de var. Hangi hacim olduğunu ayır: gerginlik GÖĞÜS hizasındaysa göğüs, BEL ALTI hizasındaysa karın ailesine gidilir.",
@@ -4347,11 +4659,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0294",
+      "claim_id": "CLM-0296",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-040 may be caused by: Ön/arka denge bozuk — distinguished by: Bir taraf yükselirken diğeri alçalıyor; simetrik.",
@@ -4362,11 +4675,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0295",
+      "claim_id": "CLM-0297",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-040 may be caused by: Vücut asimetrisi — distinguished by: Yükselme tek tarafta ve ağırlık eşitlendiğinde de sürüyor.",
@@ -4377,11 +4691,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0296",
+      "claim_id": "CLM-0298",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-041 (seam_displacement) is observable as described and appears at: Yan dikişler, tüm gövde.",
@@ -4392,11 +4707,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0297",
+      "claim_id": "CLM-0299",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-041 may be caused by: Ön/arka hacim dağılımı vücuda uymuyor — distinguished by: Dönme tutarlı bir yönde ve her giyişte aynı.",
@@ -4407,11 +4723,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0298",
+      "claim_id": "CLM-0300",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-041 may be caused by: Vücut asimetrisi — distinguished by: Dönme tek yönde ve tek taraflı belirtilerle birlikte.",
@@ -4422,11 +4739,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0299",
+      "claim_id": "CLM-0301",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-041 may be caused by: Parçalar eğri kesilmiş — distinguished by: Dönme düzensiz; çözgü çizgileri kumaş kenarına paralel değil.",
@@ -4437,11 +4755,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0300",
+      "claim_id": "CLM-0302",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-042 (grain_distortion) is observable as described and appears at: Ön orta / arka orta, denge çizgileri.",
@@ -4452,11 +4771,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0301",
+      "claim_id": "CLM-0303",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-042 may be caused by: Duruş (öne/arkaya eğik) dengeyi bozuyor — distinguished by: Sapma simetrik ve okurun doğal duruşunda sürüyor.",
@@ -4467,11 +4787,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0302",
+      "claim_id": "CLM-0304",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-042 may be caused by: Bir hacim (göğüs/oturak) kumaşı çekiyor — distinguished by: Sapma o hacmin hizasından başlıyor.",
@@ -4482,11 +4803,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0303",
+      "claim_id": "CLM-0305",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-042 may be caused by: Parça eğri kesilmiş — distinguished by: Sapma tek parçada ve düzensiz.",
@@ -4497,11 +4819,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0304",
+      "claim_id": "CLM-0306",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-043 (silhouette_deviation) is observable as described and appears at: Kol ucu, paça, etek ucu veya bel hattı.",
@@ -4512,11 +4835,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0305",
+      "claim_id": "CLM-0307",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-043 may be caused by: Kalıbın boyu okurun boy ölçüsüne uymuyor — distinguished by: Giysi her yerde düzgün oturuyor, denge çizgileri doğru, hiçbir çekme/kıvrım yok — YALNIZCA uzunluk farklı.",
@@ -4527,11 +4851,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0306",
+      "claim_id": "CLM-0308",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-043 may be caused by: Tasarım bilerek kısa/uzun — distinguished by: Kalıp teknik çizimi ve bitmiş giysi ölçü tablosu bu boyu gösteriyor.",
@@ -4542,11 +4867,12 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0307",
+      "claim_id": "CLM-0309",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-043 may be caused by: Etek ucu/paça payı kalıbın varsaydığından farklı katlanmış — distinguished by: Fark, kalıbın etek ucu payı kadar; giysinin geri kalanı kalıpla birebir uyuyor.",
@@ -4557,6 +4883,7 @@
       ],
       "record_verification_status": "agent_drafted_unverified",
       "evidence_level": "INFERRED",
+      "source_support_note": null,
       "reviewer_status": "pending",
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     }

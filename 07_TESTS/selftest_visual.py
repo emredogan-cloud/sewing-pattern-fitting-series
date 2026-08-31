@@ -263,8 +263,14 @@ def test_sign_figures_are_not_all_the_same_picture():
             ia, ib = ims[a], ims[b]
             if ia.size == ib.size and list(ia.getdata()) == list(ib.getdata()):
                 ident.append((a[5:], b[5:]))
-    BASELINE = 4      # Faz 5 girişinde ÖLÇÜLEN taban — ARTAMAZ
-    check(f"piksel piksel AYNI belirti figürü çifti ≤ {BASELINE}",
+    # ⚠ İKİNCİ İÇERİK TURU · L-1 KAPANDI. Faz 5 girişinde ÖLÇÜLEN taban
+    # 4 çiftti ve kapı "artmasın" diyordu. Şimdi SIFIR: figür kutusu
+    # belirtinin bölgesine göre kırpıldı (iki çift ayrıldı) ve son çift
+    # (bölgesel kayma ↔ dönme) GEOMETRİK olarak ayrıldı — biri dikişin
+    # bir hizada KIRILDIĞINI, öteki BOYUNCA kaydığını çizer. Kapı artık
+    # sıfırı dayatır: bir gerileme sessizce geri gelemez.
+    BASELINE = 0
+    check("piksel piksel AYNI belirti figürü çifti YOK",
           len(ident) <= BASELINE, f"{len(ident)} çift: {ident[:4]}")
     flat = {x for p in ident for x in p}
     check("arka ve ön belirtisi artık AYNI resim DEĞİL",

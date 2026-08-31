@@ -313,15 +313,26 @@ class Croquis:
         Üç işaret: ense noktası, orta arka çizgisi ve köşe etiketi.
         Hiçbiri antropometrik bir iddia taşımaz; yön belirtirler.
         """
+        # ⚠ İKİNCİ İÇERİK TURU: orta arka çizgisi HER ZAMAN high_hip'e
+        # kadar iniyordu. Figür kutusu belirtinin bölgesine göre
+        # kırpılınca (üst gövde belirtileri için kutu daha alçak) bu
+        # çizgi kutunun DIŞINA taştı ve çizim kapısı doğru reddetti.
+        # Çizgi, GERÇEKTEN ÇİZİLEN gövdenin altına inemez.
         top = self.y("neck_base")
-        bot = self.y("high_hip")
+        bot = max(self.y("high_hip"), self.y(self._drawn_bottom or "high_hip"))
         fc.line(self.cx, top, self.cx, bot,
                 role="construction_line", gray=gray, dash="dash 2-2")
         fc.c.circle(self.cx, top, 1.5, stroke=1, fill=1)
         # Tek etiket: ayrı bir köşe etiketi ölçü başlıklarıyla
         # çakışıyordu ve çakışma kapısı bunu doğru yakaladı.
-        fc.text(self.cx + 3.4, top + 1.0, "nape · BACK",
-                face="sans-semibold", size=6.0)
+        # ⚠ İKİNCİ İÇERİK TURU · GÖZLE bulundu: etiket cx+3.4'ten
+        # başlıyordu ve boyun konturunun SAĞ çizgisini (cx + yarı
+        # genişlik ≈ cx+14) kesiyordu — "nape · BACK" basılı sayfada
+        # "nap<BACK" gibi okunuyordu. Çakışma kapısı bunu göremez:
+        # kapı ETİKET-ETİKET çakışmasına bakar, ETİKET-ÇİZGİ'ye değil.
+        # Etiket boynun SAĞINA, kontur dışına alınır.
+        fc.text(self.cx + self.HALF_W["neck_base"] * self.H + 4.0, top + 1.0,
+                "nape · BACK", face="sans-semibold", size=6.0)
 
     def _neck_stub(self, fc, gray):
         hw_n = self.HALF_W["neck_base"] * self.H
@@ -417,6 +428,8 @@ class Croquis:
                     self.cx + self.OUTLINE["crotch"] * self.H, self.y("crotch"),
                     role="body_outline", gray=gray)
 
+    _drawn_bottom = None
+
     def draw_torso_only(self, fc, *, bottom="high_hip", gray=0.0, head=True,
                         role="body_outline"):
         """Gövde figürü — `bottom` seviyesinde kesilir.
@@ -424,6 +437,7 @@ class Croquis:
         Baş VARSAYILAN OLARAK çizilir: başsız bir gövde silueti vazoya
         benzer ve okur figürün yönünü kaybeder.
         """
+        self._drawn_bottom = bottom
         if self.LEVEL[bottom] < self.LEVEL["crotch"] - 1e-9:
             # kesim ağın altındaysa bacaklar da çizilir
             for s in (-1, 1):

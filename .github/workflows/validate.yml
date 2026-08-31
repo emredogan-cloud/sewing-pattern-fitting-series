@@ -119,6 +119,30 @@ jobs:
           name: boundary-qa
           path: 08_REPORTS/tracked/boundary-qa.json
 
+  graph:
+    name: nedensel çizge · doğrulama adımı kapısı
+    needs: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.12' }
+      # ⚠ DÜRÜST SINIR — temiz klon denetiminde ÖLÇÜLDÜ: graph_audit
+      # ve run_synthetic YALNIZCA taksonomiye bakar ve burada TAM
+      # KAPSAMLA koşar. qa_verification'ın YEDİ denetimi ise okur
+      # metnini okur ve manüskript prozası bilerek izlenmiyor (K9);
+      # o denetimler burada ATLANIR ve kapı bunu çıktısında YAZAR.
+      # İlk yazdığım yorum "üçü de tam kapsamla koşar" diyordu ve
+      # YANLIŞTI — temiz klon koşumu düzeltti.
+      - name: doğrulama adımı kapısı (L-2 · yapısal kapsam)
+        run: |
+          python3 06_BUILD/qa_verification.py --verbose
+          echo "::notice::Okur metni izlenmiyor; bu kapının tam kapsamı YEREL koşumdadır."
+      - name: nedensel çizge denetimi
+        run: python3 07_TESTS/synthetic/graph_audit.py --verbose
+      - name: sentetik profil + diferansiyel simülasyon
+        run: python3 07_TESTS/synthetic/run_synthetic.py
+
   claims:
     name: iddia disiplini · terminoloji
     needs: gates

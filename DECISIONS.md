@@ -1463,3 +1463,75 @@ bunu bilmelidir. Dışlama listeye eklendi, prova kumaşı satırı "woven"
 dedi, ve mutlak cümle kapsamla sınırlandırıldı.
 
 **Beyan edilmemiş bir kapsam, kapsam değildir.**
+
+---
+
+## K59 — İÇERİK TURU TAMAMLANMADI; FAZ 6 AÇILMADI
+
+**Tarih:** 31 Ağustos 2026 · **Faz:** İçerik turu · **Durum:** UYGULANDI
+
+L-2 ve L-3 kapatıldı. Bütün kapılar yeşil, kitap 273 sayfada kuruluyor,
+309 iddianın hepsi izlenebilir.
+
+**Ve içerik turu TAMAMLANMADI.**
+
+Görev talimatı § 23'ün zorunlu kıldığı bağımsız inceleme — üç ayrı geçiş,
+hiçbiri birincil üretimin sonuçlarını görmedi — L-2/L-3'ün **altında
+ikinci bir kusur katmanı** buldu. En ağırı:
+
+> 43 belirti girişinin doğrulama ölçütü **YANLIŞLANAMAZDI.** "Read it"
+> satırı nedenin değil BELİRTİNİN azalmasını istiyordu. Bir girişin üç
+> nedeni aynı koridora yer açar; üçünün de testi belirtiyi azaltır.
+> Ölçüt, okurun **hangi nedeni önce denediyse onu** onaylıyordu.
+
+Bu kusur Faz 5'in bir DÜZELTMESİNDEN doğmuştu ve beş kapıdan, iki
+çelişmeli incelemeden ve bir sentetik koşumdan geçmişti.
+
+**Karar:** çıkış ölçütlerinin 6., 11. ve 12. maddesi karşılanmadığı için
+içerik turu COMPLETE işaretlenmez ve Faz 6 açılmaz. 24 kusur açık
+kaydedildi ve hiçbiri gizlenmedi.
+
+**Gerekçe:** görev talimatı § 26 bunu açıkça yasaklıyor — *"Do not use
+successful build, zero automated errors, visual completeness, page count
+as a substitute for content completeness."* Yeşil kapı bir ürün iddiası
+değildir; kapının sorduğu soruların cevabıdır.
+
+---
+
+## K60 — SAYFA BÜTÇESİNİN ÜST SINIRI 260'TAN 275'E ÇIKARILDI
+
+**Tarih:** 31 Ağustos 2026 · **Faz:** İçerik turu · **Durum:** UYGULANDI
+
+İçerik turu L-2'yi kapatmak için Bölüm 3'e kalıp okuma kesitlerini,
+Bölüm 5'e dört prova okumasını ve Ek J'yi ekledi; F-01'in düzeltmesi
+doğrulama ölçütünü 129 nedenin hepsine yaydı. Aynı turda 43 girişte
+tekrarlanan iki metin bloğu KALDIRILDI.
+
+Net: 255 → 273.
+
+**Karar:** sınır 275'e çıkarıldı, sayfa kırpılmadı.
+
+**Gerekçe ÖLÇÜLDÜ:** gerçek kısıt 260 değil **300**'dür — KDP'nin iç
+kenar (gutter) bandı 151–300 sayfada sabittir ve 301'de değişir. 273 o
+bandın içindedir. 260'ın altına inmek ancak L-2'yi yeniden AÇARAK
+mümkündü. Görev talimatı § 21: *"Do not optimize for page count at the
+expense of content clarity."*
+
+---
+
+## K61 — KAYNAĞIN DESTEKLEDİĞİNDEN GENİŞ İDDİA İÇİN YENİ SEVİYE
+
+**Tarih:** 31 Ağustos 2026 · **Faz:** İçerik turu · **Durum:** UYGULANDI
+
+Sicilde `VERIFIED` ile `INFERRED` arasında bir şey yoktu. Ama okunan bir
+kaynak bir iddianın İLKESİNİ destekleyip YAZILDIĞI HÂLİNİ
+desteklemeyebilir — `M-007` bicep bunun tam örneği: kaynak "koltuk
+altında" der, kitap "en dolgun noktada" ölçer.
+
+**Karar:** `VERIFIED_NARROWER` eklendi (görev talimatı § 9). Kayıt
+`source_support: narrower` beyan eder ve `source_support_note` kaynağın
+GERÇEKTE ne dediğini yazmak ZORUNDADIR. Seviye yine TÜRETİLİR.
+
+**Gerekçe:** bir güven skoru değildir. `VERIFIED`in anlamı *"kaynak
+iddiayı YAZILDIĞI GİBİ destekliyor"*tur; desteklemediğinde iddiayı
+`VERIFIED` bırakmak, sicilin tek işini yapmamaktır.

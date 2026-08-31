@@ -1063,7 +1063,7 @@ def test_manuscript_gate_catches_missing_reobservation():
     blocks = a.sign_entry(sid)
     txt = " ".join(str(b.get("text", "")) for b in blocks)
     check("her belirti girişi YENİDEN GÖZLEM adımı taşıyor (B-01)",
-          "reduced but has not gone" in txt)
+          "Reduced but not gone" in txt and "second cause to suspect" in txt)
     check("her belirti girişi BELİRTİYE ÖZGÜ eleme taşıyor (B-03)",
           any(b.get("text") == "Rule these out first" for b in blocks))
     check("her belirti girişi 'henüz değiştirme' uyarısı taşıyor",
@@ -1075,7 +1075,7 @@ def test_manuscript_gate_catches_missing_reobservation():
     txt2 = " ".join(str(b.get("text", "")) for b in blocks2)
     a.content[sid]["partial"] = saved
     check("boş 'azaldı ama gitmedi' metni girişi BOŞ bırakıyor",
-          txt2.rstrip().endswith("as well:"))
+          txt2.rstrip().endswith("second cause to suspect is this:"))
     # ⑫ başlık/ilk cümle tekrarı — DİZİLMİŞ SAYFADA bulundu, kapıda değil
     check("aynı cümle başlık ve paragraf olarak İKİ KEZ basılmıyor",
           not any(_atlas._too_similar(b["text"], nb.get("text", ""))
@@ -1748,6 +1748,15 @@ def test_cause_text_matches_its_destination():
         .read_text(encoding="utf-8"))["families"]}
     # bölge adı → o bölgenin ailesi
     REGION = {"abdomen": "AF-20", "seat": "AF-13", "bust": "AF-01"}
+    # ⚠ İKİNCİ İÇERİK TURU: bu kapı, bir HACİM nedeninin metni birden
+    # çok bölge adlandırdığında okurun yanlış bölgenin ailesine
+    # düşmesini engeller. BEDEN kararlarının bölgesi YOKTUR ve tam da
+    # bu yüzden birden çok çevreyi birlikte adlandırırlar — bağımsız
+    # inceleme (F-26) "üç çevre denetlenmeden beden kararı denemez"
+    # dedi ve metin üçünü de adlandırınca kapı onu bir bölge karışıklığı
+    # sandı. Bölgesiz varışlar MUAF tutulur; muafiyet dar ve adlandırılmış.
+    REGIONLESS = {"AF-18",   # bedenler arası geçiş — bölgesi yok
+                  "AF-19"}   # genel boy — bölgesi yok
     bad = []
     routed = sum(1 for s in signs for c in s["candidate_causes"]
                  if c.get("cross_route"))
@@ -1761,6 +1770,8 @@ def test_cause_text_matches_its_destination():
                 continue
             dest = c.get("adjustment_family_ref")
             cr = c.get("cross_route")
+            if dest in REGIONLESS and (not cr or cr.get("family_ref") in REGIONLESS):
+                continue
             covered = {r for r in named if REGION[r] == dest}
             if cr:
                 covered |= {r for r in named if REGION[r] == cr.get("family_ref")}
@@ -2002,9 +2013,29 @@ def test_reader_spelling_is_one_variety():
         if f.exists():
             blobs.append((rel, json.loads(f.read_text(encoding="utf-8"))))
     import re as _re
+    # ⚠ İÇERİK TURU: kapının adı "OKUR KATMANINDA" der ama taranan şey
+    # dosyanın TAMAMIYDI — proje dili (Türkçe) not alanları dâhil. O
+    # alanlar okura BASILMAZ ve içlerinde kaynaktan BİREBİR alıntı
+    # bulunur; bir alıntının imlası kaynağınkidir ve değiştirilemez.
+    # Kapı bu yüzden proje dili alanlarını AYIKLAR. Okur katmanındaki
+    # sıkılık AYNEN korunur — ayıklama okur metnine dokunmaz.
+    PROJECT_LANGUAGE_KEYS = {
+        "$comment", "notes", "note", "path_rule", "common_errors",
+        "source_support_note", "$status_note", "shows", "manual_reason",
+        "phase4_review", "reader_purpose_note", "how", "why",
+    }
+
+    def _strip_project_language(o):
+        if isinstance(o, dict):
+            return {k: _strip_project_language(v) for k, v in o.items()
+                    if k not in PROJECT_LANGUAGE_KEYS}
+        if isinstance(o, list):
+            return [_strip_project_language(x) for x in o]
+        return o
+
     bad = []
     for rel, data in blobs:
-        txt = json.dumps(data, ensure_ascii=False)
+        txt = json.dumps(_strip_project_language(data), ensure_ascii=False)
         for br, am in pairs:
             has_br = bool(_re.search(rf"\b{br}", txt, _re.I))
             # Amerikan biçimi: özel ad değilse say

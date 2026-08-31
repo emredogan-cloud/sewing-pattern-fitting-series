@@ -11,7 +11,7 @@
   "url": "https://pubs.nmsu.edu/_c/C228.pdf",
   "verification_level": "fulltext",
   "locator": "Guide C-228, s. 1–7: Table 1 (ölçü tanımları + ease bantları); ALTERING BODICE PATTERNS; ALTERING SKIRT PATTERNS; ALTERING PANTS PATTERNS",
-  "accessed_on": "2026-08-28",
+  "accessed_on": "2026-08-31",
   "used_for": [
     "C-A ölçü tanımları (M-001, M-002, M-003, M-006, M-007, M-009, M-013, M-014, M-016, M-028, M-029)",
     "C-G ease konvansiyonu — Table 1 ease bantları (bu depodaki TEK ease kaynağı)",
@@ -21,6 +21,6 @@
   "superseded_by": null,
   "license_constraint": "'Contents of publications may be freely reproduced for educational purposes. All other rights reserved.' — yalnızca DOĞRULAMA referansı olarak kullanılır; hiçbir cümlesi, tablosu veya çizimi çoğaltılmaz (IP_AND_BRAND_POLICY § 2).",
   "acquisition_status": "public_access",
-  "notes": "Ease bandı sütunu -layout çıkarımıyla satır satır doğrulandı. Ölçü tanımlarında bu depodan FARKLI olanlar: 'Wrist = around widest part of hand' (bizde M-008 bilek kemiği çevresi) ve 'Neckline = 1 inch above base of neck' (bizde M-013 boyun tabanı). Bu farklar SOURCE_MAP § 7'de çelişki olarak kayıtlıdır; sessizce ezilmedi. Faz 5 (İnceleme A): okura basılan `reader_purpose` kaydın kendi sınırıyla ÇELİŞİYORDU; düzeltildi.",
+  "notes": "Ease bandı sütunu -layout çıkarımıyla satır satır doğrulandı. Ölçü tanımlarında bu depodan FARKLI olanlar: 'Wrist = around widest part of hand' (bizde M-008 bilek kemiği çevresi) ve 'Neckline = 1 inch above base of neck' (bizde M-013 boyun tabanı). Bu farklar SOURCE_MAP § 7'de çelişki olarak kayıtlıdır; sessizce ezilmedi. Faz 5 (İnceleme A): okura basılan `reader_purpose` kaydın kendi sınırıyla ÇELİŞİYORDU; düzeltildi. ⚠ İÇERİK TURU (31 Ağu 2026): C-228 kendi ilk dipnotunda kapsamını beyan eder: 'These guidelines pertain to WOMEN'S FASHIONS only.' Kitap bu sınırı okura AKTARIR.",
   "reader_purpose": "Measurement definitions and the scope of the bodice, skirt and trouser adjustment families."
 }

@@ -387,3 +387,26 @@ Tam liste: [`RISK_REGISTER.md`](RISK_REGISTER.md).
 ---
 
 *Vâliçe Press · BEFORE YOU CUT · Roadmap Progress · 28 Ağustos 2026 (Faz 2 + Faz 3 hazırlığı)*
+
+
+---
+
+# İÇERİK TURU — 31 Ağustos 2026
+
+**Durum: TAMAMLANMADI. Faz 6 AÇILMADI.** (`K59`)
+
+| Ne | Sonuç |
+|---|---|
+| **L-2** — 46 doğrulama adımı | **KAPANDI**. 33 kalıp okuması + 4 prova okuması öğretildi, 1 ölçü eklendi (`M-034`), 63 adım metni değişti, `qa_verification.py` kapısı dayatıyor. |
+| **L-3** — `VERIFIED` iddialar | **KAPANDI**. 8 kaynağın 7'si açıldı, **ikisi ilk kez okundu**. 16 sapma düzeltildi. `VERIFIED` 56 → 44; `VERIFIED_NARROWER` (yeni) 7. |
+| **§ 23 bağımsız inceleme** | Üç ayrı geçiş · **80 bulgu · 72 kabul · 48 düzeltildi · 24 AÇIK**. |
+| **§ 22 okur yolculukları** | **A geçti** (miktar güvenilmez) · **B kapalı döngüye girdi** · **C miktar sütunu boş bitti**. |
+| **§ 25 çıkış ölçütleri** | 12 maddenin **9'u** karşılandı. **6, 11, 12 karşılanmadı.** |
+
+Sayfa 255 → **273** (`K60`). Figür 163 → **170**. İddia 307 → **309**.
+
+**Bir sonraki tur:** `CONTENT_PASS_REPORT.md` § 6'daki 24 kusur.
+
+---
+
+*Vâliçe Press · BEFORE YOU CUT · Roadmap Progress · 31 Ağustos 2026 (içerik turu)*

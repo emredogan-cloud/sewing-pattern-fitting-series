@@ -326,3 +326,34 @@ poz veremez; dış illüstrasyon gerekebilir).
 ---
 
 *Vâliçe Press · BEFORE YOU CUT · External Dependencies · 29 Ağustos 2026 (Faz 5 · içsel doğrulama turu)*
+
+
+---
+
+# İÇERİK TURU — 31 Ağustos 2026 · dış bağımlılık durumu
+
+## Bu turda KAPANAN iki bağımlılık
+
+| # | Kaynak | Önce | Şimdi |
+|---|---|---|---|
+| **D-11** | `S-0007` E-419 (MSU, 1963) | "TESPİT EDİLDİ, OKUNMADI — taranmış görüntü, metin katmanı yok" | **OKUNDU.** Sayfalar 150 dpi görüntüye çevrilip görsel okundu. İki alıntı çıkarıldı ve `S-0004` ile ÖRTÜŞÜYOR: pens kuralı ve denge tanımı artık **iki bağımsız kurumsal kaynağa** dayanıyor. `verification_level` YÜKSELTİLMEDİ — makine doğrulanabilir metin katmanı hâlâ yok. |
+| **D-12** | `S-0008` E-421 (MSU, 1967) | aynı | **OKUNDU.** Üç alıntı. ⚠ **KAPSAM SINIRI KAYDEDİLDİ:** belge DİKİLMİŞ GİYSİ tadilatıdır (`T-02`) ve seri kapsamı DIŞINDADIR; hiçbir kalıp düzeltme kuralı için kullanılamaz. |
+
+## AÇIK kalan
+
+| # | Ne | Durum |
+|---|---|---|
+| **D-01** | İnsan uzman incelemesi | **ERİŞİLEMEZ** (`K58`) |
+| **D-02** | Fiziksel toile doğrulaması | **ERİŞİLEMEZ** (`K58`) |
+| **D-03** | Fiziksel prova baskı | **ERİŞİLEMEZ** |
+| **A-01** | `S-0014` ISO 8559-1:2017 | **ERİŞİLEMEDİ** — iso.org HTTP 403. ⚠ Bu turda bir SONUCU oldu: Bölüm 2 doğal belin tanımını bu belgeye atfediyordu ve belge okunamadığı için atıf **DOĞRULANAMIYORDU**. Atıf, tam metni okunan `S-0006`'ya (NHANES) taşındı. Bir kitap, okuyamadığı bir belgenin ne dediğini okura söyleyemez. |
+| **A-02** | `S-0015` ASTM D5219 | `budget_pending` |
+| **D-10** | WSU E.M. 2246 "Garment Fitting" | edinilmedi |
+| **D-13** *(yeni)* | Texas E-373 "Personal Measurement Chart" | `S-0003`'ün ölçü TANIMLARINI içeren belge. `S-0003` kendi metninde ona yönlendiriyor ve tanımları KENDİSİ vermiyor. Ölçü tanımlarının otoritesi bu belgededir ve **edinilmemiştir**. |
+
+## Erişim notu
+
+`S-0005` (ANSUR II) kanonik adresi (DTIC) bu turda **HTTP 403**
+döndürdü; belge archive.org kopyasından (`DTIC_ADA611869`) okundu ve
+kayıt güncellendi. Kanonik adresin kapanması bir dış bağımlılık
+değişikliğidir ve kaydedilmiştir.

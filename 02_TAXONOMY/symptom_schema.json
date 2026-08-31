@@ -84,7 +84,9 @@
           "cause",
           "distinguishing_evidence",
           "confirming_measurement",
-          "adjustment_family_ref"
+          "adjustment_family_ref",
+          "confirming_refs",
+          "test_cost"
         ],
         "properties": {
           "cause": {
@@ -138,6 +140,70 @@
                 "pattern": "^AF-[0-9]{2}$"
               }
             }
+          },
+          "confirming_refs": {
+            "$comment": "İÇERİK TURU · L-2: 'confirming_measurement' SERBEST METİNDİR ve hiçbir kapı onun ADLANDIRDIĞI şeyin kitapta ÖĞRETİLİP öğretilmediğini göremiyordu. 129 adımın 26'sı öğretilmeyen bir niceliğe başvuruyordu ve sekiz kapı da yeşildi. Bu alan aynı adımı MAKİNE OKUNUR hâle getirir: her nicelik ya bir ölçü kimliği, ya bir kalıp okuması, ya bir prova okumasıdır — ya da adım 'ölçüm yok' der.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "body",
+              "pattern",
+              "toile",
+              "kind"
+            ],
+            "properties": {
+              "body": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^M-[0-9]{3}$"
+                }
+              },
+              "pattern": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^PR-[0-9]{2}$"
+                }
+              },
+              "toile": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^TR-[0-9]{2}$"
+                }
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "compare",
+                  "read",
+                  "none"
+                ]
+              }
+            }
+          },
+          "opposite_of": {
+            "$comment": "Bu neden, AYNI belirtideki başka bir nedenin TERSİ yönünde mi. Atlas 'aynı aileye TERS yönde' notunu YALNIZCA bu alan varsa basar. ⚠ Bağımsız inceleme (F-15): not, aynı aileye çıkan HER çiftte basılıyordu ve sekiz çiftin yedisinde YANLIŞTI — iki neden aynı aileye çıkıp AYNI yöne gidebilir.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^SYM-[0-9]{3}\\.C[0-9]$"
+          },
+          "test_cost": {
+            "$comment": "Fiziksel testin Bölüm 6 merdivenindeki BASAMAĞI. 0 = belge okuması (giysiye dokunulmaz) · 1 = prova koşulunu değiştir (bedava) · 2 = iğne/kıvrım/pens/sök-ve-yeniden-iğnele (geri alınabilir, ölçülebilir) · 3 = şerit kumaş ekle (bir parça kumaşa mal olur) · 4 = provayı KES (provayı tüketir). 5 (kalıbı değiştir) bir TEST DEĞİLDİR ve burada görünemez. ⚠ Bağımsız inceleme (F-09/F-13): 129 testin 63'ü bir KALIP TALİMATIYDI ('Lower the shoulder tip'), bir prova testi değil — ne aracı ne geri alınabilirliği ne okunacak sonucu vardı. Hepsi yeniden yazıldı ve basamak artık VERİDE durur, prozadan tahmin EDİLMEZ.",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4
+          },
+          "expected": {
+            "$comment": "HANGİ SONUÇ bu hipotezi destekler (görev talimatı § 9/§ 13). Bir karşılaştırma, hangi yöne çıkarsa hipotezi desteklediğini SÖYLEMEDİKÇE bir doğrulama değildir. ⚠ Bağımsız inceleme (M-15): 85 adım iki sayıyı karşılaştırmayı söylüyor ve farkın NE ANLAMA GELDİĞİNİ söylemiyordu. Alan, yönün adımın metninden okunamadığı her adımda ZORUNLUDUR.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 20
           }
         }
       }

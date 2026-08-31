@@ -11,14 +11,16 @@
   "url": "https://wwwn.cdc.gov/nchs/data/nhanes/public/2021/manuals/2021-Anthropometry-Procedures-Manual-508.pdf",
   "verification_level": "official_pdf",
   "locator": "Bölüm 1 (ölçüm ekibi rolleri ve konumlandırma); Bölüm 3 (bel çevresi işareti ve şerit konumu); Bölüm 5 Quality Control + Appendix B (gold standard replicate examinations)",
-  "accessed_on": "2026-08-28",
+  "accessed_on": "2026-08-31",
   "used_for": [
     "C-A ölçüm KOŞULU disiplini — şerit yere paralel, deriye tam oturmuş ama bastırmayan; ikinci bir kişi konumu denetler (Bölüm 2.1, Bölüm 5.1)",
-    "Y-3 ölçüm tekrarlanabilirliği protokolünün yöntem dayanağı (replicate examination deseni)"
+    "Y-3 ölçüm tekrarlanabilirliği protokolünün yöntem dayanağı (replicate examination deseni)",
+    "C-A bel çevresi TANIMI (BİREBİR): 'draw a horizontal line just above the uppermost lateral border of the right ilium … position the tape in a horizontal plane at the level of the measurement mark … snug but does not compress the skin … at the end of the SP's normal expiration' (§ 3.4.8)",
+    "C-A ölçüm koşulu: NORMAL NEFES VERME sonunda okuma — Bölüm 2'nin çevre kuralı"
   ],
   "superseded_by": null,
   "license_constraint": "ABD hükümeti eseri — kamu malı.",
   "acquisition_status": "public_access",
-  "notes": "SINIR: NHANES bel çevresini iliak kanat üstünde tanımlar — bu bir SAĞLIK ölçüsüdür, giysi ölçüsü DEĞİLDİR. Hiçbir M-xxx kaydı bu kaynakla doğrudan doğrulanmaz; kaynak yalnızca ölçüm KOŞULU ve TEKRARLANABİLİRLİK yöntemini destekler.",
+  "notes": "SINIR: NHANES bel çevresini iliak kanat üstünde tanımlar — bu bir SAĞLIK ölçüsüdür, giysi ölçüsü DEĞİLDİR. Hiçbir M-xxx kaydı bu kaynakla doğrudan doğrulanmaz; kaynak yalnızca ölçüm KOŞULU ve TEKRARLANABİLİRLİK yöntemini destekler. ⚠ İÇERİK TURU (31 Ağu 2026): tam metin yeniden okundu. § 3.4.8 bel çevresi yordamı BİREBİR alındı ve Bölüm 2'de ISO 8559-1'e yapılan DOĞRULANAMAYAN atfın yerini aldı.",
   "reader_purpose": "National survey anthropometry procedures — tape handling, repeat measurement, and the conditions under which a measurement is comparable."
 }

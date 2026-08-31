@@ -421,9 +421,19 @@ class FigureCanvas:
             self.line(a[0] - dx, a[1] - dy, a[0] + dx, a[1] + dy, role="construction_line")
         if label:
             mid = pts[len(pts) // 2]
-            dx = label_offset if label_side == "right" else -label_offset
-            self.text(mid[0] + dx, mid[1] - 2.2, label,
-                      anchor="start" if label_side == "right" else "end")
+            # ⚠ GÖZLE bulundu: YATAY bir ölçü yolunda etiket orta
+            # noktadan SAĞA doğru yazılıyordu ve yolun sağ ucundaki
+            # nirengi noktasının üstüne biniyordu ("Across back●").
+            # Yatay yollarda etiket çizginin ÜSTÜNE, ORTALANMIŞ yazılır.
+            horizontal = abs(pts[-1][1] - pts[0][1]) < 3.0 and \
+                abs(pts[-1][0] - pts[0][0]) > 12.0
+            if horizontal:
+                self.text((pts[0][0] + pts[-1][0]) / 2, mid[1] + 3.2, label,
+                          anchor="middle")
+            else:
+                dx = label_offset if label_side == "right" else -label_offset
+                self.text(mid[0] + dx, mid[1] - 2.2, label,
+                          anchor="start" if label_side == "right" else "end")
 
     def landmark_dot(self, x, y, r=1.5):
         """İşaret noktası — ölçü figürünün ZORUNLU unsuru (VISUAL_SPEC § 3)."""

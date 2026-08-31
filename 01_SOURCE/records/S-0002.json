@@ -11,7 +11,7 @@
   "url": "https://pubs.nmsu.edu/_c/C227.pdf",
   "verification_level": "fulltext",
   "locator": "Guide C-227, s. 1–3: SELECTING A PATTERN SIZE; FITTING YOUR PATTERN (duruş ve kalça tipleri); vücut ölçüleri 1–10 (ağ derinliği, ağ uzunluğu dahil); ALTERING YOUR PATTERN",
-  "accessed_on": "2026-08-28",
+  "accessed_on": "2026-08-31",
   "used_for": [
     "C-A ölçü tanımları (M-004, M-005, M-006, M-023, M-024, M-026, M-027)",
     "C-B pantolon bölgesi belirti listesi (ağ bölgesi)",
@@ -21,6 +21,6 @@
   "superseded_by": null,
   "license_constraint": "NMSU eğitim amaçlı çoğaltma izni; bu projede yalnızca doğrulama referansı.",
   "acquisition_status": "public_access",
-  "notes": "High hip = bel altı 3 inç; full hip = bel altı 7–9 inç. Bu depodaki M-005 (7–10 cm ≈ 2,8–3,9 inç) ile UYUMLU. Beden seçimi kuralı: kalçadan seç, çünkü kalça düzeltmesi zordur.",
+  "notes": "High hip = bel altı 3 inç; full hip = bel altı 7–9 inç. Bu depodaki M-005 (7–10 cm ≈ 2,8–3,9 inç) ile UYUMLU. Beden seçimi kuralı: kalçadan seç, çünkü kalça düzeltmesi zordur. ⚠ İÇERİK TURU (31 Ağu 2026): C-227 bütünüyle KADIN PANTOLONU üzerine yazılmıştır ('Every woman who wears pants…'). Kitap bu sınırı okura AKTARIR.",
   "reader_purpose": "Trouser measurements including crotch depth and crotch length, size selection for skirts and trousers, and the depth-before-length rule."
 }

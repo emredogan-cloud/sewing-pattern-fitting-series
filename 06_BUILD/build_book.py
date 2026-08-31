@@ -66,7 +66,8 @@ def check_reader_language(blocks: list, where: str) -> list:
     return bad
 
 
-def resolve_cross_references(blocks: list, page_of: dict) -> list:
+def resolve_cross_references(blocks: list, page_of: dict,
+                             apx_of: dict | None = None) -> list:
     """'Chapter 8' → 'Chapter 8 (page 71)'.
 
     İkinci çelişmeli inceleme (A-05): kitaptaki ~45 iç atıfın HİÇBİRİ
@@ -79,6 +80,12 @@ def resolve_cross_references(blocks: list, page_of: dict) -> list:
     if not page_of:
         return blocks
     pat = re.compile(r"\bChapter (\d{1,2})\b(?! \(page)")
+    # ⚠ İÇERİK TURU: "Chapter N" atıfları sayfa alıyordu, "Appendix X"
+    # ALMIYORDU. Okur metninde on bir yerde bir eke ADIYLA gönderiliyor
+    # ve 265 sayfanın içinde onu kendisi arıyordu — Faz 5'in "bkz.
+    # Bölüm 8" kusurunun ek katmanındaki aynısı. Ek sayfaları zaten
+    # ÖLÇÜLÜYOR (apx_page); artık YAZILIYOR da.
+    apat = re.compile(r"\bAppendix ([A-J])\b(?! \(page)(?! —)")
     # Bütün-giysi bölümü NUMARASIZDIR (iki bölüm 16 olamaz), bu yüzden
     # "Chapter N" deseniyle çözülemez. Adıyla anılır ve sayfası yine
     # ÖLÇÜLÜR — okur numarasız bir bölümü de bulabilmelidir.
@@ -92,6 +99,11 @@ def resolve_cross_references(blocks: list, page_of: dict) -> list:
             pg = page_of.get(key)
             return f"Chapter {n} (page {pg})" if pg else m.group(0)
         v = pat.sub(rep, v)
+
+        def arep(m):
+            pg = (apx_of or {}).get(m.group(1))
+            return f"Appendix {m.group(1)} (page {pg})" if pg else m.group(0)
+        v = apat.sub(arep, v)
         if wg_page and WG in v and f"{WG} (page" not in v:
             v = v.replace(WG, f"{WG} (page {wg_page})")
         return v
@@ -315,7 +327,8 @@ def main() -> int:
     # Birinci geçiş sayfa numaralarını ÖLÇER; ikincisi onları yazar.
     # Bir içindekiler tablosu tahminle yazılamaz ve kitap bir sayfa
     # kaydığında sessizce yalan söyleyemez.
-    def run_pass(page_of: dict, toc: list, index_blocks: list | None = None):
+    def run_pass(page_of: dict, toc: list, index_blocks: list | None = None,
+                 apx_of: dict | None = None):
         ts = Typesetter(out, geom, eng)
         ts.set_running_head(bookcfg.get("titleWorking", ""), None)
         errs: list = []
@@ -338,7 +351,7 @@ def main() -> int:
         for pnum, ptitle, key, blocks, sids in collected:
             if key == "appendix":
                 blocks = fill_index_slots(blocks, index_blocks)
-            blocks = resolve_cross_references(blocks, page_of)
+            blocks = resolve_cross_references(blocks, page_of, apx_of)
             errs.extend(check_reader_language(blocks, key))
             for b in blocks:
                 if b.get("type") == "figure" and b.get("key") in internal_keys:
@@ -456,9 +469,10 @@ def main() -> int:
     toc: list = []
     index_blocks: dict = {}
     ts = errors = chapters = claims_seen = None
+    apx_of: dict = {}
     for attempt in range(1, 7):
         ts, errors, chapters, claims_seen, sign_page, apx_page, part_page = run_pass(
-            page_of, toc, index_blocks)
+            page_of, toc, index_blocks, apx_of)
         # ⚠ Ek C'nin ÖLÇÜLEN sayfası figür motoruna YAKINSAMA
         # DENETİMİNDEN ÖNCE verilir: 43 akış şemasının çıkış kutusu
         # kitabın tek giriş yoluna işaret ediyor ve locator taşımıyordu
@@ -470,10 +484,12 @@ def main() -> int:
             eng.ui["_apx_c_page"] = _apx_c
             page_of = {}          # etiket değişti → bir tur daha ölç
         new_page_of = {c["key"]: c["page_start"] for c in chapters}
+        new_apx_of = {nm.split("Appendix ", 1)[1][0]: pg
+                      for nm, pg in apx_page if nm.startswith("Appendix ")}
         new_toc = make_toc(chapters, apx_page, part_page)
-        if new_page_of == page_of and new_toc == toc:
+        if new_page_of == page_of and new_toc == toc and new_apx_of == apx_of:
             break
-        page_of, toc = new_page_of, new_toc
+        page_of, toc, apx_of = new_page_of, new_toc, new_apx_of
         index_blocks = build_indexes(atlas, sign_page, page_of, sources)
         ts.c = None   # bu geçişin tuvali atılır
     else:

@@ -146,17 +146,35 @@ def main() -> int:
                         f"{', '.join(missing[:8])}")
 
     # ③④⑤ her belirti girişinin ZORUNLU üç parçası
+    atlas_content = atlas.content
     for sid in signs:
         blocks = atlas.sign_entry(sid)
         text = " ".join(s for b in blocks for s in reader_strings(b))
         if "Look again" not in text:
             findings.append(f"③ {sid}: YENİDEN GÖZLEM adımı yok (B-01).")
-        if "reduced but has not gone" not in text:
+        # ⚠ İÇERİK TURU: dal DURUYOR, metni KISALDI. Kapı bir CÜMLEYİ
+        # değil bir GEREKLİLİĞİ denetlemelidir: giriş, kısmi iyileşme
+        # durumunda okuru bir yere göndermek ve o girişe ÖZGÜ ikinci
+        # nedeni adlandırmak zorundadır. Genel kural artık Bölüm 6'da
+        # BİR KEZ durur (104 kez tekrarlanıyordu).
+        if "Reduced but not gone" not in text:
             findings.append(f"③ {sid}: 'azaldı ama gitmedi' dalı yok (B-01).")
+        if "second cause to suspect" not in text:
+            findings.append(f"③ {sid}: kısmi iyileşme dalı GİRİŞE ÖZGÜ "
+                            f"ikinci nedeni adlandırmıyor (B-01).")
         if "Rule these out first" not in text:
             findings.append(f"④ {sid}: belirtiye özgü eleme yok (B-03).")
-        if not any(b.get("type") == "callout" for b in blocks):
+        # ⚠ Kapı "HERHANGİ bir callout" diye soruyordu ve çakışma
+        # kutusu da bir callout olduğu için 43 girişin hiçbirinde
+        # BELİRTİYE ÖZGÜ uyarı basılmadığı hâlde yeşil kalıyordu.
+        # Soru artık doğru: o girişin KENDİ uyarısı basılıyor mu.
+        _holds = [b for b in blocks
+                  if b.get("type") == "callout" and b.get("title") == "Do not change yet"]
+        if not _holds:
             findings.append(f"⑤ {sid}: 'henüz değiştirme' uyarısı yok.")
+        elif (atlas_content.get(sid, {}).get("hold")
+              and _holds[0].get("items") != atlas_content[sid]["hold"]):
+            findings.append(f"⑤ {sid}: basılan uyarı belirtinin KENDİ listesi değil.")
         # ⑫ başlık ile ilk cümle aynı şeyi söylüyor mu (sayfada bulundu)
         heads = [b for b in blocks if b.get("type") == "h2"]
         idx_h = blocks.index(heads[0]) if heads else -1

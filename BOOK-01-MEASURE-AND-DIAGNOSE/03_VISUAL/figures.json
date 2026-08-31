@@ -12,18 +12,18 @@
   ],
   "generated_by": "06_BUILD/figure_engine.py",
   "book": "book-01",
-  "count": 163,
-  "deterministic_count": 114,
-  "deterministic_ratio": 0.6994,
+  "count": 170,
+  "deterministic_count": 120,
+  "deterministic_ratio": 0.7059,
   "by_type": {
     "body_landmark": 7,
     "comparison_before_after": 6,
     "fit_sign_on_figure": 43,
     "flowchart": 47,
-    "measurement_path": 29,
-    "pattern_piece": 8,
-    "table_graphic": 17,
-    "toile_state": 6
+    "measurement_path": 30,
+    "pattern_piece": 11,
+    "table_graphic": 19,
+    "toile_state": 7
   },
   "figures": [
     {
@@ -425,7 +425,7 @@
       "figure_id": "FIG-B1-022",
       "book": "book-01",
       "figure_type": "flowchart",
-      "shows": "SYM-001 teşhis akışı — The front neckline stands away from the chest; the gap grows when you lean forw…",
+      "shows": "SYM-001 teşhis akışı — The front neckline stands away from the chest, above the breastbone.",
       "view": null,
       "notation_tokens": [
         "TK-17",
@@ -1088,7 +1088,7 @@
       "figure_id": "FIG-B1-058",
       "book": "book-01",
       "figure_type": "measurement_path",
-      "shows": "M-005 High hip — Yatay; mesafe KAYDEDİLİR, çünkü kalıpla karşılaştırma bu mesafeye bağlıdır.",
+      "shows": "M-005 High hip — Yatay, işaretli belin 8 cm (3 in) ALTINDA — S-0002'nin hizası. Mesafe KAYDEDİLİR: kalıbın…",
       "view": "front",
       "notation_tokens": [
         "TK-11"
@@ -1173,7 +1173,7 @@
       "figure_id": "FIG-B1-063",
       "book": "book-01",
       "figure_type": "measurement_path",
-      "shows": "M-010 Knee — Yatay, bacak düz.",
+      "shows": "M-010 Knee — Yatay, bacak düz, diz kapağının ortasının 2,5 cm ÜSTÜNDEN (S-0002'nin hizası; kalıbın diz…",
       "view": "front",
       "notation_tokens": [
         "TK-11"
@@ -1448,7 +1448,7 @@
       "figure_id": "FIG-B1-079",
       "book": "book-01",
       "figure_type": "measurement_path",
-      "shows": "M-027 Crotch length (rise) — Ön belden bacak arasından arka bele; şerit metre gerdirilmez.",
+      "shows": "M-027 Crotch length (rise) — Ön belden bacak arasından arka bele, AYAKTA — bu ölçü OTURARAK alınmaz; oturarak alınan ö…",
       "view": "side",
       "notation_tokens": [
         "TK-11"
@@ -1566,8 +1566,25 @@
     {
       "figure_id": "FIG-B1-086",
       "book": "book-01",
+      "figure_type": "measurement_path",
+      "shows": "M-034 Shoulder slope — Şerit DEĞİL: bir cetvel yan boyun noktasından YATAY tutulur ve omuz ucunun o yatay çizgin…",
+      "view": "front",
+      "notation_tokens": [
+        "TK-11"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-087",
+      "book": "book-01",
       "figure_type": "fit_sign_on_figure",
-      "shows": "SYM-001 — Ön yaka, göğüs kemiğinin üzerinde vücuda değmeden duruyor; okur öne eğildiğinde açıklık büyüyor.",
+      "shows": "SYM-001 — Ön yaka, göğüs kemiğinin üzerinde vücuda değmeden duruyor.",
       "view": "front",
       "notation_tokens": [
         "TK-06"
@@ -1581,7 +1598,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-087",
+      "figure_id": "FIG-B1-088",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-002 — Yaka boynun tabanına baskı yapıyor, kırmızı iz bırakıyor veya yutkunmayı zorlaştırıyor.",
@@ -1598,7 +1615,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-088",
+      "figure_id": "FIG-B1-089",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-003 — Arka yaka yukarı tırmanıyor ve boynu sıyırıyor; aynı anda arka etek ucu da yükseliyor.",
@@ -1615,7 +1632,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-089",
+      "figure_id": "FIG-B1-090",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-004 — Boyun noktasından koltuk altına doğru uzanan çapraz çekme çizgileri.",
@@ -1632,7 +1649,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-090",
+      "figure_id": "FIG-B1-091",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-005 — Omuz dikişinin hemen altında, kol oyuntusuna yakın yerde kumaş yatay bir kıvrım hâlinde toplanı…",
@@ -1649,14 +1666,13 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-091",
+      "figure_id": "FIG-B1-092",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-006 — Omuz dikişi omuz üstü orta çizgisinin ARKASINDA duruyor; öne doğru kaymaya çalışıyor.",
       "view": "back",
       "notation_tokens": [
-        "TK-09",
-        "TK-05"
+        "TK-03"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1667,7 +1683,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-092",
+      "figure_id": "FIG-B1-093",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-007 — Omuz dikişi omuz ucunu geçip kola sarkıyor; kol başı omuzdan aşağı düşüyor.",
@@ -1684,7 +1700,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-093",
+      "figure_id": "FIG-B1-094",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-008 — Kol öne uzatıldığında sırt boyunca sert bir çekme oluyor; giysi hareketi kısıtlıyor.",
@@ -1701,7 +1717,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-094",
+      "figure_id": "FIG-B1-095",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-009 — Kürek kemikleri hizasında sırt boyunca yatay bir kıvrım/fazlalık duruyor.",
@@ -1718,7 +1734,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-095",
+      "figure_id": "FIG-B1-096",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-010 — Kol oyuntularının arasında, sırt boyunca dikey duran gevşek kıvrımlar var.",
@@ -1735,7 +1751,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-096",
+      "figure_id": "FIG-B1-097",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-011 — Arka etek ucu belirgin biçimde yükseliyor; giysi arkadan yukarı tırmanıyor.",
@@ -1752,14 +1768,13 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-097",
+      "figure_id": "FIG-B1-098",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-012 — Arka orta dikiş/fermuar düz durmuyor, dışa doğru yay çiziyor.",
       "view": "back",
       "notation_tokens": [
-        "TK-09",
-        "TK-05"
+        "TK-03"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1770,7 +1785,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-098",
+      "figure_id": "FIG-B1-099",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-013 — Kol aşağı indirildiğinde koltuk altı sıkıyor; giysi omuzdan yukarı çekiliyor.",
@@ -1787,7 +1802,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-099",
+      "figure_id": "FIG-B1-100",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-014 — Kol oyuntusunun ÖN kenarı vücuda değmiyor, göğsün üstünde açık duruyor.",
@@ -1804,7 +1819,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-100",
+      "figure_id": "FIG-B1-101",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-015 — Kol oyuntusunun ARKA kenarı vücuda değmiyor.",
@@ -1821,7 +1836,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-101",
+      "figure_id": "FIG-B1-102",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-016 — Göğüs ucundan yan dikişe (ve/veya kol oyuntusuna) doğru uzanan çekme çizgileri; kumaş göğsün üz…",
@@ -1838,7 +1853,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-102",
+      "figure_id": "FIG-B1-103",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-017 — Ön etek ucu arka etek ucundan belirgin biçimde yukarıda; giysi önden kısa görünüyor.",
@@ -1855,14 +1870,13 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-103",
+      "figure_id": "FIG-B1-104",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-018 — Yan dikişler düşey durmuyor, öne doğru kayıyor.",
       "view": "front",
       "notation_tokens": [
-        "TK-09",
-        "TK-05"
+        "TK-03"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1873,7 +1887,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-104",
+      "figure_id": "FIG-B1-105",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-019 — Göğüs pensi ucunda kumaş büzüşüyor veya küçük bir çıkıntı/kabarcık oluşuyor.",
@@ -1890,7 +1904,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-105",
+      "figure_id": "FIG-B1-106",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-020 — Göğsün ÜSTÜNDE, köprücük kemiği ile göğüs arasında boş, çöken bir alan var.",
@@ -1907,7 +1921,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-106",
+      "figure_id": "FIG-B1-107",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-021 — Düğme sırası göğüs hizasında yatay olarak açılıyor; düğmeler arasında boşluk oluşuyor.",
@@ -1924,14 +1938,13 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-107",
+      "figure_id": "FIG-B1-108",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-022 — Bel dikişi/bel hattı doğal belin üstünde veya altında oturuyor.",
       "view": "front",
       "notation_tokens": [
-        "TK-09",
-        "TK-05"
+        "TK-03"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -1942,7 +1955,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-108",
+      "figure_id": "FIG-B1-109",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-023 — Bel hizasının hemen ÜSTÜNDE, arkada, kumaş yatay kıvrımlar hâlinde havuzlanıyor.",
@@ -1959,7 +1972,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-109",
+      "figure_id": "FIG-B1-110",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-024 — Bel bandı arkada vücuttan uzaklaşıyor, aralık kalıyor.",
@@ -1976,7 +1989,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-110",
+      "figure_id": "FIG-B1-111",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-025 — Bel hizasında, yan dikişlerin yakınında dikey gevşek kıvrımlar var.",
@@ -1993,7 +2006,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-111",
+      "figure_id": "FIG-B1-112",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-026 — Bel dikişi/bandı sıkıyor; oturunca rahatsız ediyor, iz bırakıyor.",
@@ -2010,7 +2023,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-112",
+      "figure_id": "FIG-B1-113",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-027 — Oturak üzerinde yatay çekme çizgileri var; kumaş oturağın üzerinde geriliyor.",
@@ -2027,7 +2040,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-113",
+      "figure_id": "FIG-B1-114",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-028 — Oturağın hemen ALTINDA kumaş sarkıyor, boş bir torba oluşturuyor.",
@@ -2044,7 +2057,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-114",
+      "figure_id": "FIG-B1-115",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-029 — Etek/pantolon bir kalçada yukarı tırmanıyor; etek ucu yere paralel değil.",
@@ -2061,14 +2074,13 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-115",
+      "figure_id": "FIG-B1-116",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-030 — Yan dikiş kalça hizasında arkaya doğru kayıyor.",
       "view": "back",
       "notation_tokens": [
-        "TK-09",
-        "TK-05"
+        "TK-03"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -2079,7 +2091,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-116",
+      "figure_id": "FIG-B1-117",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-031 — Kol başından pazuya doğru çapraz çekme çizgileri; kol kaldırıldığında artıyor.",
@@ -2096,7 +2108,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-117",
+      "figure_id": "FIG-B1-118",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-032 — Üst kolda dikey gevşek kıvrımlar var; kol torba gibi duruyor.",
@@ -2113,7 +2125,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-118",
+      "figure_id": "FIG-B1-119",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-033 — Kol, kol üzerinde dönüyor; alt kol dikişi düz inmiyor, spiral çiziyor.",
@@ -2130,7 +2142,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-119",
+      "figure_id": "FIG-B1-120",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-034 — Kol başı, kol oyuntusuna birleştiği yerde büzüşüyor/kırışıyor.",
@@ -2147,7 +2159,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-120",
+      "figure_id": "FIG-B1-121",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-035 — Oturağın altında yatay çekme çizgileri; ağ yukarı çekiliyor ve rahatsız ediyor.",
@@ -2164,7 +2176,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-121",
+      "figure_id": "FIG-B1-122",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-036 — Ön ağ bölgesinde kumaş 'U' biçiminde toplanıyor.",
@@ -2181,7 +2193,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-122",
+      "figure_id": "FIG-B1-123",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-037 — Ağ noktasından kalçaya doğru çapraz çekme çizgileri.",
@@ -2198,7 +2210,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-123",
+      "figure_id": "FIG-B1-124",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-038 — Pantolon paçası dönüyor; iç bacak dikişi düz inmiyor.",
@@ -2215,7 +2227,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-124",
+      "figure_id": "FIG-B1-125",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-039 — Ağ vücuttan uzakta, aşağıda duruyor; adım atmayı zorlaştırıyor.",
@@ -2232,7 +2244,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-125",
+      "figure_id": "FIG-B1-126",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-040 — Etek ucu yere paralel değil; bir bölgede yükseliyor veya alçalıyor.",
@@ -2249,14 +2261,13 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-126",
+      "figure_id": "FIG-B1-127",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-041 — Giysi vücut üzerinde dönüyor; yan dikişler zamanla öne/arkaya kayıyor.",
       "view": "back",
       "notation_tokens": [
-        "TK-09",
-        "TK-05"
+        "TK-03"
       ],
       "deterministic": false,
       "manual_reason": "Şablon deterministik üretildi (bölge çapası + sınıf token'ı), ama kumaşın GERÇEK dökümü kayıttan türetilemez: kıvrımın uzunluğu, sayısı ve yönü fiziksel sınamadan (VAL-xxxx) gelir. Bu figür Faz 3'te toile üzerinden düzeltilecektir.",
@@ -2267,7 +2278,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-127",
+      "figure_id": "FIG-B1-128",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-042 — Ön orta veya arka orta çizgisi yere dik durmuyor; denge çizgileri yatay değil.",
@@ -2284,7 +2295,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-128",
+      "figure_id": "FIG-B1-129",
       "book": "book-01",
       "figure_type": "fit_sign_on_figure",
       "shows": "SYM-043 — Bir parçanın BOYU yanlış (kol, paça, etek ucu, beden) ama başka hiçbir belirti yok: kırışıklık…",
@@ -2301,7 +2312,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-129",
+      "figure_id": "FIG-B1-130",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Ön beden — düz ölçüm noktaları",
@@ -2320,7 +2331,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-130",
+      "figure_id": "FIG-B1-131",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Arka beden — düz ölçüm noktaları",
@@ -2339,7 +2350,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-131",
+      "figure_id": "FIG-B1-132",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Kol — kol oyuntusu ve kol uzunluğu",
@@ -2356,7 +2367,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-132",
+      "figure_id": "FIG-B1-133",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Ön etek — bel ve kalça hattı",
@@ -2373,7 +2384,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-133",
+      "figure_id": "FIG-B1-134",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Arka etek — bel ve kalça hattı",
@@ -2390,7 +2401,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-134",
+      "figure_id": "FIG-B1-135",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Ön pantolon — ağ eğrisi ve iç bacak",
@@ -2407,7 +2418,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-135",
+      "figure_id": "FIG-B1-136",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Arka pantolon — ağ eğrisi ve oturuş",
@@ -2424,7 +2435,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-136",
+      "figure_id": "FIG-B1-137",
       "book": "book-01",
       "figure_type": "pattern_piece",
       "shows": "Pens anatomisi — uç, taban, derinlik",
@@ -2444,7 +2455,60 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-137",
+      "figure_id": "FIG-B1-138",
+      "book": "book-01",
+      "figure_type": "pattern_piece",
+      "shows": "Eğri dikiş çizgisinin ölçülmesi — şerit yana dikilir (S-0002/S-0003 birebir)",
+      "view": "flat",
+      "notation_tokens": [
+        "TK-11"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-139",
+      "book": "book-01",
+      "figure_type": "pattern_piece",
+      "shows": "Kalıpta düşey okumalar — arka orta boy, kol oyuntusu derinliği, omuz dikişinin düşey düşüşü",
+      "view": "flat",
+      "notation_tokens": [
+        "TK-10",
+        "TK-11"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-140",
+      "book": "book-01",
+      "figure_type": "pattern_piece",
+      "shows": "Kol başı — yükseklik (düşey) ile eğri uzunluğu (ease) AYRI okumalardır",
+      "view": "flat",
+      "notation_tokens": [
+        "TK-10",
+        "TK-11"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-141",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Bölge → belirti sayısı dizini (okura dönük)",
@@ -2461,7 +2525,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-138",
+      "figure_id": "FIG-B1-142",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Düzeltme sırası — neden önce omuz",
@@ -2478,7 +2542,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-139",
+      "figure_id": "FIG-B1-143",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Henüz değiştirme — geri alınamaz kesimler",
@@ -2495,7 +2559,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-140",
+      "figure_id": "FIG-B1-144",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Düzeltme ailesi dizini — İÇ ARAÇ (kitaba girmez)",
@@ -2512,7 +2576,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-141",
+      "figure_id": "FIG-B1-145",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Belirti sınıfı sayımı — İÇ ARAÇ",
@@ -2529,7 +2593,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-142",
+      "figure_id": "FIG-B1-146",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Ölçü doğrulama durumu — İÇ ARAÇ",
@@ -2546,7 +2610,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-143",
+      "figure_id": "FIG-B1-147",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Üç sayı — vücut, kalıp, bitmiş giysi (okura dönük)",
@@ -2563,7 +2627,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-144",
+      "figure_id": "FIG-B1-148",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "On belirti sınıfı ve ne anlattıkları (okura dönük)",
@@ -2580,7 +2644,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-145",
+      "figure_id": "FIG-B1-149",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Eleme kontrol listesi — okura dönük, fotokopi edilebilir",
@@ -2597,7 +2661,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-146",
+      "figure_id": "FIG-B1-150",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Boş form — Measurement card (okura dönük)",
@@ -2614,7 +2678,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-147",
+      "figure_id": "FIG-B1-151",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Boş form — Fitting record (okura dönük)",
@@ -2631,7 +2695,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-148",
+      "figure_id": "FIG-B1-152",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Boş form — Fit profile (okura dönük)",
@@ -2648,7 +2712,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-149",
+      "figure_id": "FIG-B1-153",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Ölçü dizini — okura dönük başvuru (Ek A)",
@@ -2665,7 +2729,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-150",
+      "figure_id": "FIG-B1-154",
       "book": "book-01",
       "figure_type": "table_graphic",
       "shows": "Düzeltme ailesi dizini — okura dönük (Ek H)",
@@ -2682,7 +2746,41 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-151",
+      "figure_id": "FIG-B1-155",
+      "book": "book-01",
+      "figure_type": "table_graphic",
+      "shows": "Vücut ölçüsü → kalıp okuması eşleşmesi (okura dönük, Bölüm 3)",
+      "view": null,
+      "notation_tokens": [
+        "TK-09"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-156",
+      "book": "book-01",
+      "figure_type": "table_graphic",
+      "shows": "Yayımlanmış ease bantları — kaynağın KENDİ nirengisiyle (Ek J)",
+      "view": null,
+      "notation_tokens": [
+        "TK-09"
+      ],
+      "deterministic": true,
+      "manual_reason": null,
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "drafted"
+    },
+    {
+      "figure_id": "FIG-B1-157",
       "book": "book-01",
       "figure_type": "flowchart",
       "shows": "Yedi adımlı teşhis döngüsü — ana şema; yeniden gözlem bağı döngüyü kapatır (çelişmeli inceleme B-01)",
@@ -2700,7 +2798,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-152",
+      "figure_id": "FIG-B1-158",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Tape slipped down at the back — yanlış ve doğru yan yana",
@@ -2718,7 +2816,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-153",
+      "figure_id": "FIG-B1-159",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Arms raised — yanlış ve doğru yan yana",
@@ -2736,7 +2834,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-154",
+      "figure_id": "FIG-B1-160",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Tape pulled too tight — yanlış ve doğru yan yana",
@@ -2754,13 +2852,13 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-155",
+      "figure_id": "FIG-B1-161",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Waist measured without marking it — yanlış ve doğru yan yana",
       "view": "front",
       "notation_tokens": [
-        "TK-11",
+        "TK-09",
         "TK-15"
       ],
       "deterministic": true,
@@ -2772,7 +2870,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-156",
+      "figure_id": "FIG-B1-162",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Hip not measured at the fullest point — yanlış ve doğru yan yana",
@@ -2790,11 +2888,11 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-157",
+      "figure_id": "FIG-B1-163",
       "book": "book-01",
       "figure_type": "comparison_before_after",
       "shows": "Ölçüm hatası: Leaning forward — yanlış ve doğru yan yana",
-      "view": "front",
+      "view": "side",
       "notation_tokens": [
         "TK-11",
         "TK-15"
@@ -2808,7 +2906,7 @@
       "verification_status": "drafted"
     },
     {
-      "figure_id": "FIG-B1-158",
+      "figure_id": "FIG-B1-164",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Toile üzerine ön ve arka orta hattın işaretlenmesi",
@@ -2825,7 +2923,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-159",
+      "figure_id": "FIG-B1-165",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Denge çizgilerinin işaretlenmesi — göğüs ve kalça hizası",
@@ -2842,7 +2940,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-160",
+      "figure_id": "FIG-B1-166",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Bel hattının lastikle bulunması ve işaretlenmesi",
@@ -2860,7 +2958,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-161",
+      "figure_id": "FIG-B1-167",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "İğne testi — fazlalığın toplanıp ölçülmesi",
@@ -2878,7 +2976,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-162",
+      "figure_id": "FIG-B1-168",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Kesme testi — yetersizliğin açılıp ölçülmesi",
@@ -2896,7 +2994,7 @@
       "verification_status": "specified"
     },
     {
-      "figure_id": "FIG-B1-163",
+      "figure_id": "FIG-B1-169",
       "book": "book-01",
       "figure_type": "toile_state",
       "shows": "Kontrol toile — düzeltme öncesi referans",
@@ -2907,6 +3005,23 @@
       ],
       "deterministic": false,
       "manual_reason": "Toile'un GERÇEK dökümü ve iğne/kesme sonrası kumaş davranışı kayıttan türetilemez; şablon deterministiktir ama nihai çizim VAL-xxxx fiziksel sınamasından gelir.",
+      "photo_required": false,
+      "claim_ref": null,
+      "physical_validation_ref": null,
+      "reused_from": null,
+      "verification_status": "specified"
+    },
+    {
+      "figure_id": "FIG-B1-170",
+      "book": "book-01",
+      "figure_type": "toile_state",
+      "shows": "Prova okuması — omuz dikişinin omuz üstü çizgisinden sapması",
+      "view": "side",
+      "notation_tokens": [
+        "TK-03"
+      ],
+      "deterministic": false,
+      "manual_reason": "Prova kumaşının gerçek dökümü kayıttan türetilemez; şablon deterministiktir.",
       "photo_required": false,
       "claim_ref": null,
       "physical_validation_ref": null,
@@ -2959,11 +3074,11 @@
       "symptom_ref": "SYM-013",
       "zone": "armhole",
       "width_pt": 326.0,
-      "height_pt": 372.9,
+      "height_pt": 342.7,
       "terminals": [
         [
           "handoff",
-          "AF-08"
+          "AF-01"
         ],
         [
           "handoff",
@@ -2971,11 +3086,11 @@
         ],
         [
           "handoff",
-          "AF-01"
+          "AF-08"
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-013.pdf"
@@ -2984,12 +3099,8 @@
       "symptom_ref": "SYM-014",
       "zone": "armhole",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 312.5,
       "terminals": [
-        [
-          "handoff",
-          "AF-08"
-        ],
         [
           "handoff",
           "AF-02"
@@ -2999,8 +3110,12 @@
           "AF-04"
         ],
         [
+          "handoff",
+          "AF-08"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-014.pdf"
@@ -3025,7 +3140,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-015.pdf"
@@ -3034,12 +3149,8 @@
       "symptom_ref": "SYM-016",
       "zone": "bust_chest",
       "width_pt": 326.0,
-      "height_pt": 391.7,
+      "height_pt": 301.3,
       "terminals": [
-        [
-          "handoff",
-          "AF-01"
-        ],
         [
           "handoff",
           "AF-18"
@@ -3049,8 +3160,12 @@
           "AF-02"
         ],
         [
+          "handoff",
+          "AF-01"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-016.pdf"
@@ -3059,7 +3174,7 @@
       "symptom_ref": "SYM-017",
       "zone": "bust_chest",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 303.4,
       "terminals": [
         [
           "handoff",
@@ -3075,7 +3190,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-017.pdf"
@@ -3084,7 +3199,7 @@
       "symptom_ref": "SYM-018",
       "zone": "bust_chest",
       "width_pt": 326.0,
-      "height_pt": 312.5,
+      "height_pt": 297.5,
       "terminals": [
         [
           "eliminate",
@@ -3092,15 +3207,15 @@
         ],
         [
           "handoff",
-          "AF-01"
-        ],
-        [
-          "handoff",
           "AF-07"
         ],
         [
+          "handoff",
+          "AF-01"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-018.pdf"
@@ -3109,7 +3224,7 @@
       "symptom_ref": "SYM-019",
       "zone": "bust_chest",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 288.3,
       "terminals": [
         [
           "eliminate",
@@ -3125,7 +3240,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-019.pdf"
@@ -3134,7 +3249,7 @@
       "symptom_ref": "SYM-020",
       "zone": "bust_chest",
       "width_pt": 326.0,
-      "height_pt": 372.9,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3142,15 +3257,15 @@
         ],
         [
           "handoff",
-          "AF-08"
-        ],
-        [
-          "handoff",
           "AF-01"
         ],
         [
+          "handoff",
+          "AF-08"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-020.pdf"
@@ -3159,7 +3274,7 @@
       "symptom_ref": "SYM-021",
       "zone": "bust_chest",
       "width_pt": 326.0,
-      "height_pt": 357.8,
+      "height_pt": 327.6,
       "terminals": [
         [
           "eliminate",
@@ -3175,7 +3290,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-021.pdf"
@@ -3184,7 +3299,7 @@
       "symptom_ref": "SYM-035",
       "zone": "crotch_leg",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 348.6,
       "terminals": [
         [
           "handoff",
@@ -3200,7 +3315,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-035.pdf"
@@ -3209,7 +3324,7 @@
       "symptom_ref": "SYM-036",
       "zone": "crotch_leg",
       "width_pt": 326.0,
-      "height_pt": 312.5,
+      "height_pt": 342.7,
       "terminals": [
         [
           "handoff",
@@ -3225,7 +3340,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-036.pdf"
@@ -3234,12 +3349,8 @@
       "symptom_ref": "SYM-037",
       "zone": "crotch_leg",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 327.6,
       "terminals": [
-        [
-          "handoff",
-          "AF-17"
-        ],
         [
           "handoff",
           "AF-16"
@@ -3249,8 +3360,12 @@
           "AF-20"
         ],
         [
+          "handoff",
+          "AF-17"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-037.pdf"
@@ -3275,7 +3390,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-038.pdf"
@@ -3284,7 +3399,7 @@
       "symptom_ref": "SYM-039",
       "zone": "crotch_leg",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 327.6,
       "terminals": [
         [
           "eliminate",
@@ -3300,7 +3415,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-039.pdf"
@@ -3309,12 +3424,8 @@
       "symptom_ref": "SYM-027",
       "zone": "hip_seat",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 327.6,
       "terminals": [
-        [
-          "handoff",
-          "AF-13"
-        ],
         [
           "handoff",
           "AF-16"
@@ -3324,8 +3435,12 @@
           "AF-18"
         ],
         [
+          "handoff",
+          "AF-13"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-027.pdf"
@@ -3334,7 +3449,7 @@
       "symptom_ref": "SYM-028",
       "zone": "hip_seat",
       "width_pt": 326.0,
-      "height_pt": 357.8,
+      "height_pt": 288.3,
       "terminals": [
         [
           "handoff",
@@ -3350,7 +3465,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-028.pdf"
@@ -3375,7 +3490,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-029.pdf"
@@ -3384,7 +3499,7 @@
       "symptom_ref": "SYM-030",
       "zone": "hip_seat",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 303.4,
       "terminals": [
         [
           "eliminate",
@@ -3400,7 +3515,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-030.pdf"
@@ -3409,7 +3524,7 @@
       "symptom_ref": "SYM-001",
       "zone": "neck",
       "width_pt": 326.0,
-      "height_pt": 372.9,
+      "height_pt": 342.7,
       "terminals": [
         [
           "eliminate",
@@ -3417,15 +3532,15 @@
         ],
         [
           "handoff",
-          "AF-06"
-        ],
-        [
-          "handoff",
           "AF-01"
         ],
         [
+          "handoff",
+          "AF-06"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-001.pdf"
@@ -3434,11 +3549,11 @@
       "symptom_ref": "SYM-002",
       "zone": "neck",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 327.6,
       "terminals": [
         [
           "handoff",
-          "AF-06"
+          "AF-05"
         ],
         [
           "handoff",
@@ -3446,11 +3561,11 @@
         ],
         [
           "handoff",
-          "AF-05"
+          "AF-06"
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-002.pdf"
@@ -3459,7 +3574,7 @@
       "symptom_ref": "SYM-003",
       "zone": "neck",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 318.5,
       "terminals": [
         [
           "handoff",
@@ -3475,7 +3590,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-003.pdf"
@@ -3484,7 +3599,7 @@
       "symptom_ref": "SYM-004",
       "zone": "shoulder",
       "width_pt": 326.0,
-      "height_pt": 403.0,
+      "height_pt": 290.1,
       "terminals": [
         [
           "handoff",
@@ -3500,7 +3615,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-004.pdf"
@@ -3517,15 +3632,15 @@
         ],
         [
           "handoff",
-          "AF-08"
-        ],
-        [
-          "handoff",
           "AF-04"
         ],
         [
+          "handoff",
+          "AF-08"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-005.pdf"
@@ -3534,7 +3649,7 @@
       "symptom_ref": "SYM-006",
       "zone": "shoulder",
       "width_pt": 326.0,
-      "height_pt": 333.5,
+      "height_pt": 318.5,
       "terminals": [
         [
           "handoff",
@@ -3550,7 +3665,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-006.pdf"
@@ -3559,7 +3674,7 @@
       "symptom_ref": "SYM-007",
       "zone": "shoulder",
       "width_pt": 326.0,
-      "height_pt": 372.9,
+      "height_pt": 327.6,
       "terminals": [
         [
           "eliminate",
@@ -3575,7 +3690,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-007.pdf"
@@ -3584,7 +3699,7 @@
       "symptom_ref": "SYM-008",
       "zone": "shoulder",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
@@ -3592,15 +3707,15 @@
         ],
         [
           "handoff",
-          "AF-08"
-        ],
-        [
-          "handoff",
           "AF-10"
         ],
         [
+          "handoff",
+          "AF-08"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-008.pdf"
@@ -3609,7 +3724,7 @@
       "symptom_ref": "SYM-031",
       "zone": "sleeve_arm",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 318.5,
       "terminals": [
         [
           "handoff",
@@ -3625,7 +3740,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-031.pdf"
@@ -3634,7 +3749,7 @@
       "symptom_ref": "SYM-032",
       "zone": "sleeve_arm",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 327.6,
       "terminals": [
         [
           "eliminate",
@@ -3650,7 +3765,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-032.pdf"
@@ -3659,8 +3774,12 @@
       "symptom_ref": "SYM-033",
       "zone": "sleeve_arm",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 297.5,
       "terminals": [
+        [
+          "eliminate",
+          "Sleeve-cap notches are misaligned (shifted front or back)"
+        ],
         [
           "eliminate",
           "The sleeve was cut off grain"
@@ -3670,12 +3789,8 @@
           "AF-09"
         ],
         [
-          "handoff",
-          "AF-09"
-        ],
-        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-033.pdf"
@@ -3684,23 +3799,23 @@
       "symptom_ref": "SYM-034",
       "zone": "sleeve_arm",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 342.7,
       "terminals": [
         [
           "eliminate",
           "The ease is right but it was not distributed before setting the sleeve"
         ],
         [
+          "eliminate",
+          "The armhole was sewn to a different measurement than the pattern"
+        ],
+        [
           "handoff",
           "AF-09"
         ],
         [
-          "handoff",
-          "AF-08"
-        ],
-        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-034.pdf"
@@ -3709,7 +3824,7 @@
       "symptom_ref": "SYM-009",
       "zone": "upper_back",
       "width_pt": 326.0,
-      "height_pt": 372.9,
+      "height_pt": 327.6,
       "terminals": [
         [
           "handoff",
@@ -3725,7 +3840,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-009.pdf"
@@ -3734,15 +3849,15 @@
       "symptom_ref": "SYM-010",
       "zone": "upper_back",
       "width_pt": 326.0,
-      "height_pt": 357.8,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
-          "AF-07"
+          "AF-18"
         ],
         [
           "handoff",
-          "AF-18"
+          "AF-07"
         ],
         [
           "handoff",
@@ -3750,7 +3865,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-010.pdf"
@@ -3759,8 +3874,12 @@
       "symptom_ref": "SYM-011",
       "zone": "upper_back",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 327.6,
       "terminals": [
+        [
+          "handoff",
+          "AF-11"
+        ],
         [
           "handoff",
           "AF-07"
@@ -3770,12 +3889,8 @@
           "AF-13"
         ],
         [
-          "handoff",
-          "AF-11"
-        ],
-        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-011.pdf"
@@ -3800,7 +3915,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-012.pdf"
@@ -3809,7 +3924,7 @@
       "symptom_ref": "SYM-022",
       "zone": "waist_torso",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 327.6,
       "terminals": [
         [
           "eliminate",
@@ -3825,7 +3940,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-022.pdf"
@@ -3834,7 +3949,7 @@
       "symptom_ref": "SYM-023",
       "zone": "waist_torso",
       "width_pt": 326.0,
-      "height_pt": 357.8,
+      "height_pt": 342.7,
       "terminals": [
         [
           "handoff",
@@ -3850,7 +3965,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-023.pdf"
@@ -3859,15 +3974,15 @@
       "symptom_ref": "SYM-024",
       "zone": "waist_torso",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
-          "AF-14"
+          "AF-18"
         ],
         [
           "handoff",
-          "AF-18"
+          "AF-14"
         ],
         [
           "handoff",
@@ -3875,7 +3990,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-024.pdf"
@@ -3884,23 +3999,23 @@
       "symptom_ref": "SYM-025",
       "zone": "waist_torso",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 342.7,
       "terminals": [
-        [
-          "handoff",
-          "AF-12"
-        ],
-        [
-          "handoff",
-          "AF-12"
-        ],
         [
           "handoff",
           "AF-18"
         ],
         [
+          "handoff",
+          "AF-12"
+        ],
+        [
+          "handoff",
+          "AF-12"
+        ],
+        [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-025.pdf"
@@ -3909,7 +4024,7 @@
       "symptom_ref": "SYM-026",
       "zone": "waist_torso",
       "width_pt": 326.0,
-      "height_pt": 327.6,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
@@ -3925,7 +4040,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-026.pdf"
@@ -3934,15 +4049,15 @@
       "symptom_ref": "SYM-040",
       "zone": "whole_garment",
       "width_pt": 326.0,
-      "height_pt": 342.7,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
-          "AF-01"
+          "AF-11"
         ],
         [
           "handoff",
-          "AF-11"
+          "AF-01"
         ],
         [
           "handoff",
@@ -3950,7 +4065,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-040.pdf"
@@ -3959,7 +4074,7 @@
       "symptom_ref": "SYM-041",
       "zone": "whole_garment",
       "width_pt": 326.0,
-      "height_pt": 357.8,
+      "height_pt": 333.5,
       "terminals": [
         [
           "eliminate",
@@ -3975,7 +4090,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-041.pdf"
@@ -4000,7 +4115,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-042.pdf"
@@ -4009,7 +4124,7 @@
       "symptom_ref": "SYM-043",
       "zone": "whole_garment",
       "width_pt": 326.0,
-      "height_pt": 391.7,
+      "height_pt": 331.4,
       "terminals": [
         [
           "eliminate",
@@ -4025,7 +4140,7 @@
         ],
         [
           "eliminate",
-          "Not this sign — go back to the sign index in Appendix C"
+          "None of these — the sign matched but no cause did. Chapter 8 says what to do (sign index: page )"
         ]
       ],
       "source_file": "flow_SYM-043.pdf"
@@ -4112,78 +4227,78 @@
       "measurement_ref": "M-001",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-001.pdf"
     },
     "FIG-B1-055": {
       "measurement_ref": "M-002",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-002.pdf"
     },
     "FIG-B1-056": {
       "measurement_ref": "M-003",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-003.pdf"
     },
     "FIG-B1-057": {
       "measurement_ref": "M-004",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "source_conflict",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-004.pdf"
     },
     "FIG-B1-058": {
       "measurement_ref": "M-005",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-005.pdf"
     },
     "FIG-B1-059": {
       "measurement_ref": "M-006",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-006.pdf"
     },
     "FIG-B1-060": {
       "measurement_ref": "M-007",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 208.0,
       "source_file": "meas_M-007.pdf"
     },
     "FIG-B1-061": {
       "measurement_ref": "M-008",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "source_conflict",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 208.0,
       "source_file": "meas_M-008.pdf"
     },
     "FIG-B1-062": {
       "measurement_ref": "M-009",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-009.pdf"
     },
     "FIG-B1-063": {
       "measurement_ref": "M-010",
-      "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "no_source",
+      "verification_status_of_record": "technical_reference_verified",
+      "caption_class": "verified",
       "width_pt": 214.0,
       "height_pt": 300.0,
       "source_file": "meas_M-010.pdf"
@@ -4200,94 +4315,94 @@
       "measurement_ref": "M-013",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "source_conflict",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-013.pdf"
     },
     "FIG-B1-066": {
       "measurement_ref": "M-014",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-014.pdf"
     },
     "FIG-B1-067": {
       "measurement_ref": "M-015",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-015.pdf"
     },
     "FIG-B1-068": {
       "measurement_ref": "M-016",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-016.pdf"
     },
     "FIG-B1-069": {
       "measurement_ref": "M-017",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-017.pdf"
     },
     "FIG-B1-070": {
       "measurement_ref": "M-018",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "no_source",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-018.pdf"
     },
     "FIG-B1-071": {
       "measurement_ref": "M-019",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "no_source",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-019.pdf"
     },
     "FIG-B1-072": {
       "measurement_ref": "M-020",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-020.pdf"
     },
     "FIG-B1-073": {
       "measurement_ref": "M-021",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "no_source",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-021.pdf"
     },
     "FIG-B1-074": {
       "measurement_ref": "M-022",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "no_source",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-022.pdf"
     },
     "FIG-B1-075": {
       "measurement_ref": "M-023",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-023.pdf"
     },
     "FIG-B1-076": {
       "measurement_ref": "M-024",
       "verification_status_of_record": "technical_reference_verified",
-      "caption_class": "verified",
+      "caption_class": "source_conflict",
       "width_pt": 214.0,
       "height_pt": 300.0,
       "source_file": "meas_M-024.pdf"
@@ -4304,32 +4419,32 @@
       "measurement_ref": "M-026",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-026.pdf"
     },
     "FIG-B1-079": {
       "measurement_ref": "M-027",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 178.0,
       "source_file": "meas_M-027.pdf"
     },
     "FIG-B1-080": {
       "measurement_ref": "M-028",
       "verification_status_of_record": "agent_drafted_unverified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 208.0,
       "source_file": "meas_M-028.pdf"
     },
     "FIG-B1-081": {
       "measurement_ref": "M-029",
       "verification_status_of_record": "technical_reference_verified",
       "caption_class": "verified",
-      "width_pt": 214.0,
-      "height_pt": 300.0,
+      "width_pt": 186.0,
+      "height_pt": 208.0,
       "source_file": "meas_M-029.pdf"
     },
     "FIG-B1-082": {
@@ -4359,484 +4474,510 @@
       "source_file": "meas_M-033.pdf"
     },
     "FIG-B1-086": {
+      "measurement_ref": "M-034",
+      "verification_status_of_record": "agent_drafted_unverified",
+      "caption_class": "verified",
+      "width_pt": 214.0,
+      "height_pt": 300.0,
+      "source_file": "meas_M-034.pdf"
+    },
+    "FIG-B1-087": {
       "symptom_ref": "SYM-001",
       "zone": "neck",
       "sign_class": "gape",
       "template_token": "TK-06",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-001.pdf"
     },
-    "FIG-B1-087": {
+    "FIG-B1-088": {
       "symptom_ref": "SYM-002",
       "zone": "neck",
       "sign_class": "strain_pull",
       "template_token": "TK-07",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-002.pdf"
     },
-    "FIG-B1-088": {
+    "FIG-B1-089": {
       "symptom_ref": "SYM-003",
       "zone": "neck",
       "sign_class": "hem_hike",
       "template_token": "TK-09",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-003.pdf"
     },
-    "FIG-B1-089": {
+    "FIG-B1-090": {
       "symptom_ref": "SYM-004",
       "zone": "shoulder",
       "sign_class": "diagonal_drag_line",
       "template_token": "TK-05",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-004.pdf"
     },
-    "FIG-B1-090": {
+    "FIG-B1-091": {
       "symptom_ref": "SYM-005",
       "zone": "shoulder",
       "sign_class": "horizontal_fold",
       "template_token": "TK-06",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-005.pdf"
     },
-    "FIG-B1-091": {
+    "FIG-B1-092": {
       "symptom_ref": "SYM-006",
       "zone": "shoulder",
       "sign_class": "seam_displacement",
       "template_token": "TK-09",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-006.pdf"
     },
-    "FIG-B1-092": {
+    "FIG-B1-093": {
       "symptom_ref": "SYM-007",
       "zone": "shoulder",
       "sign_class": "silhouette_deviation",
       "template_token": "TK-12",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-007.pdf"
     },
-    "FIG-B1-093": {
+    "FIG-B1-094": {
       "symptom_ref": "SYM-008",
       "zone": "shoulder",
       "sign_class": "strain_pull",
       "template_token": "TK-07",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 205.0,
       "source_file": "sign_SYM-008.pdf"
     },
-    "FIG-B1-094": {
+    "FIG-B1-095": {
       "symptom_ref": "SYM-009",
       "zone": "upper_back",
       "sign_class": "horizontal_fold",
       "template_token": "TK-06",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-009.pdf"
     },
-    "FIG-B1-095": {
+    "FIG-B1-096": {
       "symptom_ref": "SYM-010",
       "zone": "upper_back",
       "sign_class": "vertical_fold",
       "template_token": "TK-06",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-010.pdf"
     },
-    "FIG-B1-096": {
+    "FIG-B1-097": {
       "symptom_ref": "SYM-011",
       "zone": "upper_back",
       "sign_class": "hem_hike",
       "template_token": "TK-09",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-011.pdf"
     },
-    "FIG-B1-097": {
+    "FIG-B1-098": {
       "symptom_ref": "SYM-012",
       "zone": "upper_back",
       "sign_class": "seam_displacement",
       "template_token": "TK-09",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-012.pdf"
     },
-    "FIG-B1-098": {
+    "FIG-B1-099": {
       "symptom_ref": "SYM-013",
       "zone": "armhole",
       "sign_class": "strain_pull",
       "template_token": "TK-07",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-013.pdf"
     },
-    "FIG-B1-099": {
+    "FIG-B1-100": {
       "symptom_ref": "SYM-014",
       "zone": "armhole",
       "sign_class": "gape",
       "template_token": "TK-06",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-014.pdf"
     },
-    "FIG-B1-100": {
+    "FIG-B1-101": {
       "symptom_ref": "SYM-015",
       "zone": "armhole",
       "sign_class": "gape",
       "template_token": "TK-06",
       "body_variant": "rounded_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-015.pdf"
     },
-    "FIG-B1-101": {
+    "FIG-B1-102": {
       "symptom_ref": "SYM-016",
       "zone": "bust_chest",
       "sign_class": "diagonal_drag_line",
       "template_token": "TK-05",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 235.5,
       "source_file": "sign_SYM-016.pdf"
     },
-    "FIG-B1-102": {
+    "FIG-B1-103": {
       "symptom_ref": "SYM-017",
       "zone": "bust_chest",
       "sign_class": "hem_hike",
       "template_token": "TK-09",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 235.5,
       "source_file": "sign_SYM-017.pdf"
     },
-    "FIG-B1-103": {
+    "FIG-B1-104": {
       "symptom_ref": "SYM-018",
       "zone": "bust_chest",
       "sign_class": "seam_displacement",
       "template_token": "TK-09",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 235.5,
       "source_file": "sign_SYM-018.pdf"
     },
-    "FIG-B1-104": {
+    "FIG-B1-105": {
       "symptom_ref": "SYM-019",
       "zone": "bust_chest",
       "sign_class": "strain_pull",
       "template_token": "TK-07",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 235.5,
       "source_file": "sign_SYM-019.pdf"
     },
-    "FIG-B1-105": {
+    "FIG-B1-106": {
       "symptom_ref": "SYM-020",
       "zone": "bust_chest",
       "sign_class": "horizontal_fold",
       "template_token": "TK-06",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 235.5,
       "source_file": "sign_SYM-020.pdf"
     },
-    "FIG-B1-106": {
+    "FIG-B1-107": {
       "symptom_ref": "SYM-021",
       "zone": "bust_chest",
       "sign_class": "gape",
       "template_token": "TK-06",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 235.5,
       "source_file": "sign_SYM-021.pdf"
     },
-    "FIG-B1-107": {
+    "FIG-B1-108": {
       "symptom_ref": "SYM-022",
       "zone": "waist_torso",
       "sign_class": "seam_displacement",
       "template_token": "TK-09",
       "body_variant": "straight_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 249.0,
       "source_file": "sign_SYM-022.pdf"
     },
-    "FIG-B1-108": {
+    "FIG-B1-109": {
       "symptom_ref": "SYM-023",
       "zone": "waist_torso",
       "sign_class": "pooling",
       "template_token": "TK-06",
       "body_variant": "straight_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 249.0,
       "source_file": "sign_SYM-023.pdf"
     },
-    "FIG-B1-109": {
+    "FIG-B1-110": {
       "symptom_ref": "SYM-024",
       "zone": "waist_torso",
       "sign_class": "gape",
       "template_token": "TK-06",
       "body_variant": "straight_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 249.0,
       "source_file": "sign_SYM-024.pdf"
     },
-    "FIG-B1-110": {
+    "FIG-B1-111": {
       "symptom_ref": "SYM-025",
       "zone": "waist_torso",
       "sign_class": "vertical_fold",
       "template_token": "TK-06",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 249.0,
       "source_file": "sign_SYM-025.pdf"
     },
-    "FIG-B1-111": {
+    "FIG-B1-112": {
       "symptom_ref": "SYM-026",
       "zone": "waist_torso",
       "sign_class": "strain_pull",
       "template_token": "TK-07",
       "body_variant": "straight_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 249.0,
       "source_file": "sign_SYM-026.pdf"
     },
-    "FIG-B1-112": {
+    "FIG-B1-113": {
       "symptom_ref": "SYM-027",
       "zone": "hip_seat",
       "sign_class": "horizontal_fold",
       "template_token": "TK-06",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-027.pdf"
     },
-    "FIG-B1-113": {
+    "FIG-B1-114": {
       "symptom_ref": "SYM-028",
       "zone": "hip_seat",
       "sign_class": "pooling",
       "template_token": "TK-06",
       "body_variant": "straight_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-028.pdf"
     },
-    "FIG-B1-114": {
+    "FIG-B1-115": {
       "symptom_ref": "SYM-029",
       "zone": "hip_seat",
       "sign_class": "hem_hike",
       "template_token": "TK-09",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-029.pdf"
     },
-    "FIG-B1-115": {
+    "FIG-B1-116": {
       "symptom_ref": "SYM-030",
       "zone": "hip_seat",
       "sign_class": "seam_displacement",
       "template_token": "TK-09",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-030.pdf"
     },
-    "FIG-B1-116": {
+    "FIG-B1-117": {
       "symptom_ref": "SYM-031",
       "zone": "sleeve_arm",
       "sign_class": "diagonal_drag_line",
       "template_token": "TK-05",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-031.pdf"
     },
-    "FIG-B1-117": {
+    "FIG-B1-118": {
       "symptom_ref": "SYM-032",
       "zone": "sleeve_arm",
       "sign_class": "vertical_fold",
       "template_token": "TK-06",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-032.pdf"
     },
-    "FIG-B1-118": {
+    "FIG-B1-119": {
       "symptom_ref": "SYM-033",
       "zone": "sleeve_arm",
       "sign_class": "grain_distortion",
       "template_token": "TK-10",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-033.pdf"
     },
-    "FIG-B1-119": {
+    "FIG-B1-120": {
       "symptom_ref": "SYM-034",
       "zone": "sleeve_arm",
       "sign_class": "strain_pull",
       "template_token": "TK-07",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 223.0,
       "source_file": "sign_SYM-034.pdf"
     },
-    "FIG-B1-120": {
+    "FIG-B1-121": {
       "symptom_ref": "SYM-035",
       "zone": "crotch_leg",
       "sign_class": "horizontal_fold",
       "template_token": "TK-06",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 312.0,
       "source_file": "sign_SYM-035.pdf"
     },
-    "FIG-B1-121": {
+    "FIG-B1-122": {
       "symptom_ref": "SYM-036",
       "zone": "crotch_leg",
       "sign_class": "pooling",
       "template_token": "TK-06",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 312.0,
       "source_file": "sign_SYM-036.pdf"
     },
-    "FIG-B1-122": {
+    "FIG-B1-123": {
       "symptom_ref": "SYM-037",
       "zone": "crotch_leg",
       "sign_class": "diagonal_drag_line",
       "template_token": "TK-05",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 312.0,
       "source_file": "sign_SYM-037.pdf"
     },
-    "FIG-B1-123": {
+    "FIG-B1-124": {
       "symptom_ref": "SYM-038",
       "zone": "crotch_leg",
       "sign_class": "grain_distortion",
       "template_token": "TK-10",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 312.0,
       "source_file": "sign_SYM-038.pdf"
     },
-    "FIG-B1-124": {
+    "FIG-B1-125": {
       "symptom_ref": "SYM-039",
       "zone": "crotch_leg",
       "sign_class": "silhouette_deviation",
       "template_token": "TK-12",
       "body_variant": "straight_back",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 312.0,
       "source_file": "sign_SYM-039.pdf"
     },
-    "FIG-B1-125": {
+    "FIG-B1-126": {
       "symptom_ref": "SYM-040",
       "zone": "whole_garment",
       "sign_class": "hem_hike",
       "template_token": "TK-09",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-040.pdf"
     },
-    "FIG-B1-126": {
+    "FIG-B1-127": {
       "symptom_ref": "SYM-041",
       "zone": "whole_garment",
       "sign_class": "seam_displacement",
       "template_token": "TK-09",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-041.pdf"
     },
-    "FIG-B1-127": {
+    "FIG-B1-128": {
       "symptom_ref": "SYM-042",
       "zone": "whole_garment",
       "sign_class": "grain_distortion",
       "template_token": "TK-10",
       "body_variant": "fuller_bust",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-042.pdf"
     },
-    "FIG-B1-128": {
+    "FIG-B1-129": {
       "symptom_ref": "SYM-043",
       "zone": "whole_garment",
       "sign_class": "silhouette_deviation",
       "template_token": "TK-12",
       "body_variant": "standard",
       "width_pt": 200.0,
-      "height_pt": 268.0,
+      "height_pt": 267.0,
       "source_file": "sign_SYM-043.pdf"
     },
-    "FIG-B1-129": {
+    "FIG-B1-130": {
       "piece": "front_bodice",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_front_bodice.pdf"
     },
-    "FIG-B1-130": {
+    "FIG-B1-131": {
       "piece": "back_bodice",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_back_bodice.pdf"
     },
-    "FIG-B1-131": {
+    "FIG-B1-132": {
       "piece": "sleeve",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_sleeve.pdf"
     },
-    "FIG-B1-132": {
+    "FIG-B1-133": {
       "piece": "front_skirt",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_front_skirt.pdf"
     },
-    "FIG-B1-133": {
+    "FIG-B1-134": {
       "piece": "back_skirt",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_back_skirt.pdf"
     },
-    "FIG-B1-134": {
+    "FIG-B1-135": {
       "piece": "front_trouser",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_front_trouser.pdf"
     },
-    "FIG-B1-135": {
+    "FIG-B1-136": {
       "piece": "back_trouser",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_back_trouser.pdf"
     },
-    "FIG-B1-136": {
+    "FIG-B1-137": {
       "piece": "dart_anatomy",
       "width_pt": 210.0,
       "height_pt": 250.0,
       "source_file": "patt_dart_anatomy.pdf"
     },
-    "FIG-B1-137": {
+    "FIG-B1-138": {
+      "piece": "curve_walk",
+      "width_pt": 300.0,
+      "height_pt": 176.0,
+      "source_file": "patt_curve_walk.pdf"
+    },
+    "FIG-B1-139": {
+      "piece": "vertical_reads",
+      "width_pt": 288.0,
+      "height_pt": 250.0,
+      "source_file": "patt_vertical_reads.pdf"
+    },
+    "FIG-B1-140": {
+      "piece": "sleeve_cap",
+      "width_pt": 250.0,
+      "height_pt": 210.0,
+      "source_file": "patt_sleeve_cap.pdf"
+    },
+    "FIG-B1-141": {
       "table": "zone_index",
       "rows": 11,
       "internal": false,
@@ -4894,7 +5035,7 @@
       "height_pt": 175.2,
       "source_file": "tbl_zone_index.pdf"
     },
-    "FIG-B1-138": {
+    "FIG-B1-142": {
       "table": "order_of_operations",
       "rows": 6,
       "internal": false,
@@ -4939,7 +5080,7 @@
       "height_pt": 96.5,
       "source_file": "tbl_order_of_operations.pdf"
     },
-    "FIG-B1-139": {
+    "FIG-B1-143": {
       "table": "do_not_change_yet",
       "rows": 5,
       "internal": false,
@@ -4973,7 +5114,7 @@
       "height_pt": 80.8,
       "source_file": "tbl_do_not_change_yet.pdf"
     },
-    "FIG-B1-140": {
+    "FIG-B1-144": {
       "table": "af_index",
       "rows": 21,
       "internal": true,
@@ -5015,7 +5156,7 @@
         ],
         [
           "AF-07",
-          "Upper back (round back / broad back / n…",
+          "Upper back (round / flat back, broad /…",
           "upper_back"
         ],
         [
@@ -5093,7 +5234,7 @@
       "height_pt": 332.8,
       "source_file": "tbl_af_index.pdf"
     },
-    "FIG-B1-141": {
+    "FIG-B1-145": {
       "table": "sign_class_index",
       "rows": 11,
       "internal": true,
@@ -5151,7 +5292,7 @@
       "height_pt": 175.2,
       "source_file": "tbl_sign_class_index.pdf"
     },
-    "FIG-B1-142": {
+    "FIG-B1-146": {
       "table": "measure_status",
       "rows": 3,
       "internal": true,
@@ -5166,7 +5307,7 @@
         ],
         [
           "technical_reference_verified",
-          "16"
+          "17"
         ]
       ],
       "col_ratio": [
@@ -5177,7 +5318,7 @@
       "height_pt": 49.2,
       "source_file": "tbl_measure_status.pdf"
     },
-    "FIG-B1-143": {
+    "FIG-B1-147": {
       "table": "three_numbers",
       "rows": 4,
       "internal": false,
@@ -5212,7 +5353,7 @@
       "height_pt": 65.0,
       "source_file": "tbl_three_numbers.pdf"
     },
-    "FIG-B1-144": {
+    "FIG-B1-148": {
       "table": "sign_classes",
       "rows": 11,
       "internal": false,
@@ -5270,7 +5411,7 @@
       "height_pt": 175.2,
       "source_file": "tbl_sign_classes.pdf"
     },
-    "FIG-B1-145": {
+    "FIG-B1-149": {
       "table": "rule_out_checklist",
       "rows": 15,
       "internal": false,
@@ -5344,7 +5485,7 @@
       "height_pt": 238.2,
       "source_file": "tbl_rule_out_checklist.pdf"
     },
-    "FIG-B1-146": {
+    "FIG-B1-150": {
       "table": "form_measurement_card",
       "rows": 11,
       "internal": false,
@@ -5438,7 +5579,7 @@
       "height_pt": 175.2,
       "source_file": "tbl_form_measurement_card.pdf"
     },
-    "FIG-B1-147": {
+    "FIG-B1-151": {
       "table": "form_fitting_record",
       "rows": 11,
       "internal": false,
@@ -5532,7 +5673,7 @@
       "height_pt": 175.2,
       "source_file": "tbl_form_fitting_record.pdf"
     },
-    "FIG-B1-148": {
+    "FIG-B1-152": {
       "table": "form_fit_profile",
       "rows": 11,
       "internal": false,
@@ -5638,9 +5779,9 @@
       "height_pt": 175.2,
       "source_file": "tbl_form_fit_profile.pdf"
     },
-    "FIG-B1-149": {
+    "FIG-B1-153": {
       "table": "measurement_index",
-      "rows": 33,
+      "rows": 34,
       "internal": false,
       "data": [
         [
@@ -5670,7 +5811,7 @@
         ],
         [
           "High hip",
-          "≈ 7–10 cm below the marked waist → around the body back to start",
+          "8 cm (3 in) below the marked waist → around the body back to start",
           "no"
         ],
         [
@@ -5695,7 +5836,7 @@
         ],
         [
           "Knee",
-          "centre of the kneecap → around the leg back to start",
+          "1 in. (2.5 cm) above the centre of the kneecap → around the leg back to start",
           "no"
         ],
         [
@@ -5807,6 +5948,11 @@
           "Waist-to-hip drop",
           "a calculated difference",
           "no"
+        ],
+        [
+          "Shoulder slope",
+          "side neck point → shoulder point (bone tip), read as a vertical drop",
+          "yes"
         ]
       ],
       "col_ratio": [
@@ -5815,10 +5961,10 @@
         0.1125
       ],
       "width_pt": 397.8,
-      "height_pt": 521.8,
+      "height_pt": 537.5,
       "source_file": "tbl_measurement_index.pdf"
     },
-    "FIG-B1-150": {
+    "FIG-B1-154": {
       "table": "family_index",
       "rows": 21,
       "internal": false,
@@ -5852,7 +5998,7 @@
           "Neckline and neck"
         ],
         [
-          "Upper back (round back / broad back / narrow back)",
+          "Upper back (round / flat back, broad / narrow back)",
           "Upper back"
         ],
         [
@@ -5916,126 +6062,442 @@
       "height_pt": 332.8,
       "source_file": "tbl_family_index.pdf"
     },
-    "FIG-B1-151": {
+    "FIG-B1-155": {
+      "table": "pattern_body_pairs",
+      "rows": 27,
+      "internal": false,
+      "data": [
+        [
+          "Your measurement",
+          "Read this on the pattern",
+          "How"
+        ],
+        [
+          "Full bust",
+          "Bust line width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "High bust",
+          "Chest line width (the pattern's high bust)",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Natural waist",
+          "Waist line width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "High hip",
+          "High hip line width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Full hip",
+          "Hip line width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "High hip",
+          "Front and back share of a girth line",
+          "front and back separately"
+        ],
+        [
+          "Full hip",
+          "Front and back share of a girth line",
+          "front and back separately"
+        ],
+        [
+          "Across back",
+          "Back width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Across chest",
+          "Front width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Shoulder length",
+          "Shoulder seam length",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Shoulder slope",
+          "Shoulder slope",
+          "a vertical drop"
+        ],
+        [
+          "Centre front length",
+          "Centre front length",
+          "a vertical drop"
+        ],
+        [
+          "Centre back length",
+          "Centre back length",
+          "a vertical drop"
+        ],
+        [
+          "Armhole depth",
+          "Armhole depth",
+          "a vertical drop"
+        ],
+        [
+          "Neck base",
+          "Neckline curve length",
+          "tape on edge, along the seam"
+        ],
+        [
+          "Bicep",
+          "Bicep line width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Sleeve length",
+          "Sleeve length",
+          "a vertical drop"
+        ],
+        [
+          "Shoulder to elbow",
+          "Elbow shaping position",
+          "a vertical drop"
+        ],
+        [
+          "Shoulder to apex",
+          "Bust dart point position",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Apex to apex",
+          "Dart point spacing",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Crotch depth (seated)",
+          "Crotch depth",
+          "a vertical drop"
+        ],
+        [
+          "Crotch length (rise)",
+          "Crotch curve length, front and back",
+          "tape on edge, along the seam"
+        ],
+        [
+          "Thigh",
+          "Thigh line width",
+          "tape flat, seam to seam"
+        ],
+        [
+          "Knee",
+          "Knee line width, front and back",
+          "front and back separately"
+        ],
+        [
+          "Waist to hip",
+          "Waist to hip depth",
+          "a vertical drop"
+        ],
+        [
+          "Shoulder to apex",
+          "Button positions",
+          "a vertical drop"
+        ]
+      ],
+      "col_ratio": [
+        0.2388,
+        0.4515,
+        0.3097
+      ],
+      "width_pt": 461.9,
+      "height_pt": 427.2,
+      "source_file": "tbl_pattern_body_pairs.pdf"
+    },
+    "FIG-B1-156": {
+      "table": "ease_bands",
+      "rows": 24,
+      "internal": false,
+      "data": [
+        [
+          "Where",
+          "Band",
+          "Source's own landmark",
+          "From"
+        ],
+        [
+          "Full bust",
+          "7.6–10.2 cm (3–4 in)",
+          "fullest point",
+          "Bodice"
+        ],
+        [
+          "High bust",
+          "7.6–10.2 cm (3–4 in)",
+          "above breasts, under arms",
+          "Bodice"
+        ],
+        [
+          "Underbust",
+          "7.6–10.2 cm (3–4 in)",
+          "just under breasts",
+          "Bodice"
+        ],
+        [
+          "Neck base",
+          "1.3–2.5 cm (0.5–1 in)",
+          "1 in ABOVE the neck base",
+          "Bodice"
+        ],
+        [
+          "Shoulder length",
+          "1.3 cm (0.5 in)",
+          "neck base to shoulder bone",
+          "Bodice"
+        ],
+        [
+          "Across back",
+          "2.5–3.8 cm (1–1.5 in)",
+          "SHOULDER to shoulder",
+          "Bodice"
+        ],
+        [
+          "Bicep",
+          "1.3–5.1 cm (0.5–2 in)",
+          "at the ARMPIT",
+          "Bodice"
+        ],
+        [
+          "Wrist",
+          "1.3–2.5 cm (0.5–1 in)",
+          "widest part of the HAND",
+          "Bodice"
+        ],
+        [
+          "Centre back length",
+          "2.5–5.1 cm (1–2 in)",
+          "nape to waist",
+          "Bodice"
+        ],
+        [
+          "Inseam",
+          "1.3–2.5 cm (0.5–1 in)",
+          "crotch to ANKLE BONE",
+          "Bodice"
+        ],
+        [
+          "Full hip",
+          "5.1–10.2 cm (2–4 in)",
+          "widest part",
+          "Bodice"
+        ],
+        [
+          "Thigh",
+          "2.5–7.6 cm (1–3 in)",
+          "9 in below the waist",
+          "Bodice"
+        ],
+        [
+          "Natural waist",
+          "1.3–2.5 cm (0.5–1 in)",
+          "—",
+          "Trouser"
+        ],
+        [
+          "High hip",
+          "0.6–2.5 cm (0.25–1 in)",
+          "3 in below the waist",
+          "Trouser"
+        ],
+        [
+          "Full hip",
+          "5.1 cm (2 in)",
+          "fullest, 7–9 in below waist",
+          "Trouser"
+        ],
+        [
+          "Thigh",
+          "2.5 cm (1 in)",
+          "fullest part",
+          "Trouser"
+        ],
+        [
+          "Knee",
+          "depends on the style",
+          "1 in above centre",
+          "Trouser"
+        ],
+        [
+          "Waist to hip",
+          "0",
+          "at the side",
+          "Trouser"
+        ],
+        [
+          "Waist to knee",
+          "0",
+          "at the side",
+          "Trouser"
+        ],
+        [
+          "Crotch depth",
+          "1.3–1.9 cm (0.5–0.75 in)",
+          "seated, at side",
+          "Trouser"
+        ],
+        [
+          "Crotch length, front",
+          "1.3–1.9 cm (0.5–0.75 in)",
+          "front waist to centre",
+          "Trouser"
+        ],
+        [
+          "Crotch length, back",
+          "1.3–1.9 cm (0.5–0.75 in)",
+          "back waist to centre",
+          "Trouser"
+        ],
+        [
+          "Leg length",
+          "hem allowance only",
+          "waist to floor, at side",
+          "Trouser"
+        ]
+      ],
+      "col_ratio": [
+        0.2557,
+        0.301,
+        0.335,
+        0.1084
+      ],
+      "width_pt": 413.0,
+      "height_pt": 380.0,
+      "source_file": "tbl_ease_bands.pdf"
+    },
+    "FIG-B1-157": {
       "zone": "CYCLE",
       "width_pt": 280.0,
       "height_pt": 346.0,
       "source_file": "flow_CYCLE.pdf"
     },
-    "FIG-B1-152": {
+    "FIG-B1-158": {
       "error": "tape_slipped_back",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_tape_slipped_back.pdf"
     },
-    "FIG-B1-153": {
+    "FIG-B1-159": {
       "error": "arms_raised",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_arms_raised.pdf"
     },
-    "FIG-B1-154": {
+    "FIG-B1-160": {
       "error": "tape_too_tight",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_tape_too_tight.pdf"
     },
-    "FIG-B1-155": {
+    "FIG-B1-161": {
       "error": "waist_guessed",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_waist_guessed.pdf"
     },
-    "FIG-B1-156": {
+    "FIG-B1-162": {
       "error": "hip_too_high",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_hip_too_high.pdf"
     },
-    "FIG-B1-157": {
+    "FIG-B1-163": {
       "error": "posture_leaning",
       "width_pt": 300.0,
       "height_pt": 210.0,
       "source_file": "cmp_posture_leaning.pdf"
     },
-    "FIG-B1-158": {
+    "FIG-B1-164": {
       "state": "marking_cf_cb",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_marking_cf_cb.pdf"
     },
-    "FIG-B1-159": {
+    "FIG-B1-165": {
       "state": "marking_balance",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_marking_balance.pdf"
     },
-    "FIG-B1-160": {
+    "FIG-B1-166": {
       "state": "marking_waist",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_marking_waist.pdf"
     },
-    "FIG-B1-161": {
+    "FIG-B1-167": {
       "state": "pin_test",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_pin_test.pdf"
     },
-    "FIG-B1-162": {
+    "FIG-B1-168": {
       "state": "slash_test",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_slash_test.pdf"
     },
-    "FIG-B1-163": {
+    "FIG-B1-169": {
       "state": "control_toile",
       "width_pt": 200.0,
       "height_pt": 262.0,
       "source_file": "toile_control_toile.pdf"
+    },
+    "FIG-B1-170": {
+      "state": "shoulder_offset",
+      "width_pt": 268.0,
+      "height_pt": 262.0,
+      "source_file": "toile_shoulder_offset.pdf"
     }
   },
   "zone_chart_fit": {
     "neck": {
       "signs": 3,
       "width_pt": 978.0,
-      "height_pt": 352.9,
+      "height_pt": 322.7,
       "fits_page": false
     },
     "shoulder": {
       "signs": 5,
       "width_pt": 1630.0,
-      "height_pt": 383.0,
+      "height_pt": 322.7,
       "fits_page": false
     },
     "upper_back": {
       "signs": 4,
       "width_pt": 1304.0,
-      "height_pt": 352.9,
+      "height_pt": 307.6,
       "fits_page": false
     },
     "armhole": {
       "signs": 3,
       "width_pt": 978.0,
-      "height_pt": 352.9,
+      "height_pt": 322.7,
       "fits_page": false
     },
     "bust_chest": {
       "signs": 6,
       "width_pt": 1956.0,
-      "height_pt": 371.7,
+      "height_pt": 307.6,
       "fits_page": false
     },
     "waist_torso": {
       "signs": 5,
       "width_pt": 1630.0,
-      "height_pt": 337.8,
+      "height_pt": 322.7,
       "fits_page": false
     },
     "hip_seat": {
       "signs": 4,
       "width_pt": 1304.0,
-      "height_pt": 337.8,
+      "height_pt": 307.6,
       "fits_page": false
     },
     "sleeve_arm": {
@@ -6047,13 +6509,13 @@
     "crotch_leg": {
       "signs": 5,
       "width_pt": 1630.0,
-      "height_pt": 322.7,
+      "height_pt": 328.6,
       "fits_page": false
     },
     "whole_garment": {
       "signs": 4,
       "width_pt": 1304.0,
-      "height_pt": 371.7,
+      "height_pt": 313.5,
       "fits_page": false
     }
   }

@@ -21,7 +21,8 @@
     "Bkz. DECISIONS.md K19, K20.",
     "FAZ 4 BAĞIMSIZ İNCELEME: dört karıştırıcı sınıfı EKLENDİ (prova desteği, ayakkabı/topuk, kumaş dinlenmesi, ölçüm yaşı) ve ikisinin kapsamı GENİŞLETİLDİ (kalıp basımı: tek eksen + sayfa birleştirme; prova duruşu: kendine bakma etkisi). Gerekçe: 08_REPORTS/PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md § missing_confounders.",
     "FAZ 4: karın nedenleri AF-20'ye yönlendirildi. Önceden üçü AF-13'e (giysinin ARKASI), ikisi AF-01'e (GÖĞÜS PENSİ ailesi) gidiyordu — okur için yanlış varış noktası.",
-    "FAZ 4 İKİNCİ ÇELİŞMELİ İNCELEME (A-04): dört ağ UZUNLUĞU nedeni ağ DERİNLİĞİ ailesine gidiyordu. Bu bir REGRESYONDU — AF-15/AF-16 sınırı bu turda ayrıldığında nedenler yeniden yönlendirilmemişti. Kitabın kendi 4. sıra kuralı bu karışıklığı 'en sık yapılan pantolon hatası' diye adlandırıyor ve veri onu ÜRETİYORDU."
+    "FAZ 4 İKİNCİ ÇELİŞMELİ İNCELEME (A-04): dört ağ UZUNLUĞU nedeni ağ DERİNLİĞİ ailesine gidiyordu. Bu bir REGRESYONDU — AF-15/AF-16 sınırı bu turda ayrıldığında nedenler yeniden yönlendirilmemişti. Kitabın kendi 4. sıra kuralı bu karışıklığı 'en sık yapılan pantolon hatası' diye adlandırıyor ve veri onu ÜRETİYORDU.",
+    "İÇERİK TURU (31 Ağu 2026) · L-2 KAPATILDI: her aday neden artık YAPISAL bir 'confirming_refs' alanı taşır — body (Bölüm 2 ölçüsü) · pattern (Bölüm 3 kalıp okuması) · toile (Bölüm 5 prova okuması). Kapı: 06_BUILD/qa_verification.py, sicilde bulunmayan bir niceliğe başvuran adımı REDDEDER. 37 adımın metni değiştirildi: 5'i yeni M-034'e, 2'si TR-01'e, 7'si döngüsel ease ifadesinden OKUNAN ease'e, 5'i ön/arka dağılımın KALIP tarafına, 2'si dürüstçe 'ölçüm yok'a indirildi."
   ],
   "count": 43,
   "verification_summary": {
@@ -35,25 +36,49 @@
       "symptom_id": "SYM-001",
       "zone": "neck",
       "sign_class": "gape",
-      "observation": "Ön yaka, göğüs kemiğinin üzerinde vücuda değmeden duruyor; okur öne eğildiğinde açıklık büyüyor.",
+      "observation": "Ön yaka, göğüs kemiğinin üzerinde vücuda değmeden duruyor.",
       "where_it_appears": "Ön yaka eğrisi, omuz/boyun noktası ile ön orta arasında",
       "origin_rule": "Açıklık asimetrikse ve öne eğilmekle artıyorsa kaynak yakada değil, ALTINDAKİ hacimdedir.",
       "candidate_causes": [
         {
           "cause": "Yaka eğrisi vücut için fazla geniş/derin",
-          "distinguishing_evidence": "Açıklık okur DİK dururken de var ve simetrik.",
+          "distinguishing_evidence": "Açıklık dik dururken de öne eğilirken de AYNI, yakanın tamamında eşit ve ARKA yaka da vücuttan ayrılıyor.",
           "confirming_measurement": "Kalıp yaka eğrisi uzunluğu vs. M-013 boyun tabanı çevresi",
           "physical_test": "Yakayı iğneyle daralt: açıklık kapanıyor ve boyun sıkışmıyorsa neden budur.",
           "adjustment_family_ref": "AF-06",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-013"
+            ],
+            "pattern": [
+              "PR-14"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Göğüs hacmi yakayı öne çekiyor",
-          "distinguishing_evidence": "Açıklık ASİMETRİK biçimde göğse doğru yönleniyor ve göğüs pensi de yerinde değil; okur öne eğilince BELİRGİN artıyor.",
-          "confirming_measurement": "M-031 (göğüs − üst göğüs farkı) kalıbın varsaydığı farktan büyük mü",
+          "distinguishing_evidence": "Öne eğilince açıklık BELİRGİN artıyor, yalnızca ÖNDE — arka yaka yatıyor — ve ön etek ucu arkadan yukarıda. Genellikle iki taraflı.",
+          "confirming_measurement": "M-031 vs. (PR-01 − PR-02) kalıbın KENDİ göğüs/üst göğüs farkı",
           "physical_test": "Göğüs bölgesine iğneyle hacim ekle (bir şerit kumaş ekleyerek): yaka açıklığı kendiliğinden kapanıyorsa neden yakada DEĞİL, göğüstedir.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": "Teşhiste en sık kaçırılan yer değiştirme."
+          "likelihood_note": "Teşhiste en sık kaçırılan yer değiştirme.",
+          "confirming_refs": {
+            "body": [
+              "M-031"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-02"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3
         },
         {
           "cause": "Yaka kenarı dikiş sırasında gerilmiş",
@@ -61,7 +86,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Yaka kenarını kalıbın yaka eğrisiyle üst üste koy: kumaş uzamışsa kalıptan uzundur.",
           "adjustment_family_ref": null,
-          "likelihood_note": "Bir YAPIM hatasıdır; kalıba dokunulmaz."
+          "likelihood_note": "Bir YAPIM hatasıdır; kalıba dokunulmaz.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -100,7 +132,19 @@
           "confirming_measurement": "Kalıp yaka çevresi vs. M-013",
           "physical_test": "Yakayı 3–5 mm derinleştirip yeniden değerlendir.",
           "adjustment_family_ref": "AF-06",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-013"
+            ],
+            "pattern": [
+              "PR-14"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Yuvarlak sırt boyunu öne itiyor",
@@ -108,15 +152,36 @@
           "confirming_measurement": "M-016 (arka orta boy) kalıbın arka orta boyundan uzun mu",
           "physical_test": "Arka yaka üzerine dikey bir kesik at ve aç: baskı geçiyorsa neden sırttadır.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016"
+            ],
+            "pattern": [
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4
         },
         {
           "cause": "Omuz dikişi öne kaymış, yakayı boyna bindiriyor",
-          "distinguishing_evidence": "Omuz dikişi omuz üstü orta çizgisinin ÖNÜNDE duruyor.",
-          "confirming_measurement": "Omuz dikişinin konumu vs. omuz üstü orta çizgisi",
+          "distinguishing_evidence": "Omuz dikişi omuz üstü çizgisinin ARKASINDA duruyor — omuz öne taşınmış ve dikiş geride kalmış — ve giydikçe öne kayıyor.",
+          "confirming_measurement": "TR-01 — dikiş işaretli çizginin ARKASINDA (SYM-006 ile AYNI yön)",
           "physical_test": "Omuz dikişini geriye doğru iğnele.",
           "adjustment_family_ref": "AF-05",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [
+              "TR-01"
+            ],
+            "kind": "read"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the seam sits behind the line on BOTH shoulders by a similar amount."
         }
       ],
       "confounders_to_rule_out": [
@@ -148,12 +213,26 @@
       "origin_rule": "Etek ucundaki yükselme neredeyse hiçbir zaman etek ucunun sorunu değildir.",
       "candidate_causes": [
         {
-          "cause": "Arka beden boyu yetersiz (yuvarlak sırt / dik duruş)",
+          "cause": "Arka beden boyu BÜTÜNÜYLE kısa",
           "distinguishing_evidence": "Ön etek ucu yerde düzgün, YALNIZCA arka yükseliyor.",
-          "confirming_measurement": "M-016 vs. kalıp arka orta boyu; M-032 (ön/arka fark)",
+          "confirming_measurement": "M-016 vs. PR-12; ayrıca M-032 vs. (PR-11 − PR-12)",
           "physical_test": "Arka bedeni enine kes ve aç: yaka iniyorsa neden boydadır.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016",
+              "M-032"
+            ],
+            "pattern": [
+              "PR-12",
+              "PR-11"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor",
@@ -161,15 +240,34 @@
           "confirming_measurement": "M-020 (sırt genişliği) vs. kalıp arka beden genişliği",
           "physical_test": "Kürek hizasına dikey kesik at ve aç.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-020"
+            ],
+            "pattern": [
+              "PR-07"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Yaka arkada fazla dar, giysiyi yukarı asıyor",
-          "distinguishing_evidence": "Yükselme SADECE yaka çevresinde, kürek hizasında gerginlik YOK.",
-          "confirming_measurement": "Kalıp arka yaka çevresi vs. M-013",
+          "distinguishing_evidence": "En çok yaka yükseliyor, etek ucu onu ancak hafifçe izliyor; ikisinin arası temiz.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — sırt yakası GENİŞLİĞİNİN vücut karşılığı öğretilmiyor",
           "physical_test": "Arka yakayı 5 mm derinleştir.",
           "adjustment_family_ref": "AF-06",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -206,18 +304,42 @@
         {
           "cause": "Omuz eğimi kalıbın varsaydığından DİK (square shoulder)",
           "distinguishing_evidence": "Çizgiler boyun noktasından DIŞA-AŞAĞI iniyor; omuz ucunda kumaş gergin, omuz dikişi omza yapışık.",
-          "confirming_measurement": "Omuz ucu ile koltuk altı arası dikey mesafe vs. kalıptaki karşılığı",
+          "confirming_measurement": "M-034 (omuz eğimi) vs. PR-10 kalıp omuz eğimi — okurun düşüşü KÜÇÜK",
           "physical_test": "Omuz dikişini omuz ucunda 5–10 mm KALDIR (dikişi aç ve yukarı iğnele): çizgiler kayboluyorsa neden eğimdir.",
           "adjustment_family_ref": "AF-03",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-034"
+            ],
+            "pattern": [
+              "PR-10"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "opposite_of": "SYM-004.C2",
+          "test_cost": 2
         },
         {
           "cause": "Omuz eğimi kalıbın varsaydığından EĞİK (sloping shoulder)",
           "distinguishing_evidence": "Çizgiler ters yönde — omuz ucundan boyuna doğru; omuz ucunda kumaş TOPLANIYOR.",
-          "confirming_measurement": "Aynı ölçüm, ters yön",
+          "confirming_measurement": "M-034 vs. PR-10 — okurun düşüşü BÜYÜK (aynı iki sayı, ters yön)",
           "physical_test": "Omuz dikişini omuz ucunda 5–10 mm ALÇALT.",
           "adjustment_family_ref": "AF-03",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-034"
+            ],
+            "pattern": [
+              "PR-10"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "opposite_of": "SYM-004.C1",
+          "test_cost": 2
         },
         {
           "cause": "Omuz genişliği yetersiz",
@@ -225,7 +347,19 @@
           "confirming_measurement": "M-014 vs. kalıp omuz dikişi uzunluğu",
           "physical_test": "Omuz dikişini uzatıp kol oyuntusunu dışa iğnele.",
           "adjustment_family_ref": "AF-04",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-014"
+            ],
+            "pattern": [
+              "PR-09"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your number larger than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -261,18 +395,40 @@
         {
           "cause": "Omuz eğimi fazla eğik çizilmiş (dik omuzlu okur için)",
           "distinguishing_evidence": "Kıvrım omuz UCUNA yakın; boyun tarafında yok.",
-          "confirming_measurement": "Omuz ucu yüksekliği vs. kalıp",
+          "confirming_measurement": "M-034 vs. PR-10 — okurun düşüşü BÜYÜK",
           "physical_test": "Omuz ucunu 5–10 mm ALÇALT (dikişi aç ve aşağı iğnele): omuz ucundaki toplanma FAZLALIKTIR, kaldırmak onu artırır.",
           "adjustment_family_ref": "AF-03",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-034"
+            ],
+            "pattern": [
+              "PR-10"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Kol oyuntusu fazla derin, kol başı fazla yüksek",
           "distinguishing_evidence": "Kıvrım kol oyuntusu çevresini takip ediyor ve kol kaldırıldığında kayboluyor.",
-          "confirming_measurement": "M-022 vs. kalıp kol oyuntusu derinliği",
+          "confirming_measurement": "M-022 vs. PR-13 — kalıp HER ZAMAN büyüktür; soru FARKIN büyüklüğüdür ve yayımlanmış bir eşik YOKTUR (beyan edilir)",
           "physical_test": "Kol oyuntusunu yükselt (koltuk altını 5 mm kaldır).",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-022"
+            ],
+            "pattern": [
+              "PR-13"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Omuz genişliği fazla",
@@ -280,7 +436,19 @@
           "confirming_measurement": "M-014 vs. kalıp omuz dikişi uzunluğu",
           "physical_test": "Omuz dikişini kısalt.",
           "adjustment_family_ref": "AF-04",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-014"
+            ],
+            "pattern": [
+              "PR-09"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -313,10 +481,20 @@
         {
           "cause": "Öne düşük omuz duruşu (forward shoulder)",
           "distinguishing_evidence": "Dikiş HER İKİ omuzda da arkada; okur rahat dururken de böyle.",
-          "confirming_measurement": "Omuz dikişi konumu vs. omuz üstü orta çizgisi (fotoğrafla ölç)",
+          "confirming_measurement": "TR-01 prova omuz dikişi sapması — dikiş işaretli çizginin ARKASINDA",
           "physical_test": "Omuz dikişini sök, öne doğru iğnele: çekme çizgileri de kayboluyorsa neden duruştur.",
           "adjustment_family_ref": "AF-05",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [
+              "TR-01"
+            ],
+            "kind": "read"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the seam sits behind the line on BOTH shoulders by a similar amount. One side only is a different cause."
         },
         {
           "cause": "Yuvarlak sırt kumaşı arkaya çekiyor",
@@ -324,15 +502,42 @@
           "confirming_measurement": "M-016 ve M-020 vs. kalıp karşılıkları",
           "physical_test": "Kürek hizasına kesik at ve aç: omuz dikişi kendiliğinden yerine geliyorsa neden sırttadır.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016",
+              "M-020"
+            ],
+            "pattern": [
+              "PR-12",
+              "PR-07"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your centre back length larger than the pattern's, OR your across back larger than its back width — either shortage pulls the seam back."
         },
         {
           "cause": "Ön beden arka bedene göre kısa",
           "distinguishing_evidence": "Ön etek ucu da yükseliyor.",
-          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "confirming_measurement": "M-032 vs. (PR-11 − PR-12) kalıbın KENDİ ön/arka farkı",
           "physical_test": "Ön bedeni enine kes ve aç.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-032"
+            ],
+            "pattern": [
+              "PR-11",
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your front-to-back difference larger than the pattern's own."
         }
       ],
       "confounders_to_rule_out": [
@@ -370,23 +575,56 @@
           "confirming_measurement": "M-014 vs. kalıp omuz dikişi uzunluğu",
           "physical_test": "Omuz dikişini içeri iğnele.",
           "adjustment_family_ref": "AF-04",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-014"
+            ],
+            "pattern": [
+              "PR-09"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Tasarım bilerek düşük omuzlu (drop shoulder)",
           "distinguishing_evidence": "Kalıp zarfı/teknik çizim düşük omuz gösteriyor; kol oyuntusu da derin.",
-          "confirming_measurement": "Kalıbın bitmiş giysi ölçüsü tablosu — tasarım ease'i (T-07) mi",
+          "confirming_measurement": "PR-32 bitmiş giysi ölçüsü + çizim — tasarım ease'i (T-07) mi",
           "physical_test": "NO_PHYSICAL_TEST — kalıp belgesine bakılır.",
           "adjustment_family_ref": null,
-          "likelihood_note": "BU BİR SORUN DEĞİLDİR. Tasarım ease'ini düzeltmeye çalışmak Kitap 1'in en sık uyardığı hatadır."
+          "likelihood_note": "BU BİR SORUN DEĞİLDİR. Tasarım ease'ini düzeltmeye çalışmak Kitap 1'in en sık uyardığı hatadır.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: the finished shoulder width is wider than your shoulder BY DESIGN, and the line drawing shows it. Nothing on the pattern is at fault."
         },
         {
           "cause": "Omuz eğimi fazla dik çizilmiş",
           "distinguishing_evidence": "Sarkmayla birlikte omuz ucunda kumaş toplanması var.",
-          "confirming_measurement": "Omuz ucu yüksekliği vs. kalıp",
+          "confirming_measurement": "M-034 vs. PR-10 — okurun düşüşü BÜYÜK",
           "physical_test": "Omuz ucunu alçalt.",
           "adjustment_family_ref": "AF-03",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-034"
+            ],
+            "pattern": [
+              "PR-10"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -423,15 +661,39 @@
           "confirming_measurement": "M-020 vs. kalıp arka beden genişliği (kol oyuntusu kıvrımları arası)",
           "physical_test": "Kürek hizasına dikey kesik at ve 1–2 cm aç.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-020"
+            ],
+            "pattern": [
+              "PR-07"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Kol oyuntusu fazla dar/öne kaymış",
           "distinguishing_evidence": "Çekme kol oyuntusu kenarında yoğunlaşıyor, kürek ortasında yok.",
-          "confirming_measurement": "Kalıp kol oyuntusu çevresi vs. M-007 + gerekli ease",
+          "confirming_measurement": "PR-19 − M-007 (Ek J bandı); PR-15 kol oyuntusu çevresi kol başına karşı",
           "physical_test": "Kol oyuntusu arka kenarını genişlet.",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-007"
+            ],
+            "pattern": [
+              "PR-19",
+              "PR-15"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3
         },
         {
           "cause": "Kol başı ease'i yetersiz veya kol dar",
@@ -439,7 +701,19 @@
           "confirming_measurement": "M-007 vs. kalıp bicep hattı",
           "physical_test": "Kolu bicep hattından aç.",
           "adjustment_family_ref": "AF-10",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-007"
+            ],
+            "pattern": [
+              "PR-19"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number larger than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -452,7 +726,7 @@
         "Yan dikişi açma — belirti sırtta, yan dikişte değil.",
         "Kolu çıkarma; hareket testi kolla yapılır."
       ],
-      "adjustment_order_note": null,
+      "adjustment_order_note": "AF-07 (sırt genişliği) → AF-08 (kol oyuntusu) → AF-10 (kol). Beden koldan ÖNCE.",
       "book1_chapter_ref": "B1-CH10",
       "figure_refs": [],
       "source_refs": [
@@ -476,7 +750,19 @@
           "confirming_measurement": "M-016 vs. kalıp arka orta boyu",
           "physical_test": "Kıvrımı yatay olarak iğneyle al: yaka ve omuz yerinde kalıyorsa neden boydur.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016"
+            ],
+            "pattern": [
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt)",
@@ -484,15 +770,39 @@
           "confirming_measurement": "Kalıp omuz dikişi uzunluğu (pens dâhil) vs. M-014",
           "physical_test": "Omuz pensini/ease'i azalt.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-014"
+            ],
+            "pattern": [
+              "PR-09"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's shoulder seam, with its dart taken out, larger than your shoulder length — the pattern is shaping for a curve your back does not have."
         },
         {
           "cause": "Arka yaka fazla yüksek, kumaşı aşağı itiyor",
           "distinguishing_evidence": "Kıvrım yakanın hemen altında ve yaka boyunu sıkıyor.",
-          "confirming_measurement": "Kalıp arka yaka çevresi vs. M-013",
+          "confirming_measurement": "PR-14 TAM yaka eğrisi (ön+arka) vs. M-013",
           "physical_test": "Arka yakayı derinleştir.",
           "adjustment_family_ref": "AF-06",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-013"
+            ],
+            "pattern": [
+              "PR-14"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's neckline smaller than your neck base measurement."
         }
       ],
       "confounders_to_rule_out": [
@@ -525,11 +835,23 @@
       "candidate_causes": [
         {
           "cause": "Sırt genişliği fazla",
-          "distinguishing_evidence": "Kıvrımlar dikey ve simetrik; kol öne uzatıldığında da kayboluyor değil, AZALIYOR.",
+          "distinguishing_evidence": "Kıvrımlar dikey ve simetrik; öne uzanmak onları TAMAMEN alıyor — dururken fazla olan genişlik, uzanmanın tam olarak ihtiyaç duyduğu genişliktir.",
           "confirming_measurement": "M-020 vs. kalıp arka beden genişliği",
           "physical_test": "Dikey kıvrımı iğneyle al; kol hareketi hâlâ rahatsa neden genişliktir.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-020"
+            ],
+            "pattern": [
+              "PR-07"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Bir beden büyük seçilmiş",
@@ -537,15 +859,39 @@
           "confirming_measurement": "M-001/M-002 vs. kalıbın beden tablosu",
           "physical_test": "NO_PHYSICAL_TEST — beden tablosuna dönülür.",
           "adjustment_family_ref": "AF-18",
-          "likelihood_note": "Bu bir düzeltme değil, BEDEN SEÇİMİ sorunudur (T-17 ayrımı)."
+          "likelihood_note": "Bu bir düzeltme değil, BEDEN SEÇİMİ sorunudur (T-17 ayrımı).",
+          "confirming_refs": {
+            "body": [
+              "M-001",
+              "M-002"
+            ],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Kol oyuntusu fazla geniş",
           "distinguishing_evidence": "Fazlalık yalnızca kol oyuntusuna yakın; sırt ortasında yok.",
-          "confirming_measurement": "Kalıp kol oyuntusu çevresi vs. M-007 + ease",
+          "confirming_measurement": "PR-19 − M-007, Ek J bandının ÜSTÜNDE mi",
           "physical_test": "Kol oyuntusu kenarını içeri al.",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-007"
+            ],
+            "pattern": [
+              "PR-19"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -577,12 +923,24 @@
       "origin_rule": "Etek ucu her zaman EN SON okunur; yukarıdaki nedenleri gösteren bir aynadır.",
       "candidate_causes": [
         {
-          "cause": "Arka beden boyu yetersiz (yuvarlak sırt)",
-          "distinguishing_evidence": "Kürek hizasında AYRICA yatay gerginlik var; arka yaka da yukarı çekiliyor.",
+          "cause": "Arka beden boyu KÜREK HİZASINDA kısa (yuvarlak sırt)",
+          "distinguishing_evidence": "Arka yaka etek ucuyla birlikte yukarı çekiliyor ve çekme sırtı ENİNE değil BOYUNA katediyor; kürek hizası yatay olarak gergin DEĞİL.",
           "confirming_measurement": "M-016 vs. kalıp arka orta boyu",
           "physical_test": "Kürek hizasına yatay kesik at ve aç.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016"
+            ],
+            "pattern": [
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Kalça/oturak hacmi kumaşı yukarı çekiyor",
@@ -590,15 +948,40 @@
           "confirming_measurement": "M-006 vs. kalıp kalça çevresi",
           "physical_test": "Arka parçayı kalça hizasından aç.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-006"
+            ],
+            "pattern": [
+              "PR-05"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your full hip larger than the pattern's hip line."
         },
         {
           "cause": "Ön/arka denge bozuk (öne eğik duruş)",
           "distinguishing_evidence": "Ön etek ucu ise AŞAĞI sarkıyor — ikisi birlikte.",
-          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "confirming_measurement": "M-032 vs. (PR-11 − PR-12) kalıbın KENDİ ön/arka farkı",
           "physical_test": "Omuz dikişinde arkayı KALDIR / önü İNDİR (arka etek ucu yükseliyorsa arka KISADIR: boy EKLENİR; ön düşüyorsa önde FAZLALIK vardır: boy ALINIR) ve etek ucunu yeniden gözle.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-032"
+            ],
+            "pattern": [
+              "PR-11",
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your front-to-back difference and the pattern's differ, and yours is the smaller — the pattern gives the front more length than you need relative to the back."
         }
       ],
       "confounders_to_rule_out": [
@@ -635,18 +1018,44 @@
         {
           "cause": "Bel oyuğu (sway back) — arka orta bel hizasında fazlalık",
           "distinguishing_evidence": "Yay bel hizasında en belirgin; hemen üstünde yatay kıvrımlar da var.",
-          "confirming_measurement": "M-016 ve M-032; ayrıca bel hizasında kalıp/vücut boy farkı",
+          "confirming_measurement": "M-016 vs. PR-12 bel hizasında; M-032 vs. (PR-11 − PR-12)",
           "physical_test": "Arka orta bel hizasında yatay bir kıvrım al (pens gibi): yay düzeliyorsa neden budur.",
           "adjustment_family_ref": "AF-14",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016",
+              "M-032"
+            ],
+            "pattern": [
+              "PR-12",
+              "PR-11"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Yuvarlak sırt — arka orta üst kısımda boy yetersiz",
-          "distinguishing_evidence": "Yay kürek hizasında; bel temiz.",
+          "distinguishing_evidence": "Kavis kürek hizasında ve oradaki kumaş GEVŞEK değil GERGİN — dikiş dışarı ÇEKİLİYOR, dışarı düşmüyor. Bel temiz.",
           "confirming_measurement": "M-016 vs. kalıp",
           "physical_test": "Kürek hizasına kesik at ve aç.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016"
+            ],
+            "pattern": [
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Fermuar dikilirken gerdirilmiş",
@@ -654,7 +1063,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Fermuarı sök ve dikişi düz koy.",
           "adjustment_family_ref": null,
-          "likelihood_note": "YAPIM hatası — kalıba dokunulmaz."
+          "likelihood_note": "YAPIM hatası — kalıba dokunulmaz.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -692,23 +1108,57 @@
           "confirming_measurement": "M-022 vs. kalıp kol oyuntusu derinliği",
           "physical_test": "Koltuk altını 5–10 mm alçalt.",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-022"
+            ],
+            "pattern": [
+              "PR-13"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Kol bicep hattı dar",
           "distinguishing_evidence": "Sıkışma kol içinde de hissediliyor; kol oyuntusu kendisi rahat.",
-          "confirming_measurement": "M-007 + gerekli ease vs. kalıp bicep hattı",
+          "confirming_measurement": "PR-19 kalıp bicep hattı − M-007; fark Ek J bandına karşı okunur",
           "physical_test": "Kolu bicep hattından aç.",
           "adjustment_family_ref": "AF-10",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-007"
+            ],
+            "pattern": [
+              "PR-19"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4
         },
         {
           "cause": "Göğüs hacmi ön kol oyuntusunu yukarı çekiyor",
           "distinguishing_evidence": "Sıkışma ÖN koltuk altında; göğüsten kol oyuntusuna doğru çekme çizgileri de var.",
-          "confirming_measurement": "M-031 (göğüs − üst göğüs)",
+          "confirming_measurement": "M-022 vs. PR-13 — kalıp HER ZAMAN büyüktür; soru FARKIN büyüklüğüdür ve yayımlanmış bir eşik YOKTUR (beyan edilir)",
           "physical_test": "Göğüs bölgesine hacim ekleyip yeniden dene.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-022"
+            ],
+            "pattern": [
+              "PR-13"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3
         }
       ],
       "confounders_to_rule_out": [
@@ -745,7 +1195,19 @@
           "confirming_measurement": "M-021 (ön göğüs genişliği) vs. kalıp ön beden genişliği",
           "physical_test": "Ön kol oyuntusu kenarına küçük bir pens al (sonra göğüs pensine taşınır).",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-021"
+            ],
+            "pattern": [
+              "PR-08"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Göğüs pensi apeksi doğru yerde değil, üstte fazlalık bırakıyor",
@@ -753,7 +1215,19 @@
           "confirming_measurement": "M-017 (omuz–apeks) vs. kalıp pens konumu",
           "physical_test": "Pens ucunu apekse doğru taşı.",
           "adjustment_family_ref": "AF-02",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-017"
+            ],
+            "pattern": [
+              "PR-23"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Omuz genişliği fazla",
@@ -761,7 +1235,19 @@
           "confirming_measurement": "M-014 vs. kalıp omuz dikişi",
           "physical_test": "Omuz dikişini kısalt.",
           "adjustment_family_ref": "AF-04",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-014"
+            ],
+            "pattern": [
+              "PR-09"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -798,23 +1284,58 @@
           "confirming_measurement": "M-020 vs. kalıp arka beden genişliği",
           "physical_test": "Arka kol oyuntusu kenarını içeri al.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-020"
+            ],
+            "pattern": [
+              "PR-07"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Omuz eğimi fazla dik çizilmiş",
           "distinguishing_evidence": "Omuz ucunda kumaş toplanması da var.",
-          "confirming_measurement": "Omuz ucu yüksekliği vs. kalıp",
+          "confirming_measurement": "M-034 vs. PR-10 — okurun düşüşü BÜYÜK",
           "physical_test": "Omuz ucunu alçalt.",
           "adjustment_family_ref": "AF-03",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-034"
+            ],
+            "pattern": [
+              "PR-10"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Kol oyuntusu fazla geniş çizilmiş",
           "distinguishing_evidence": "Açıklık kol oyuntusu çevresi boyunca eşit.",
-          "confirming_measurement": "Kalıp kol oyuntusu çevresi vs. M-007 + ease",
+          "confirming_measurement": "PR-19 − M-007 (Ek J bandı); PR-15 kol oyuntusu çevresi kol başına karşı",
           "physical_test": "Kol oyuntusu eğrisini yeniden çiz.",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-007"
+            ],
+            "pattern": [
+              "PR-19",
+              "PR-15"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -847,10 +1368,22 @@
         {
           "cause": "Göğüs hacmi kalıbın varsaydığından fazla",
           "distinguishing_evidence": "Çizgiler apeksten IŞINSAL olarak yayılıyor; ön etek ucu da yukarı tırmanıyor; ön yaka açılıyor.",
-          "confirming_measurement": "M-031 (göğüs − üst göğüs farkı) kalıbın varsaydığı farktan büyük",
+          "confirming_measurement": "M-031 vs. (PR-01 − PR-02) — okurunki BÜYÜK",
           "physical_test": "Ön bedende apeks hizasına dikey kesik at ve şerit kumaş ekle: çizgiler kayboluyor ve etek ucu düzeliyorsa neden göğüs hacmidir.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": "Bu, hedef okurun EN SIK karşılaştığı belirtidir (araştırma raporu anahtar kelimesi: 'full bust adjustment')."
+          "likelihood_note": "Bu, hedef okurun EN SIK karşılaştığı belirtidir (araştırma raporu anahtar kelimesi: 'full bust adjustment').",
+          "confirming_refs": {
+            "body": [
+              "M-031"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-02"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4
         },
         {
           "cause": "Ön beden genel olarak dar (beden seçimi)",
@@ -858,7 +1391,19 @@
           "confirming_measurement": "M-002 vs. kalıp beden tablosu",
           "physical_test": "NO_PHYSICAL_TEST — beden tablosuna dönülür.",
           "adjustment_family_ref": "AF-18",
-          "likelihood_note": "BEDEN sorunudur, düzeltme sorunu değil."
+          "likelihood_note": "BEDEN sorunudur, düzeltme sorunu değil.",
+          "confirming_refs": {
+            "body": [
+              "M-002"
+            ],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Pens ucu apeksin uzağında, hacmi yanlış yere dağıtıyor",
@@ -866,7 +1411,21 @@
           "confirming_measurement": "M-017 ve M-018 vs. kalıp pens ucu konumu",
           "physical_test": "Pens ucunu apekse 2–3 cm mesafeye taşı.",
           "adjustment_family_ref": "AF-02",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-017",
+              "M-018"
+            ],
+            "pattern": [
+              "PR-23",
+              "PR-24"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your shoulder-to-apex and apex-to-apex place the apex somewhere the pattern's dart point does not reach, while the front width itself measures adequate."
         }
       ],
       "confounders_to_rule_out": [
@@ -903,10 +1462,24 @@
         {
           "cause": "Göğüs hacmi ön kumaşı yukarı çekiyor",
           "distinguishing_evidence": "Göğüsten yayılan çekme çizgileri de var; yan dikiş öne kayıyor.",
-          "confirming_measurement": "M-031; M-032 (ön/arka boy farkı)",
+          "confirming_measurement": "M-031 vs. (PR-01 − PR-02); M-032 vs. (PR-11 − PR-12)",
           "physical_test": "Göğüs hacmi ekle: etek ucu düzeliyorsa neden göğüstür.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-031",
+              "M-032"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-02"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your bust-minus-high-bust larger than the pattern's own bust-to-chest difference."
         },
         {
           "cause": "Ön beden boyu yetersiz",
@@ -914,7 +1487,19 @@
           "confirming_measurement": "M-015 vs. kalıp ön orta boyu",
           "physical_test": "Ön bedeni enine kes ve aç.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-015"
+            ],
+            "pattern": [
+              "PR-11"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Karın hacmi kumaşı yukarı çekiyor",
@@ -922,7 +1507,19 @@
           "confirming_measurement": "M-005 (yüksek kalça) vs. kalıp",
           "physical_test": "Ön parçayı karın hizasından aç.",
           "adjustment_family_ref": "AF-20",
-          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz."
+          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz.",
+          "confirming_refs": {
+            "body": [
+              "M-005"
+            ],
+            "pattern": [
+              "PR-04"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your high hip larger than the pattern's high hip line."
         }
       ],
       "confounders_to_rule_out": [
@@ -966,7 +1563,22 @@
           "cross_route": {
             "condition_en": "the tightness is at abdomen level rather than at the bust",
             "family_ref": "AF-20"
-          }
+          },
+          "confirming_refs": {
+            "body": [
+              "M-031",
+              "M-005"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-02",
+              "PR-04"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Arka beden genişliği fazla",
@@ -974,15 +1586,34 @@
           "confirming_measurement": "M-020 vs. kalıp arka beden genişliği",
           "physical_test": "Arka genişliği azalt.",
           "adjustment_family_ref": "AF-07",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-020"
+            ],
+            "pattern": [
+              "PR-07"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Kumaş çözgüye eğri kesilmiş",
-          "distinguishing_evidence": "Kayma tek tarafta; simetrik değil.",
+          "distinguishing_evidence": "Bir taraf kayıyor, öteki kaymıyor; o parçanın çözgüsü kenara paralel değil.",
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Parçaların çözgü çizgilerini kumaş kenarına göre kontrol et.",
           "adjustment_family_ref": null,
-          "likelihood_note": "KESİM hatası — kalıba dokunulmaz."
+          "likelihood_note": "KESİM hatası — kalıba dokunulmaz.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -1019,15 +1650,41 @@
           "confirming_measurement": "M-017/M-018 vs. kalıp pens ucu",
           "physical_test": "Pens ucunu apeksten 2–3 cm uzakta bitecek şekilde kısalt.",
           "adjustment_family_ref": "AF-02",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-017",
+              "M-018"
+            ],
+            "pattern": [
+              "PR-23",
+              "PR-24"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Pens hacmi vücuda göre fazla",
           "distinguishing_evidence": "Pens çevresinde genel gevşeklik de var.",
-          "confirming_measurement": "M-031 kalıbın varsaydığı farktan küçük",
+          "confirming_measurement": "M-031 vs. (PR-01 − PR-02) — kalıbınki BÜYÜK",
           "physical_test": "Pens derinliğini azalt.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-031"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-02"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Pens dikilirken ucu düz bitirilmemiş",
@@ -1035,7 +1692,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Pensi sök ve ucu inceltilerek yeniden dik.",
           "adjustment_family_ref": null,
-          "likelihood_note": "YAPIM hatası."
+          "likelihood_note": "YAPIM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -1071,7 +1735,19 @@
           "confirming_measurement": "M-017 vs. kalıp pens konumu",
           "physical_test": "Pensi aşağı taşı.",
           "adjustment_family_ref": "AF-02",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-017"
+            ],
+            "pattern": [
+              "PR-23"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's dart point sits ABOVE where your shoulder-to-apex measurement puts your apex."
         },
         {
           "cause": "Ön üst genişlik fazla",
@@ -1079,15 +1755,39 @@
           "confirming_measurement": "M-021 vs. kalıp ön beden genişliği",
           "physical_test": "Kol oyuntusu ön kenarına pens al.",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-021"
+            ],
+            "pattern": [
+              "PR-08"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Kalıp daha dolgun bir üst göğüs için çizilmiş",
           "distinguishing_evidence": "Boşluk üst göğüs çevresinde; M-001 kalıbın varsaydığından küçük.",
-          "confirming_measurement": "M-001 vs. kalıp üst göğüs karşılığı",
+          "confirming_measurement": "M-001 vs. PR-02 kalıp göğüs üstü (chest) hattı",
           "physical_test": "Ön üst bölgeyi daralt.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-001"
+            ],
+            "pattern": [
+              "PR-02"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -1120,26 +1820,60 @@
         {
           "cause": "Göğüs hacmi yetersiz",
           "distinguishing_evidence": "Açılma göğüs hizasında YOĞUN; üstte ve altta kapama düzgün.",
-          "confirming_measurement": "M-031",
+          "confirming_measurement": "M-031 vs. (PR-01 − PR-02)",
           "physical_test": "Göğüs hacmi ekle.",
           "adjustment_family_ref": "AF-01",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-031"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-02"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3
         },
         {
           "cause": "Ön kapama payı (extension) dar",
           "distinguishing_evidence": "Açılma kapama boyunca EŞİT dağılmış.",
-          "confirming_measurement": "Kalıp kapama payı genişliği",
+          "confirming_measurement": "PR-30 kapama payı genişliği vs. KULLANILACAK DÜĞME — yayımlanmış sayı YOK",
           "physical_test": "Kapama payını genişlet.",
           "adjustment_family_ref": null,
-          "likelihood_note": "Bir DÜZELTME ailesi değil; kalıp/tasarım parametresidir — Kitap 2'de kendi girişi yoktur (XW istisnası)."
+          "likelihood_note": "Bir DÜZELTME ailesi değil; kalıp/tasarım parametresidir — Kitap 2'de kendi girişi yoktur (XW istisnası).",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-30"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Düğme aralığı göğüs hizasına düğme koymuyor",
           "distinguishing_evidence": "Açıklık iki düğme arasında ve apeks hizasında düğme YOK.",
-          "confirming_measurement": "Düğme konumları vs. M-017 apeks yüksekliği",
+          "confirming_measurement": "PR-33 düğme konumları vs. M-017'den okunan apeks yüksekliği",
           "physical_test": "Apeks hizasına düğme ekle.",
           "adjustment_family_ref": null,
-          "likelihood_note": "Tasarım/yerleşim düzeltmesi."
+          "likelihood_note": "Tasarım/yerleşim düzeltmesi.",
+          "confirming_refs": {
+            "body": [
+              "M-017"
+            ],
+            "pattern": [
+              "PR-33"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: no button falls at the apex height your shoulder-to-apex measurement gives."
         }
       ],
       "confounders_to_rule_out": [
@@ -1175,15 +1909,42 @@
           "confirming_measurement": "M-015 ve M-016 vs. kalıp ön/arka orta boyları",
           "physical_test": "Bedeni boy çizgisinden kısalt/uzat.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-015",
+              "M-016"
+            ],
+            "pattern": [
+              "PR-11",
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your centre front and centre back lengths BOTH differ from the pattern's by about the same amount, in the same direction."
         },
         {
           "cause": "Ön/arka denge bozuk",
           "distinguishing_evidence": "Kayma ön ve arkada FARKLI miktarda.",
-          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "confirming_measurement": "M-032 vs. (PR-11 − PR-12) kalıbın KENDİ ön/arka farkı",
           "physical_test": "Omuz dikişinde denge düzeltmesi yap.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-032"
+            ],
+            "pattern": [
+              "PR-11",
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your front-to-back difference and the pattern's differ from each other — it is the two differences that have to disagree, not the two lengths."
         },
         {
           "cause": "Tasarım bilerek yüksek/düşük belli",
@@ -1191,7 +1952,17 @@
           "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
           "physical_test": "NO_PHYSICAL_TEST — kalıp belgesine bakılır.",
           "adjustment_family_ref": null,
-          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi (T-07)."
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi (T-07).",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: the finished garment measurements place the waist where you see it, by design."
         }
       ],
       "confounders_to_rule_out": [
@@ -1229,7 +2000,19 @@
           "confirming_measurement": "Arka orta bel hizasında kalıp boyu vs. M-016'nın bel hizasına düşen kısmı",
           "physical_test": "Arka ortada yatay bir kıvrım al: havuzlanma kayboluyor ve etek ucu düzeliyorsa neden budur.",
           "adjustment_family_ref": "AF-14",
-          "likelihood_note": "Araştırma raporunun anahtar kelimelerinden: 'sway back adjustment'."
+          "likelihood_note": "Araştırma raporunun anahtar kelimelerinden: 'sway back adjustment'.",
+          "confirming_refs": {
+            "body": [
+              "M-016"
+            ],
+            "pattern": [
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Arka beden boyu genel olarak fazla",
@@ -1237,7 +2020,19 @@
           "confirming_measurement": "M-016 vs. kalıp arka orta boyu",
           "physical_test": "Arka bedeni boy çizgisinden kısalt.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016"
+            ],
+            "pattern": [
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Oturak hacmi kumaşı yukarı itiyor",
@@ -1245,7 +2040,19 @@
           "confirming_measurement": "M-006 vs. kalıp kalça çevresi",
           "physical_test": "Arka parçaya oturak hacmi ekle.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-006"
+            ],
+            "pattern": [
+              "PR-05"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your full hip larger than the pattern's hip line."
         }
       ],
       "confounders_to_rule_out": [
@@ -1281,10 +2088,22 @@
         {
           "cause": "Bel oyuğu (sway back)",
           "distinguishing_evidence": "Aralık arka ortada en geniş; yanlarda kapanıyor. Belin hemen üstünde havuzlanma da var.",
-          "confirming_measurement": "Bel/kalça oranı ve M-016",
+          "confirming_measurement": "M-016 vs. PR-12; ayrıca M-033",
           "physical_test": "Arka orta bel hizasında kıvrım al.",
           "adjustment_family_ref": "AF-14",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-033",
+              "M-016"
+            ],
+            "pattern": [
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Bel/kalça oranı kalıbın varsaydığından farklı",
@@ -1292,15 +2111,38 @@
           "confirming_measurement": "M-033 (kalça − bel) vs. kalıbın beden tablosu",
           "physical_test": "Bel ile kalça arasında derecelendirme yap.",
           "adjustment_family_ref": "AF-18",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-033"
+            ],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: your hip-minus-waist difference falls between two of the chart's sizes rather than matching one."
         },
         {
           "cause": "Bel bandı fazla uzun kesilmiş",
-          "distinguishing_evidence": "Aralık çevre boyunca eşit.",
-          "confirming_measurement": "Bel bandı uzunluğu vs. M-004",
+          "distinguishing_evidence": "Açıklık yanlarda da arkadaki kadar büyük; bant yalnızca arkada değil, çepeçevre bol.",
+          "confirming_measurement": "PR-32 bitmiş bel bandı uzunluğu vs. M-004",
           "physical_test": "Bel bandını kısalt.",
           "adjustment_family_ref": "AF-12",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-004"
+            ],
+            "pattern": [
+              "PR-03"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -1338,15 +2180,40 @@
           "confirming_measurement": "M-004 vs. kalıp bel çevresi (dikiş payları çıkarılmış)",
           "physical_test": "Yan dikişten veya bel pensinden al.",
           "adjustment_family_ref": "AF-12",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-004"
+            ],
+            "pattern": [
+              "PR-03"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Bel şekillendirmesi (pens) yetersiz",
-          "distinguishing_evidence": "Fazlalık var ama yan dikişten alınca kalça sıkışıyor.",
-          "confirming_measurement": "M-033 (kalça − bel farkı) büyük",
+          "distinguishing_evidence": "Kıvrımlar yan dikişlere yakın ve bel kalıba karşı YETERLİ ölçülüyor, ama kalıpta bel pensi YOK ya da çok sığ — oysa okurun kalça−bel farkı şekillendirme gerektiğini söylüyor.",
+          "confirming_measurement": "M-033 vs. (PR-05 − PR-03) kalıbın KENDİ bel/kalça farkı",
           "physical_test": "Bel pensi ekle/derinleştir.",
           "adjustment_family_ref": "AF-12",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-033"
+            ],
+            "pattern": [
+              "PR-03",
+              "PR-05"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's waist measures adequate, and its dart intake is smaller than your hip-minus-waist difference calls for."
         },
         {
           "cause": "Bir beden büyük seçilmiş",
@@ -1354,7 +2221,21 @@
           "confirming_measurement": "M-002/M-004/M-006 vs. beden tablosu",
           "physical_test": "NO_PHYSICAL_TEST.",
           "adjustment_family_ref": "AF-18",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-002",
+              "M-004",
+              "M-006"
+            ],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -1388,10 +2269,21 @@
         {
           "cause": "Bel çevresi yetersiz",
           "distinguishing_evidence": "Sıkışma çevre boyunca eşit; oturunca artıyor.",
-          "confirming_measurement": "M-004 + wearing ease vs. kalıp bel çevresi",
+          "confirming_measurement": "PR-03 kalıp bel hattı − M-004; fark Ek J bandına karşı okunur",
           "physical_test": "Yan dikişten aç.",
           "adjustment_family_ref": "AF-12",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-004"
+            ],
+            "pattern": [
+              "PR-03"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Bel hattı yanlış hizada oturuyor (doğal belin altında)",
@@ -1399,7 +2291,22 @@
           "confirming_measurement": "M-015/M-016 vs. kalıp; M-005",
           "physical_test": "Bedeni uzat/kısalt çizgisinden KISALT — bel dikişi doğal belin ALTINDAYSA beden UZUNDUR; uzatmak dikişi daha da aşağı iter. Sonra oturup yeniden dene.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-015",
+              "M-016",
+              "M-005"
+            ],
+            "pattern": [
+              "PR-11",
+              "PR-12",
+              "PR-04"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Karın hacmi",
@@ -1407,7 +2314,19 @@
           "confirming_measurement": "M-005 (yüksek kalça) vs. kalıp",
           "physical_test": "Ön parçaya karın hizasında hacim ekle.",
           "adjustment_family_ref": "AF-20",
-          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz."
+          "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz.",
+          "confirming_refs": {
+            "body": [
+              "M-005"
+            ],
+            "pattern": [
+              "PR-04"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your high hip larger than the pattern's high hip line."
         }
       ],
       "confounders_to_rule_out": [
@@ -1441,26 +2360,71 @@
         {
           "cause": "Oturak hacmi kalıbın varsaydığından fazla",
           "distinguishing_evidence": "Çizgiler oturak üzerinde YOĞUN; yan dikiş arkaya kayıyor; arka etek ucu yükseliyor.",
-          "confirming_measurement": "M-006 vs. kalıp kalça çevresi; ayrıca arka/ön kalça dağılımı",
+          "confirming_measurement": "M-006 vs. PR-05; ayrıca PR-06 ön/arka pay ve TR-04 yan dikiş konumu",
           "physical_test": "Arka parçaya oturak hacmi ekle (kesip aç): çizgiler kayboluyorsa neden budur.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-006"
+            ],
+            "pattern": [
+              "PR-05",
+              "PR-06"
+            ],
+            "toile": [
+              "TR-04"
+            ],
+            "kind": "compare"
+          },
+          "test_cost": 4,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Ağ uzunluğu yetersiz (pantolonda)",
           "distinguishing_evidence": "Çizgilerle birlikte ağ yukarı çekiliyor ve oturmak zor.",
-          "confirming_measurement": "M-027 (ağ uzunluğu) vs. kalıp arka ağ uzunluğu",
+          "confirming_measurement": "M-027'nin ARKA parçası (toplam DEĞİL) vs. PR-26 kalıp arka ağ eğrisi",
           "physical_test": "Arka ağ eğrisini uzat.",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR.",
+          "confirming_refs": {
+            "body": [
+              "M-027"
+            ],
+            "pattern": [
+              "PR-26"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Genel kalça çevresi yetersiz",
-          "distinguishing_evidence": "Aynı gerginlik ÖNDE de var.",
-          "confirming_measurement": "M-006 vs. kalıp toplam kalça çevresi",
+          "distinguishing_evidence": "Aynı gerginlik ÖNDE de var ve göğüs ile bel de kalçayla AYNI bedene düşüyor — yani sorun oturak değil, bedenin tamamı.",
+          "confirming_measurement": "M-002/M-004/M-006 ÜÇÜ BİRDEN vs. PR-32 beden tablosu",
           "physical_test": "Yan dikişlerden aç.",
           "adjustment_family_ref": "AF-18",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-002",
+              "M-004",
+              "M-006"
+            ],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: all three girths point at the same larger size.",
+          "cross_route": {
+            "condition_en": "only the hip points at a larger size while the bust and waist do not, which is a grading decision rather than a size decision",
+            "family_ref": "AF-18"
+          }
         }
       ],
       "confounders_to_rule_out": [
@@ -1497,18 +2461,44 @@
         {
           "cause": "Oturak hacmi kalıbın varsaydığından az (flat seat)",
           "distinguishing_evidence": "Sarkma oturak altında; oturak üzerinde gerginlik YOK.",
-          "confirming_measurement": "M-006 ve arka/ön kalça dağılımı vs. kalıp",
+          "confirming_measurement": "M-006 vs. PR-05; ayrıca PR-06 ön/arka pay ve TR-04",
           "physical_test": "Arka parçadan hacim çıkar (kesip bindir).",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-006"
+            ],
+            "pattern": [
+              "PR-05",
+              "PR-06"
+            ],
+            "toile": [
+              "TR-04"
+            ],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Ağ uzunluğu fazla",
           "distinguishing_evidence": "Sarkma ağ bölgesine kadar iniyor; ağ vücuda değmiyor.",
-          "confirming_measurement": "M-027 vs. kalıp arka ağ uzunluğu",
+          "confirming_measurement": "M-027'nin ARKA parçası (toplam DEĞİL) vs. PR-26 kalıp arka ağ eğrisi",
           "physical_test": "Arka ağ uzunluğunu kısalt.",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR.",
+          "confirming_refs": {
+            "body": [
+              "M-027"
+            ],
+            "pattern": [
+              "PR-26"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Arka beden/etek boyu fazla",
@@ -1516,7 +2506,21 @@
           "confirming_measurement": "M-016 / bel-kalça mesafesi M-023",
           "physical_test": "Boy çizgisinden kısalt.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-016",
+              "M-023"
+            ],
+            "pattern": [
+              "PR-12",
+              "PR-29"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -1552,10 +2556,25 @@
         {
           "cause": "Vücut asimetrisi (bir kalça daha yüksek/dolgun)",
           "distinguishing_evidence": "Yükselme TEK TARAFTA ve okur ağırlığını eşit dağıttığında da sürüyor.",
-          "confirming_measurement": "Bel işaretinden yere iki taraf ayrı ayrı ölçülür (M-024, sağ ve sol)",
+          "confirming_measurement": "M-024 sağ/sol AYRI; ayrıca M-034 sağ/sol AYRI — fark KALÇADA mı OMUZDA mı",
           "physical_test": "Yüksek tarafa iğneyle hacim ekle.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": "Asimetri gerçektir ve teşhis edilmelidir; 'kalıbı simetrik düzelt' varsayımı burada kırılır."
+          "likelihood_note": "Asimetri KALÇADA da OMUZDA da olabilir ve ikisi ayrı ailelerde düzeltilir. M-034 zaten iki omuzu AYRI ölçtürür; fark oradaysa varış AF-03'tür.",
+          "confirming_refs": {
+            "body": [
+              "M-024",
+              "M-034"
+            ],
+            "pattern": [],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the two sides differ by more than your own measuring noise. Where they differ tells you which family: hip or shoulder.",
+          "cross_route": {
+            "condition_en": "the two sides differ at the SHOULDER — one shoulder slope larger than the other — rather than at the hip",
+            "family_ref": "AF-03"
+          }
         },
         {
           "cause": "Duruş: ağırlık tek ayakta",
@@ -1563,7 +2582,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Ağırlığı iki ayağa eşitle ve yeniden bak.",
           "adjustment_family_ref": null,
-          "likelihood_note": "PROVA KOŞULU hatası — kalıba dokunulmaz."
+          "likelihood_note": "PROVA KOŞULU hatası — kalıba dokunulmaz.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 1
         },
         {
           "cause": "Kumaş eğri kesilmiş",
@@ -1571,7 +2597,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Çözgü çizgilerini kontrol et.",
           "adjustment_family_ref": null,
-          "likelihood_note": "KESİM hatası."
+          "likelihood_note": "KESİM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -1610,10 +2643,22 @@
         {
           "cause": "Arka hacim yetersiz",
           "distinguishing_evidence": "Kayma ile birlikte oturak üzerinde yatay çekme var.",
-          "confirming_measurement": "Arka/ön kalça dağılımı vs. kalıp",
+          "confirming_measurement": "PR-06 kalıp ön/arka kalça payı + TR-04 yan dikiş konumu",
           "physical_test": "Arka parçaya hacim ekle.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-06"
+            ],
+            "toile": [
+              "TR-04"
+            ],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Ön hacim fazla",
@@ -1621,7 +2666,20 @@
           "confirming_measurement": "M-005 ve ön kalça karşılığı",
           "physical_test": "Ön parçadan al.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-005"
+            ],
+            "pattern": [
+              "PR-04",
+              "PR-06"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Kumaş eğri kesilmiş",
@@ -1629,7 +2687,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Çözgü kontrolü.",
           "adjustment_family_ref": null,
-          "likelihood_note": "KESİM hatası."
+          "likelihood_note": "KESİM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -1664,26 +2729,57 @@
         {
           "cause": "Kol bicep genişliği yetersiz",
           "distinguishing_evidence": "Çizgiler bicep hattında yoğun; kol kaldırılınca belirgin artıyor.",
-          "confirming_measurement": "M-007 + wearing ease vs. kalıp bicep hattı",
+          "confirming_measurement": "PR-19 − M-007; fark Ek J bandının ALTINDA mı",
           "physical_test": "Kolu bicep hattından aç.",
           "adjustment_family_ref": "AF-10",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-007"
+            ],
+            "pattern": [
+              "PR-19"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4
         },
         {
           "cause": "Kol başı yüksekliği fazla",
           "distinguishing_evidence": "Çizgiler kol başı çevresinde; bicep rahat.",
-          "confirming_measurement": "Kalıp kol başı yüksekliği vs. bitmiş kol oyuntusu çevresi",
+          "confirming_measurement": "PR-18 kol başı yüksekliği — BANDI YOK, fiziksel test karar verir",
           "physical_test": "Kol başını alçalt ve genişlet.",
           "adjustment_family_ref": "AF-09",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-18"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Kol oyuntusu dar, kolu sıkıştırıyor",
           "distinguishing_evidence": "Çizgiler kol oyuntusu dikişinde başlıyor; kol tek başına rahat.",
-          "confirming_measurement": "M-022 ve kalıp kol oyuntusu çevresi",
+          "confirming_measurement": "PR-15 kol oyuntusu eğrisi vs. PR-16 kol başı eğrisi — YAYIMLANMIŞ EŞİK YOK, beyan edilir",
           "physical_test": "Kol oyuntusunu genişlet, sonra kol başını yeniden ölç.",
           "adjustment_family_ref": "AF-08",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-15",
+              "PR-16",
+              "PR-17"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3
         }
       ],
       "confounders_to_rule_out": [
@@ -1720,7 +2816,19 @@
           "confirming_measurement": "M-007 vs. kalıp bicep hattı",
           "physical_test": "Kolu daralt.",
           "adjustment_family_ref": "AF-10",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-007"
+            ],
+            "pattern": [
+              "PR-19"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Tasarım bilerek bol kollu",
@@ -1728,7 +2836,17 @@
           "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
           "physical_test": "NO_PHYSICAL_TEST.",
           "adjustment_family_ref": null,
-          "likelihood_note": "SORUN DEĞİLDİR — tasarım ease'i."
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım ease'i.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: the finished sleeve is fuller than your arm BY DESIGN, and the line drawing shows it."
         },
         {
           "cause": "Kol başı ease'i fazla, kol başında toplanma yaratıyor",
@@ -1736,7 +2854,19 @@
           "confirming_measurement": "Kalıp kol başı çevresi − kol oyuntusu çevresi (ease miktarı)",
           "physical_test": "Kol başı ease'ini azalt.",
           "adjustment_family_ref": "AF-09",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-16",
+              "PR-15",
+              "PR-17"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         }
       ],
       "confounders_to_rule_out": [
@@ -1768,18 +2898,40 @@
         {
           "cause": "Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış)",
           "distinguishing_evidence": "Dönme her iki kolda AYNI yönde; kol başı çentikleri omuz dikişiyle örtüşmüyor.",
-          "confirming_measurement": "Kol başı çentik konumları vs. kol oyuntusu çentikleri",
+          "confirming_measurement": "PR-22 kalıp çentik konumları — koltuk altından yürütülen İKİ eğri okuması",
           "physical_test": "Kolu sök, çentikleri hizala, yeniden tak.",
-          "adjustment_family_ref": "AF-09",
-          "likelihood_note": "Sık karşılaşılan ve KALIP DEĞİL, MONTAJ hatası olabilen bir belirti — ayrım kritik."
+          "adjustment_family_ref": null,
+          "likelihood_note": "Bir MONTAJ hatasıdır; kalıba dokunulmaz. Kayıt Faz 4'te AF-09'a bağlıydı ve bağımsız inceleme (F-16) bunun kalıp alanı OLMADIĞINI ölçtü — S-0001 kol başı işleminde çentiklerden hiç söz etmez.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-22"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: a notch is a different distance from the underarm on the cap than on the armhole. Equal distances rule this cause out."
         },
         {
           "cause": "Kol dirsek eğrisi vücuda uymuyor (öne dönük kol duruşu)",
           "distinguishing_evidence": "Dönme kol rahat sarkarken belirgin; dirsek hizasında çekme var.",
-          "confirming_measurement": "M-029 (omuz–dirsek) ve dirsek şekillendirme konumu",
+          "confirming_measurement": "PR-21 vs. M-029 = YÜKSEKLİK sorusu; AÇI sorusunun ölçüsü YOK — fiziksel test",
           "physical_test": "Kol başını öne döndür (rotate).",
           "adjustment_family_ref": "AF-09",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-029"
+            ],
+            "pattern": [
+              "PR-21"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's elbow shaping is at a different height from your shoulder-to-elbow measurement. If the height matches, the fault is the angle and only the test can show it."
         },
         {
           "cause": "Kol eğri kesilmiş",
@@ -1787,7 +2939,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Çözgü kontrolü.",
           "adjustment_family_ref": null,
-          "likelihood_note": "KESİM hatası."
+          "likelihood_note": "KESİM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -1824,7 +2983,19 @@
           "confirming_measurement": "Kalıp kol başı çevresi − kol oyuntusu çevresi",
           "physical_test": "Ease'i azalt (kol başını alçalt).",
           "adjustment_family_ref": "AF-09",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-16",
+              "PR-15",
+              "PR-17"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Kol başı ease'i doğru ama dağıtım/pot alma yapılmamış",
@@ -1832,15 +3003,34 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Kol başını sök, ease'i eşit dağıtarak yeniden dik.",
           "adjustment_family_ref": null,
-          "likelihood_note": "YAPIM hatası."
+          "likelihood_note": "YAPIM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Kol oyuntusu çevresi kalıptan farklı dikilmiş",
-          "distinguishing_evidence": "Kol oyuntusu ölçüsü kalıpla uyuşmuyor.",
-          "confirming_measurement": "Dikilmiş kol oyuntusu çevresi vs. kalıp kol oyuntusu çevresi",
+          "distinguishing_evidence": "The puckering is even all the way round rather than concentrated at the top of the cap, and the seam allowance actually used is not the one the pattern specifies.",
+          "confirming_measurement": "TR-02 dikilmiş kol oyuntusu eğrisi vs. PR-15 kalıp kol oyuntusu eğrisi",
           "physical_test": "Dikiş paylarını ölç.",
-          "adjustment_family_ref": "AF-08",
-          "likelihood_note": "Dikiş payı hatası olabilir — SA confounder'ı ile birlikte okunur."
+          "adjustment_family_ref": null,
+          "likelihood_note": "Bir YAPIM hatasıdır: giysi kalıba göre dikilmemiş. Kalıptan hiçbir neden okunamaz.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-15"
+            ],
+            "toile": [
+              "TR-02"
+            ],
+            "kind": "compare"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: the sewn armhole and the pattern's armhole differ. If they agree, the garment was sewn to the pattern and no construction cause remains."
         }
       ],
       "confounders_to_rule_out": [
@@ -1877,23 +3067,54 @@
           "confirming_measurement": "M-026 (oturarak ağ derinliği) vs. kalıp ağ derinliği",
           "physical_test": "Ağ derinliğini boy çizgisinden artır.",
           "adjustment_family_ref": "AF-15",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-026"
+            ],
+            "pattern": [
+              "PR-25"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Arka ağ uzunluğu yetersiz",
           "distinguishing_evidence": "Ayakta da var; oturak üzerinde de gerginlik var.",
-          "confirming_measurement": "M-027 (ağ uzunluğu) vs. kalıp arka ağ uzunluğu",
+          "confirming_measurement": "M-027'nin ARKA parçası (toplam DEĞİL) vs. PR-26 kalıp arka ağ eğrisi",
           "physical_test": "Arka ağ eğrisini uzat.",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR.",
+          "confirming_refs": {
+            "body": [
+              "M-027"
+            ],
+            "pattern": [
+              "PR-26"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number larger than the pattern's."
         },
         {
           "cause": "Arka ağ eğrisi vücut için fazla düz",
-          "distinguishing_evidence": "Çekme yalnızca ağ eğrisinin kıvrımında; derinlik ve uzunluk sayısal olarak yeterli.",
-          "confirming_measurement": "Kalıp arka ağ eğrisi şekli vs. vücut profili",
+          "distinguishing_evidence": "Ağ derinliği ve arka ağ uzunluğu kalıba karşı ÖLÇÜLDÜ ve ikisi de yeterli çıktı; çekme oturağa yayılmıyor, eğrinin dönüşünde toplanıyor.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — eğri ŞEKLİ vücutla ölçülemez; fiziksel test",
           "physical_test": "Ağ eğrisini derinleştir (kancayı uzat).",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -1908,7 +3129,7 @@
         "Bel bandını yükseltme/indirme — ağ derinliği ayrı bir ölçüdür.",
         "Ağ eğrisini şekil olarak değiştirmeden ÖNCE derinlik ve uzunluk sayılarını kontrol et (AF-15 → AF-16 sırası)."
       ],
-      "adjustment_order_note": "AF-15 (derinlik/uzunluk) → AF-16 (eğri şekli). Ters sıra en sık yapılan pantolon hatasıdır.",
+      "adjustment_order_note": "AF-15 (ağ derinliği) → AF-16 (ağ uzunluğu) → eğri şekli. S-0002 birebir: 'Alter pattern crotch depth first because it affects crotch length.' Maliyet eşit olsa bile bu sıra geçerlidir.",
       "book1_chapter_ref": "B1-CH15",
       "figure_refs": [],
       "source_refs": [
@@ -1932,7 +3153,19 @@
           "confirming_measurement": "M-027'nin ön kısmı vs. kalıp ön ağ uzunluğu",
           "physical_test": "Ön ağ eğrisini kısalt.",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR."
+          "likelihood_note": "AĞ UZUNLUĞU ile AĞ DERİNLİĞİ ayrı ailelerdir; bu neden UZUNLUKTUR.",
+          "confirming_refs": {
+            "body": [
+              "M-027"
+            ],
+            "pattern": [
+              "PR-26"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Ağ derinliği fazla",
@@ -1940,15 +3173,34 @@
           "confirming_measurement": "M-026 vs. kalıp ağ derinliği",
           "physical_test": "Ağ derinliğini boy çizgisinden azalt.",
           "adjustment_family_ref": "AF-15",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-026"
+            ],
+            "pattern": [
+              "PR-25"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Ön ağ eğrisi vücut için fazla kavisli",
-          "distinguishing_evidence": "Sayılar doğru ama eğri fazla derin.",
-          "confirming_measurement": "Kalıp ön ağ eğrisi şekli",
+          "distinguishing_evidence": "Ön ağ uzunluğu ve ağ derinliği kalıba karşı ÖLÇÜLDÜ ve ikisi de yeterli çıktı; toplanma öne yayılmıyor, dikişin eğrisinde duruyor.",
+          "confirming_measurement": "NO_MEASUREMENT_EXISTS — eğri ŞEKLİ vücutla ölçülemez; fiziksel test",
           "physical_test": "Ön ağ eğrisini düzleştir.",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -1982,18 +3234,41 @@
         {
           "cause": "Uyluk çevresi yetersiz",
           "distinguishing_evidence": "Çizgiler uyluk hizasında yoğun; oturunca artıyor.",
-          "confirming_measurement": "M-009 (uyluk) + ease vs. kalıp uyluk hattı",
+          "confirming_measurement": "PR-27 kalıp uyluk hattı − M-009; fark Ek J bandına karşı okunur",
           "physical_test": "Bacağı uyluk hizasından aç.",
           "adjustment_family_ref": "AF-17",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-009"
+            ],
+            "pattern": [
+              "PR-27"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 4
         },
         {
           "cause": "Ağ eğrisi vücuda uymuyor",
           "distinguishing_evidence": "Çizgiler doğrudan ağ noktasından çıkıyor; uyluk çevresi yeterli.",
-          "confirming_measurement": "M-027 ve kalıp ağ eğrisi",
+          "confirming_measurement": "M-027 ön/arka parçaları vs. PR-26 kalıp ön/arka ağ eğrileri",
           "physical_test": "Ağ eğrisini yeniden şekillendir.",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-027"
+            ],
+            "pattern": [
+              "PR-26"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your crotch length front and back split differently from the pattern's front and back curves."
         },
         {
           "cause": "Karın/oturak hacmi kumaşı ağa doğru çekiyor",
@@ -2005,7 +3280,21 @@
           "cross_route": {
             "condition_en": "the fullness starts at seat level rather than at the abdomen",
             "family_ref": "AF-13"
-          }
+          },
+          "confirming_refs": {
+            "body": [
+              "M-005",
+              "M-006"
+            ],
+            "pattern": [
+              "PR-04",
+              "PR-05"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: your high hip or full hip larger than the pattern's line at that level."
         }
       ],
       "confounders_to_rule_out": [
@@ -2041,18 +3330,41 @@
         {
           "cause": "Bacak duruşu (içe/dışa dönük diz) kumaşı çeviriyor",
           "distinguishing_evidence": "Dönme her iki bacakta simetrik ve ayakta belirgin.",
-          "confirming_measurement": "Diz hizasında ön/arka bacak genişliği dağılımı",
+          "confirming_measurement": "PR-28 kalıp diz hattı ön/arka payı — YAYIMLANMIŞ ORAN YOK, beyan edilir",
           "physical_test": "Diz hizasında iç/dış bacak dengesini kaydır.",
           "adjustment_family_ref": "AF-17",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-010"
+            ],
+            "pattern": [
+              "PR-28"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2
         },
         {
           "cause": "Ağ eğrisi dengesiz (ön/arka)",
           "distinguishing_evidence": "Dönme ağ hizasından başlıyor.",
-          "confirming_measurement": "M-027 ön/arka dağılımı",
+          "confirming_measurement": "M-027 ön/arka payı vs. PR-26 ön/arka ağ eğrisi payı",
           "physical_test": "Ağ eğrisini dengele.",
           "adjustment_family_ref": "AF-16",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-027"
+            ],
+            "pattern": [
+              "PR-26"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your front and back crotch portions split in a different ratio from the pattern's two curves."
         },
         {
           "cause": "Bacak eğri kesilmiş",
@@ -2060,7 +3372,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Çözgü kontrolü.",
           "adjustment_family_ref": null,
-          "likelihood_note": "KESİM hatası."
+          "likelihood_note": "KESİM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -2099,7 +3418,19 @@
           "confirming_measurement": "M-026 vs. kalıp ağ derinliği",
           "physical_test": "Ağ derinliğini azalt.",
           "adjustment_family_ref": "AF-15",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-026"
+            ],
+            "pattern": [
+              "PR-25"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
           "cause": "Tasarım bilerek düşük ağlı",
@@ -2107,15 +3438,36 @@
           "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
           "physical_test": "NO_PHYSICAL_TEST.",
           "adjustment_family_ref": null,
-          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi."
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: the line drawing shows a dropped crotch. Nothing on the pattern is at fault."
         },
         {
           "cause": "Bel hattı doğal belin altında oturuyor",
           "distinguishing_evidence": "Bel bandı aşağıda; ağ da onunla birlikte inmiş.",
-          "confirming_measurement": "M-004 işaretinden bel bandına mesafe",
+          "confirming_measurement": "TR-03 bel bandının işaretli belden düşey mesafesi",
           "physical_test": "Bel hattını yükselt.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-004"
+            ],
+            "pattern": [],
+            "toile": [
+              "TR-03"
+            ],
+            "kind": "read"
+          },
+          "test_cost": 2
         }
       ],
       "confounders_to_rule_out": [
@@ -2158,23 +3510,67 @@
           "cross_route": {
             "condition_en": "the volume pulling the fabric up is the abdomen or the seat rather than the bust",
             "family_ref": "AF-20"
-          }
+          },
+          "confirming_refs": {
+            "body": [
+              "M-002",
+              "M-005",
+              "M-006"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-04",
+              "PR-05"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: the girth at the level where the hem rides up is larger on you than on the pattern."
         },
         {
           "cause": "Ön/arka denge bozuk",
           "distinguishing_evidence": "Bir taraf yükselirken diğeri alçalıyor; simetrik.",
-          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "confirming_measurement": "M-032 vs. (PR-11 − PR-12) kalıbın KENDİ ön/arka farkı",
           "physical_test": "Omuzda denge düzeltmesi.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [
+              "M-032"
+            ],
+            "pattern": [
+              "PR-11",
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your front-to-back difference and the pattern's disagree."
         },
         {
           "cause": "Vücut asimetrisi",
           "distinguishing_evidence": "Yükselme tek tarafta ve ağırlık eşitlendiğinde de sürüyor.",
-          "confirming_measurement": "M-024 sağ ve sol ayrı ayrı",
+          "confirming_measurement": "M-024 ve M-034 sağ/sol AYRI — fark hangisindeyse aile odur",
           "physical_test": "Asimetrik hacim ekle.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": "Asimetri KALÇADA da OMUZDA da olabilir ve ikisi ayrı ailelerde düzeltilir. M-034 zaten iki omuzu AYRI ölçtürür; fark oradaysa varış AF-03'tür.",
+          "confirming_refs": {
+            "body": [
+              "M-024",
+              "M-034"
+            ],
+            "pattern": [],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: one side differs from the other by more than your measuring noise, and it persists with your weight evened out.",
+          "cross_route": {
+            "condition_en": "the two sides differ at the SHOULDER — one shoulder slope larger than the other — rather than at the hip",
+            "family_ref": "AF-03"
+          }
         }
       ],
       "confounders_to_rule_out": [
@@ -2212,18 +3608,46 @@
         {
           "cause": "Ön/arka hacim dağılımı vücuda uymuyor",
           "distinguishing_evidence": "Dönme tutarlı bir yönde ve her giyişte aynı.",
-          "confirming_measurement": "Ön/arka çevre dağılımı vs. kalıp",
+          "confirming_measurement": "PR-06 ilgili çevre hattında ön/arka pay + TR-04",
           "physical_test": "Fazla olan taraftan al, eksik olana ekle.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": null,
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-06"
+            ],
+            "toile": [
+              "TR-04"
+            ],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's front and back shares are markedly unequal, and the sewn side seam sits away from your own side line in the same direction."
         },
         {
           "cause": "Vücut asimetrisi",
           "distinguishing_evidence": "Dönme tek yönde ve tek taraflı belirtilerle birlikte.",
-          "confirming_measurement": "Sağ/sol ayrı ölçümler",
+          "confirming_measurement": "M-034, M-014, M-020, M-024 SAĞ ve SOL ayrı ayrı — hangisi farklıysa aile odur",
           "physical_test": "Asimetrik düzeltme.",
           "adjustment_family_ref": "AF-13",
-          "likelihood_note": null
+          "likelihood_note": "Asimetri KALÇADA da OMUZDA da olabilir ve ikisi ayrı ailelerde düzeltilir. M-034 zaten iki omuzu AYRI ölçtürür; fark oradaysa varış AF-03'tür.",
+          "confirming_refs": {
+            "body": [
+              "M-034",
+              "M-014",
+              "M-020",
+              "M-024"
+            ],
+            "pattern": [],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 3,
+          "cross_route": {
+            "condition_en": "the two sides differ at the SHOULDER — one shoulder slope larger than the other — rather than at the hip",
+            "family_ref": "AF-03"
+          }
         },
         {
           "cause": "Parçalar eğri kesilmiş",
@@ -2231,7 +3655,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Çözgü kontrolü.",
           "adjustment_family_ref": null,
-          "likelihood_note": "KESİM hatası."
+          "likelihood_note": "KESİM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -2267,22 +3698,51 @@
         {
           "cause": "Duruş (öne/arkaya eğik) dengeyi bozuyor",
           "distinguishing_evidence": "Sapma simetrik ve okurun doğal duruşunda sürüyor.",
-          "confirming_measurement": "M-032 (ön/arka boy farkı)",
+          "confirming_measurement": "M-032 vs. (PR-11 − PR-12) kalıbın KENDİ ön/arka farkı",
           "physical_test": "Omuzda denge düzeltmesi yap ve çizgileri yeniden gözle.",
           "adjustment_family_ref": "AF-11",
-          "likelihood_note": "Bu, denge teşhisinin ANA ölçümüdür."
+          "likelihood_note": "Bu, denge teşhisinin ANA ölçümüdür.",
+          "confirming_refs": {
+            "body": [
+              "M-032"
+            ],
+            "pattern": [
+              "PR-11",
+              "PR-12"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: your front-to-back difference and the pattern's disagree, and the deviation is symmetrical."
         },
         {
           "cause": "Bir hacim (göğüs/oturak) kumaşı çekiyor",
           "distinguishing_evidence": "Sapma o hacmin hizasından başlıyor.",
-          "confirming_measurement": "İlgili çevre ölçüsü",
+          "confirming_measurement": "Önce HANGİ hacim: M-002→PR-01 · M-005→PR-04 · M-006→PR-05",
           "physical_test": "Hacim ekle.",
           "adjustment_family_ref": "AF-01",
           "likelihood_note": null,
           "cross_route": {
             "condition_en": "the deviation starts at seat level rather than at the bust",
             "family_ref": "AF-13"
-          }
+          },
+          "confirming_refs": {
+            "body": [
+              "M-002",
+              "M-005",
+              "M-006"
+            ],
+            "pattern": [
+              "PR-01",
+              "PR-04",
+              "PR-05"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: the girth at the level where the deviation starts is larger on you than on the pattern."
         },
         {
           "cause": "Parça eğri kesilmiş",
@@ -2290,7 +3750,14 @@
           "confirming_measurement": "NO_MEASUREMENT_EXISTS — physical test only",
           "physical_test": "Çözgü kontrolü.",
           "adjustment_family_ref": null,
-          "likelihood_note": "KESİM hatası."
+          "likelihood_note": "KESİM hatası.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [],
+            "toile": [],
+            "kind": "none"
+          },
+          "test_cost": 0
         }
       ],
       "confounders_to_rule_out": [
@@ -2327,10 +3794,27 @@
         {
           "cause": "Kalıbın boyu okurun boy ölçüsüne uymuyor",
           "distinguishing_evidence": "Giysi her yerde düzgün oturuyor, denge çizgileri doğru, hiçbir çekme/kıvrım yok — YALNIZCA uzunluk farklı.",
-          "confirming_measurement": "İlgili boy ölçüsü (M-028 kol, M-024/M-025 bacak, M-015/M-016 beden) vs. kalıbın bitmiş giysi boyu",
+          "confirming_measurement": "M-028→kol · M-024/M-025→bacak · M-015/M-016→beden, vs. PR-32/PR-20",
           "physical_test": "Fazlalığı yatay olarak katla veya eksiği bir şerit kumaşla ekle: başka hiçbir belirti çıkmıyorsa neden yalnızca boydur.",
           "adjustment_family_ref": "AF-19",
-          "likelihood_note": "Kalıplardaki basılı uzat/kısalt çizgileri (T-20) tam bu iş içindir."
+          "likelihood_note": "Kalıplardaki basılı uzat/kısalt çizgileri (T-20) tam bu iş içindir.",
+          "confirming_refs": {
+            "body": [
+              "M-015",
+              "M-016",
+              "M-024",
+              "M-025",
+              "M-028"
+            ],
+            "pattern": [
+              "PR-32",
+              "PR-20"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 3,
+          "expected": "Supports this cause: the relevant length differs and NOTHING else does."
         },
         {
           "cause": "Tasarım bilerek kısa/uzun",
@@ -2338,15 +3822,35 @@
           "confirming_measurement": "Kalıbın bitmiş giysi ölçü tablosu",
           "physical_test": "NO_PHYSICAL_TEST — kalıp belgesine bakılır.",
           "adjustment_family_ref": null,
-          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi. Kişisel tercihle değiştirilebilir ama bu bir UYUM düzeltmesi değildir."
+          "likelihood_note": "SORUN DEĞİLDİR — tasarım tercihi. Kişisel tercihle değiştirilebilir ama bu bir UYUM düzeltmesi değildir.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-32"
+            ],
+            "toile": [],
+            "kind": "read"
+          },
+          "test_cost": 0,
+          "expected": "Supports this cause: the finished-measurement table gives the length you are seeing, by design."
         },
         {
           "cause": "Etek ucu/paça payı kalıbın varsaydığından farklı katlanmış",
           "distinguishing_evidence": "Fark, kalıbın etek ucu payı kadar; giysinin geri kalanı kalıpla birebir uyuyor.",
-          "confirming_measurement": "Katlanmış etek ucu payı vs. kalıp etek ucu payı",
+          "confirming_measurement": "Katlanan etek ucu payı vs. PR-31 kalıp etek ucu payı",
           "physical_test": "Etek ucunu aç ve yeniden ölç.",
           "adjustment_family_ref": null,
-          "likelihood_note": "YAPIM kararı — kalıba dokunulmaz."
+          "likelihood_note": "YAPIM kararı — kalıba dokunulmaz.",
+          "confirming_refs": {
+            "body": [],
+            "pattern": [
+              "PR-31"
+            ],
+            "toile": [],
+            "kind": "compare"
+          },
+          "test_cost": 2,
+          "expected": "Supports this cause: the shortfall equals the pattern's printed hem allowance."
         }
       ],
       "confounders_to_rule_out": [
