@@ -211,13 +211,31 @@ jobs:
       # koşumdadır ve qa_all.sh içinde durur. Burada yalnızca ARACIN
       # kendisi çalışabiliyor mu, o denetlenir: çıkış kodu 1 (kusur)
       # ile 2 (varlık yok) ayrı şeylerdir ve karıştırılmaz.
-      - name: baskı simülasyonu — araç çalışabiliyor mu
+      # ⚠ CI kitabı KURAMAZ (proza izlenmiyor, K9), yani basılacak bir
+      # PDF hiç yoktur ve print_sim burada HER ZAMAN "yayın varlığı YOK"
+      # der. İlk yazdığım adım bunu ham çıkış koduyla bırakıyordu ve
+      # GitHub `bash -e` kullandığı için iş DÜŞTÜ — bir kapının, ölçmesi
+      # imkânsız olan şey yüzünden kırmızı yanması bilgi değil gürültüdür.
+      # Adım artık GERÇEK bir iddia sınar: araç koşmalı ve varlığın
+      # yokluğunu DOĞRU kodla (1) bildirmelidir. 0 dönerse olmayan bir
+      # dosyayı ölçtüğünü söylüyordur; 2+ dönerse çökmüştür. İkisi de kusurdur.
+      - name: baskı simülasyonu — araç doğru davranıyor mu
         run: |
-          python3 06_BUILD/print_sim.py --verbose; RC=$?
-          if [ "$RC" -eq 1 ]; then
-            echo "::notice::Yayın varlığı YOK (CI proza olmadan kitabı kuramaz) — BEKLENEN."
+          set +e
+          OUT=$(python3 06_BUILD/print_sim.py --verbose 2>&1); RC=$?
+          set -e
+          echo "$OUT"
+          if [ "$RC" -eq 2 ]; then
+            echo "::error::print_sim ARAÇSIZ kaldı — render işinde poppler/Pillow kurulu olmalı."
+            exit 1
           fi
-          echo "::notice::Baskı simülasyonunun TAM kapsamı YEREL koşumdadır."
+          if [ "$RC" -ne 1 ]; then
+            echo "::error::print_sim çıkış kodu $RC — CI'da yayın varlığı YOKTUR ve 1 beklenir."
+            exit 1
+          fi
+          echo "$OUT" | grep -q "yayın varlığı YOK" || {
+            echo "::error::print_sim 1 döndü ama gerekçesi 'yayın varlığı YOK' değil."; exit 1; }
+          echo "::notice::print_sim doğru davrandı; TAM kapsamı YEREL koşumdadır (qa_all.sh)."
 
   manuscript:
     name: iddia sicili · izlenebilirlik · manüskript kapısı

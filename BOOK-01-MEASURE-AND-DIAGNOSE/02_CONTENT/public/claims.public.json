@@ -6,17 +6,17 @@
   ],
   "generated_by": "06_BUILD/build_claims.py",
   "book": "book-01",
-  "count": 310,
+  "count": 312,
   "by_evidence_level": {
     "CONTESTED": 2,
     "INFERRED": 203,
     "UNVERIFIED": 36,
-    "VERIFIED": 51,
-    "VERIFIED_NARROWER": 18
+    "VERIFIED": 52,
+    "VERIFIED_NARROWER": 19
   },
   "by_kind": {
-    "adjustment_family": 20,
-    "adjustment_order": 20,
+    "adjustment_family": 21,
+    "adjustment_order": 21,
     "conceptual": 32,
     "measurement_definition": 33,
     "measurement_path": 33,
@@ -2051,6 +2051,36 @@
     },
     {
       "claim_id": "CLM-0139",
+      "kind": "adjustment_family",
+      "chapter": "B1-CH16",
+      "claim": "Chest width (narrow / broad chest) acts on: Front bodice: across-chest region between the armhole seams, above the bust.",
+      "taxonomy_ref": "AF-21",
+      "source_refs": [
+        "S-0003"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED",
+      "source_support_note": null,
+      "reviewer_status": "not_signed_off_at_record_level",
+      "risk_note": "Naming the wrong pattern area sends the reader to Book 2 with the wrong family and the adjustment fails there, not here."
+    },
+    {
+      "claim_id": "CLM-0140",
+      "kind": "adjustment_order",
+      "chapter": "B1-CH16",
+      "claim": "Chest width (narrow / broad chest) — ordering constraint: Boy geçişinden SONRA, genişlik geçişinde; AF-08'den ÖNCE — koltuk altı, ön genişlik oturmadan kesilmez.",
+      "taxonomy_ref": "AF-21",
+      "source_refs": [
+        "S-0003"
+      ],
+      "record_verification_status": "technical_reference_verified",
+      "evidence_level": "VERIFIED_NARROWER",
+      "source_support_note": "S-0003'ün 'önce boy, sonra genişlik' kuralının bir ÖRNEĞİDİR; kaynak bu aileyi adlandırmaz.",
+      "reviewer_status": "not_signed_off_at_record_level",
+      "risk_note": "Out-of-order adjustment invalidates work already done."
+    },
+    {
+      "claim_id": "CLM-0141",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-001 (gape) is observable as described and appears at: Ön yaka eğrisi, omuz/boyun noktası ile ön orta arasında.",
@@ -2066,7 +2096,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0140",
+      "claim_id": "CLM-0142",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-001 may be caused by: Yaka eğrisi vücut için fazla geniş/derin — distinguished by: Açıklık dik dururken de öne eğilirken de AYNI, yakanın tamamında eşit ve ARKA yaka da vücuttan ayrılıyor.",
@@ -2082,7 +2112,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0141",
+      "claim_id": "CLM-0143",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-001 may be caused by: Göğüs hacmi yakayı öne çekiyor — distinguished by: Öne eğilince açıklık BELİRGİN artıyor, yalnızca ÖNDE — arka yaka yatıyor — ve ön etek ucu arkadan yukarıda. Genellikle iki taraflı.",
@@ -2098,7 +2128,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0142",
+      "claim_id": "CLM-0144",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-001 may be caused by: Yaka kenarı dikiş sırasında gerilmiş — distinguished by: Açıklık dalgalı/gevşek görünüyor, düz bir açıklık değil.",
@@ -2114,7 +2144,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0143",
+      "claim_id": "CLM-0145",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-002 (strain_pull) is observable as described and appears at: Boyun tabanı çevresi, özellikle ön orta ve omuz/boyun noktası.",
@@ -2130,7 +2160,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0144",
+      "claim_id": "CLM-0146",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-002 may be caused by: Yaka eğrisi vücut için fazla dar — distinguished by: Baskı çevre boyunca eşit dağılmış.",
@@ -2146,7 +2176,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0145",
+      "claim_id": "CLM-0147",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-002 may be caused by: Yuvarlak sırt boyunu öne itiyor — distinguished by: Baskı ARKA yakada belirgin, ön yakada yok; arka yaka ayrıca yukarı tırmanıyor.",
@@ -2162,7 +2192,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0146",
+      "claim_id": "CLM-0148",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-002 may be caused by: Omuz ÖNE taşınmış ve dikiş ARKADA kalmış — distinguished by: Omuz dikişi omuz üstü çizgisinin ARKASINDA duruyor — omuz öne taşınmış ve dikiş geride kalmış — ve giydikçe öne kayıyor.",
@@ -2178,7 +2208,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0147",
+      "claim_id": "CLM-0149",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-003 (hem_hike) is observable as described and appears at: Arka yaka + arka etek ucu (aynı anda).",
@@ -2195,7 +2225,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0148",
+      "claim_id": "CLM-0150",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-003 may be caused by: Arka beden boyu BÜTÜNÜYLE kısa — distinguished by: Ön etek ucu yerde düzgün, YALNIZCA arka yükseliyor.",
@@ -2212,7 +2242,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0149",
+      "claim_id": "CLM-0151",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-003 may be caused by: Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor — distinguished by: Yükselme ile birlikte kürek hizasında yatay gerginlik var.",
@@ -2229,7 +2259,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0150",
+      "claim_id": "CLM-0152",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-003 may be caused by: Yaka arkada fazla dar, giysiyi yukarı asıyor — distinguished by: En çok yaka yükseliyor, etek ucu onu ancak hafifçe izliyor; ikisinin arası temiz.",
@@ -2246,7 +2276,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0151",
+      "claim_id": "CLM-0153",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-004 (diagonal_drag_line) is observable as described and appears at: Omuz üstü ile koltuk altı arası, ön ve/veya arka.",
@@ -2262,7 +2292,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0152",
+      "claim_id": "CLM-0154",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-004 may be caused by: Omuz eğimi kalıbın varsaydığından DİK (square shoulder) — distinguished by: Omuz ucunda kumaş GERGİN ve dikiş omza bastırıyor; çizgiler boyun noktasından dışa ve aşağı iniyor.",
@@ -2278,7 +2308,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0153",
+      "claim_id": "CLM-0155",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-004 may be caused by: Omuz eğimi kalıbın varsaydığından EĞİK (sloping shoulder) — distinguished by: Omuz ucunda kumaş çekmiyor, TOPLANIYOR; çizgiler ters yönde, omuz ucundan boyuna doğru gidiyor.",
@@ -2294,7 +2324,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0154",
+      "claim_id": "CLM-0156",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-004 may be caused by: Omuz genişliği yetersiz — distinguished by: Çizgiler var ama omuz eğimi doğru; kol oyuntusu dikişi omuz ucunun İÇİNDE kalıyor.",
@@ -2310,7 +2340,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0155",
+      "claim_id": "CLM-0157",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-005 (horizontal_fold) is observable as described and appears at: Omuz dikişi altı, kol oyuntusu üst kısmı.",
@@ -2326,7 +2356,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0156",
+      "claim_id": "CLM-0158",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-005 may be caused by: Omuz eğimi fazla eğik çizilmiş (dik omuzlu okur için) — distinguished by: Kıvrım omuz UCUNA yakın; boyun tarafında yok.",
@@ -2342,7 +2372,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0157",
+      "claim_id": "CLM-0159",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-005 may be caused by: Kol oyuntusu fazla derin, kol başı fazla yüksek — distinguished by: Kıvrım kol oyuntusu çevresini takip ediyor ve kol kaldırıldığında kayboluyor.",
@@ -2358,7 +2388,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0158",
+      "claim_id": "CLM-0160",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-005 may be caused by: Omuz genişliği fazla — distinguished by: Kıvrımla birlikte kol başı omuz ucunun DIŞINA sarkıyor.",
@@ -2374,7 +2404,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0159",
+      "claim_id": "CLM-0161",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-006 (seam_displacement) is observable as described and appears at: Omuz üstü, boyun noktası ile omuz ucu arası.",
@@ -2391,7 +2421,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0160",
+      "claim_id": "CLM-0162",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-006 may be caused by: Öne düşük omuz duruşu (forward shoulder) — distinguished by: Dikiş HER İKİ omuzda da arkada; okur rahat dururken de böyle.",
@@ -2408,7 +2438,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0161",
+      "claim_id": "CLM-0163",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-006 may be caused by: Yuvarlak sırt kumaşı arkaya çekiyor — distinguished by: Dikiş kayması var AMA kürek hizasında yatay gerginlik de var.",
@@ -2425,7 +2455,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0162",
+      "claim_id": "CLM-0164",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-006 may be caused by: Ön beden arka bedene göre kısa — distinguished by: Ön etek ucu da yükseliyor.",
@@ -2442,7 +2472,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0163",
+      "claim_id": "CLM-0165",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-007 (silhouette_deviation) is observable as described and appears at: Omuz ucu ve kol başı.",
@@ -2459,7 +2489,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0164",
+      "claim_id": "CLM-0166",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-007 may be caused by: Omuz genişliği fazla (kalıp daha geniş omuz için) — distinguished by: Sarkma her iki omuzda simetrik; kol oyuntusu dikişi kol kemiği ucunun DIŞINDA.",
@@ -2476,7 +2506,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0165",
+      "claim_id": "CLM-0167",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-007 may be caused by: Tasarım bilerek düşük omuzlu (drop shoulder) — distinguished by: Kalıp zarfı/teknik çizim düşük omuz gösteriyor; kol oyuntusu da derin.",
@@ -2493,7 +2523,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0166",
+      "claim_id": "CLM-0168",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-007 may be caused by: Omuz eğimi fazla dik çizilmiş — distinguished by: Sarkmayla birlikte omuz ucunda kumaş toplanması var.",
@@ -2510,7 +2540,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0167",
+      "claim_id": "CLM-0169",
       "kind": "sign_observation",
       "chapter": "B1-CH09",
       "claim": "SYM-008 (strain_pull) is observable as described and appears at: Kürek hizası, kol oyuntusu arka kenarı.",
@@ -2526,7 +2556,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0168",
+      "claim_id": "CLM-0170",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-008 may be caused by: Sırt genişliği yetersiz — distinguished by: Kol yanda dururken belirti YOK; yalnızca kol öne gelince çıkıyor.",
@@ -2542,7 +2572,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0169",
+      "claim_id": "CLM-0171",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-008 may be caused by: Kol oyuntusu fazla dar/öne kaymış — distinguished by: Çekme kol oyuntusu kenarında yoğunlaşıyor, kürek ortasında yok.",
@@ -2558,7 +2588,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0170",
+      "claim_id": "CLM-0172",
       "kind": "sign_cause",
       "chapter": "B1-CH09",
       "claim": "SYM-008 may be caused by: Kol bicep hizasında dar — distinguished by: Çekme kolun kendisinde de hissediliyor.",
@@ -2574,7 +2604,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0171",
+      "claim_id": "CLM-0173",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-009 (horizontal_fold) is observable as described and appears at: Kürek hizası, iki kol oyuntusu arası.",
@@ -2590,7 +2620,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0172",
+      "claim_id": "CLM-0174",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-009 may be caused by: Arka beden boyu fazla — distinguished by: Kıvrım kol kaldırılınca da kalıyor; yaka ve omuz yerinde.",
@@ -2606,7 +2636,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0173",
+      "claim_id": "CLM-0175",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-009 may be caused by: Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt) — distinguished by: Kıvrım kürek hizasında YOĞUN, aşağı doğru kayboluyor; kalıpta omuz pensi/ease var ama vücut onu doldurmuyor.",
@@ -2622,7 +2652,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0174",
+      "claim_id": "CLM-0176",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-009 may be caused by: Arka yaka fazla yüksek, kumaşı aşağı itiyor — distinguished by: Kıvrım yakanın hemen altında ve yaka boyunu sıkıyor.",
@@ -2638,7 +2668,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0175",
+      "claim_id": "CLM-0177",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-010 (vertical_fold) is observable as described and appears at: Arka beden, kürek hizası ile kol oyuntuları arası.",
@@ -2654,7 +2684,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0176",
+      "claim_id": "CLM-0178",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-010 may be caused by: Sırt genişliği fazla — distinguished by: Kıvrımlar dikey ve simetrik; ÖNE UZANDIĞINDA DA duruyorlar — genişlik, sırt tam gerildiğinde bile fazla.",
@@ -2670,7 +2700,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0177",
+      "claim_id": "CLM-0179",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-010 may be caused by: Bir beden büyük seçilmiş — distinguished by: Aynı fazlalık ön bedende, kolda ve belde de var.",
@@ -2686,7 +2716,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0178",
+      "claim_id": "CLM-0180",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-010 may be caused by: Kol oyuntusu fazla geniş — distinguished by: Fazlalık yalnızca kol oyuntusuna yakın; sırt ortasında yok.",
@@ -2702,7 +2732,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0179",
+      "claim_id": "CLM-0181",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-011 (hem_hike) is observable as described and appears at: Arka etek ucu + arka yaka.",
@@ -2719,7 +2749,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0180",
+      "claim_id": "CLM-0182",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-011 may be caused by: Arka beden boyu KÜREK HİZASINDA kısa (yuvarlak sırt) — distinguished by: Arka yaka etek ucuyla birlikte yukarı çekiliyor ve çekme sırtı ENİNE değil BOYUNA katediyor; kürek hizası yatay olarak gergin DEĞİL.",
@@ -2736,7 +2766,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0181",
+      "claim_id": "CLM-0183",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-011 may be caused by: Kalça/oturak hacmi kumaşı yukarı çekiyor — distinguished by: Yükselme bel hizasının ALTINDA başlıyor; kürek hizası temiz.",
@@ -2753,7 +2783,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0182",
+      "claim_id": "CLM-0184",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-011 may be caused by: Ön/arka denge bozuk (öne eğik duruş) — distinguished by: Ön etek ucu ise AŞAĞI sarkıyor — ikisi birlikte.",
@@ -2770,7 +2800,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0183",
+      "claim_id": "CLM-0185",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-012 (seam_displacement) is observable as described and appears at: Arka orta, bel ile kürek arası.",
@@ -2787,7 +2817,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0184",
+      "claim_id": "CLM-0186",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-012 may be caused by: Bel oyuğu (sway back) — arka orta bel hizasında fazlalık — distinguished by: Yay bel hizasında en belirgin; hemen üstünde yatay kıvrımlar da var.",
@@ -2804,7 +2834,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0185",
+      "claim_id": "CLM-0187",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-012 may be caused by: Yuvarlak sırt — arka orta üst kısımda boy yetersiz — distinguished by: Kavis kürek hizasında ve oradaki kumaş GEVŞEK değil GERGİN — dikiş dışarı ÇEKİLİYOR, dışarı düşmüyor. Bel temiz.",
@@ -2821,7 +2851,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0186",
+      "claim_id": "CLM-0188",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-012 may be caused by: Fermuar dikilirken gerdirilmiş — distinguished by: Yay düzensiz, dalgalı; kumaş fermuar boyunca büzülmüş.",
@@ -2838,7 +2868,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0187",
+      "claim_id": "CLM-0189",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-013 (strain_pull) is observable as described and appears at: Koltuk altı, kol oyuntusu en derin noktası.",
@@ -2854,7 +2884,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0188",
+      "claim_id": "CLM-0190",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-013 may be caused by: Kol oyuntusu fazla sığ (koltuk altı çok yüksek) — distinguished by: Kol yukarıdayken rahat, aşağıdayken sıkıyor; koltuk altında kırmızı iz var.",
@@ -2870,7 +2900,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0189",
+      "claim_id": "CLM-0191",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-013 may be caused by: Kol bicep hattı dar — distinguished by: Sıkışma kol içinde de hissediliyor; kol oyuntusu kendisi rahat.",
@@ -2886,7 +2916,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0190",
+      "claim_id": "CLM-0192",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-013 may be caused by: Göğüs hacmi ön kol oyuntusunu yukarı çekiyor — distinguished by: Sıkışma ÖN koltuk altında; göğüsten kol oyuntusuna doğru çekme çizgileri de var.",
@@ -2902,7 +2932,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0191",
+      "claim_id": "CLM-0193",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-014 (gape) is observable as described and appears at: Ön kol oyuntusu kenarı, koltuk kıvrımı ile omuz ucu arası.",
@@ -2918,7 +2948,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0192",
+      "claim_id": "CLM-0194",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-014 may be caused by: Ön beden genişliği fazla — distinguished by: Açıklık kol yanda dururken de var; ön göğüs üstünde gevşeklik hissediliyor.",
@@ -2934,7 +2964,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0193",
+      "claim_id": "CLM-0195",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-014 may be caused by: Göğüs pensi apeksin ÜSTÜNÜ gösteriyor, göğsün üstünde fazlalık bırakıyor — distinguished by: Açıklıkla birlikte göğsün ÜSTÜNDE boş bir oyuk var ve kalıbın pens ucu okurun apeksinden YUKARIDA duruyor.",
@@ -2950,7 +2980,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0194",
+      "claim_id": "CLM-0196",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-014 may be caused by: Omuz genişliği fazla — distinguished by: Kol başı da omuz ucundan sarkıyor.",
@@ -2966,7 +2996,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0195",
+      "claim_id": "CLM-0197",
       "kind": "sign_observation",
       "chapter": "B1-CH10",
       "claim": "SYM-015 (gape) is observable as described and appears at: Arka kol oyuntusu kenarı.",
@@ -2982,7 +3012,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0196",
+      "claim_id": "CLM-0198",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-015 may be caused by: Arka beden genişliği fazla — distinguished by: Sırtta dikey gevşek kıvrımlar da var.",
@@ -2998,7 +3028,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0197",
+      "claim_id": "CLM-0199",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-015 may be caused by: Omuz eğimi fazla dik çizilmiş — distinguished by: Omuz ucunda kumaş toplanması da var.",
@@ -3014,7 +3044,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0198",
+      "claim_id": "CLM-0200",
       "kind": "sign_cause",
       "chapter": "B1-CH10",
       "claim": "SYM-015 may be caused by: Kol oyuntusu fazla geniş çizilmiş — distinguished by: Açıklık kol oyuntusu çevresi boyunca eşit.",
@@ -3030,7 +3060,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0199",
+      "claim_id": "CLM-0201",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-016 (diagonal_drag_line) is observable as described and appears at: Göğüs apeksinden dışa doğru, ön beden.",
@@ -3046,7 +3076,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0200",
+      "claim_id": "CLM-0202",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-016 may be caused by: Göğüs hacmi kalıbın varsaydığından fazla — distinguished by: Çizgiler apeksten IŞINSAL olarak yayılıyor; ön etek ucu da yukarı tırmanıyor; ön yaka açılıyor.",
@@ -3062,7 +3092,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0201",
+      "claim_id": "CLM-0203",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-016 may be caused by: Ön beden genel olarak dar (beden seçimi) — distinguished by: Aynı gerginlik göğüs dışında — bel, kalça, kol — her yerde var.",
@@ -3078,7 +3108,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0202",
+      "claim_id": "CLM-0204",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-016 may be caused by: Pens ucu apeksin uzağında, hacmi yanlış yere dağıtıyor — distinguished by: Gerginlik VAR ama toplam ön genişlik yeterli; pens ucu apeksten belirgin uzakta bitiyor.",
@@ -3094,7 +3124,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0203",
+      "claim_id": "CLM-0205",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-017 (hem_hike) is observable as described and appears at: Ön etek ucu.",
@@ -3111,7 +3141,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0204",
+      "claim_id": "CLM-0206",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-017 may be caused by: Göğüs hacmi ön kumaşı yukarı çekiyor — distinguished by: Göğüsten yayılan çekme çizgileri de var; yan dikiş öne kayıyor.",
@@ -3128,7 +3158,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0205",
+      "claim_id": "CLM-0207",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-017 may be caused by: Ön beden boyu yetersiz — distinguished by: Çekme çizgisi YOK, yalnızca boy kısa; göğüs bölgesi rahat.",
@@ -3145,7 +3175,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0206",
+      "claim_id": "CLM-0208",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-017 may be caused by: Karın hacmi kumaşı yukarı çekiyor — distinguished by: Yükselme bel hizasının altında başlıyor; göğüs temiz.",
@@ -3162,7 +3192,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0207",
+      "claim_id": "CLM-0209",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-018 (seam_displacement) is observable as described and appears at: Yan dikiş, koltuk altı ile etek ucu arası.",
@@ -3179,7 +3209,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0208",
+      "claim_id": "CLM-0210",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-018 may be caused by: Ön beden hacmi yetersiz (göğüs veya karın) — distinguished by: Kayma ile birlikte göğüs veya karın hizasında gerginlik var. Hangi hacim olduğunu ayır: gerginlik GÖĞÜS hizasındaysa göğüs, BEL ALTI hizasındaysa karın ailesine gidilir.",
@@ -3196,7 +3226,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0209",
+      "claim_id": "CLM-0211",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-018 may be caused by: Arka beden genişliği fazla — distinguished by: Kayma var ama ön tarafta gerginlik YOK; arkada dikey gevşek kıvrımlar var.",
@@ -3213,7 +3243,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0210",
+      "claim_id": "CLM-0212",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-018 may be caused by: Kumaş çözgüye eğri kesilmiş — distinguished by: Bir taraf kayıyor, öteki kaymıyor; o parçanın çözgüsü kenara paralel değil.",
@@ -3230,7 +3260,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0211",
+      "claim_id": "CLM-0213",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-019 (strain_pull) is observable as described and appears at: Göğüs pensi ucu.",
@@ -3246,7 +3276,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0212",
+      "claim_id": "CLM-0214",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-019 may be caused by: Pens ucu apeksin üzerinde bitiyor (çok uzun) — distinguished by: Kabarcık tam pens ucunda; apeksin kendisi düz.",
@@ -3262,7 +3292,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0213",
+      "claim_id": "CLM-0215",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-019 may be caused by: Pens hacmi vücuda göre fazla — distinguished by: Pens çevresinde genel gevşeklik de var.",
@@ -3278,7 +3308,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0214",
+      "claim_id": "CLM-0216",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-019 may be caused by: Pens dikilirken ucu düz bitirilmemiş — distinguished by: Büzüşme düzensiz; dikiş ucunda düğüm/geri dikiş var.",
@@ -3294,7 +3324,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0215",
+      "claim_id": "CLM-0217",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-020 (horizontal_fold) is observable as described and appears at: Ön beden üst kısmı.",
@@ -3310,7 +3340,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0216",
+      "claim_id": "CLM-0218",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-020 may be caused by: Göğüs pensi apeksten yukarıda konumlanmış — distinguished by: Boşluk pensin hemen üstünde; pens ucu apeksin üzerinde.",
@@ -3326,7 +3356,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0217",
+      "claim_id": "CLM-0219",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-020 may be caused by: Ön üst genişlik fazla — distinguished by: Boşluk geniş bir alana yayılmış; kol oyuntusu ön kenarı da açılıyor.",
@@ -3342,7 +3372,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0218",
+      "claim_id": "CLM-0220",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-020 may be caused by: Kalıp daha dolgun bir üst göğüs için çizilmiş — distinguished by: Boşluk üst göğüs çevresinde; M-001 kalıbın varsaydığından küçük.",
@@ -3358,7 +3388,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0219",
+      "claim_id": "CLM-0221",
       "kind": "sign_observation",
       "chapter": "B1-CH11",
       "claim": "SYM-021 (gape) is observable as described and appears at: Ön kapama, göğüs hizası.",
@@ -3374,7 +3404,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0220",
+      "claim_id": "CLM-0222",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-021 may be caused by: Göğüs hacmi yetersiz — distinguished by: Açılma göğüs hizasında YOĞUN; üstte ve altta kapama düzgün.",
@@ -3390,7 +3420,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0221",
+      "claim_id": "CLM-0223",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-021 may be caused by: Ön kapama payı (extension) dar — distinguished by: Açılma kapama boyunca EŞİT dağılmış.",
@@ -3406,7 +3436,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0222",
+      "claim_id": "CLM-0224",
       "kind": "sign_cause",
       "chapter": "B1-CH11",
       "claim": "SYM-021 may be caused by: Düğme aralığı göğüs hizasına düğme koymuyor — distinguished by: Açıklık iki düğme arasında ve apeks hizasında düğme YOK.",
@@ -3422,7 +3452,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0223",
+      "claim_id": "CLM-0225",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-022 (seam_displacement) is observable as described and appears at: Bel dikişi çevresi.",
@@ -3439,7 +3469,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0224",
+      "claim_id": "CLM-0226",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-022 may be caused by: Beden boyu kalıbın varsaydığından farklı — distinguished by: Kayma çevre boyunca EŞİT; ön ve arkada aynı miktarda.",
@@ -3456,7 +3486,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0225",
+      "claim_id": "CLM-0227",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-022 may be caused by: Ön/arka denge bozuk — distinguished by: Kayma ön ve arkada FARKLI miktarda.",
@@ -3473,7 +3503,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0226",
+      "claim_id": "CLM-0228",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-022 may be caused by: Tasarım bilerek yüksek/düşük belli — distinguished by: Kalıp teknik çizimi ve bitmiş giysi ölçüsü bunu gösteriyor.",
@@ -3490,7 +3520,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0227",
+      "claim_id": "CLM-0229",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-023 (pooling) is observable as described and appears at: Arka bel, bel dikişinin üstü.",
@@ -3506,7 +3536,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0228",
+      "claim_id": "CLM-0230",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-023 may be caused by: Bel oyuğu (sway back) — arka orta bel hizasında kumaş fazlası — distinguished by: Fazlalık YALNIZCA arka ortada yoğun, yan dikişlere doğru azalıyor; ön taraf temiz.",
@@ -3522,7 +3552,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0229",
+      "claim_id": "CLM-0231",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-023 may be caused by: Arka beden boyu genel olarak fazla — distinguished by: Fazlalık arka genişliğe EŞİT dağılmış, yan dikişlerde de var.",
@@ -3538,7 +3568,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0230",
+      "claim_id": "CLM-0232",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-023 may be caused by: Oturak hacmi kumaşı yukarı itiyor — distinguished by: Havuzlanma ile birlikte oturak üzerinde yatay çekme çizgileri de var.",
@@ -3554,7 +3584,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0231",
+      "claim_id": "CLM-0233",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-024 (gape) is observable as described and appears at: Arka bel bandı.",
@@ -3570,7 +3600,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0232",
+      "claim_id": "CLM-0234",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-024 may be caused by: Bel oyuğu (sway back) — distinguished by: Aralık arka ortada en geniş; yanlarda kapanıyor. Belin hemen üstünde havuzlanma da var.",
@@ -3586,7 +3616,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0233",
+      "claim_id": "CLM-0235",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-024 may be caused by: Bel/kalça oranı kalıbın varsaydığından farklı — distinguished by: Bel bandı bel çevresine oturuyor ama kalça bölgesi dar/geniş.",
@@ -3602,7 +3632,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0234",
+      "claim_id": "CLM-0236",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-024 may be caused by: Bel bandı fazla uzun kesilmiş — distinguished by: Açıklık yanlarda da arkadaki kadar büyük; bant yalnızca arkada değil, çepeçevre bol.",
@@ -3618,7 +3648,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0235",
+      "claim_id": "CLM-0237",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-025 (vertical_fold) is observable as described and appears at: Bel, yan dikiş çevresi.",
@@ -3634,7 +3664,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0236",
+      "claim_id": "CLM-0238",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-025 may be caused by: Bel çevresi fazla — distinguished by: Kıvrımlar dikey ve simetrik; göğüs ve kalça oturuyor.",
@@ -3650,7 +3680,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0237",
+      "claim_id": "CLM-0239",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-025 may be caused by: Bel şekillendirmesi (pens) yetersiz — distinguished by: Kıvrımlar yan dikişlere yakın ve bel kalıba karşı YETERLİ ölçülüyor, ama kalıpta bel pensi YOK ya da çok sığ — oysa okurun kalça−bel farkı şekillendirme gerektiğini söylüyor.",
@@ -3666,7 +3696,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0238",
+      "claim_id": "CLM-0240",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-025 may be caused by: Bir beden büyük seçilmiş — distinguished by: Aynı fazlalık göğüs ve kalçada da var.",
@@ -3682,7 +3712,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0239",
+      "claim_id": "CLM-0241",
       "kind": "sign_observation",
       "chapter": "B1-CH12",
       "claim": "SYM-026 (strain_pull) is observable as described and appears at: Bel çevresi.",
@@ -3698,7 +3728,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0240",
+      "claim_id": "CLM-0242",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-026 may be caused by: Bel çevresi yetersiz — distinguished by: Sıkışma çevre boyunca eşit; oturunca artıyor.",
@@ -3714,7 +3744,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0241",
+      "claim_id": "CLM-0243",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-026 may be caused by: Bel hattı yanlış hizada oturuyor (doğal belin altında) — distinguished by: Sıkışma bel altında, karın hizasında.",
@@ -3730,7 +3760,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0242",
+      "claim_id": "CLM-0244",
       "kind": "sign_cause",
       "chapter": "B1-CH12",
       "claim": "SYM-026 may be caused by: Karın hacmi — distinguished by: Sıkışma yalnızca ÖNDE; arkada rahat.",
@@ -3746,7 +3776,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0243",
+      "claim_id": "CLM-0245",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-027 (horizontal_fold) is observable as described and appears at: Arka, kalça en dolgun hizası.",
@@ -3763,7 +3793,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0244",
+      "claim_id": "CLM-0246",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-027 may be caused by: Oturak hacmi kalıbın varsaydığından fazla — distinguished by: Çizgiler oturak üzerinde YOĞUN; yan dikiş arkaya kayıyor; arka etek ucu yükseliyor.",
@@ -3780,7 +3810,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0245",
+      "claim_id": "CLM-0247",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-027 may be caused by: Ağ uzunluğu yetersiz (pantolonda) — distinguished by: Çizgilerle birlikte ağ yukarı çekiliyor ve oturmak zor.",
@@ -3797,7 +3827,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0246",
+      "claim_id": "CLM-0248",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-027 may be caused by: Genel kalça çevresi yetersiz — distinguished by: Aynı gerginlik ÖNDE de var ve göğüs ile bel de kalçayla AYNI bedene düşüyor — yani sorun oturak değil, bedenin tamamı.",
@@ -3814,7 +3844,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0247",
+      "claim_id": "CLM-0249",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-028 (pooling) is observable as described and appears at: Arka, oturak altı.",
@@ -3831,7 +3861,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0248",
+      "claim_id": "CLM-0250",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-028 may be caused by: Oturak hacmi kalıbın varsaydığından az (flat seat) — distinguished by: Sarkma oturak altında; oturak üzerinde gerginlik YOK.",
@@ -3848,7 +3878,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0249",
+      "claim_id": "CLM-0251",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-028 may be caused by: Ağ uzunluğu fazla — distinguished by: Sarkma ağ bölgesine kadar iniyor; ağ vücuda değmiyor.",
@@ -3865,7 +3895,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0250",
+      "claim_id": "CLM-0252",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-028 may be caused by: Arka beden/etek boyu fazla — distinguished by: Sarkma yatay kıvrım hâlinde ve bel hizasına kadar çıkıyor.",
@@ -3882,7 +3912,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0251",
+      "claim_id": "CLM-0253",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-029 (hem_hike) is observable as described and appears at: Tek taraf, kalça hizası ve etek ucu.",
@@ -3900,7 +3930,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0252",
+      "claim_id": "CLM-0254",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-029 may be caused by: Vücut asimetrisi (bir kalça daha yüksek/dolgun) — distinguished by: Yükselme TEK TARAFTA ve okur ağırlığını eşit dağıttığında da sürüyor.",
@@ -3918,7 +3948,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0253",
+      "claim_id": "CLM-0255",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-029 may be caused by: Duruş: ağırlık tek ayakta — distinguished by: Yükselme okur ağırlığını eşitleyince KAYBOLUYOR.",
@@ -3936,7 +3966,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0254",
+      "claim_id": "CLM-0256",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-029 may be caused by: Kumaş eğri kesilmiş — distinguished by: Yükselme ile birlikte yan dikiş de spiralleniyor.",
@@ -3954,7 +3984,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0255",
+      "claim_id": "CLM-0257",
       "kind": "sign_observation",
       "chapter": "B1-CH13",
       "claim": "SYM-030 (seam_displacement) is observable as described and appears at: Yan dikiş, kalça hizası.",
@@ -3972,7 +4002,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0256",
+      "claim_id": "CLM-0258",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-030 may be caused by: Arka hacim yetersiz — distinguished by: Kayma ile birlikte oturak üzerinde yatay çekme var.",
@@ -3990,7 +4020,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0257",
+      "claim_id": "CLM-0259",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-030 may be caused by: Ön hacim fazla — distinguished by: Kayma var ama arkada gerginlik YOK; önde gevşeklik var.",
@@ -4008,7 +4038,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0258",
+      "claim_id": "CLM-0260",
       "kind": "sign_cause",
       "chapter": "B1-CH13",
       "claim": "SYM-030 may be caused by: Kumaş eğri kesilmiş — distinguished by: Kayma tek tarafta.",
@@ -4026,7 +4056,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0259",
+      "claim_id": "CLM-0261",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-031 (diagonal_drag_line) is observable as described and appears at: Kol başı ile bicep hattı arası.",
@@ -4042,7 +4072,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0260",
+      "claim_id": "CLM-0262",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-031 may be caused by: Kol bicep genişliği yetersiz — distinguished by: Çizgiler bicep hattında yoğun; kol kaldırılınca belirgin artıyor.",
@@ -4058,7 +4088,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0261",
+      "claim_id": "CLM-0263",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-031 may be caused by: Kol başı yüksekliği fazla — distinguished by: Çizgiler kol başı çevresinde; bicep rahat.",
@@ -4074,7 +4104,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0262",
+      "claim_id": "CLM-0264",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-031 may be caused by: Kol oyuntusu dar, kolu sıkıştırıyor — distinguished by: Çizgiler kol oyuntusu dikişinde başlıyor; kol tek başına rahat.",
@@ -4090,7 +4120,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0263",
+      "claim_id": "CLM-0265",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-032 (vertical_fold) is observable as described and appears at: Kol, bicep ile dirsek arası.",
@@ -4106,7 +4136,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0264",
+      "claim_id": "CLM-0266",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-032 may be caused by: Kol genişliği fazla — distinguished by: Kıvrımlar dikey; kol hareketi tamamen serbest.",
@@ -4122,7 +4152,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0265",
+      "claim_id": "CLM-0267",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-032 may be caused by: Tasarım bilerek bol kollu — distinguished by: Kalıp teknik çizimi ve bitmiş ölçü tablosu bol kol gösteriyor.",
@@ -4138,7 +4168,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0266",
+      "claim_id": "CLM-0268",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-032 may be caused by: Kol başı ease'i fazla, kol başında toplanma yaratıyor — distinguished by: Fazlalık kol başında yoğun, aşağı doğru azalıyor.",
@@ -4154,7 +4184,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0267",
+      "claim_id": "CLM-0269",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-033 (grain_distortion) is observable as described and appears at: Kol boyu, alt kol dikişi.",
@@ -4171,7 +4201,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0268",
+      "claim_id": "CLM-0270",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-033 may be caused by: Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış) — distinguished by: Kol başı çentikleri omuz dikişiyle hizalanmıyor ve burulma iki kolda AYNI yönde.",
@@ -4188,7 +4218,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0269",
+      "claim_id": "CLM-0271",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-033 may be caused by: Kol dirsek eğrisi vücuda uymuyor (öne dönük kol duruşu) — distinguished by: Dönme kol rahat sarkarken belirgin; dirsek hizasında çekme var.",
@@ -4205,7 +4235,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0270",
+      "claim_id": "CLM-0272",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-033 may be caused by: Kol eğri kesilmiş — distinguished by: Dönme TEK kolda.",
@@ -4222,7 +4252,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0271",
+      "claim_id": "CLM-0273",
       "kind": "sign_observation",
       "chapter": "B1-CH14",
       "claim": "SYM-034 (strain_pull) is observable as described and appears at: Kol başı dikişi.",
@@ -4238,7 +4268,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0272",
+      "claim_id": "CLM-0274",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-034 may be caused by: Kol başı ease'i kumaş için fazla — distinguished by: Büzüşme kol başı üst yayında; kumaş sert/dokusuz.",
@@ -4254,7 +4284,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0273",
+      "claim_id": "CLM-0275",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-034 may be caused by: Kol başı ease'i doğru ama dağıtım/pot alma yapılmamış — distinguished by: Büzüşme düzensiz ve toplu; belirli noktalarda kat oluşmuş.",
@@ -4270,7 +4300,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0274",
+      "claim_id": "CLM-0276",
       "kind": "sign_cause",
       "chapter": "B1-CH14",
       "claim": "SYM-034 may be caused by: Kol oyuntusu çevresi kalıptan farklı dikilmiş — distinguished by: The puckering is even all the way round rather than concentrated at the top of the cap, and the seam allowance actually used is not the one the pattern specifies.",
@@ -4286,7 +4316,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0275",
+      "claim_id": "CLM-0277",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-035 (horizontal_fold) is observable as described and appears at: Arka ağ bölgesi, oturak altı.",
@@ -4302,7 +4332,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0276",
+      "claim_id": "CLM-0278",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-035 may be caused by: Ağ derinliği yetersiz — distinguished by: Oturunca belirgin artıyor; ayakta azalıyor.",
@@ -4318,7 +4348,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0277",
+      "claim_id": "CLM-0279",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-035 may be caused by: Arka ağ uzunluğu yetersiz — distinguished by: Ayakta da var; oturak üzerinde de gerginlik var.",
@@ -4334,7 +4364,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0278",
+      "claim_id": "CLM-0280",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-035 may be caused by: Arka ağ eğrisi vücut için fazla düz — distinguished by: Ağ derinliği ve arka ağ uzunluğu kalıba karşı ÖLÇÜLDÜ ve ikisi de yeterli çıktı; çekme oturağa yayılmıyor, eğrinin dönüşünde toplanıyor.",
@@ -4350,7 +4380,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0279",
+      "claim_id": "CLM-0281",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-036 (pooling) is observable as described and appears at: Ön ağ, bacak arası önü.",
@@ -4366,7 +4396,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0280",
+      "claim_id": "CLM-0282",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-036 may be caused by: Ön ağ uzunluğu fazla — distinguished by: Toplanma ön ağda; arka temiz.",
@@ -4382,7 +4412,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0281",
+      "claim_id": "CLM-0283",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-036 may be caused by: Ağ derinliği fazla — distinguished by: Toplanma hem ön hem arkada; ağ vücuda değmiyor.",
@@ -4398,7 +4428,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0282",
+      "claim_id": "CLM-0284",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-036 may be caused by: Ön ağ eğrisi vücut için fazla kavisli — distinguished by: Ön ağ uzunluğu ve ağ derinliği kalıba karşı ÖLÇÜLDÜ ve ikisi de yeterli çıktı; toplanma öne yayılmıyor, dikişin eğrisinde duruyor.",
@@ -4414,7 +4444,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0283",
+      "claim_id": "CLM-0285",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-037 (diagonal_drag_line) is observable as described and appears at: Ön ve/veya arka, ağ noktasından dışa.",
@@ -4430,7 +4460,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0284",
+      "claim_id": "CLM-0286",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-037 may be caused by: Uyluk çevresi yetersiz — distinguished by: Çizgiler uyluk hizasında yoğun; oturunca artıyor.",
@@ -4446,7 +4476,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0285",
+      "claim_id": "CLM-0287",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-037 may be caused by: Ağ eğrisi vücuda uymuyor — distinguished by: Çizgiler doğrudan ağ noktasından çıkıyor; uyluk çevresi yeterli.",
@@ -4462,7 +4492,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0286",
+      "claim_id": "CLM-0288",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-037 may be caused by: Karın/oturak hacmi kumaşı ağa doğru çekiyor — distinguished by: Çizgiler yukarıdan aşağı, karın veya oturak hizasında başlıyor.",
@@ -4478,7 +4508,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0287",
+      "claim_id": "CLM-0289",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-038 (grain_distortion) is observable as described and appears at: Bacak boyu, iç bacak dikişi.",
@@ -4495,7 +4525,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0288",
+      "claim_id": "CLM-0290",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-038 may be caused by: Bacak duruşu (içe/dışa dönük diz) kumaşı çeviriyor — distinguished by: Dönme her iki bacakta simetrik ve ayakta belirgin.",
@@ -4512,7 +4542,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0289",
+      "claim_id": "CLM-0291",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-038 may be caused by: Ağ eğrisi dengesiz (ön/arka) — distinguished by: Dönme ağ hizasından başlıyor.",
@@ -4529,7 +4559,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0290",
+      "claim_id": "CLM-0292",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-038 may be caused by: Bacak eğri kesilmiş — distinguished by: Dönme TEK bacakta.",
@@ -4546,7 +4576,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0291",
+      "claim_id": "CLM-0293",
       "kind": "sign_observation",
       "chapter": "B1-CH15",
       "claim": "SYM-039 (silhouette_deviation) is observable as described and appears at: Ağ bölgesi.",
@@ -4563,7 +4593,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0292",
+      "claim_id": "CLM-0294",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-039 may be caused by: Ağ derinliği fazla — distinguished by: Ağ ile vücut arası boşluk ayakta da var; oturunca rahat.",
@@ -4580,7 +4610,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0293",
+      "claim_id": "CLM-0295",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-039 may be caused by: Tasarım bilerek düşük ağlı — distinguished by: Kalıp teknik çizimi düşük ağ gösteriyor.",
@@ -4597,7 +4627,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0294",
+      "claim_id": "CLM-0296",
       "kind": "sign_cause",
       "chapter": "B1-CH15",
       "claim": "SYM-039 may be caused by: Bel hattı doğal belin altında oturuyor — distinguished by: Bel bandı aşağıda; ağ da onunla birlikte inmiş.",
@@ -4614,7 +4644,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0295",
+      "claim_id": "CLM-0297",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-040 (hem_hike) is observable as described and appears at: Etek ucu, çevre boyunca.",
@@ -4630,7 +4660,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0296",
+      "claim_id": "CLM-0298",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-040 may be caused by: Bir hacim (göğüs, karın, oturak) kumaşı yukarı çekiyor — distinguished by: Yükselme o hacmin bulunduğu tarafta; aynı bölgede çekme çizgileri de var. Hangi hacim olduğunu ayır: gerginlik GÖĞÜS hizasındaysa göğüs, BEL ALTI hizasındaysa karın ailesine gidilir.",
@@ -4646,7 +4676,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0297",
+      "claim_id": "CLM-0299",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-040 may be caused by: Ön/arka denge bozuk — distinguished by: Bir taraf yükselirken diğeri alçalıyor; simetrik.",
@@ -4662,7 +4692,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0298",
+      "claim_id": "CLM-0300",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-040 may be caused by: Vücut asimetrisi — distinguished by: Yükselme tek tarafta ve ağırlık eşitlendiğinde de sürüyor.",
@@ -4678,7 +4708,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0299",
+      "claim_id": "CLM-0301",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-041 (seam_displacement) is observable as described and appears at: Yan dikişler, tüm gövde.",
@@ -4694,7 +4724,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0300",
+      "claim_id": "CLM-0302",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-041 may be caused by: Ön/arka hacim dağılımı vücuda uymuyor — distinguished by: Dönme tutarlı bir yönde ve her giyişte aynı.",
@@ -4710,7 +4740,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0301",
+      "claim_id": "CLM-0303",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-041 may be caused by: Vücut asimetrisi — distinguished by: Dönme tek yönde ve tek taraflı belirtilerle birlikte.",
@@ -4726,7 +4756,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0302",
+      "claim_id": "CLM-0304",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-041 may be caused by: Parçalar eğri kesilmiş — distinguished by: Dönme düzensiz; çözgü çizgileri kumaş kenarına paralel değil.",
@@ -4742,7 +4772,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0303",
+      "claim_id": "CLM-0305",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-042 (grain_distortion) is observable as described and appears at: Ön orta / arka orta, denge çizgileri.",
@@ -4758,7 +4788,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0304",
+      "claim_id": "CLM-0306",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-042 may be caused by: Duruş (öne/arkaya eğik) dengeyi bozuyor — distinguished by: Sapma simetrik ve okurun doğal duruşunda sürüyor.",
@@ -4774,7 +4804,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0305",
+      "claim_id": "CLM-0307",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-042 may be caused by: Bir hacim (göğüs/oturak) kumaşı çekiyor — distinguished by: Sapma o hacmin hizasından başlıyor.",
@@ -4790,7 +4820,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0306",
+      "claim_id": "CLM-0308",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-042 may be caused by: Parça eğri kesilmiş — distinguished by: Sapma tek parçada ve düzensiz.",
@@ -4806,7 +4836,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0307",
+      "claim_id": "CLM-0309",
       "kind": "sign_observation",
       "chapter": "B1-CH16",
       "claim": "SYM-043 (silhouette_deviation) is observable as described and appears at: Kol ucu, paça, etek ucu veya bel hattı.",
@@ -4822,7 +4852,7 @@
       "risk_note": "If the sign is not reliably observable, the reader cannot enter the diagnostic path at all."
     },
     {
-      "claim_id": "CLM-0308",
+      "claim_id": "CLM-0310",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-043 may be caused by: Kalıbın boyu okurun boy ölçüsüne uymuyor — distinguished by: Giysi her yerde düzgün oturuyor, denge çizgileri doğru, hiçbir çekme/kıvrım yok — YALNIZCA uzunluk farklı.",
@@ -4838,7 +4868,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0309",
+      "claim_id": "CLM-0311",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-043 may be caused by: Tasarım bilerek kısa/uzun — distinguished by: Kalıp teknik çizimi ve bitmiş giysi ölçü tablosu bu boyu gösteriyor.",
@@ -4854,7 +4884,7 @@
       "risk_note": "A cause whose distinguishing evidence does not actually discriminate sends the reader to the wrong adjustment family."
     },
     {
-      "claim_id": "CLM-0310",
+      "claim_id": "CLM-0312",
       "kind": "sign_cause",
       "chapter": "B1-CH16",
       "claim": "SYM-043 may be caused by: Etek ucu/paça payı kalıbın varsaydığından farklı katlanmış — distinguished by: Fark, kalıbın etek ucu payı kadar; giysinin geri kalanı kalıpla birebir uyuyor.",

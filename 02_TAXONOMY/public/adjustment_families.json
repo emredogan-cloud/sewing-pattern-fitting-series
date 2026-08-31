@@ -9,7 +9,7 @@
     "İÇERİK TURU (31 Ağu 2026): `order_source_refs` EKLENDİ. Sıra iddiası artık ailenin KENDİ kaydından değil, SIRA KANITINDAN seviye alır — 12 sıra iddiası VERIFIED sayılıyordu ama kaynaklardan altısında hiçbir sıra kanıtı YOKTU. AF-01/AF-09/AF-10 kalıp alanları kaynak tam metniyle DARALTILDI.",
     "İÇERİK TURU · BAĞIMSIZ İNCELEME (F-02/F-05): üç ailenin kendi kaydı 'en sonda' dediği hâlde teşhis akışında İLK dal olabiliyordu ve okur ilk 'evet'te duruyordu — geri alınamayan değişiklik yanlış teşhisle yapılabiliyordu. `defer_in_diagnosis` bu beyanı MAKİNEYE taşır: hem metin hem şema bu nedenleri SONA alır. Bayrak ailenin KENDİ order_constraint'inden türetilmiştir, uydurulmamıştır."
   ],
-  "count": 20,
+  "count": 21,
   "families": [
     {
       "adjustment_family_id": "AF-01",
@@ -27,7 +27,8 @@
         "AF-02",
         "AF-08",
         "AF-11",
-        "AF-18"
+        "AF-18",
+        "AF-21"
       ],
       "order_constraint": "Omuz ve boyun düzeltmelerinden SONRA; yan dikiş/bel düzeltmelerinden ÖNCE.",
       "book3_relevance": "Blokta göğüs şekillendirme miktarı doğrudan çizilir — düzeltme tekrar etmez.",
@@ -111,7 +112,8 @@
       "interacts_with": [
         "AF-03",
         "AF-08",
-        "AF-09"
+        "AF-09",
+        "AF-21"
       ],
       "order_constraint": "AF-03'ten sonra, AF-08'den önce.",
       "book3_relevance": "Blokta omuz uzunluğu M-014'ten gelir.",
@@ -226,7 +228,8 @@
         "AF-03",
         "AF-04",
         "AF-07",
-        "AF-09"
+        "AF-09",
+        "AF-21"
       ],
       "order_constraint": "SON bodice düzeltmesi — üstündeki tüm düzeltmeler kol oyuntusunu değiştirir.",
       "book3_relevance": "Blokta kol oyuntusu derinliği M-022'den türetilir.",
@@ -590,6 +593,35 @@
       ],
       "order_support": "narrower",
       "order_support_note": "S-0003'ün yukarıdan aşağı / boy-önce-genişlik kuralının bir ÖRNEĞİDİR. Kaynak bu aile çiftini adlandırmaz; kısıt o genel kuraldan TÜRETİLMİŞTİR."
+    },
+    {
+      "adjustment_family_id": "AF-21",
+      "name": "Chest width (narrow / broad chest)",
+      "zone": "bust_chest",
+      "pattern_area": "Front bodice: across-chest region between the armhole seams, above the bust",
+      "method_families": [
+        "slash_and_spread",
+        "slash_and_overlap"
+      ],
+      "book1_entry_point": true,
+      "difficulty": "intermediate",
+      "interacts_with": [
+        "AF-01",
+        "AF-04",
+        "AF-08"
+      ],
+      "order_constraint": "Boy geçişinden SONRA, genişlik geçişinde; AF-08'den ÖNCE — koltuk altı, ön genişlik oturmadan kesilmez.",
+      "book3_relevance": "Blokta ön göğüs genişliği M-021'den gelir ve sırt genişliğinden (M-020) AYRI bir ölçüdür.",
+      "source_refs": [
+        "S-0003"
+      ],
+      "verification_status": "technical_reference_verified",
+      "notes": "⚠ OKUR SİMÜLASYONU (HIGH-7) sonrası EKLENDİ. Sırtın genişlik ailesi (AF-07) vardı, ÖNÜN yoktu: göğüs üstü genişliğini kullanan iki neden de koltuk altı DERİNLİĞİ ailesine çıkıyor ve okuru yanlış şeyi değiştirmeye yolluyordu.",
+      "order_source_refs": [
+        "S-0003"
+      ],
+      "order_support": "narrower",
+      "order_support_note": "S-0003'ün 'önce boy, sonra genişlik' kuralının bir ÖRNEĞİDİR; kaynak bu aileyi adlandırmaz."
     }
   ]
 }

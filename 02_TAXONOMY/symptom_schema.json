@@ -220,6 +220,20 @@
               "pattern_parameter_no_family",
               null
             ]
+          },
+          "comparison_kind": {
+            "$comment": "Ölçütün NE TÜR bir karşılaştırma olduğu. Yoksa 'ease' varsayılır. ⚠ OKUR SİMÜLASYONU (KRİTİK-1): bir bandı olan ölçüde ölçüt HAM FARKA bakamaz — doğru çizilmiş bir kalıpta kalıp her zaman bedenden bant kadar büyüktür, yani 'senin sayın kalıptan büyük' bir eksikliği ASLA doğrulamaz. Ama bazı ölçütler iki FARKI ya da iki ORANI karşılaştırır ve orada ease sadeleşir; bir bant orada eşik DEĞİLDİR. Fark VERİDE durur, yoksa kapı doğru ölçütü de reddeder.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "ease",
+              "ratio",
+              "position",
+              "size_chart",
+              null
+            ]
           }
         }
       }
@@ -289,6 +303,19 @@
         "string",
         "null"
       ]
+    },
+    "order_before": {
+      "$comment": "KLİNİK ÖNCELİK: [önce, sonra] aday neden indeksi çiftleri (1 tabanlı). ⚠ OKUR SİMÜLASYONU (KRİTİK-3): basılan sıra YALNIZCA test maliyetinden geliyordu, ama bazı girişler bir klinik öncelik de ilan ediyor. İkisi çeliştiğinde okur, girişin kendi 'Order:' satırının YASAKLADIĞI şeyi yapıyordu — dört girişte, tam da 'yanlış olanı düzeltmek ötekini kötüleştirir' denen çiftte. Öncelik artık veridedir ve maliyetten ÖNCE gelir; sıra 06_BUILD/cause_order.py'de TEK yerden hesaplanır.",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
     }
   }
 }

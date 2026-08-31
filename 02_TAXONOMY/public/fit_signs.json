@@ -58,7 +58,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's neckline curve length is larger than your neck base by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Göğüs hacmi yakayı öne çekiyor",
@@ -145,7 +145,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the pattern's neckline curve length is no larger than your neck base, or barely larger. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Yuvarlak sırt boyunu öne itiyor",
@@ -164,7 +164,8 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 4
+          "test_cost": 4,
+          "expected": "Supports this cause: the pattern's centre back length MINUS yours is LESS than the band Appendix J prints for it (2.5–5.1 cm for a bodice) — the pattern does not carry the extra length a rounded upper back needs. The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Omuz ÖNE taşınmış ve dikiş ARKADA kalmış",
@@ -203,7 +204,13 @@
         "S-0004"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": null,
+      "order_before": [
+        [
+          2,
+          3
+        ]
+      ]
     },
     {
       "symptom_id": "SYM-003",
@@ -253,7 +260,7 @@
             "kind": "compare"
           },
           "test_cost": 5,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the pattern's back width is no larger than your across back, or barely larger. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Yaka arkada fazla dar, giysiyi yukarı asıyor",
@@ -360,7 +367,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the pattern's shoulder seam length is no larger than your shoulder length, or barely larger. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         }
       ],
       "confounders_to_rule_out": [
@@ -449,7 +456,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's shoulder seam length is larger than your shoulder length by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         }
       ],
       "confounders_to_rule_out": [
@@ -517,7 +524,7 @@
             "kind": "compare"
           },
           "test_cost": 5,
-          "expected": "Supports this cause: your centre back length larger than the pattern's, OR your across back larger than its back width — either shortage pulls the seam back."
+          "expected": "Supports this cause: the pattern's centre back length MINUS your centre back length is LESS than the band Appendix J prints for it (2.5–5.1 cm for a bodice), or the pattern's back width is no larger than your across back, or barely larger. The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Ön beden arka bedene göre kısa",
@@ -560,7 +567,13 @@
         "S-0004"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": null
+      "notes": null,
+      "order_before": [
+        [
+          2,
+          1
+        ]
+      ]
     },
     {
       "symptom_id": "SYM-007",
@@ -588,7 +601,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's shoulder seam length is larger than your shoulder length by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Tasarım bilerek düşük omuzlu (drop shoulder)",
@@ -675,27 +688,27 @@
             "kind": "compare"
           },
           "test_cost": 5,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the pattern's back width is no larger than your across back, or barely larger. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Kol oyuntusu fazla dar/öne kaymış",
           "distinguishing_evidence": "Çekme kol oyuntusu kenarında yoğunlaşıyor, kürek ortasında yok.",
-          "confirming_measurement": "PR-19 − M-007 (Ek J bandı); PR-15 kol oyuntusu çevresi kol başına karşı",
+          "confirming_measurement": "PR-15 koltuk altı eğrisi vs. PR-16 kol kapağı eğrisi",
           "physical_test": "Kol oyuntusu arka kenarını genişlet.",
           "adjustment_family_ref": "AF-08",
           "likelihood_note": null,
           "confirming_refs": {
-            "body": [
-              "M-007"
-            ],
+            "body": [],
             "pattern": [
-              "PR-19",
-              "PR-15"
+              "PR-15",
+              "PR-16"
             ],
             "toile": [],
-            "kind": "compare"
+            "kind": "read"
           },
-          "test_cost": 3
+          "test_cost": 3,
+          "comparison_kind": "ratio",
+          "expected": "Supports this cause: the pattern's armhole curve is SHORTER than the sleeve cap curve it has to receive by less than about 1 cm, so there is no room to set the sleeve, or the armhole sits forward of the shoulder line on the piece. Both are pattern readings; your arm does not enter this comparison."
         },
         {
           "cause": "Kol bicep hizasında dar",
@@ -715,7 +728,7 @@
             "kind": "compare"
           },
           "test_cost": 5,
-          "expected": "Supports this cause: your bicep LARGER than the pattern's bicep line. Cap ease is a property of the pattern with no body measurement to compare it with, so it is not what this step tests; the sleeve entries in Chapter 17 handle it."
+          "expected": "Supports this cause: the pattern's bicep line is no larger than your bicep, or barely larger. Appendix J's bicep band is taken at the ARMPIT, not at the fullest part of the arm where this book measures, so it is not a threshold here. Cap ease is a property of the pattern with no body measurement to compare it with; the sleeve entries in Chapter 14 handle it."
         }
       ],
       "confounders_to_rule_out": [
@@ -853,7 +866,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's back width is larger than your across back by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Bir beden büyük seçilmiş",
@@ -874,7 +887,7 @@
             "kind": "compare"
           },
           "test_cost": 0,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's matching reading MINUS your high bust is MORE than the band Appendix J prints for it (7.6–10.2 cm for a bodice), or the pattern's matching reading MINUS your full bust is MORE than the band Appendix J prints for it (7.6–10.2 cm for a bodice). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Kol oyuntusu fazla geniş",
@@ -962,7 +975,7 @@
             "kind": "compare"
           },
           "test_cost": 5,
-          "expected": "Supports this cause: your full hip larger than the pattern's hip line."
+          "expected": "Supports this cause: the pattern's hip line width MINUS your full hip is LESS than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Ön/arka denge bozuk (öne eğik duruş)",
@@ -1037,7 +1050,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's centre back length MINUS your centre back length is MORE than the band Appendix J prints for it (2.5–5.1 cm for a bodice). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Yuvarlak sırt — arka orta üst kısımda boy yetersiz",
@@ -1199,7 +1212,7 @@
           "distinguishing_evidence": "Açıklık kol yanda dururken de var; ön göğüs üstünde gevşeklik hissediliyor.",
           "confirming_measurement": "M-021 (ön göğüs genişliği) vs. kalıp ön beden genişliği",
           "physical_test": "Ön kol oyuntusu kenarına küçük bir pens al (sonra göğüs pensine taşınır).",
-          "adjustment_family_ref": "AF-08",
+          "adjustment_family_ref": "AF-21",
           "likelihood_note": null,
           "confirming_refs": {
             "body": [
@@ -1252,7 +1265,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's shoulder seam length is larger than your shoulder length by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         }
       ],
       "confounders_to_rule_out": [
@@ -1301,7 +1314,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's back width is larger than your across back by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Omuz eğimi fazla dik çizilmiş",
@@ -1340,7 +1353,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: the pattern's bicep line MINUS your bicep is MORE than the 1.3–5.1 cm Appendix J prints for the bicep. Inside that band the sleeve is drawn for an ordinary amount of movement and this is not the cause."
+          "expected": "Supports this cause: the pattern's bicep line is larger than your bicep by an amount you can see standing in the sleeve. Appendix J's bicep band is taken at the ARMPIT, not at the fullest part of the arm where this book measures, so it is not a threshold here — the pinned test below is what settles the amount."
         }
       ],
       "confounders_to_rule_out": [
@@ -1408,7 +1421,7 @@
             "kind": "compare"
           },
           "test_cost": 0,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the pattern's matching reading MINUS your full bust is LESS than the band Appendix J prints for it (7.6–10.2 cm for a bodice). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Pens ucu apeksin uzağında, hacmi yanlış yere dağıtıyor",
@@ -1524,7 +1537,7 @@
             "kind": "compare"
           },
           "test_cost": 5,
-          "expected": "Supports this cause: your high hip larger than the pattern's high hip line."
+          "expected": "Supports this cause: the pattern's high hip line width MINUS your high hip is LESS than the band Appendix J prints for it (0.6–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         }
       ],
       "confounders_to_rule_out": [
@@ -1579,7 +1592,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: your number larger than the pattern's.",
+          "expected": "Supports this cause: the pattern's high hip line width MINUS your high hip is LESS than the band Appendix J prints for it (0.6–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause.",
           "cross_routes": [
             {
               "condition_en": "the tightness is at abdomen level rather than at the bust",
@@ -1605,7 +1618,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's back width is larger than your across back by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Kumaş çözgüye eğri kesilmiş",
@@ -1769,7 +1782,7 @@
           "distinguishing_evidence": "Boşluk geniş bir alana yayılmış; kol oyuntusu ön kenarı da açılıyor.",
           "confirming_measurement": "M-021 vs. kalıp ön beden genişliği",
           "physical_test": "Kol oyuntusu ön kenarına pens al.",
-          "adjustment_family_ref": "AF-08",
+          "adjustment_family_ref": "AF-21",
           "likelihood_note": null,
           "confirming_refs": {
             "body": [
@@ -1802,7 +1815,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's chest line width (the pattern's high bust) MINUS your high bust is MORE than the band Appendix J prints for it (7.6–10.2 cm for a bodice). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         }
       ],
       "confounders_to_rule_out": [
@@ -1940,7 +1953,8 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your centre front and centre back lengths BOTH differ from the pattern's by about the same amount, in the same direction."
+          "expected": "Supports this cause: your centre front and centre back lengths BOTH differ from the pattern's by about the same amount, in the same direction.",
+          "comparison_kind": "ratio"
         },
         {
           "cause": "Ön/arka denge bozuk",
@@ -2030,7 +2044,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's centre back length MINUS your centre back length is MORE than the band Appendix J prints for it (2.5–5.1 cm for a bodice). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Arka beden boyu genel olarak fazla",
@@ -2070,7 +2084,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: your full hip larger than the pattern's hip line."
+          "expected": "Supports this cause: the pattern's hip line width MINUS your full hip is LESS than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         }
       ],
       "confounders_to_rule_out": [
@@ -2121,7 +2135,8 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 2
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's centre back length MINUS yours is MORE than the band Appendix J prints for it (2.5–5.1 cm for a bodice). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause. The waist-to-hip drop tells you the hollow is real rather than a whole-back length difference."
         },
         {
           "cause": "Bel/kalça oranı kalıbın varsaydığından farklı",
@@ -2141,7 +2156,8 @@
             "kind": "compare"
           },
           "test_cost": 0,
-          "expected": "Supports this cause: your waist alone and your hip-minus-waist difference choose DIFFERENT rows of the chart. Falling between two sizes is ordinary and supports nothing on its own — almost every body does. What supports this cause is the two readings disagreeing about which size you are."
+          "expected": "Supports this cause: your waist alone and your hip-minus-waist difference choose DIFFERENT rows of the chart. Falling between two sizes is ordinary and supports nothing on its own — almost every body does. What supports this cause is the two readings disagreeing about which size you are.",
+          "comparison_kind": "size_chart"
         },
         {
           "cause": "Bel bandı fazla uzun kesilmiş",
@@ -2160,7 +2176,8 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 2
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's finished waistband length MINUS your natural waist is MORE than the band Appendix J prints for it (1.3–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         }
       ],
       "confounders_to_rule_out": [
@@ -2210,7 +2227,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's waist line width MINUS your natural waist is MORE than the band Appendix J prints for it (1.3–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Bel şekillendirmesi (pens) yetersiz",
@@ -2253,7 +2270,7 @@
             "kind": "compare"
           },
           "test_cost": 0,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's matching reading MINUS your full bust is MORE than the band Appendix J prints for it (7.6–10.2 cm for a bodice), the pattern's matching reading MINUS your natural waist is MORE than the band Appendix J prints for it (1.3–2.5 cm for a trouser), or the pattern's matching reading MINUS your full hip is MORE than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         }
       ],
       "confounders_to_rule_out": [
@@ -2301,7 +2318,8 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 2
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's waist MINUS your natural waist is LESS than the band Appendix J prints for it (1.3–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Bel hattı yanlış hizada oturuyor (doğal belin altında)",
@@ -2324,7 +2342,9 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 2
+          "test_cost": 2,
+          "comparison_kind": "position",
+          "expected": "Supports this cause: your centre front and centre back lengths BOTH reach the pattern's waist line at a different place from your marked waist, and they do so in the SAME direction. If only one of the two disagrees, the fault is front-to-back balance, not the level of the waist."
         },
         {
           "cause": "Karın hacmi",
@@ -2344,7 +2364,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: your high hip larger than the pattern's high hip line."
+          "expected": "Supports this cause: the pattern's high hip line width MINUS your high hip is LESS than the band Appendix J prints for it (0.6–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         }
       ],
       "confounders_to_rule_out": [
@@ -2396,7 +2416,7 @@
             "kind": "compare"
           },
           "test_cost": 5,
-          "expected": "Supports this cause: your full hip LARGER than the pattern's hip line, AND the pattern gives the back no more of that width than the front — read the two shares separately before you add them. On a body whose seat is fuller than its front, an even split is already too little at the back."
+          "expected": "Supports this cause: the pattern's hip line width MINUS your full hip is LESS than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser), AND the pattern gives the back no more of that width than the front — read the two shares separately before you add them. The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause. On a body whose seat is fuller than its front, an even split is already too little at the back."
         },
         {
           "cause": "Ağ uzunluğu yetersiz (pantolonda)",
@@ -2416,7 +2436,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number larger than the pattern's.",
+          "expected": "Supports this cause: the pattern's crotch curve length, front and back MINUS your crotch length (rise) is LESS than the band Appendix J prints for it (1.3–1.9 cm for a trouser, 1.3–1.9 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause.",
           "cross_routes": [
             {
               "condition_en": "the pull increases when you sit and eases when you stand, which is crotch DEPTH and must be settled before crotch length",
@@ -2450,7 +2470,8 @@
               "condition_en": "only the hip points at a larger size while the bust and waist do not, which is a grading decision rather than a size decision",
               "family_ref": "AF-18"
             }
-          ]
+          ],
+          "comparison_kind": "size_chart"
         }
       ],
       "confounders_to_rule_out": [
@@ -2504,7 +2525,8 @@
             ],
             "kind": "compare"
           },
-          "test_cost": 2
+          "test_cost": 2,
+          "expected": "Supports this cause: the pattern's hip line width MINUS your full hip is MORE than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser) — the pattern is carrying seat volume you do not have. The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Ağ uzunluğu fazla",
@@ -2524,7 +2546,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's crotch curve length, front and back MINUS your crotch length (rise) is MORE than the band Appendix J prints for it (1.3–1.9 cm for a trouser, 1.3–1.9 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Arka beden/etek boyu fazla",
@@ -2691,7 +2713,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: your full hip LARGER than the pattern's hip line — there is not enough width in total — and the horizontal tension sits over the seat rather than the front. The shares and the sewn side seam say the shortfall is at the back; a share itself has no body number to be compared with."
+          "expected": "Supports this cause: the pattern's hip line width MINUS your full hip is LESS than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause. The shares and the sewn side seam say the shortfall is at the back; a share itself has no body number to be compared with."
         },
         {
           "cause": "Ön hacim fazla",
@@ -2714,7 +2736,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your high hip SMALLER than the pattern's high hip line — the pattern carries width you do not need at that level — while the front is slack and the back is not under tension. The front and back shares are read to locate the surplus, not compared with a body number: a share is half a garment and your high hip is a circumference."
+          "expected": "Supports this cause: the pattern's high hip line width MINUS your high hip is MORE than the band Appendix J prints for it (0.6–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause. The front and back shares are read to locate the surplus, not compared with a body number: a share is half a garment and your high hip is a circumference."
         },
         {
           "cause": "Kumaş eğri kesilmiş",
@@ -2796,7 +2818,8 @@
             "toile": [],
             "kind": "read"
           },
-          "test_cost": 4
+          "test_cost": 4,
+          "expected": "Supports this cause: the pattern's cap height is greater than the cap on a sleeve you know fits you, measured the same way. There is no published figure for cap height and this book does not supply one — the comparison is against a sleeve that works, or against the pinned test below."
         },
         {
           "cause": "Kol oyuntusu dar, kolu sıkıştırıyor",
@@ -2815,7 +2838,9 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 3
+          "test_cost": 3,
+          "comparison_kind": "ratio",
+          "expected": "Supports this cause: the armhole curve is SHORTER than the sleeve cap curve it has to receive, by more than the cap ease the pattern intends. Both are pattern readings walked the same way; your body does not enter this comparison."
         }
       ],
       "confounders_to_rule_out": [
@@ -2864,7 +2889,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's bicep line width is larger than your bicep by an amount you can see standing in the toile. Appendix J's band for that measurement is taken at a DIFFERENT landmark from the one this book teaches, so it is not a threshold here — the test below is what settles the amount."
         },
         {
           "cause": "Tasarım bilerek bol kollu",
@@ -3120,7 +3145,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the pattern's crotch depth MINUS your crotch depth (seated) is LESS than the band Appendix J prints for it (1.3–1.9 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Arka ağ uzunluğu yetersiz",
@@ -3140,7 +3165,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the pattern's crotch curve length, front and back MINUS your crotch length (rise) is LESS than the band Appendix J prints for it (1.3–1.9 cm for a trouser, 1.3–1.9 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Arka ağ eğrisi vücut için fazla düz",
@@ -3206,7 +3231,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's crotch curve length, front and back MINUS your crotch length (rise) is MORE than the band Appendix J prints for it (1.3–1.9 cm for a trouser, 1.3–1.9 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Ağ derinliği fazla",
@@ -3226,7 +3251,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's crotch depth MINUS your crotch depth (seated) is MORE than the band Appendix J prints for it (1.3–1.9 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Ön ağ eğrisi vücut için fazla kavisli",
@@ -3289,7 +3314,8 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 5
+          "test_cost": 5,
+          "expected": "Supports this cause: the pattern's thigh width MINUS your thigh is LESS than the band Appendix J prints for it (2.5–7.6 cm for a bodice, 2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Ağ eğrisi vücuda uymuyor",
@@ -3309,7 +3335,8 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your crotch length front and back split differently from the pattern's front and back curves."
+          "expected": "Supports this cause: your crotch length front and back split differently from the pattern's front and back curves.",
+          "comparison_kind": "ratio"
         },
         {
           "cause": "Karın/oturak hacmi kumaşı ağa doğru çekiyor",
@@ -3331,7 +3358,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: your high hip or full hip larger than the pattern's line at that level.",
+          "expected": "Supports this cause: the pattern's high hip line width MINUS your high hip is LESS than the band Appendix J prints for it (0.6–2.5 cm for a trouser), or the pattern's hip line width MINUS your full hip is LESS than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause.",
           "cross_routes": [
             {
               "condition_en": "the fullness starts at seat level rather than at the abdomen",
@@ -3407,7 +3434,8 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your front and back crotch portions split in a different ratio from the pattern's two curves."
+          "expected": "Supports this cause: your front and back crotch portions split in a different ratio from the pattern's two curves.",
+          "comparison_kind": "ratio"
         },
         {
           "cause": "Bacak eğri kesilmiş",
@@ -3474,7 +3502,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's crotch depth MINUS your crotch depth (seated) is MORE than the band Appendix J prints for it (1.3–1.9 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
           "cause": "Tasarım bilerek düşük ağlı",
@@ -3512,7 +3540,9 @@
             ],
             "kind": "read"
           },
-          "test_cost": 2
+          "test_cost": 2,
+          "comparison_kind": "position",
+          "expected": "Supports this cause: the waistband drop is more than a centimetre or so at the side — the band is sitting below your marked waist rather than on it. A drop of zero means the band is where it should be and this is not the cause. This is a POSITION reading, not a girth: no ease band applies to it."
         }
       ],
       "confounders_to_rule_out": [
@@ -3567,7 +3597,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: the girth at the level where the hem rides up is larger on you than on the pattern.",
+          "expected": "Supports this cause: at the level where the hem rides up, the pattern's girth MINUS yours is LESS than the band for that level — the volume is taking up length the pattern allowed for width. Read it at the level the sign shows and use that level's band from Appendix J: 7.6–10.2 cm at the full bust, 0.6–2.5 cm at the high hip, 5.1–10.2 cm at the full hip for a bodice (5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause.",
           "cross_routes": [
             {
               "condition_en": "the volume pulling the fabric up is the abdomen rather than the bust",
@@ -3702,7 +3732,9 @@
               "condition_en": "the two sides differ at the SHOULDER — one shoulder slope larger than the other — rather than at the hip",
               "family_ref": "AF-03"
             }
-          ]
+          ],
+          "comparison_kind": "position",
+          "expected": "Supports this cause: the right and left readings of the SAME measurement differ from each other, and the larger side is the side the sign appears on. Two sides that read the same do not support this cause however large the number is."
         },
         {
           "cause": "Parçalar eğri kesilmiş",
@@ -3794,7 +3826,7 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: the girth at the level where the deviation starts is larger on you than on the pattern.",
+          "expected": "Supports this cause: at the level where the deviation starts, the pattern's girth MINUS yours is LESS than the band for that level. Read it at the level the sign shows and use that level's band from Appendix J: 7.6–10.2 cm at the full bust, 0.6–2.5 cm at the high hip, 5.1–10.2 cm at the full hip for a bodice (5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause.",
           "cross_routes": [
             {
               "condition_en": "the deviation starts at seat level rather than at the bust",
@@ -3873,7 +3905,8 @@
             "kind": "compare"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: the relevant length differs and NOTHING else does."
+          "expected": "Supports this cause: the relevant length differs and NOTHING else does.",
+          "comparison_kind": "ratio"
         },
         {
           "cause": "Tasarım bilerek kısa/uzun",

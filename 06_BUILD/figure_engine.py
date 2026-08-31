@@ -28,7 +28,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import paths  # noqa: E402
+import paths
+import cause_order  # noqa: E402
 from figure_tokens import FigureCanvas, ForbiddenDrawing  # noqa: E402
 from croquis import Croquis, LEVEL, fit as croquis_fit  # noqa: E402
 
@@ -210,17 +211,9 @@ class SignChart:
         # Sıralama artık TEK yerden gelir.
         # Regresyon: 07_TESTS/selftest.py § test_flowchart_and_entry_agree_on_cause_order
         pairs = list(zip(sign["candidate_causes"], label["causes"]))
-        gates = [q for q in pairs if not q[0].get("adjustment_family_ref")]
-        rest = [q for q in pairs if q[0].get("adjustment_family_ref")]
-        # ⚠ BAĞIMSIZ İNCELEME (F-02/F-05): GERİ ALINAMAZ ailelere çıkan
-        # dallar SONA alınır — atlas metniyle AYNI kuraldan. İki katman
-        # ayrışırsa okur karşı sayfada başka bir "birinci neden" görür.
-        defer = [q for q in rest
-                 if (SignChart.DEFERRED or set())
-                 and q[0]["adjustment_family_ref"] in SignChart.DEFERRED]
-        rest = [q for q in rest if q not in defer]
-        rest.sort(key=lambda q: q[0].get("test_cost", 9))   # F-09: metinle AYNI sıra
-        ordered = gates + rest + defer
+        # Sıra TEK KAYNAKTAN gelir (06_BUILD/cause_order.py) — atlas
+        # girişi ve akış şeması aynı fonksiyonu çağırır, ayrışamazlar.
+        ordered = [pairs[i - 1] for i, _ in cause_order.ordered_causes(sign)]
         self.causes = [q[0] for q in ordered]
         self._labels = [q[1] for q in ordered]
         self._layout()

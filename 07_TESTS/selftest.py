@@ -1575,8 +1575,10 @@ def test_appendices_print_in_letter_order():
     slots = [b["slot"] for b in src["blocks"] if b.get("type") == "index_slot"]
     # ⚠ M-8/M-9/M-10: Ek G'nin kanıt sayıları PROZAYA elle yazılmıştı
     # ve veriyle uyuşmuyordu. Üçüncü işaret o cümleyi KAYITTAN üretir.
-    check("appendix.json üç dizin işareti TAŞIYOR",
-          slots == ["C", "G_counts", "HI"], str(slots))
+    # ⚠ Ek G/H/J'nin ILAN ETTİĞİ sayıların hepsi artık KAYITTAN gelir:
+    # okur simülasyonu dördünün de basılanla uyuşmadığını ölçtü.
+    check("appendix.json beş türetilen yuva TAŞIYOR",
+          slots == ["C", "J_count", "G_counts", "collision_count", "HI"], str(slots))
 
 
 def test_no_duplicate_chapter_number():

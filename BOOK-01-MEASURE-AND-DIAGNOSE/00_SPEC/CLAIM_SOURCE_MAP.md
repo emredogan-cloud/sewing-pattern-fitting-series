@@ -15,15 +15,15 @@
 
 ## 1 · Toplam
 
-**310 iddia.**
+**312 iddia.**
 
 | Kanıt seviyesi | Sayı | Oran | Anlamı |
 |---|---:|---:|---|
-| `VERIFIED` | 51 | %16.5 | Kayıt doğrulanmış VE en az bir tam metin teknik otoritesine bağlı. |
-| `VERIFIED_NARROWER` | 18 | %5.8 | Kaynak okundu ve İLKEYİ destekliyor, ama iddianın yazıldığı hâlinden DAHA DAR bir ifadeyi destekliyor. Kaydın `source_support_note` alanı kaynağın gerçekte ne dediğini yazar (görev talimatı § 9). |
+| `VERIFIED` | 52 | %16.7 | Kayıt doğrulanmış VE en az bir tam metin teknik otoritesine bağlı. |
+| `VERIFIED_NARROWER` | 19 | %6.1 | Kaynak okundu ve İLKEYİ destekliyor, ama iddianın yazıldığı hâlinden DAHA DAR bir ifadeyi destekliyor. Kaydın `source_support_note` alanı kaynağın gerçekte ne dediğini yazar (görev talimatı § 9). |
 | `CONTESTED` | 2 | %0.6 | Kaynaklar arasında KAYITLI tanım farkı var. Bir hata değildir — Bölüm 2'nin öğretim malzemesidir. |
-| `INFERRED` | 203 | %65.5 | Kaynak bağlamı destekliyor; iddianın KENDİSİ ajan türevi. |
-| `UNVERIFIED` | 36 | %11.6 | Hiçbir otoriter kaynağa bağlı değil. |
+| `INFERRED` | 203 | %65.1 | Kaynak bağlamı destekliyor; iddianın KENDİSİ ajan türevi. |
+| `UNVERIFIED` | 36 | %11.5 | Hiçbir otoriter kaynağa bağlı değil. |
 
 > ⚠ **`INFERRED` çoğunluktadır ve bu gizlenmemiştir.** Kitabın
 > teşhis ilişkileri (belirti → aday neden) kamu kaynaklarında
@@ -39,8 +39,8 @@
 | `measurement_definition` | 33 | Bir ölçünün nereden nereye alındığı. |
 | `measurement_path` | 33 | Şeridin serbest değil KISITLI olduğu. |
 | `conceptual` | 32 | Yöntem katmanı — kitabın öğrettiği kuralın kendisi. |
-| `adjustment_family` | 20 | Bir düzeltmenin kalıbın hangi alanına dokunduğu. |
-| `adjustment_order` | 20 | Hangi düzeltmenin hangisinden önce geldiği. |
+| `adjustment_family` | 21 | Bir düzeltmenin kalıbın hangi alanına dokunduğu. |
+| `adjustment_order` | 21 | Hangi düzeltmenin hangisinden önce geldiği. |
 
 ## 3 · Bölüme göre
 
@@ -61,7 +61,7 @@
 | 13 · Hip and seat | 16 | 0 | 0 | 0 | 16 | 0 |
 | 14 · Sleeve and arm | 16 | 0 | 0 | 0 | 16 | 0 |
 | 15 · Trousers: crotch and leg | 20 | 0 | 0 | 0 | 20 | 0 |
-| 16 · Order of work | 58 | 19 | 7 | 0 | 22 | 10 |
+| 16 · Order of work | 60 | 20 | 8 | 0 | 22 | 10 |
 | 17 · Your fit profile | 1 | 0 | 1 | 0 | 0 | 0 |
 | 18 · Carrying it forward | 1 | 0 | 0 | 0 | 0 | 1 |
 
@@ -71,7 +71,7 @@
 |---|---:|:---:|---|---|
 | `S-0001` | 184 | ✓ | fulltext | Pattern Alteration — Guide C-228 |
 | `S-0004` | 178 | ✓ | fulltext | Challenging Patterns — EM4582 |
-| `S-0003` | 104 | ✓ | fulltext | Pattern Alteration: Principles of Pattern Alteration |
+| `S-0003` | 106 | ✓ | fulltext | Pattern Alteration: Principles of Pattern Alteration |
 | `S-0002` | 66 | ✓ | fulltext | Making Perfect Pants — Guide C-227 |
 | `S-0006` | 4 | ✓ | official_pdf | National Health and Nutrition Examination Survey (NH |
 | `S-0005` | 4 | ✓ | fulltext | 2012 Anthropometric Survey of U.S. Army Personnel: M |

@@ -3103,15 +3103,15 @@
       "terminals": [
         [
           "handoff",
+          "AF-21"
+        ],
+        [
+          "handoff",
           "AF-02"
         ],
         [
           "handoff",
           "AF-04"
-        ],
-        [
-          "handoff",
-          "AF-08"
         ],
         [
           "eliminate",
@@ -3257,11 +3257,11 @@
         ],
         [
           "handoff",
-          "AF-01"
+          "AF-21"
         ],
         [
           "handoff",
-          "AF-08"
+          "AF-01"
         ],
         [
           "eliminate",
@@ -3553,11 +3553,11 @@
       "terminals": [
         [
           "handoff",
-          "AF-05"
+          "AF-07"
         ],
         [
           "handoff",
-          "AF-07"
+          "AF-05"
         ],
         [
           "handoff",
@@ -3653,15 +3653,15 @@
       "terminals": [
         [
           "handoff",
-          "AF-05"
-        ],
-        [
-          "handoff",
           "AF-07"
         ],
         [
           "handoff",
           "AF-11"
+        ],
+        [
+          "handoff",
+          "AF-05"
         ],
         [
           "eliminate",
@@ -5116,7 +5116,7 @@
     },
     "FIG-B1-144": {
       "table": "af_index",
-      "rows": 21,
+      "rows": 22,
       "internal": true,
       "data": [
         [
@@ -5223,6 +5223,11 @@
           "AF-20",
           "Abdomen volume (protruding / flat abdom…",
           "waist_torso"
+        ],
+        [
+          "AF-21",
+          "Chest width (narrow / broad chest)",
+          "bust_chest"
         ]
       ],
       "col_ratio": [
@@ -5231,7 +5236,7 @@
         0.2319
       ],
       "width_pt": 314.0,
-      "height_pt": 332.8,
+      "height_pt": 348.5,
       "source_file": "tbl_af_index.pdf"
     },
     "FIG-B1-145": {
@@ -5966,7 +5971,7 @@
     },
     "FIG-B1-154": {
       "table": "family_index",
-      "rows": 21,
+      "rows": 22,
       "internal": false,
       "data": [
         [
@@ -6052,6 +6057,10 @@
         [
           "Abdomen volume (protruding / flat abdomen)",
           "Waist and torso"
+        ],
+        [
+          "Chest width (narrow / broad chest)",
+          "Bust and chest"
         ]
       ],
       "col_ratio": [
@@ -6059,7 +6068,7 @@
         0.3036
       ],
       "width_pt": 301.6,
-      "height_pt": 332.8,
+      "height_pt": 348.5,
       "source_file": "tbl_family_index.pdf"
     },
     "FIG-B1-155": {

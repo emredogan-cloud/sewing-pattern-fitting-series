@@ -132,6 +132,8 @@ BAND_QUOTE = re.compile(r"(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*cm")
 BAND_DIRECTION = re.compile(r"\b(LESS|MORE|BELOW|ABOVE|UNDER|OVER)\b")
 # Ek J bazı ölçüler için "0" yazar; metin bunu SÖZLE söyler.
 ZERO_BAND = re.compile(r"NO ease|no ease at all", re.I)
+# Ham karşılaştırma: bandı olan bir ölçüde ölçüt olamaz.
+RAW_COMPARE = re.compile(r"your \w[\w \-]* (?:larger|smaller) than the pattern|your number (?:larger|smaller)", re.I)
 
 CIRCULAR_EASE = re.compile(
     r"plus (?:the )?(?:necessary |wearing |required )?ease"
@@ -156,9 +158,14 @@ def main() -> int:
     meas = {m["measurement_id"] for m in load(paths.MEASUREMENTS)["measurements"]}
     # Ek J bantları TEK KAYNAKTAN okunur; bu kapı ile figür aynı veriyi
     # görür, yoksa ikisi ayrışır ve ayrışma H-5'i doğurmuştu.
+    # ⚠ Yalnızca BU KİTABIN ölçüsünü gerçekten tarif eden bantlar bir
+    # EŞİK olabilir. Kitap sekiz ölçüyü kaynaktan FARKLI bir nirengiden
+    # alır; o bantlar başka bir ölçüyü tarif eder ve eşik değildir.
+    # Kayıt: ease_bands.json § applies_to_this_books_measurement.
     bands_by_meas: dict = {}
     for b in load(paths.EASE_BANDS)["bands"]:
-        if b.get("measurement_ref") and b.get("numeric"):
+        if (b.get("measurement_ref") and b.get("numeric")
+                and b.get("applies_to_this_books_measurement")):
             bands_by_meas.setdefault(b["measurement_ref"], []).append(b)
     pr_doc = load(PATTERN_READINGS)
     pr = {r["reading_id"]: r for r in pr_doc["readings"]}
@@ -261,37 +268,49 @@ def main() -> int:
                     errs.append(f"{k}: karşılaştırma YÖNSÜZ — hangi sonuç hipotezi "
                                 f"destekler, söylenmiyor ve `expected` alanı yok")
 
-            # ⑭ alıntılanan SAYISAL bant, başvurulan ölçüye ait mi —
-            # ve BİRDEN ÇOK bandı olan bir adım hepsini söylüyor mu.
+            # ⑭ ÖLÇÜT EASE'İ SÖYLÜYOR MU — ve doğru bandı mı
+            #
+            # ⚠ OKUR SİMÜLASYONU (KRİTİK-1): 37 ölçüt vücut ölçüsünü
+            # kalıp okumasıyla DOĞRUDAN karşılaştırıyordu. Kitabın
+            # kendi 3. bölümü bu çıkarmayı EASE olarak tanımlar: doğru
+            # çizilmiş bir kalıpta kalıp HER ZAMAN bedenden bant kadar
+            # büyüktür. "Senin sayın kalıptan BÜYÜK" ölçütü bu yüzden
+            # bir eksikliği ASLA doğrulayamıyor, "senin sayın KÜÇÜK"
+            # ölçütü ise HER kalıpta doğrulanıyordu — yön hatası değil,
+            # ARİTMETİK hata. Kapı artık ölçütün ease'e mi yoksa ham
+            # farka mı baktığını sorar.
             exp = c.get("expected") or ""
-            quoted = {(float(a), float(b)) for a, b in BAND_QUOTE.findall(exp)}
-            owned = {(b["cm_low"], b["cm_high"]) for m in body
-                     for b in bands_by_meas.get(m, [])}
-            if quoted:
-                if not owned:
-                    errs.append(f"{k}: SAYISAL bant alıntılıyor {sorted(quoted)} ama "
-                                f"hiçbir vücut ölçüsüne başvurmuyor")
-                for q in quoted - owned:
-                    errs.append(f"{k}: alıntılanan bant {q[0]}–{q[1]} cm, başvurduğu "
-                                f"ölçülere ({', '.join(body)}) ait DEĞİL — Ek J o "
-                                f"ölçüler için {sorted(owned)} yazıyor")
-                if not BAND_DIRECTION.search(exp):
-                    errs.append(f"{k}: bant YÖNSÜZ kullanılıyor — 'banttan farklı' "
-                                f"ölçütü zıt iki nedeni birden destekler; ALTINDA mı "
-                                f"ÜSTÜNDE mi söylenmeli")
-                # ⚠ H-5'İN ASIL BİÇİMİ: adım İKİ ölçü sunuyordu, ikisinin
-                # bandı FARKLIYDI ve metin yalnızca birini yazıyordu.
-                # Alıntılanan bant "başvurulan bir ölçüye ait" olduğu için
-                # yukarıdaki denetim tek başına bunu GEÇİRİRDİ. Birden çok
-                # bandı olan bir adım, her birini söylemek zorundadır.
-                if len(owned) > 1:
-                    said = len(quoted) + (1 if ZERO_BAND.search(exp) else 0)
-                    if said < len(owned):
+            owned = [b for m in body for b in bands_by_meas.get(m, [])]
+            # RATIO / POSITION / SIZE_CHART ölçütlerinde ease sadeleşir;
+            # orada bir bant EŞİK DEĞİLDİR ve istenmez.
+            if c.get("comparison_kind") in ("ratio", "position", "size_chart"):
+                owned = []
+            if owned:
+                for b in owned:
+                    lo, hi = b["cm_low"], b["cm_high"]
+                    txt = f"{lo} cm" if lo == hi else f"{lo}–{hi} cm"
+                    # Ek J bazı ölçüler için SIFIR yazar; metin bunu
+                    # sözle söyler ("NO ease at all") ve bu geçerlidir.
+                    if lo == hi == 0.0 and ZERO_BAND.search(exp):
+                        continue
+                    if txt not in exp:
                         errs.append(
-                            f"{k}: {len(owned)} FARKLI bandı olan ölçülere başvuruyor "
-                            f"({', '.join(body)} → {sorted(owned)}) ama metin "
-                            f"{said} tanesini söylüyor — okur hangisinin geçerli "
-                            f"olduğunu bilemez")
+                            f"{k}: {b['measurement_ref']} için Ek J {txt} yazıyor "
+                            f"ve ölçüt bunu SÖYLEMİYOR — kalıp bedenden bant kadar "
+                            f"büyük olmak ZORUNDADIR, ham fark bir ölçüt değildir")
+                if not BAND_DIRECTION.search(exp):
+                    errs.append(f"{k}: bant YÖNSÜZ kullanılıyor — ALTINDA mı "
+                                f"ÜSTÜNDE mi söylenmeli")
+                if RAW_COMPARE.search(exp):
+                    errs.append(f"{k}: ölçüt HAM FARKA bakıyor "
+                                f"(\"{RAW_COMPARE.search(exp).group(0)}\") — "
+                                f"bir bandı olan ölçüde karşılaştırılacak şey "
+                                f"EASE'dir, iki sayı değil")
+            for lo, hi in BAND_QUOTE.findall(exp):
+                q = (float(lo), float(hi))
+                if q not in {(b["cm_low"], b["cm_high"]) for b in owned}:
+                    errs.append(f"{k}: alıntılanan bant {lo}–{hi} cm, başvurduğu "
+                                f"ölçülerin bandı DEĞİL")
 
             if CIRCULAR_EASE.search(text):                           # ⑩
                 errs.append(f"{k}: DÖNGÜSEL ease ifadesi — okurdan, ancak "

@@ -312,8 +312,9 @@
       ],
       "expected_families": [
         "AF-02",
-        "AF-08"
-      ]
+        "AF-21"
+      ],
+      "expectation_note": "AF-08 KALDIRILDI: bu profile yalnızca yanlış yönlendirme üzerinden erişiliyordu (HIGH-7). Beklenti, düzeltilmiş taksonomiyi yansıtır."
     },
     {
       "id": "SB-21",

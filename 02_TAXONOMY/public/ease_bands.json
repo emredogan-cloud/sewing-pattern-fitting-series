@@ -14,7 +14,8 @@
     "",
     "`cm_low`/`cm_high` yalnızca DENETİM içindir; okura basılan dize",
     "`band` alanıdır ve kaynağın kendi birimini korur.",
-    "`landmark` kaynağın KENDİ nirengisidir — bu kitabınki değil."
+    "`landmark` kaynağın KENDİ nirengisidir — bu kitabınki değil.",
+    "⚠ OKUR SİMÜLASYONU (KRİTİK-1): 37 doğrulama ölçütü vücut ölçüsünü kalıp okumasıyla DOĞRUDAN karşılaştırıyordu — oysa kitabın kendi 3. bölümü bu çıkarmayı EASE olarak tanımlar ve Ek J bantları basar. Sonuç yön yanlıydı: dolgun oturak, çıkık karın ve sığ ağ derinliği YAPISAL OLARAK doğrulanamıyordu; 'ağ çok derin', 'arka ağ çok uzun' ve 'bel çok geniş' ise doğru çizilmiş HER kalıpta doğrulanıyordu. Ölçütler ease'e çevrildi. `applies_to_this_books_measurement` bunun İKİNCİ yarısıdır: kitap SEKİZ ölçüyü kaynaktan FARKLI bir nirengiden alır ve o bantlar bu kitabın ölçüsünü TARİF ETMEZ — eşik olarak kullanılamazlar. Bu gerçek, izlenmeyen prozada değil İZLENEN veride durur ki kapı onu temiz bir klonda da görsün."
   ],
   "source_refs": [
     "S-0001",
@@ -31,7 +32,8 @@
       "measurement_ref": "M-002",
       "cm_low": 7.6,
       "cm_high": 10.2,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "High bust",
@@ -41,7 +43,8 @@
       "measurement_ref": "M-001",
       "cm_low": 7.6,
       "cm_high": 10.2,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Underbust",
@@ -51,7 +54,8 @@
       "measurement_ref": "M-003",
       "cm_low": 7.6,
       "cm_high": 10.2,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Neck base",
@@ -61,7 +65,9 @@
       "measurement_ref": "M-013",
       "cm_low": 1.3,
       "cm_high": 2.5,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": false,
+      "does_not_apply_reason": "kaynak boyun tabanının 1 inç ÜSTÜNDEN ölçer; bu kitap tabandan"
     },
     {
       "where": "Shoulder length",
@@ -71,7 +77,9 @@
       "measurement_ref": "M-014",
       "cm_low": 1.3,
       "cm_high": 1.3,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": false,
+      "does_not_apply_reason": "kaynak boyun tabanından başlar; bu kitap yan boyun noktasından"
     },
     {
       "where": "Across back",
@@ -81,7 +89,9 @@
       "measurement_ref": "M-020",
       "cm_low": 2.5,
       "cm_high": 3.8,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": false,
+      "does_not_apply_reason": "kaynak OMUZDAN OMUZA ölçer; bu kitap koltuk altı kıvrımları arasından"
     },
     {
       "where": "Bicep",
@@ -91,7 +101,9 @@
       "measurement_ref": "M-007",
       "cm_low": 1.3,
       "cm_high": 5.1,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": false,
+      "does_not_apply_reason": "kaynak koltuk altında ölçer; bu kitap kolun en dolgun noktasında"
     },
     {
       "where": "Wrist",
@@ -101,7 +113,9 @@
       "measurement_ref": "M-008",
       "cm_low": 1.3,
       "cm_high": 2.5,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": false,
+      "does_not_apply_reason": "kaynak elin en geniş yerinden ölçer; bu kitap bilek kemiğinden"
     },
     {
       "where": "Centre back length",
@@ -111,7 +125,8 @@
       "measurement_ref": "M-016",
       "cm_low": 2.5,
       "cm_high": 5.1,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Inseam",
@@ -121,7 +136,9 @@
       "measurement_ref": "M-025",
       "cm_low": 1.3,
       "cm_high": 2.5,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": false,
+      "does_not_apply_reason": "kaynak ayak bileği kemiğinde biter; bu kitap yerde"
     },
     {
       "where": "Full hip",
@@ -131,7 +148,8 @@
       "measurement_ref": "M-006",
       "cm_low": 5.1,
       "cm_high": 10.2,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Thigh",
@@ -141,7 +159,8 @@
       "measurement_ref": "M-009",
       "cm_low": 2.5,
       "cm_high": 7.6,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Natural waist",
@@ -151,7 +170,8 @@
       "measurement_ref": "M-004",
       "cm_low": 1.3,
       "cm_high": 2.5,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "High hip",
@@ -161,7 +181,8 @@
       "measurement_ref": "M-005",
       "cm_low": 0.6,
       "cm_high": 2.5,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Full hip",
@@ -171,7 +192,8 @@
       "measurement_ref": "M-006",
       "cm_low": 5.1,
       "cm_high": 5.1,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Thigh",
@@ -181,7 +203,8 @@
       "measurement_ref": "M-009",
       "cm_low": 2.5,
       "cm_high": 2.5,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Knee",
@@ -191,7 +214,8 @@
       "measurement_ref": "M-010",
       "cm_low": null,
       "cm_high": null,
-      "numeric": false
+      "numeric": false,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Waist to hip",
@@ -201,7 +225,8 @@
       "measurement_ref": "M-023",
       "cm_low": 0.0,
       "cm_high": 0.0,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Waist to knee",
@@ -221,7 +246,8 @@
       "measurement_ref": "M-026",
       "cm_low": 1.3,
       "cm_high": 1.9,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Crotch length, front",
@@ -231,7 +257,8 @@
       "measurement_ref": "M-027",
       "cm_low": 1.3,
       "cm_high": 1.9,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Crotch length, back",
@@ -241,7 +268,8 @@
       "measurement_ref": "M-027",
       "cm_low": 1.3,
       "cm_high": 1.9,
-      "numeric": true
+      "numeric": true,
+      "applies_to_this_books_measurement": true
     },
     {
       "where": "Leg length",
@@ -251,7 +279,9 @@
       "measurement_ref": "M-024",
       "cm_low": null,
       "cm_high": null,
-      "numeric": false
+      "numeric": false,
+      "applies_to_this_books_measurement": false,
+      "does_not_apply_reason": "kaynak ayakkabıyla ölçer; bu kitap çıplak ayakla"
     }
   ]
 }

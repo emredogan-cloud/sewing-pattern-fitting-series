@@ -368,8 +368,8 @@
       "crosswalk_id": "XW-040",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-014",
-      "to_ref": "AF-08",
-      "handoff_sentence": "Belirti SYM-014 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön beden genişliği fazla → AF-08 (Armhole depth and shape).",
+      "to_ref": "AF-21",
+      "handoff_sentence": "Belirti SYM-014 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön beden genişliği fazla → AF-21 (Chest width (narrow / broad chest)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -539,8 +539,8 @@
       "crosswalk_id": "XW-059",
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-020",
-      "to_ref": "AF-08",
-      "handoff_sentence": "Belirti SYM-020 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön üst genişlik fazla → AF-08 (Armhole depth and shape).",
+      "to_ref": "AF-21",
+      "handoff_sentence": "Belirti SYM-020 ve ayırt edici kanıt doğrulandığında teşhis şudur: Ön üst genişlik fazla → AF-21 (Chest width (narrow / broad chest)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },

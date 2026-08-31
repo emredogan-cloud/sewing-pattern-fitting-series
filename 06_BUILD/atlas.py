@@ -31,7 +31,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import paths  # noqa: E402
+import paths
+import cause_order  # noqa: E402
 
 # 12 karıştırıcı dizesinin okur karşılığı. Kaynak: fit_signs.json
 # confounders_to_rule_out (Türkçe proje dili) → İngilizce okur dili.
@@ -236,19 +237,15 @@ class AtlasBuilder:
         # ailenin kendi kaydı "en son" dediği hâlde bazı girişlerde ilk
         # sıradaydı — ve o üçü kitabın GERİ ALINAMAZ dediği işlemler.
         # Sıra artık üç katmandır ve üçü de VERİDEN gelir.
-        gates = [p for p in pairs if not p[0].get("adjustment_family_ref")]
-        rest = [p for p in pairs if p[0].get("adjustment_family_ref")]
-        defer = [p for p in rest
-                 if self.families.get(p[0]["adjustment_family_ref"], {})
-                 .get("defer_in_diagnosis")]
-        rest = [p for p in rest if p not in defer]
-        # ⚠ BAĞIMSIZ İNCELEME (F-09): 16 çakışma kutusu "en ucuzu önce"
-        # diyordu ve nedenler maliyete göre SIRALANMAMIŞTI — çünkü
-        # maliyet hiçbir yerde KAYITLI DEĞİLDİ. Artık kayıtlı
-        # (`test_cost`, Bölüm 6 merdiveni) ve sıra ONDAN gelir. Böylece
-        # cümle bir iddia olmaktan çıkıp bir OLGU olur.
-        rest.sort(key=lambda p: p[0].get("test_cost", 9))
-        ordered = gates + rest + defer
+        # ⚠ OKUR SİMÜLASYONU (KRİTİK-3): sıra yalnızca test maliyetinden
+        # geliyordu, ama bazı girişler bir KLİNİK ÖNCELİK de ilan ediyor
+        # ("önce sırtı ele, sonra omuz konumunu"). İkisi çeliştiğinde
+        # basılan sıra maliyeti izliyor, "Order:" satırı başkasını
+        # söylüyordu — ve DÖRT girişte, kitabın "yanlış olanı düzeltmek
+        # ötekini kötüleştirir" diye uyardığı çiftte sıra TERSTİ.
+        # Klinik öncelik artık veridedir ve maliyetten ÖNCE gelir.
+        ordered = [pairs[i - 1] for i, _ in cause_order.ordered_causes(s)]
+        gates = [q for q in ordered if not q[0].get("adjustment_family_ref")]
         if gates:
             out.append({"type": "h3", "text": "Check these before the pattern"})
             out.append({"type": "para",

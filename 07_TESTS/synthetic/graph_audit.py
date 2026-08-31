@@ -20,6 +20,9 @@ zinciri bir yönlü çizgedir ve bir teşhis kitabının doğruluğu, o
   ⑪ ERİŞİLMEZ OKUMA  hiçbir adımda kullanılmayan kalıp/prova okuması
   ⑫ SAĞIR AİLE       bir aileye çıkan hiçbir neden bir ÖLÇÜ taşımıyor
                      (okur oraya varır ve miktarı ölçemez)
+  ⑭ SIRA ÇELİŞKİSİ   `order_before` klinik önceliği, basılan sırada
+                     GERÇEKTEN sağlanıyor mu (çevrim ya da geri
+                     alınamaz aile yüzünden sağlanamıyorsa kusurdur)
   ⑬ SESSİZ ÇIKIŞ     ailesi olmayan bir neden, NEDEN olmadığını
                      söylemiyor — okur "kalıpta hiçbir şey yok"
                      cümlesini kesim hatası ile kalıp parametresi
@@ -221,6 +224,27 @@ def main() -> int:
             if not c.get("adjustment_family_ref") and not c.get("no_family_reason"):
                 errs.append(f"⑬ {s['symptom_id']}.C{i}: ailesi YOK ve NEDEN olmadığı "
                             f"BEYAN EDİLMEMİŞ — kesim hatası mı, kalıp parametresi mi?")
+
+    # ⑭ klinik öncelik BASILAN sırada sağlanıyor mu
+    #
+    # ⚠ OKUR SİMÜLASYONU (KRİTİK-3): bir girişin "Order:" satırı bir
+    # sıra ilan edip basılan sıranın TERSİNİ üretebiliyordu. Öncelik
+    # artık veridedir; bu kapı onun GERÇEKTEN uygulandığını ölçer.
+    # Geri alınamaz bir aile önceliği bastırırsa bu SESSİZ kalmamalı:
+    # iki kural çelişiyorsa metin bunu okura söylemek zorundadır.
+    sys.path.insert(0, str(paths.ROOT / "06_BUILD"))
+    import cause_order
+    for s in signs:
+        pairs = [tuple(x) for x in (s.get("order_before") or [])]
+        if not pairs:
+            continue
+        seq = [i for i, _ in cause_order.ordered_causes(s)]
+        pos = {i: n for n, i in enumerate(seq)}
+        for a, b in pairs:
+            if pos.get(a, 0) > pos.get(b, 0):
+                errs.append(f"⑭ {s['symptom_id']}: C{a} klinik olarak C{b}'den ÖNCE "
+                            f"gelmeli ama basılan sıra C{b}'yi öne alıyor — "
+                            f"öncelik SAĞLANMIYOR")
 
     print("▸ graph_audit.py — nedensel çizge denetimi")
     print(f"  {len(signs)} belirti · {sum(len(s['candidate_causes']) for s in signs)} neden "

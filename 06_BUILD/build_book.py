@@ -136,6 +136,10 @@ def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
     if not sign_page:
         return {}
     zones = atlas.labels["zones"]
+    # ⚠ Aile SAYISI artık kayıttan gelir. Sabit "twenty" yazılıydı ve
+    # okur simülasyonu (HIGH-7) bir ailenin EKSİK olduğunu bulunca
+    # cümle sessizce yanlış olacaktı.
+    _n_fams = len(atlas.families)
     # ⚠ Faz 5'te ÖLÇÜLEN kusur: üretilen üç ek (C, H, I) yazılmış eklerin
     # SONUNA ekleniyordu, dolayısıyla kitapta basılan sıra
     # A, B, D, E, F, G, C, H, I idi. Ek C kitabın ASIL GİRİŞİDİR — 43
@@ -165,7 +169,7 @@ def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
     groups = {"C": blocks}
     blocks = [{"type": "h2", "text": "Appendix H — Where each region leads"}]
     blocks.append({"type": "para",
-                   "text": "The twenty adjustment families this book can reach, and "
+                   "text": f"The {_n_fams} adjustment families this book can reach, and "
                            "the signs that lead to each. What a family does to a "
                            "pattern belongs to the second book."})
     fam_signs: dict = {}
@@ -239,18 +243,71 @@ def build_indexes(atlas, sign_page: dict, page_of: dict, sources: list) -> list:
         got = [names.get(i, i) for i in ids]
         return got[0] if len(got) == 1 else ", ".join(got[:-1]) + " and " + got[-1]
 
-    _n = {1: "ONE", 2: "TWO", 3: "THREE", 4: "FOUR", 5: "FIVE", 6: "SIX",
-          7: "SEVEN", 8: "EIGHT", 9: "NINE", 10: "TEN"}
-    txt = (f"It records {_n.get(len(conf), len(conf))} real "
+    # Yirmiye kadar YAZIYLA, üstü RAKAMLA — kitabın kendi alışkanlığı.
+    _NUM = {1: "ONE", 2: "TWO", 3: "THREE", 4: "FOUR", 5: "FIVE", 6: "SIX",
+            7: "SEVEN", 8: "EIGHT", 9: "NINE", 10: "TEN", 11: "ELEVEN",
+            12: "TWELVE", 13: "THIRTEEN", 14: "FOURTEEN", 15: "FIFTEEN",
+            16: "SIXTEEN", 17: "SEVENTEEN", 18: "EIGHTEEN", 19: "NINETEEN",
+            20: "TWENTY"}
+    _n = lambda k: _NUM.get(k, str(k))
+    txt = (f"It records {_n(len(conf))} real "
            f"{'disagreement' if len(conf) == 1 else 'disagreements'} between "
            f"published sources — over the {_join(conf)} — and there it tells you to choose "
            f"one and record which. Separately, it records "
-           f"{_n.get(len(divg), len(divg))} "
+           f"{_n(len(divg))} "
            f"{'place' if len(divg) == 1 else 'places'} where this book departs from "
            f"the one source it has: {_join(divg)}. Those are not disagreements "
            f"between authorities. They are decisions this book made, and the page "
            f"where each measurement is taught says so.")
     groups["G_counts"] = [{"type": "para", "text": txt}]
+
+    # ⚠ OKUR SİMÜLASYONU (E-1/E-3): iki sayım cümlesi daha ILAN
+    # EDİLİYORDU ve ikisi de basılanla uyuşmuyordu — "yedi giriş"
+    # aslında on üç, "on kutunun hepsi ŞU İKİSİ AYNI GÖRÜNEBİLİR ile
+    # başlar" ise üçünde ÜÇ neden vardı. Sayılar artık KAYITTAN gelir.
+    ease_entries = set()
+    for sid, sg in atlas.signs.items():
+        for c in sg["candidate_causes"]:
+            if "Appendix J" in (c.get("expected") or ""):
+                ease_entries.add(sid)
+    groups["J_count"] = [{"type": "para", "text": (
+        f"{_n(len(ease_entries))} entries in Part Four ask you to work out how much "
+        f"room a pattern is giving you at some point and then judge whether it is "
+        f"enough. Working it out is arithmetic: measure the pattern, subtract your "
+        f"body, and the difference is the ease. Judging it needs something to judge "
+        f"against, and this is that something.")}]
+
+    n2 = n3 = 0
+    for sid, cols in atlas.collisions.items():
+        for col in cols:
+            st = col.get("collision_status", "requires_physical_test")
+            if st == "separable_by_inspection":
+                continue
+            if st == "superset":
+                continue
+            (n2, n3) = (n2 + 1, n3) if len(col["causes"]) == 2 else (n2, n3 + 1)
+    n_sup = sum(1 for cols in atlas.collisions.values() for c in cols
+                if c.get("collision_status") == "superset")
+    n_insp = sum(1 for cols in atlas.collisions.values() for c in cols
+                 if c.get("collision_status") == "separable_by_inspection")
+    total = n2 + n3 + n_sup + n_insp
+    boxes = (f"{_n(n2)} of those boxes begin THESE TWO CAN LOOK THE SAME"
+             + (f" and {_n(n3)} begin THESE {n3 + 2} CAN LOOK THE SAME"
+                if n3 else "") + ".")
+    groups["collision_count"] = [{"type": "para", "text": (
+        "The diagnostic relationships in Part Four are a different kind of claim. "
+        "They are drawn from established fitting practice and checked for internal "
+        "consistency, but the specific pairing of a sign with a set of candidate "
+        "causes, and the evidence offered for telling those causes apart, HAS NOT "
+        "BEEN VALIDATED BY PHYSICAL TESTING. An independent review found "
+        f"{_n(total)} signs where two causes could look the same to a reader. Every "
+        f"one was re-examined. {_n(n_insp)} of them can now be separated by looking "
+        "— one marker excludes the other, or one is settled by a document rather "
+        f"than by the eye — and those entries no longer carry a warning because they "
+        f"no longer need one. {_n(n_sup)} turned out to be a different relationship: "
+        "the second cause shows everything the first shows and one thing more, so "
+        f"the entry tells you what that one thing is. {_n(n2 + n3)} remain genuinely "
+        f"ambiguous. {boxes}")}]
     return groups
 
 
