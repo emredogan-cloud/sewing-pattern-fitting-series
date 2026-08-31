@@ -237,9 +237,15 @@ class FigureCanvas:
             raise ForbiddenDrawing(
                 "figür içinde BÜYÜK HARFLİ uzun metin yasak "
                 "(TYPOGRAPHY_STANDARD § 5 madde 6).")
-        self._guard((x, y))
         w = pdfmetrics.stringWidth(s, font(face), size)
         x0 = x if anchor == "start" else (x - w / 2 if anchor == "middle" else x - w)
+        # ⚠ İKİNCİ GÖRSEL TUR: kutu koruması yalnızca ÇAPA NOKTASINI
+        # denetliyordu. Bir etiketin GENİŞLİĞİ kutuyu aşınca hiçbir şey
+        # patlamıyor, harfler sessizce KIRPILIYORDU — "Centre back
+        # length" 186 pt'lik kutuda 187,6 pt'ye uzanıp son harfini
+        # kaybetmişti. Bir ölçü figüründe yarım okunan etiket, yanlış
+        # okunan bir ölçüdür. Koruma artık etiketin KUTUSUNU denetler.
+        self._guard((x0, y - size * 0.22), (x0 + w, y + size * 0.78))
         self.labels.append((x0, y - size * 0.22, x0 + w, y + size * 0.78, s))
         self._gray(gray)
         self.c.setFont(font(face), size)
@@ -410,7 +416,7 @@ class FigureCanvas:
 
     # ── TK-11 · measurement caliper ───────────────────────────────────
     def tk11_measure_path(self, pts, label: str | None = None, label_side="right",
-                          label_offset=5.0):
+                          label_offset=5.0, label_x: float | None = None):
         """Ölçü yolu. dash 1-1 + iki uçta dik bitiş."""
         self.use("TK-11")
         self.curve(pts, role="construction_line", dash="dash 1-1",
@@ -428,8 +434,25 @@ class FigureCanvas:
             horizontal = abs(pts[-1][1] - pts[0][1]) < 3.0 and \
                 abs(pts[-1][0] - pts[0][0]) > 12.0
             if horizontal:
-                self.text((pts[0][0] + pts[-1][0]) / 2, mid[1] + 3.2, label,
-                          anchor="middle")
+                # ⚠ İKİNCİ GÖRSEL TUR: ortalamak, etiket ÖLÇÜLEN
+                # ARALIKTAN GENİŞ olduğunda kusuru yer değiştiriyordu.
+                # "Neck base" boyun genişliğinden geniştir ve ortalanınca
+                # iki yandan gövde konturunun ÜSTÜNE taşıp okunamaz hâle
+                # geliyordu. Etiket aralığa SIĞIYORSA ortalanır; sığmıyorsa
+                # yolun dış ucundan başlatılır ve gövdeden UZAKLAŞIR.
+                span = abs(pts[-1][0] - pts[0][0])
+                if self.text_width(label) <= span:
+                    self.text((pts[0][0] + pts[-1][0]) / 2, mid[1] + 3.2, label,
+                              anchor="middle")
+                else:
+                    self.text(max(pts[0][0], pts[-1][0]) + 3.5, mid[1] - 2.2,
+                              label, anchor="start")
+            elif label_x is not None:
+                # Çağıran, siluetin DIŞINDA bir x verdi: etiket gövdenin
+                # üstüne düşmez ve kılavuz çizgisine gerek kalmaz çünkü
+                # yol zaten aynı yükseklikte görünür durumdadır.
+                self.text(label_x, mid[1] - 2.2, label,
+                          anchor="start" if label_x >= mid[0] else "end")
             else:
                 dx = label_offset if label_side == "right" else -label_offset
                 self.text(mid[0] + dx, mid[1] - 2.2, label,

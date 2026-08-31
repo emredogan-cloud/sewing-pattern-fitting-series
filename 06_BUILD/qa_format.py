@@ -22,8 +22,16 @@ Denetimler — hepsi DOSYADAN okunur, hiçbiri beyan değildir:
   ⑨ PDF ana hattı (bookmark) var mı ve bölümleri taşıyor mu
   ⑩ sayfa numarası HER sayfada mı (ön maddeler hariç)
   ⑪ taşma (bleed) beyanı ile gerçek sayfa kutusu uyuşuyor mu
-  ⑫ SAYFA İÇERİĞİ güvenli alanın dışına taşıyor mu — metin kutusunun
-     kenar boşluklarına giren çizim/yazı var mı
+  ⑫ BİÇİM KALİTESİ (§ 43): basılı sayfada YER TUTUCU metin, İÇ KAYIT
+     KİMLİĞİ (SYM-xxx, AF-xx, M-xxx, S-xxxx…), GEÇİCİ DOSYA ADI ya da
+     HATA AYIKLAMA içeriği kaldı mı. Bu denetim ÜRETİLEN PDF'in metin
+     katmanında yapılır: veri katmanındaki bir kimlik zararsızdır,
+     OKURA BASILANI kusurdur.
+
+     ⚠ Kenar boşluğu taşması artık print_sim.py'nin işidir: o HER
+     sayfayı 300 dpi'de rasterleştirip mürekkebin kenara ne kadar
+     girdiğini ÖLÇER. Metin katmanı bir çizginin nereye çizildiğini
+     bilmez; bu yüzden o denetim buradan ALINDI, uydurulmadı.
 
 Çıkış: 0 temiz · 1 en az bir kusur · 2 araç yok (poppler).
 """
@@ -190,8 +198,67 @@ def main() -> int:
     if not trim.get("bleed") and has_bleedbox:
         warns.append("⑪ taşma yok deniyor ama dosyada BleedBox/TrimBox VAR")
 
+    # ⑫ biçim kalitesi — § 43
+    if shutil.which("pdftotext"):
+        body = run(["pdftotext", str(pdf), "-"])
+        # İç kayıt kimlikleri: figür motorunun kendi sızıntı denetimi
+        # ÇİZİMLERİ koruyor; bu, DİZİLMİŞ METNİ kontrol eder.
+        #
+        # ⚠ İLK SÜRÜM DESEN ARIYORDU ve YANLIŞ POZİTİF verdi: Ek I'deki
+        # ANSUR II rapor numarası "NATICK/TR-15/007" prova okuması
+        # kimliği sanıldı. Deseni gevşetmek kapıyı körleştirirdi.
+        # Kapı artık KAYITTAKİ GERÇEK kimlikleri arar — sicilde olmayan
+        # bir dizi zaten bir sızıntı değildir, ve sicilde olan hiçbiri
+        # gözden kaçamaz.
+        real: dict = {}
+        try:
+            real["belirti kimliği"] = {x["symptom_id"] for x in
+                                       load(paths.FIT_SIGNS)["signs"]}
+            real["aile kimliği"] = {x["adjustment_family_id"] for x in
+                                    load(paths.ADJUSTMENT_FAMILIES)["families"]}
+            real["ölçü kimliği"] = {x["measurement_id"] for x in
+                                    load(paths.MEASUREMENTS)["measurements"]}
+            pr = load(paths.TAXONOMY_PUBLIC / "pattern_readings.json")
+            real["okuma kimliği"] = ({x["reading_id"] for x in pr["readings"]}
+                                     | {x["reading_id"] for x in pr["toile_readings"]})
+            real["kaynak kimliği"] = {f"S-{i:04d}" for i in range(1, 40)}
+        except Exception as exc:                     # veri yoksa SESSİZ GEÇME
+            warns.append(f"⑫ iç kimlik denetimi ATLANDI — kayıt okunamadı: {exc}")
+        for name, ids in real.items():
+            # Kimlik TEK BAŞINA bir belirteç olmalı: bir yol ya da rapor
+            # numarasının içinde geçen dizi bir sızıntı DEĞİLDİR.
+            hits = sorted(i for i in ids
+                          if re.search(rf"(?<![\w/-]){re.escape(i)}(?![\w/-])", body))
+            if hits:
+                errs.append(f"⑫ OKURA BASILAN {name}: {', '.join(hits[:6])}"
+                            + (f" (+{len(hits)-6})" if len(hits) > 6 else ""))
+        PLACEHOLDERS = [r"\bTODO\b", r"\bTBD\b", r"\bFIXME\b", r"\bXXX\b",
+                        r"\bLorem ipsum\b", r"\bplaceholder\b", r"\bdummy\b",
+                        r"\[\s*\]", r"\{\{.*?\}\}", r"<[a-z_]+>"]
+        for pat in PLACEHOLDERS:
+            hits = sorted(set(re.findall(pat, body, re.I)))
+            if hits:
+                errs.append(f"⑫ YER TUTUCU metin basılmış: {hits[:4]}")
+        # Geçici / iç dosya adları ve hata ayıklama artığı
+        for pat, what in ((r"\b[\w/]+\.(?:py|json|sh|pdf|png|txt)\b", "dosya adı"),
+                          (r"\bTraceback\b|\bstderr\b|\bstdout\b", "hata ayıklama"),
+                          (r"/tmp/|/home/|C:\\", "mutlak yol")):
+            hits = sorted(set(m if isinstance(m, str) else m[0]
+                              for m in re.findall(pat, body)))
+            if hits:
+                errs.append(f"⑫ basılı sayfada {what}: {hits[:4]}")
+        # Proje dili (Türkçe) OKUR metnine sızmış mı — kitap İngilizcedir
+        tr = sorted(set(re.findall(r"\b\w*[çğışöüÇĞİŞÖÜ]\w*\b", body)))
+        tr = [w for w in tr if len(w) > 2 and w.lower() not in {"vâliçe"}]
+        if tr:
+            errs.append(f"⑫ OKUR metninde proje dili: {tr[:6]}")
+
     print("▸ qa_format.py — yayın varlığı kapısı")
-    print(f"  {pdf.relative_to(paths.ROOT)}")
+    try:                                   # --pdf ağaç DIŞINDA olabilir
+        shown = pdf.relative_to(paths.ROOT)
+    except ValueError:
+        shown = pdf
+    print(f"  {shown}")
     print(f"  {pages} sayfa · {trim['width_in']}×{trim['height_in']} in · "
           f"{mb:.2f} MB · PDF {ver} · yazı tipi {len(fonts)} "
           f"({len(fonts) - len(not_emb)} gömülü)")
@@ -208,6 +275,8 @@ def main() -> int:
         return 1
     print("  ✓ kesim, kenar, cilt payı, yazı tipi gömme, künye, sürüm, "
           "boyut ve ana hat KDP kaydına uyuyor")
+    print("  ✓ basılı sayfada yer tutucu, iç kayıt kimliği, geçici dosya adı "
+          "ya da hata ayıklama artığı YOK (§ 43)")
     print("  ⚠ Bu bir İÇSEL ölçümdür. KDP Previewer ÇALIŞTIRILMADI ve "
           "fiziksel prova ALINMADI.")
     return 0

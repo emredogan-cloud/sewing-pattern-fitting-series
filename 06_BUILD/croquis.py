@@ -210,6 +210,17 @@ class Croquis:
     def hw(self, key: str) -> float:
         return self.HALF_W[key] * self.H
 
+    def outer_x(self, side: int = 1, gap: float = 6.0) -> float:
+        """Siluetin EN GENİŞ noktasının DIŞINDA bir x döndürür.
+
+        ⚠ İKİNCİ GÖRSEL TUR: DİKEY ölçü etiketleri yolun orta
+        noktasından 5 pt sağa yazılıyordu ve yol gövdenin ORTASINDAN
+        indiği için etiket doğrudan TORSONUN ÜSTÜNE düşüyordu —
+        "Centre back length" sağ gövde konturunu kesiyor ve iki
+        çizgi bir arada okunuyordu. Etiketi gövdeden çıkarabilmek
+        için çizicinin siluetin genişliğini SORABİLMESİ gerekir."""
+        return self.cx + side * (max(OUTLINE.values()) * self.H + gap)
+
     def p(self, level: str, half_key: str | None = None, side: int = 0) -> tuple:
         x = self.cx + (side * self.hw(half_key) if half_key else 0.0)
         return (x, self.y(level))

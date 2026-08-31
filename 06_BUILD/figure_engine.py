@@ -157,6 +157,21 @@ def _primary_marker(evidence: str) -> str:
     return _re.split(r"\s*;\s*|\s+—\s+|,\s+and\s+", evidence, 1)[0].strip().rstrip(".")
 
 
+def _panel_caption(fc, x: float, text: str, width: float = 128.0,
+                   size: float = 6.6, base: float = 10.0):
+    """İki panelli bir figürde panel altyazısı — panele SARILIR.
+
+    ⚠ Etiket kutusu koruması bunu yakaladı: altyazı 148 pt genişti ve
+    132 pt'lik panele sığmıyordu; kutunun 0,3 pt dışına taşıp son
+    harfini KAYBEDİYORDU. Kırpmak bir seçenek değildir; sarmak
+    figürün yüksekliğini değiştirmez çünkü taban çizgisinden YUKARI
+    doğru yazılır."""
+    lines = wrap_lines(text, width, size)
+    for i, ln in enumerate(reversed(lines)):
+        fc.text(x, base + i * (size * 1.25), ln,
+                face="sans-italic", size=size, gray=0.45)
+
+
 class SignChart:
     """Tek bir belirtinin teşhis akışı.
 
@@ -659,17 +674,23 @@ class Engine:
         needs_arm = (l1 in ("bicep", "elbow", "wrist", "shoulder_point")
                      or l2 in ("bicep", "elbow", "wrist"))
         full = lowest < LEVEL["thigh"] - 1e-9 or l1 == "top_of_head"
+        # ⚠ İKİNCİ GÖRSEL TUR: genişlik 186 pt iken DİKEY ölçü etiketi
+        # ("Centre back length", 57 pt) siluetin dışına çıkarılamıyordu
+        # ve gövdenin ÜSTÜNE yazılıyordu — iki çizgi bir arada okunuyor,
+        # etiket kutudan taşınca da sessizce KIRPILIYORDU. Genişlik
+        # 214 pt'ye çıkarıldı: YÜKSEKLİK değişmediği için sayfa maliyeti
+        # yok (figürler sütunda ortalanır), etiket ise gövdeden çıkıyor.
         if full:
             W, H = 214.0, 300.0        # bacaklar var — yükseklik gerekli
         elif needs_arm:
-            W, H = 186.0, 208.0
+            W, H = 214.0, 208.0
         else:
             # Gövde girişi (başlık + proza + madde + figür + altyazı)
             # 684 pt'lik sütunda İKİ TANE sığmalıdır; aksi hâlde 33
             # ölçünün her biri kendi sayfasını alır ve bölüm 37 sayfa
             # olur. Kroki kutuya ORANLI ölçeklenir — çizim bozulmaz,
             # yalnızca küçülür.
-            W, H = 186.0, 178.0
+            W, H = 214.0, 178.0
         fc = self._fc(W, H, "body", f"meas_{m['measurement_id']}.pdf")
         if view == "side":
             cro = croquis_fit(W, H, "floor" if full else "crotch", "top_of_head",
@@ -733,7 +754,19 @@ class Engine:
             if l1 == "shoulder_point":
                 b = (a[0] + 6.0, cro.y(l2))
             pts = [a, ((a[0] + b[0]) / 2 + 4.0, (a[1] + b[1]) / 2), b]
-            fc.tk11_measure_path(pts, label=m["name"])
+            # Etiket siluetin DIŞINDA durur; hangi yanda YER VARSA orada.
+            # Sağa sığmıyorsa sola alınır — kırpmak bir seçenek değildir,
+            # yarım okunan bir ölçü etiketi yanlış okunan bir ölçüdür.
+            lw = fc.text_width(m["name"])
+            lx = cro.outer_x(1)
+            if lx + lw > fc.w - 2.0:
+                lx = cro.outer_x(-1)
+                if lx - lw < 2.0:
+                    raise ValueError(
+                        f"{m['measurement_id']}: '{m['name']}' etiketi "
+                        f"{fc.w:.0f} pt'lik kutuda siluetin İKİ yanına da "
+                        f"sığmıyor — kutu genişletilmeli ya da ad kısaltılmalı.")
+            fc.tk11_measure_path(pts, label=m["name"], label_x=lx)
             fc.landmark_dot(*pts[0]); fc.landmark_dot(*pts[-1])
         if l1 in ("bust_apex",) or (l2 == "bust_apex"):
             fc.tk08_apex(*cro.apex(1))
@@ -1088,14 +1121,12 @@ class Engine:
                             role="construction_line")
                 fc.tk11_measure_path(arm, label=None)
                 fc.text(dx + 4, 160, self.ui["right"], face="sans-bold", size=8.0)
-                fc.text(dx + 4, 10, self.ui["curve_on_edge"],
-                        face="sans-italic", size=6.6, gray=0.45)
+                _panel_caption(fc, dx + 4, self.ui["curve_on_edge"])
             else:
                 fc.line(arm[0][0], arm[0][1], arm[-1][0], arm[-1][1],
                         role="construction_line", dash="dash 1-1")
                 fc.text(dx + 4, 160, self.ui["wrong"], face="sans-bold", size=8.0)
-                fc.text(dx + 4, 10, self.ui["curve_flat"],
-                        face="sans-italic", size=6.6, gray=0.45)
+                _panel_caption(fc, dx + 4, self.ui["curve_flat"])
         fc.declare_scale(self.ui["scale_note"])
         tokens = fc.finish()
         self._record(fig_type="pattern_piece",
