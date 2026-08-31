@@ -94,6 +94,29 @@ def scan_file(rel: str, text: str, validation_ids: set, findings: list):
                                 f" (bir VAL-xxxx kaydına atıf ZORUNLU — VALIDATION_PROTOCOL.md § 5)")
 
 
+def check_support_notes(findings: list):
+    """VERIFIED_NARROWER ve CONTESTED, GEREKÇESİZ olamaz.
+
+    ⚠ KAYNAK ADLİ İNCELEMESİ (H-9): sicilin kendi kuralı "kaydın
+    `source_support_note` alanı kaynağın GERÇEKTE ne dediğini yazar"
+    diyordu ve on CONTESTED kaydın ONUNDA da alan BOŞTU. Bir 'daha dar'
+    ya da 'çelişiyor' etiketi, NEYİN dar olduğunu söylemedikçe bir
+    etiket değil bir bahanedir.
+    """
+    import json as _j
+    from pathlib import Path as _P
+    reg = (paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "public"
+           / "claims.public.json")
+    if not reg.exists():
+        return
+    for c in _j.loads(reg.read_text(encoding="utf-8"))["claims"]:
+        if c["evidence_level"] in ("VERIFIED_NARROWER", "CONTESTED") \
+                and not c.get("source_support_note"):
+            findings.append(
+                f"{c['claim_id']} ({c['taxonomy_ref']}): {c['evidence_level']} "
+                f"ama `source_support_note` BOŞ — kaynağın ne dediği yazılmamış")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--verbose", "-v", action="store_true")
@@ -117,6 +140,8 @@ def main():
             seen.add(rel)
             scanned += 1
             scan_file(rel, f.read_text(encoding="utf-8", errors="ignore"), validation_ids, findings)
+
+    check_support_notes(findings)
 
     result = {"scanned": scanned, "validation_records": len(validation_ids),
               "findings": findings, "passed": not findings}

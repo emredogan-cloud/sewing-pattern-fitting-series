@@ -147,6 +147,14 @@
         "string",
         "null"
       ]
+    },
+    "order_support_note": {
+      "$comment": "Sıra kısıtının kaynağı NE DİYOR — ve kısıt kaynağın söylediğinden GENİŞSE nerede genişliyor. `order_support: narrower` varsa ZORUNLUDUR. ⚠ Kaynak adli incelemesi (H-4): yirmi sıra iddiası AYNI metni taşıyıp dört ayrı kanıt düzeyinde duruyordu ve bir incelemeci hangisinin neye dayandığını okuyamıyordu.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 20
     }
   }
 }

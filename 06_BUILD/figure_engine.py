@@ -110,9 +110,9 @@ ZONE_ANCHOR = {
 }
 
 NODE = {
-    "obs_w": 148.0, "obs_h": 30.0,
-    "dec_w": 158.0, "dec_h": 40.0,
-    "end_w": 128.0, "end_h": 32.0,
+    "obs_w": 200.0, "obs_h": 30.0,
+    "dec_w": 268.0, "dec_h": 40.0,
+    "end_w": 150.0, "end_h": 32.0,
     "vgap": 17.0, "hgap": 20.0,
 }
 
@@ -227,7 +227,9 @@ class SignChart:
             # bir SORU değil bir PARAGRAF görüyordu. Düğüm artık kanıtın
             # BİRİNCİ cümleciğini taşır — ayırt edici işaretin kendisi
             # zaten odur; tamamı karşı sayfada, "Tells it apart"ta durur.
-            dtxt = short(_primary_marker(self._labels[i]["evidence"]), 110)
+            # TAM kanıt basılır. Kısaltma, ayırt eden ikinci koşulu
+            # düşürüyordu ve okuru ilk dalda yanlış yerde durduruyordu.
+            dtxt = short(self._labels[i]["evidence"], 190)
             dh, _ = self._box_h(dtxt, NODE["dec_w"], self.DEC_TEXT_FRAC,
                                 self.DEC_HEIGHT_FACTOR, NODE["dec_h"])
             af = c.get("adjustment_family_ref")
@@ -489,13 +491,19 @@ class Engine:
         order = sorted(zones, key=lambda z: (self.zone_chapter.get(z) or 99, z))
         cols, rows = 2, (len(order) + 1) // 2
         gut = NODE["hgap"] * 1.6          # omurga için dış pay
-        w = NODE["obs_w"] * cols + NODE["hgap"] * 3 + gut * 2
+        # ⚠ Karar düğümü genişletildiğinde (tam ayırt edici metin sığsın
+        # diye) bu figür 524 pt'ye çıktı ve sayfa figür alanını (504 pt)
+        # AŞTI — kapı doğru reddetti. Yönlendiricinin düğümleri KISA
+        # etiketler taşır ve o genişliğe ihtiyacı yoktur; kendi ölçüsünü
+        # kullanır ve toplam genişlik sayfa alanına GÖRE sınırlanır.
+        obs_w = 148.0
+        w = obs_w * cols + NODE["hgap"] * 3 + gut * 2
         h = NODE["obs_h"] * (rows + 1) + NODE["vgap"] * (rows + 3)
         fc = self._fc(w, h, "diagram", "flow_ZONE_ROUTER.pdf")
 
         root_y = h - NODE["vgap"] - NODE["obs_h"]
-        fc.tk17_observation_node((w - NODE["obs_w"]) / 2, root_y,
-                                 NODE["obs_w"], NODE["obs_h"],
+        fc.tk17_observation_node((w - obs_w) / 2, root_y,
+                                 obs_w, NODE["obs_h"],
                                  self.ui["router_question"], size=7.4)
         bus_y = root_y - NODE["vgap"] * 0.8
         # kökten omurgaya tek dikey
@@ -515,14 +523,14 @@ class Engine:
             label = f"{names[z]} · " + self.ui["sign_count"].format(n=len(zones[z]))
             if ch:
                 label += f" · ch. {ch}"
-            fc.tk17_observation_node(x, y, NODE["obs_w"], NODE["obs_h"],
+            fc.tk17_observation_node(x, y, obs_w, NODE["obs_h"],
                                      label, size=7.0)
             ymid = y + NODE["obs_h"] / 2
             # sütun omurgası: son bağlantıdan bu düğümün hizasına
             fc.line(col_x[c], last_y[c], col_x[c], ymid, role="callout_leader")
             last_y[c] = ymid
             # omurgadan düğüme kısa yatay dal
-            ex = x if c == 0 else x + NODE["obs_w"]
+            ex = x if c == 0 else x + obs_w
             fc.connector(col_x[c], ymid, ex, ymid, elbow=False)
         tokens = fc.finish()
         self._record(fig_type="flowchart",

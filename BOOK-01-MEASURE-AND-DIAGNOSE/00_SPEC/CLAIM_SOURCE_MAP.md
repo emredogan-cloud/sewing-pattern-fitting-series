@@ -15,15 +15,15 @@
 
 ## 1 · Toplam
 
-**309 iddia.**
+**310 iddia.**
 
 | Kanıt seviyesi | Sayı | Oran | Anlamı |
 |---|---:|---:|---|
-| `VERIFIED` | 44 | %14.2 | Kayıt doğrulanmış VE en az bir tam metin teknik otoritesine bağlı. |
-| `VERIFIED_NARROWER` | 7 | %2.3 | Kaynak okundu ve İLKEYİ destekliyor, ama iddianın yazıldığı hâlinden DAHA DAR bir ifadeyi destekliyor. Kaydın `source_support_note` alanı kaynağın gerçekte ne dediğini yazar (görev talimatı § 9). |
-| `CONTESTED` | 10 | %3.2 | Kaynaklar arasında KAYITLI tanım farkı var. Bir hata değildir — Bölüm 2'nin öğretim malzemesidir. |
-| `INFERRED` | 216 | %69.9 | Kaynak bağlamı destekliyor; iddianın KENDİSİ ajan türevi. |
-| `UNVERIFIED` | 32 | %10.4 | Hiçbir otoriter kaynağa bağlı değil. |
+| `VERIFIED` | 49 | %15.8 | Kayıt doğrulanmış VE en az bir tam metin teknik otoritesine bağlı. |
+| `VERIFIED_NARROWER` | 18 | %5.8 | Kaynak okundu ve İLKEYİ destekliyor, ama iddianın yazıldığı hâlinden DAHA DAR bir ifadeyi destekliyor. Kaydın `source_support_note` alanı kaynağın gerçekte ne dediğini yazar (görev talimatı § 9). |
+| `CONTESTED` | 4 | %1.3 | Kaynaklar arasında KAYITLI tanım farkı var. Bir hata değildir — Bölüm 2'nin öğretim malzemesidir. |
+| `INFERRED` | 203 | %65.5 | Kaynak bağlamı destekliyor; iddianın KENDİSİ ajan türevi. |
+| `UNVERIFIED` | 36 | %11.6 | Hiçbir otoriter kaynağa bağlı değil. |
 
 > ⚠ **`INFERRED` çoğunluktadır ve bu gizlenmemiştir.** Kitabın
 > teşhis ilişkileri (belirti → aday neden) kamu kaynaklarında
@@ -38,7 +38,7 @@
 | `sign_observation` | 43 | Bir belirtinin gözlenebilir olduğu ve nerede durduğu. |
 | `measurement_definition` | 33 | Bir ölçünün nereden nereye alındığı. |
 | `measurement_path` | 33 | Şeridin serbest değil KISITLI olduğu. |
-| `conceptual` | 31 | Yöntem katmanı — kitabın öğrettiği kuralın kendisi. |
+| `conceptual` | 32 | Yöntem katmanı — kitabın öğrettiği kuralın kendisi. |
 | `adjustment_family` | 20 | Bir düzeltmenin kalıbın hangi alanına dokunduğu. |
 | `adjustment_order` | 20 | Hangi düzeltmenin hangisinden önce geldiği. |
 
@@ -47,13 +47,13 @@
 | Bölüm | İddia | `VERIFIED` | `V_NARROWER` | `CONTESTED` | `INFERRED` | `UNVERIFIED` |
 |---|---:|---:|---:|---:|---:|---:|
 | 1 · Why the pattern did not fit | 2 | 0 | 0 | 0 | 2 | 0 |
-| 2 · Measuring your body | 71 | 28 | 4 | 10 | 13 | 16 |
-| 3 · Reading the pattern | 5 | 0 | 0 | 0 | 5 | 0 |
+| 2 · Measuring your body | 71 | 27 | 7 | 4 | 13 | 20 |
+| 3 · Reading the pattern | 5 | 1 | 0 | 0 | 4 | 0 |
 | 4 · The fitting garment | 3 | 0 | 0 | 0 | 1 | 2 |
-| 5 · The fitting session | 3 | 0 | 0 | 0 | 3 | 0 |
-| 6 · The seven-step cycle | 3 | 0 | 0 | 0 | 3 | 0 |
-| 7 · Naming what you see | 3 | 0 | 0 | 0 | 1 | 2 |
-| 8 · Ruling out false causes | 3 | 0 | 0 | 0 | 2 | 1 |
+| 5 · The fitting session | 3 | 0 | 1 | 0 | 2 | 0 |
+| 6 · The seven-step cycle | 3 | 0 | 1 | 0 | 2 | 0 |
+| 7 · Naming what you see | 4 | 1 | 1 | 0 | 0 | 2 |
+| 8 · Ruling out false causes | 3 | 1 | 0 | 0 | 1 | 1 |
 | 9 · Neck and shoulder | 32 | 0 | 0 | 0 | 32 | 0 |
 | 10 · Upper back and armhole | 28 | 0 | 0 | 0 | 28 | 0 |
 | 11 · Bust and chest | 24 | 0 | 0 | 0 | 24 | 0 |
@@ -61,8 +61,8 @@
 | 13 · Hip and seat | 16 | 0 | 0 | 0 | 16 | 0 |
 | 14 · Sleeve and arm | 16 | 0 | 0 | 0 | 16 | 0 |
 | 15 · Trousers: crotch and leg | 20 | 0 | 0 | 0 | 20 | 0 |
-| 16 · Order of work | 58 | 16 | 3 | 0 | 29 | 10 |
-| 17 · Your fit profile | 1 | 0 | 0 | 0 | 1 | 0 |
+| 16 · Order of work | 58 | 19 | 7 | 0 | 22 | 10 |
+| 17 · Your fit profile | 1 | 0 | 1 | 0 | 0 | 0 |
 | 18 · Carrying it forward | 1 | 0 | 0 | 0 | 0 | 1 |
 
 ## 4 · Kaynağa göre
@@ -70,11 +70,12 @@
 | Kaynak | İddia | Otorite | Erişim | Başlık |
 |---|---:|:---:|---|---|
 | `S-0001` | 184 | ✓ | fulltext | Pattern Alteration — Guide C-228 |
-| `S-0004` | 177 | ✓ | fulltext | Challenging Patterns — EM4582 |
-| `S-0003` | 134 | ✓ | fulltext | Pattern Alteration: Principles of Pattern Alteration |
+| `S-0004` | 178 | ✓ | fulltext | Challenging Patterns — EM4582 |
+| `S-0003` | 104 | ✓ | fulltext | Pattern Alteration: Principles of Pattern Alteration |
 | `S-0002` | 66 | ✓ | fulltext | Making Perfect Pants — Guide C-227 |
 | `S-0006` | 4 | ✓ | official_pdf | National Health and Nutrition Examination Survey (NH |
 | `S-0005` | 4 | ✓ | fulltext | 2012 Anthropometric Survey of U.S. Army Personnel: M |
+| `S-0007` | 1 | ✓ | official_web | Fit for Fashion: The "A-B-C's" — E-419 |
 
 ## 5 · İzlenebilirlik
 

@@ -3040,7 +3040,7 @@
       "zone": "ELIMINATION",
       "page": 1,
       "of": 2,
-      "width_pt": 306.0,
+      "width_pt": 438.0,
       "height_pt": 579.0,
       "confounders": [
         "Construction",
@@ -3059,7 +3059,7 @@
       "zone": "ELIMINATION",
       "page": 2,
       "of": 2,
-      "width_pt": 306.0,
+      "width_pt": 438.0,
       "height_pt": 351.0,
       "confounders": [
         "Measurement age",
@@ -3073,8 +3073,8 @@
     "FIG-B1-004": {
       "symptom_ref": "SYM-013",
       "zone": "armhole",
-      "width_pt": 326.0,
-      "height_pt": 342.7,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3098,8 +3098,8 @@
     "FIG-B1-005": {
       "symptom_ref": "SYM-014",
       "zone": "armhole",
-      "width_pt": 326.0,
-      "height_pt": 312.5,
+      "width_pt": 458.0,
+      "height_pt": 303.4,
       "terminals": [
         [
           "handoff",
@@ -3123,8 +3123,8 @@
     "FIG-B1-006": {
       "symptom_ref": "SYM-015",
       "zone": "armhole",
-      "width_pt": 326.0,
-      "height_pt": 297.5,
+      "width_pt": 458.0,
+      "height_pt": 279.2,
       "terminals": [
         [
           "handoff",
@@ -3148,8 +3148,8 @@
     "FIG-B1-007": {
       "symptom_ref": "SYM-016",
       "zone": "bust_chest",
-      "width_pt": 326.0,
-      "height_pt": 301.3,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3173,8 +3173,8 @@
     "FIG-B1-008": {
       "symptom_ref": "SYM-017",
       "zone": "bust_chest",
-      "width_pt": 326.0,
-      "height_pt": 303.4,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "handoff",
@@ -3198,8 +3198,8 @@
     "FIG-B1-009": {
       "symptom_ref": "SYM-018",
       "zone": "bust_chest",
-      "width_pt": 326.0,
-      "height_pt": 297.5,
+      "width_pt": 458.0,
+      "height_pt": 303.4,
       "terminals": [
         [
           "eliminate",
@@ -3223,7 +3223,7 @@
     "FIG-B1-010": {
       "symptom_ref": "SYM-019",
       "zone": "bust_chest",
-      "width_pt": 326.0,
+      "width_pt": 458.0,
       "height_pt": 288.3,
       "terminals": [
         [
@@ -3248,7 +3248,7 @@
     "FIG-B1-011": {
       "symptom_ref": "SYM-020",
       "zone": "bust_chest",
-      "width_pt": 326.0,
+      "width_pt": 458.0,
       "height_pt": 297.5,
       "terminals": [
         [
@@ -3273,8 +3273,8 @@
     "FIG-B1-012": {
       "symptom_ref": "SYM-021",
       "zone": "bust_chest",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "eliminate",
@@ -3298,8 +3298,8 @@
     "FIG-B1-013": {
       "symptom_ref": "SYM-035",
       "zone": "crotch_leg",
-      "width_pt": 326.0,
-      "height_pt": 348.6,
+      "width_pt": 458.0,
+      "height_pt": 327.6,
       "terminals": [
         [
           "handoff",
@@ -3323,8 +3323,8 @@
     "FIG-B1-014": {
       "symptom_ref": "SYM-036",
       "zone": "crotch_leg",
-      "width_pt": 326.0,
-      "height_pt": 342.7,
+      "width_pt": 458.0,
+      "height_pt": 318.5,
       "terminals": [
         [
           "handoff",
@@ -3348,8 +3348,8 @@
     "FIG-B1-015": {
       "symptom_ref": "SYM-037",
       "zone": "crotch_leg",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3373,8 +3373,8 @@
     "FIG-B1-016": {
       "symptom_ref": "SYM-038",
       "zone": "crotch_leg",
-      "width_pt": 326.0,
-      "height_pt": 303.4,
+      "width_pt": 458.0,
+      "height_pt": 279.2,
       "terminals": [
         [
           "eliminate",
@@ -3398,8 +3398,8 @@
     "FIG-B1-017": {
       "symptom_ref": "SYM-039",
       "zone": "crotch_leg",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "eliminate",
@@ -3423,8 +3423,8 @@
     "FIG-B1-018": {
       "symptom_ref": "SYM-027",
       "zone": "hip_seat",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
@@ -3448,8 +3448,8 @@
     "FIG-B1-019": {
       "symptom_ref": "SYM-028",
       "zone": "hip_seat",
-      "width_pt": 326.0,
-      "height_pt": 288.3,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3473,8 +3473,8 @@
     "FIG-B1-020": {
       "symptom_ref": "SYM-029",
       "zone": "hip_seat",
-      "width_pt": 326.0,
-      "height_pt": 312.5,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "eliminate",
@@ -3498,8 +3498,8 @@
     "FIG-B1-021": {
       "symptom_ref": "SYM-030",
       "zone": "hip_seat",
-      "width_pt": 326.0,
-      "height_pt": 303.4,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "eliminate",
@@ -3523,7 +3523,7 @@
     "FIG-B1-022": {
       "symptom_ref": "SYM-001",
       "zone": "neck",
-      "width_pt": 326.0,
+      "width_pt": 458.0,
       "height_pt": 342.7,
       "terminals": [
         [
@@ -3548,8 +3548,8 @@
     "FIG-B1-023": {
       "symptom_ref": "SYM-002",
       "zone": "neck",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 318.5,
       "terminals": [
         [
           "handoff",
@@ -3573,8 +3573,8 @@
     "FIG-B1-024": {
       "symptom_ref": "SYM-003",
       "zone": "neck",
-      "width_pt": 326.0,
-      "height_pt": 318.5,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "handoff",
@@ -3598,8 +3598,8 @@
     "FIG-B1-025": {
       "symptom_ref": "SYM-004",
       "zone": "shoulder",
-      "width_pt": 326.0,
-      "height_pt": 290.1,
+      "width_pt": 458.0,
+      "height_pt": 327.6,
       "terminals": [
         [
           "handoff",
@@ -3623,8 +3623,8 @@
     "FIG-B1-026": {
       "symptom_ref": "SYM-005",
       "zone": "shoulder",
-      "width_pt": 326.0,
-      "height_pt": 342.7,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3648,8 +3648,8 @@
     "FIG-B1-027": {
       "symptom_ref": "SYM-006",
       "zone": "shoulder",
-      "width_pt": 326.0,
-      "height_pt": 318.5,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "handoff",
@@ -3673,8 +3673,8 @@
     "FIG-B1-028": {
       "symptom_ref": "SYM-007",
       "zone": "shoulder",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "eliminate",
@@ -3698,8 +3698,8 @@
     "FIG-B1-029": {
       "symptom_ref": "SYM-008",
       "zone": "shoulder",
-      "width_pt": 326.0,
-      "height_pt": 312.5,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "handoff",
@@ -3723,8 +3723,8 @@
     "FIG-B1-030": {
       "symptom_ref": "SYM-031",
       "zone": "sleeve_arm",
-      "width_pt": 326.0,
-      "height_pt": 318.5,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3748,8 +3748,8 @@
     "FIG-B1-031": {
       "symptom_ref": "SYM-032",
       "zone": "sleeve_arm",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "eliminate",
@@ -3773,8 +3773,8 @@
     "FIG-B1-032": {
       "symptom_ref": "SYM-033",
       "zone": "sleeve_arm",
-      "width_pt": 326.0,
-      "height_pt": 297.5,
+      "width_pt": 458.0,
+      "height_pt": 303.4,
       "terminals": [
         [
           "eliminate",
@@ -3798,8 +3798,8 @@
     "FIG-B1-033": {
       "symptom_ref": "SYM-034",
       "zone": "sleeve_arm",
-      "width_pt": 326.0,
-      "height_pt": 342.7,
+      "width_pt": 458.0,
+      "height_pt": 327.6,
       "terminals": [
         [
           "eliminate",
@@ -3823,8 +3823,8 @@
     "FIG-B1-034": {
       "symptom_ref": "SYM-009",
       "zone": "upper_back",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
@@ -3848,8 +3848,8 @@
     "FIG-B1-035": {
       "symptom_ref": "SYM-010",
       "zone": "upper_back",
-      "width_pt": 326.0,
-      "height_pt": 312.5,
+      "width_pt": 458.0,
+      "height_pt": 327.6,
       "terminals": [
         [
           "handoff",
@@ -3873,8 +3873,8 @@
     "FIG-B1-036": {
       "symptom_ref": "SYM-011",
       "zone": "upper_back",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 312.5,
       "terminals": [
         [
           "handoff",
@@ -3898,8 +3898,8 @@
     "FIG-B1-037": {
       "symptom_ref": "SYM-012",
       "zone": "upper_back",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 312.5,
       "terminals": [
         [
           "eliminate",
@@ -3923,8 +3923,8 @@
     "FIG-B1-038": {
       "symptom_ref": "SYM-022",
       "zone": "waist_torso",
-      "width_pt": 326.0,
-      "height_pt": 327.6,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "eliminate",
@@ -3948,8 +3948,8 @@
     "FIG-B1-039": {
       "symptom_ref": "SYM-023",
       "zone": "waist_torso",
-      "width_pt": 326.0,
-      "height_pt": 342.7,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -3973,7 +3973,7 @@
     "FIG-B1-040": {
       "symptom_ref": "SYM-024",
       "zone": "waist_torso",
-      "width_pt": 326.0,
+      "width_pt": 458.0,
       "height_pt": 312.5,
       "terminals": [
         [
@@ -3998,8 +3998,8 @@
     "FIG-B1-041": {
       "symptom_ref": "SYM-025",
       "zone": "waist_torso",
-      "width_pt": 326.0,
-      "height_pt": 342.7,
+      "width_pt": 458.0,
+      "height_pt": 318.5,
       "terminals": [
         [
           "handoff",
@@ -4023,8 +4023,8 @@
     "FIG-B1-042": {
       "symptom_ref": "SYM-026",
       "zone": "waist_torso",
-      "width_pt": 326.0,
-      "height_pt": 312.5,
+      "width_pt": 458.0,
+      "height_pt": 288.3,
       "terminals": [
         [
           "handoff",
@@ -4048,8 +4048,8 @@
     "FIG-B1-043": {
       "symptom_ref": "SYM-040",
       "zone": "whole_garment",
-      "width_pt": 326.0,
-      "height_pt": 312.5,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "handoff",
@@ -4073,8 +4073,8 @@
     "FIG-B1-044": {
       "symptom_ref": "SYM-041",
       "zone": "whole_garment",
-      "width_pt": 326.0,
-      "height_pt": 333.5,
+      "width_pt": 458.0,
+      "height_pt": 297.5,
       "terminals": [
         [
           "eliminate",
@@ -4098,8 +4098,8 @@
     "FIG-B1-045": {
       "symptom_ref": "SYM-042",
       "zone": "whole_garment",
-      "width_pt": 326.0,
-      "height_pt": 316.4,
+      "width_pt": 458.0,
+      "height_pt": 279.2,
       "terminals": [
         [
           "eliminate",
@@ -4123,8 +4123,8 @@
     "FIG-B1-046": {
       "symptom_ref": "SYM-043",
       "zone": "whole_garment",
-      "width_pt": 326.0,
-      "height_pt": 331.4,
+      "width_pt": 458.0,
+      "height_pt": 327.6,
       "terminals": [
         [
           "eliminate",
@@ -4282,7 +4282,7 @@
     "FIG-B1-061": {
       "measurement_ref": "M-008",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "source_conflict",
+      "caption_class": "verified",
       "width_pt": 186.0,
       "height_pt": 208.0,
       "source_file": "meas_M-008.pdf"
@@ -4314,7 +4314,7 @@
     "FIG-B1-065": {
       "measurement_ref": "M-013",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "source_conflict",
+      "caption_class": "verified",
       "width_pt": 186.0,
       "height_pt": 178.0,
       "source_file": "meas_M-013.pdf"
@@ -4330,7 +4330,7 @@
     "FIG-B1-067": {
       "measurement_ref": "M-015",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "verified",
+      "caption_class": "no_source",
       "width_pt": 186.0,
       "height_pt": 178.0,
       "source_file": "meas_M-015.pdf"
@@ -4346,7 +4346,7 @@
     "FIG-B1-069": {
       "measurement_ref": "M-017",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "verified",
+      "caption_class": "no_source",
       "width_pt": 186.0,
       "height_pt": 178.0,
       "source_file": "meas_M-017.pdf"
@@ -4410,7 +4410,7 @@
     "FIG-B1-077": {
       "measurement_ref": "M-025",
       "verification_status_of_record": "agent_drafted_unverified",
-      "caption_class": "source_conflict",
+      "caption_class": "verified",
       "width_pt": 214.0,
       "height_pt": 300.0,
       "source_file": "meas_M-025.pdf"
@@ -5166,7 +5166,7 @@
         ],
         [
           "AF-09",
-          "Sleeve cap (height, shape, ease)",
+          "Sleeve cap (height, shape, ease, and ho…",
           "sleeve_arm"
         ],
         [
@@ -6006,7 +6006,7 @@
           "Armhole"
         ],
         [
-          "Sleeve cap (height, shape, ease)",
+          "Sleeve cap (height, shape, ease, and how the sleeve is hung)",
           "Sleeve and arm"
         ],
         [
@@ -6374,7 +6374,7 @@
     },
     "FIG-B1-157": {
       "zone": "CYCLE",
-      "width_pt": 280.0,
+      "width_pt": 332.0,
       "height_pt": 346.0,
       "source_file": "flow_CYCLE.pdf"
     },
@@ -6460,62 +6460,62 @@
   "zone_chart_fit": {
     "neck": {
       "signs": 3,
-      "width_pt": 978.0,
+      "width_pt": 1374.0,
       "height_pt": 322.7,
       "fits_page": false
     },
     "shoulder": {
       "signs": 5,
-      "width_pt": 1630.0,
-      "height_pt": 322.7,
+      "width_pt": 2290.0,
+      "height_pt": 307.6,
       "fits_page": false
     },
     "upper_back": {
       "signs": 4,
-      "width_pt": 1304.0,
+      "width_pt": 1832.0,
       "height_pt": 307.6,
       "fits_page": false
     },
     "armhole": {
       "signs": 3,
-      "width_pt": 978.0,
-      "height_pt": 322.7,
+      "width_pt": 1374.0,
+      "height_pt": 283.4,
       "fits_page": false
     },
     "bust_chest": {
       "signs": 6,
-      "width_pt": 1956.0,
-      "height_pt": 307.6,
+      "width_pt": 2748.0,
+      "height_pt": 283.4,
       "fits_page": false
     },
     "waist_torso": {
       "signs": 5,
-      "width_pt": 1630.0,
-      "height_pt": 322.7,
+      "width_pt": 2290.0,
+      "height_pt": 298.5,
       "fits_page": false
     },
     "hip_seat": {
       "signs": 4,
-      "width_pt": 1304.0,
-      "height_pt": 307.6,
+      "width_pt": 1832.0,
+      "height_pt": 292.5,
       "fits_page": false
     },
     "sleeve_arm": {
       "signs": 4,
-      "width_pt": 1304.0,
-      "height_pt": 322.7,
+      "width_pt": 1832.0,
+      "height_pt": 307.6,
       "fits_page": false
     },
     "crotch_leg": {
       "signs": 5,
-      "width_pt": 1630.0,
-      "height_pt": 328.6,
+      "width_pt": 2290.0,
+      "height_pt": 307.6,
       "fits_page": false
     },
     "whole_garment": {
       "signs": 4,
-      "width_pt": 1304.0,
-      "height_pt": 313.5,
+      "width_pt": 1832.0,
+      "height_pt": 307.6,
       "fits_page": false
     }
   }

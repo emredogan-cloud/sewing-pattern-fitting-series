@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from figure_tokens import font, register_fonts  # noqa: E402
 
 from reportlab.pdfgen import canvas as rl_canvas  # noqa: E402
+from reportlab import rl_config  # noqa: E402
 from reportlab.pdfbase import pdfmetrics  # noqa: E402
 
 
@@ -39,8 +40,19 @@ class Typesetter:
         self.g = geom
         self.eng = engine
         register_fonts()
+        # ⚠ FAZ 6'DA ÖLÇÜLEN KUSUR: `pdffonts` çıktısı gömülmemiş bir
+        # `Helvetica` gösteriyordu (emb: no). Hiçbir görünür metin onu
+        # kullanmıyor — ReportLab'ın Canvas'ı VARSAYILAN yazı tipini
+        # sayfa kaynak sözlüğüne HER ZAMAN yazar. Ama KDP gömülmemiş
+        # yazı tipini dosya düzeyinde denetler ve yüklemede işaretler.
+        #
+        # Varsayılan, Canvas KURULMADAN ÖNCE gömülü bir yazı tipine
+        # çevrilir; böylece kaynak sözlüğünde Helvetica hiç oluşmaz.
+        rl_config.canvasrl_basefont = None      # (uyumluluk için)
+        rl_config.canvas_basefontname = font("serif")
         self.W = geom["trim"]["width_pt"]; self.H = geom["trim"]["height_pt"]
         self.c = rl_canvas.Canvas(str(out), pagesize=(self.W, self.H))
+        self.c.setFont(font("serif"), self.g["typography_grid"]["body_size_pt"])
         tb = geom["text_block"]
         self.tw = tb["width_pt"]
         self.side_w = tb["side_column_width_pt"]

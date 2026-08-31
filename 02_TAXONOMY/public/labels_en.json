@@ -142,7 +142,7 @@
           "evidence": "Pressure is clear at the BACK neckline and absent at the front; the back neckline also rides up."
         },
         {
-          "cause": "The shoulder seam has shifted forward and is loading the neckline",
+          "cause": "The shoulder is carried forward and the seam has been left behind it",
           "evidence": "The shoulder seam sits BEHIND the top-of-shoulder line — the shoulder is carried forward and the seam has been left behind it — and it creeps forward as you wear it."
         }
       ]
@@ -169,11 +169,11 @@
       "causes": [
         {
           "cause": "Shoulder slope is squarer than the pattern assumes",
-          "evidence": "Lines run OUT and DOWN from the neck point; fabric is tight at the shoulder tip and the seam is pressed onto the shoulder."
+          "evidence": "Fabric is TIGHT at the shoulder tip and the seam is pressed onto the shoulder; the lines run out and down from the neck point."
         },
         {
           "cause": "Shoulder slope is more sloping than the pattern assumes",
-          "evidence": "Lines run the other way — from the shoulder tip toward the neck; fabric GATHERS at the shoulder tip."
+          "evidence": "Fabric GATHERS at the shoulder tip instead of pulling; the lines run the other way, from the shoulder tip toward the neck."
         },
         {
           "cause": "Shoulder width is too narrow",
@@ -342,8 +342,8 @@
           "evidence": "The gap is there with the arm at your side, and the upper chest feels slack."
         },
         {
-          "cause": "The bust dart apex is off position, leaving excess above the bust",
-          "evidence": "Along with the gap there is a hollow, empty area ABOVE the bust."
+          "cause": "The bust dart points above the apex, leaving excess above the bust",
+          "evidence": "Along with the gap there is a hollow, empty area ABOVE the bust, and the pattern's dart point sits higher than your own apex."
         },
         {
           "cause": "Shoulder width is too wide",
@@ -662,7 +662,7 @@
       "causes": [
         {
           "cause": "Sleeve-cap notches are misaligned (shifted front or back)",
-          "evidence": "The twist runs the SAME way on both sleeves, and the cap notches do not line up with the shoulder seam."
+          "evidence": "The cap notches do not line up with the shoulder seam, and the twist runs the SAME way on both sleeves."
         },
         {
           "cause": "The sleeve's elbow curve does not match the arm's carriage (forward arm)",

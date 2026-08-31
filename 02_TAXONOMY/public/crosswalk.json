@@ -63,7 +63,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-002",
       "to_ref": "AF-05",
-      "handoff_sentence": "Belirti SYM-002 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz dikişi öne kaymış, yakayı boyna bindiriyor → AF-05 (Shoulder position (forward shoulder)).",
+      "handoff_sentence": "Belirti SYM-002 ve ayırt edici kanıt doğrulandığında teşhis şudur: Omuz ÖNE taşınmış ve dikiş ARKADA kalmış → AF-05 (Shoulder position (forward shoulder)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -378,7 +378,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-014",
       "to_ref": "AF-02",
-      "handoff_sentence": "Belirti SYM-014 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs pensi apeksi doğru yerde değil, üstte fazlalık bırakıyor → AF-02 (Bust position (apex height / width, dart angle)).",
+      "handoff_sentence": "Belirti SYM-014 ve ayırt edici kanıt doğrulandığında teşhis şudur: Göğüs pensi apeksin ÜSTÜNÜ gösteriyor, göğsün üstünde fazlalık bırakıyor → AF-02 (Bust position (apex height / width, dart angle)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -837,7 +837,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-031",
       "to_ref": "AF-09",
-      "handoff_sentence": "Belirti SYM-031 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı yüksekliği fazla → AF-09 (Sleeve cap (height, shape, ease)).",
+      "handoff_sentence": "Belirti SYM-031 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı yüksekliği fazla → AF-09 (Sleeve cap (height, shape, ease, and how the sleeve is hung)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -873,7 +873,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-032",
       "to_ref": "AF-09",
-      "handoff_sentence": "Belirti SYM-032 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i fazla, kol başında toplanma yaratıyor → AF-09 (Sleeve cap (height, shape, ease)).",
+      "handoff_sentence": "Belirti SYM-032 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i fazla, kol başında toplanma yaratıyor → AF-09 (Sleeve cap (height, shape, ease, and how the sleeve is hung)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -891,7 +891,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-033",
       "to_ref": "AF-09",
-      "handoff_sentence": "Belirti SYM-033 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol dirsek eğrisi vücuda uymuyor (öne dönük kol duruşu) → AF-09 (Sleeve cap (height, shape, ease)).",
+      "handoff_sentence": "Belirti SYM-033 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol dirsek eğrisi vücuda uymuyor (öne dönük kol duruşu) → AF-09 (Sleeve cap (height, shape, ease, and how the sleeve is hung)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },
@@ -909,7 +909,7 @@
       "direction": "DIAGNOSIS_TO_ADJUSTMENT",
       "from_ref": "SYM-034",
       "to_ref": "AF-09",
-      "handoff_sentence": "Belirti SYM-034 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i kumaş için fazla → AF-09 (Sleeve cap (height, shape, ease)).",
+      "handoff_sentence": "Belirti SYM-034 ve ayırt edici kanıt doğrulandığında teşhis şudur: Kol başı ease'i kumaş için fazla → AF-09 (Sleeve cap (height, shape, ease, and how the sleeve is hung)).",
       "exception": null,
       "verification_status": "agent_drafted_unverified"
     },

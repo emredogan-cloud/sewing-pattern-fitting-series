@@ -65,7 +65,9 @@
         "date": "2026-08-28"
       }
     ],
-    "directoryNameNote": "Dizin adları (TRUE-FIT-SEWING-PATTERN-FITTING-SERIES, BOOK-03-DRAFT-YOUR-OWN-BLOCK) eski adları taşır. Bu bir KİMLİK BEYANI DEĞİL, bir YOL DİZESİDİR. Yeniden adlandırma git geçmişini, CI yollarını ve on beş belgedeki bağlantıları aynı anda kırardı; kazanç sıfırdır çünkü hiçbir dizin adı okura görünmez. Kamuya dönük her yüzey publicName'i kullanır — validate_structure.py § check_retired_name_leak denetler."
+    "directoryNameNote": "Dizin adları (TRUE-FIT-SEWING-PATTERN-FITTING-SERIES, BOOK-03-DRAFT-YOUR-OWN-BLOCK) eski adları taşır. Bu bir KİMLİK BEYANI DEĞİL, bir YOL DİZESİDİR. Yeniden adlandırma git geçmişini, CI yollarını ve on beş belgedeki bağlantıları aynı anda kırardı; kazanç sıfırdır çünkü hiçbir dizin adı okura görünmez. Kamuya dönük her yüzey publicName'i kullanır — validate_structure.py § check_retired_name_leak denetler.",
+    "imprintName": "Vâliçe Press",
+    "imprintNameStatus": "Künye adı. PDF metadata'sına ve telif sayfasına bu ad yazılır. Marka taraması Faz 1'de yapıldı (PHASE_1_BRAND_SCREENING.md)."
   },
   "product": {
     "targetReader": "Orta seviye ev dikişçisi — dikmeyi biliyor, kalıbı harfiyen uyguluyor, giysi yine oturmuyor. Sorunun ADINI bilmiyor.",

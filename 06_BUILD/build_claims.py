@@ -120,15 +120,28 @@ def build(book_id: str) -> dict:
             "record_verification_status": status,
             "evidence_level": evidence_level(status, refs, srcs, contested, narrower),
             "source_support_note": support_note,
-            "reviewer_status": "pending",
+            # ⚠ KAYNAK ADLİ İNCELEMESİ (H-2): bu alan 309 kaydın
+            # 309'unda "pending" idi ve Ek G okura bağımsız incelemenin
+            # TAMAMLANDIĞINI söylüyordu. İkisi aynı anda doğru olamaz.
+            # Alan artık gerçeği söyler: incelemeler KOŞTU ve KAYIT
+            # DÜZEYİNDE imzalanmadı — bir inceleme kitabı okur, sicili
+            # satır satır imzalamaz. Sicilin işi bunu GİZLEMEMEKTİR.
+            "reviewer_status": "not_signed_off_at_record_level",
             "risk_note": risk,
         })
 
     # ① kavramsal iddialar — YÖNTEM katmanı
     cc = load(paths.book_spec(book_id).parent / "00_SPEC" / "CONCEPTUAL_CLAIMS.json")
     for c in cc["claims"]:
+        # ⚠ KAYNAK ADLİ İNCELEMESİ (M-1): burada durum SABİT yazılıydı ve
+        # sicil, kaynağında KELİMESİ KELİMESİNE bulunan bir yöntem
+        # iddiasını VERIFIED gösteremiyordu. Bir sicil kanıtı olduğundan
+        # ZAYIF göstermemelidir; bu da bir ölçüm hatasıdır.
         add("conceptual", c["chapter"], c["claim"], c["source_refs"],
-            "agent_drafted_unverified", c["id"], risk=c["risk_note"])
+            c.get("verification_status", "agent_drafted_unverified"), c["id"],
+            risk=c["risk_note"],
+            narrower=c.get("source_support") == "narrower",
+            support_note=c.get("source_support_note"))
 
     # ② ölçü tanımları — her ölçü İKİ iddia taşır: TANIM ve YOL
     for m in load(paths.MEASUREMENTS)["measurements"]:
@@ -181,11 +194,22 @@ def build(book_id: str) -> dict:
             # söylemiyordu. Sıra iddiası artık `order_source_refs`ten
             # türer; o boşsa iddia UNVERIFIED'dır.
             oref = a.get("order_source_refs", a.get("source_refs") or [])
+            # ⚠ KAYNAK ADLİ İNCELEMESİ (H-4): yirmi sıra iddiasının METNİ
+            # BİRBİRİNİN AYNISIYDI ("bir sıra kısıtı taşır") ve dört ayrı
+            # kanıt düzeyi taşıyordu. Bir incelemeci iddiayı OKUYUP
+            # doğrulayamıyordu, çünkü iddia kısıtın NE OLDUĞUNU
+            # söylemiyordu. Metin artık kısıtı taşır.
             add("adjustment_order", "B1-CH16",
-                f"{aid} carries an ordering constraint relative to other families.",
-                oref, a["verification_status"], aid,
+                f"{a['name']} — ordering constraint: {a['order_constraint']}",
+                oref,
+                # sıra iddiasının kayıt durumu SIRA kanıtından gelir;
+                # ailenin kendi durumu ondan bağımsızdır
+                ("technical_reference_verified" if oref
+                 else "agent_drafted_unverified"),
+                aid,
                 risk="Out-of-order adjustment invalidates work already done.",
-                narrower=a.get("order_support") == "narrower")
+                narrower=a.get("order_support") == "narrower",
+                support_note=a.get("order_support_note"))
 
     # ④ belirti gözlemi + her aday nedenin AYIRT EDİCİ KANITI
     #    Bu, kitabın EN RİSKLİ iddia sınıfıdır: 129 nedensel ilişki,
@@ -217,7 +241,10 @@ def build(book_id: str) -> dict:
         "$comment": [
             "ÜRETİLMİŞ DOSYA — elle düzenlenmez. Kaynak: 06_BUILD/build_claims.py",
             "evidence_level TÜRETİLMİŞTİR; hiçbir iddia kendi seviyesini beyan etmez.",
-            "reviewer_status Faz 4 bağımsız incelemesi tarafından doldurulur.",
+            "reviewer_status: bağımsız incelemeler KİTABI okur ve bulgularını "
+            "raporlara yazar; sicili SATIR SATIR imzalamazlar. Alan bu yüzden "
+            "'not_signed_off_at_record_level' der ve 'pending' DEMEZ — bekleyen bir "
+            "şey yok, yapılmayan bir şey var ve fark söylenmelidir.",
         ],
         "generated_by": "06_BUILD/build_claims.py",
         "book": book_id,

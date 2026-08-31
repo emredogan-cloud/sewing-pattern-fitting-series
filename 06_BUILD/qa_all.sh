@@ -42,6 +42,14 @@ echo "────────────────────────�
 RC=$?
 if [ "$RC" -eq 1 ]; then FAIL=1; fi
 echo "──────────────────────────────────────────────────────────────"
+# ── FAZ 6 · YAYIN VARLIĞI ─────────────────────────────────────────────
+# Bu kapı ÜRETİLEN PDF'i ölçer, veriyi değil. build_book.py'den SONRA
+# koşmak zorundadır. poppler yoksa çıkış kodu 2'dir ve UYARI sayılır.
+"$PY" 06_BUILD/qa_format.py --verbose
+RC=$?
+if [ "$RC" -eq 1 ]; then FAIL=1; fi
+if [ "$RC" -eq 2 ]; then echo "⚠ BASKI KAPISI ATLANDI — poppler-utils yok."; fi
+echo "──────────────────────────────────────────────────────────────"
 "$PY" 07_TESTS/selftest_visual.py
 RC=$?
 if [ "$RC" -eq 2 ]; then

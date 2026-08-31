@@ -15,9 +15,10 @@
     "",
     "risk_note: bu iddia yanlışsa okur ne yapar. Boş bırakılamaz.",
     "FAZ 4: 14 kavramsal iddia bağımsız inceleme sonucunda YENİDEN YAZILDI. Değişenler phase4_review alanı taşır. CC-19 ve CC-20'nin 'kaynaksız' kaydı bir DEPO HATASIYDI — S-0003 kuralı birebir yazıyor; düzeltildi.",
-    "FAZ 4 İKİNCİ TUR: CC-17, CC-20, CC-22, CC-23, CC-24, CC-25, CC-29 teşhis mantığı incelemesi sonucunda yeniden yazıldı. Dördü ATIF DÜZELTMESİDİR: S-0004 tam metin okundu ve o iddiaları İÇERMİYOR."
+    "FAZ 4 İKİNCİ TUR: CC-17, CC-20, CC-22, CC-23, CC-24, CC-25, CC-29 teşhis mantığı incelemesi sonucunda yeniden yazıldı. Dördü ATIF DÜZELTMESİDİR: S-0004 tam metin okundu ve o iddiaları İÇERMİYOR.",
+    "İKİNCİ İÇERİK TURU · KAYNAK ADLİ İNCELEMESİ (M-1): sicil bir KAVRAMSAL iddiayı DOĞRULANMIŞ gösteremiyordu — build_claims hepsine 'agent_drafted_unverified' yazıyordu. Sonuç: kaynağında KELİMESİ KELİMESİNE bulunan dokuz yöntem iddiası INFERRED görünüyordu. Bu bir GÜVENSİZLİK değil, bir ÖLÇÜM HATASIDIR: sicilin işi kanıtı olduğu gibi göstermektir, olduğundan zayıf da değil. Kayıt artık kendi doğrulama durumunu taşır ve build_claims onu OKUR."
   ],
-  "count": 31,
+  "count": 32,
   "claims": [
     {
       "id": "CC-01",
@@ -60,7 +61,10 @@
         "S-0006",
         "S-0001"
       ],
-      "risk_note": "Systematically undersized measurements produce garments that are too tight everywhere and look like a size problem."
+      "risk_note": "Systematically undersized measurements produce garments that are too tight everywhere and look like a size problem.",
+      "verification_status": "technical_reference_verified",
+      "source_support": "narrower",
+      "source_support_note": "S-0006 BİREBİR: 'the tape sits parallel to the floor and lies snug but does not compress the skin.' İkinci yarısı (sıkı şerit küçük vücut kaydeder) kitabın çıkarımıdır."
     },
     {
       "id": "CC-05",
@@ -92,7 +96,9 @@
       "source_refs": [
         "S-0003"
       ],
-      "risk_note": "Stale measurements are diagnosed as pattern faults."
+      "risk_note": "Stale measurements are diagnosed as pattern faults.",
+      "verification_status": "technical_reference_verified",
+      "source_support_note": "S-0003 BİREBİR: 'Measurements should be taken at least every 6 months and/or when weight or the figure has varied significantly.'"
     },
     {
       "id": "CC-08",
@@ -152,7 +158,9 @@
       "source_refs": [
         "S-0003"
       ],
-      "risk_note": "Uncorrected flat measurement makes every pattern look too small and triggers unnecessary adjustments."
+      "risk_note": "Uncorrected flat measurement makes every pattern look too small and triggers unnecessary adjustments.",
+      "verification_status": "technical_reference_verified",
+      "source_support_note": "S-0003 BİREBİR: 'Pin in darts, pleats or gathers as though sewn. Measure from seamline to seamline.' — S-0002: 'Do not include darts or seam allowances in any of the measurements.'"
     },
     {
       "id": "CC-13",
@@ -205,7 +213,10 @@
         "reviewer": "protocol",
         "resolution": "ACCEPTED",
         "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
-      }
+      },
+      "verification_status": "technical_reference_verified",
+      "source_support": "narrower",
+      "source_support_note": "Kaynaklar ÖLÇÜM koşulu için söyler (S-0002 iç giyim, S-0003 ayakkabı); kitap onu PROVA oturumuna genişletir."
     },
     {
       "id": "CC-17",
@@ -248,7 +259,10 @@
         "reviewer": "protocol",
         "resolution": "ACCEPTED",
         "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
-      }
+      },
+      "verification_status": "technical_reference_verified",
+      "source_support": "narrower",
+      "source_support_note": "S-0003 BİREBİR 'Make only one alteration at a time' der; bu bir DÜZELTME kuralıdır. Kitap onu PROVA TESTİNE genişletir ve genişletme kitabındır."
     },
     {
       "id": "CC-20",
@@ -303,7 +317,9 @@
         "reviewer": "diagnostic_logic",
         "resolution": "ACCEPTED",
         "note": "'o yönde' ibaresi SİLİNDİ: kaynak yön hakkında hiçbir şey söylemiyor ve o ek, CC-22'yi CC-23'ün içine sokarak kaynaksız bir iddiayı kaynaklı gösteriyordu."
-      }
+      },
+      "verification_status": "technical_reference_verified",
+      "source_support_note": "S-0004 BİREBİR: 'Too little ease will produce wrinkles that pull and draw the fabric. Wrinkles that lie in folds indicate too much ease.'"
     },
     {
       "id": "CC-24",
@@ -340,7 +356,9 @@
         "S-0004",
         "S-0003"
       ],
-      "risk_note": "Off-grain cutting mimics almost every asymmetric fit sign in the book."
+      "risk_note": "Off-grain cutting mimics almost every asymmetric fit sign in the book.",
+      "verification_status": "technical_reference_verified",
+      "source_support_note": "S-0004 BİREBİR: 'The lengthwise grain should be perpendicular to the floor. The crosswise grain should be parallel to the floor.' — S-0003'ün uyum listesi aynısını söyler."
     },
     {
       "id": "CC-27",
@@ -368,7 +386,10 @@
         "reviewer": "protocol",
         "resolution": "ACCEPTED",
         "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
-      }
+      },
+      "verification_status": "technical_reference_verified",
+      "source_support": "narrower",
+      "source_support_note": "İki kural BİREBİR kaynaklıdır (S-0003 boy-önce-genişlik; S-0002 derinlik-önce-uzunluk); diğer ikisi kitabın GEOMETRİK türetmesidir ve metin bunu söyler."
     },
     {
       "id": "CC-29",
@@ -395,7 +416,10 @@
         "reviewer": "protocol",
         "resolution": "ACCEPTED",
         "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
-      }
+      },
+      "verification_status": "technical_reference_verified",
+      "source_support": "narrower",
+      "source_support_note": "S-0002 BİREBİR: 'If you make any changes, mark them on the pattern so it will be correct the next time you use it.' Sayı olarak da kaydetme kitabın eklemesidir."
     },
     {
       "id": "CC-31",
@@ -408,6 +432,19 @@
         "resolution": "ACCEPTED",
         "note": "Faz 4 bağımsız teknik inceleme (PHASE_4_INDEPENDENT_TECHNICAL_REVIEW.md) uyarınca yeniden yazıldı."
       }
+    },
+    {
+      "id": "CC-32",
+      "chapter": "B1-CH07",
+      "claim": "A dart points toward the fullest part of the curve it shapes and stops before reaching it. Two published guides state this; neither gives a distance, and this book does not supply one.",
+      "source_refs": [
+        "S-0004",
+        "S-0007"
+      ],
+      "verification_status": "technical_reference_verified",
+      "source_support": "narrower",
+      "source_support_note": "S-0004: 'Darts should point toward [but] stop short of the fullest part of the area they shape.' S-0007: 'A dart… should point toward the fullest part of the curve it is intended to fit… Darts usually should end before they reach the fullest part (crown) of the curve.' İKİSİ DE MESAFE VERMEZ; kitabın 'küçük adımlarla yaklaştır' talimatı kendisine aittir. ⚠ S-0007 taranmış bir arşiv belgesidir (1963) ve `verification_level` YÜKSELTİLMEMİŞTİR — o yüzden bu iddianın kanıt düzeyi S-0004'ün tam metnine dayanır.",
+      "risk_note": "Pens ucunun apekse VARMASI göğsün üstünde kabarcık, ÇOK ERKEN bitmesi hacmi yanlış yere koyar. İki kusur ZIT yönlüdür ve mesafe verilmediği için okurun tek rehberi fiziksel testtir."
     }
   ]
 }

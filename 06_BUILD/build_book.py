@@ -503,6 +503,18 @@ def main() -> int:
             print(f"    - {e}")
         return 1
 
+    # ⚠ FAZ 6'DA ÖLÇÜLEN KUSUR: `pdfinfo` şunu gösteriyordu —
+    #   Title: untitled · Author: anonymous · Creator: anonymous
+    # Görev talimatı § 43: nihai yayın varlığında YER TUTUCU METİN
+    # KALAMAZ. Künye, KAYITTAN yazılır; elle girilmez.
+    _series = cfg["series"]["workingName"]
+    _title = f"{_series} — Book 1: {bookcfg['book']['workingTitle'].split('—')[-1].strip()}"
+    ts.c.setTitle(_title)
+    ts.c.setSubject(bookcfg["book"]["workingSubtitle"])
+    ts.c.setAuthor(cfg["series"].get("imprintName", "Vâliçe Press"))
+    ts.c.setCreator("06_BUILD/build_book.py — figure_engine + typeset (bu depo)")
+    ts.c.setKeywords(["sewing", "pattern fitting", "pattern alteration",
+                      "diagnosis", "toile", "muslin", "home sewing"])
     ts.save()
     total = ts.page
 

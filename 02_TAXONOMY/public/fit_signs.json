@@ -43,7 +43,7 @@
         {
           "cause": "Yaka eğrisi vücut için fazla geniş/derin",
           "distinguishing_evidence": "Açıklık dik dururken de öne eğilirken de AYNI, yakanın tamamında eşit ve ARKA yaka da vücuttan ayrılıyor.",
-          "confirming_measurement": "Kalıp yaka eğrisi uzunluğu vs. M-013 boyun tabanı çevresi",
+          "confirming_measurement": "PR-14 TAM yaka eğrisi (ön+arka) vs. M-013",
           "physical_test": "Yakayı iğneyle daralt: açıklık kapanıyor ve boyun sıkışmıyorsa neden budur.",
           "adjustment_family_ref": "AF-06",
           "likelihood_note": null,
@@ -166,7 +166,7 @@
           "test_cost": 4
         },
         {
-          "cause": "Omuz dikişi öne kaymış, yakayı boyna bindiriyor",
+          "cause": "Omuz ÖNE taşınmış ve dikiş ARKADA kalmış",
           "distinguishing_evidence": "Omuz dikişi omuz üstü çizgisinin ARKASINDA duruyor — omuz öne taşınmış ve dikiş geride kalmış — ve giydikçe öne kayıyor.",
           "confirming_measurement": "TR-01 — dikiş işaretli çizginin ARKASINDA (SYM-006 ile AYNI yön)",
           "physical_test": "Omuz dikişini geriye doğru iğnele.",
@@ -232,7 +232,7 @@
             "kind": "compare"
           },
           "test_cost": 4,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: your number larger than the pattern's. The pattern is meant to be longer than you by the wearing ease — Appendix J prints 2.5–5.1 cm for this one — so what supports the cause is a difference OUTSIDE that band, not merely a difference."
         },
         {
           "cause": "Kürek kemiği genişliği yetersiz, kumaşı yukarı çekiyor",
@@ -303,7 +303,7 @@
       "candidate_causes": [
         {
           "cause": "Omuz eğimi kalıbın varsaydığından DİK (square shoulder)",
-          "distinguishing_evidence": "Çizgiler boyun noktasından DIŞA-AŞAĞI iniyor; omuz ucunda kumaş gergin, omuz dikişi omza yapışık.",
+          "distinguishing_evidence": "Omuz ucunda kumaş GERGİN ve dikiş omza bastırıyor; çizgiler boyun noktasından dışa ve aşağı iniyor.",
           "confirming_measurement": "M-034 (omuz eğimi) vs. PR-10 kalıp omuz eğimi — okurun düşüşü KÜÇÜK",
           "physical_test": "Omuz dikişini omuz ucunda 5–10 mm KALDIR (dikişi aç ve yukarı iğnele): çizgiler kayboluyorsa neden eğimdir.",
           "adjustment_family_ref": "AF-03",
@@ -323,7 +323,7 @@
         },
         {
           "cause": "Omuz eğimi kalıbın varsaydığından EĞİK (sloping shoulder)",
-          "distinguishing_evidence": "Çizgiler ters yönde — omuz ucundan boyuna doğru; omuz ucunda kumaş TOPLANIYOR.",
+          "distinguishing_evidence": "Omuz ucunda kumaş çekmiyor, TOPLANIYOR; çizgiler ters yönde, omuz ucundan boyuna doğru gidiyor.",
           "confirming_measurement": "M-034 vs. PR-10 — okurun düşüşü BÜYÜK (aynı iki sayı, ters yön)",
           "physical_test": "Omuz dikişini omuz ucunda 5–10 mm ALÇALT.",
           "adjustment_family_ref": "AF-03",
@@ -762,7 +762,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: your number smaller than the pattern's. The pattern is meant to be longer than you by the wearing ease — Appendix J prints 2.5–5.1 cm for this one — so what supports the cause is a difference OUTSIDE that band, not merely a difference."
         },
         {
           "cause": "Kürek çıkıntısı için ayrılmış şekillendirme kullanılmıyor (düz sırt)",
@@ -940,7 +940,7 @@
             "kind": "compare"
           },
           "test_cost": 4,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: your number larger than the pattern's. The pattern is meant to be longer than you by the wearing ease — Appendix J prints 2.5–5.1 cm for this one — so what supports the cause is a difference OUTSIDE that band, not merely a difference."
         },
         {
           "cause": "Kalça/oturak hacmi kumaşı yukarı çekiyor",
@@ -1055,7 +1055,7 @@
             "kind": "compare"
           },
           "test_cost": 4,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: your number larger than the pattern's. The pattern is meant to be longer than you by the wearing ease — Appendix J prints 2.5–5.1 cm for this one — so what supports the cause is a difference OUTSIDE that band, not merely a difference."
         },
         {
           "cause": "Fermuar dikilirken gerdirilmiş",
@@ -1120,7 +1120,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the gap between the pattern's armhole depth and yours is small — smaller than on a garment whose underarm clears comfortably. There is no published threshold and this book does not invent one."
         },
         {
           "cause": "Kol bicep hattı dar",
@@ -1210,8 +1210,8 @@
           "expected": "Supports this cause: your number smaller than the pattern's."
         },
         {
-          "cause": "Göğüs pensi apeksi doğru yerde değil, üstte fazlalık bırakıyor",
-          "distinguishing_evidence": "Açıklıkla birlikte göğsün ÜSTÜNDE boş bir alan var.",
+          "cause": "Göğüs pensi apeksin ÜSTÜNÜ gösteriyor, göğsün üstünde fazlalık bırakıyor",
+          "distinguishing_evidence": "Açıklıkla birlikte göğsün ÜSTÜNDE boş bir oyuk var ve kalıbın pens ucu okurun apeksinden YUKARIDA duruyor.",
           "confirming_measurement": "M-017 (omuz–apeks) vs. kalıp pens konumu",
           "physical_test": "Pens ucunu apekse doğru taşı.",
           "adjustment_family_ref": "AF-02",
@@ -1227,7 +1227,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's dart point sits ABOVE where your shoulder-to-apex measurement puts your apex — the same condition as the hollow-above-the-bust entry in Chapter 11, and the same correction."
         },
         {
           "cause": "Omuz genişliği fazla",
@@ -1613,7 +1613,11 @@
             "toile": [],
             "kind": "none"
           },
-          "test_cost": 0
+          "test_cost": 0,
+          "cross_route": {
+            "condition_en": "the swing is symmetrical on both sides and the front hem sits higher than the back, which is a front-to-back balance fault rather than a grain fault",
+            "family_ref": "AF-11"
+          }
         }
       ],
       "confounders_to_rule_out": [
@@ -1664,7 +1668,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the pattern's dart point reaches the apex or passes it. Both published guides say a dart stops short of the fullest point; neither gives a distance."
         },
         {
           "cause": "Pens hacmi vücuda göre fazla",
@@ -1853,7 +1857,7 @@
             "kind": "read"
           },
           "test_cost": 3,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: the extension does not carry your intended button clear of the front edge. There is no published width to compare it with."
         },
         {
           "cause": "Düğme aralığı göğüs hizasına düğme koymuyor",
@@ -2032,7 +2036,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: your number smaller than the pattern's. The pattern is meant to be longer than you by the wearing ease — Appendix J prints 2.5–5.1 cm for this one — so what supports the cause is a difference OUTSIDE that band, not merely a difference."
         },
         {
           "cause": "Oturak hacmi kumaşı yukarı itiyor",
@@ -2378,7 +2382,7 @@
             "kind": "compare"
           },
           "test_cost": 4,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: your full hip larger than the pattern's hip line, AND the pattern's back share smaller than the seat needs."
         },
         {
           "cause": "Ağ uzunluğu yetersiz (pantolonda)",
@@ -2398,7 +2402,11 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number larger than the pattern's."
+          "expected": "Supports this cause: your number larger than the pattern's.",
+          "cross_route": {
+            "condition_en": "the pull increases when you sit and eases when you stand, which is crotch DEPTH and must be settled before crotch length",
+            "family_ref": "AF-15"
+          }
         },
         {
           "cause": "Genel kalça çevresi yetersiz",
@@ -2439,7 +2447,7 @@
         "Yan dikişleri açma — oturak hacmi ARKA parçada gerekir; yandan eklenen genişlik oraya gitmez.",
         "Bel bandını gevşetme."
       ],
-      "adjustment_order_note": null,
+      "adjustment_order_note": "AF-15 (ağ derinliği) bu girişte YOKTUR ve okur oturunca artan bir çekmede ÖNCE oraya gitmelidir — S-0002'nin 'derinlik önce' kuralı. Çapraz yönlendirme C2'de.",
       "book1_chapter_ref": "B1-CH13",
       "figure_refs": [],
       "source_refs": [
@@ -2520,7 +2528,7 @@
             "kind": "compare"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: your number smaller than the pattern's. The pattern is meant to be longer than you by the wearing ease — Appendix J prints 2.5–5.1 cm for this one — so what supports the cause is a difference OUTSIDE that band, not merely a difference."
         }
       ],
       "confounders_to_rule_out": [
@@ -2866,7 +2874,7 @@
             "kind": "read"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the cap curve exceeds the armhole curve by a large amount. There is no body measurement to compare it with; the excess is a property of the pattern."
         }
       ],
       "confounders_to_rule_out": [
@@ -2897,7 +2905,7 @@
       "candidate_causes": [
         {
           "cause": "Kol başı çentikleri yanlış hizalanmış (öne/arkaya kaymış)",
-          "distinguishing_evidence": "Dönme her iki kolda AYNI yönde; kol başı çentikleri omuz dikişiyle örtüşmüyor.",
+          "distinguishing_evidence": "Kol başı çentikleri omuz dikişiyle hizalanmıyor ve burulma iki kolda AYNI yönde.",
           "confirming_measurement": "PR-22 kalıp çentik konumları — koltuk altından yürütülen İKİ eğri okuması",
           "physical_test": "Kolu sök, çentikleri hizala, yeniden tak.",
           "adjustment_family_ref": null,
@@ -2995,7 +3003,7 @@
             "kind": "read"
           },
           "test_cost": 2,
-          "expected": "Supports this cause: your number smaller than the pattern's."
+          "expected": "Supports this cause: the cap curve exceeds the armhole curve by more than the fabric will ease in. There is no body measurement here and no published figure — this is the pattern against itself, and the physical test decides."
         },
         {
           "cause": "Kol başı ease'i doğru ama dağıtım/pot alma yapılmamış",

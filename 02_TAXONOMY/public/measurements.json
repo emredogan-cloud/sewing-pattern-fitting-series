@@ -9,7 +9,8 @@
     "FAZ 4 BAĞIMSIZ İNCELEME: M-001'in yolu 'kolların ÜSTÜNDEN' diyordu; doğrusu kolların ALTINDAN, göğüs dokusunun ÜSTÜNDEN'dir. Karar taşıyan bir tanımdı — göğüs−üst göğüs farkını ve dolayısıyla beden seçimini doğrudan etkiliyordu.",
     "FAZ 4 BAĞIMSIZ İNCELEME: M-015 iki ayrı ölçünün birleştirilmesiydi ve DÜZELTİLDİ; M-004'e ISO 8559-1 tanımı eklendi; M-001'in yolu daraltıldı; helper_required dosya boyunca dolduruldu; S-0003'ün landmark atıfları bağlam olarak yeniden etiketlendi.",
     "İÇERİK TURU (31 Ağu 2026): M-034 omuz eğimi EKLENDİ — beş doğrulama adımı ölçülemeyen bir niceliğe başvuruyordu (L-2). M-005/M-007/M-009/M-010/M-020/M-022/M-024/M-027 kaynak tam metinleri yeniden okunarak DÜZELTİLDİ (L-3). `source_support: narrower` alanı, kaynağın iddiadan DAR bir ifadeyi desteklediği kayıtları işaretler ve iddia sicilini VERIFIED_NARROWER'a düşürür.",
-    "İKİNCİ İÇERİK TURU · M-13: `landmark_kind` EKLENDİ. Figür başlığı 30 ölçünün hepsine 'her iki nirengi de GÖRÜNÜR, bu yüzden yol tekrarlanabilir' basıyordu ve bir düzininde YANLIŞTI — 'en dolgun nokta' görünür bir nirengi değildir ve iki okur onu aynı yerde bulmaz. Başlık artık kayıttan TÜRER, beyan edilmez."
+    "İKİNCİ İÇERİK TURU · M-13: `landmark_kind` EKLENDİ. Figür başlığı 30 ölçünün hepsine 'her iki nirengi de GÖRÜNÜR, bu yüzden yol tekrarlanabilir' basıyordu ve bir düzininde YANLIŞTI — 'en dolgun nokta' görünür bir nirengi değildir ve iki okur onu aynı yerde bulmaz. Başlık artık kayıttan TÜRER, beyan edilmez.",
+    "İKİNCİ İÇERİK TURU · KAYNAK ADLİ İNCELEMESİ (31 Ağu 2026): S-0003 onbeş ölçüde TANIMSAL atıf olarak duruyordu ve o belge kendi metninde ölçü tanımı İÇERMEDİĞİNİ söylüyor. Atıf kaldırıldı. M-008/M-013/M-025 'kaynaklar çelişiyor' diye işaretliydi ama her birinde TEK kaynak var ve kitap onun TERSİNİ öğretiyor — üçü de 'kitap kaynağından ayrılıyor'a taşındı. M-020 tanımı S-0005'te BİREBİR var ama S-0001 aynı bölgeyi başka türlü ölçer ve kitap onu okur HATASI diye basıyordu."
   ],
   "count": 33,
   "measurements": [
@@ -36,11 +37,11 @@
       ],
       "pattern_counterpart": "Ön+arka beden üst göğüs hattı toplamı",
       "source_refs": [
-        "S-0001",
-        "S-0003"
+        "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "landmark_kind": "fullest"
+      "landmark_kind": "fullest",
+      "notes": " ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez."
     },
     {
       "measurement_id": "M-002",
@@ -64,11 +65,10 @@
       ],
       "pattern_counterpart": "Ön+arka beden göğüs hattı toplamı",
       "source_refs": [
-        "S-0001",
-        "S-0003"
+        "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi.",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "landmark_kind": "fullest"
     },
     {
@@ -119,13 +119,13 @@
       "pattern_counterpart": "Bel dikişi/bel hattı toplamı",
       "source_refs": [
         "S-0002",
-        "S-0003",
         "S-0006"
       ],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Kaynaklar TANIMDA çelişir ve çelişki BEYAN EDİLİR. S-0006 (NHANES) beli KEMİKLE tanımlar — 'a horizontal line just above the uppermost lateral border of the right ilium' — ve bu tanım bu turda tam metinden BİREBİR doğrulandı. Dikiş kaynakları beli ŞEKİLLE ya da ALIŞKANLIKLA tanımlar. ⚠ ÖNCEKİ DURUM: Bölüm 2 bu tanımı ISO 8559-1 §3.1.22'ye atfediyordu; o madde EDİNİLEMEDİ (S-0014 budget_pending) ve atıf DOĞRULANAMIYORDU. Atıf, okunabilen kaynağa taşındı.",
+      "notes": "Kaynaklar TANIMDA çelişir ve çelişki BEYAN EDİLİR. S-0006 (NHANES) beli KEMİKLE tanımlar — 'a horizontal line just above the uppermost lateral border of the right ilium' — ve bu tanım bu turda tam metinden BİREBİR doğrulandı. Dikiş kaynakları beli ŞEKİLLE ya da ALIŞKANLIKLA tanımlar. ⚠ ÖNCEKİ DURUM: Bölüm 2 bu tanımı ISO 8559-1 §3.1.22'ye atfediyordu; o madde EDİNİLEMEDİ (S-0014 budget_pending) ve atıf DOĞRULANAMIYORDU. Atıf, okunabilen kaynağa taşındı. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "source_conflict": true,
-      "landmark_kind": "marked"
+      "landmark_kind": "marked",
+      "source_support_note": "S-0006 beli KEMİKLE tanımlar (iliak kanadın üst kenarı); S-0003 bele bir ip bağlatır ve seviyeyi okura bırakır. İkisi de tam metin okundu ve GERÇEKTEN farklı seviyeler verir. Kitap birini seçmez; İŞARETLEMEYİ dayatır."
     },
     {
       "measurement_id": "M-005",
@@ -234,8 +234,10 @@
       ],
       "verification_status": "agent_drafted_unverified",
       "notes": "Faz 4: bu bir tanım çelişkisi DEĞİLDİR. Bilek çevresi ve el çevresi iki AYRI ölçüdür ve iki ayrı soruyu yanıtlar. Bu depo yalnızca bilek çevresini topluyor; AÇILMAYAN bir manşet elin üzerinden geçmek zorundadır ve o karar el çevresini ister. Kitapta ikisi ayrı ayrı anlatılır. Faz 4 bağımsız teknik incelemesi.",
-      "source_conflict": true,
-      "landmark_kind": "bone"
+      "source_conflict": false,
+      "landmark_kind": "bone",
+      "source_support": "narrower",
+      "source_support_note": "⚠ Kaynak adli incelemesi (C-2): bu kayıt CONTESTED işaretliydi ve okura 'bazı kaynaklar şöyle, bazıları böyle' deniyordu. Ama kayıtta TEK kaynak var (S-0001) ve o kaynak 'around the widest part of the HAND' diyor. Kitabın seçtiği taraf ('the wrist bone') HİÇBİR kaynağa dayanmıyor. Bu bir kurumlar arası anlaşmazlık DEĞİL, kitabın kendi kaynağından AYRILMASIDIR ve artık öyle beyan edilir."
     },
     {
       "measurement_id": "M-009",
@@ -259,11 +261,10 @@
       "pattern_counterpart": null,
       "source_refs": [
         "S-0001",
-        "S-0002",
-        "S-0003"
+        "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "İki kaynak farklı nirengi verir: S-0002 'thigh at fullest part' (kitabın tanımı), S-0001 'measure 9 inches down from waistline, around heaviest part'. Kitap S-0002'yi izler; S-0001'in yükseklik kısıtını TAŞIMAZ.",
+      "notes": "İki kaynak farklı nirengi verir: S-0002 'thigh at fullest part' (kitabın tanımı), S-0001 'measure 9 inches down from waistline, around heaviest part'. Kitap S-0002'yi izler; S-0001'in yükseklik kısıtını TAŞIMAZ. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "landmark_kind": "fullest"
     },
     {
@@ -288,9 +289,9 @@
         "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "source_support": "narrower",
-      "source_support_note": "S-0002 dizi 'l in. above center of knee' hizasında ölçer ve kalıp tarafını da o hizada okur. Kitabın nirengisi diz kapağının ORTASIYDI; ölçü kaynağın hizasına ÇEKİLDİ ve fark kayda yazıldı — çünkü kalıbın diz çizgisi kaynağın hizasında okunur ve iki taraf aynı hizada olmazsa karşılaştırma anlamsızdır.",
-      "landmark_kind": "level"
+      "source_support_note": null,
+      "landmark_kind": "level",
+      "notes": "S-0002 dizi 'l in. above center of knee' hizasında ölçer ve kalıp tarafını da o hizada okur. Kitap bu hizayı İZLER. ⚠ Kaynak adli incelemesi (H-3): kayıt bir süre 'bu kitap kaynağından ayrılıyor' diyordu; ölçü kaynağın hizasına ÇEKİLDİKTEN SONRA o beyan YANLIŞ hâle geldi ve kaldırıldı. Ayrılık YOK."
     },
     {
       "measurement_id": "M-011",
@@ -338,8 +339,10 @@
       ],
       "verification_status": "agent_drafted_unverified",
       "notes": "Faz 4: bu da bir tanım çelişkisi DEĞİLDİR. Boyun TABANI çevresi ile boyun çevresi iki ayrı ölçüdür. Yaka kararları taban çevresinden okunur. Faz 4 bağımsız teknik incelemesi.",
-      "source_conflict": true,
-      "landmark_kind": "marked"
+      "source_conflict": false,
+      "landmark_kind": "marked",
+      "source_support": "narrower",
+      "source_support_note": "⚠ Kaynak adli incelemesi (C-2): bu kayıt CONTESTED işaretliydi ve okura 'bazı kaynaklar şöyle, bazıları böyle' deniyordu. Ama kayıtta TEK kaynak var (S-0001) ve o kaynak '1 inch ABOVE the base of the neck' diyor. Kitabın seçtiği taraf ('the base of the neck') HİÇBİR kaynağa dayanmıyor. Bu bir kurumlar arası anlaşmazlık DEĞİL, kitabın kendi kaynağından AYRILMASIDIR ve artık öyle beyan edilir."
     },
     {
       "measurement_id": "M-014",
@@ -363,11 +366,13 @@
       "pattern_counterpart": "Omuz dikişi uzunluğu",
       "source_refs": [
         "S-0001",
-        "S-0003",
         "S-0005"
       ],
       "verification_status": "technical_reference_verified",
-      "landmark_kind": "marked"
+      "landmark_kind": "marked",
+      "notes": " ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
+      "source_support": "narrower",
+      "source_support_note": "S-0001 bu ölçüyü 'from BASE OF NECK to top of shoulder bone' diye tanımlar. Kitap onu YAN BOYUN NOKTASINDAN başlatır ve Bölüm 2 o noktanın 'bulunmadığını, kararlaştırıldığını — hiçbir kaynağın çözmediğini' söyler. İki uç aynı yerde değildir ve kaynak DAHA DAR bir ifadeyi destekler."
     },
     {
       "measurement_id": "M-015",
@@ -390,11 +395,9 @@
         "book-03"
       ],
       "pattern_counterpart": "Ön orta boy",
-      "source_refs": [
-        "S-0003"
-      ],
+      "source_refs": [],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4'te DÜZELTİLDİ. Kayıt iki ayrı ölçüyü (ön orta boy: düz aşağı; beden boyu: göğüs üzerinden) BİRLEŞTİRMİŞ ve kaynağın kendi yöntemini 'sık yapılan hata' diye listelemişti. Sonuç M-032'yi (kitabın denge sayısı) bozuyordu: aynı duruşta farklı göğüs hacmine sahip iki okur farklı 'denge' okuyordu. Faz 4 bağımsız teknik incelemesi.",
+      "notes": "Faz 4'te DÜZELTİLDİ. Kayıt iki ayrı ölçüyü (ön orta boy: düz aşağı; beden boyu: göğüs üzerinden) BİRLEŞTİRMİŞ ve kaynağın kendi yöntemini 'sık yapılan hata' diye listelemişti. Sonuç M-032'yi (kitabın denge sayısı) bozuyordu: aynı duruşta farklı göğüs hacmine sahip iki okur farklı 'denge' okuyordu. Faz 4 bağımsız teknik incelemesi. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "landmark_kind": "marked"
     },
     {
@@ -418,11 +421,11 @@
       ],
       "pattern_counterpart": "Arka orta boy",
       "source_refs": [
-        "S-0001",
-        "S-0003"
+        "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "landmark_kind": "bone"
+      "landmark_kind": "bone",
+      "notes": " ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez."
     },
     {
       "measurement_id": "M-017",
@@ -443,11 +446,9 @@
         "book-03"
       ],
       "pattern_counterpart": "Göğüs pensi konumu",
-      "source_refs": [
-        "S-0003"
-      ],
+      "source_refs": [],
       "verification_status": "agent_drafted_unverified",
-      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi.",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "landmark_kind": "marked"
     },
     {
@@ -517,12 +518,13 @@
       ],
       "pattern_counterpart": "Arka beden genişliği",
       "source_refs": [
-        "S-0003",
         "S-0005"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "S-0005 İKİ ölçü taşır: (54) INTERSCYE I arka koltuk kıvrımları (posterior axillary fold) arasıdır ve bu ölçünün karşılığıdır; (55) INTERSCYE II midscye nirengileri arasıdır ve DAHA YÜKSEKTİR. Kayıt artık hangisi olduğunu söyler. S-0001 aynı bölgeyi 'shoulder to shoulder across back' diye ölçer — bu DAHA GENİŞ bir ölçüdür ve bu kitabın tanımı DEĞİLDİR.",
-      "landmark_kind": "fullest"
+      "notes": "S-0005 İKİ ölçü taşır: (54) INTERSCYE I arka koltuk kıvrımları (posterior axillary fold) arasıdır ve bu ölçünün karşılığıdır; (55) INTERSCYE II midscye nirengileri arasıdır ve DAHA YÜKSEKTİR. Kayıt artık hangisi olduğunu söyler. S-0001 aynı bölgeyi 'shoulder to shoulder across back' diye ölçer — bu DAHA GENİŞ bir ölçüdür ve bu kitabın tanımı DEĞİLDİR. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
+      "landmark_kind": "fullest",
+      "source_support": "narrower",
+      "source_support_note": "S-0005 (ANSUR II) bu ölçüyü BİREBİR destekler — (54) INTERSCYE I: 'the distance across the back between the right and left POSTERIOR AXILLARY FOLD landmarks'. AMA S-0001 aynı bölgeyi 'shoulder to shoulder across back' diye ölçer ve bu DAHA GENİŞ bir ölçüdür. Kitap ikincisini bir OKUR HATASI olarak listeliyordu; oysa o, yayımlanmış bir kaynağın TANIMIDIR. Fark artık okura beyan edilir."
     },
     {
       "measurement_id": "M-021",
@@ -616,13 +618,13 @@
       ],
       "pattern_counterpart": null,
       "source_refs": [
-        "S-0002",
-        "S-0003"
+        "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "Kaynaklar ÖLÇÜM KOŞULUNDA çelişir: S-0003 'wear shoes similar to those usually worn' der, kitap ve S-0002'nin yere kadar ölçüsü çıplak ayağı gerektirir. Kitap çıplak ayağı seçer ve topuk yüksekliğini AYRI kaydettirir; çelişki Bölüm 2'de okura BEYAN EDİLİR.",
+      "notes": "Kaynaklar ÖLÇÜM KOŞULUNDA çelişir: S-0003 'wear shoes similar to those usually worn' der, kitap ve S-0002'nin yere kadar ölçüsü çıplak ayağı gerektirir. Kitap çıplak ayağı seçer ve topuk yüksekliğini AYRI kaydettirir; çelişki Bölüm 2'de okura BEYAN EDİLİR. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "source_conflict": true,
-      "landmark_kind": "marked"
+      "landmark_kind": "marked",
+      "source_support_note": "S-0003 ölçümün 'wear shoes similar to those usually worn' hâlinde yapılmasını ister; yere kadar inen bir ölçü çıplak ayak gerektirir ve S-0002 bunu ima eder. Çelişki KOŞULDADIR, nirengide değil."
     },
     {
       "measurement_id": "M-025",
@@ -646,8 +648,10 @@
         "S-0001"
       ],
       "verification_status": "agent_drafted_unverified",
-      "source_conflict": true,
-      "landmark_kind": "bone"
+      "source_conflict": false,
+      "landmark_kind": "bone",
+      "source_support": "narrower",
+      "source_support_note": "⚠ Kaynak adli incelemesi (C-2): bu kayıt CONTESTED işaretliydi ve okura 'bazı kaynaklar şöyle, bazıları böyle' deniyordu. Ama kayıtta TEK kaynak var (S-0001) ve o kaynak 'crotch to the ANKLE BONE' diyor. Kitabın seçtiği taraf ('crotch to the floor') HİÇBİR kaynağa dayanmıyor. Bu bir kurumlar arası anlaşmazlık DEĞİL, kitabın kendi kaynağından AYRILMASIDIR ve artık öyle beyan edilir."
     },
     {
       "measurement_id": "M-026",
@@ -670,11 +674,11 @@
       ],
       "pattern_counterpart": "Pantolon ağ derinliği",
       "source_refs": [
-        "S-0002",
-        "S-0003"
+        "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "landmark_kind": "marked"
+      "landmark_kind": "marked",
+      "notes": " ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez."
     },
     {
       "measurement_id": "M-027",
@@ -697,11 +701,10 @@
       ],
       "pattern_counterpart": "Ön+arka ağ uzunluğu toplamı",
       "source_refs": [
-        "S-0002",
-        "S-0003"
+        "S-0002"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "Ön/arka ayrımı S-0002'nin ölçüm çizelgesinde AYRI SATIRLARDIR ('Crotch length back' / 'Crotch length front'). Kitap önceden yalnızca toplamı öğretiyordu ve iki doğrulama adımı ayrımı İSTİYORDU. ⚠ BAĞIMSIZ İNCELEME (sentetik okur, C1): içerik turunun İLK yazımı bu ölçüye 'oturarak' talimatı eklemişti — o talimat S-0002'de ağ DERİNLİĞİNE aittir, uzunluğa değil. Bölüm 15 ile ÇELİŞİYORDU ve düzeltildi. Regresyon bu turda ÜRETİLDİ ve bu turda yakalandı.",
+      "notes": "Ön/arka ayrımı S-0002'nin ölçüm çizelgesinde AYRI SATIRLARDIR ('Crotch length back' / 'Crotch length front'). Kitap önceden yalnızca toplamı öğretiyordu ve iki doğrulama adımı ayrımı İSTİYORDU. ⚠ BAĞIMSIZ İNCELEME (sentetik okur, C1): içerik turunun İLK yazımı bu ölçüye 'oturarak' talimatı eklemişti — o talimat S-0002'de ağ DERİNLİĞİNE aittir, uzunluğa değil. Bölüm 15 ile ÇELİŞİYORDU ve düzeltildi. Regresyon bu turda ÜRETİLDİ ve bu turda yakalandı. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "landmark_kind": "marked"
     },
     {
@@ -724,11 +727,11 @@
       ],
       "pattern_counterpart": "Kol kalıbı boyu",
       "source_refs": [
-        "S-0001",
-        "S-0003"
+        "S-0001"
       ],
       "verification_status": "agent_drafted_unverified",
-      "landmark_kind": "bone"
+      "landmark_kind": "bone",
+      "notes": " ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez."
     },
     {
       "measurement_id": "M-029",
@@ -750,11 +753,11 @@
       ],
       "pattern_counterpart": "Dirsek pensi/şekillendirme konumu",
       "source_refs": [
-        "S-0001",
-        "S-0003"
+        "S-0001"
       ],
       "verification_status": "technical_reference_verified",
-      "landmark_kind": "bone"
+      "landmark_kind": "bone",
+      "notes": " ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez."
     },
     {
       "measurement_id": "M-030",
@@ -804,7 +807,7 @@
         "S-0003"
       ],
       "verification_status": "technical_reference_verified",
-      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi.",
+      "notes": "Faz 4: S-0003 bu ölçünün İŞARET NOKTASI tanımını içermiyor — kendi metninde ölçüm talimatı için başka bir yayına yönlendiriyor ve o yayın edinilmedi. Atıf bağlam içindir, tanım kanıtı DEĞİLDİR. Faz 4 bağımsız teknik incelemesi. S-0003 bu ölçüde KALIR: E-372 farkın kendisini ve 2 inçlik eşiği BİREBİR verir — bir tanım değil, bir KARAR kuralıdır ve belge onu içerir.",
       "landmark_kind": "derived"
     },
     {
@@ -882,13 +885,12 @@
       ],
       "pattern_counterpart": "Omuz dikişinin düşey düşüşü (kalıpta)",
       "source_refs": [
-        "S-0001",
-        "S-0003"
+        "S-0001"
       ],
       "verification_status": "agent_drafted_unverified",
       "source_support": "narrower",
       "source_support_note": "Kaynaklar omuz eğiminin GERÇEK ve AYRI bir düzeltme olduğunu destekler — S-0003 'shoulder slope'u düzeltme istisnaları arasında ADLANDIRIR, S-0001 'Sloping Shoulders' ve 'Square Shoulders' için AYRI ve TERS yönlü işlemler verir. Hiçbiri onu NASIL ÖLÇECEĞİNİ söylemez. Ölçüm yöntemi bu kitabındır ve öyle işaretlenmiştir.",
-      "notes": "Bu ölçü İÇERİK TURUNDA eklendi. Beş doğrulama adımı 'omuz ucu yüksekliğini kalıbınkiyle karşılaştır' diyordu ve kitap ne vücut ne kalıp tarafını öğretiyordu; AF-03 ailesi bu yüzden hiçbir ölçüyle doğrulanamıyordu. Tek ölçü beş adımı kapatır.",
+      "notes": "Bu ölçü İÇERİK TURUNDA eklendi. Beş doğrulama adımı 'omuz ucu yüksekliğini kalıbınkiyle karşılaştır' diyordu ve kitap ne vücut ne kalıp tarafını öğretiyordu; AF-03 ailesi bu yüzden hiçbir ölçüyle doğrulanamıyordu. Tek ölçü beş adımı kapatır. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
       "landmark_kind": "marked"
     }
   ]
