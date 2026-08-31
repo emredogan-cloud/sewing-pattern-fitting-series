@@ -961,7 +961,7 @@
           "cause": "Kalça/oturak hacmi kumaşı yukarı çekiyor",
           "distinguishing_evidence": "Yükselme bel hizasının ALTINDA başlıyor; kürek hizası temiz.",
           "confirming_measurement": "M-006 vs. kalıp kalça çevresi",
-          "physical_test": "Arka parçayı kalça hizasından aç.",
+          "physical_test": "Şerit kumaş iğnele; ölçülen genişlik eksik hacimdir.",
           "adjustment_family_ref": "AF-13",
           "likelihood_note": null,
           "confirming_refs": {
@@ -974,7 +974,7 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 5,
+          "test_cost": 3,
           "expected": "Supports this cause: the pattern's hip line width MINUS your full hip is LESS than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         },
         {
@@ -1387,7 +1387,7 @@
           "cause": "Göğüs hacmi kalıbın varsaydığından fazla",
           "distinguishing_evidence": "Çizgiler apeksten IŞINSAL olarak yayılıyor; ön etek ucu da yukarı tırmanıyor; ön yaka açılıyor.",
           "confirming_measurement": "M-031 vs. (PR-01 − PR-02) — okurunki BÜYÜK",
-          "physical_test": "Ön bedende apeks hizasına dikey kesik at ve şerit kumaş ekle: çizgiler kayboluyor ve etek ucu düzeliyorsa neden göğüs hacmidir.",
+          "physical_test": "Şerit kumaş iğnele; ölçülen genişlik eksik hacimdir.",
           "adjustment_family_ref": "AF-01",
           "likelihood_note": "Bu, hedef okurun EN SIK karşılaştığı belirtidir (araştırma raporu anahtar kelimesi: 'full bust adjustment').",
           "confirming_refs": {
@@ -1401,7 +1401,7 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 5
+          "test_cost": 3
         },
         {
           "cause": "Ön beden genel olarak dar (beden seçimi)",
@@ -1523,7 +1523,7 @@
           "cause": "Karın hacmi kumaşı yukarı çekiyor",
           "distinguishing_evidence": "Yükselme bel hizasının altında başlıyor; göğüs temiz.",
           "confirming_measurement": "M-005 (yüksek kalça) vs. kalıp",
-          "physical_test": "Ön parçayı karın hizasından aç.",
+          "physical_test": "Şerit kumaş iğnele; ölçülen genişlik eksik hacimdir.",
           "adjustment_family_ref": "AF-20",
           "likelihood_note": "KARIN hacmi AYRI bir ailedir (AF-20); kalça/oturak ailesiyle karıştırılmaz.",
           "confirming_refs": {
@@ -1536,7 +1536,7 @@
             "toile": [],
             "kind": "compare"
           },
-          "test_cost": 5,
+          "test_cost": 3,
           "expected": "Supports this cause: the pattern's high hip line width MINUS your high hip is LESS than the band Appendix J prints for it (0.6–2.5 cm for a trouser). The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause."
         }
       ],
@@ -2399,7 +2399,7 @@
           "cause": "Oturak hacmi kalıbın varsaydığından fazla",
           "distinguishing_evidence": "Çizgiler oturak üzerinde YOĞUN; yan dikiş arkaya kayıyor; arka etek ucu yükseliyor.",
           "confirming_measurement": "M-006 vs. PR-05; ayrıca PR-06 ön/arka pay ve TR-04 yan dikiş konumu",
-          "physical_test": "Arka parçaya oturak hacmi ekle (kesip aç): çizgiler kayboluyorsa neden budur.",
+          "physical_test": "Şerit kumaş iğnele; ölçülen genişlik eksik hacimdir.",
           "adjustment_family_ref": "AF-13",
           "likelihood_note": null,
           "confirming_refs": {
@@ -2415,7 +2415,7 @@
             ],
             "kind": "compare"
           },
-          "test_cost": 5,
+          "test_cost": 3,
           "expected": "Supports this cause: the pattern's hip line width MINUS your full hip is LESS than the band Appendix J prints for it (5.1–10.2 cm for a bodice, 5.1 cm for a trouser), AND the pattern gives the back no more of that width than the front — read the two shares separately before you add them. The pattern is MEANT to be larger than you by that band, so a difference inside the band does NOT support this cause. On a body whose seat is fuller than its front, an even split is already too little at the back."
         },
         {

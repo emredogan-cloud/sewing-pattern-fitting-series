@@ -658,7 +658,11 @@ class AtlasBuilder:
                 blocks.append({"type": "h3", "text": m["name"], "claims": [mid]})
                 blocks.append({"type": "para", "text": a["how"] + " " + a["why"]})
                 items = ["Most common errors: " + " ".join(a["errors"])]
-                if a.get("helper") or m.get("helper_required"):
+                # ⚠ İKİ bayrak vardı (proza `helper`, taksonomi
+                # `helper_required`) ve atlas ikisini VEYA'lıyordu:
+                # aynı olgunun iki doğruluk kaynağı. Taksonomi TEK
+                # kaynaktır; proza bayrağı artık okunmaz.
+                if m.get("helper_required"):
                     items.append("Needs a second person, or a photograph taken from the "
                                  "side or the back.")
                 if mid in mc["conflicts"]:

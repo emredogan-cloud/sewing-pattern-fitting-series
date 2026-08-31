@@ -146,6 +146,13 @@
         "level",
         "derived"
       ]
+    },
+    "helper_note": {
+      "$comment": "`helper_required` DEĞİŞTİYSE neden değiştiğini yazar. ⚠ OKUR SİMÜLASYONU (HIGH-10): omuz eğimi yardımcı istiyordu ve kitabın yalnız okur için verdiği ikameler onu SAĞLAYAMIYORDU; dört belirti buna dayanıyor.",
+      "type": [
+        "string",
+        "null"
+      ]
     }
   }
 }

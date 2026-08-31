@@ -1324,6 +1324,7 @@ def main():
         test_gate_layer_never_imports_the_render_layer,
         test_external_unavailable_is_not_a_pass,
         test_rule_out_list_is_one_list,
+        test_helper_count_matches_the_record,
         test_disagreement_is_not_claimed_for_a_departure,
         test_cause_text_matches_its_destination,
         test_sign_prose_has_exactly_one_copy,
@@ -1831,6 +1832,32 @@ def test_disagreement_is_not_claimed_for_a_departure():
           not missing, str(missing))
     weak = sorted(mid for mid in conflicts if len(set(csrc.get(mid, []))) < 2)
     check("her ÇELİŞKİ EN AZ İKİ AYRI kaynağa dayanıyor", not weak, str(weak))
+
+
+def test_helper_count_matches_the_record():
+    """"Kaç ölçü yardımcı ister" SAYISI, kayıtla uyuşuyor mu.
+
+    ⚠ OKUR SİMÜLASYONU (HIGH-10): aynı olgunun İKİ bayrağı vardı —
+    taksonomide `helper_required`, prozada `helper` — ve atlas ikisini
+    VEYA'lıyordu. İki doğruluk kaynağı, er geç ayrışır. Sayı da iki
+    yerde ELLE yazılıydı ve ölçüyle uyuşmuyordu."""
+    meas = json.loads(paths.MEASUREMENTS.read_text(encoding="utf-8"))["measurements"]
+    n = sum(1 for m in meas if m.get("helper_required"))
+    total = len(meas)
+    WORDS = {13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen",
+             17: "seventeen", 18: "eighteen", 19: "nineteen", 20: "twenty",
+             21: "twenty-one", 33: "thirty-three"}
+    mdir = (paths.BOOK_DIRS["book-01"] / "02_CONTENT" / "protected" / "manuscript")
+    if not (mdir / "ch05.json").exists():
+        skip("yardımcı sayısı", "proza izlenmiyor (K9) — YEREL koşumda denetlenir")
+        return
+    want = f"{WORDS.get(n, n)} of the {WORDS.get(total, total)}"
+    bad = []
+    for f in sorted(mdir.glob("*.json")):
+        txt = f.read_text(encoding="utf-8").lower()
+        if "of the thirty-three measurements" in txt and want.lower() not in txt:
+            bad.append(f.name)
+    check(f"okur metni '{want}' diyor (kayıt: {n}/{total})", not bad, str(bad))
 
 
 def test_rule_out_list_is_one_list():

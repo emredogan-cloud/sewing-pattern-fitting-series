@@ -870,7 +870,7 @@
       "landmark_end": "shoulder point (bone tip), read as a vertical drop",
       "path_rule": "Şerit DEĞİL: bir cetvel yan boyun noktasından YATAY tutulur ve omuz ucunun o yatay çizginin NE KADAR ALTINA düştüğü ölçülür. İki uç nokta M-014 için zaten işaretlenmiştir; yeni nirengi getirmez. Okur DOĞAL duruşundadır ve kollar gevşektir — omuz kaldırılırsa sayı küçülür. İki omuz AYRI ölçülür.",
       "tool": "ruler and tape measure",
-      "helper_required": true,
+      "helper_required": false,
       "common_errors": [
         "omzun ölçüm sırasında kaldırılması (eğimi olduğundan KARE gösterir)",
         "cetvelin yatay tutulmaması",
@@ -891,7 +891,8 @@
       "source_support": "narrower",
       "source_support_note": "Kaynaklar omuz eğiminin GERÇEK ve AYRI bir düzeltme olduğunu destekler — S-0003 'shoulder slope'u düzeltme istisnaları arasında ADLANDIRIR, S-0001 'Sloping Shoulders' ve 'Square Shoulders' için AYRI ve TERS yönlü işlemler verir. Hiçbiri onu NASIL ÖLÇECEĞİNİ söylemez. Ölçüm yöntemi bu kitabındır ve öyle işaretlenmiştir.",
       "notes": "Bu ölçü İÇERİK TURUNDA eklendi. Beş doğrulama adımı 'omuz ucu yüksekliğini kalıbınkiyle karşılaştır' diyordu ve kitap ne vücut ne kalıp tarafını öğretiyordu; AF-03 ailesi bu yüzden hiçbir ölçüyle doğrulanamıyordu. Tek ölçü beş adımı kapatır. ⚠ İKİNCİ İÇERİK TURU · kaynak adli incelemesi (H-8): S-0003 (E-372) TANIMSAL atıftan ÇIKARILDI. Belge kendi metninde ölçü tanımı içermediğini söyler ve tanımlar için edinilmemiş bir yayına (E-373) yönlendirir; Şekil 1 ölçüleri ADLANDIRIR, tanımlamaz. Bir adlandırma bir tanım iddiasını destekleyemez.",
-      "landmark_kind": "marked"
+      "landmark_kind": "marked",
+      "helper_note": "⚠ OKUR SİMÜLASYONU (HIGH-10): bu ölçü yardımcı İSTİYORDU ve kitabın yalnız okur için verdiği ikameler onu SAĞLAYAMIYORDU — bir fotoğraf yan boyun noktasında düz cetvel tutamaz. Dört belirti buna dayanıyor. Duvara gerilmiş bir ip yatay referansı taşır ve ölçü yalnız alınabilir hâle gelir."
     }
   ]
 }

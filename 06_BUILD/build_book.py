@@ -437,8 +437,10 @@ def main() -> int:
             ts.start_recto()
 
         for pnum, ptitle, key, blocks, sids in collected:
-            if key == "appendix":
-                blocks = fill_index_slots(blocks, index_blocks)
+            # ⚠ Türetilen yuvalar artık HER bölümde çalışır: sayım
+            # cümleleri yalnızca eklerde değil, ön maddede ve Bölüm
+            # 5'te de ELLE yazılmıştı ve veriyle uyuşmuyordu.
+            blocks = fill_index_slots(blocks, index_blocks)
             blocks = resolve_cross_references(blocks, page_of, apx_of)
             errs.extend(check_reader_language(blocks, key))
             for b in blocks:
