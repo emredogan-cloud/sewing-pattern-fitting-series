@@ -1,6 +1,6 @@
 # FAZ 6 — BİÇİM VE KDP DOĞRULAMA RAPORU (Kitap 1)
 
-**Tarih:** 31 Ağustos 2026 · **git:** `a67298c` · **dal:** `faz/4-production`
+**Tarih:** 31 Ağustos 2026 · **git:** `0f1d31d` (ölçümlerin alındığı commit; yayın adayının otoritesi `RELEASE_CANDIDATE/BUILD_MANIFEST.json`'daki SHA'dır) · **dal:** `faz/4-production`
 
 Faz 6, içerik turu KAPANDIKTAN sonra açıldı (kurucunun sırası:
 "Phase 6 must remain CLOSED until CONTENT PASS = COMPLETE").

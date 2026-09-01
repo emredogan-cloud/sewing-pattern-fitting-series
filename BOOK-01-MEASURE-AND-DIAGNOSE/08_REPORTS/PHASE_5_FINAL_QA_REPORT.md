@@ -1,6 +1,6 @@
 # FAZ 5 — NİHAİ KALİTE RAPORU (Kitap 1)
 
-**Tarih:** 31 Ağustos 2026 · **git:** `a67298c` · **dal:** `faz/4-production`
+**Tarih:** 31 Ağustos 2026 · **git:** `0f1d31d` (ölçümlerin alındığı commit; yayın adayının otoritesi `RELEASE_CANDIDATE/BUILD_MANIFEST.json`'daki SHA'dır) · **dal:** `faz/4-production`
 
 ---
 
